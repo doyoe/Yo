@@ -1,0 +1,30 @@
+@charset "utf-8";
+@import "classes";
+
+/**
+ * 定义Y轴弹性动画
+ * @method elastic-y
+ * 使用方式，code:
+   <div class="ani elastic-y"...
+ */
+
+@-webkit-keyframes elastic-y{
+	0%,20%,100%{-webkit-transform:translate3d(0,0,0);}
+	30%{-webkit-transform:translate3d(20px,0,0);}
+	50%{-webkit-transform:translate3d(-20px,0,0);}
+	65%{-webkit-transform:translate3d(10px,0,0);}
+	80%{-webkit-transform:translate3d(-10px,0,0);}
+	90%{-webkit-transform:translate3d(5px,0,0);}
+}
+@keyframes elastic-y{
+	0%,20%,53%,80%,100%{transform:translate3d(0,0,0);}
+	40%,43%{transform:translate3d(-30px,0,0);}
+	70%{transform:translate3d(-15px,0,0);}
+	90%{transform:translate3d(-4px,0,0);}
+}
+
+
+.ani.elastic-y{
+	-webkit-animation-name:elastic-y;
+	        animation-name:elastic-y;
+}

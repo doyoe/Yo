@@ -1,0 +1,63 @@
+@charset "utf-8";
+@import "../../../lib/ani/fade-in";
+@import "../../../lib/ani/fade-in-up";
+@import "../../../lib/ani/fade-in-right";
+@import "../../../lib/ani/fade-in-down";
+@import "../../../lib/ani/fade-in-left";
+@import "../../../lib/ani/fade-out";
+@import "../../../lib/ani/fade-out-up";
+@import "../../../lib/ani/fade-out-right";
+@import "../../../lib/ani/fade-out-down";
+@import "../../../lib/ani/fade-out-left";
+@import "../../../lib/ani/elastic-x";
+@import "../../../lib/ani/elastic-y";
+@import "../../../lib/ani/elastic-in";
+@import "../../../lib/ani/elastic-in-up";
+@import "../../../lib/ani/elastic-in-right";
+@import "../../../lib/ani/elastic-in-down";
+@import "../../../lib/ani/elastic-in-left";
+@import "../../../lib/ani/elastic-out";
+@import "../../../lib/ani/elastic-out-up";
+@import "../../../lib/ani/elastic-out-right";
+@import "../../../lib/ani/elastic-out-down";
+@import "../../../lib/ani/elastic-out-left";
+@import "../../../lib/ani/flash";
+@import "../../../lib/ani/shake";
+@import "../../../lib/ani/pulse";
+@import "../../../lib/ani/swing";
+@import "../../../lib/ani/sling";
+@import "../../../lib/ani/wobble";
+@import "../../../lib/ani/rubberband-x";
+@import "../../../lib/ani/rubberband-y";
+/**
+* ani演示页面
+* Author: joy.du(飘零雾雨)
+* Time: 2014.4.1
+*/
+
+.demo{
+	margin: 20px 30px;
+	text-align: center;
+	.title{
+		border-bottom: 1px solid #aaa;
+		font-size: 48px;
+	}
+	
+	.animation{
+		margin: 10px 0;
+		background: #eee;
+	}
+	.content{
+		display: inline-block;
+		margin: 10px 0;
+		font-size: 48px;
+	}
+	.select{
+		opacity:.99;
+		select{
+			// -webkit-appearance: none;
+			padding: .5em;
+			font-size: 16px;
+		}
+	}
+}

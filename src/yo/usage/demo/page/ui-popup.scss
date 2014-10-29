@@ -1,0 +1,23 @@
+@charset "utf-8";
+@import "../layout/layout";
+@import "../module/m-code";
+@import "../../../lib/widget/ui-popup";
+
+/**
+ * popup演示页面
+ * Author: joy.du(飘零雾雨)
+ * Time: 2014.4.1
+ */
+
+.ui-popup{
+	top: 20px;
+	right: 20px;
+	> .bd{
+		font-size: .16rem;
+	}
+	&:nth-child(2){
+		right: 350px;
+	}
+}
+
+@include ui-popup(default,3rem,3rem,.1rem,#000,.6rem,#090,#fff,.2rem,.3rem,.16rem,50%);

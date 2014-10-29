@@ -1,0 +1,11 @@
+@charset "utf-8";
+@import "../layout/layout";
+@import "../module/m-test1";
+@import "../module/m-test2";
+/**
+* popup演示页面
+* Author: joy.du(飘零雾雨)
+* Time: 2014.4.1
+*/
+
+.demo::after{content:"这是一个once-import的测试";}

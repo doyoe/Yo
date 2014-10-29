@@ -1,0 +1,166 @@
+@charset "utf-8";
+/**
+* Element: g-btn
+* use like this: @include g-btn(normal,default,#f60);
+* Version: 1.0.0
+* Author: joy.du(飘零雾雨)
+* Time: 2012.1.1
+*/
+
+@import "classes";
+
+/**
+* 定义按钮使用方法
+* @method g-btn
+* @param {String} $name 定义按钮名称
+* @param {Color} $bgcolor 定义按钮背景色
+* @param {Color} $color 定义按钮文本色
+* @param {Boole} $bordercolor 定义按钮是否有边框
+* @param {Length} $width 定义按钮宽度
+* @param {Length} $height 定义按钮高度
+* @param {Length} $padding 定义按钮横向补白
+* @param {Length} $radius 定义按钮圆角
+* @param {Boole} $shadow 定义按钮是否有阴影(true/false)
+*/
+
+@mixin g-btn($name:default,
+			$bgcolor:default,
+			$color:default,
+			$bordercolor:default,
+			$width:default,
+			$height:default,
+			$padding:default,
+			$radius:default,
+			$shadow:default){
+	@if $name == default {
+		$name: "";
+	} @else {
+		$name: -$name;
+	}
+	@if $shadow == default {
+        $shadow: $btn-shadow;
+    }
+    @if $bordercolor == default {
+        $bordercolor: $btn-bordercolor;
+    }
+	.g-btn#{$name}{
+		// 如果$width不等于default，则重绘宽度
+		@if $width != default {
+			width: $width;
+		}
+		// 如果$height不等于default，则重绘高度
+		@if $height != default {
+			height: $height;
+		}
+		// 如果$padding不等于default，则重绘内补白
+		@if $padding != default and $padding != $btn-padding {
+			padding: $padding;
+		}
+		// 如果$radius不等于default，则重绘圆角
+		@if $radius != default and $radius != $btn-radius {
+		    border-radius: $radius;
+		}
+	    // 如果$bgcolor不等于default，则重绘背景色
+		@if $bgcolor != default and $bgcolor != $btn-bgcolor {
+		    background-color: $bgcolor;
+		    // 如果$bordercolor不等于false，则重绘边框色
+			@if $bordercolor != false {
+				border: 1px solid darken($bgcolor,10%) !important;
+			} @else {
+				border: none !important;
+			}
+		    // 如果$shadow不等于false，则重绘阴影
+			@if $shadow != false {
+				box-shadow: 0 1px 1px rgba($bgcolor,.4),
+							inset 1px 1px rgba(255,255,255,.2);
+			}
+		}
+		// 如果$color不等于default，则重绘文本色
+		@if $color != default and $color != $btn-color {
+		    color: $color;
+		}
+		// 如果是禁用按钮，则不需要交互状态
+		@if $name != -disabled {
+		    &:hover,
+			&:focus,
+			&:active{
+				// 如果$bgcolor不等于default，则重绘经过时的背景色
+				@if $bgcolor != default and $bgcolor != $btn-bgcolor {
+					background-color: lighten($bgcolor,4%);
+					// 如果$bordercolor不等于false，则重绘边框色
+					@if $bordercolor != false {
+						border-color: darken($bgcolor,6%) !important;
+					}
+					// 如果$shadow不等于false，则重绘经过时的阴影
+					@if $shadow != false {
+						box-shadow: 0 1px 1px rgba($bgcolor,.6),
+									inset 1px 1px rgba(255,255,255,.2);
+					}
+				}
+				// 如果$color不等于default，则重绘文本色
+				@if $color != default and $color != $btn-color {
+				    color: lighten($color,4%);
+				}
+		    }
+		} @else {
+			cursor: not-allowed;
+			&:hover,
+			&:focus,
+			&:active{
+				// 如果$bordercolor不等于default，则重绘边框色
+				@if $bordercolor != default and $bordercolor != $btn-bordercolor {
+					border: 1px solid $bordercolor;
+				}
+			    // 如果$bgcolor不等于default，则重绘背景色
+				@if $bgcolor != default and $bgcolor != $btn-bgcolor {
+				    background-color: $bgcolor;
+				    // 如果$bordercolor不等于false，则重绘边框色
+					@if $bordercolor != false {
+						border: 1px solid darken($bgcolor,10%) !important;
+					} @else {
+						border: none !important;
+					}
+				    // 如果$shadow不等于false，则重绘阴影
+					@if $shadow != false {
+						box-shadow: 0 1px 1px rgba($bgcolor,.4),
+									inset 1px 1px rgba(255,255,255,.2);
+					}
+				}
+				// 如果$color不等于default，则重绘文本色
+				@if $color != default and $color != $btn-color {
+				    color: $color;
+				}
+			}
+		}
+	}
+}
+
+// 调用本文件时载入按钮基础构造
+.g-btn{
+	@include _btn;
+	// 默认载入按钮的三种尺寸:s, m, l
+	&.s{
+		height: $btn-s-height;
+		line-height: $btn-s-height;
+		font-size: $btn-s-font-size;
+	}
+	&.m{
+		height: $btn-m-height;
+		line-height: $btn-m-height;
+		font-size: $btn-m-font-size;
+	}
+	&.l{
+		height: $btn-l-height;
+		line-height: $btn-l-height;
+		font-size: $btn-l-font-size;
+	}
+}
+
+// 预设主要按钮
+@include g-btn(primary,#f60,#fff);
+// 预设信息按钮
+@include g-btn(info,#0b5aee,#fff);
+// 预设默认按钮
+@include g-btn(default);
+// 预设禁用按钮
+@include g-btn(disabled,#e6e6e6,#aaa);
