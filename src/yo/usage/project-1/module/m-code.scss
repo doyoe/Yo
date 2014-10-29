@@ -1,0 +1,27 @@
+@charset "utf-8";
+/**
+* module: m-code
+* Author: joy.du(飘零雾雨)
+* Time: 2013.10.17
+*/
+.m-code{
+    margin:10px;
+    padding:10px;
+    border-radius:5px;
+    background:#272822;
+    color:#51bbe1;
+    font-size:20px;
+	.method{
+	    color:#93de08;
+	}
+	.bracket,
+	.colon{
+	    padding-right:5px;
+	    color:#fff;
+	}
+	mark{
+	    background:none;
+	    color:#ccc;
+	    font-size:16px;
+	}
+}

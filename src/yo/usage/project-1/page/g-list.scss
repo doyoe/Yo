@@ -1,0 +1,31 @@
+@charset "utf-8";
+@import "../layout/layout";
+@import "../module/m-code";
+@import "../../../lib/fragment/g-list";
+
+/**
+ * list演示页面
+ * Author: joy.du(飘零雾雨)
+ * Time: 2014.4.1
+ */
+
+.m-case{
+	padding: .3rem;
+	> .hd{
+		.title{
+			display: inline-block;
+			padding: .02rem .1rem;
+			background: #333;
+			color: #fff;
+			font-size: .2rem;
+		}
+	}
+	> .bd{
+		.g-list{
+			.c1{ width:200px; }
+			.c2{ @include flex(1); }
+			.c3{ width:180px; }
+		}
+	}
+}
+@include g-list(table,false,#000);
