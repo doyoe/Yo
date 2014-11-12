@@ -463,33 +463,45 @@
 /**
  * 定义X轴弹性动画
  * @method elastic-x
- * 使用方式，code:
+ * 使用方式，code: 
    <div class="ani elastic-x"...
  */
 @-webkit-keyframes elastic-x {
-  0%,20%,53%,80%,100% {
+  0%, 20%, 100% {
     -webkit-transform: translate3d(0, 0, 0); }
 
-  40%,43% {
-    -webkit-transform: translate3d(0, -30px, 0); }
+  30% {
+    -webkit-transform: translate3d(20px, 0, 0); }
 
-  70% {
-    -webkit-transform: translate3d(0, -15px, 0); }
+  50% {
+    -webkit-transform: translate3d(-20px, 0, 0); }
+
+  65% {
+    -webkit-transform: translate3d(10px, 0, 0); }
+
+  80% {
+    -webkit-transform: translate3d(-10px, 0, 0); }
 
   90% {
-    -webkit-transform: translate3d(0, -4px, 0); } }
+    -webkit-transform: translate3d(5px, 0, 0); } }
 @keyframes elastic-x {
-  0%,20%,53%,80%,100% {
+  0%, 20%, 100% {
     transform: translate3d(0, 0, 0); }
 
-  40%,43% {
-    transform: translate3d(0, -30px, 0); }
+  30% {
+    transform: translate3d(20px, 0, 0); }
 
-  70% {
-    transform: translate3d(0, -15px, 0); }
+  50% {
+    transform: translate3d(-20px, 0, 0); }
+
+  65% {
+    transform: translate3d(10px, 0, 0); }
+
+  80% {
+    transform: translate3d(-10px, 0, 0); }
 
   90% {
-    transform: translate3d(0, -4px, 0); } }
+    transform: translate3d(5px, 0, 0); } }
 .ani.elastic-x {
   -webkit-animation-name: elastic-x;
   animation-name: elastic-x; }
@@ -516,39 +528,45 @@
 /**
  * 定义Y轴弹性动画
  * @method elastic-y
- * 使用方式，code:
+ * 使用方式，code: 
    <div class="ani elastic-y"...
  */
 @-webkit-keyframes elastic-y {
-  0%,20%,100% {
+  0%, 20%, 100% {
     -webkit-transform: translate3d(0, 0, 0); }
 
   30% {
-    -webkit-transform: translate3d(20px, 0, 0); }
+    -webkit-transform: translate3d(0, 20px, 0); }
 
   50% {
-    -webkit-transform: translate3d(-20px, 0, 0); }
+    -webkit-transform: translate3d(0, -20px, 0); }
 
   65% {
-    -webkit-transform: translate3d(10px, 0, 0); }
+    -webkit-transform: translate3d(0, 10px, 0); }
 
   80% {
-    -webkit-transform: translate3d(-10px, 0, 0); }
+    -webkit-transform: translate3d(0, -10px, 0); }
 
   90% {
-    -webkit-transform: translate3d(5px, 0, 0); } }
+    -webkit-transform: translate3d(0, 5px, 0); } }
 @keyframes elastic-y {
-  0%,20%,53%,80%,100% {
+  0%, 20%, 100% {
     transform: translate3d(0, 0, 0); }
 
-  40%,43% {
-    transform: translate3d(-30px, 0, 0); }
+  30% {
+    transform: translate3d(0, 20px, 0); }
 
-  70% {
-    transform: translate3d(-15px, 0, 0); }
+  50% {
+    transform: translate3d(0, -20px, 0); }
+
+  65% {
+    transform: translate3d(0, 10px, 0); }
+
+  80% {
+    transform: translate3d(0, -10px, 0); }
 
   90% {
-    transform: translate3d(-4px, 0, 0); } }
+    transform: translate3d(0, 5px, 0); } }
 .ani.elastic-y {
   -webkit-animation-name: elastic-y;
   animation-name: elastic-y; }
@@ -1151,6 +1169,311 @@
   animation-iteration-count: infinite; }
 
 /**
+ * 定义翻转动画
+ * @method flip
+ * 使用方式，code:
+   <div class="ani flip"...
+ */
+@-webkit-keyframes flip {
+  0% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -360deg); }
+
+  40% {
+    -webkit-transform: perspective(400px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -190deg); }
+
+  50% {
+    -webkit-transform: perspective(400px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -170deg); }
+
+  80% {
+    -webkit-transform: perspective(400px) scale3d(0.9, 0.9, 0.9); }
+
+  100% {
+    -webkit-transform: perspective(400px); } }
+@keyframes flip {
+  0% {
+    transform: perspective(400px) rotate3d(0, 1, 0, -360deg); }
+
+  40% {
+    transform: perspective(400px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -190deg); }
+
+  50% {
+    transform: perspective(400px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -170deg); }
+
+  80% {
+    transform: perspective(400px) scale3d(0.9, 0.9, 0.9); }
+
+  100% {
+    transform: perspective(400px); } }
+.ani.flip {
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+  -webkit-animation-name: flip;
+  animation-name: flip; }
+
+/**
+* Ani - Yo框架的动画解决方案
+* Licensed under the MIT license - http://opensource.org/licenses/MIT
+* Copyright (c) 2014 Joy Du
+* Time: 2012.1.1
+*/
+/**
+ * 定义动画基本特性
+ */
+.ani {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.ani.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite; }
+
+/**
+ * 定义翻转动画
+ * @method flip-in-x
+ * 使用方式，code:
+   <div class="ani flip-in-x"...
+ */
+@-webkit-keyframes flip-in-x {
+  0% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    -webkit-transition-timing-function: ease-in;
+    opacity: 0; }
+
+  40% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    -webkit-transition-timing-function: ease-in; }
+
+  60% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    opacity: 1; }
+
+  80% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg); }
+
+  100% {
+    -webkit-transform: perspective(400px); } }
+@keyframes flip-in-x {
+  0% {
+    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    transition-timing-function: ease-in;
+    opacity: 0; }
+
+  40% {
+    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    transition-timing-function: ease-in; }
+
+  60% {
+    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    opacity: 1; }
+
+  80% {
+    transform: perspective(400px) rotate3d(1, 0, 0, -5deg); }
+
+  100% {
+    transform: perspective(400px); } }
+.ani.flip-in-x {
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+  -webkit-animation-name: flip-in-x;
+  animation-name: flip-in-x; }
+
+/**
+* Ani - Yo框架的动画解决方案
+* Licensed under the MIT license - http://opensource.org/licenses/MIT
+* Copyright (c) 2014 Joy Du
+* Time: 2012.1.1
+*/
+/**
+ * 定义动画基本特性
+ */
+.ani {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.ani.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite; }
+
+/**
+ * 定义翻转动画
+ * @method flip-in-y
+ * 使用方式，code:
+   <div class="ani flip-in-y"...
+ */
+@-webkit-keyframes flip-in-y {
+  0% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+    -webkit-transition-timing-function: ease-in;
+    opacity: 0; }
+
+  40% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+    -webkit-transition-timing-function: ease-in; }
+
+  60% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+    opacity: 1; }
+
+  80% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -5deg); }
+
+  100% {
+    -webkit-transform: perspective(400px); } }
+@keyframes flip-in-y {
+  0% {
+    transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+    transition-timing-function: ease-in;
+    opacity: 0; }
+
+  40% {
+    transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+    transition-timing-function: ease-in; }
+
+  60% {
+    transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+    opacity: 1; }
+
+  80% {
+    transform: perspective(400px) rotate3d(0, 1, 0, -5deg); }
+
+  100% {
+    transform: perspective(400px); } }
+.ani.flip-in-y {
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+  -webkit-animation-name: flip-in-y;
+  animation-name: flip-in-y; }
+
+/**
+* Ani - Yo框架的动画解决方案
+* Licensed under the MIT license - http://opensource.org/licenses/MIT
+* Copyright (c) 2014 Joy Du
+* Time: 2012.1.1
+*/
+/**
+ * 定义动画基本特性
+ */
+.ani {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.ani.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite; }
+
+/**
+ * 定义翻转动画
+ * @method flip-out-x
+ * 使用方式，code:
+   <div class="ani flip-out-x"...
+ */
+@-webkit-keyframes flip-out-x {
+  0% {
+    -webkit-transform: perspective(400px); }
+
+  30% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    opacity: 1; }
+
+  100% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    opacity: 0; } }
+@keyframes flip-out-x {
+  0% {
+    transform: perspective(400px); }
+
+  30% {
+    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    opacity: 1; }
+
+  100% {
+    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    opacity: 0; } }
+.ani.flip-out-x {
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+  -webkit-animation-name: flip-out-x;
+  animation-name: flip-out-x; }
+
+/**
+* Ani - Yo框架的动画解决方案
+* Licensed under the MIT license - http://opensource.org/licenses/MIT
+* Copyright (c) 2014 Joy Du
+* Time: 2012.1.1
+*/
+/**
+ * 定义动画基本特性
+ */
+.ani {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.ani.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite; }
+
+/**
+ * 定义翻转动画
+ * @method flip-out-y
+ * 使用方式，code:
+   <div class="ani flip-out-y"...
+ */
+@-webkit-keyframes flip-out-y {
+  0% {
+    -webkit-transform: perspective(400px); }
+
+  30% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -15deg);
+    opacity: 1; }
+
+  100% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+    opacity: 0; } }
+@keyframes flip-out-y {
+  0% {
+    transform: perspective(400px); }
+
+  30% {
+    transform: perspective(400px) rotate3d(0, 1, 0, -15deg);
+    opacity: 1; }
+
+  100% {
+    transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+    opacity: 0; } }
+.ani.flip-out-y {
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+  -webkit-animation-name: flip-out-y;
+  animation-name: flip-out-y; }
+
+/**
+* Ani - Yo框架的动画解决方案
+* Licensed under the MIT license - http://opensource.org/licenses/MIT
+* Copyright (c) 2014 Joy Du
+* Time: 2012.1.1
+*/
+/**
+ * 定义动画基本特性
+ */
+.ani {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.ani.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite; }
+
+/**
  * 定义闪烁动画
  * @method flash
  * 使用方式，code:
@@ -1475,56 +1798,56 @@
   animation-iteration-count: infinite; }
 
 /**
- * 定义橡皮圈上下（沿X轴）拉伸回弹动画
- * @method rubberband-x
- * 使用方式，code:
-   <div class="ani rubberband-x"...
+ * 定义橡皮圈挤压回弹动画
+ * @method extrusion
+ * 使用方式，code: 
+   <div class="ani extrusion"...
  */
-@-webkit-keyframes rubberband-x {
+@-webkit-keyframes extrusion {
   0% {
     -webkit-transform: scale3d(1, 1, 1); }
 
   30% {
-    -webkit-transform: scale3d(1, 2, 1); }
+    -webkit-transform: scale3d(0.65, 1.35, 1); }
 
   40% {
-    -webkit-transform: scale3d(1, 1.2, 1); }
+    -webkit-transform: scale3d(1.35, 0.65, 1); }
 
   50% {
-    -webkit-transform: scale3d(1, 1.8, 1); }
+    -webkit-transform: scale3d(0.85, 1.15, 1); }
 
   65% {
-    -webkit-transform: scale3d(1, 1.5, 1); }
+    -webkit-transform: scale3d(1.05, 0.95, 1); }
 
   75% {
-    -webkit-transform: scale3d(1, 1.7, 1); }
+    -webkit-transform: scale3d(0.95, 1.05, 1); }
 
   100% {
     -webkit-transform: scale3d(1, 1, 1); } }
-@keyframes rubberband-x {
+@keyframes extrusion {
   0% {
     transform: scale3d(1, 1, 1); }
 
   30% {
-    transform: scale3d(1.25, 0.75, 1); }
+    transform: scale3d(0.65, 1.35, 1); }
 
   40% {
-    transform: scale3d(0.75, 1.25, 1); }
+    transform: scale3d(1.35, 0.65, 1); }
 
   50% {
-    transform: scale3d(1.15, 0.85, 1); }
+    transform: scale3d(0.85, 1.15, 1); }
 
   65% {
-    transform: scale3d(0.95, 1.05, 1); }
+    transform: scale3d(1.05, 0.95, 1); }
 
   75% {
-    transform: scale3d(1.05, 0.95, 1); }
+    transform: scale3d(0.95, 1.05, 1); }
 
   100% {
     transform: scale3d(1, 1, 1); } }
-.ani.rubberband-x {
-  -webkit-animation-name: rubberband-x;
-  animation-name: rubberband-x; }
+.ani.extrusion {
+  -webkit-animation-name: extrusion;
+  animation-name: extrusion; }
 
 /**
 * Ani - Yo框架的动画解决方案
@@ -1546,12 +1869,12 @@
   animation-iteration-count: infinite; }
 
 /**
- * 定义橡皮圈左右（沿Y轴）拉伸回弹动画
- * @method rubberband-y
- * 使用方式，code:
-   <div class="ani rubberband-y"...
+ * 定义橡皮圈拉伸回弹动画
+ * @method stretch
+ * 使用方式，code: 
+   <div class="ani stretch"...
  */
-@-webkit-keyframes rubberband-y {
+@-webkit-keyframes stretch {
   0% {
     -webkit-transform: scale3d(1, 1, 1); }
 
@@ -1572,7 +1895,7 @@
 
   100% {
     -webkit-transform: scale3d(1, 1, 1); } }
-@keyframes rubberband-y {
+@keyframes stretch {
   0% {
     transform: scale3d(1, 1, 1); }
 
@@ -1593,9 +1916,9 @@
 
   100% {
     transform: scale3d(1, 1, 1); } }
-.ani.rubberband-y {
-  -webkit-animation-name: rubberband-y;
-  animation-name: rubberband-y; }
+.ani.stretch {
+  -webkit-animation-name: stretch;
+  animation-name: stretch; }
 
 /**
 * ani演示页面
