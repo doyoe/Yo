@@ -48,3 +48,29 @@ ani是Yo框架的动画解决方案
 * flip-in-y: 垂直翻转
 * flip-out-x: 水平翻出
 * flip-out-y: 垂直翻出
+
+### roll
+
+* roll-in-right: 从右侧飞入
+* roll-in-left: 从左侧飞入
+* roll-out-right: 从右侧飞出
+* roll-out-left: 从左侧飞出
+
+### speed
+
+* speed-in-right: 从右侧快速进入
+* speed-in-left: 从左侧快速进入
+* speed-out-right: 从右侧快速退出
+* speed-out-left: 从左侧快速退出
+
+### other
+
+* flash: 闪烁
+* shake: 摇摆
+* pulse: 脉冲
+* extrusion: 压缩
+* stretch: 拉伸
+* swing: 悬挂摇摆
+* sling: 弹弓
+* wobble: 震动摇晃
+* hinge: 铰链悬挂
