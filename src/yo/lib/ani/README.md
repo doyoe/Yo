@@ -40,3 +40,11 @@ ani是Yo框架的动画解决方案
 * elastic-out-right: 往右弹性退出
 * elastic-out-down: 往下弹性退出
 * elastic-out-left: 往左弹性退出
+
+### flip
+
+* flip: 翻转
+* flip-in-x: 水平翻转
+* flip-in-y: 垂直翻转
+* flip-out-x: 水平翻出
+* flip-out-y: 垂直翻出
