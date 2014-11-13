@@ -1474,6 +1474,182 @@
   animation-iteration-count: infinite; }
 
 /**
+ * 定义从右侧翻滚进入动画
+ * @method roll-in-right
+ * 使用方式，code:
+   <div class="ani roll-in-right"...
+ */
+@-webkit-keyframes roll-in-right {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0) rotate3d(0, 0, 1, 120deg); }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none; } }
+@keyframes roll-in-right {
+  0% {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0) rotate3d(0, 0, 1, 120deg); }
+
+  100% {
+    opacity: 1;
+    transform: none; } }
+.ani.roll-in-right {
+  -webkit-animation-name: roll-in-right;
+  animation-name: roll-in-right; }
+
+/**
+* Ani - Yo框架的动画解决方案
+* Licensed under the MIT license - http://opensource.org/licenses/MIT
+* Copyright (c) 2014 Joy Du
+* Time: 2012.1.1
+*/
+/**
+ * 定义动画基本特性
+ */
+.ani {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.ani.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite; }
+
+/**
+ * 定义从左侧翻滚进入动画
+ * @method roll-in-left
+ * 使用方式，code:
+   <div class="ani roll-in-left"...
+ */
+@-webkit-keyframes roll-in-left {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg); }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none; } }
+@keyframes roll-in-left {
+  0% {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg); }
+
+  100% {
+    opacity: 1;
+    transform: none; } }
+.ani.roll-in-left {
+  -webkit-animation-name: roll-in-left;
+  animation-name: roll-in-left; }
+
+/**
+* Ani - Yo框架的动画解决方案
+* Licensed under the MIT license - http://opensource.org/licenses/MIT
+* Copyright (c) 2014 Joy Du
+* Time: 2012.1.1
+*/
+/**
+ * 定义动画基本特性
+ */
+.ani {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.ani.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite; }
+
+/**
+ * 定义从左侧翻滚出去动画
+ * @method roll-out-right
+ * 使用方式，code:
+   <div class="ani roll-out-right"...
+ */
+@-webkit-keyframes roll-out-right {
+  0% {
+    opacity: 1; }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg); } }
+@keyframes roll-out-right {
+  0% {
+    opacity: 1; }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg); } }
+.ani.roll-out-right {
+  -webkit-animation-name: roll-out-right;
+  animation-name: roll-out-right; }
+
+/**
+* Ani - Yo框架的动画解决方案
+* Licensed under the MIT license - http://opensource.org/licenses/MIT
+* Copyright (c) 2014 Joy Du
+* Time: 2012.1.1
+*/
+/**
+ * 定义动画基本特性
+ */
+.ani {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.ani.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite; }
+
+/**
+ * 定义从左侧翻滚出去动画
+ * @method roll-out-left
+ * 使用方式，code:
+   <div class="ani roll-out-left"...
+ */
+@-webkit-keyframes roll-out-left {
+  0% {
+    opacity: 1; }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0) rotate3d(0, 0, 1, 120deg); } }
+@keyframes roll-out-left {
+  0% {
+    opacity: 1; }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0) rotate3d(0, 0, 1, 120deg); } }
+.ani.roll-out-left {
+  -webkit-animation-name: roll-out-left;
+  animation-name: roll-out-left; }
+
+/**
+* Ani - Yo框架的动画解决方案
+* Licensed under the MIT license - http://opensource.org/licenses/MIT
+* Copyright (c) 2014 Joy Du
+* Time: 2012.1.1
+*/
+/**
+ * 定义动画基本特性
+ */
+.ani {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.ani.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite; }
+
+/**
  * 定义闪烁动画
  * @method flash
  * 使用方式，code:
@@ -1588,6 +1764,148 @@
 .ani.pulse {
   -webkit-animation-name: pulse;
   animation-name: pulse; }
+
+/**
+* Ani - Yo框架的动画解决方案
+* Licensed under the MIT license - http://opensource.org/licenses/MIT
+* Copyright (c) 2014 Joy Du
+* Time: 2012.1.1
+*/
+/**
+ * 定义动画基本特性
+ */
+.ani {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.ani.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite; }
+
+/**
+ * 定义橡皮圈挤压回弹动画
+ * @method extrusion
+ * 使用方式，code: 
+   <div class="ani extrusion"...
+ */
+@-webkit-keyframes extrusion {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1); }
+
+  30% {
+    -webkit-transform: scale3d(0.65, 1.35, 1); }
+
+  40% {
+    -webkit-transform: scale3d(1.35, 0.65, 1); }
+
+  50% {
+    -webkit-transform: scale3d(0.85, 1.15, 1); }
+
+  65% {
+    -webkit-transform: scale3d(1.05, 0.95, 1); }
+
+  75% {
+    -webkit-transform: scale3d(0.95, 1.05, 1); }
+
+  100% {
+    -webkit-transform: scale3d(1, 1, 1); } }
+@keyframes extrusion {
+  0% {
+    transform: scale3d(1, 1, 1); }
+
+  30% {
+    transform: scale3d(0.65, 1.35, 1); }
+
+  40% {
+    transform: scale3d(1.35, 0.65, 1); }
+
+  50% {
+    transform: scale3d(0.85, 1.15, 1); }
+
+  65% {
+    transform: scale3d(1.05, 0.95, 1); }
+
+  75% {
+    transform: scale3d(0.95, 1.05, 1); }
+
+  100% {
+    transform: scale3d(1, 1, 1); } }
+.ani.extrusion {
+  -webkit-animation-name: extrusion;
+  animation-name: extrusion; }
+
+/**
+* Ani - Yo框架的动画解决方案
+* Licensed under the MIT license - http://opensource.org/licenses/MIT
+* Copyright (c) 2014 Joy Du
+* Time: 2012.1.1
+*/
+/**
+ * 定义动画基本特性
+ */
+.ani {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.ani.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite; }
+
+/**
+ * 定义橡皮圈拉伸回弹动画
+ * @method stretch
+ * 使用方式，code: 
+   <div class="ani stretch"...
+ */
+@-webkit-keyframes stretch {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1); }
+
+  30% {
+    -webkit-transform: scale3d(1.25, 0.75, 1); }
+
+  40% {
+    -webkit-transform: scale3d(0.75, 1.25, 1); }
+
+  50% {
+    -webkit-transform: scale3d(1.15, 0.85, 1); }
+
+  65% {
+    -webkit-transform: scale3d(0.95, 1.05, 1); }
+
+  75% {
+    -webkit-transform: scale3d(1.05, 0.95, 1); }
+
+  100% {
+    -webkit-transform: scale3d(1, 1, 1); } }
+@keyframes stretch {
+  0% {
+    transform: scale3d(1, 1, 1); }
+
+  30% {
+    transform: scale3d(1.25, 0.75, 1); }
+
+  40% {
+    transform: scale3d(0.75, 1.25, 1); }
+
+  50% {
+    transform: scale3d(1.15, 0.85, 1); }
+
+  65% {
+    transform: scale3d(0.95, 1.05, 1); }
+
+  75% {
+    transform: scale3d(1.05, 0.95, 1); }
+
+  100% {
+    transform: scale3d(1, 1, 1); } }
+.ani.stretch {
+  -webkit-animation-name: stretch;
+  animation-name: stretch; }
 
 /**
 * Ani - Yo框架的动画解决方案
@@ -1798,127 +2116,54 @@
   animation-iteration-count: infinite; }
 
 /**
- * 定义橡皮圈挤压回弹动画
- * @method extrusion
- * 使用方式，code: 
-   <div class="ani extrusion"...
+ * 定义悬挂动画
+ * @method hinge
+ * 使用方式，code:
+   <div class="ani hinge"...
  */
-@-webkit-keyframes extrusion {
+@-webkit-keyframes hinge {
   0% {
-    -webkit-transform: scale3d(1, 1, 1); }
+    -webkit-transform-origin: top left;
+    -webkit-animation-timing-function: ease-in-out; }
 
-  30% {
-    -webkit-transform: scale3d(0.65, 1.35, 1); }
+  20%, 60% {
+    -webkit-transform: rotate3d(0, 0, 1, 80deg);
+    -webkit-transform-origin: top left;
+    -webkit-animation-timing-function: ease-in-out; }
 
-  40% {
-    -webkit-transform: scale3d(1.35, 0.65, 1); }
-
-  50% {
-    -webkit-transform: scale3d(0.85, 1.15, 1); }
-
-  65% {
-    -webkit-transform: scale3d(1.05, 0.95, 1); }
-
-  75% {
-    -webkit-transform: scale3d(0.95, 1.05, 1); }
+  40%, 80% {
+    -webkit-transform: rotate3d(0, 0, 1, 60deg);
+    -webkit-transform-origin: top left;
+    -webkit-animation-timing-function: ease-in-out;
+    opacity: 1; }
 
   100% {
-    -webkit-transform: scale3d(1, 1, 1); } }
-@keyframes extrusion {
+    -webkit-transform: translate3d(0, 700px, 0);
+    opacity: 0; } }
+@keyframes hinge {
   0% {
-    transform: scale3d(1, 1, 1); }
+    transform-origin: top left;
+    animation-timing-function: ease-in-out; }
 
-  30% {
-    transform: scale3d(0.65, 1.35, 1); }
+  20%, 60% {
+    transform: rotate3d(0, 0, 1, 80deg);
+    transform-origin: top left;
+    animation-timing-function: ease-in-out; }
 
-  40% {
-    transform: scale3d(1.35, 0.65, 1); }
-
-  50% {
-    transform: scale3d(0.85, 1.15, 1); }
-
-  65% {
-    transform: scale3d(1.05, 0.95, 1); }
-
-  75% {
-    transform: scale3d(0.95, 1.05, 1); }
+  40%, 80% {
+    transform: rotate3d(0, 0, 1, 60deg);
+    transform-origin: top left;
+    animation-timing-function: ease-in-out;
+    opacity: 1; }
 
   100% {
-    transform: scale3d(1, 1, 1); } }
-.ani.extrusion {
-  -webkit-animation-name: extrusion;
-  animation-name: extrusion; }
-
-/**
-* Ani - Yo框架的动画解决方案
-* Licensed under the MIT license - http://opensource.org/licenses/MIT
-* Copyright (c) 2014 Joy Du
-* Time: 2012.1.1
-*/
-/**
- * 定义动画基本特性
- */
-.ani {
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both; }
-
-.ani.infinite {
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite; }
-
-/**
- * 定义橡皮圈拉伸回弹动画
- * @method stretch
- * 使用方式，code: 
-   <div class="ani stretch"...
- */
-@-webkit-keyframes stretch {
-  0% {
-    -webkit-transform: scale3d(1, 1, 1); }
-
-  30% {
-    -webkit-transform: scale3d(1.25, 0.75, 1); }
-
-  40% {
-    -webkit-transform: scale3d(0.75, 1.25, 1); }
-
-  50% {
-    -webkit-transform: scale3d(1.15, 0.85, 1); }
-
-  65% {
-    -webkit-transform: scale3d(0.95, 1.05, 1); }
-
-  75% {
-    -webkit-transform: scale3d(1.05, 0.95, 1); }
-
-  100% {
-    -webkit-transform: scale3d(1, 1, 1); } }
-@keyframes stretch {
-  0% {
-    transform: scale3d(1, 1, 1); }
-
-  30% {
-    transform: scale3d(1.25, 0.75, 1); }
-
-  40% {
-    transform: scale3d(0.75, 1.25, 1); }
-
-  50% {
-    transform: scale3d(1.15, 0.85, 1); }
-
-  65% {
-    transform: scale3d(0.95, 1.05, 1); }
-
-  75% {
-    transform: scale3d(1.05, 0.95, 1); }
-
-  100% {
-    transform: scale3d(1, 1, 1); } }
-.ani.stretch {
-  -webkit-animation-name: stretch;
-  animation-name: stretch; }
+    transform: translate3d(0, 700px, 0);
+    opacity: 0; } }
+.ani.hinge {
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-name: hinge;
+  animation-name: hinge; }
 
 /**
 * ani演示页面
