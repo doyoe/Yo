@@ -1564,7 +1564,7 @@
   animation-iteration-count: infinite; }
 
 /**
- * 定义从左侧翻滚出去动画
+ * 定义从右侧翻滚出去动画
  * @method roll-out-right
  * 使用方式，code:
    <div class="ani roll-out-right"...
@@ -1575,14 +1575,14 @@
 
   100% {
     opacity: 0;
-    transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg); } }
+    transform: translate3d(100%, 0, 0) rotate3d(0, 0, 1, 120deg); } }
 @keyframes roll-out-right {
   0% {
     opacity: 1; }
 
   100% {
     opacity: 0;
-    transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg); } }
+    transform: translate3d(100%, 0, 0) rotate3d(0, 0, 1, 120deg); } }
 .ani.roll-out-right {
   -webkit-animation-name: roll-out-right;
   animation-name: roll-out-right; }
@@ -1618,17 +1618,233 @@
 
   100% {
     opacity: 0;
-    transform: translate3d(100%, 0, 0) rotate3d(0, 0, 1, 120deg); } }
+    transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg); } }
 @keyframes roll-out-left {
   0% {
     opacity: 1; }
 
   100% {
     opacity: 0;
-    transform: translate3d(100%, 0, 0) rotate3d(0, 0, 1, 120deg); } }
+    transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg); } }
 .ani.roll-out-left {
   -webkit-animation-name: roll-out-left;
   animation-name: roll-out-left; }
+
+/**
+* Ani - Yo框架的动画解决方案
+* Licensed under the MIT license - http://opensource.org/licenses/MIT
+* Copyright (c) 2014 Joy Du
+* Time: 2012.1.1
+*/
+/**
+ * 定义动画基本特性
+ */
+.ani {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.ani.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite; }
+
+/**
+ * 定义从右侧快速进入动画
+ * @method speed-in-right
+ * 使用方式，code:
+   <div class="ani speed-in-right"...
+ */
+@-webkit-keyframes speed-in-right {
+  0% {
+    -webkit-transform: translate3d(100%, 0, 0) skewX(-30deg);
+    opacity: 0; }
+
+  60% {
+    -webkit-transform: skewX(20deg);
+    opacity: 1; }
+
+  80% {
+    -webkit-transform: skewX(-5deg);
+    opacity: 1; }
+
+  100% {
+    -webkit-transform: none;
+    opacity: 1; } }
+@keyframes speed-in-right {
+  0% {
+    transform: translate3d(100%, 0, 0) skewX(-30deg);
+    opacity: 0; }
+
+  60% {
+    transform: skewX(20deg);
+    opacity: 1; }
+
+  80% {
+    transform: skewX(-5deg);
+    opacity: 1; }
+
+  100% {
+    transform: none;
+    opacity: 1; } }
+.ani.speed-in-right {
+  -webkit-animation-timing-function: ease-out;
+  animation-timing-function: ease-out;
+  -webkit-animation-name: speed-in-right;
+  animation-name: speed-in-right; }
+
+/**
+* Ani - Yo框架的动画解决方案
+* Licensed under the MIT license - http://opensource.org/licenses/MIT
+* Copyright (c) 2014 Joy Du
+* Time: 2012.1.1
+*/
+/**
+ * 定义动画基本特性
+ */
+.ani {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.ani.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite; }
+
+/**
+ * 定义从右侧快速进入动画
+ * @method speed-in-left
+ * 使用方式，code:
+   <div class="ani speed-in-left"...
+ */
+@-webkit-keyframes speed-in-left {
+  0% {
+    -webkit-transform: translate3d(-100%, 0, 0) skewX(30deg);
+    opacity: 0; }
+
+  60% {
+    -webkit-transform: skewX(-20deg);
+    opacity: 1; }
+
+  80% {
+    -webkit-transform: skewX(5deg);
+    opacity: 1; }
+
+  100% {
+    -webkit-transform: none;
+    opacity: 1; } }
+@keyframes speed-in-left {
+  0% {
+    transform: translate3d(100%, 0, 0) skewX(-30deg);
+    opacity: 0; }
+
+  60% {
+    transform: skewX(20deg);
+    opacity: 1; }
+
+  80% {
+    transform: skewX(-5deg);
+    opacity: 1; }
+
+  100% {
+    transform: none;
+    opacity: 1; } }
+.ani.speed-in-left {
+  -webkit-animation-timing-function: ease-out;
+  animation-timing-function: ease-out;
+  -webkit-animation-name: speed-in-left;
+  animation-name: speed-in-left; }
+
+/**
+* Ani - Yo框架的动画解决方案
+* Licensed under the MIT license - http://opensource.org/licenses/MIT
+* Copyright (c) 2014 Joy Du
+* Time: 2012.1.1
+*/
+/**
+ * 定义动画基本特性
+ */
+.ani {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.ani.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite; }
+
+/**
+ * 定义从右侧快速出去动画
+ * @method speed-out-right
+ * 使用方式，code:
+   <div class="ani speed-out-right"...
+ */
+@-webkit-keyframes speed-out-right {
+  0% {
+    opacity: 1; }
+
+  100% {
+    -webkit-transform: translate3d(100%, 0, 0) skewX(30deg);
+    opacity: 0; } }
+@keyframes speed-out-right {
+  0% {
+    opacity: 1; }
+
+  100% {
+    transform: translate3d(100%, 0, 0) skewX(30deg);
+    opacity: 0; } }
+.ani.speed-out-right {
+  -webkit-animation-timing-function: ease-in;
+  animation-timing-function: ease-in;
+  -webkit-animation-name: speed-out-right;
+  animation-name: speed-out-right; }
+
+/**
+* Ani - Yo框架的动画解决方案
+* Licensed under the MIT license - http://opensource.org/licenses/MIT
+* Copyright (c) 2014 Joy Du
+* Time: 2012.1.1
+*/
+/**
+ * 定义动画基本特性
+ */
+.ani {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.ani.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite; }
+
+/**
+ * 定义从左侧快速出去动画
+ * @method speed-out-left
+ * 使用方式，code:
+   <div class="ani speed-out-left"...
+ */
+@-webkit-keyframes speed-out-left {
+  0% {
+    opacity: 1; }
+
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0) skewX(-30deg);
+    opacity: 0; } }
+@keyframes speed-out-left {
+  0% {
+    opacity: 1; }
+
+  100% {
+    transform: translate3d(-100%, 0, 0) skewX(-30deg);
+    opacity: 0; } }
+.ani.speed-out-left {
+  -webkit-animation-timing-function: ease-in;
+  animation-timing-function: ease-in;
+  -webkit-animation-name: speed-out-left;
+  animation-name: speed-out-left; }
 
 /**
 * Ani - Yo框架的动画解决方案
