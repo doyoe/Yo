@@ -238,6 +238,17 @@ $popup: (
 ) !default;
 
 
+// Widget UI select(9)
+$select: (
+	// {Length} 默认显示几个列表项
+	item:            5,
+	// {Length} 每个列表项的高度
+	item-height:     .3rem,
+	// {Color} 边框色
+	bordercolor:     #aaa
+) !default;
+
+
 // z-index
 $z-index: (
 	// {Number} 下拉菜单层级范围50-100

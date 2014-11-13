@@ -163,3 +163,31 @@
         }
     }
 }
+
+// 定义select的基础构造
+// 使用方法请查看 ui-select.scss
+@mixin _select{
+    @include flexbox();
+    position: relative;
+    overflow: hidden;
+    height: map-get($select, item-height) * map-get($select, item);
+    line-height: map-get($select, item-height);
+    text-align: center;
+    &::before{
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        height: map-get($select, item-height);
+        margin-top: -#{map-get($select, item-height) / 2};
+        content: "\0020";
+        border: 1px solid map-get($select, bordercolor);
+        border-width: 1px 0;
+    }
+    @at-root{
+        &-item{
+            position: relative;
+            z-index: 2;
+            @include flex();
+        }
+    }
+}

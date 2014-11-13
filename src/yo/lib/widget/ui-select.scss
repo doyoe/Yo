@@ -1,0 +1,56 @@
+@charset "utf-8";
+@import "classes";
+
+/**
+ * widget: ui-select
+ * Author: joy.du(飘零雾雨)
+ * Time: 2014.11.13
+ -----------------------
+ * @method ui-select
+ * variables length(4)
+ * @param {default | String} $name 定义select名称
+ * @param {default | Length} $width 定义select显示的子项个数
+ * @param {default | Length} $height 定义select子项高度
+ * @param {default | Color} $bordercolor 定义select边框色
+ */
+
+@mixin ui-select($name:default,
+                $item:default,
+                $item-height:default,
+                $bordercolor:default){
+	@if $name == default {
+		$name: "";
+	} @else {
+		$name: -$name;
+	}
+    // 如果值为default，则取config的定义
+    @if $item == default {
+        $item: map-get($select,item);
+    }
+    @if $item-height == default {
+        $item-height: map-get($select,item-height);
+    }
+    @if $bordercolor == default {
+        $bordercolor: map-get($select,bordercolor);
+    }
+	.ui-select#{$name}{
+        @if $item-height != map-get($select, item-height){
+            height: $item-height * $item;
+            line-height: $item-height;
+        }
+        &::before{
+            @if $item-height != map-get($select, item-height){
+                height: $item-height;
+                margin-top: -#{$item-height / 2};
+            }
+            @if $bordercolor != map-get($select, bordercolor){
+                border-color: $bordercolor;
+            }
+        }
+	}
+}
+
+// 调用本文件时载入popup基础构造
+.ui-select{
+	@include _select;
+}
