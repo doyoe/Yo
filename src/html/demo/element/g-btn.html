@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<title>button - 按钮</title>
+<link rel="stylesheet" href="../../../yo/usage/demo/export/g-btn.css" />
+</head>
+<body>
+<h2>Yo预设的几种按钮：</h2>
+<div class="demo">
+    <section>
+        <h3>normal:</h3>
+        <a href="?" class="g-btn g-btn-normal g-btn-s">取消</a>
+        <button class="g-btn g-btn-normal g-btn-s">取消</button>
+        <input type="button" value="取消" class="g-btn g-btn-normal g-btn-s" />
+        <a href="?" class="g-btn g-btn-normal g-btn-m">取消</a>
+        <button class="g-btn g-btn-normal g-btn-m">取消</button>
+        <input type="button" value="取消" class="g-btn g-btn-normal g-btn-m" />
+        <a href="?" class="g-btn g-btn-normal g-btn-l">取消</a>
+        <button class="g-btn g-btn-normal g-btn-l">取消</button>
+        <input type="button" value="取消" class="g-btn g-btn-normal g-btn-l" />
+    </section>
+    <section>
+        <h3>primary:</h3>
+        <a href="?" class="g-btn g-btn-primary g-btn-s">确定</a>
+        <button class="g-btn g-btn-primary g-btn-s">确定</button>
+        <input type="button" value="确定" class="g-btn g-btn-primary g-btn-s" />
+        <a href="?" class="g-btn g-btn-primary g-btn-m">确定</a>
+        <button class="g-btn g-btn-primary g-btn-m">确定</button>
+        <input type="button" value="确定" class="g-btn g-btn-primary g-btn-m" />
+        <a href="?" class="g-btn g-btn-primary g-btn-l">确定</a>
+        <button class="g-btn g-btn-primary g-btn-l">确定</button>
+        <input type="button" value="确定" class="g-btn g-btn-primary g-btn-l" />
+    </section>
+    <section>
+        <h3>info:</h3>
+        <a href="?" class="g-btn g-btn-info g-btn-s">操作</a>
+        <button class="g-btn g-btn-info g-btn-s">操作</button>
+        <input type="button" value="操作" class="g-btn g-btn-info g-btn-s" />
+        <a href="?" class="g-btn g-btn-info g-btn-m">操作</a>
+        <button class="g-btn g-btn-info g-btn-m">操作</button>
+        <input type="button" value="操作" class="g-btn g-btn-info g-btn-m" />
+        <a href="?" class="g-btn g-btn-info g-btn-l">操作</a>
+        <button class="g-btn g-btn-info g-btn-l">操作</button>
+        <input type="button" value="操作" class="g-btn g-btn-info g-btn-l" />
+    </section>
+    
+    <section>
+        <h3>disabled:</h3>
+        <a href="?" class="g-btn g-btn-disabled g-btn-s">禁用</a>
+        <button class="g-btn g-btn-disabled g-btn-s">禁用</button>
+        <input type="button" value="禁用" class="g-btn g-btn-disabled g-btn-s" />
+        <a href="?" class="g-btn g-btn-disabled g-btn-m">禁用</a>
+        <button class="g-btn g-btn-disabled g-btn-m">禁用</button>
+        <input type="button" value="取消" class="g-btn g-btn-disabled g-btn-m" />
+        <a href="?" class="g-btn g-btn-disabled g-btn-l">禁用</a>
+        <button class="g-btn g-btn-disabled g-btn-l">禁用</button>
+        <input type="button" value="禁用" class="g-btn g-btn-disabled g-btn-l" />
+    </section>
+
+</div>
+
+<pre class="m-code"><span class="method">@include g-btn</span><span class="bracket">(</span>
+    $name<span class="colon">:</span>default, <mark>//{default | String} g-btn名称</mark>
+    $bgcolor<span class="colon">:</span>default, <mark>//{default | Color} g-btn背景色</mark>
+    $color<span class="colon">:</span>default, <mark>//{default | Color} g-btn文本色</mark>
+    $is-border<span class="colon">:</span>default, <mark>//{default | Boole} g-btn是否需要边框</mark>
+    $width<span class="colon">:</span>default, <mark>//{default | Length} g-btn宽度</mark>
+    $height<span class="colon">:</span>default, <mark>//{default | Length} g-btn高度</mark>
+    $padding<span class="colon">:</span>default <mark>//{default | Length} g-btn内补白</mark>
+    $radius<span class="colon">:</span>default <mark>//{default | Length} g-btn圆角</mark>
+<span class="bracket">)</span>
+</pre>
+
+</body>
+</html>

@@ -1,0 +1,165 @@
+@charset "utf-8";
+@import "../core/variables";
+@import "../core/classes";
+
+/**
+ * Directory: lib/widget/classes.scss
+ * widget的基础构造
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ */
+
+// 定义弹窗dialog的基础构造
+// 使用方法请查看 ui-dialog.scss
+@mixin _dialog{
+    position: fixed;
+    z-index: map-get($z-index,dialog);
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%,-50%));
+    @if map-get($dialog,radius) != 0 {
+        border-radius: map-get($dialog,radius);
+    }
+    border: 1px solid map-get($dialog,bordercolor);
+    min-width: 3rem;
+    background: #fff;
+    > .hd{
+        @if map-get($dialog,radius) != 0 {
+            border-radius: map-get($dialog,radius) map-get($dialog,radius) 0 0;
+        }
+        height: map-get($dialog,hd-height);
+        border-bottom: 1px solid map-get($dialog,bordercolor);
+        background: map-get($dialog,hd-bgcolor);
+        line-height: map-get($dialog,hd-height);
+        text-align: center;
+        .title{
+            margin: 0 60px;
+            @if map-get($dialog,title-color) != map-get($base,color) {
+                color: map-get($dialog,title-color);
+            }
+            @if map-get($dialog,title-font-size) != map-get($base,font-size) {
+                font-size: map-get($dialog,title-font-size);
+            }
+        }
+        .regret,
+        .affirm{
+            position: absolute;
+            top: 0;
+        }
+        .regret{left: .1rem;}
+        .affirm{right: .1rem;}
+    }
+    > .bd{
+        @include overflow();
+        max-height: 5rem;
+        @if map-get($dialog,bd-padding) > 0 {
+            padding: map-get($dialog,bd-padding);
+        }
+    }
+}
+
+// 定义浮层popup的基础构造
+// 使用方法请查看 ui-popup.scss
+@mixin _popup{
+    position: absolute;
+    z-index: map-get($z-index,popup);
+    min-width: 1.5rem;
+    // 改用标签的方式，因为JS需要控制位置
+    > .arrow::after{
+        position: absolute;
+        content: "◆";
+        color: #fff;
+        font-size: map-get($popup,arrow-size) * 2;
+        line-height: 1;
+    }
+    @at-root{
+        // 有hd时，箭头的颜色应该和hd相同
+        .ui-popup-extra.ui-popup-top > .arrow::after{ color: map-get($popup,hd-bgcolor); }
+        // 控制箭头方向
+        .ui-popup-top,
+        .ui-popup-down{
+            > .arrow::after{
+                @include transform(translate(-50%));
+                @if map-get($popup,arrow-pos) == center {
+                    left: 50%;
+                } @else {
+                    left: map-get($popup,arrow-pos);
+                }
+            }
+        }
+        .ui-popup-top > .arrow::after{
+            top: -#{map-get($popup,arrow-size) - .02rem};
+            // 箭头边框色
+            text-shadow: 0 -1px map-get($popup,bordercolor);
+        }
+        .ui-popup-down > .arrow::after{
+            bottom: -#{map-get($popup,arrow-size) - .02rem};
+            // 箭头边框色
+            text-shadow: 0 1px map-get($popup,bordercolor);
+        }
+        .ui-popup-right,
+        .ui-popup-left{
+            > .arrow::after{
+                @include transform(translate(0,-50%));
+                @if map-get($popup,arrow-pos) == center {
+                    top: 50%;
+                } @else {
+                    top: map-get($popup,arrow-pos);
+                }
+            }
+        }
+        .ui-popup-right > .arrow::after{
+            right: -#{map-get($popup,arrow-size) - .02rem};
+            // 箭头边框色
+            text-shadow: 1px 0 map-get($popup,bordercolor);
+        }
+        .ui-popup-left > .arrow::after{
+            left: -#{map-get($popup,arrow-size) - .02rem};
+            // 箭头边框色
+            text-shadow: -1px 0 map-get($popup,bordercolor);
+        }
+    }
+    @if map-get($popup,radius) > 0 {
+        border-radius: map-get($popup,radius);
+    }
+    border: 1px solid map-get($popup,bordercolor);
+    background: #fff;
+    > .hd,
+    > .bd{
+        position: relative;
+        z-index: 2;
+    }
+    > .hd{
+        @if map-get($popup,radius) > 0 {
+            border-radius: map-get($popup,radius) map-get($popup,radius) 0 0;
+        }
+        height: map-get($popup,hd-height);
+        border-bottom: 1px solid map-get($popup,bordercolor);
+        background: map-get($popup,hd-bgcolor);
+        line-height: map-get($popup,hd-height);
+        text-align: center;
+        .title{
+            margin: 0 60px;
+            @if map-get($popup,title-color) != map-get($base,color) {
+                color: map-get($popup,title-color);
+            }
+            @if map-get($popup,title-font-size) != map-get($base,font-size) {
+                font-size: map-get($popup,title-font-size);
+            }
+        }
+        .regret,
+        .affirm{
+            position: absolute;
+            top: 0;
+        }
+        .regret{left: 10px;}
+        .affirm{right: 10px;}
+    }
+    > .bd{
+        @include overflow();
+        max-height: 500px;
+        @if map-get($popup,bd-padding) > 0 {
+            padding: map-get($popup,bd-padding);
+        }
+    }
+}

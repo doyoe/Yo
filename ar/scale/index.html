@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>页面元素的尺寸根据设备尺寸自动缩放调整</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<style>
+	/**
+	 * 以iPhone5s及更早的iPhone版本为开发环境
+	 * 设备尺寸：320*（480 | 568）
+	 * 目的：页面元素随设备尺寸不同而缩放
+	 * 兼容性：IOS6.0 Safari6.0/Android4.0?
+	 */
+	/**
+	 * 需要注意的是：
+	 * 为了方便计算，我们通常会将root的font-size设置为computed为10px的值
+	 * 为了实现页面元素的尺寸根据设备尺寸自动缩放调整，我们将采用vw单位
+	 * 使用vw单位，在base on iPhone5s时，10px = 3.125vw
+	 * 不过这种设计在webkit上有严重的问题，因为之后的计算都是根据font-size的值来的，而font-size在webkit上只支持最小12px
+	 * 也就是说，只有当设备的宽度大于等于384时，即root的computer大于等于12px，计算才是准确的
+	 * 为了避免这个问题，将root设置为31.25vw，即computer 100px，之后都使用rem单位，比如1rem = 100px，如果想要1px，那么就是 .01rem
+	 */
+	html{font-size:31.25vw;}
+	body{margin:0;text-align:center;}
+	.demo{width:1rem;height:1rem;font-size:1rem;background:#aaa;}
+	</style>
+</head>
+<body>
+	<div class="demo">即</div>
+</body>
+</html>

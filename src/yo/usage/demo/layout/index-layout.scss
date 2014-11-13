@@ -1,0 +1,37 @@
+@charset "utf-8";
+@import "../core/reset";
+@import "../../../lib/layout/layout";
+
+/**
+* document layout
+* Author: joy.du(飘零雾雨)
+* Time: 2013.10.17
+*/
+
+@include doc();
+#hd,
+#banner,
+#bd,
+#ft{
+	min-width: 540px;
+	padding: 0 10%;
+}
+#hd{
+	background: #0e90d2;
+}
+#banner{
+	padding-top: .3rem;
+	padding-bottom: .3rem;
+	background: #f5f5f5;
+}
+#bd{
+	padding-top: .3rem;
+}
+#aside{
+	float: left;
+	width: 200px;
+	box-shadow: 1px 0 0 #ddd;
+}
+#main{
+	overflow: hidden;
+}
