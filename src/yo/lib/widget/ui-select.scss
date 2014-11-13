@@ -17,7 +17,7 @@
 @mixin ui-select($name:default,
                 $item:default,
                 $item-height:default,
-                $bordercolor:default){
+                $bordercolor:default) {
 	@if $name == default {
 		$name: "";
 	} @else {
@@ -34,17 +34,24 @@
         $bordercolor: map-get($select,bordercolor);
     }
 	.ui-select#{$name}{
-        @if $item-height != map-get($select, item-height){
+        @if $item-height != map-get($select, item-height) or $item != map-get($select, item) {
             height: $item-height * $item;
             line-height: $item-height;
         }
         &::before{
-            @if $item-height != map-get($select, item-height){
+            @if $item-height != map-get($select, item-height) {
                 height: $item-height;
                 margin-top: -#{$item-height / 2};
             }
-            @if $bordercolor != map-get($select, bordercolor){
+            @if $bordercolor != map-get($select, bordercolor) {
                 border-color: $bordercolor;
+            }
+        }
+        @at-root{
+            &-item-tag{
+                @if $item-height != map-get($select, item-height) or $item != map-get($select, item) {
+                    line-height: $item-height * $item;;
+                }
             }
         }
 	}

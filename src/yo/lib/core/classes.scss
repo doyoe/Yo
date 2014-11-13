@@ -200,6 +200,20 @@
     -webkit-flex-wrap: $flex-wrap;
             flex-wrap: $flex-wrap;
 }
+// 定义伸缩盒子元素的水平对齐方式
+@mixin justify-content($justify-content:center){
+    @if $justify-content == center {
+        -webkit-box-pack: center;
+    } @else if $justify-content == flex-start {
+        -webkit-box-pack: start;
+    } @else if $justify-content == flex-end {
+        -webkit-box-pack: end;
+    } @else if $justify-content == space-between {
+        -webkit-box-pack: justify;
+    }
+    -webkit-justify-content: $justify-content;
+    justify-content: $justify-content;
+}
 
 // 定义滚动条
 @mixin overflow($overflow:auto){

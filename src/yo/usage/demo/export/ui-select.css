@@ -483,11 +483,11 @@ input[type="radio"]:disabled {
   position: relative;
   overflow: hidden;
   height: 1.5rem;
-  line-height: 0.3rem;
-  text-align: center; }
+  line-height: 0.3rem; }
   .ui-select::before {
     position: absolute;
     top: 50%;
+    left: 0;
     width: 100%;
     height: 0.3rem;
     margin-top: -0.15rem;
@@ -496,13 +496,35 @@ input[type="radio"]:disabled {
     border-width: 1px 0; }
   .ui-select-item {
     position: relative;
-    z-index: 2;
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-    flex: 1; }
+    z-index: 2; }
+    .ui-select-item:first-of-type, .ui-select-item:last-of-type {
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+      flex: 1; }
+    .ui-select-item:first-of-type:not(:only-of-type) {
+      text-align: right; }
+    .ui-select-item:only-of-type {
+      text-align: center; }
+    .ui-select-item:not(:only-of-type) {
+      padding-right: .25rem; }
+
+  .ui-select-item-list, .ui-select-item-tag {
+    display: inline-block; }
+
+  .ui-select-item-tag {
+    padding-left: .02rem;
+    line-height: 1.5rem;
+    vertical-align: top; }
 
 /**
  * select演示页面
  * Author: joy.du(飘零雾雨)
  * Time: 2014.11.13
  */
+.ui-select {
+  height: 0.9rem;
+  line-height: 0.3rem; }
+  .ui-select::before {
+    border-color: red; }
+  .ui-select-item-tag {
+    line-height: 0.9rem; }
