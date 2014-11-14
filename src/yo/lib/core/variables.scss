@@ -73,7 +73,7 @@ $base: (
 	// 默认链接色
 	link-color:       #25a4bb,
 	// 链接经过色
-	link-hover-color: #f60          
+	link-hover-color: #f60
 ) !default;
 
 
@@ -238,8 +238,19 @@ $popup: (
 ) !default;
 
 
-// Widget UI select(9)
+// Widget UI select(3)
 $select: (
+	// {Length} 默认显示几个列表项
+	item:            5,
+	// {Length} 每个列表项的高度
+	item-height:     .3rem,
+	// {Color} 边框色
+	bordercolor:     #aaa
+) !default;
+
+
+// Widget UI switch(9)
+$switch: (
 	// {Length} 默认显示几个列表项
 	item:            5,
 	// {Length} 每个列表项的高度

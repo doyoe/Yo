@@ -65,32 +65,6 @@
 	}
 }
 
-// 定义secect的基础构造
-// 使用方法请查看 g-select.scss
-@mixin _select{
-	display: inline-block;
-	border: 1px solid #ddd;
-	background: #fff;
-	> select{
-		width:200px;
-		position: relative;
-		z-index: 2;
-		margin: 0;
-		padding-right: 30px;
-		padding-left: 10px;
-		border-radius: 0;
-		@include appearance(none);
-		background: none;
-		border: 0 none;
-		outline: none;
-		line-height: 44px;
-	}
-	@extend %_select-arrow;
-	&::after{
-		right: 10px;
-	}
-}
-
 // 定义loading的基础构造
 // 使用方法请查看 g-loading.scss
 @mixin _loading{

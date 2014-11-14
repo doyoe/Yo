@@ -1,16 +1,17 @@
 @charset "utf-8";
 @import "../layout/layout";
 @import "../module/m-code";
-@import "../../../lib/widget/ui-select";
+@import "../../../lib/widget/ui-switch";
 
 /**
- * select演示页面
+ * switch演示页面
  * Author: joy.du(飘零雾雨)
- * Time: 2014.11.13
+ * Time: 2014.11.14
  */
 
-.ui-select{
+.ui-switch{
 	// width: 200px;
+	margin: 20px;
 }
 
 // @include ui-select(default,7,.4rem,gray);

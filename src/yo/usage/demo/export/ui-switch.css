@@ -465,59 +465,80 @@ input[type="radio"]:disabled {
  * Time: 2012.1.1
  */
 /**
- * widget: ui-select
+ * widget: ui-switch
  * Author: joy.du(飘零雾雨)
- * Time: 2014.11.13
+ * Time: 2014.11.14
  -----------------------
- * @method ui-select
+ * @method ui-switch
  * variables length(4)
  * @param {default | String} $name 定义select名称
  * @param {default | Length} $width 定义select显示的子项个数
  * @param {default | Length} $height 定义select子项高度
  * @param {default | Color} $bordercolor 定义select边框色
  */
-.ui-select {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
+.ui-switch[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
   position: relative;
   overflow: hidden;
-  height: 1.5rem;
-  line-height: 0.3rem; }
-  .ui-select::before {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: 0.3rem;
-    margin-top: -0.15rem;
-    content: "\0020";
-    border: 1px solid #aaaaaa;
-    border-width: 1px 0; }
-  .ui-select-item {
-    position: relative;
-    z-index: 2; }
-    .ui-select-item:first-of-type, .ui-select-item:last-of-type {
-      -webkit-box-flex: 1;
-      -webkit-flex: 1;
-      flex: 1; }
-    .ui-select-item:first-of-type:not(:only-of-type) {
-      text-align: right; }
-    .ui-select-item:only-of-type {
-      text-align: center; }
-    .ui-select-item:not(:only-of-type) {
-      padding-right: .25rem; }
-
-  .ui-select-item-list, .ui-select-item-tag {
-    display: inline-block; }
-
-  .ui-select-item-tag {
-    padding-left: .02rem;
-    line-height: 1.5rem;
-    vertical-align: top; }
+  width: .4rem;
+  height: .24rem;
+  border: .02rem solid #4bd663;
+  margin: 0;
+  cursor: pointer;
+  vertical-align: middle;
+  background: #4bd663;
+  border: 1px solid #c7ced4;
+  border-radius: .2rem; }
+.ui-switch[type="checkbox"]:hover {
+  border-color: #c6c6c6;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1); }
+.ui-switch[type="checkbox"]:active {
+  border-color: #c6c6c6;
+  background: #ebebeb; }
+.ui-switch[type="checkbox"]:checked {
+  border-color: #02a8c9;
+  background: #02a8c9; }
+.ui-switch[type="checkbox"]:checked::before, .ui-switch[type="checkbox"]:checked::after {
+  position: absolute;
+  content: "\0020";
+  border-radius: 2px; }
+.ui-switch[type="checkbox"]:checked::before {
+  top: 8px;
+  left: 4px;
+  width: 3px;
+  height: 8px;
+  background: #fff;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg); }
+.ui-switch[type="checkbox"]:checked::after {
+  top: 2px;
+  left: 10px;
+  width: 3px;
+  height: 15px;
+  background: #fff;
+  -webkit-transform: rotate(36deg);
+  -moz-transform: rotate(36deg);
+  -o-transform: rotate(36deg);
+  -ms-transform: rotate(36deg);
+  transform: rotate(36deg); }
+.ui-switch[type="checkbox"]:focus {
+  outline: none;
+  border-color: #02a8c9; }
+.ui-switch[type="checkbox"]:disabled {
+  border-color: #dedfe0;
+  background: #dedfe0; }
 
 /**
- * select演示页面
+ * switch演示页面
  * Author: joy.du(飘零雾雨)
- * Time: 2014.11.13
+ * Time: 2014.11.14
  */
+.ui-switch {
+  margin: 20px; }

@@ -2,11 +2,11 @@
 @import "classes";
 
 /**
- * widget: ui-select
+ * widget: ui-switch
  * Author: joy.du(飘零雾雨)
- * Time: 2014.11.13
+ * Time: 2014.11.14
  -----------------------
- * @method ui-select
+ * @method ui-switch
  * variables length(4)
  * @param {default | String} $name 定义select名称
  * @param {default | Length} $width 定义select显示的子项个数
@@ -14,7 +14,7 @@
  * @param {default | Color} $bordercolor 定义select边框色
  */
 
-@mixin ui-select($name:default,
+@mixin ui-switch($name:default,
                 $item:default,
                 $item-height:default,
                 $bordercolor:default) {
@@ -57,7 +57,7 @@
 	}
 }
 
-// 调用本文件时载入select基础构造
-.ui-select{
-	@include _select;
+// 调用本文件时载入switch基础构造
+.ui-switch{
+	@include _switch;
 }
