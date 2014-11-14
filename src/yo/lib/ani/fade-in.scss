@@ -4,20 +4,28 @@
 /**
  * 定义淡入动画
  * @method fade-in
- * 使用方式，code:
+ * 使用方式，code: 
    <div class="ani fade-in"...
  */
 
 @-webkit-keyframes fade-in{
-	0%{opacity:0;}
-	100%{opacity:1;}
+	0%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
 }
 @keyframes fade-in{
-	0%{opacity:0;}
-	100%{opacity:1;}
+	0%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
 }
 
 .ani.fade-in{
 	-webkit-animation-name: fade-in;
-	        animation-name: fade-in;
+	animation-name: fade-in;
 }
