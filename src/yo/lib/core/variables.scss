@@ -249,14 +249,24 @@ $select: (
 ) !default;
 
 
-// Widget UI switch(9)
+// Widget UI switch(8)
 $switch: (
-	// {Length} 默认显示几个列表项
-	item:            5,
-	// {Length} 每个列表项的高度
-	item-height:     .3rem,
 	// {Color} 边框色
-	bordercolor:     #aaa
+	bordercolor:          #c7c7cc,
+	// {Color} 背景色
+	bgcolor:              #eeeef3,
+	// {Color} 滑块色
+	ball-color:           #fff,
+	// {Color} 激活边框色
+	checked-bordercolor:  #4cd964,
+	// {Color} 激活背景色
+	checked-bgcolor:      #4cd964,
+	// {Color} 禁用边框色
+	disabled-bordercolor: #dedfe0,
+	// {Color} 禁用背景色
+	disabled-bgcolor:     #dedfe0,
+	// {Color} 禁用滑块色
+	disabled-ball-color:  #efefef
 ) !default;
 
 

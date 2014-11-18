@@ -385,11 +385,16 @@ a {
  * Time: 2014.11.14
  -----------------------
  * @method ui-switch
- * variables length(4)
- * @param {default | String} $name 定义select名称
- * @param {default | Length} $width 定义select显示的子项个数
- * @param {default | Length} $height 定义select子项高度
- * @param {default | Color} $bordercolor 定义select边框色
+ * variables length(9)
+ * @param {default | String} $name 定义switch名称
+ * @param {default | Color} $bordercolor 定义switch边框色
+ * @param {default | Color} $bgcolor 定义switch背景色
+ * @param {default | Color} $ball-color 定义switch滑块色
+ * @param {default | Color} $checked-bordercolor 定义switch激活边框色
+ * @param {default | Color} $checked-bgcolor 定义switch激活背景色
+ * @param {default | Color} $disabled-bordercolor 定义switch禁用边框色
+ * @param {default | Color} $disabled-bgcolor 定义switch禁用背景色
+ * @param {default | Color} $disabled-ball-color 定义switch禁用滑块色
  */
 .ui-switch[type="checkbox"] {
   -webkit-appearance: none;
@@ -441,6 +446,8 @@ a {
 .ui-switch[type="checkbox"]:disabled {
   border-color: #dedfe0;
   background-color: #dedfe0; }
+  .ui-switch[type="checkbox"]:disabled::before {
+    background-color: #efefef; }
 
 /**
  * switch演示页面

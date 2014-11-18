@@ -281,6 +281,9 @@
         &:disabled{
             border-color: #dedfe0;
             background-color: #dedfe0;
+            &::before{
+                background-color: #efefef;
+            }
         }
     }
 }
