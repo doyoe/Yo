@@ -77,9 +77,6 @@
 ::before,
 ::after {
   -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -o-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box; }
 
 html {
@@ -87,9 +84,6 @@ html {
   color: #333333;
   font-size: 100px;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  -o-user-select: none;
-  -ms-user-select: none;
   user-select: none; }
 
 body {
@@ -148,9 +142,6 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 
 input[type="button"], input[type="submit"], input[type="reset"], input[type="file"]::-webkit-file-upload-button {
   -webkit-appearance: none;
-  -moz-appearance: none;
-  -o-appearance: none;
-  -ms-appearance: none;
   appearance: none; }
 
 mark {
@@ -417,14 +408,8 @@ a {
     background: transparent;
     border-radius: 50%;
     -webkit-animation: loading 1s infinite linear;
-    -moz-animation: loading 1s infinite linear;
-    -o-animation: loading 1s infinite linear;
-    -ms-animation: loading 1s infinite linear;
     animation: loading 1s infinite linear;
     -webkit-transform-origin: center;
-    -moz-transform-origin: center;
-    -o-transform-origin: center;
-    -ms-transform-origin: center;
     transform-origin: center;
     box-shadow: .35em -.29em, .47em -.03em 0 .01em, .38em .20em 0 .02em, .22em .38em 0 .03em, 0 .44em 0 .04em, -.22em .38em 0 .05em, -.4em .25em 0 .05em, -.42em 0 0 .06em, -.36em -.21em 0 .06em, -.2em -.36em 0 .06em, 0 -.41em 0 .07em;
     color: #666666;

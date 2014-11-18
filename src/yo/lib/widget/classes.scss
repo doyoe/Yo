@@ -209,6 +209,15 @@
         &-item-tag{
             display: inline-block;
         }
+        &-item-list{
+            ul{
+                position: relative;
+            }
+            li{
+                position: absolute;
+                height: map-get($select, item-height);
+            }
+        }
         &-item-tag{
             padding-left: .02rem;
             line-height: map-get($select, item-height) * map-get($select, item);
@@ -219,25 +228,6 @@
 
 // 定义switch的基础构造
 // 使用方法请查看 ui-switch.scss
-// @mixin _switch{
-//     display: inline-block;
-//     width: .4rem;
-//     height: .24rem;
-//     border: .02rem solid #4bd663;
-//     border-radius: .2rem;
-//     background-color: #4bd663;
-//     @at-root{
-//         &-ball{
-//             display: inline-block;
-//             @include square(.2rem);
-//             border-radius: 50%;
-//             background: #fff;
-//         }
-//         &-mask{
-
-//         }
-//     }
-// }
 @mixin _switch{
     &[type="checkbox"]{
         &{

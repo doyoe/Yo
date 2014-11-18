@@ -77,9 +77,6 @@
 ::before,
 ::after {
   -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -o-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box; }
 
 html {
@@ -87,9 +84,6 @@ html {
   color: #333333;
   font-size: 100px;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  -o-user-select: none;
-  -ms-user-select: none;
   user-select: none; }
 
 body {
@@ -148,9 +142,6 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 
 input[type="button"], input[type="submit"], input[type="reset"], input[type="file"]::-webkit-file-upload-button {
   -webkit-appearance: none;
-  -moz-appearance: none;
-  -o-appearance: none;
-  -ms-appearance: none;
   appearance: none; }
 
 mark {
@@ -418,9 +409,6 @@ a {
   .ui-popup-top > .arrow::after,
   .ui-popup-down > .arrow::after {
     -webkit-transform: translate(-50%);
-    -moz-transform: translate(-50%);
-    -o-transform: translate(-50%);
-    -ms-transform: translate(-50%);
     transform: translate(-50%);
     left: 50%; }
 
@@ -435,9 +423,6 @@ a {
   .ui-popup-right > .arrow::after,
   .ui-popup-left > .arrow::after {
     -webkit-transform: translate(0, -50%);
-    -moz-transform: translate(0, -50%);
-    -o-transform: translate(0, -50%);
-    -ms-transform: translate(0, -50%);
     transform: translate(0, -50%);
     top: 50%; }
 
@@ -475,8 +460,6 @@ a {
     -webkit-overflow-scrolling: touch;
     max-height: 500px;
     padding: 0.1rem; }
-    .ui-popup > .bd else {
-      overflow: auto; }
 
 /**
  * popup演示页面

@@ -77,9 +77,6 @@
 ::before,
 ::after {
   -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -o-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box; }
 
 html {
@@ -87,9 +84,6 @@ html {
   color: #333333;
   font-size: 100px;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  -o-user-select: none;
-  -ms-user-select: none;
   user-select: none; }
 
 body {
@@ -148,9 +142,6 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 
 input[type="button"], input[type="submit"], input[type="reset"], input[type="file"]::-webkit-file-upload-button {
   -webkit-appearance: none;
-  -moz-appearance: none;
-  -o-appearance: none;
-  -ms-appearance: none;
   appearance: none; }
 
 mark {
@@ -403,9 +394,6 @@ a {
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   border-radius: 0.05rem;
   border: 1px solid #aaaaaa;
@@ -434,8 +422,6 @@ a {
     -webkit-overflow-scrolling: touch;
     max-height: 5rem;
     padding: 0.1rem; }
-    .ui-dialog > .bd else {
-      overflow: auto; }
 
 /**
  * dialog演示页面

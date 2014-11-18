@@ -77,9 +77,6 @@
 ::before,
 ::after {
   -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -o-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box; }
 
 html {
@@ -87,9 +84,6 @@ html {
   color: #333333;
   font-size: 100px;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  -o-user-select: none;
-  -ms-user-select: none;
   user-select: none; }
 
 body {
@@ -148,9 +142,6 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 
 input[type="button"], input[type="submit"], input[type="reset"], input[type="file"]::-webkit-file-upload-button {
   -webkit-appearance: none;
-  -moz-appearance: none;
-  -o-appearance: none;
-  -ms-appearance: none;
   appearance: none; }
 
 mark {
@@ -304,9 +295,6 @@ a {
   line-height: 100px;
   color: #f00;
   -webkit-transition: font-size 0.25s ease-out;
-  -moz-transition: font-size 0.25s ease-out;
-  -o-transition: font-size 0.25s ease-out;
-  -ms-transition: font-size 0.25s ease-out;
   transition: font-size 0.25s ease-out; }
   .demo .g-ico:hover {
     font-size: 100px; }
