@@ -184,30 +184,16 @@
         border-width: 1px 0;
     }
     @at-root{
+        &-item,
+        &-item-list,
+        &-item ul{
+            height: 100%;            
+        }
         &-item{
+            @include flex();
             position: relative;
             z-index: 2;
-            // 第一列和最后一列充满剩余空间
-            &:first-of-type,
-            &:last-of-type{
-                @include flex();
-            }
-            // 只在多列的情况下第一列右对齐
-            &:first-of-type:not(:only-of-type){
-                text-align: right;
-            }
-            // 只有一列时居中对齐
-            &:only-of-type{
-                text-align: center;
-            }
-            // 只在多列的情况下每列有右补白
-            &:not(:only-of-type){
-                padding-right: .25rem;
-            }
-        }
-        &-item-list,
-        &-item-tag{
-            display: inline-block;
+            text-align: center;
         }
         &-item-list{
             ul{
@@ -215,13 +201,17 @@
             }
             li{
                 position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
                 height: map-get($select, item-height);
             }
         }
         &-item-tag{
-            padding-left: .02rem;
-            line-height: map-get($select, item-height) * map-get($select, item);
-            vertical-align: top;
+            position: absolute;
+            top: 50%;
+            right: .1rem;
+            margin-top: -#{map-get($select, item-height) / 2};
         }
     }
 }

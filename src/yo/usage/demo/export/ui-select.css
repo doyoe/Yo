@@ -400,33 +400,31 @@ a {
     content: "\0020";
     border: 1px solid #aaaaaa;
     border-width: 1px 0; }
-  .ui-select-item {
-    position: relative;
-    z-index: 2; }
-    .ui-select-item:first-of-type, .ui-select-item:last-of-type {
-      -webkit-box-flex: 1;
-      -webkit-flex: 1;
-      flex: 1; }
-    .ui-select-item:first-of-type:not(:only-of-type) {
-      text-align: right; }
-    .ui-select-item:only-of-type {
-      text-align: center; }
-    .ui-select-item:not(:only-of-type) {
-      padding-right: .25rem; }
+  .ui-select-item, .ui-select-item-list, .ui-select-item ul {
+    height: 100%; }
 
-  .ui-select-item-list, .ui-select-item-tag {
-    display: inline-block; }
+  .ui-select-item {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    position: relative;
+    z-index: 2;
+    text-align: center; }
 
   .ui-select-item-list ul {
     position: relative; }
   .ui-select-item-list li {
     position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 0.3rem; }
 
   .ui-select-item-tag {
-    padding-left: .02rem;
-    line-height: 1.5rem;
-    vertical-align: top; }
+    position: absolute;
+    top: 50%;
+    right: .1rem;
+    margin-top: -0.15rem; }
 
 /**
  * select演示页面
