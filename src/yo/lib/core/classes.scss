@@ -220,7 +220,7 @@
     @if $overflow == auto {
         overflow:auto;
         -webkit-overflow-scrolling:touch;
-    } else {
+    } @else {
         overflow: $overflow;
     }
 }
