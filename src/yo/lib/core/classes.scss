@@ -214,12 +214,26 @@
     -webkit-justify-content: $justify-content;
     justify-content: $justify-content;
 }
+// 定义伸缩盒子元素的垂直对齐方式
+@mixin align-items($align-items:center){
+    @if $align-items == center {
+        -webkit-box-align: center;
+    } @else if $align-items == flex-start {
+        -webkit-box-align: start;
+    } @else if $align-items == flex-end {
+        -webkit-box-align: end;
+    } @else {
+        -webkit-box-align: $align-items;
+    }
+    -webkit-align-items: $align-items;
+    align-items: $align-items;
+}
 
 // 定义滚动条
 @mixin overflow($overflow:auto){
     @if $overflow == auto {
-        overflow:auto;
-        -webkit-overflow-scrolling:touch;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
     } @else {
         overflow: $overflow;
     }   
@@ -264,16 +278,16 @@
 // 超链接状态正确描述方案
 @mixin link($link-color,$visited-color,$hover-color,$active-color){
     &:link{
-        color:$link-color;
+        color: $link-color;
     }
     &:visited{
-        color:$visited-color;
+        color: $visited-color;
     }
     &:hover{
-        color:$hover-color;
+        color: $hover-color;
     }
     &:active{
-        color:$active-color;
+        color: $active-color;
     }
 }
 
