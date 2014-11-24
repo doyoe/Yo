@@ -77,9 +77,6 @@
 ::before,
 ::after {
   -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -o-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box; }
 
 html {
@@ -87,9 +84,6 @@ html {
   color: #333333;
   font-size: 100px;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  -o-user-select: none;
-  -ms-user-select: none;
   user-select: none; }
 
 body {
@@ -148,9 +142,6 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 
 input[type="button"], input[type="submit"], input[type="reset"], input[type="file"]::-webkit-file-upload-button {
   -webkit-appearance: none;
-  -moz-appearance: none;
-  -o-appearance: none;
-  -ms-appearance: none;
   appearance: none; }
 
 mark {
@@ -171,91 +162,6 @@ a {
   a:hover {
     color: #ff6600; }
 
-input[type="checkbox"],
-input[type="radio"] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -o-appearance: none;
-  -ms-appearance: none;
-  appearance: none;
-  position: relative;
-  overflow: hidden;
-  width: 20px;
-  height: 20px;
-  margin: 0;
-  cursor: pointer;
-  vertical-align: middle;
-  background: #fff;
-  border: 1px solid #c7ced4;
-  border-radius: 3px; }
-
-input[type="radio"] {
-  border-radius: 50%; }
-
-input[type="checkbox"]:hover,
-input[type="radio"]:hover {
-  border-color: #c6c6c6;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1); }
-
-input[type="checkbox"]:active,
-input[type="radio"]:active {
-  border-color: #c6c6c6;
-  background: #ebebeb; }
-
-input[type="checkbox"]:checked,
-input[type="radio"]:checked {
-  border-color: #02a8c9;
-  background: #02a8c9; }
-
-input[type="radio"]:checked::after {
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #fff;
-  content: "\0020"; }
-
-input[type="checkbox"]:checked::before,
-input[type="checkbox"]:checked::after {
-  position: absolute;
-  content: "\0020";
-  border-radius: 2px; }
-
-input[type="checkbox"]:checked::before {
-  top: 8px;
-  left: 4px;
-  width: 3px;
-  height: 8px;
-  background: #fff;
-  -webkit-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  transform: rotate(-45deg); }
-
-input[type="checkbox"]:checked::after {
-  top: 2px;
-  left: 10px;
-  width: 3px;
-  height: 15px;
-  background: #fff;
-  -webkit-transform: rotate(36deg);
-  -moz-transform: rotate(36deg);
-  -o-transform: rotate(36deg);
-  -ms-transform: rotate(36deg);
-  transform: rotate(36deg); }
-
-input[type="checkbox"]:focus {
-  outline: none;
-  border-color: #02a8c9; }
-
-input[type="checkbox"]:disabled,
-input[type="radio"]:disabled {
-  border-color: #dedfe0;
-  background: #dedfe0; }
-
 .g-clear::after, .g-mod::after, #bd::after {
   display: block;
   overflow: hidden;
@@ -264,9 +170,7 @@ input[type="radio"]:disabled {
   content: "\0020"; }
 
 @font-face {
-  font-family: "yofont";
-  src: url("../../../../font/yofont.eot");
-  src: url("../../../../font/yofont.eot?#iefix") format("embedded-opentype"), url("../../../../font/yofont.woff") format("woff"), url("../../../../font/yofont.ttf") format("truetype"), url("../../../../font/yofont.svg#iconfont") format("svg"); }
+  font-family: "yofont"; }
 .g-ico {
   font-family: "yofont" !important;
   font-size: 16px;
@@ -502,14 +406,8 @@ input[type="radio"]:disabled {
     background: transparent;
     border-radius: 50%;
     -webkit-animation: loading 1s infinite linear;
-    -moz-animation: loading 1s infinite linear;
-    -o-animation: loading 1s infinite linear;
-    -ms-animation: loading 1s infinite linear;
     animation: loading 1s infinite linear;
     -webkit-transform-origin: center;
-    -moz-transform-origin: center;
-    -o-transform-origin: center;
-    -ms-transform-origin: center;
     transform-origin: center;
     box-shadow: .35em -.29em, .47em -.03em 0 .01em, .38em .20em 0 .02em, .22em .38em 0 .03em, 0 .44em 0 .04em, -.22em .38em 0 .05em, -.4em .25em 0 .05em, -.42em 0 0 .06em, -.36em -.21em 0 .06em, -.2em -.36em 0 .06em, 0 -.41em 0 .07em;
     color: #666666;
@@ -539,12 +437,7 @@ input[type="radio"]:disabled {
     background-color: rgba(0, 0, 0, 0.6); }
   .g-loading-a:after {
     font-size: 1rem;
-    color: #04aed9; }
-
-.g-loading {
-  width: 1rem;
-  margin: 50px;
-  color: #fff; }
+    color: red; }
 
 .g-loading-b {
   min-height: 0.8rem; }

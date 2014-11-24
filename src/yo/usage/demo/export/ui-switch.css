@@ -77,9 +77,6 @@
 ::before,
 ::after {
   -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -o-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box; }
 
 html {
@@ -87,9 +84,6 @@ html {
   color: #333333;
   font-size: 100px;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  -o-user-select: none;
-  -ms-user-select: none;
   user-select: none; }
 
 body {
@@ -148,9 +142,6 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 
 input[type="button"], input[type="submit"], input[type="reset"], input[type="file"]::-webkit-file-upload-button {
   -webkit-appearance: none;
-  -moz-appearance: none;
-  -o-appearance: none;
-  -ms-appearance: none;
   appearance: none; }
 
 mark {
@@ -171,91 +162,6 @@ a {
   a:hover {
     color: #ff6600; }
 
-input[type="checkbox"],
-input[type="radio"] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -o-appearance: none;
-  -ms-appearance: none;
-  appearance: none;
-  position: relative;
-  overflow: hidden;
-  width: 20px;
-  height: 20px;
-  margin: 0;
-  cursor: pointer;
-  vertical-align: middle;
-  background: #fff;
-  border: 1px solid #c7ced4;
-  border-radius: 3px; }
-
-input[type="radio"] {
-  border-radius: 50%; }
-
-input[type="checkbox"]:hover,
-input[type="radio"]:hover {
-  border-color: #c6c6c6;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1); }
-
-input[type="checkbox"]:active,
-input[type="radio"]:active {
-  border-color: #c6c6c6;
-  background: #ebebeb; }
-
-input[type="checkbox"]:checked,
-input[type="radio"]:checked {
-  border-color: #02a8c9;
-  background: #02a8c9; }
-
-input[type="radio"]:checked::after {
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #fff;
-  content: "\0020"; }
-
-input[type="checkbox"]:checked::before,
-input[type="checkbox"]:checked::after {
-  position: absolute;
-  content: "\0020";
-  border-radius: 2px; }
-
-input[type="checkbox"]:checked::before {
-  top: 8px;
-  left: 4px;
-  width: 3px;
-  height: 8px;
-  background: #fff;
-  -webkit-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  transform: rotate(-45deg); }
-
-input[type="checkbox"]:checked::after {
-  top: 2px;
-  left: 10px;
-  width: 3px;
-  height: 15px;
-  background: #fff;
-  -webkit-transform: rotate(36deg);
-  -moz-transform: rotate(36deg);
-  -o-transform: rotate(36deg);
-  -ms-transform: rotate(36deg);
-  transform: rotate(36deg); }
-
-input[type="checkbox"]:focus {
-  outline: none;
-  border-color: #02a8c9; }
-
-input[type="checkbox"]:disabled,
-input[type="radio"]:disabled {
-  border-color: #dedfe0;
-  background: #dedfe0; }
-
 .g-clear::after, .g-mod::after, #bd::after {
   display: block;
   overflow: hidden;
@@ -264,9 +170,7 @@ input[type="radio"]:disabled {
   content: "\0020"; }
 
 @font-face {
-  font-family: "yofont";
-  src: url("../../../../font/yofont.eot");
-  src: url("../../../../font/yofont.eot?#iefix") format("embedded-opentype"), url("../../../../font/yofont.woff") format("woff"), url("../../../../font/yofont.ttf") format("truetype"), url("../../../../font/yofont.svg#iconfont") format("svg"); }
+  font-family: "yofont"; }
 .g-ico {
   font-family: "yofont" !important;
   font-size: 16px;
@@ -470,75 +374,62 @@ input[type="radio"]:disabled {
  * Time: 2014.11.14
  -----------------------
  * @method ui-switch
- * variables length(4)
- * @param {default | String} $name 定义select名称
- * @param {default | Length} $width 定义select显示的子项个数
- * @param {default | Length} $height 定义select子项高度
- * @param {default | Color} $bordercolor 定义select边框色
+ * variables length(9)
+ * @param {default | String} $name 定义switch名称
+ * @param {default | Color} $bordercolor 定义switch边框色
+ * @param {default | Color} $bgcolor 定义switch背景色
+ * @param {default | Color} $ball-color 定义switch滑块色
+ * @param {default | Color} $checked-bordercolor 定义switch激活边框色
+ * @param {default | Color} $checked-bgcolor 定义switch激活背景色
+ * @param {default | Color} $disabled-bordercolor 定义switch禁用边框色
+ * @param {default | Color} $disabled-bgcolor 定义switch禁用背景色
+ * @param {default | Color} $disabled-ball-color 定义switch禁用滑块色
  */
 .ui-switch[type="checkbox"] {
   -webkit-appearance: none;
-  -moz-appearance: none;
-  -o-appearance: none;
-  -ms-appearance: none;
   appearance: none;
   position: relative;
-  overflow: hidden;
-  width: .4rem;
+  width: .44rem;
   height: .24rem;
-  border: .02rem solid #4bd663;
   margin: 0;
   cursor: pointer;
-  vertical-align: middle;
-  background: #4bd663;
-  border: 1px solid #c7ced4;
-  border-radius: .2rem; }
-.ui-switch[type="checkbox"]:hover {
-  border-color: #c6c6c6;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1); }
-.ui-switch[type="checkbox"]:active {
-  border-color: #c6c6c6;
-  background: #ebebeb; }
-.ui-switch[type="checkbox"]:checked {
-  border-color: #02a8c9;
-  background: #02a8c9; }
-.ui-switch[type="checkbox"]:checked::before, .ui-switch[type="checkbox"]:checked::after {
-  position: absolute;
+  border: .02rem solid #c7c7cc;
+  border-radius: .2rem;
+  background-color: #eeeef3;
+  vertical-align: middle; }
+.ui-switch[type="checkbox"]::before {
+  display: block;
   content: "\0020";
-  border-radius: 2px; }
-.ui-switch[type="checkbox"]:checked::before {
-  top: 8px;
-  left: 4px;
-  width: 3px;
-  height: 8px;
-  background: #fff;
-  -webkit-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  transform: rotate(-45deg); }
-.ui-switch[type="checkbox"]:checked::after {
-  top: 2px;
-  left: 10px;
-  width: 3px;
-  height: 15px;
-  background: #fff;
-  -webkit-transform: rotate(36deg);
-  -moz-transform: rotate(36deg);
-  -o-transform: rotate(36deg);
-  -ms-transform: rotate(36deg);
-  transform: rotate(36deg); }
-.ui-switch[type="checkbox"]:focus {
-  outline: none;
-  border-color: #02a8c9; }
+  width: 0.2rem;
+  height: 0.2rem;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+  -webkit-transition: transform 0.3s;
+  transition: transform 0.3s; }
+.ui-switch[type="checkbox"]:active, .ui-switch[type="checkbox"]:focus {
+  outline: none; }
+.ui-switch[type="checkbox"]:active {
+  background-color: #c7c7cc; }
+.ui-switch[type="checkbox"]:checked {
+  border-color: #4cd964;
+  background-color: #4cd964; }
+  .ui-switch[type="checkbox"]:checked::before {
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0); }
+  .ui-switch[type="checkbox"]:checked:active::before {
+    -webkit-transform: translate3d(80%, 0, 0);
+    transform: translate3d(80%, 0, 0); }
 .ui-switch[type="checkbox"]:disabled {
   border-color: #dedfe0;
-  background: #dedfe0; }
+  background-color: #dedfe0; }
+  .ui-switch[type="checkbox"]:disabled::before {
+    background-color: #efefef; }
 
 /**
  * switch演示页面
  * Author: joy.du(飘零雾雨)
  * Time: 2014.11.14
  */
-.ui-switch {
+.demo {
   margin: 20px; }

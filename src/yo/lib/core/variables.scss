@@ -13,7 +13,7 @@ $setting: (
 	// 是否开启厂商前缀
 	is-vendor-prefix: true,
 	// 厂商前缀
-	vendor-prefix:    -webkit- -moz- -o- -ms-,
+	vendor-prefix:    -webkit-,
 	// 图片服务器
 	img-domain:       "../../../../image/"
 ) !default;
@@ -31,9 +31,9 @@ $media-types: (
 	// {String} 横屏
 	landscape: "screen and (orientation: landscape)",
 	// {String} 竖屏
-	portrait: "screen and (orientation: portrait)",
+	portrait:  "screen and (orientation: portrait)",
 	// 视网膜屏
-    retina: "screen and (-webkit-min-device-pixel-ratio: 2)"
+    retina:    "screen and (-webkit-min-device-pixel-ratio: 2)"
 ) !default;
 
 
@@ -88,9 +88,11 @@ $select-arrow: (
 // ico font
 $ico: (
 	// {Boole} 是否使用图标字体
-	is-use:    true,
+	is-use:     true,
 	// {String} 图标字体文件名
-	font-name: yofont,
+	font-name:  yofont,
+	// {String} 使用哪几种图标
+	font-types: woff ttf svg,
 	// {Url} 图标字体路径
 	font-path: "../../../../font/",
 ) !default;
@@ -249,14 +251,24 @@ $select: (
 ) !default;
 
 
-// Widget UI switch(9)
+// Widget UI switch(8)
 $switch: (
-	// {Length} 默认显示几个列表项
-	item:            5,
-	// {Length} 每个列表项的高度
-	item-height:     .3rem,
 	// {Color} 边框色
-	bordercolor:     #aaa
+	bordercolor:          #c7c7cc,
+	// {Color} 背景色
+	bgcolor:              #eeeef3,
+	// {Color} 滑块色
+	ball-color:           #fff,
+	// {Color} 激活边框色
+	checked-bordercolor:  #4cd964,
+	// {Color} 激活背景色
+	checked-bgcolor:      #4cd964,
+	// {Color} 禁用边框色
+	disabled-bordercolor: #dedfe0,
+	// {Color} 禁用背景色
+	disabled-bgcolor:     #dedfe0,
+	// {Color} 禁用滑块色
+	disabled-ball-color:  #efefef
 ) !default;
 
 
