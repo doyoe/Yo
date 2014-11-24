@@ -31,9 +31,9 @@ $media-types: (
 	// {String} 横屏
 	landscape: "screen and (orientation: landscape)",
 	// {String} 竖屏
-	portrait: "screen and (orientation: portrait)",
+	portrait:  "screen and (orientation: portrait)",
 	// 视网膜屏
-    retina: "screen and (-webkit-min-device-pixel-ratio: 2)"
+    retina:    "screen and (-webkit-min-device-pixel-ratio: 2)"
 ) !default;
 
 
@@ -88,9 +88,11 @@ $select-arrow: (
 // ico font
 $ico: (
 	// {Boole} 是否使用图标字体
-	is-use:    true,
+	is-use:     true,
 	// {String} 图标字体文件名
-	font-name: yofont,
+	font-name:  yofont,
+	// {String} 使用哪几种图标
+	font-types: woff ttf svg,
 	// {Url} 图标字体路径
 	font-path: "../../../../font/",
 ) !default;

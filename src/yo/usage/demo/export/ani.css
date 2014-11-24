@@ -1591,7 +1591,7 @@
 
   100% {
     opacity: 0;
-    transform: translate3d(100%, 0, 0) rotate3d(0, 0, 1, 120deg); } }
+    -webkit-transform: translate3d(100%, 0, 0) rotate3d(0, 0, 1, 120deg); } }
 @keyframes roll-out-right {
   0% {
     opacity: 1; }
@@ -1634,7 +1634,7 @@
 
   100% {
     opacity: 0;
-    transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg); } }
+    -webkit-transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg); } }
 @keyframes roll-out-left {
   0% {
     opacity: 1; }
@@ -1861,6 +1861,486 @@
   animation-timing-function: ease-in;
   -webkit-animation-name: speed-out-left;
   animation-name: speed-out-left; }
+
+/**
+ * Ani - Yo框架的动画解决方案
+ * Licensed under the MIT license - http://opensource.org/licenses/MIT
+ * Copyright (c) 2014 Joy Du
+ * Time: 2012.1.1
+ */
+/**
+ * 定义动画基本特性
+ */
+.ani {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.ani.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite; }
+
+/**
+ * 定义旋转进入动画
+ * @method rotate-in
+ * 使用方式，code:
+   <div class="ani rotate-in"...
+ */
+@-webkit-keyframes rotate-in {
+  0% {
+    -webkit-transform-origin: center;
+    -webkit-transform: rotate3d(0, 0, 1, -200deg);
+    opacity: 0; }
+
+  100% {
+    -webkit-transform-origin: center;
+    -webkit-transform: none;
+    opacity: 1; } }
+@keyframes rotate-in {
+  0% {
+    transform-origin: center;
+    transform: rotate3d(0, 0, 1, -200deg);
+    opacity: 0; }
+
+  100% {
+    transform-origin: center;
+    transform: none;
+    opacity: 1; } }
+.ani.rotate-in {
+  -webkit-animation-name: rotate-in;
+  animation-name: rotate-in; }
+
+/**
+ * Ani - Yo框架的动画解决方案
+ * Licensed under the MIT license - http://opensource.org/licenses/MIT
+ * Copyright (c) 2014 Joy Du
+ * Time: 2012.1.1
+ */
+/**
+ * 定义动画基本特性
+ */
+.ani {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.ani.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite; }
+
+/**
+ * 定义旋转从右向上进入动画
+ * @method rotate-in-up-right
+ * 使用方式，code:
+   <div class="ani rotate-in-up-right"...
+ */
+@-webkit-keyframes rotate-in-up-right {
+  0% {
+    -webkit-transform-origin: right bottom;
+    -webkit-transform: rotate3d(0, 0, 1, -45deg);
+    opacity: 0; }
+
+  100% {
+    -webkit-transform-origin: right bottom;
+    -webkit-transform: none;
+    opacity: 1; } }
+@keyframes rotate-in-up-right {
+  0% {
+    transform-origin: right bottom;
+    transform: rotate3d(0, 0, 1, -45deg);
+    opacity: 0; }
+
+  100% {
+    transform-origin: right bottom;
+    transform: none;
+    opacity: 1; } }
+.ani.rotate-in-up-right {
+  -webkit-animation-name: rotate-in-up-right;
+  animation-name: rotate-in-up-right; }
+
+/**
+ * Ani - Yo框架的动画解决方案
+ * Licensed under the MIT license - http://opensource.org/licenses/MIT
+ * Copyright (c) 2014 Joy Du
+ * Time: 2012.1.1
+ */
+/**
+ * 定义动画基本特性
+ */
+.ani {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.ani.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite; }
+
+/**
+ * 定义旋转从左向上进入动画
+ * @method rotate-in-up-left
+ * 使用方式，code:
+   <div class="ani rotate-in-up-left"...
+ */
+@-webkit-keyframes rotate-in-up-left {
+  0% {
+    -webkit-transform-origin: left bottom;
+    -webkit-transform: rotate3d(0, 0, 1, 45deg);
+    opacity: 0; }
+
+  100% {
+    -webkit-transform-origin: left bottom;
+    -webkit-transform: none;
+    opacity: 1; } }
+@keyframes rotate-in-up-left {
+  0% {
+    transform-origin: left bottom;
+    transform: rotate3d(0, 0, 1, 45deg);
+    opacity: 0; }
+
+  100% {
+    transform-origin: left bottom;
+    transform: none;
+    opacity: 1; } }
+.ani.rotate-in-up-left {
+  -webkit-animation-name: rotate-in-up-left;
+  animation-name: rotate-in-up-left; }
+
+/**
+ * Ani - Yo框架的动画解决方案
+ * Licensed under the MIT license - http://opensource.org/licenses/MIT
+ * Copyright (c) 2014 Joy Du
+ * Time: 2012.1.1
+ */
+/**
+ * 定义动画基本特性
+ */
+.ani {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.ani.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite; }
+
+/**
+ * 定义旋转从右向下进入动画
+ * @method rotate-in-down-right
+ * 使用方式，code:
+   <div class="ani rotate-in-down-right"...
+ */
+@-webkit-keyframes rotate-in-down-right {
+  0% {
+    -webkit-transform-origin: right bottom;
+    -webkit-transform: rotate3d(0, 0, 1, 45deg);
+    opacity: 0; }
+
+  100% {
+    -webkit-transform-origin: right bottom;
+    -webkit-transform: none;
+    opacity: 1; } }
+@keyframes rotate-in-down-right {
+  0% {
+    transform-origin: right bottom;
+    transform: rotate3d(0, 0, 1, 45deg);
+    opacity: 0; }
+
+  100% {
+    transform-origin: right bottom;
+    transform: none;
+    opacity: 1; } }
+.ani.rotate-in-down-right {
+  -webkit-animation-name: rotate-in-down-right;
+  animation-name: rotate-in-down-right; }
+
+/**
+ * Ani - Yo框架的动画解决方案
+ * Licensed under the MIT license - http://opensource.org/licenses/MIT
+ * Copyright (c) 2014 Joy Du
+ * Time: 2012.1.1
+ */
+/**
+ * 定义动画基本特性
+ */
+.ani {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.ani.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite; }
+
+/**
+ * 定义旋转从左向下进入动画
+ * @method rotate-in-down-left
+ * 使用方式，code:
+   <div class="ani rotate-in-down-left"...
+ */
+@-webkit-keyframes rotate-in-down-left {
+  0% {
+    -webkit-transform-origin: left bottom;
+    -webkit-transform: rotate3d(0, 0, 1, -45deg);
+    opacity: 0; }
+
+  100% {
+    -webkit-transform-origin: left bottom;
+    -webkit-transform: none;
+    opacity: 1; } }
+@keyframes rotate-in-down-left {
+  0% {
+    transform-origin: left bottom;
+    transform: rotate3d(0, 0, 1, -45deg);
+    opacity: 0; }
+
+  100% {
+    transform-origin: left bottom;
+    transform: none;
+    opacity: 1; } }
+.ani.rotate-in-down-left {
+  -webkit-animation-name: rotate-in-down-left;
+  animation-name: rotate-in-down-left; }
+
+/**
+ * Ani - Yo框架的动画解决方案
+ * Licensed under the MIT license - http://opensource.org/licenses/MIT
+ * Copyright (c) 2014 Joy Du
+ * Time: 2012.1.1
+ */
+/**
+ * 定义动画基本特性
+ */
+.ani {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.ani.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite; }
+
+/**
+ * 定义旋转退出动画
+ * @method rotate-out
+ * 使用方式，code:
+   <div class="ani rotate-out"...
+ */
+@-webkit-keyframes rotate-out {
+  0% {
+    -webkit-transform-origin: center;
+    opacity: 1; }
+
+  100% {
+    -webkit-transform-origin: center;
+    -webkit-transform: rotate3d(0, 0, 1, 200deg);
+    opacity: 0; } }
+@keyframes rotate-out {
+  0% {
+    transform-origin: center;
+    opacity: 1; }
+
+  100% {
+    transform-origin: center;
+    transform: rotate3d(0, 0, 1, 200deg);
+    opacity: 0; } }
+.ani.rotate-out {
+  -webkit-animation-name: rotate-out;
+  animation-name: rotate-out; }
+
+/**
+ * Ani - Yo框架的动画解决方案
+ * Licensed under the MIT license - http://opensource.org/licenses/MIT
+ * Copyright (c) 2014 Joy Du
+ * Time: 2012.1.1
+ */
+/**
+ * 定义动画基本特性
+ */
+.ani {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.ani.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite; }
+
+/**
+ * 定义旋转从右向上退出动画
+ * @method rotate-out-up-right
+ * 使用方式，code:
+   <div class="ani rotate-out-up-right"...
+ */
+@-webkit-keyframes rotate-out-up-right {
+  0% {
+    -webkit-transform-origin: right bottom;
+    opacity: 1; }
+
+  100% {
+    -webkit-transform-origin: right bottom;
+    -webkit-transform: rotate3d(0, 0, 1, 90deg);
+    opacity: 0; } }
+@keyframes rotate-out-up-right {
+  0% {
+    transform-origin: right bottom;
+    opacity: 1; }
+
+  100% {
+    transform-origin: right bottom;
+    transform: rotate3d(0, 0, 1, 90deg);
+    opacity: 0; } }
+.ani.rotate-out-up-right {
+  -webkit-animation-name: rotate-out-up-right;
+  animation-name: rotate-out-up-right; }
+
+/**
+ * Ani - Yo框架的动画解决方案
+ * Licensed under the MIT license - http://opensource.org/licenses/MIT
+ * Copyright (c) 2014 Joy Du
+ * Time: 2012.1.1
+ */
+/**
+ * 定义动画基本特性
+ */
+.ani {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.ani.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite; }
+
+/**
+ * 定义旋转从左向上退出动画
+ * @method rotate-out-up-left
+ * 使用方式，code:
+   <div class="ani rotate-out-up-left"...
+ */
+@-webkit-keyframes rotate-out-up-left {
+  0% {
+    -webkit-transform-origin: left bottom;
+    opacity: 1; }
+
+  100% {
+    -webkit-transform-origin: left bottom;
+    -webkit-transform: rotate3d(0, 0, 1, -90deg);
+    opacity: 0; } }
+@keyframes rotate-out-up-left {
+  0% {
+    transform-origin: left bottom;
+    opacity: 1; }
+
+  100% {
+    transform-origin: left bottom;
+    transform: rotate3d(0, 0, 1, -90deg);
+    opacity: 0; } }
+.ani.rotate-out-up-left {
+  -webkit-animation-name: rotate-out-up-left;
+  animation-name: rotate-out-up-left; }
+
+/**
+ * Ani - Yo框架的动画解决方案
+ * Licensed under the MIT license - http://opensource.org/licenses/MIT
+ * Copyright (c) 2014 Joy Du
+ * Time: 2012.1.1
+ */
+/**
+ * 定义动画基本特性
+ */
+.ani {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.ani.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite; }
+
+/**
+ * 定义旋转从右往下退出动画
+ * @method rotate-out-down-right
+ * 使用方式，code:
+   <div class="ani rotate-out-down-right"...
+ */
+@-webkit-keyframes rotate-out-down-right {
+  0% {
+    -webkit-transform-origin: right bottom;
+    opacity: 1; }
+
+  100% {
+    -webkit-transform-origin: right bottom;
+    -webkit-transform: rotate3d(0, 0, 1, -90deg);
+    opacity: 0; } }
+@keyframes rotate-out-down-right {
+  0% {
+    transform-origin: right bottom;
+    opacity: 1; }
+
+  100% {
+    transform-origin: right bottom;
+    transform: rotate3d(0, 0, 1, -90deg);
+    opacity: 0; } }
+.ani.rotate-out-down-right {
+  -webkit-animation-name: rotate-out-down-right;
+  animation-name: rotate-out-down-right; }
+
+/**
+ * Ani - Yo框架的动画解决方案
+ * Licensed under the MIT license - http://opensource.org/licenses/MIT
+ * Copyright (c) 2014 Joy Du
+ * Time: 2012.1.1
+ */
+/**
+ * 定义动画基本特性
+ */
+.ani {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.ani.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite; }
+
+/**
+ * 定义旋转从左往下退出动画
+ * @method rotate-out-down-left
+ * 使用方式，code:
+   <div class="ani rotate-out-down-left"...
+ */
+@-webkit-keyframes rotate-out-down-left {
+  0% {
+    -webkit-transform-origin: left bottom;
+    opacity: 1; }
+
+  100% {
+    -webkit-transform-origin: left bottom;
+    -webkit-transform: rotate3d(0, 0, 1, 90deg);
+    opacity: 0; } }
+@keyframes rotate-out-down-left {
+  0% {
+    transform-origin: left bottom;
+    opacity: 1; }
+
+  100% {
+    transform-origin: left bottom;
+    transform: rotate3d(0, 0, 1, 90deg);
+    opacity: 0; } }
+.ani.rotate-out-down-left {
+  -webkit-animation-name: rotate-out-down-left;
+  animation-name: rotate-out-down-left; }
 
 /**
  * Ani - Yo框架的动画解决方案
