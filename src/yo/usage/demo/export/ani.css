@@ -2362,6 +2362,490 @@
   animation-iteration-count: infinite; }
 
 /**
+ * 定义放大进入动画
+ * @method zoom-in
+ * 使用方式，code:
+   <div class="ani zoom-in"...
+ */
+@-webkit-keyframes zoom-in {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3); }
+
+  50% {
+    opacity: 1; } }
+@keyframes zoom-in {
+  0% {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3); }
+
+  50% {
+    opacity: 1; } }
+.ani.zoom-in {
+  -webkit-animation-name: zoom-in;
+  animation-name: zoom-in; }
+
+/**
+ * Ani - Yo框架的动画解决方案
+ * Licensed under the MIT license - http://opensource.org/licenses/MIT
+ * Copyright (c) 2014 Joy Du
+ * Time: 2012.1.1
+ */
+/**
+ * 定义动画基本特性
+ */
+.ani {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.ani.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite; }
+
+/**
+ * 定义放大上升进入动画
+ * @method zoom-in-up
+ * 使用方式，code:
+   <div class="ani zoom-in-up"...
+ */
+@-webkit-keyframes zoom-in-up {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.1, 0.1, 0.1) translate3d(0, 1000px, 0);
+    -webkit-animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: scale3d(0.475, 0.475, 0.475) translate3d(0, -60px, 0);
+    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1); } }
+@keyframes zoom-in-up {
+  0% {
+    opacity: 0;
+    transform: scale3d(0.1, 0.1, 0.1) translate3d(0, 1000px, 0);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+
+  60% {
+    opacity: 1;
+    transform: scale3d(0.475, 0.475, 0.475) translate3d(0, -60px, 0);
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1); } }
+.ani.zoom-in-up {
+  -webkit-animation-name: zoom-in-up;
+  animation-name: zoom-in-up; }
+
+/**
+ * Ani - Yo框架的动画解决方案
+ * Licensed under the MIT license - http://opensource.org/licenses/MIT
+ * Copyright (c) 2014 Joy Du
+ * Time: 2012.1.1
+ */
+/**
+ * 定义动画基本特性
+ */
+.ani {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.ani.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite; }
+
+/**
+ * 定义从右侧放大进入动画
+ * @method zoom-in-right
+ * 使用方式，code:
+   <div class="ani zoom-in-right"...
+ */
+@-webkit-keyframes zoom-in-right {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.1, 0.1, 0.1) translate3d(1000px, 0, 0);
+    -webkit-animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: scale3d(0.475, 0.475, 0.475) translate3d(-10px, 0, 0);
+    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1); } }
+@keyframes zoom-in-right {
+  0% {
+    opacity: 0;
+    transform: scale3d(0.1, 0.1, 0.1) translate3d(1000px, 0, 0);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+
+  60% {
+    opacity: 1;
+    transform: scale3d(0.475, 0.475, 0.475) translate3d(-10px, 0, 0);
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1); } }
+.ani.zoom-in-right {
+  -webkit-animation-name: zoom-in-right;
+  animation-name: zoom-in-right; }
+
+/**
+ * Ani - Yo框架的动画解决方案
+ * Licensed under the MIT license - http://opensource.org/licenses/MIT
+ * Copyright (c) 2014 Joy Du
+ * Time: 2012.1.1
+ */
+/**
+ * 定义动画基本特性
+ */
+.ani {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.ani.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite; }
+
+/**
+ * 定义放大下降进入动画
+ * @method zoom-in-down
+ * 使用方式，code:
+   <div class="ani zoom-in-down"...
+ */
+@-webkit-keyframes zoom-in-down {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.1, 0.1, 0.1) translate3d(0, -1000px, 0);
+    -webkit-animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: scale3d(0.475, 0.475, 0.475) translate3d(0, 60px, 0);
+    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1); } }
+@keyframes zoom-in-down {
+  0% {
+    opacity: 0;
+    transform: scale3d(0.1, 0.1, 0.1) translate3d(0, -1000px, 0);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+
+  60% {
+    opacity: 1;
+    transform: scale3d(0.475, 0.475, 0.475) translate3d(0, 60px, 0);
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1); } }
+.ani.zoom-in-down {
+  -webkit-animation-name: zoom-in-down;
+  animation-name: zoom-in-down; }
+
+/**
+ * Ani - Yo框架的动画解决方案
+ * Licensed under the MIT license - http://opensource.org/licenses/MIT
+ * Copyright (c) 2014 Joy Du
+ * Time: 2012.1.1
+ */
+/**
+ * 定义动画基本特性
+ */
+.ani {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.ani.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite; }
+
+/**
+ * 定义从左侧放大进入动画
+ * @method zoom-in-left
+ * 使用方式，code:
+   <div class="ani zoom-in-left"...
+ */
+@-webkit-keyframes zoom-in-left {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.1, 0.1, 0.1) translate3d(-1000px, 0, 0);
+    -webkit-animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: scale3d(0.475, 0.475, 0.475) translate3d(10px, 0, 0);
+    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1); } }
+@keyframes zoom-in-left {
+  0% {
+    opacity: 0;
+    transform: scale3d(0.1, 0.1, 0.1) translate3d(-1000px, 0, 0);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+
+  60% {
+    opacity: 1;
+    transform: scale3d(0.475, 0.475, 0.475) translate3d(10px, 0, 0);
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1); } }
+.ani.zoom-in-left {
+  -webkit-animation-name: zoom-in-left;
+  animation-name: zoom-in-left; }
+
+/**
+ * Ani - Yo框架的动画解决方案
+ * Licensed under the MIT license - http://opensource.org/licenses/MIT
+ * Copyright (c) 2014 Joy Du
+ * Time: 2012.1.1
+ */
+/**
+ * 定义动画基本特性
+ */
+.ani {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.ani.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite; }
+
+/**
+ * 定义缩小退出动画
+ * @method zoom-out
+ * 使用方式，code:
+   <div class="ani zoom-out"...
+ */
+@-webkit-keyframes zoom-out {
+  0% {
+    opacity: 1; }
+
+  50% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3); }
+
+  100% {
+    opacity: 0; } }
+@keyframes zoom-out {
+  0% {
+    opacity: 1; }
+
+  50% {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3); }
+
+  100% {
+    opacity: 0; } }
+.ani.zoom-out {
+  -webkit-animation-name: zoom-out;
+  animation-name: zoom-out; }
+
+/**
+ * Ani - Yo框架的动画解决方案
+ * Licensed under the MIT license - http://opensource.org/licenses/MIT
+ * Copyright (c) 2014 Joy Du
+ * Time: 2012.1.1
+ */
+/**
+ * 定义动画基本特性
+ */
+.ani {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.ani.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite; }
+
+/**
+ * 定义上升缩小退出动画
+ * @method zoom-out-up
+ * 使用方式，code:
+   <div class="ani zoom-out-up"...
+ */
+@-webkit-keyframes zoom-out-up {
+  40% {
+    opacity: 1;
+    -webkit-transform: scale3d(0.475, 0.475, 0.475) translate3d(0, 60px, 0);
+    -webkit-animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.1, 0.1, 0.1) translate3d(0, -2000px, 0);
+    -webkit-transform-origin: center bottom;
+    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1); } }
+@keyframes zoom-out-up {
+  40% {
+    opacity: 1;
+    transform: scale3d(0.475, 0.475, 0.475) translate3d(0, 60px, 0);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+
+  100% {
+    opacity: 0;
+    transform: scale3d(0.1, 0.1, 0.1) translate3d(0, -2000px, 0);
+    transform-origin: center bottom;
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1); } }
+.ani.zoom-out-up {
+  -webkit-animation-name: zoom-out-up;
+  animation-name: zoom-out-up; }
+
+/**
+ * Ani - Yo框架的动画解决方案
+ * Licensed under the MIT license - http://opensource.org/licenses/MIT
+ * Copyright (c) 2014 Joy Du
+ * Time: 2012.1.1
+ */
+/**
+ * 定义动画基本特性
+ */
+.ani {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.ani.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite; }
+
+/**
+ * 定义从右往左缩小退出动画
+ * @method zoom-out-right
+ * 使用方式，code:
+   <div class="ani zoom-out-right"...
+ */
+@-webkit-keyframes zoom-out-right {
+  40% {
+    opacity: 1;
+    -webkit-transform: scale3d(0.475, 0.475, 0.475) translate3d(-45px, 0, 0); }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0.1) translate3d(2000px, 0, 0);
+    -webkit-transform-origin: right center; } }
+@keyframes zoom-out-right {
+  40% {
+    opacity: 1;
+    transform: scale3d(0.475, 0.475, 0.475) translate3d(-45px, 0, 0); }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.1) translate3d(2000px, 0, 0);
+    transform-origin: right center; } }
+.ani.zoom-out-right {
+  -webkit-animation-name: zoom-out-right;
+  animation-name: zoom-out-right; }
+
+/**
+ * Ani - Yo框架的动画解决方案
+ * Licensed under the MIT license - http://opensource.org/licenses/MIT
+ * Copyright (c) 2014 Joy Du
+ * Time: 2012.1.1
+ */
+/**
+ * 定义动画基本特性
+ */
+.ani {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.ani.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite; }
+
+/**
+ * 定义下降缩小退出动画
+ * @method zoom-out-down
+ * 使用方式，code:
+   <div class="ani zoom-out-down"...
+ */
+@-webkit-keyframes zoom-out-down {
+  40% {
+    opacity: 1;
+    -webkit-transform: scale3d(0.475, 0.475, 0.475) translate3d(0, -60px, 0);
+    -webkit-animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.1, 0.1, 0.1) translate3d(0, 2000px, 0);
+    -webkit-transform-origin: center bottom;
+    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1); } }
+@keyframes zoom-out-down {
+  40% {
+    opacity: 1;
+    transform: scale3d(0.475, 0.475, 0.475) translate3d(0, -60px, 0);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+
+  100% {
+    opacity: 0;
+    transform: scale3d(0.1, 0.1, 0.1) translate3d(0, 2000px, 0);
+    transform-origin: center bottom;
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1); } }
+.ani.zoom-out-down {
+  -webkit-animation-name: zoom-out-down;
+  animation-name: zoom-out-down; }
+
+/**
+ * Ani - Yo框架的动画解决方案
+ * Licensed under the MIT license - http://opensource.org/licenses/MIT
+ * Copyright (c) 2014 Joy Du
+ * Time: 2012.1.1
+ */
+/**
+ * 定义动画基本特性
+ */
+.ani {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.ani.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite; }
+
+/**
+ * 定义从左往右缩小退出动画
+ * @method zoom-out-left
+ * 使用方式，code:
+   <div class="ani zoom-out-left"...
+ */
+@-webkit-keyframes zoom-out-left {
+  40% {
+    opacity: 1;
+    -webkit-transform: scale3d(0.475, 0.475, 0.475) translate3d(45px, 0, 0); }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0.1) translate3d(-2000px, 0, 0);
+    -webkit-transform-origin: left center; } }
+@keyframes zoom-out-left {
+  40% {
+    opacity: 1;
+    transform: scale3d(0.475, 0.475, 0.475) translate3d(45px, 0, 0); }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.1) translate3d(-2000px, 0, 0);
+    transform-origin: left center; } }
+.ani.zoom-out-left {
+  -webkit-animation-name: zoom-out-left;
+  animation-name: zoom-out-left; }
+
+/**
+ * Ani - Yo框架的动画解决方案
+ * Licensed under the MIT license - http://opensource.org/licenses/MIT
+ * Copyright (c) 2014 Joy Du
+ * Time: 2012.1.1
+ */
+/**
+ * 定义动画基本特性
+ */
+.ani {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.ani.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite; }
+
+/**
  * 定义闪烁动画
  * @method flash
  * 使用方式，code: 
