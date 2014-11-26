@@ -6,6 +6,12 @@
  * Time: 2012.1.1
  */
 /**
+ * Directory: lib/core/variables.scss
+ * CSS Variables 定义各种页面沙粒变量
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ */
+/**
  * Directory: lib/core/classes.scss
  * Global Classes 约定常规解决方案
  * Author: joy.du(飘零雾雨)
@@ -170,7 +176,9 @@ a {
   content: "\0020"; }
 
 @font-face {
-  font-family: "yofont"; }
+  font-family: "yofont";
+  src: url("../../../../font/yofont.eot");
+  src: url("../../../../font/yofont.eot?#iefix") format("embedded-opentype"), url("../../../../font/yofont.woff") format("woff"), url("../../../../font/yofont.ttf") format("truetype"), url("../../../../font/yofont.svg#iconfont") format("svg"); }
 .g-ico {
   font-family: "yofont" !important;
   font-size: 16px;
