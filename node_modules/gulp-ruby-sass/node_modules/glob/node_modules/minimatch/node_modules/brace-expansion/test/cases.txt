@@ -1,0 +1,86 @@
+# skip quotes for now
+# "{x,x}"
+# {"x,x"}
+# {x","x}
+# '{a,b}{{a,b},a,b}'
+A{b,{d,e},{f,g}}Z
+PRE-{a,b}{{a,b},a,b}-POST
+\{a,b}{{a,b},a,b}
+{{a,b}
+{a,b}}
+{,}
+a{,}
+{,}b
+a{,}b
+a{b}c
+a{1..5}b
+a{01..5}b
+a{-01..5}b
+a{-01..5..3}b
+a{001..9}b
+a{b,c{d,e},{f,g}h}x{y,z
+a{b,c{d,e},{f,g}h}x{y,z\}
+a{b,c{d,e},{f,g}h}x{y,z}
+a{b{c{d,e}f{x,y{{g}h
+a{b{c{d,e}f{x,y{}g}h
+a{b{c{d,e}f{x,y}}g}h
+a{b{c{d,e}f}g}h
+a{{x,y},z}b
+f{x,y{g,z}}h
+f{x,y{{g,z}}h
+f{x,y{{g,z}}h}
+f{x,y{{g}h
+f{x,y{{g}}h
+f{x,y{}g}h
+z{a,b{,c}d
+z{a,b},c}d
+{-01..5}
+{-05..100..5}
+{-05..100}
+{0..5..2}
+{0001..05..2}
+{0001..-5..2}
+{0001..-5..-2}
+{0001..5..-2}
+{01..5}
+{1..05}
+{1..05..3}
+{05..100}
+{0a..0z}
+{a,b\}c,d}
+{a,b{c,d}
+{a,b}c,d}
+{a..F}
+{A..f}
+{a..Z}
+{A..z}
+{z..A}
+{Z..a}
+{a..F..2}
+{A..f..02}
+{a..Z..5}
+d{a..Z..5}b
+{A..z..10}
+{z..A..-2}
+{Z..a..20}
+{a{,b}
+{a},b}
+{x,y{,}g}
+{x,y{}g}
+{{a,b}
+{{a,b},c}
+{{a,b}c}
+{{a,b},}
+X{{a,b},}X
+{{a,b},}c
+{{a,b}.}
+{{a,b}}
+X{a..#}X
+# this next one is an empty string
+
+{-10..00}
+# Need to escape slashes in here for reasons i guess.
+{a,\\\\{a,b}c}
+{a,\\{a,b}c}
+a,\\{b,c}
+{-10.\\.00}
