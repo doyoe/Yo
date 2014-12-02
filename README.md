@@ -25,18 +25,8 @@ $ npm install --save-dev
 
 Tasks 
 
-├── lint   
-├─┬ concat  
-│ └── lint  
-├─┬ minjs  
-│ ├── lint  
-│ └── concat  
-├─┬ js  
-│ ├── lint  
-│ ├── concat  
-│ └── minjs  
-├── sass     
-├── clean    
-├─┬ default  
-│ └── clean  
-└── watch  
+    ├── sass
+    ├── clean
+    ├─┬ default
+    │ └── clean
+    └── watch 
