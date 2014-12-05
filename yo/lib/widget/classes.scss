@@ -273,3 +273,45 @@
         }
     }
 }
+
+// 定义number的基础构造
+// 使用方法请查看 yo-number.scss
+@mixin _number{
+    display: inline-block;
+    height: map-get($number, height);
+    line-height: map-get($number, height);
+    border: 1px solid map-get($number, bordercolor);
+    box-shadow: 1px 1px 1px rgba(map-get($number, bordercolor),.3);
+    font-size: 0;
+    vertical-align: middle;
+    > .minus,
+    > .plus,
+    > .input{
+        display: inline-block;
+        height: 100%;
+        text-align: center;
+        vertical-align: top;
+    }
+    > .minus,
+    > .plus{
+        width: .35rem;
+        background-color: map-get($number, sign-bgcolor);
+        color: map-get($number, sign-color);
+        font-size: 30px;
+        font-family: arial;
+        cursor: pointer;
+        &.disabled{
+            color: map-get($number, disabled-sign-color);
+            cursor: not-allowed;
+        }
+    }
+    > .input{
+        width: .46rem;
+        border: 1px solid map-get($number, bordercolor);
+        border-width: 0 1px;
+        box-shadow: inset 1px 1px 1px rgba(map-get($number, bordercolor),.1);
+        background-color: #fff;
+        color: map-get($number, color);
+        font-size: .16rem;
+    }
+}

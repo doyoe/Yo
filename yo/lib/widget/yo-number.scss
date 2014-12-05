@@ -1,0 +1,90 @@
+@charset "utf-8";
+@import "classes";
+
+/**
+ * Fragment: yo-number
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ ------------------------
+ * @method yo-number
+ * variables length(7)
+ * @param {default | String} $name 定义yo-number名称
+ * @param {default | Length} $height 定义yo-number高度
+ * @param {default | Color} $bordercolor 定义yo-number边框色
+ * @param {default | Color} $color 定义yo-number输入框文本色
+ * @param {default | Color} $sign-bgcolor 定义yo-number加减号背景色
+ * @param {default | Color} $sign-color 定义yo-number加减号文本色
+ * @param {default | Color} $disabled-sign-color 定义yo-number禁用文本色
+ */
+
+@mixin yo-number($name:default,
+			$height:default,
+			$bordercolor:default,
+			$color:default,
+			$sign-bgcolor:default,
+			$sign-color:default,
+			$disabled-sign-color:default){
+	@if $name == default {
+		$name: "";
+	} @else {
+		$name: -$name;
+	}
+	// 如果值为default，则取config的定义
+	@if $height == default {
+		$height: map-get($number, height);
+	}
+	@if $bordercolor == default {
+		$bordercolor: map-get($number, bordercolor);
+	}
+	@if $color == default {
+		$color: map-get($number,color);
+	}
+	@if $sign-bgcolor == default {
+		$sign-bgcolor: map-get($number, sign-bgcolor);
+	}
+	@if $sign-color == default {
+		$sign-color: map-get($number, sign-color);
+	}
+	@if $disabled-sign-color == default {
+		$disabled-sign-color: map-get($number, disabled-sign-color);
+	}
+	.yo-number#{$name}{
+		@if $height != map-get($number, height) {
+			height: $height;
+			line-height: $height;
+		}
+		@if $bordercolor != map-get($number, bordercolor) {
+		    border-color: $bordercolor;
+		    box-shadow: 1px 1px 1px rgba($bordercolor,.3);
+		}
+	    > .minus,
+	    > .plus{
+	        width: .35rem;
+	        @if $sign-bgcolor != map-get($number, sign-bgcolor) {
+		        background-color: $sign-bgcolor;
+		    }
+		    @if $sign-color != map-get($number, sign-color) {
+		        color: $sign-color;
+		    }
+		    &.disabled{
+		    	@if $disabled-sign-color != map-get($number, disabled-sign-color) {
+		        	color: $disabled-sign-color;
+				}
+		    }
+	    }
+	    > .input{
+	    	@if $bordercolor != map-get($number, bordercolor) {
+	    		border-color: $bordercolor;
+		        box-shadow: inset 1px 1px 1px rgba($bordercolor,.2);
+		    }
+		    @if $color != map-get($number, color) {
+				color: $color;
+		    }
+	    }
+	}
+}
+
+// 调用本文件时载入number基础构造
+.yo-number{
+	@include _number;
+}

@@ -66,7 +66,7 @@ $base: (
 	// 默认次级文本颜色
 	sub-color:         #8c8c8c,
 	// 默认禁用文本颜色
-	disabled-color:    #aaa,
+	disabled-color:    #d9d9d9,
 	// 高亮色
 	light-color:       #FE0053,
 	// mark背景色
@@ -305,6 +305,23 @@ $switch: (
 	disabled-bgcolor:     #dedfe0,
 	// {Color} 禁用滑块色
 	disabled-ball-color:  #efefef
+) !default;
+
+
+// Widget UI number(8)
+$number: (
+	// {Length} 高度
+	height:  .36rem,
+	// {Color} 边框色
+	bordercolor:          map-get($base, bordercolor),
+	// {color} 输入框文本色
+	color:                map-get($base, color),
+	// {Color} 加减号背景色
+	sign-bgcolor:         #fdfdfd,
+	// {Color} 加减号文本色
+	sign-color:           #999,
+	// {Color} 禁用加减号文本色
+	disabled-sign-color:  #d9d9d9
 ) !default;
 
 
