@@ -1,0 +1,496 @@
+@charset "UTF-8";
+/**
+ * Directory: lib/core/variables.scss
+ * CSS Variables 定义各种页面沙粒变量
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ */
+/**
+ * Directory: lib/core/classes.scss
+ * Global Classes 约定常规解决方案
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ */
+/**
+ * 定义响应式方案
+ * @method responsive
+ * @param {String} $media 指定媒体查询条件
+ * 使用方法如下，结合variables中的$media-types：
+    @include responsive(phone) {
+        .foo {
+            background: blue;
+        }
+    }
+ */
+/**
+ * 定义字体图标
+ * @method yofont
+ */
+/**
+ * 定义UA默认外观
+ * @method appearance
+ * @param {String} $appearance 指定UA外观类型
+ */
+/**
+ * 定义是否可以选中元素
+ * @method user-select
+ * @param {String} $user-select 指定是否可以选中
+ */
+/**
+ * 定义渐变色值
+ * @method gradient
+ * @param {String} $type 指定渐变的4种类型：linear, repeating-linear, radial, repeating-radial
+ * @param {String} $gradient 指定渐变取值，与原生语法一致
+ */
+/**
+ * 定义盒模型
+ * @method box-sizing
+ * @param {String} $box-sizing 的2个值分别为：content-box(标准盒模型) | border-box(怪异盒模型)
+ */
+/**
+ * 定义简单变换
+ * @method transform
+ * @param {String} $transform 取值与原生语法一致
+ */
+/**
+ * 定义变换原点
+ * @method transform-origin
+ * @param {String} $transform-origin 取值与原生语法一致
+ */
+/**
+ * 定义动画
+ * @method animation
+ * @param {String} $animation 取值与原生语法一致
+ */
+/**
+ * 定义补间
+ * @method transition
+ * @param {String} $transition 取值与原生语法一致
+ */
+/**
+ * Directory: lib/core/reset.scss
+ * Css Reset
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ */
+*,
+::before,
+::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+html {
+  background-color: white;
+  color: #333333;
+  font-size: 100px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none; }
+
+body {
+  font-size: 16px; }
+
+body, ul, ol, dl, dd, h1, h2, h3, h4, h5, h6, figure, form, fieldset, legend, input, textarea, button, p, blockquote, th, td, pre, xmp {
+  margin: 0;
+  padding: 0; }
+
+body, input, textarea, button, select, pre, tt, code, kbd, samp, optgroup, option {
+  line-height: 1.5;
+  font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  table-layout: fixed;
+  text-align: left; }
+
+caption, th {
+  text-align: inherit; }
+
+ul, ol, menu {
+  list-style: none; }
+
+fieldset, img {
+  border: 0 none; }
+
+img, object, input, textarea, button, select {
+  vertical-align: top; }
+
+article, aside, footer, header, section, nav, figure, figcaption, hgroup, details, menu, main {
+  display: block; }
+
+audio, canvas, video {
+  display: inline-block; }
+
+h1, h2, h3, h4, h5, h6, input, textarea, button, select, small, big {
+  font-size: 100%; }
+
+address, cite, dfn, em, i, optgroup, var {
+  font-style: normal; }
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "\0020"; }
+
+textarea {
+  overflow: auto; }
+
+textarea, input, button {
+  outline: none; }
+
+button::-moz-focus-inner, input::-moz-focus-inner {
+  padding: 0;
+  border: 0 none; }
+
+input[type="button"], input[type="submit"], input[type="reset"], input[type="file"]::-webkit-file-upload-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
+
+mark {
+  background-color: transparent; }
+
+ins, s, u, del {
+  text-decoration: none; }
+
+input, textarea, button, a {
+  -webkit-tap-highlight-color: transparent; }
+
+a, img {
+  -webkit-touch-callout: none; }
+
+a {
+  color: #25a4bb;
+  text-decoration: none; }
+  a:hover {
+    color: #ff6600; }
+
+.g-clear::after, .g-mod::after, #bd::after {
+  display: block;
+  overflow: hidden;
+  clear: both;
+  height: 0;
+  content: "\0020"; }
+
+@font-face {
+  font-family: "fontawesome-webfont";
+  src: url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.eot");
+  src: url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.eot?#iefix") format("embedded-opentype"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.woff") format("woff"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.ttf") format("truetype"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.svg#iconfont") format("svg"); }
+.yo-ico {
+  font-family: "fontawesome-webfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+  vertical-align: middle; }
+
+/**
+ * Directory: lib/core/variables.scss
+ * CSS Variables 定义各种页面沙粒变量
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ */
+/**
+ * Directory: lib/core/classes.scss
+ * Global Classes 约定常规解决方案
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ */
+/**
+ * 定义响应式方案
+ * @method responsive
+ * @param {String} $media 指定媒体查询条件
+ * 使用方法如下，结合variables中的$media-types：
+    @include responsive(phone) {
+        .foo {
+            background: blue;
+        }
+    }
+ */
+/**
+ * 定义字体图标
+ * @method yofont
+ */
+/**
+ * 定义UA默认外观
+ * @method appearance
+ * @param {String} $appearance 指定UA外观类型
+ */
+/**
+ * 定义是否可以选中元素
+ * @method user-select
+ * @param {String} $user-select 指定是否可以选中
+ */
+/**
+ * 定义渐变色值
+ * @method gradient
+ * @param {String} $type 指定渐变的4种类型：linear, repeating-linear, radial, repeating-radial
+ * @param {String} $gradient 指定渐变取值，与原生语法一致
+ */
+/**
+ * 定义盒模型
+ * @method box-sizing
+ * @param {String} $box-sizing 的2个值分别为：content-box(标准盒模型) | border-box(怪异盒模型)
+ */
+/**
+ * 定义简单变换
+ * @method transform
+ * @param {String} $transform 取值与原生语法一致
+ */
+/**
+ * 定义变换原点
+ * @method transform-origin
+ * @param {String} $transform-origin 取值与原生语法一致
+ */
+/**
+ * 定义动画
+ * @method animation
+ * @param {String} $animation 取值与原生语法一致
+ */
+/**
+ * 定义补间
+ * @method transition
+ * @param {String} $transition 取值与原生语法一致
+ */
+/**
+ * Directory: lib/layout/classes.scss
+ * Global Document Classes 约定文档级布局方案
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ */
+/**
+ * document: doc
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ ------------------------
+ * @method doc
+ * @param {String} $name 定义page-name
+ * @param {String} $fixed 定义头尾是否固定
+ * @param {Length} $hd-gap 定义主体到viewport顶部的距离
+ * @param {Length} $ft-gap 定义主体到viewport底部的距离
+ */
+/**
+* document layout
+* Author: joy.du(飘零雾雨)
+* Time: 2013.10.17
+*/
+/**
+* module: m-demo
+* Author: joy.du(飘零雾雨)
+* Time: 2013.10.17
+*/
+.m-demo {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  margin: 10px; }
+  .m-demo .device {
+    position: relative;
+    width: 365px;
+    height: 792px;
+    background: url(../../../../bgimg/phone@2x.png) no-repeat;
+    background-size: 365px 792px; }
+    .m-demo .device .stage {
+      position: absolute;
+      top: 104px;
+      left: 23px;
+      width: 320px;
+      height: 576px;
+      background-color: #fff; }
+  .m-demo .code {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 10px;
+    padding: 10px;
+    border-left: 4px solid #D7DBE4;
+    background-color: #F0F3F8;
+    font-family: Monaco, Menlo, Consolas, "Courier New", monospace; }
+
+/**
+* module: m-code
+* Author: joy.du(飘零雾雨)
+* Time: 2013.10.17
+*/
+.m-code {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  background: #272822;
+  color: #51bbe1;
+  font-size: 20px; }
+  .m-code .method {
+    color: #93de08; }
+  .m-code .bracket,
+  .m-code .colon {
+    padding-right: 5px;
+    color: #fff; }
+  .m-code mark {
+    background: none;
+    color: #ccc;
+    font-size: 16px; }
+
+/**
+ * Directory: lib/core/variables.scss
+ * CSS Variables 定义各种页面沙粒变量
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ */
+/**
+ * Directory: lib/core/classes.scss
+ * Global Classes 约定常规解决方案
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ */
+/**
+ * 定义响应式方案
+ * @method responsive
+ * @param {String} $media 指定媒体查询条件
+ * 使用方法如下，结合variables中的$media-types：
+    @include responsive(phone) {
+        .foo {
+            background: blue;
+        }
+    }
+ */
+/**
+ * 定义字体图标
+ * @method yofont
+ */
+/**
+ * 定义UA默认外观
+ * @method appearance
+ * @param {String} $appearance 指定UA外观类型
+ */
+/**
+ * 定义是否可以选中元素
+ * @method user-select
+ * @param {String} $user-select 指定是否可以选中
+ */
+/**
+ * 定义渐变色值
+ * @method gradient
+ * @param {String} $type 指定渐变的4种类型：linear, repeating-linear, radial, repeating-radial
+ * @param {String} $gradient 指定渐变取值，与原生语法一致
+ */
+/**
+ * 定义盒模型
+ * @method box-sizing
+ * @param {String} $box-sizing 的2个值分别为：content-box(标准盒模型) | border-box(怪异盒模型)
+ */
+/**
+ * 定义简单变换
+ * @method transform
+ * @param {String} $transform 取值与原生语法一致
+ */
+/**
+ * 定义变换原点
+ * @method transform-origin
+ * @param {String} $transform-origin 取值与原生语法一致
+ */
+/**
+ * 定义动画
+ * @method animation
+ * @param {String} $animation 取值与原生语法一致
+ */
+/**
+ * 定义补间
+ * @method transition
+ * @param {String} $transition 取值与原生语法一致
+ */
+/**
+ * Directory: lib/widget/classes.scss
+ * widget的基础构造
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ */
+/**
+ * Fragment: yo-tab
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ ------------------------
+ * @method yo-tab
+ * variables length(10)
+ * @param {default | String} $name 定义yo-tab名称
+ * @param {default | Boole} $is-border 定义yo-tab是否有边框
+ * @param {default | Boole} $is-item-border 定义yo-tab是否有间隔线
+ * @param {default | Length} $height 定义yo-tab高度
+ * @param {default | Color} $bordercolor 定义yo-tab边框色
+ * @param {default | Color} $bgcolor 定义yo-tab背景色
+ * @param {default | Color} $color 定义yo-tab文本色
+ * @param {default | Color} $on-bordercolor 定义yo-tab激活边框色
+ * @param {default | Color} $on-bgcolor 定义yo-tab激活背景色
+ * @param {default | Color} $$on-color 定义yo-tab激活文本色
+ */
+.yo-tab {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  height: 0.49rem;
+  border-color: #dddddd;
+  background-color: #fafafa;
+  text-align: center;
+  line-height: 0.49rem; }
+  .yo-tab > .item {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    border-top: 1px solid #dddddd;
+    color: #333333; }
+    .yo-tab > .item:not(:first-child) {
+      border-left-color: #dddddd; }
+    .yo-tab > .item:hover, .yo-tab > .item:active, .yo-tab > .item.on {
+      background-color: white;
+      color: black; }
+    .yo-tab > .item-top-ico, .yo-tab > .item-left-ico {
+      font-size: .12rem; }
+    .yo-tab > .item-top-ico {
+      padding-top: .08rem;
+      line-height: .2rem; }
+      .yo-tab > .item-top-ico .yo-ico {
+        display: block;
+        font-size: .28rem; }
+    .yo-tab > .item-left-ico .yo-ico {
+      font-size: .24rem; }
+    .yo-tab > .item-only-ico .yo-ico {
+      font-size: .32rem; }
+
+/**
+ * g-tab演示页面
+ * Author: joy.du(飘零雾雨)
+ * Time: 2014.9.18
+ */
+.m-demo .yo-tab {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%; }
+.m-demo .yo-tab-test {
+  position: static;
+  width: 80%;
+  margin: 50px auto; }
+
+.yo-tab-test {
+  height: 0.35rem;
+  line-height: 0.35rem;
+  border-width: 0 1px 1px 1px;
+  border-style: solid; }
+  .yo-tab-test > .item:not(:first-child) {
+    border-left-width: 1px;
+    border-left-style: solid; }
+
+.yo-tab-only-ico {
+  height: 1rem;
+  line-height: 1rem;
+  border-color: black;
+  background-color: #999999; }
+  .yo-tab-only-ico > .item {
+    border-top-color: black;
+    color: white; }
+    .yo-tab-only-ico > .item:not(:first-child) {
+      border-left-width: 1px;
+      border-left-style: solid;
+      border-left-color: black; }

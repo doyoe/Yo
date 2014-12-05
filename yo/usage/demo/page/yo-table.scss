@@ -1,0 +1,14 @@
+@charset "utf-8";
+@import "../layout/layout";
+@import "../module/m-demo";
+@import "../module/m-code";
+@import "../../../lib/fragment/yo-table";
+
+/**
+ * table演示页面
+ * Author: joy.du(飘零雾雨)
+ * Time: 2014.4.1
+ */
+
+@include yo-table(test,default,true,default,default,default,default,#ddd,default,none,default,none);
+@include yo-table(test2,default,default,default,default,default,default,default,#aaa,default,#eee,#effbfb);

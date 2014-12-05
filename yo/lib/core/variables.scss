@@ -1,0 +1,323 @@
+@charset "utf-8";
+
+/**
+ * Directory: lib/core/variables.scss
+ * CSS Variables 定义各种页面沙粒变量
+ * Author: joy.du(飘零雾雨)
+ * Edit: 2014.12.5
+ */
+
+$setting: (
+	// 版本号
+	version:          "1.0.0",
+	// 是否开启厂商前缀
+	is-vendor-prefix: true,
+	// 厂商前缀
+	vendor-prefix:    -webkit- -moz-,
+	// 内容图片服务器
+	img-domain:       "../../../img/",
+	// 内容图片服务器
+	bgimg-domain:     "../../../bgimg/"
+) !default;
+
+
+// Document Layout
+$doc: (
+	responsive-type: none,
+	is-scroll:       false
+) !default;
+
+
+// responsive media types
+$media-types: (
+	// {String} 横屏
+	landscape: "screen and (orientation: landscape)",
+	// {String} 竖屏
+	portrait:  "screen and (orientation: portrait)",
+	// 视网膜屏
+    retina:    "screen and (-webkit-min-device-pixel-ratio: 2)"
+) !default;
+
+
+// base
+$base: (
+	// html root使用100px，方便rem单位的换算
+	font-size-root:         100px,
+	// 适配：用于做元素随屏幕大小而变化的情况
+	font-size-root-scaling: 31.25vw,
+	// body的默认字体
+	// chrome37.0.2062.120/opera24在body上使用rem时有个bug（其他版本未测）:
+    // 只要引用了外部样式，不论里面的内容是什么，body上的rem就会失效
+    // 这时在开发者工具里，关闭又开启一次该条属性，则生效，刷新又挂
+    // 所以这里注释该条属性，默认字号不能从root相对而来，所以定义成px
+	font-size:         16px,
+	// font-family
+	// escape('微软雅黑').replace(/\%u/g,'\\').toLowerCase()
+	// 可参考http://alloyteam.github.io/Spirit/modules/Standard/index.html
+	font-family:       #{"Helvetica Neue", Helvetica, STHeiTi, sans-serif},
+	// lin-height
+	line-height:       1.5,
+	// 默认边框色
+	bordercolor:       #ddd,
+	// 默认文档颜色
+	bgcolor:           #fff,
+	// 默认文本颜色
+	color:             #333,
+	// 默认次级文本颜色
+	sub-color:         #8c8c8c,
+	// 默认禁用文本颜色
+	disabled-color:    #aaa,
+	// 高亮色
+	light-color:       #FE0053,
+	// mark背景色
+	mark-bgcolor:      transparent,
+	// 价格颜色
+	price-color:       #f60,
+	// Link Colors
+	// 默认链接色
+	link-color:        #25a4bb,
+	// 链接经过色
+	link-hover-color:  #f60
+) !default;
+
+
+// arrow for select
+$select-arrow: (
+	// {Length} 箭头大小
+	size:       .12rem,
+	// {Color} 箭头颜色
+	color:      #aaa
+) !default;
+
+// ico font
+$ico: (
+	// {Boole} 是否使用图标字体
+	is-use:     true,
+	// {String} 图标字体文件名
+	font-name:  fontawesome-webfont,
+	// {String} 使用哪几种图标
+	// font-types: woff ttf svg,
+	// {Url} 图标字体路径
+	font-path:  "http://source.qunarzz.com/fonts/fontawesome/4.1.0/",
+) !default;
+
+
+// Element loading(3)
+$loading: (
+	// {Length} 菊花大小
+	size:        .5rem,
+	// {Color} 菊花颜色
+	bordercolor: #666,
+	// {String} mask颜色
+	bgcolor:     rgba(255,255,255,.2)
+) !default;
+
+
+// Element Button(17)
+$btn: (
+	// {Color} 按钮背景色
+	bgcolor:     #dedede,
+	// {Color} 按钮文本色
+	color:       map-get($base,color),
+	// {Boole} 是否需要边框（按钮的边框色都由背景色计算而来）
+	is-border:   true,
+	// {Length} 按钮内补白
+	padding:     0 1.5em,
+	// {Length} 按钮圆角
+	radius:      .03rem,
+	// {Length} 默认预设3种尺寸按钮：
+	// small
+	s-height:    .28rem,
+	s-font-size: .12rem,
+	// medium
+	m-height:    .36rem,
+	m-font-size: .15rem,
+	// large
+	l-height:    .44rem,
+	l-font-size: .2rem,
+	// {Color} 默认预设4种风格按钮：
+	// 1. disabled
+	disabled-bgcolor: #e6e6e6,
+	disabled-color:   map-get($base,disabled-color),
+	// 2. primary
+	primary-bgcolor:  #ff801a,
+	primary-color:    #fff,
+	// 3. info
+	info-bgcolor:     #4a87ee,
+	info-color:       #fff
+	// 4. normal
+	// normal为默认按钮 
+) !default;
+
+
+// Element UI badge(8)
+$badge: (
+	// {Color} 背景色
+	bgcolor:          #f00,
+	// {Color} 文本色
+	color:            #fff
+) !default;
+
+
+// Fragment toolbar(1)
+$toolbar: (
+	// {auto | Length} 工具栏圆角
+	// 当值为auto时，toolbar的圆角半径取决于按钮的圆角定义
+	radius: auto
+) !default;
+
+
+// Fragment list(5)
+$list: (
+	// {Boole} 列表是否有外边框
+	is-outline:    true,
+	// {Color} 列表边框色
+	bordercolor:   #ddd,
+	// {Length} 列表项内补白，只能一个数字
+	item-padding:  .1rem,
+	// {Length} 列表组头内补白，可以同时设定4个方位
+	label-padding: .1rem .1rem,
+	// {Color} 列表组头背景色
+	label-bgcolor: #eee,
+	// {Length} mark宽度
+	mark-width:    100px
+) !default;
+
+
+// Fragment tab(9)
+$tab: (
+	// {Length} tab高度
+	height:         .49rem,
+	// {Boole} 是否有外边框
+	is-border:      false,
+	// {Boole} 是否有子项竖边框
+	is-item-border: false,
+	// {Color} tab边框色
+	bordercolor:    map-get($base, bordercolor),
+	// {Color} tab背景色
+	bgcolor:        #fafafa,
+	// {Color} tab文本色
+	color:          map-get($base, color),
+	// {Color} tab激活边框色
+	on-bordercolor: null,
+	// {Color} tab激活背景色
+	on-bgcolor:     #fff,
+	// {Color} tab激活文本色
+	on-color:       #000
+) !default;
+
+
+// Fragment Table(10)
+$table: (
+	// {Boole} 是否需要纵向边框
+	is-vertical-border: false,
+	// {Length} 表格距外观边距离
+	padding:         0 .1rem,
+	// {Length} 表标题内部白
+	caption-padding: .1rem,
+	// {Length} 表头部内补白
+	thead-padding:   .05rem .1rem,
+	// {Length} 表主体内补白
+	tbody-padding:   .1rem,
+	// {Color} table边框色，表格必须有边框，所以不能有none值
+	bordercolor:     #ddd,
+	// {none | Color} 表头部背景色
+	thead-bgcolor:   #eee,
+	// {none | Color} 表主体奇数行背景色
+	odd-bgcolor:     none,
+	// {none | Color} 表主体偶数行背景色
+	even-bgcolor:    none,
+	// {none | Color} 表主体经过行背景色
+	hover-bgcolor:   none
+) !default;
+
+
+// Widget UI Dialog(8)
+$dialog: (
+	// {Length} 圆角
+	radius:          .05rem,
+	// {Number} 阴影透明度
+	shadow-opacity:  .5,
+	// {Color} 边框色
+	bordercolor:     #aaa,
+	// {Length} 头部高度
+	hd-height:       .5rem,
+	// {Color} 头部背景色
+	hd-bgcolor:      #eee,
+	// {Color} 标题颜色
+	title-color:     map-get($base,color),
+	// {Length} 标题文字大小
+	title-font-size: .16rem,
+	// {Length} 主体区域间隙
+	bd-padding:      .1rem
+) !default;
+
+
+// Widget UI Popup(9)
+$popup: (
+	// {Length} 圆角
+	radius:          .03rem,
+	// {Color} 边框色
+	bordercolor:     #aaa,
+	// {Length} 头部高度
+	hd-height:       .5rem,
+	// {Color} 头部背景色
+	hd-bgcolor:      #eee,
+	// {Color} 标题颜色
+	title-color:     map-get($base,color),
+	// {Length} 标题文字大小
+	title-font-size: .16rem,
+	// {Length} 主体区域间隙
+	bd-padding:      .1rem,
+	// {Length} 箭头大小
+	arrow-size:      .12rem,
+	// {center | Length} 箭头位置
+	arrow-pos:       center
+) !default;
+
+
+// Widget UI select(3)
+$select: (
+	// {Length} 默认显示几个列表项
+	item:            5,
+	// {Length} 每个列表项的高度
+	item-height:     .3rem,
+	// {Color} 边框色
+	bordercolor:     #aaa
+) !default;
+
+
+// Widget UI switch(8)
+$switch: (
+	// {Color} 激活边框色
+	checked-bordercolor:  #4bd763,
+	// {Color} 激活背景色
+	checked-bgcolor:      #4bd763,
+	// {Color} 边框色
+	bordercolor:          #ddd,
+	// {Color} 背景色
+	bgcolor:              #eeeef3,
+	// {Color} 滑块色
+	ball-color:           #fff,
+	// {Color} 禁用边框色
+	disabled-bordercolor: #dedfe0,
+	// {Color} 禁用背景色
+	disabled-bgcolor:     #dedfe0,
+	// {Color} 禁用滑块色
+	disabled-ball-color:  #efefef
+) !default;
+
+
+// z-index
+$z-index: (
+	// {Number} 下拉菜单层级范围50-100
+	dropdown: 50,
+	// {Number} loading层级
+	loading:  201,
+	// {Number} 遮罩层级
+	mask:     1000,
+	// {Number} 弹窗层级范围1001-2000
+	dialog:   1001,
+	// {Number} 浮层层级范围101-500
+	popup:    2001
+) !default;

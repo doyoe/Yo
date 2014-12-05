@@ -1,0 +1,17 @@
+@charset "utf-8";
+@import "../layout/layout";
+@import "../module/m-demo";
+@import "../module/m-code";
+@import "../../../lib/element/yo-loading";
+
+/**
+ * loading演示页面
+ * Author: joy.du(飘零雾雨)
+ * Time: 2014.4.1
+ */
+
+// 改变所有
+@include yo-loading(a,1rem,red,rgba(0,0,0,.6));
+
+// 改变名字（用于同时存在多个）
+@include yo-loading(b,.6rem);

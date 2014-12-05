@@ -1,0 +1,171 @@
+@charset "utf-8";
+@import "../core/variables";
+@import "../core/classes";
+
+/**
+ * Directory: lib/fragment/classes.scss
+ * fragment的基础构造
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ */
+
+// 定义list的基础构造
+// 使用方法请查看 yo-list.scss
+@mixin _list{
+	overflow: hidden;
+	background-color: #fff;
+	// 如果config变量$list-is-outline为true，则列表需要轮廓
+	@if map-get($list,is-outline) == true {
+		outline: 1px solid map-get($list,bordercolor);
+		outline-offset: -1px;
+	}
+	> .label,
+	> .item{
+		border-bottom: 1px solid map-get($list,bordercolor);
+		@include flexbox();
+		@include align-items();
+		> .mark{
+			// width: map-get($list,mark-width);
+			margin-right: .1rem;
+		}
+		
+		// 定义单元格的padding
+		.col{
+			padding: map-get($list,item-padding);
+			&:first-child{
+				margin-left: -#{map-get($list,item-padding)};
+			}
+			&:last-child{
+				margin-right: -#{map-get($list,item-padding)};
+			}
+		}
+		// 定义需要自适应宽度的列
+		> .flex{
+			@include flex(1);
+		}
+	}
+	> .label{
+		padding: map-get($list,label-padding);
+		background-color: map-get($list,label-bgcolor);
+	}
+	> .label:first-of-type{
+		border-top: 1px solid map-get($list,bordercolor);
+	}
+	> .item{
+		padding: map-get($list,item-padding);
+		color: map-get($base,color);
+	}
+	> label.item{
+		// 让输入框占满整个父容器
+		> .input{
+			@include align-self(stretch);
+			width: 100%;
+			border: 0 none;
+			background-color: transparent;
+		}
+	}
+}
+
+// 定义table的基础构造
+// 使用方法请查看 yo-table.scss
+@mixin _table{
+	background: #fff;
+	&-zone{
+		padding: map-get($table,padding);
+		border: 1px solid map-get($table,bordercolor);
+		table{margin: -1px 0;}
+	}
+	table{width: 100%;}
+	caption{
+		padding: map-get($table,caption-padding);
+		@if map-get($table,is-vertical-border) == false {
+			border-bottom: 1px solid map-get($table,is-vertical-border);
+		}
+	}
+	thead{
+		@if map-get($table,thead-bgcolor) != none {
+			background: map-get($table,thead-bgcolor);
+		}
+		th{
+			@if map-get($table,thead-padding) != 0 {
+				padding: map-get($table,thead-padding);
+			}
+		}
+	}
+	td{
+		@if map-get($table,tbody-padding) != 0 {
+			padding: map-get($table,tbody-padding);
+		}
+	}
+	th,
+	td{
+		// 判断是够需要垂直边框
+		@if map-get($table,is-vertical-border) == false {
+			border-width: 0 0 1px 0;
+		} @else {
+			border-width: 1px;
+		}
+		border-style: solid;
+		border-color: map-get($table,bordercolor);
+	}
+	tbody{
+		tr:nth-child(odd){
+			@if map-get($table,odd-bgcolor) != none {
+				background: map-get($table,odd-bgcolor);
+			}
+		}
+		tr:nth-child(even){
+			@if map-get($table,even-bgcolor) != none {
+				background: map-get($table,even-bgcolor);
+			}
+		}
+		tr:hover{
+			@if map-get($table,hover-bgcolor) != none {
+				background: map-get($table,hover-bgcolor);
+			}
+		}
+	}
+}
+
+// 定义toolbar的基础构造
+// 使用方法请查看 yo-toolbar.scss
+@mixin _toolbar{
+	display: inline-block;
+	vertical-align: middle;
+	> .yo-btn{
+		float: left;
+		&:not(:first-child){
+			margin-left: -1px;
+		}
+		&:first-child{
+			// 如果按钮有圆角，那么去掉第一个按钮的右侧圆角
+			@if map-get($btn,radius) != 0 {
+				border-top-right-radius: 0;
+				border-bottom-right-radius: 0;
+			}
+			// 如果工具栏定义了圆角，那么不管按钮有没有左侧圆角，都重绘
+			@if map-get($toolbar,radius) != auto and map-get($toolbar,radius) != map-get($btn,radius) {
+				border-top-left-radius: map-get($toolbar,radius);
+				border-bottom-left-radius: map-get($toolbar,radius);
+			}
+		}
+		&:last-child{
+			// 如果按钮有圆角，那么去掉最后一个按钮的左侧圆角
+			@if map-get($btn,radius) != 0 {
+				border-top-left-radius: 0;
+				border-bottom-left-radius: 0;
+			}
+			// 如果工具栏定义了圆角，那么不管按钮有没有右侧圆角，都重绘
+			@if map-get($toolbar,radius) != auto and map-get($toolbar,radius) != map-get($btn,radius) {
+				border-top-right-radius: map-get($toolbar,radius);
+				border-bottom-right-radius: map-get($toolbar,radius);
+			}
+		}
+		&:not(:first-child):not(:last-child){
+			// 如果按钮有圆角，那么清除中间所有按钮的圆角
+			@if map-get($btn,radius) != 0 {
+				border-radius: 0;
+			}
+		}
+	}
+}

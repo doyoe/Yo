@@ -1,0 +1,63 @@
+@charset "utf-8";
+@import "classes";
+
+/**
+ * Element: yo-select
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ -----------------------
+ * @method select
+ * variables length(4)
+ * @param {defailt | String} $name 定义名称
+ * @param {defailt | Length} $size 定义尺寸
+ * @param {defailt | Color} $bordercolor 定义边框色
+ * @param {defailt | Color} $bgcolor 定义背景色
+ */
+
+@mixin yo-select($name:default,
+				$size:default,
+				$bordercolor:default,
+				$bgcolor:default){
+	@if $name == default {
+		$name: "";
+	} @else {
+		$name: -$name;
+	}
+	// 如果值为default，则取config的定义
+	@if $size == default {
+        $size: map-get($select,size);
+    }
+    @if $bordercolor == default {
+        $bordercolor: map-get($select,bordercolor);
+    }
+    @if $bgcolor == default {
+        $bgcolor: map-get($select,bgcolor);
+    }
+	.yo-select#{$name}{
+		// 如果$size不等于config预设值时，则重设容器高度
+		@if $size != map-get($select,size) {
+			min-height: $size + 20px;
+		}
+		&:before{
+			// 如果$bgcolor不等于config预设值时，则重写遮罩背景色
+			@if $bgcolor != map-get($select,bgcolor) {
+			    background-color: $bgcolor;
+			}
+		}
+		&:after{
+			// 如果$size不等于config预设值时，则重设尺寸
+			@if $size != map-get($select,size) {
+				font-size: $size;
+			}
+			// 如果$bordercolor不等于config预设值时，则重设颜色
+			@if $bordercolor != map-get($select,bordercolor) {
+			    color: $bordercolor;
+			}
+		}
+	}
+}
+
+// 调用本文件时载入select基础构造
+.yo-select{
+	// @include _select;
+}

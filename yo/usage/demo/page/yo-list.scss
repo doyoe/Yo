@@ -1,0 +1,21 @@
+@charset "utf-8";
+@import "../layout/layout";
+@import "../module/m-demo";
+@import "../module/m-code";
+@import "../../../lib/element/yo-switch";
+@import "../../../lib/fragment/yo-list";
+
+/**
+ * list演示页面
+ * Author: joy.du(飘零雾雨)
+ * Time: 2014.4.1
+ */
+
+ .yo-list{
+ 	.mark img{
+ 		width: 80px;
+ 		height: 50px;
+ 	}
+ }
+
+// @include yo-list(table,false,#000);

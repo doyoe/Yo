@@ -1,0 +1,35 @@
+@charset "utf-8";
+/**
+* module: m-demo
+* Author: joy.du(飘零雾雨)
+* Time: 2013.10.17
+*/
+.m-demo{
+	@include flexbox();
+	margin: 10px;
+	.device{
+		position: relative;
+		width: 365px;
+		height: 792px;
+		background: url(../../../../bgimg/phone@2x.png) no-repeat;
+		background-size: 365px 792px;
+		.stage{
+			position: absolute;
+			top: 104px;
+			left: 23px;
+			width: 320px;
+			height: 576px;
+			// border: 4px solid #22272d;
+			background-color: #fff;
+		}
+	}
+	.code{
+		@include flex();
+		@include overflow();
+		margin: 10px;
+		padding: 10px;
+		border-left: 4px solid #D7DBE4;
+		background-color: #F0F3F8;
+		font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+	}
+}
