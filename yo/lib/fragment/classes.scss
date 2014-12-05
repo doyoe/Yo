@@ -25,10 +25,8 @@
 		@include flexbox();
 		@include align-items();
 		> .mark{
-			// width: map-get($list,mark-width);
 			margin-right: .1rem;
 		}
-		
 		// 定义单元格的padding
 		.col{
 			padding: map-get($list,item-padding);
@@ -55,13 +53,22 @@
 		padding: map-get($list,item-padding);
 		color: map-get($base,color);
 	}
-	> label.item{
+	> .item-input{
+		cursor: pointer;
 		// 让输入框占满整个父容器
 		> .input{
 			@include align-self(stretch);
 			width: 100%;
 			border: 0 none;
 			background-color: transparent;
+		}
+	}
+	> .item-checked,
+	> a.item{
+		cursor: pointer;
+		&:hover,
+		&:active{
+			background-color: map-get($list,on-bgcolor);
 		}
 	}
 }

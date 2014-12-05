@@ -413,14 +413,14 @@ a {
  * Time: 2012.1.1
  ------------------------
  * @method yo-list
- * variables length(7)
+ * variables length(8)
  * @param {default|String} $name 定义list名称
  * @param {default|Boole} $is-outline 定义list是否需要轮廓（即外边框）
  * @param {default|Color} $bordercolor 定义list边框色
  * @param {default|Length} $item-padding 定义list项的内补白
- * @param {default|Length} $mark-width 定义list项的mark宽度
  * @param {default|Length} $label-padding 定义list分组标题内补白
  * @param {default|Color} $label-bgcolor 定义list分组标题背景色
+ * @param {default|Color} $on-bgcolor 定义list经过/选中背景色
  */
 .yo-list {
   overflow: hidden;
@@ -461,12 +461,21 @@ a {
   .yo-list > .item {
     padding: 0.1rem;
     color: #333333; }
-  .yo-list > label.item > .input {
-    -webkit-align-self: stretch;
-    align-self: stretch;
-    width: 100%;
-    border: 0 none;
-    background-color: transparent; }
+  .yo-list > .item-input {
+    cursor: pointer; }
+    .yo-list > .item-input > .input {
+      -webkit-align-self: stretch;
+      align-self: stretch;
+      width: 100%;
+      border: 0 none;
+      background-color: transparent; }
+  .yo-list > .item-checked,
+  .yo-list > a.item {
+    cursor: pointer; }
+    .yo-list > .item-checked:hover, .yo-list > .item-checked:active,
+    .yo-list > a.item:hover,
+    .yo-list > a.item:active {
+      background-color: #f7f7f7; }
 
 /**
  * Directory: lib/core/variables.scss

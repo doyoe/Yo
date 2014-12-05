@@ -552,32 +552,51 @@ a {
  * Time: 2012.1.1
  */
 /**
- * Element: yo-badge
+ * widget: yo-checked
  * Author: joy.du(飘零雾雨)
- * Time: 2012.1.1
+ * Time: 2014.11.14
  -----------------------
- * @method badge
- * variables length(3)
- * @param {defailt | String} $name 定义名称
- * @param {defailt | Color} $bgcolor 定义背景色
- * @param {defailt | Color} $color 定义文本色
+ * @method yo-checked
+ * variables length(5)
+ * @param {default | String} $name 定义checked名称
+ * @param {default | String} $type 定义checked类型，可选值：[circle | tick]
+ * @param {default | Length} $size 定义checked大小
+ * @param {default | Color} $color 定义checked颜色
+ * @param {default | Color} $disabled-color 定义checked禁用色
  */
-.yo-badge {
-  display: inline-block;
-  min-width: .22rem;
-  min-height: .22rem;
-  padding: .03rem .06rem;
-  border-radius: .11rem;
-  background-color: red;
-  color: white;
-  font-size: .14rem;
-  line-height: .16rem;
-  text-align: center; }
+.yo-checked[type="checkbox"], .yo-checked[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;
+  width: 0.2rem;
+  height: 0.2rem;
+  cursor: pointer;
+  vertical-align: middle; }
+  .yo-checked[type="checkbox"]::after, .yo-checked[type="radio"]::after {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    -webkit-transform: translatey(-50%);
+    -moz-transform: translatey(-50%);
+    transform: translatey(-50%);
+    color: #2b94ff;
+    content: "●";
+    text-shadow: 0 0 1px;
+    font-size: 0.2rem;
+    opacity: 0;
+    -webkit-transition: opacity 0.5s;
+    -moz-transition: opacity 0.5s;
+    transition: opacity 0.5s; }
+  .yo-checked[type="checkbox"]:checked::after, .yo-checked[type="radio"]:checked::after {
+    opacity: 1; }
+  .yo-checked[type="checkbox"]:disabled::after, .yo-checked[type="radio"]:disabled::after {
+    color: #d9d9d9; }
 
 /**
- * badge演示页面
+ * checked演示页面
  * Author: joy.du(飘零雾雨)
- * Time: 2014.4.1
+ * Time: 2014.11.14
  */
-.yo-badge-b {
-  background-color: gray; }
+.yo-checked-test[type="checkbox"]::after, .yo-checked-test[type="radio"]::after {
+  content: "✓"; }

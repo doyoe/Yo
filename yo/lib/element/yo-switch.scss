@@ -60,13 +60,11 @@
     }
 	.yo-switch#{$name} {
         &[type="checkbox"]{
-            &{
-                @if $bordercolor != map-get($switch, bordercolor) {
-                    border-color: $bordercolor;
-                }
-                @if $bgcolor != map-get($switch, bgcolor) {
-                    background-color: $bgcolor;
-                }
+            @if $bordercolor != map-get($switch, bordercolor) {
+                border-color: $bordercolor;
+            }
+            @if $bgcolor != map-get($switch, bgcolor) {
+                background-color: $bgcolor;
             }
             &::before{
                 @if $ball-color != map-get($switch, ball-color) {

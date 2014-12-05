@@ -1,0 +1,71 @@
+@charset "utf-8";
+@import "classes";
+
+/**
+ * widget: yo-checked
+ * Author: joy.du(飘零雾雨)
+ * Time: 2014.11.14
+ -----------------------
+ * @method yo-checked
+ * variables length(5)
+ * @param {default | String} $name 定义checked名称
+ * @param {default | String} $type 定义checked类型，可选值：[circle | tick]
+ * @param {default | Length} $size 定义checked大小
+ * @param {default | Color} $color 定义checked颜色
+ * @param {default | Color} $disabled-color 定义checked禁用色
+ */
+
+@mixin yo-checked($name:default,
+                $type:default,
+                $size:default,
+                $color:default,
+                $disabled-color:default) {
+	@if $name == default {
+		$name: "";
+	} @else {
+		$name: -$name;
+	}
+    // 如果值为default，则取config的定义
+    @if $type == default {
+        $type: map-get($checked, type);
+    }
+    @if $size == default {
+        $size: map-get($checked, size);
+    }
+    @if $color == default {
+        $color: map-get($checked, color);
+    }
+    @if $disabled-color == default {
+        $disabled-color: map-get($checked, disabled-color);
+    }
+	.yo-checked#{$name} {
+        &[type="checkbox"],
+        &[type="radio"]{
+            &::after{
+                @if $color != map-get($checked, color) {
+                    color: $color;
+                }
+                @if $type != map-get($checked, type) {
+                    @if $type == tick {
+                        content: "✓";
+                    } @else {
+                        content: "●";
+                    }
+                }
+                @if $size != map-get($checked, size) {
+                    font-size: $size;
+                }
+            }
+            &:disabled::after{
+                @if $disabled-color != map-get($checked, disabled-color) {
+                    color: $disabled-color;
+                }
+            }
+        }
+	}
+}
+
+// 调用本文件时载入checked基础构造
+.yo-checked {
+	@include _checked;
+}

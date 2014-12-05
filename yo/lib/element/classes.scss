@@ -119,19 +119,17 @@
 // 使用方法请查看 yo-switch.scss
 @mixin _switch{
     &[type="checkbox"]{
-        &{
-            @include appearance(none);
-            position: relative;
-            width: .6rem;
-            height: .32rem;
-            margin: 0;
-            cursor: pointer;
-            border: .02rem solid map-get($switch, bordercolor);
-            border-radius: .16rem;
-            background-color: map-get($switch, bgcolor);
-            vertical-align: middle;
-            @include transition(all .3s);
-        }
+        @include appearance(none);
+        position: relative;
+        width: .6rem;
+        height: .32rem;
+        margin: 0;
+        cursor: pointer;
+        border: .02rem solid map-get($switch, bordercolor);
+        border-radius: .16rem;
+        background-color: map-get($switch, bgcolor);
+        vertical-align: middle;
+        @include transition(all .3s);
         &::before{
             display: block;
             content: "\0020";
@@ -166,6 +164,41 @@
             }
         }
     }
+}
+
+// 定义checked的基础构造
+// 使用方法请查看 yo-checked.scss
+@mixin _checked{
+	&[type="checkbox"],
+	&[type="radio"]{
+	    @include appearance(none);
+	    position: relative;
+	    @include square(.2rem);
+	    cursor: pointer;
+	    vertical-align: middle;
+	    &::after{
+	    	position:absolute;
+		    top: 50%;
+		    right: 0;
+		    @include transform(translatey(-50%));
+		    color: map-get($checked, color);
+		    @if map-get($checked, type) == tick {
+			    content: "✓";
+			} @else {
+			    content: "●";
+			}
+		    text-shadow: 0 0 1px;
+		    font-size: map-get($checked, size);
+	    	opacity: 0;
+	    	@include transition(opacity .5s);
+	    }
+		&:checked::after{
+			opacity: 1;
+		}
+		&:disabled::after{
+		    color: map-get($checked, disabled-color);
+		}
+	}
 }
 
 // 定义badge的基础构造

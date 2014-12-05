@@ -2,20 +2,14 @@
 @import "../layout/layout";
 @import "../module/m-demo";
 @import "../module/m-code";
-@import "../../../lib/element/yo-switch";
 @import "../../../lib/fragment/yo-list";
+@import "../../../lib/element/yo-checked";
 
 /**
- * list演示页面
+ * checked演示页面
  * Author: joy.du(飘零雾雨)
- * Time: 2014.4.1
+ * Time: 2014.11.14
  */
 
-.yo-list{
-	.mark img{
-		width: 80px;
-		height: 50px;
-	}
-}
 
-// @include yo-list(table,false,#000);
+@include yo-checked(test,tick);

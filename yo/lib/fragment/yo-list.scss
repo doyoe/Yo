@@ -7,23 +7,23 @@
  * Time: 2012.1.1
  ------------------------
  * @method yo-list
- * variables length(7)
+ * variables length(8)
  * @param {default|String} $name 定义list名称
  * @param {default|Boole} $is-outline 定义list是否需要轮廓（即外边框）
  * @param {default|Color} $bordercolor 定义list边框色
  * @param {default|Length} $item-padding 定义list项的内补白
- * @param {default|Length} $mark-width 定义list项的mark宽度
  * @param {default|Length} $label-padding 定义list分组标题内补白
  * @param {default|Color} $label-bgcolor 定义list分组标题背景色
+ * @param {default|Color} $on-bgcolor 定义list经过/选中背景色
  */
 
 @mixin yo-list($name:default,
 			$is-outline:default,
 			$bordercolor:default,
 			$item-padding:default,
-			// $mark-width:default,
 			$label-padding:default,
-			$label-bgcolor:default){
+			$label-bgcolor:default,
+			$on-bgcolor:default){
 	@if $name == default {
 		$name: "";
 	} @else {
@@ -39,14 +39,14 @@
 	@if $item-padding == default {
 		$item-padding: map-get($list,item-padding);
 	}
-	@if $mark-width == default {
-		$mark-width: map-get($list,mark-width);
-	}
 	@if $label-padding == default {
 		$label-padding: map-get($list,label-padding);
 	}
 	@if $label-bgcolor == default {
 		$label-bgcolor: map-get($list,label-bgcolor);
+	}
+	@if $on-bgcolor == default {
+		$on-bgcolor: map-get($list,on-bgcolor);
 	}
 	.yo-list#{$name}{
 		// 如果$is-outline为true，且$bordercolor不为config预设值，则重绘轮廓
@@ -61,16 +61,6 @@
 		> .item{
 			@if $bordercolor != map-get($list,bordercolor) {
 				border-bottom-color: $bordercolor;
-			}
-			// > .mark{
-			// 	@if $mark-width != map-get($list,mark-width) {
-			// 		width: $mark-width;
-			// 	}
-			// }
-			> label.cont{
-				@if $item-padding != map-get($list,item-padding) {
-					margin: -$item-padding 0;
-				}
 			}
 			> .col{
 				@if $item-padding != map-get($list,item-padding) {
@@ -94,6 +84,15 @@
 		> .item{
 			@if $item-padding != map-get($list,item-padding) {
 				padding: $item-padding;
+			}
+		}
+		> .item-checked,
+		> a.item{
+			&:hover,
+			&:active{
+				@if $on-bgcolor != map-get($list,on-bgcolor) {
+					background-color: $on-bgcolor;
+				}
 			}
 		}
 	}

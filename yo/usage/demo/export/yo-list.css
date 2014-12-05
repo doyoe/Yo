@@ -440,37 +440,37 @@ a {
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   transition: all 0.3s; }
-.yo-switch[type="checkbox"]::before {
-  display: block;
-  content: "\0020";
-  width: 0.28rem;
-  height: 0.28rem;
-  border-radius: 50%;
-  background-color: white;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  -webkit-transition: transform 0.3s;
-  -moz-transition: transform 0.3s;
-  transition: transform 0.3s; }
-.yo-switch[type="checkbox"]:active, .yo-switch[type="checkbox"]:focus {
-  outline: none; }
-.yo-switch[type="checkbox"]:active {
-  background-color: #dddddd; }
-.yo-switch[type="checkbox"]:checked {
-  border-color: #4bd763;
-  background-color: #4bd763; }
-  .yo-switch[type="checkbox"]:checked::before {
-    -webkit-transform: translate3d(100%, 0, 0);
-    -moz-transform: translate3d(100%, 0, 0);
-    transform: translate3d(100%, 0, 0); }
-  .yo-switch[type="checkbox"]:checked:active::before {
-    -webkit-transform: translate3d(80%, 0, 0);
-    -moz-transform: translate3d(80%, 0, 0);
-    transform: translate3d(80%, 0, 0); }
-.yo-switch[type="checkbox"]:disabled {
-  border-color: #dedfe0;
-  background-color: #dedfe0; }
-  .yo-switch[type="checkbox"]:disabled::before {
-    background-color: #efefef; }
+  .yo-switch[type="checkbox"]::before {
+    display: block;
+    content: "\0020";
+    width: 0.28rem;
+    height: 0.28rem;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    -webkit-transition: transform 0.3s;
+    -moz-transition: transform 0.3s;
+    transition: transform 0.3s; }
+  .yo-switch[type="checkbox"]:active, .yo-switch[type="checkbox"]:focus {
+    outline: none; }
+  .yo-switch[type="checkbox"]:active {
+    background-color: #dddddd; }
+  .yo-switch[type="checkbox"]:checked {
+    border-color: #4bd763;
+    background-color: #4bd763; }
+    .yo-switch[type="checkbox"]:checked::before {
+      -webkit-transform: translate3d(100%, 0, 0);
+      -moz-transform: translate3d(100%, 0, 0);
+      transform: translate3d(100%, 0, 0); }
+    .yo-switch[type="checkbox"]:checked:active::before {
+      -webkit-transform: translate3d(80%, 0, 0);
+      -moz-transform: translate3d(80%, 0, 0);
+      transform: translate3d(80%, 0, 0); }
+  .yo-switch[type="checkbox"]:disabled {
+    border-color: #dedfe0;
+    background-color: #dedfe0; }
+    .yo-switch[type="checkbox"]:disabled::before {
+      background-color: #efefef; }
 
 /**
  * Directory: lib/core/variables.scss
@@ -552,14 +552,14 @@ a {
  * Time: 2012.1.1
  ------------------------
  * @method yo-list
- * variables length(7)
+ * variables length(8)
  * @param {default|String} $name 定义list名称
  * @param {default|Boole} $is-outline 定义list是否需要轮廓（即外边框）
  * @param {default|Color} $bordercolor 定义list边框色
  * @param {default|Length} $item-padding 定义list项的内补白
- * @param {default|Length} $mark-width 定义list项的mark宽度
  * @param {default|Length} $label-padding 定义list分组标题内补白
  * @param {default|Color} $label-bgcolor 定义list分组标题背景色
+ * @param {default|Color} $on-bgcolor 定义list经过/选中背景色
  */
 .yo-list {
   overflow: hidden;
@@ -600,12 +600,21 @@ a {
   .yo-list > .item {
     padding: 0.1rem;
     color: #333333; }
-  .yo-list > label.item > .input {
-    -webkit-align-self: stretch;
-    align-self: stretch;
-    width: 100%;
-    border: 0 none;
-    background-color: transparent; }
+  .yo-list > .item-input {
+    cursor: pointer; }
+    .yo-list > .item-input > .input {
+      -webkit-align-self: stretch;
+      align-self: stretch;
+      width: 100%;
+      border: 0 none;
+      background-color: transparent; }
+  .yo-list > .item-checked,
+  .yo-list > a.item {
+    cursor: pointer; }
+    .yo-list > .item-checked:hover, .yo-list > .item-checked:active,
+    .yo-list > a.item:hover,
+    .yo-list > a.item:active {
+      background-color: #f7f7f7; }
 
 /**
  * list演示页面
