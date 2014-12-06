@@ -552,51 +552,67 @@ a {
  * Time: 2012.1.1
  */
 /**
- * widget: yo-checked
+ * widget: yo-checkbox
  * Author: joy.du(飘零雾雨)
  * Time: 2014.11.14
  -----------------------
- * @method yo-checked
- * variables length(5)
- * @param {default | String} $name 定义checked名称
- * @param {default | String} $type 定义checked类型，可选值：[circle | tick]
- * @param {default | Length} $size 定义checked大小
- * @param {default | Color} $color 定义checked颜色
- * @param {default | Color} $disabled-color 定义checked禁用色
+ * @method yo-checkbox
+ * variables length(10)
+ * @param {default | String} $name 定义checkbox名称
+ * @param {default | Length} $size 定义checkbox大小
+ * @param {default | Color} $bordercolor 定义checkbox边框色
+ * @param {default | Color} $bgcolor 定义checkbox背景色
+ * @param {default | Color} $on-bordercolor 定义checkbox选中边框色
+ * @param {default | Color} $on-bgcolor 定义checkbox选中背景色
+ * @param {default | Color} $on-color 定义checkbox选中标记色
+ * @param {default | Color} $disabled-bordercolor 定义checkbox禁用边框色
+ * @param {default | Color} $disabled-bgcolor 定义checkbox禁用背景色
+ * @param {default | Color} $disabled-color 定义checkbox禁用标记色
  */
-.yo-checked[type="checkbox"], .yo-checked[type="radio"] {
+.yo-checkbox[type="checkbox"] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   position: relative;
   width: 0.2rem;
   height: 0.2rem;
+  font-size: 0.2rem;
+  border-radius: .05rem;
+  border: 1px solid #dddddd;
+  box-shadow: inset 0 0.01rem 0.03rem rgba(100, 100, 100, 0.1);
+  background-color: white;
   cursor: pointer;
   vertical-align: middle; }
-  .yo-checked[type="checkbox"]::after, .yo-checked[type="radio"]::after {
+  .yo-checkbox[type="checkbox"]::after {
     position: absolute;
     top: 50%;
-    right: 0;
-    -webkit-transform: translatey(-50%);
-    -moz-transform: translatey(-50%);
-    transform: translatey(-50%);
-    color: #2b94ff;
-    content: "●";
-    text-shadow: 0 0 .01rem;
-    font-size: 0.2rem;
-    opacity: 0;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     -webkit-transition: opacity 0.5s;
     -moz-transition: opacity 0.5s;
-    transition: opacity 0.5s; }
-  .yo-checked[type="checkbox"]:checked::after, .yo-checked[type="radio"]:checked::after {
-    opacity: 1; }
-  .yo-checked[type="checkbox"]:disabled::after, .yo-checked[type="radio"]:disabled::after {
-    color: #d9d9d9; }
+    transition: opacity 0.5s;
+    text-shadow: 0 0 .01rem;
+    opacity: 0;
+    content: "✓";
+    font-size: 70%; }
+  .yo-checkbox[type="checkbox"]:checked {
+    border-color: #2b94ff;
+    background-color: #2b94ff; }
+    .yo-checkbox[type="checkbox"]:checked::after {
+      color: white;
+      opacity: 1; }
+  .yo-checkbox[type="checkbox"]:active {
+    opacity: .5; }
+  .yo-checkbox[type="checkbox"]:disabled {
+    border-color: #dfdfdf;
+    background-color: #eeeeee; }
+    .yo-checkbox[type="checkbox"]:disabled::after {
+      color: #d9d9d9; }
 
 /**
- * checked演示页面
+ * checkbox演示页面
  * Author: joy.du(飘零雾雨)
  * Time: 2014.11.14
  */
-.yo-checked-test[type="checkbox"]::after, .yo-checked-test[type="radio"]::after {
-  content: "✓"; }

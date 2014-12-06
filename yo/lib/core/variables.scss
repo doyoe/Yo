@@ -222,6 +222,29 @@ $radio: (
 ) !default;
 
 
+// Element checkbox(9)
+$checkbox: (
+	// {Length} checkbox尺寸
+	size:                 .2rem,
+	// {Color} checkbox边框色
+	bordercolor:          map-get($base, bordercolor),
+	// {Color} checkbox背景色
+	bgcolor:              #fff,
+	// {Color} checkbox选中背景色
+	on-bgcolor:           #2b94ff,
+	// {Color} checkbox选中边框色
+	on-bordercolor:       #2b94ff,
+	// {Color} checkbox选中标记色
+	on-color:             #fff,
+	// {Color} checkbox禁用边框色
+	disabled-bordercolor: map-get($base, disabled-bordercolor),
+	// {Color} checkbox禁用背景色
+	disabled-bgcolor:     map-get($base, disabled-bgcolor),
+	// {Color} checkbox标记禁用色
+	disabled-color:       map-get($base, disabled-color)
+) !default;
+
+
 // Fragment toolbar(1)
 $toolbar: (
 	// {auto | Length} 工具栏圆角

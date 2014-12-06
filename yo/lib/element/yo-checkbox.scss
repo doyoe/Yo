@@ -1,0 +1,111 @@
+@charset "utf-8";
+@import "classes";
+
+/**
+ * widget: yo-checkbox
+ * Author: joy.du(飘零雾雨)
+ * Time: 2014.11.14
+ -----------------------
+ * @method yo-checkbox
+ * variables length(10)
+ * @param {default | String} $name 定义checkbox名称
+ * @param {default | Length} $size 定义checkbox大小
+ * @param {default | Color} $bordercolor 定义checkbox边框色
+ * @param {default | Color} $bgcolor 定义checkbox背景色
+ * @param {default | Color} $on-bordercolor 定义checkbox选中边框色
+ * @param {default | Color} $on-bgcolor 定义checkbox选中背景色
+ * @param {default | Color} $on-color 定义checkbox选中标记色
+ * @param {default | Color} $disabled-bordercolor 定义checkbox禁用边框色
+ * @param {default | Color} $disabled-bgcolor 定义checkbox禁用背景色
+ * @param {default | Color} $disabled-color 定义checkbox禁用标记色
+ */
+
+@mixin yo-checkbox($name:default,
+                $size:default,
+                $bordercolor:default,
+                $bgcolor:default,
+                $on-bordercolor:default,
+                $on-bgcolor:default,
+                $on-color:default,
+                $disabled-bordercolor:default,
+                $disabled-bgcolor:default,
+                $disabled-color:default) {
+	@if $name == default {
+		$name: "";
+	} @else {
+		$name: -$name;
+	}
+    // 如果值为default，则取config的定义
+    @if $size == default {
+        $size: map-get($checkbox, size);
+    }
+    @if $bordercolor == default {
+        $bordercolor: map-get($checkbox, bordercolor);
+    }
+    @if $bgcolor == default {
+        $bgcolor: map-get($checkbox, bgcolor);
+    }
+    @if $on-bordercolor == default {
+        $on-bordercolor: map-get($checkbox, on-bordercolor);
+    }
+    @if $on-bgcolor == default {
+        $on-bgcolor: map-get($checkbox, on-bgcolor);
+    }
+    @if $on-color == default {
+        $on-color: map-get($checkbox, on-color);
+    }
+    @if $disabled-bordercolor == default {
+        $disabled-bordercolor: map-get($checkbox, disabled-bordercolor);
+    }
+    @if $disabled-bgcolor == default {
+        $disabled-bgcolor: map-get($checkbox, disabled-bgcolor);
+    }
+    @if $disabled-color == default {
+        $disabled-color: map-get($checkbox, disabled-color);
+    }
+	.yo-checkbox#{$name} {
+        &[type="checkbox"]{
+            @if $size != map-get($checkbox, size) {
+                @include square($size);
+                font-size: $size;
+            }
+            @if $bordercolor != map-get($checkbox, bordercolor) {
+                border-color: $bordercolor;
+            }
+            @if $bgcolor != map-get($checkbox, bgcolor) {
+                background-color: $bgcolor;
+            }
+            &:checked{
+                @if $on-bordercolor != map-get($checkbox, on-bordercolor) {
+                    border-color: $on-bordercolor;
+                }
+                @if $on-bgcolor != map-get($checkbox, on-bgcolor) {
+                    background-color: $on-bgcolor;
+                }
+                &::after{
+                    @if $on-color != map-get($checkbox, on-color) {
+                        color: $on-color;
+                    }
+                }
+            }
+            &:disabled{
+                @if $disabled-bordercolor != map-get($checkbox, disabled-bordercolor) {
+                    border-color: $disabled-bordercolor;
+                }
+                @if $disabled-bgcolor != map-get($checkbox, disabled-bgcolor) {
+                    background-color: $disabled-bgcolor;
+                }
+                &::after{
+                    @if $disabled-color != map-get($checkbox, disabled-color) {
+                        color: $disabled-color;
+                    }
+                }
+            }
+        }
+	}
+}
+
+// 调用本文件时载入checkbox基础构造
+.yo-checkbox {
+	@include _checkbox;
+}
