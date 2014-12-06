@@ -81,7 +81,7 @@
   box-sizing: border-box; }
 
 html {
-  background-color: white;
+  background-color: #f8f8f8;
   color: #333333;
   font-size: 100px;
   -webkit-user-select: none;
@@ -428,17 +428,17 @@ a {
   display: inline-block;
   overflow: hidden;
   padding: 0 1.5em;
-  border: 1px solid #c5c5c5;
+  border: 1px solid #dfdfdf;
   box-shadow: inset 1px 1px rgba(255, 255, 255, 0.1);
   border-radius: 0.03rem;
-  background-color: #dedede;
+  background-color: #f8f8f8;
   color: #333333;
   text-align: center;
   vertical-align: middle;
   cursor: pointer; }
   .yo-btn:hover, .yo-btn:focus, .yo-btn:active {
-    border-color: #cfcfcf;
-    background-color: #e8e8e8;
+    border-color: #e9e9e9;
+    background-color: white;
     color: #4d4d4d; }
   .yo-btn-s {
     height: 0.28rem;
@@ -474,13 +474,13 @@ a {
     color: white; }
 
 .yo-btn-disabled {
-  background-color: #e6e6e6;
-  border: 1px solid #cdcdcd;
+  background-color: #eeeeee;
+  border: 1px solid #d4d4d4;
   color: #d9d9d9;
   cursor: not-allowed; }
   .yo-btn-disabled:hover, .yo-btn-disabled:focus, .yo-btn-disabled:active {
-    background-color: #e6e6e6;
-    border: 1px solid #cdcdcd;
+    background-color: #eeeeee;
+    border: 1px solid #d4d4d4;
     color: #d9d9d9; }
 
 /**

@@ -408,6 +408,76 @@ a {
  * Time: 2012.1.1
  */
 /**
+ * Widget: yo-list
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ ------------------------
+ * @method yo-list
+ * variables length(8)
+ * @param {default|String} $name 定义list名称
+ * @param {default|Boole} $is-outline 定义list是否需要轮廓（即外边框）
+ * @param {default|Color} $bordercolor 定义list边框色
+ * @param {default|Length} $item-padding 定义list项的内补白
+ * @param {default|Length} $label-padding 定义list分组标题内补白
+ * @param {default|Color} $label-bgcolor 定义list分组标题背景色
+ * @param {default|Color} $on-bgcolor 定义list经过/选中背景色
+ */
+.yo-list {
+  overflow: hidden;
+  background-color: #fff;
+  outline: 1px solid #dddddd;
+  outline-offset: -1px; }
+  .yo-list > .label,
+  .yo-list > .item {
+    border-bottom: 1px solid #dddddd;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center; }
+    .yo-list > .label > .mark,
+    .yo-list > .item > .mark {
+      margin-right: .1rem; }
+    .yo-list > .label .col,
+    .yo-list > .item .col {
+      padding: 0.1rem; }
+      .yo-list > .label .col:first-child,
+      .yo-list > .item .col:first-child {
+        margin-left: -0.1rem; }
+      .yo-list > .label .col:last-child,
+      .yo-list > .item .col:last-child {
+        margin-right: -0.1rem; }
+    .yo-list > .label > .flex,
+    .yo-list > .item > .flex {
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+      flex: 1; }
+  .yo-list > .label {
+    padding: 0.1rem 0.1rem;
+    background-color: #eeeeee; }
+  .yo-list > .label:first-of-type {
+    border-top: 1px solid #dddddd; }
+  .yo-list > .item {
+    padding: 0.1rem;
+    color: #333333; }
+  .yo-list > .item-input {
+    cursor: pointer; }
+    .yo-list > .item-input > .input {
+      -webkit-align-self: stretch;
+      align-self: stretch;
+      width: 100%;
+      border: 0 none;
+      background-color: transparent; }
+  .yo-list > .item-on,
+  .yo-list > a.item {
+    cursor: pointer; }
+    .yo-list > .item-on:hover, .yo-list > .item-on:active,
+    .yo-list > a.item:hover,
+    .yo-list > a.item:active {
+      background-color: #f7f7f7; }
+
+/**
  * Directory: lib/core/variables.scss
  * CSS Variables 定义各种页面沙粒变量
  * Author: joy.du(飘零雾雨)
@@ -482,111 +552,69 @@ a {
  * Time: 2012.1.1
  */
 /**
- * Element: yo-btn
+ * widget: yo-radio
  * Author: joy.du(飘零雾雨)
- * Time: 2012.1.1
- ------------------------
- * 定义按钮使用方法
- * @method yo-btn
- * variables length(8)
- * @param {default | String} $name 定义按钮名称
- * @param {default | Color} $bgcolor 定义按钮背景色
- * @param {default | Color} $color 定义按钮文本色
- * @param {default | Boole} $is-border 定义按钮是否有边框
- * @param {default | Length} $width 定义按钮宽度
- * @param {default | Length} $height 定义按钮高度
- * @param {default | Length} $padding 定义按钮横向补白
- * @param {default | Length} $radius 定义按钮圆角
+ * Time: 2014.11.14
+ -----------------------
+ * @method yo-radio
+ * variables length(10)
+ * @param {default | String} $name 定义radio名称
+ * @param {default | Length} $size 定义radio大小
+ * @param {default | Color} $bordercolor 定义radio边框色
+ * @param {default | Color} $bgcolor 定义radio背景色
+ * @param {default | Color} $on-bordercolor 定义radio选中边框色
+ * @param {default | Color} $on-bgcolor 定义radio选中背景色
+ * @param {default | Color} $on-color 定义radio选中标记色
+ * @param {default | Color} $disabled-bordercolor 定义radio禁用边框色
+ * @param {default | Color} $disabled-bgcolor 定义radio禁用背景色
+ * @param {default | Color} $disabled-color 定义radio禁用标记色
  */
-.yo-btn {
-  display: inline-block;
-  overflow: hidden;
-  padding: 0 1.5em;
-  border: 1px solid #dfdfdf;
-  box-shadow: inset 1px 1px rgba(255, 255, 255, 0.1);
-  border-radius: 0.03rem;
-  background-color: #f8f8f8;
-  color: #333333;
-  text-align: center;
-  vertical-align: middle;
-  cursor: pointer; }
-  .yo-btn:hover, .yo-btn:focus, .yo-btn:active {
-    border-color: #e9e9e9;
-    background-color: white;
-    color: #4d4d4d; }
-  .yo-btn-s {
-    height: 0.28rem;
-    line-height: 0.28rem;
-    font-size: 0.12rem; }
-
-  .yo-btn-m {
-    height: 0.36rem;
-    line-height: 0.36rem;
-    font-size: 0.15rem; }
-
-  .yo-btn-l {
-    height: 0.44rem;
-    line-height: 0.44rem;
-    font-size: 0.2rem; }
-
-.yo-btn-primary {
-  background-color: #ff801a;
-  border: 1px solid #e66600;
-  color: white; }
-  .yo-btn-primary:hover, .yo-btn-primary:focus, .yo-btn-primary:active {
-    background-color: #ff8b2e;
-    border-color: #fa7000 !important;
-    color: white; }
-
-.yo-btn-info {
-  background-color: #4a87ee;
-  border: 1px solid #1b68ea;
-  color: white; }
-  .yo-btn-info:hover, .yo-btn-info:focus, .yo-btn-info:active {
-    background-color: #5d93f0;
-    border-color: #2e74eb !important;
-    color: white; }
-
-.yo-btn-disabled {
-  background-color: #eeeeee;
-  border: 1px solid #d4d4d4;
-  color: #d9d9d9;
-  cursor: not-allowed; }
-  .yo-btn-disabled:hover, .yo-btn-disabled:focus, .yo-btn-disabled:active {
-    background-color: #eeeeee;
-    border: 1px solid #d4d4d4;
-    color: #d9d9d9; }
-
-/**
- * Widget: yo-toolbar
- * Author: joy.du(飘零雾雨)
- * Time: 2012.1.1
- ------------------------
- * @method yo-toolbar
- * variables length(2)
- * @param {default | String} $name 定义yo-toolbar名称
- * @param {default | auto | Length} $radius 定义yo-toolbar圆角，当值为auto时，圆角大小取决于按钮的圆角大小
- */
-.yo-toolbar {
-  display: inline-block;
+.yo-radio[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;
+  width: 0.2rem;
+  height: 0.2rem;
+  border-radius: 50%;
+  border: 1px solid #dddddd;
+  box-shadow: inset 0 0.01rem 0.03rem rgba(100, 100, 100, 0.1);
+  background-color: white;
+  cursor: pointer;
   vertical-align: middle; }
-  .yo-toolbar > .yo-btn {
-    float: left; }
-    .yo-toolbar > .yo-btn:not(:first-child) {
-      margin-left: -1px; }
-    .yo-toolbar > .yo-btn:first-child {
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0; }
-    .yo-toolbar > .yo-btn:last-child {
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0; }
-    .yo-toolbar > .yo-btn:not(:first-child):not(:last-child) {
-      border-radius: 0; }
+  .yo-radio[type="radio"]::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 40%;
+    height: 40%;
+    -webkit-transition: opacity 0.5s;
+    -moz-transition: opacity 0.5s;
+    transition: opacity 0.5s;
+    border-radius: 50%;
+    box-shadow: 0 0 .01rem;
+    opacity: 0;
+    content: "\0020"; }
+  .yo-radio[type="radio"]:checked {
+    border-color: #2b94ff;
+    background-color: #2b94ff; }
+    .yo-radio[type="radio"]:checked::after {
+      background-color: white;
+      opacity: 1; }
+  .yo-radio[type="radio"]:active {
+    opacity: .5; }
+  .yo-radio[type="radio"]:disabled {
+    border-color: #dfdfdf;
+    background-color: #eeeeee; }
+    .yo-radio[type="radio"]:disabled::after {
+      background-color: #d9d9d9;
+      color: #d9d9d9; }
 
 /**
- * yo-toolbar演示页面
+ * radio演示页面
  * Author: joy.du(飘零雾雨)
- * Time: 2014.9.18
+ * Time: 2014.11.14
  */
-.m-demo .stage div {
-  padding: 10px 0 0 10px; }

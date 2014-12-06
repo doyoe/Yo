@@ -50,34 +50,40 @@ $base: (
     // 只要引用了外部样式，不论里面的内容是什么，body上的rem就会失效
     // 这时在开发者工具里，关闭又开启一次该条属性，则生效，刷新又挂
     // 所以这里注释该条属性，默认字号不能从root相对而来，所以定义成px
-	font-size:         16px,
+	font-size:            16px,
 	// font-family
 	// escape('微软雅黑').replace(/\%u/g,'\\').toLowerCase()
 	// 可参考http://alloyteam.github.io/Spirit/modules/Standard/index.html
-	font-family:       #{"Helvetica Neue", Helvetica, STHeiTi, sans-serif},
+	font-family:          #{"Helvetica Neue", Helvetica, STHeiTi, sans-serif},
 	// lin-height
-	line-height:       1.5,
+	line-height:          1.5,
+	// 默认文档背景色
+	doc-bgcolor:          #fff,
 	// 默认边框色
-	bordercolor:       #ddd,
-	// 默认文档颜色
-	bgcolor:           #fff,
+	bordercolor:          #ddd,
+	// 默认背景颜色
+	bgcolor:              #f8f8f8,
 	// 默认文本颜色
-	color:             #333,
+	color:                #333,
 	// 默认次级文本颜色
-	sub-color:         #8c8c8c,
+	sub-color:            #8c8c8c,
+	// 默认边框色
+	disabled-bordercolor: #dfdfdf,
+	// 默认文档颜色
+	disabled-bgcolor:     #eee,
 	// 默认禁用文本颜色
-	disabled-color:    #d9d9d9,
+	disabled-color:       #d9d9d9,
 	// 高亮色
-	light-color:       #FE0053,
+	light-color:          #FE0053,
 	// mark背景色
-	mark-bgcolor:      transparent,
+	mark-bgcolor:         transparent,
 	// 价格颜色
-	price-color:       #f60,
+	price-color:          #f60,
 	// Link Colors
 	// 默认链接色
-	link-color:        #25a4bb,
+	link-color:           #25a4bb,
 	// 链接经过色
-	link-hover-color:  #f60
+	link-hover-color:     #f60
 ) !default;
 
 
@@ -116,9 +122,9 @@ $loading: (
 // Element Button(17)
 $btn: (
 	// {Color} 按钮背景色
-	bgcolor:     #dedede,
+	bgcolor:     map-get($base, bgcolor),
 	// {Color} 按钮文本色
-	color:       map-get($base,color),
+	color:       map-get($base, color),
 	// {Boole} 是否需要边框（按钮的边框色都由背景色计算而来）
 	is-border:   true,
 	// {Length} 按钮内补白
@@ -137,8 +143,8 @@ $btn: (
 	l-font-size: .2rem,
 	// {Color} 默认预设4种风格按钮：
 	// 1. disabled
-	disabled-bgcolor: #e6e6e6,
-	disabled-color:   map-get($base,disabled-color),
+	disabled-bgcolor: map-get($base, disabled-bgcolor),
+	disabled-color:   map-get($base, disabled-color),
 	// 2. primary
 	primary-bgcolor:  #ff801a,
 	primary-color:    #fff,
@@ -189,6 +195,29 @@ $checked: (
 	// {Color} 标记颜色
 	color:                #2b94ff,
 	// {Color} 标记禁用色
+	disabled-color:       map-get($base, disabled-color)
+) !default;
+
+
+// Element radio(9)
+$radio: (
+	// {Length} radio尺寸
+	size:                 .2rem,
+	// {Color} radio边框色
+	bordercolor:          map-get($base, bordercolor),
+	// {Color} radio背景色
+	bgcolor:              #fff,
+	// {Color} radio选中背景色
+	on-bgcolor:           #2b94ff,
+	// {Color} radio选中边框色
+	on-bordercolor:       #2b94ff,
+	// {Color} radio选中标记色
+	on-color:             #fff,
+	// {Color} radio禁用边框色
+	disabled-bordercolor: map-get($base, disabled-bordercolor),
+	// {Color} radio禁用背景色
+	disabled-bgcolor:     map-get($base, disabled-bgcolor),
+	// {Color} radio标记禁用色
 	disabled-color:       map-get($base, disabled-color)
 ) !default;
 
@@ -334,7 +363,7 @@ $number: (
 	// {Color} 加减号文本色
 	sign-color:           #999,
 	// {Color} 禁用加减号文本色
-	disabled-sign-color:  #d9d9d9
+	disabled-sign-color:  map-get($base, disabled-color)
 ) !default;
 
 

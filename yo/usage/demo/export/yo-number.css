@@ -81,7 +81,7 @@
   box-sizing: border-box; }
 
 html {
-  background-color: white;
+  background-color: #f8f8f8;
   color: #333333;
   font-size: 100px;
   -webkit-user-select: none;
@@ -469,10 +469,10 @@ a {
       width: 100%;
       border: 0 none;
       background-color: transparent; }
-  .yo-list > .item-checked,
+  .yo-list > .item-on,
   .yo-list > a.item {
     cursor: pointer; }
-    .yo-list > .item-checked:hover, .yo-list > .item-checked:active,
+    .yo-list > .item-on:hover, .yo-list > .item-on:active,
     .yo-list > a.item:hover,
     .yo-list > a.item:active {
       background-color: #f7f7f7; }

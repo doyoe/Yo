@@ -1,0 +1,111 @@
+@charset "utf-8";
+@import "classes";
+
+/**
+ * widget: yo-radio
+ * Author: joy.du(飘零雾雨)
+ * Time: 2014.11.14
+ -----------------------
+ * @method yo-radio
+ * variables length(10)
+ * @param {default | String} $name 定义radio名称
+ * @param {default | Length} $size 定义radio大小
+ * @param {default | Color} $bordercolor 定义radio边框色
+ * @param {default | Color} $bgcolor 定义radio背景色
+ * @param {default | Color} $on-bordercolor 定义radio选中边框色
+ * @param {default | Color} $on-bgcolor 定义radio选中背景色
+ * @param {default | Color} $on-color 定义radio选中标记色
+ * @param {default | Color} $disabled-bordercolor 定义radio禁用边框色
+ * @param {default | Color} $disabled-bgcolor 定义radio禁用背景色
+ * @param {default | Color} $disabled-color 定义radio禁用标记色
+ */
+
+@mixin yo-radio($name:default,
+                $size:default,
+                $bordercolor:default,
+                $bgcolor:default,
+                $on-bordercolor:default,
+                $on-bgcolor:default,
+                $on-color:default,
+                $disabled-bordercolor:default,
+                $disabled-bgcolor:default,
+                $disabled-color:default) {
+	@if $name == default {
+		$name: "";
+	} @else {
+		$name: -$name;
+	}
+    // 如果值为default，则取config的定义
+    @if $size == default {
+        $size: map-get($radio, size);
+    }
+    @if $bordercolor == default {
+        $bordercolor: map-get($radio, bordercolor);
+    }
+    @if $bgcolor == default {
+        $bgcolor: map-get($radio, bgcolor);
+    }
+    @if $on-bordercolor == default {
+        $on-bordercolor: map-get($radio, on-bordercolor);
+    }
+    @if $on-bgcolor == default {
+        $on-bgcolor: map-get($radio, on-bgcolor);
+    }
+    @if $on-color == default {
+        $on-color: map-get($radio, on-color);
+    }
+    @if $disabled-bordercolor == default {
+        $disabled-bordercolor: map-get($radio, disabled-bordercolor);
+    }
+    @if $disabled-bgcolor == default {
+        $disabled-bgcolor: map-get($radio, disabled-bgcolor);
+    }
+    @if $disabled-color == default {
+        $disabled-color: map-get($radio, disabled-color);
+    }
+	.yo-radio#{$name} {
+        &[type="radio"]{
+            @if $size != map-get($radio, size) {
+                @include square($size);
+            }
+            @if $bordercolor != map-get($radio, bordercolor) {
+                border-color: $bordercolor;
+            }
+            @if $bgcolor != map-get($radio, bgcolor) {
+                background-color: $bgcolor;
+            }
+            &:checked{
+                @if $on-bordercolor != map-get($radio, on-bordercolor) {
+                    border-color: $on-bordercolor;
+                }
+                @if $on-bgcolor != map-get($radio, on-bgcolor) {
+                    background-color: $on-bgcolor;
+                }
+                &::after{
+                    @if $on-color != map-get($radio, on-color) {
+                        background-color: $on-color;
+                    }
+                }
+            }
+            &:disabled{
+                @if $disabled-bordercolor != map-get($radio, disabled-bordercolor) {
+                    border-color: $disabled-bordercolor;
+                }
+                @if $disabled-bgcolor != map-get($radio, disabled-bgcolor) {
+                    background-color: $disabled-bgcolor;
+                }
+                &::after{
+                    @if $disabled-color != map-get($radio, disabled-color) {
+                        background-color: $disabled-color;
+                        color: $disabled-color;
+                    }
+                }
+            }
+        }
+	}
+}
+
+// 调用本文件时载入radio基础构造
+.yo-radio {
+	@include _radio;
+}
