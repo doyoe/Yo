@@ -115,7 +115,7 @@ $loading: (
 	// {Color} 菊花颜色
 	bordercolor: #666,
 	// {String} mask颜色
-	bgcolor:     rgba(255,255,255,.2)
+	bgcolor:     rgba(255, 255, 255, .2)
 ) !default;
 
 
@@ -305,16 +305,16 @@ $table: (
 	thead-padding:   .05rem .1rem,
 	// {Length} 表主体内补白
 	tbody-padding:   .1rem,
-	// {Color} table边框色，表格必须有边框，所以不能有none值
+	// {Color} table边框色，表格必须有边框，所以不能有null值
 	bordercolor:     map-get($base, bordercolor),
-	// {none | Color} 表头部背景色
+	// {Color} 表头部背景色
 	thead-bgcolor:   #eee,
-	// {none | Color} 表主体奇数行背景色
-	odd-bgcolor:     none,
-	// {none | Color} 表主体偶数行背景色
-	even-bgcolor:    none,
-	// {none | Color} 表主体经过行背景色
-	hover-bgcolor:   none
+	// {Color} 表主体奇数行背景色
+	odd-bgcolor:     null,
+	// {Color} 表主体偶数行背景色
+	even-bgcolor:    null,
+	// {Color} 表主体经过行背景色
+	hover-bgcolor:   null
 ) !default;
 
 

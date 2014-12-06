@@ -10,5 +10,11 @@
  * Time: 2014.4.1
  */
 
+.m-demo{
+	.yo-table .c1{
+		width: .8rem;
+	}
+}
+
 @include yo-table(test,default,true,default,default,default,default,#ddd,default,none,default,none);
 @include yo-table(test2,default,default,default,default,default,default,default,#aaa,default,#eee,#effbfb);

@@ -76,7 +76,7 @@
 // 定义table的基础构造
 // 使用方法请查看 yo-table.scss
 @mixin _table{
-	background: #fff;
+	background-color: #fff;
 	&-zone{
 		padding: map-get($table,padding);
 		border: 1px solid map-get($table,bordercolor);
@@ -91,7 +91,7 @@
 	}
 	thead{
 		@if map-get($table,thead-bgcolor) != none {
-			background: map-get($table,thead-bgcolor);
+			background-color: map-get($table,thead-bgcolor);
 		}
 		th{
 			@if map-get($table,thead-padding) != 0 {
@@ -117,19 +117,13 @@
 	}
 	tbody{
 		tr:nth-child(odd){
-			@if map-get($table,odd-bgcolor) != none {
-				background: map-get($table,odd-bgcolor);
-			}
+			background-color: map-get($table,odd-bgcolor);
 		}
 		tr:nth-child(even){
-			@if map-get($table,even-bgcolor) != none {
-				background: map-get($table,even-bgcolor);
-			}
+			background-color: map-get($table,even-bgcolor);
 		}
 		tr:hover{
-			@if map-get($table,hover-bgcolor) != none {
-				background: map-get($table,hover-bgcolor);
-			}
+			background-color: map-get($table,hover-bgcolor);
 		}
 	}
 }

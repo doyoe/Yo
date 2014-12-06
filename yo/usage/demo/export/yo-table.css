@@ -428,7 +428,7 @@ a {
  * param {default|none|Color} $hover-bgcolor 定义table经过背景色
  */
 .yo-table {
-  background: #fff; }
+  background-color: #fff; }
   .yo-table-zone {
     padding: 0 0.1rem;
     border: 1px solid #dddddd; }
@@ -440,7 +440,7 @@ a {
     padding: 0.1rem;
     border-bottom: 1px solid false; }
   .yo-table thead {
-    background: #eeeeee; }
+    background-color: #eeeeee; }
     .yo-table thead th {
       padding: 0.05rem 0.1rem; }
   .yo-table td {
@@ -456,10 +456,17 @@ a {
  * Author: joy.du(飘零雾雨)
  * Time: 2014.4.1
  */
+.m-demo .yo-table .c1 {
+  width: .8rem; }
+
 .yo-table-test caption {
   border-bottom: 0 none; }
 .yo-table-test th, .yo-table-test td {
   border-width: 1px; }
+.yo-table-test tbody tr:nth-child(odd) {
+  background: none; }
+.yo-table-test tbody tr:hover {
+  background: none; }
 
 .yo-table-test2 thead {
   background: #aaaaaa; }
