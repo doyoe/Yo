@@ -62,7 +62,7 @@ $base: (
 	// 默认边框色
 	bordercolor:          #ddd,
 	// 默认背景颜色
-	bgcolor:              #f8f8f8,
+	bgcolor:              #f5f5f5,
 	// 默认文本颜色
 	color:                #333,
 	// 默认次级文本颜色
@@ -172,15 +172,15 @@ $switch: (
 	// {Color} 激活背景色
 	checked-bgcolor:      #4bd763,
 	// {Color} 边框色
-	bordercolor:          #ddd,
+	bordercolor:          map-get($base, bordercolor),
 	// {Color} 背景色
-	bgcolor:              #eeeef3,
+	bgcolor:              map-get($base, bgcolor),
 	// {Color} 滑块色
 	ball-color:           #fff,
 	// {Color} 禁用边框色
-	disabled-bordercolor: #dedfe0,
+	disabled-bordercolor: map-get($base, disabled-bordercolor),
 	// {Color} 禁用背景色
-	disabled-bgcolor:     #dedfe0,
+	disabled-bgcolor:     map-get($base, disabled-bordercolor),
 	// {Color} 禁用滑块色
 	disabled-ball-color:  #efefef
 ) !default;
@@ -258,7 +258,7 @@ $list: (
 	// {Boole} 列表是否有外边框
 	is-outline:    true,
 	// {Color} 列表边框色
-	bordercolor:   #ddd,
+	bordercolor:   map-get($base, bordercolor),
 	// {Length} 列表项内补白，只能一个数字
 	item-padding:  .1rem,
 	// {Length} 列表组头内补白，可以同时设定4个方位
@@ -266,7 +266,7 @@ $list: (
 	// {Color} 列表组头背景色
 	label-bgcolor: #eee,
 	// {Color} 经过/选中背景色
-	on-bgcolor:    #f7f7f7
+	on-bgcolor:    #f8f8f8
 ) !default;
 
 
@@ -306,7 +306,7 @@ $table: (
 	// {Length} 表主体内补白
 	tbody-padding:   .1rem,
 	// {Color} table边框色，表格必须有边框，所以不能有none值
-	bordercolor:     #ddd,
+	bordercolor:     map-get($base, bordercolor),
 	// {none | Color} 表头部背景色
 	thead-bgcolor:   #eee,
 	// {none | Color} 表主体奇数行背景色
@@ -325,13 +325,13 @@ $dialog: (
 	// {Number} 阴影透明度
 	shadow-opacity:  .5,
 	// {Color} 边框色
-	bordercolor:     #aaa,
+	bordercolor:     map-get($base, bordercolor),
 	// {Length} 头部高度
 	hd-height:       .5rem,
 	// {Color} 头部背景色
 	hd-bgcolor:      #eee,
 	// {Color} 标题颜色
-	title-color:     map-get($base,color),
+	title-color:     map-get($base, color),
 	// {Length} 标题文字大小
 	title-font-size: .16rem,
 	// {Length} 主体区域间隙
@@ -344,13 +344,13 @@ $popup: (
 	// {Length} 圆角
 	radius:          .03rem,
 	// {Color} 边框色
-	bordercolor:     #aaa,
+	bordercolor:     map-get($base, bordercolor),
 	// {Length} 头部高度
 	hd-height:       .5rem,
 	// {Color} 头部背景色
 	hd-bgcolor:      #eee,
 	// {Color} 标题颜色
-	title-color:     map-get($base,color),
+	title-color:     map-get($base, color),
 	// {Length} 标题文字大小
 	title-font-size: .16rem,
 	// {Length} 主体区域间隙
@@ -369,7 +369,7 @@ $select: (
 	// {Length} 每个列表项的高度
 	item-height:     .3rem,
 	// {Color} 边框色
-	bordercolor:     #aaa
+	bordercolor:     map-get($base, bordercolor),
 ) !default;
 
 
@@ -382,7 +382,7 @@ $number: (
 	// {color} 输入框文本色
 	color:                map-get($base, color),
 	// {Color} 加减号背景色
-	sign-bgcolor:         #fdfdfd,
+	sign-bgcolor:         map-get($base, bgcolor),
 	// {Color} 加减号文本色
 	sign-color:           #999,
 	// {Color} 禁用加减号文本色

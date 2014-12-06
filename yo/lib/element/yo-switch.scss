@@ -85,11 +85,14 @@
                 }
             }
             &:disabled{
-                @if $disabled-bordercolor != map-get($switch, disabled-bordercolor) {
-                    border-color: $disabled-bordercolor;
-                }
-                @if $disabled-bgcolor != map-get($switch, disabled-bgcolor) {
-                    background-color: $disabled-bgcolor;
+                &,
+                &:checked{
+                    @if $disabled-bordercolor != map-get($switch, disabled-bordercolor) {
+                        border-color: $disabled-bordercolor;
+                    }
+                    @if $disabled-bgcolor != map-get($switch, disabled-bgcolor) {
+                        background-color: $disabled-bgcolor;
+                    }
                 }
                 &::before{
                     @if $disabled-ball-color != map-get($switch, disabled-ball-color) {

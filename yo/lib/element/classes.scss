@@ -157,8 +157,11 @@
             }
         }
         &:disabled{
-            border-color: map-get($switch, disabled-bordercolor);
-            background-color: map-get($switch, disabled-bgcolor);
+        	&,
+        	&:checked{
+	            border-color: map-get($switch, disabled-bordercolor);
+	            background-color: map-get($switch, disabled-bgcolor);
+	        }
             &::before{
                 background-color: map-get($switch, disabled-ball-color);
             }

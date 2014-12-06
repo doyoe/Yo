@@ -81,7 +81,7 @@
   box-sizing: border-box; }
 
 html {
-  background-color: #f8f8f8;
+  background-color: whitesmoke;
   color: #333333;
   font-size: 100px;
   -webkit-user-select: none;
@@ -475,7 +475,7 @@ a {
     .yo-list > .item-on:hover, .yo-list > .item-on:active,
     .yo-list > a.item:hover,
     .yo-list > a.item:active {
-      background-color: #f7f7f7; }
+      background-color: #f8f8f8; }
 
 /**
  * Directory: lib/core/variables.scss
@@ -579,7 +579,7 @@ a {
   cursor: pointer;
   border: 0.02rem solid #dddddd;
   border-radius: .16rem;
-  background-color: #eeeef3;
+  background-color: whitesmoke;
   vertical-align: middle;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
@@ -610,11 +610,11 @@ a {
       -webkit-transform: translate3d(80%, 0, 0);
       -moz-transform: translate3d(80%, 0, 0);
       transform: translate3d(80%, 0, 0); }
-  .yo-switch[type="checkbox"]:disabled {
-    border-color: #dedfe0;
-    background-color: #dedfe0; }
-    .yo-switch[type="checkbox"]:disabled::before {
-      background-color: #efefef; }
+  .yo-switch[type="checkbox"]:disabled, .yo-switch[type="checkbox"]:disabled:checked {
+    border-color: #dfdfdf;
+    background-color: #dfdfdf; }
+  .yo-switch[type="checkbox"]:disabled::before {
+    background-color: #efefef; }
 
 /**
  * switch演示页面

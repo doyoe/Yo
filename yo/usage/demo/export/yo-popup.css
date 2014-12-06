@@ -81,7 +81,7 @@
   box-sizing: border-box; }
 
 html {
-  background-color: #f8f8f8;
+  background-color: whitesmoke;
   color: #333333;
   font-size: 100px;
   -webkit-user-select: none;
@@ -397,7 +397,7 @@ a {
   z-index: 2001;
   min-width: 1.5rem;
   border-radius: 0.03rem;
-  border: 1px solid #aaaaaa;
+  border: 1px solid #dddddd;
   background: #fff; }
   .yo-popup > .arrow::after {
     position: absolute;
@@ -417,11 +417,11 @@ a {
 
   .yo-popup-top > .arrow::after {
     top: -0.1rem;
-    text-shadow: 0 -1px #aaaaaa; }
+    text-shadow: 0 -1px #dddddd; }
 
   .yo-popup-down > .arrow::after {
     bottom: -0.1rem;
-    text-shadow: 0 1px #aaaaaa; }
+    text-shadow: 0 1px #dddddd; }
 
   .yo-popup-right > .arrow::after,
   .yo-popup-left > .arrow::after {
@@ -432,11 +432,11 @@ a {
 
   .yo-popup-right > .arrow::after {
     right: -0.1rem;
-    text-shadow: 1px 0 #aaaaaa; }
+    text-shadow: 1px 0 #dddddd; }
 
   .yo-popup-left > .arrow::after {
     left: -0.1rem;
-    text-shadow: -1px 0 #aaaaaa; }
+    text-shadow: -1px 0 #dddddd; }
   .yo-popup > .hd,
   .yo-popup > .bd {
     position: relative;
@@ -444,7 +444,7 @@ a {
   .yo-popup > .hd {
     border-radius: 0.03rem 0.03rem 0 0;
     height: 0.5rem;
-    border-bottom: 1px solid #aaaaaa;
+    border-bottom: 1px solid #dddddd;
     background: #eeeeee;
     line-height: 0.5rem;
     text-align: center; }
