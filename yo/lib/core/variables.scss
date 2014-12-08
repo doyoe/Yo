@@ -318,11 +318,15 @@ $table: (
 ) !default;
 
 
-// Widget UI Dialog(8)
+// Widget UI Dialog(10)
 $dialog: (
+	// {Length | null} 宽度
+	width:           null,
+	// {Length} 高度
+	height:          3rem,
 	// {Length} 圆角
 	radius:          .05rem,
-	// {Number} 阴影透明度
+	// {Number} 阴影透明度(如果不想使用阴影，值为0)
 	shadow-opacity:  .5,
 	// {Color} 边框色
 	bordercolor:     map-get($base, bordercolor),

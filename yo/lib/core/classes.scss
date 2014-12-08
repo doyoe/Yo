@@ -205,6 +205,24 @@
                 -webkit-order: $order;
                         order: $order;
 }
+// 定义伸缩盒子元素的流动方向
+@mixin flex-direction($flex-direction:row){
+    @if $flex-direction == row {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+    } @else if $flex-direction == column {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+    } @else if $flex-direction == row-reverse {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: reverse;
+    } @else if $flex-direction == column-reverse {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: reverse;
+    }
+    -webkit-flex-direction: $flex-direction;
+    flex-direction: $flex-direction;
+}
 // 定义伸缩盒子元素溢出排版
 @mixin flex-wrap($flex-wrap:nowrap){
     @if $flex-wrap == nowrap {

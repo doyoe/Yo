@@ -1,6 +1,8 @@
 @charset "utf-8";
 @import "../layout/layout";
 @import "../module/m-code";
+@import "../module/m-demo";
+@import "../../../lib/element/yo-btn";
 @import "../../../lib/widget/yo-dialog";
 
 /**
@@ -10,8 +12,6 @@
  */
 
 .yo-dialog{
-	> .bd{
-		font-size: .16rem;
-	}
+	position: absolute;
 }
-// @include yo-dialog(default,default,default,20px,red);
+// @include yo-dialog(default,default,default,20px,0,red);

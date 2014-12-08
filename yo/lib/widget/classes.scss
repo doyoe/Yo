@@ -12,33 +12,41 @@
 // 定义弹窗dialog的基础构造
 // 使用方法请查看 yo-dialog.scss
 @mixin _dialog{
+    @include flexbox();
+    @include flex-direction(column);
     position: fixed;
-    z-index: map-get($z-index,dialog);
+    z-index: map-get($z-index, dialog);
     top: 50%;
     left: 50%;
-    @include transform(translate(-50%,-50%));
-    @if map-get($dialog,radius) != 0 {
-        border-radius: map-get($dialog,radius);
+    @include transform(translate(-50%, -50%));
+    @if map-get($dialog, radius) != 0 {
+        border-radius: map-get($dialog, radius);
     }
-    border: 1px solid map-get($dialog,bordercolor);
-    min-width: 3rem;
+    @if map-get($dialog, shadow-opacity) < 1 {
+        box-shadow: 0 0 5px rgba(map-get($dialog, bordercolor), map-get($dialog, shadow-opacity));
+    }
+    border: 1px solid map-get($dialog, bordercolor);
+    min-width: 2rem;
+    min-height: 1rem;
+    width: map-get($dialog, width);
+    height: map-get($dialog, height);
     background: #fff;
     > .hd{
-        @if map-get($dialog,radius) != 0 {
-            border-radius: map-get($dialog,radius) map-get($dialog,radius) 0 0;
+        @if map-get($dialog, radius) != 0 {
+            border-radius: map-get($dialog, radius) map-get($dialog, radius) 0 0;
         }
-        height: map-get($dialog,hd-height);
-        border-bottom: 1px solid map-get($dialog,bordercolor);
-        background: map-get($dialog,hd-bgcolor);
-        line-height: map-get($dialog,hd-height);
+        height: map-get($dialog, hd-height);
+        border-bottom: 1px solid map-get($dialog, bordercolor);
+        background: map-get($dialog, hd-bgcolor);
+        line-height: map-get($dialog, hd-height);
         text-align: center;
         .title{
             margin: 0 60px;
-            @if map-get($dialog,title-color) != map-get($base,color) {
-                color: map-get($dialog,title-color);
+            @if map-get($dialog, title-color) != map-get($base, color) {
+                color: map-get($dialog, title-color);
             }
-            @if map-get($dialog,title-font-size) != map-get($base,font-size) {
-                font-size: map-get($dialog,title-font-size);
+            @if map-get($dialog, title-font-size) != map-get($base, font-size) {
+                font-size: map-get($dialog, title-font-size);
             }
         }
         .regret,
@@ -50,11 +58,16 @@
         .affirm{right: .1rem;}
     }
     > .bd{
+        @include flex();
         @include overflow();
-        max-height: 5rem;
-        @if map-get($dialog,bd-padding) > 0 {
-            padding: map-get($dialog,bd-padding);
+        @if map-get($dialog, bd-padding) > 0 {
+            padding: map-get($dialog, bd-padding);
         }
+    }
+    > .ft{
+        padding: .1rem 0;
+        border-top: 1px solid map-get($dialog, bordercolor);
+        text-align: center;
     }
 }
 
