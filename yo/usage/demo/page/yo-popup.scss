@@ -1,6 +1,7 @@
 @charset "utf-8";
 @import "../layout/layout";
 @import "../module/m-code";
+@import "../module/m-demo";
 @import "../../../lib/widget/yo-popup";
 
 /**
@@ -11,13 +12,7 @@
 
 .yo-popup{
 	top: 20px;
-	right: 20px;
-	> .bd{
-		font-size: .16rem;
-	}
-	&:nth-child(2){
-		right: 350px;
-	}
+	left: 20px;
 }
 
-@include yo-popup(default,3rem,3rem,.1rem,#000,.6rem,#090,#fff,.2rem,.3rem,.16rem,50%);
+// @include yo-popup(default,null,3rem,.1rem,.5);

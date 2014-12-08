@@ -299,6 +299,41 @@ a {
     font-size: 16px; }
 
 /**
+* module: m-demo
+* Author: joy.du(飘零雾雨)
+* Time: 2013.10.17
+*/
+.m-demo {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  margin: 10px; }
+  .m-demo .device {
+    position: relative;
+    width: 365px;
+    height: 792px;
+    background: url(../../../../bgimg/phone@2x.png) no-repeat;
+    background-size: 365px 792px; }
+    .m-demo .device .stage {
+      position: absolute;
+      top: 104px;
+      left: 23px;
+      width: 320px;
+      height: 576px;
+      background-color: #fff; }
+  .m-demo .code {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 10px;
+    padding: 10px;
+    border-left: 4px solid #D7DBE4;
+    background-color: #F0F3F8;
+    font-family: Monaco, Menlo, Consolas, "Courier New", monospace; }
+
+/**
  * Directory: lib/core/variables.scss
  * CSS Variables 定义各种页面沙粒变量
  * Author: joy.du(飘零雾雨)
@@ -380,9 +415,10 @@ a {
  * @method yo-popup
  * variables length(12)
  * @param {default | String} $name 定义popup名称
- * @param {default | Length} $width 定义popup宽度
+ * @param {default | Length | null} $width 定义popup宽度
  * @param {default | Length} $height 定义popup高度
  * @param {default | Length} $radius 定义popup圆角
+ * @param {default | Number} $shadow-opacity 定义popup阴影透明度
  * @param {default | Color} $bordercolor 定义popup边框色
  * @param {default | Length} $hd-height 定义popup头部高度
  * @param {default | Color} $hd-bgcolor 定义popup头部背景色
@@ -390,13 +426,22 @@ a {
  * @param {default | Length} $title-font-size 定义popup标题字号
  * @param {default | Length} $bd-padding 定义popup主体补白
  * @param {default | Length} $arrow-size 定义popup箭头高度
- * @param {default | center | Length} $arrow-pos 定义popup箭头水平位置
  */
 .yo-popup {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column;
   position: absolute;
   z-index: 2001;
-  min-width: 1.5rem;
+  min-width: 2rem;
+  min-height: 1rem;
+  height: 3rem;
   border-radius: 0.03rem;
+  box-shadow: 0 0 5px rgba(221, 221, 221, 0.5);
   border: 1px solid #dddddd;
   background: #fff; }
   .yo-popup > .arrow::after {
@@ -405,38 +450,32 @@ a {
     color: #fff;
     font-size: 0.24rem;
     line-height: 1; }
-  .yo-popup-extra.yo-popup-top > .arrow::after {
-    color: #eeeeee; }
-
-  .yo-popup-top > .arrow::after,
-  .yo-popup-down > .arrow::after {
+  .yo-popup .arrow-top::after,
+  .yo-popup .arrow-down::after {
     -webkit-transform: translate(-50%);
     -moz-transform: translate(-50%);
     transform: translate(-50%);
     left: 50%; }
-
-  .yo-popup-top > .arrow::after {
-    top: -0.1rem;
+  .yo-popup .arrow-top::after {
+    top: -0.11rem;
     text-shadow: 0 -1px #dddddd; }
-
-  .yo-popup-down > .arrow::after {
-    bottom: -0.1rem;
+  .yo-popup .arrow-down::after {
+    bottom: -0.11rem;
     text-shadow: 0 1px #dddddd; }
-
-  .yo-popup-right > .arrow::after,
-  .yo-popup-left > .arrow::after {
+  .yo-popup .arrow-right::after,
+  .yo-popup .arrow-left::after {
     -webkit-transform: translate(0, -50%);
     -moz-transform: translate(0, -50%);
     transform: translate(0, -50%);
     top: 50%; }
-
-  .yo-popup-right > .arrow::after {
-    right: -0.1rem;
+  .yo-popup .arrow-right::after {
+    right: -0.11rem;
     text-shadow: 1px 0 #dddddd; }
-
-  .yo-popup-left > .arrow::after {
-    left: -0.1rem;
+  .yo-popup .arrow-left::after {
+    left: -0.11rem;
     text-shadow: -1px 0 #dddddd; }
+  .yo-popup .arrow-extra.arrow::after {
+    color: #eeeeee; }
   .yo-popup > .hd,
   .yo-popup > .bd {
     position: relative;
@@ -460,10 +499,16 @@ a {
     .yo-popup > .hd .affirm {
       right: 10px; }
   .yo-popup > .bd {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
-    max-height: 500px;
     padding: 0.1rem; }
+  .yo-popup > .ft {
+    padding: .1rem 0;
+    border-top: 1px solid #dddddd;
+    text-align: center; }
 
 /**
  * popup演示页面
@@ -472,56 +517,4 @@ a {
  */
 .yo-popup {
   top: 20px;
-  right: 20px; }
-  .yo-popup > .bd {
-    font-size: .16rem; }
-  .yo-popup:nth-child(2) {
-    right: 350px; }
-
-.yo-popup {
-  border-radius: 0.1rem;
-  border-color: black;
-  width: 3rem;
-  height: 3rem; }
-  .yo-popup > .arrow::after {
-    font-size: 0.32rem; }
-    .yo-popup-extra.yo-popup-top > .arrow::after {
-      color: #009900; }
-
-    .yo-popup-top > .arrow::after,
-    .yo-popup-down > .arrow::after {
-      left: 50%; }
-
-    .yo-popup-top > .arrow::after {
-      top: -0.14rem;
-      text-shadow: 0 -1px black; }
-
-    .yo-popup-down > .arrow::after {
-      bottom: -0.14rem;
-      text-shadow: 0 1px black; }
-
-    .yo-popup-right > .arrow::after,
-    .yo-popup-left > .arrow::after {
-      top: 50%; }
-
-    .yo-popup-right > .arrow::after {
-      right: -0.14rem;
-      text-shadow: 1px 0 black; }
-
-    .yo-popup-left > .arrow::after {
-      left: -0.14rem;
-      text-shadow: -1px 0 black; }
-  .yo-popup > .hd {
-    border-radius: 0.1rem 0.1rem 0 0;
-    height: 0.6rem;
-    line-height: 0.6rem;
-    border-bottom-color: black;
-    background: #009900; }
-    .yo-popup > .hd .title {
-      color: white;
-      font-size: 0.2rem; }
-  .yo-popup > .bd {
-    height: 100%;
-    padding: 0.3rem; }
-  .yo-popup-extra > .bd {
-    height: 2.4rem; }
+  left: 20px; }

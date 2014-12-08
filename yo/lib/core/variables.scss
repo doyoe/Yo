@@ -343,10 +343,16 @@ $dialog: (
 ) !default;
 
 
-// Widget UI Popup(9)
+// Widget UI Popup(11)
 $popup: (
+	// {Length | null} 宽度
+	width:           null,
+	// {Length} 高度
+	height:          3rem,
 	// {Length} 圆角
 	radius:          .03rem,
+	// {Number} 阴影透明度(如果不想使用阴影，值为0)
+	shadow-opacity:  .5,
 	// {Color} 边框色
 	bordercolor:     map-get($base, bordercolor),
 	// {Length} 头部高度
@@ -360,9 +366,7 @@ $popup: (
 	// {Length} 主体区域间隙
 	bd-padding:      .1rem,
 	// {Length} 箭头大小
-	arrow-size:      .12rem,
-	// {center | Length} 箭头位置
-	arrow-pos:       center
+	arrow-size:      .12rem
 ) !default;
 
 

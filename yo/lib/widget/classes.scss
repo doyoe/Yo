@@ -74,9 +74,14 @@
 // 定义浮层popup的基础构造
 // 使用方法请查看 yo-popup.scss
 @mixin _popup{
+    @include flexbox();
+    @include flex-direction(column);
     position: absolute;
     z-index: map-get($z-index,popup);
-    min-width: 1.5rem;
+    min-width: 2rem;
+    min-height: 1rem;
+    width: map-get($popup,width);
+    height: map-get($popup,height);
     // 改用标签的方式，因为JS需要控制位置
     > .arrow::after{
         position: absolute;
@@ -85,55 +90,50 @@
         font-size: map-get($popup,arrow-size) * 2;
         line-height: 1;
     }
-    @at-root{
-        // 有hd时，箭头的颜色应该和hd相同
-        .yo-popup-extra.yo-popup-top > .arrow::after{ color: map-get($popup,hd-bgcolor); }
-        // 控制箭头方向
-        .yo-popup-top,
-        .yo-popup-down{
-            > .arrow::after{
-                @include transform(translate(-50%));
-                @if map-get($popup,arrow-pos) == center {
-                    left: 50%;
-                } @else {
-                    left: map-get($popup,arrow-pos);
-                }
-            }
+    // 控制箭头方向
+    .arrow-top,
+    .arrow-down{
+        &::after{
+            @include transform(translate(-50%));
+            left: 50%;
         }
-        .yo-popup-top > .arrow::after{
-            top: -#{map-get($popup,arrow-size) - .02rem};
-            // 箭头边框色
-            text-shadow: 0 -1px map-get($popup,bordercolor);
+    }
+    .arrow-top::after{
+        top: -#{map-get($popup,arrow-size) - .01rem};
+        // 箭头边框色
+        text-shadow: 0 -1px map-get($popup,bordercolor);
+    }
+    .arrow-down::after{
+        bottom: -#{map-get($popup,arrow-size) - .01rem};
+        // 箭头边框色
+        text-shadow: 0 1px map-get($popup,bordercolor);
+    }
+    .arrow-right,
+    .arrow-left{
+        &::after{
+            @include transform(translate(0,-50%));
+            top: 50%;
         }
-        .yo-popup-down > .arrow::after{
-            bottom: -#{map-get($popup,arrow-size) - .02rem};
-            // 箭头边框色
-            text-shadow: 0 1px map-get($popup,bordercolor);
-        }
-        .yo-popup-right,
-        .yo-popup-left{
-            > .arrow::after{
-                @include transform(translate(0,-50%));
-                @if map-get($popup,arrow-pos) == center {
-                    top: 50%;
-                } @else {
-                    top: map-get($popup,arrow-pos);
-                }
-            }
-        }
-        .yo-popup-right > .arrow::after{
-            right: -#{map-get($popup,arrow-size) - .02rem};
-            // 箭头边框色
-            text-shadow: 1px 0 map-get($popup,bordercolor);
-        }
-        .yo-popup-left > .arrow::after{
-            left: -#{map-get($popup,arrow-size) - .02rem};
-            // 箭头边框色
-            text-shadow: -1px 0 map-get($popup,bordercolor);
-        }
+    }
+    .arrow-right::after{
+        right: -#{map-get($popup,arrow-size) - .01rem};
+        // 箭头边框色
+        text-shadow: 1px 0 map-get($popup,bordercolor);
+    }
+    .arrow-left::after{
+        left: -#{map-get($popup,arrow-size) - .01rem};
+        // 箭头边框色
+        text-shadow: -1px 0 map-get($popup,bordercolor);
+    }
+    // 有hd或ft时，箭头的颜色应该和hd或ft相同
+    .arrow-extra.arrow::after{
+        color: map-get($popup,hd-bgcolor);
     }
     @if map-get($popup,radius) > 0 {
         border-radius: map-get($popup,radius);
+    }
+    @if map-get($popup, shadow-opacity) < 1 {
+        box-shadow: 0 0 5px rgba(map-get($popup, bordercolor), map-get($popup, shadow-opacity));
     }
     border: 1px solid map-get($popup,bordercolor);
     background: #fff;
@@ -169,11 +169,16 @@
         .affirm{right: 10px;}
     }
     > .bd{
+        @include flex();
         @include overflow();
-        max-height: 500px;
         @if map-get($popup,bd-padding) > 0 {
             padding: map-get($popup,bd-padding);
         }
+    }
+    > .ft{
+        padding: .1rem 0;
+        border-top: 1px solid map-get($popup, bordercolor);
+        text-align: center;
     }
 }
 
