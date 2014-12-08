@@ -277,7 +277,8 @@
 // 定义number的基础构造
 // 使用方法请查看 yo-number.scss
 @mixin _number{
-    display: inline-block;
+    @include flexbox(inline-flex);
+    width: map-get($number, width);
     height: map-get($number, height);
     line-height: map-get($number, height);
     border: 1px solid map-get($number, bordercolor);
@@ -287,10 +288,7 @@
     > .minus,
     > .plus,
     > .input{
-        display: inline-block;
-        height: 100%;
         text-align: center;
-        vertical-align: top;
     }
     > .minus,
     > .plus{
@@ -306,10 +304,10 @@
         }
     }
     > .input{
-        width: .46rem;
+        @include flex();
         border: 1px solid map-get($number, bordercolor);
         border-width: 0 1px;
-        box-shadow: inset 1px 1px 1px rgba(map-get($number, bordercolor),.1);
+        box-shadow: inset 1px 1px 1px rgba(map-get($number, bordercolor), .1);
         background-color: #fff;
         color: map-get($number, color);
         font-size: .16rem;

@@ -373,8 +373,10 @@ $select: (
 ) !default;
 
 
-// Widget UI number(8)
+// Widget UI number(7)
 $number: (
+	// {Length} 宽度
+	width:  1.2rem,
 	// {Length} 高度
 	height:  .36rem,
 	// {Color} 边框色

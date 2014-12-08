@@ -182,10 +182,16 @@
 }
 
 // 定义伸缩盒
-@mixin flexbox(){
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
+@mixin flexbox($flexbox:flex){
+    @if $flexbox == flex {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+    } @else {
+        display: -webkit-inline-box;
+        display: -webkit-inline-flex;
+        display: inline-flex;
+    }
 }
 // 定义伸缩盒子元素如何分配空间
 @mixin flex($flex:1){

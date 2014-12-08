@@ -7,8 +7,9 @@
  * Time: 2012.1.1
  ------------------------
  * @method yo-number
- * variables length(7)
+ * variables length(8)
  * @param {default | String} $name 定义yo-number名称
+ * @param {default | Length} $width 定义yo-number宽度
  * @param {default | Length} $height 定义yo-number高度
  * @param {default | Color} $bordercolor 定义yo-number边框色
  * @param {default | Color} $color 定义yo-number输入框文本色
@@ -18,6 +19,7 @@
  */
 
 @mixin yo-number($name:default,
+			$width:default,
 			$height:default,
 			$bordercolor:default,
 			$color:default,
@@ -30,6 +32,9 @@
 		$name: -$name;
 	}
 	// 如果值为default，则取config的定义
+	@if $width == default {
+		$width: map-get($number, width);
+	}
 	@if $height == default {
 		$height: map-get($number, height);
 	}
@@ -49,6 +54,9 @@
 		$disabled-sign-color: map-get($number, disabled-sign-color);
 	}
 	.yo-number#{$name}{
+		@if $width != map-get($number, width) {
+			width: $width;
+		}
 		@if $height != map-get($number, height) {
 			height: $height;
 			line-height: $height;

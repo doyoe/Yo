@@ -557,8 +557,9 @@ a {
  * Time: 2012.1.1
  ------------------------
  * @method yo-number
- * variables length(7)
+ * variables length(8)
  * @param {default | String} $name 定义yo-number名称
+ * @param {default | Length} $width 定义yo-number宽度
  * @param {default | Length} $height 定义yo-number高度
  * @param {default | Color} $bordercolor 定义yo-number边框色
  * @param {default | Color} $color 定义yo-number输入框文本色
@@ -567,7 +568,10 @@ a {
  * @param {default | Color} $disabled-sign-color 定义yo-number禁用文本色
  */
 .yo-number {
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: inline-flex;
+  width: 1.2rem;
   height: 0.36rem;
   line-height: 0.36rem;
   border: 1px solid #dddddd;
@@ -577,10 +581,7 @@ a {
   .yo-number > .minus,
   .yo-number > .plus,
   .yo-number > .input {
-    display: inline-block;
-    height: 100%;
-    text-align: center;
-    vertical-align: top; }
+    text-align: center; }
   .yo-number > .minus,
   .yo-number > .plus {
     width: .35rem;
@@ -594,7 +595,9 @@ a {
       color: #d9d9d9;
       cursor: not-allowed; }
   .yo-number > .input {
-    width: .46rem;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
     border: 1px solid #dddddd;
     border-width: 0 1px;
     box-shadow: inset 1px 1px 1px rgba(221, 221, 221, 0.1);
