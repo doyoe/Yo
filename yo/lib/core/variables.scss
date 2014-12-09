@@ -370,6 +370,19 @@ $popup: (
 ) !default;
 
 
+// Widget UI Tip(4)
+$tip: (
+	// {Length} 内补白
+	padding:           .06rem .15rem,
+	// {Length} 圆角
+	radius:            .05rem,
+	// {Color} 背景色
+	bgcolor:           #000,
+	// {Color} 文本色
+	color:             #fff
+) !default;
+
+
 // Widget UI select(3)
 $select: (
 	// {Length} 默认显示几个列表项
@@ -410,6 +423,8 @@ $z-index: (
 	mask:     1000,
 	// {Number} 弹窗层级范围1001-2000
 	dialog:   1001,
-	// {Number} 浮层层级范围101-500
-	popup:    2001
+	// {Number} 浮层层级范围2001-3000
+	popup:    2001,
+	// {Number} 浮层层级范围3001-4000
+	tip:      3001
 ) !default;

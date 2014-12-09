@@ -1,0 +1,60 @@
+@charset "utf-8";
+@import "classes";
+
+/**
+ * Fragment: yo-tip
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ ------------------------
+ * @method yo-tip
+ * variables length(5)
+ * @param {default | String} $name 定义yo-tip名称
+ * @param {default | Length} $padding 定义yo-tip内补白
+ * @param {default | Length} $radius 定义yo-tip圆角
+ * @param {default | Color} $bgcolor 定义yo-tip背景色
+ * @param {default | Color} $color 定义yo-tip文本色
+ */
+
+@mixin yo-tip($name:default,
+			$padding:default,
+			$radius:default,
+			$bgcolor:default,
+			$color:default){
+	@if $name == default {
+		$name: "";
+	} @else {
+		$name: -$name;
+	}
+	// 如果值为default，则取config的定义
+	@if $padding == default {
+		$padding: map-get($tip, padding);
+	}
+	@if $radius == default {
+		$radius: map-get($tip, radius);
+	}
+	@if $bgcolor == default {
+		$bgcolor: map-get($tip, bgcolor);
+	}
+	@if $color == default {
+		$color: map-get($tip,color);
+	}
+	.yo-tip#{$name}{
+		@if $padding != map-get($tip, padding) {
+			padding: $padding;
+		}
+		@if $radius != map-get($tip, radius) {
+	    	border-radius: $radius;
+	    }
+    	@if $bgcolor != map-get($tip, bgcolor) {
+    		background-color: rgba($bgcolor, .5);
+    	}
+    	@if $color != map-get($tip, color) {
+    		color: $color;
+	    }
+	}
+}
+
+// 调用本文件时载入tip基础构造
+.yo-tip{
+	@include _tip;
+}
