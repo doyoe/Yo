@@ -21,10 +21,10 @@
 			$bgcolor:default,
 			$color:default){
 	@if $name == default {
-		$name: "";
-	} @else {
-		$name: -$name;
-	}
+        $name: "";
+    } @else {
+        $name: "-#{$name}";
+    }
 	// 如果值为default，则取config的定义
 	@if $padding == default {
 		$padding: map-get($tip, padding);

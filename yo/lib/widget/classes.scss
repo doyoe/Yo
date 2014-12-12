@@ -215,36 +215,34 @@
         border: 1px solid map-get($select, bordercolor);
         border-width: 1px 0;
     }
-    @at-root{
-        &-item,
-        &-item-list,
-        &-item ul{
-            height: 100%;
-        }
-        &-item{
-            @include flex();
+    .yo-select-item,
+    .yo-select-item-list,
+    .yo-select-item ul{
+        height: 100%;
+    }
+    .yo-select-item{
+        @include flex();
+        position: relative;
+        z-index: 2;
+        text-align: center;
+    }
+    .yo-select-item-list{
+        ul{
             position: relative;
-            z-index: 2;
-            text-align: center;
         }
-        &-item-list{
-            ul{
-                position: relative;
-            }
-            li{
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: map-get($select, item-height);
-            }
-        }
-        &-item-tag{
+        li{
             position: absolute;
-            top: 50%;
-            right: .1rem;
-            margin-top: -#{map-get($select, item-height) / 2};
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: map-get($select, item-height);
         }
+    }
+    .yo-select-item-tag{
+        position: absolute;
+        top: 50%;
+        right: .1rem;
+        margin-top: -#{map-get($select, item-height) / 2};
     }
 }
 
@@ -277,7 +275,7 @@
         &:hover,
         &:active,
         &.on{
-            border-top-color: map-get($tab, on-bordercolor);;
+            border-top-color: map-get($tab, on-bordercolor);
             background-color: map-get($tab, on-bgcolor);
             color: map-get($tab, on-color);
         }

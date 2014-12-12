@@ -19,10 +19,10 @@
                 $item-height:default,
                 $bordercolor:default) {
 	@if $name == default {
-		$name: "";
-	} @else {
-		$name: -$name;
-	}
+        $name: "";
+    } @else {
+        $name: "-#{$name}";
+    }
     // 如果值为default，则取config的定义
     @if $item == default {
         $item: map-get($select,item);
@@ -47,11 +47,9 @@
                 border-color: $bordercolor;
             }
         }
-        @at-root{
-            &-item-tag{
-                @if $item-height != map-get($select, item-height) or $item != map-get($select, item) {
-                    line-height: $item-height * $item;;
-                }
+        .yo-select-item-tag{
+            @if $item-height != map-get($select, item-height) or $item != map-get($select, item) {
+                line-height: $item-height * $item;
             }
         }
 	}

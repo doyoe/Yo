@@ -27,10 +27,10 @@
 			$sign-color:default,
 			$disabled-sign-color:default){
 	@if $name == default {
-		$name: "";
-	} @else {
-		$name: -$name;
-	}
+        $name: "";
+    } @else {
+        $name: "-#{$name}";
+    }
 	// 如果值为default，则取config的定义
 	@if $width == default {
 		$width: map-get($number, width);

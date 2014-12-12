@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /**
  * Directory: lib/core/variables.scss
  * CSS Variables 定义各种页面沙粒变量
@@ -73,16 +72,14 @@
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  */
-*,
-::before,
-::after {
+*, ::before, ::after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
 html {
-  background-color: whitesmoke;
-  color: #333333;
+  background-color: #f5f5f5;
+  color: #333;
   font-size: 100px;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -154,7 +151,7 @@ ins, s, u, del {
   text-decoration: none; }
 
 input, textarea, button, a {
-  -webkit-tap-highlight-color: transparent; }
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
 a, img {
   -webkit-touch-callout: none; }
@@ -163,7 +160,7 @@ a {
   color: #25a4bb;
   text-decoration: none; }
   a:hover {
-    color: #ff6600; }
+    color: #f60; }
 
 .g-clear::after, .g-mod::after, #bd::after {
   display: block;
@@ -176,6 +173,7 @@ a {
   font-family: "fontawesome-webfont";
   src: url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.eot");
   src: url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.eot?#iefix") format("embedded-opentype"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.woff") format("woff"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.ttf") format("truetype"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.svg#iconfont") format("svg"); }
+
 .yo-ico {
   font-family: "fontawesome-webfont" !important;
   font-size: 16px;
@@ -276,10 +274,10 @@ a {
 * Time: 2013.10.17
 */
 /**
-* module: m-code
-* Author: joy.du(飘零雾雨)
-* Time: 2013.10.17
-*/
+ * module: m-code
+ * Author: joy.du(飘零雾雨)
+ * Time: 2013.10.17
+ */
 .m-code {
   margin: 10px;
   padding: 10px;
@@ -289,8 +287,7 @@ a {
   font-size: 20px; }
   .m-code .method {
     color: #93de08; }
-  .m-code .bracket,
-  .m-code .colon {
+  .m-code .bracket, .m-code .colon {
     padding-right: 5px;
     color: #fff; }
   .m-code mark {
@@ -299,10 +296,10 @@ a {
     font-size: 16px; }
 
 /**
-* module: m-demo
-* Author: joy.du(飘零雾雨)
-* Time: 2013.10.17
-*/
+ * module: m-demo
+ * Author: joy.du(飘零雾雨)
+ * Time: 2013.10.17
+ */
 .m-demo {
   display: -webkit-box;
   display: -webkit-flex;
@@ -439,10 +436,11 @@ a {
   z-index: 2001;
   min-width: 2rem;
   min-height: 1rem;
+  
   height: 3rem;
   border-radius: 0.03rem;
   box-shadow: 0 0 5px rgba(221, 221, 221, 0.5);
-  border: 1px solid #dddddd;
+  border: 1px solid #ddd;
   background: #fff; }
   .yo-popup > .arrow::after {
     position: absolute;
@@ -450,48 +448,44 @@ a {
     color: #fff;
     font-size: 0.24rem;
     line-height: 1; }
-  .yo-popup .arrow-top::after,
-  .yo-popup .arrow-down::after {
+  .yo-popup .arrow-top::after, .yo-popup .arrow-down::after {
     -webkit-transform: translate(-50%);
     -moz-transform: translate(-50%);
     transform: translate(-50%);
     left: 50%; }
   .yo-popup .arrow-top::after {
     top: -0.11rem;
-    text-shadow: 0 -1px #dddddd; }
+    text-shadow: 0 -1px #ddd; }
   .yo-popup .arrow-down::after {
     bottom: -0.11rem;
-    text-shadow: 0 1px #dddddd; }
-  .yo-popup .arrow-right::after,
-  .yo-popup .arrow-left::after {
+    text-shadow: 0 1px #ddd; }
+  .yo-popup .arrow-right::after, .yo-popup .arrow-left::after {
     -webkit-transform: translate(0, -50%);
     -moz-transform: translate(0, -50%);
     transform: translate(0, -50%);
     top: 50%; }
   .yo-popup .arrow-right::after {
     right: -0.11rem;
-    text-shadow: 1px 0 #dddddd; }
+    text-shadow: 1px 0 #ddd; }
   .yo-popup .arrow-left::after {
     left: -0.11rem;
-    text-shadow: -1px 0 #dddddd; }
+    text-shadow: -1px 0 #ddd; }
   .yo-popup .arrow-extra.arrow::after {
-    color: #eeeeee; }
-  .yo-popup > .hd,
-  .yo-popup > .bd {
+    color: #eee; }
+  .yo-popup > .hd, .yo-popup > .bd {
     position: relative;
     z-index: 2; }
   .yo-popup > .hd {
     border-radius: 0.03rem 0.03rem 0 0;
     height: 0.5rem;
-    border-bottom: 1px solid #dddddd;
-    background: #eeeeee;
+    border-bottom: 1px solid #ddd;
+    background: #eee;
     line-height: 0.5rem;
     text-align: center; }
     .yo-popup > .hd .title {
       margin: 0 60px;
       font-size: 0.16rem; }
-    .yo-popup > .hd .regret,
-    .yo-popup > .hd .affirm {
+    .yo-popup > .hd .regret, .yo-popup > .hd .affirm {
       position: absolute;
       top: 0; }
     .yo-popup > .hd .regret {
@@ -506,8 +500,8 @@ a {
     -webkit-overflow-scrolling: touch;
     padding: 0.1rem; }
   .yo-popup > .ft {
-    padding: .1rem 0;
-    border-top: 1px solid #dddddd;
+    padding: 0.1rem 0;
+    border-top: 1px solid #ddd;
     text-align: center; }
 
 /**

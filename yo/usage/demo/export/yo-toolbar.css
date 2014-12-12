@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /**
  * Directory: lib/core/variables.scss
  * CSS Variables 定义各种页面沙粒变量
@@ -73,16 +72,14 @@
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  */
-*,
-::before,
-::after {
+*, ::before, ::after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
 html {
-  background-color: whitesmoke;
-  color: #333333;
+  background-color: #f5f5f5;
+  color: #333;
   font-size: 100px;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -154,7 +151,7 @@ ins, s, u, del {
   text-decoration: none; }
 
 input, textarea, button, a {
-  -webkit-tap-highlight-color: transparent; }
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
 a, img {
   -webkit-touch-callout: none; }
@@ -163,7 +160,7 @@ a {
   color: #25a4bb;
   text-decoration: none; }
   a:hover {
-    color: #ff6600; }
+    color: #f60; }
 
 .g-clear::after, .g-mod::after, #bd::after {
   display: block;
@@ -176,6 +173,7 @@ a {
   font-family: "fontawesome-webfont";
   src: url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.eot");
   src: url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.eot?#iefix") format("embedded-opentype"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.woff") format("woff"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.ttf") format("truetype"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.svg#iconfont") format("svg"); }
+
 .yo-ico {
   font-family: "fontawesome-webfont" !important;
   font-size: 16px;
@@ -276,10 +274,10 @@ a {
 * Time: 2013.10.17
 */
 /**
-* module: m-demo
-* Author: joy.du(飘零雾雨)
-* Time: 2013.10.17
-*/
+ * module: m-demo
+ * Author: joy.du(飘零雾雨)
+ * Time: 2013.10.17
+ */
 .m-demo {
   display: -webkit-box;
   display: -webkit-flex;
@@ -311,10 +309,10 @@ a {
     font-family: Monaco, Menlo, Consolas, "Courier New", monospace; }
 
 /**
-* module: m-code
-* Author: joy.du(飘零雾雨)
-* Time: 2013.10.17
-*/
+ * module: m-code
+ * Author: joy.du(飘零雾雨)
+ * Time: 2013.10.17
+ */
 .m-code {
   margin: 10px;
   padding: 10px;
@@ -324,8 +322,7 @@ a {
   font-size: 20px; }
   .m-code .method {
     color: #93de08; }
-  .m-code .bracket,
-  .m-code .colon {
+  .m-code .bracket, .m-code .colon {
     padding-right: 5px;
     color: #fff; }
   .m-code mark {
@@ -505,8 +502,8 @@ a {
   border: 1px solid gainsboro;
   box-shadow: inset 1px 1px rgba(255, 255, 255, 0.1);
   border-radius: 0.03rem;
-  background-color: whitesmoke;
-  color: #333333;
+  background-color: #f5f5f5;
+  color: #333;
   text-align: center;
   vertical-align: middle;
   cursor: pointer; }
@@ -514,46 +511,61 @@ a {
     border-color: #e6e6e6;
     background-color: white;
     color: #4d4d4d; }
-  .yo-btn-s {
-    height: 0.28rem;
-    line-height: 0.28rem;
-    font-size: 0.12rem; }
 
-  .yo-btn-m {
-    height: 0.36rem;
-    line-height: 0.36rem;
-    font-size: 0.15rem; }
+.yo-btn-s {
+  height: 0.28rem;
+  line-height: 0.28rem;
+  font-size: 0.12rem; }
 
-  .yo-btn-l {
-    height: 0.44rem;
-    line-height: 0.44rem;
-    font-size: 0.2rem; }
+.yo-btn-m {
+  height: 0.36rem;
+  line-height: 0.36rem;
+  font-size: 0.15rem; }
+
+.yo-btn-l {
+  height: 0.44rem;
+  line-height: 0.44rem;
+  font-size: 0.2rem; }
+
+.yo-btn-normal {
+  
+  
+   }
 
 .yo-btn-primary {
+  
+  
+  
   background-color: #ff801a;
   border: 1px solid #e66600;
-  color: white; }
+  color: #fff; }
   .yo-btn-primary:hover, .yo-btn-primary:focus, .yo-btn-primary:active {
     background-color: #ff8b2e;
     border-color: #fa7000 !important;
     color: white; }
 
 .yo-btn-info {
+  
+  
+  
   background-color: #4a87ee;
   border: 1px solid #1b68ea;
-  color: white; }
+  color: #fff; }
   .yo-btn-info:hover, .yo-btn-info:focus, .yo-btn-info:active {
     background-color: #5d93f0;
     border-color: #2e74eb !important;
     color: white; }
 
 .yo-btn-disabled {
-  background-color: #eeeeee;
+  
+  
+  
+  background-color: #eee;
   border: 1px solid #d4d4d4;
   color: #d9d9d9;
   cursor: not-allowed; }
   .yo-btn-disabled:hover, .yo-btn-disabled:focus, .yo-btn-disabled:active {
-    background-color: #eeeeee;
+    background-color: #eee;
     border: 1px solid #d4d4d4;
     color: #d9d9d9; }
 

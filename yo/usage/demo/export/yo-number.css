@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /**
  * Directory: lib/core/variables.scss
  * CSS Variables 定义各种页面沙粒变量
@@ -73,16 +72,14 @@
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  */
-*,
-::before,
-::after {
+*, ::before, ::after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
 html {
-  background-color: whitesmoke;
-  color: #333333;
+  background-color: #f5f5f5;
+  color: #333;
   font-size: 100px;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -154,7 +151,7 @@ ins, s, u, del {
   text-decoration: none; }
 
 input, textarea, button, a {
-  -webkit-tap-highlight-color: transparent; }
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
 a, img {
   -webkit-touch-callout: none; }
@@ -163,7 +160,7 @@ a {
   color: #25a4bb;
   text-decoration: none; }
   a:hover {
-    color: #ff6600; }
+    color: #f60; }
 
 .g-clear::after, .g-mod::after, #bd::after {
   display: block;
@@ -176,6 +173,7 @@ a {
   font-family: "fontawesome-webfont";
   src: url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.eot");
   src: url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.eot?#iefix") format("embedded-opentype"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.woff") format("woff"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.ttf") format("truetype"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.svg#iconfont") format("svg"); }
+
 .yo-ico {
   font-family: "fontawesome-webfont" !important;
   font-size: 16px;
@@ -276,10 +274,10 @@ a {
 * Time: 2013.10.17
 */
 /**
-* module: m-demo
-* Author: joy.du(飘零雾雨)
-* Time: 2013.10.17
-*/
+ * module: m-demo
+ * Author: joy.du(飘零雾雨)
+ * Time: 2013.10.17
+ */
 .m-demo {
   display: -webkit-box;
   display: -webkit-flex;
@@ -311,10 +309,10 @@ a {
     font-family: Monaco, Menlo, Consolas, "Courier New", monospace; }
 
 /**
-* module: m-code
-* Author: joy.du(飘零雾雨)
-* Time: 2013.10.17
-*/
+ * module: m-code
+ * Author: joy.du(飘零雾雨)
+ * Time: 2013.10.17
+ */
 .m-code {
   margin: 10px;
   padding: 10px;
@@ -324,8 +322,7 @@ a {
   font-size: 20px; }
   .m-code .method {
     color: #93de08; }
-  .m-code .bracket,
-  .m-code .colon {
+  .m-code .bracket, .m-code .colon {
     padding-right: 5px;
     color: #fff; }
   .m-code mark {
@@ -425,42 +422,36 @@ a {
 .yo-list {
   overflow: hidden;
   background-color: #fff;
-  outline: 1px solid #dddddd;
+  outline: 1px solid #ddd;
   outline-offset: -1px; }
-  .yo-list > .label,
-  .yo-list > .item {
-    border-bottom: 1px solid #dddddd;
+  .yo-list > .label, .yo-list > .item {
+    border-bottom: 1px solid #ddd;
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;
     -webkit-box-align: center;
     -webkit-align-items: center;
     align-items: center; }
-    .yo-list > .label > .mark,
-    .yo-list > .item > .mark {
-      margin-right: .1rem; }
-    .yo-list > .label .col,
-    .yo-list > .item .col {
+    .yo-list > .label > .mark, .yo-list > .item > .mark {
+      margin-right: 0.1rem; }
+    .yo-list > .label .col, .yo-list > .item .col {
       padding: 0.1rem; }
-      .yo-list > .label .col:first-child,
-      .yo-list > .item .col:first-child {
+      .yo-list > .label .col:first-child, .yo-list > .item .col:first-child {
         margin-left: -0.1rem; }
-      .yo-list > .label .col:last-child,
-      .yo-list > .item .col:last-child {
+      .yo-list > .label .col:last-child, .yo-list > .item .col:last-child {
         margin-right: -0.1rem; }
-    .yo-list > .label > .flex,
-    .yo-list > .item > .flex {
+    .yo-list > .label > .flex, .yo-list > .item > .flex {
       -webkit-box-flex: 1;
       -webkit-flex: 1;
       flex: 1; }
   .yo-list > .label {
     padding: 0.1rem 0.1rem;
-    background-color: #eeeeee; }
+    background-color: #eee; }
   .yo-list > .label:first-of-type {
-    border-top: 1px solid #dddddd; }
+    border-top: 1px solid #ddd; }
   .yo-list > .item {
     padding: 0.1rem;
-    color: #333333; }
+    color: #333; }
   .yo-list > .item-input {
     cursor: pointer; }
     .yo-list > .item-input > .input {
@@ -469,12 +460,9 @@ a {
       width: 100%;
       border: 0 none;
       background-color: transparent; }
-  .yo-list > .item-on,
-  .yo-list > a.item {
+  .yo-list > .item-on, .yo-list > a.item {
     cursor: pointer; }
-    .yo-list > .item-on:hover, .yo-list > .item-on:active,
-    .yo-list > a.item:hover,
-    .yo-list > a.item:active {
+    .yo-list > .item-on:hover, .yo-list > .item-on:active, .yo-list > a.item:hover, .yo-list > a.item:active {
       background-color: #f8f8f8; }
 
 /**
@@ -574,36 +562,32 @@ a {
   width: 1.2rem;
   height: 0.36rem;
   line-height: 0.36rem;
-  border: 1px solid #dddddd;
+  border: 1px solid #ddd;
   box-shadow: 1px 1px 1px rgba(221, 221, 221, 0.3);
   font-size: 0;
   vertical-align: middle; }
-  .yo-number > .minus,
-  .yo-number > .plus,
-  .yo-number > .input {
+  .yo-number > .minus, .yo-number > .plus, .yo-number > .input {
     text-align: center; }
-  .yo-number > .minus,
-  .yo-number > .plus {
-    width: .35rem;
-    background-color: whitesmoke;
-    color: #999999;
+  .yo-number > .minus, .yo-number > .plus {
+    width: 0.35rem;
+    background-color: #f5f5f5;
+    color: #999;
     font-size: 30px;
     font-family: arial;
     cursor: pointer; }
-    .yo-number > .minus.disabled,
-    .yo-number > .plus.disabled {
+    .yo-number > .minus.disabled, .yo-number > .plus.disabled {
       color: #d9d9d9;
       cursor: not-allowed; }
   .yo-number > .input {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
     flex: 1;
-    border: 1px solid #dddddd;
+    border: 1px solid #ddd;
     border-width: 0 1px;
     box-shadow: inset 1px 1px 1px rgba(221, 221, 221, 0.1);
     background-color: #fff;
-    color: #333333;
-    font-size: .16rem; }
+    color: #333;
+    font-size: 0.16rem; }
 
 /**
  * number演示页面

@@ -25,10 +25,10 @@
 			$label-bgcolor:default,
 			$on-bgcolor:default){
 	@if $name == default {
-		$name: "";
-	} @else {
-		$name: -$name;
-	}
+        $name: "";
+    } @else {
+        $name: "-#{$name}";
+    }
 	// 如果值为default，则取config的定义
 	@if $is-outline == default {
 		$is-outline: map-get($list,is-outline);

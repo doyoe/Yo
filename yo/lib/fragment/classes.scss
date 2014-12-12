@@ -170,3 +170,56 @@
 		}
 	}
 }
+
+// 定义search的基础构造
+// 使用方法请查看 yo-search.scss
+@mixin _search{
+	@include flexbox();
+	position: relative;
+	overflow: hidden;
+	height: .44rem;
+	line-height: .44rem;
+	> .yo-ico,
+	> .cancel,
+	> .input{
+		@include transition(all .2s ease-in);
+		@include transform(translateZ(0));
+	}
+	> .yo-ico{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin: -.22rem 0 0 -.26rem;
+		color: #999;
+	}
+	> .cancel{
+		width: 0;
+		color: #2b94ff;
+		white-space: nowrap;
+		text-align: right;
+	}
+	> .input{
+		@include flex();
+		padding: 0 .32rem;
+		border: 1px solid #ddd;
+		border-radius: .05rem;
+		&::-webkit-input-placeholder{
+			position: relative;
+			left: 50%;
+			@include transform(translate(-.05rem));
+			@include transition(all .2s ease-in);
+		}
+		&:focus{
+			border-color: #2b94ff;
+			~ .yo-ico{
+				left: .38rem;
+			}
+			&::-webkit-input-placeholder{
+				left: .05rem;
+			}
+			~ .cancel{
+				width: .4rem;
+			}
+		}
+	}
+}

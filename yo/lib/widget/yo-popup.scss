@@ -35,10 +35,10 @@
                 $bd-padding:default,
                 $arrow-size:default){
 	@if $name == default {
-		$name: "";
-	} @else {
-		$name: -$name;
-	}
+        $name: "";
+    } @else {
+        $name: "-#{$name}";
+    }
     // 如果值为default，则取config的定义
     @if $width == default {
         $width: map-get($popup,width);
@@ -163,13 +163,6 @@
         	@if $bd-padding != map-get($popup,bd-padding) {
 	        	padding: $bd-padding;
 	        }
-        }
-        @at-root{
-            .yo-popup-extra > .bd{
-                @if $height != default {
-                    height: $height - $hd-height;
-                }
-            }
         }
         > .ft{
             @if $bordercolor != map-get($popup,bordercolor) {

@@ -31,10 +31,10 @@
 			$on-bgcolor:default,
 			$on-color:default){
 	@if $name == default {
-		$name: "";
-	} @else {
-		$name: -$name;
-	}
+        $name: "";
+    } @else {
+        $name: "-#{$name}";
+    }
 	// 如果值为default，则取config的定义
 	@if $is-border == default {
 		$is-border: map-get($tab,is-border);

@@ -29,10 +29,10 @@
                 $disabled-bgcolor:default,
                 $disabled-ball-color:default) {
 	@if $name == default {
-		$name: "";
-	} @else {
-		$name: -$name;
-	}
+        $name: "";
+    } @else {
+        $name: "-#{$name}";
+    }
     // 如果值为default，则取config的定义
     @if $bordercolor == default {
         $bordercolor: map-get($switch, bordercolor);
