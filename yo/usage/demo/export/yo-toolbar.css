@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /**
  * Directory: lib/core/variables.scss
  * CSS Variables 定义各种页面沙粒变量
@@ -72,116 +73,144 @@
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  */
-*, ::before, ::after {
+*,
+::before,
+::after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 html {
-  background-color: #f5f5f5;
-  color: #333;
+  background-color: whitesmoke;
+  color: #333333;
   font-size: 100px;
   -webkit-user-select: none;
   -moz-user-select: none;
-  user-select: none; }
+  user-select: none;
+}
 
 body {
-  font-size: 16px; }
+  font-size: 16px;
+}
 
 body, ul, ol, dl, dd, h1, h2, h3, h4, h5, h6, figure, form, fieldset, legend, input, textarea, button, p, blockquote, th, td, pre, xmp {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+}
 
 body, input, textarea, button, select, pre, tt, code, kbd, samp, optgroup, option {
   line-height: 1.5;
-  font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif; }
+  font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+}
 
 table {
   border-collapse: collapse;
   border-spacing: 0;
   table-layout: fixed;
-  text-align: left; }
+  text-align: left;
+}
 
 caption, th {
-  text-align: inherit; }
+  text-align: inherit;
+}
 
 ul, ol, menu {
-  list-style: none; }
+  list-style: none;
+}
 
 fieldset, img {
-  border: 0 none; }
+  border: 0 none;
+}
 
 img, object, input, textarea, button, select {
-  vertical-align: top; }
+  vertical-align: top;
+}
 
 article, aside, footer, header, section, nav, figure, figcaption, hgroup, details, menu, main {
-  display: block; }
+  display: block;
+}
 
 audio, canvas, video {
-  display: inline-block; }
+  display: inline-block;
+}
 
 h1, h2, h3, h4, h5, h6, input, textarea, button, select, small, big {
-  font-size: 100%; }
+  font-size: 100%;
+}
 
 address, cite, dfn, em, i, optgroup, var {
-  font-style: normal; }
+  font-style: normal;
+}
 
 blockquote:before, blockquote:after, q:before, q:after {
-  content: "\0020"; }
+  content: "\0020";
+}
 
 textarea {
-  overflow: auto; }
+  overflow: auto;
+}
 
 textarea, input, button {
-  outline: none; }
+  outline: none;
+}
 
 button::-moz-focus-inner, input::-moz-focus-inner {
   padding: 0;
-  border: 0 none; }
+  border: 0 none;
+}
 
 input[type="button"], input[type="submit"], input[type="reset"], input[type="file"]::-webkit-file-upload-button {
   -webkit-appearance: none;
   -moz-appearance: none;
-  appearance: none; }
+  appearance: none;
+}
 
 mark {
-  background-color: transparent; }
+  background-color: transparent;
+}
 
 ins, s, u, del {
-  text-decoration: none; }
+  text-decoration: none;
+}
 
 input, textarea, button, a {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+  -webkit-tap-highlight-color: transparent;
+}
 
 a, img {
-  -webkit-touch-callout: none; }
+  -webkit-touch-callout: none;
+}
 
 a {
   color: #25a4bb;
-  text-decoration: none; }
-  a:hover {
-    color: #f60; }
+  text-decoration: none;
+}
+a:hover {
+  color: #ff6600;
+}
 
 .g-clear::after, .g-mod::after, #bd::after {
   display: block;
   overflow: hidden;
   clear: both;
   height: 0;
-  content: "\0020"; }
+  content: "\0020";
+}
 
 @font-face {
   font-family: "fontawesome-webfont";
   src: url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.eot");
-  src: url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.eot?#iefix") format("embedded-opentype"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.woff") format("woff"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.ttf") format("truetype"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.svg#iconfont") format("svg"); }
-
+  src: url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.eot?#iefix") format("embedded-opentype"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.woff") format("woff"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.ttf") format("truetype"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.svg#iconfont") format("svg");
+}
 .yo-ico {
   font-family: "fontawesome-webfont" !important;
-  font-size: 16px;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -webkit-text-stroke-width: 0.1px;
   -moz-osx-font-smoothing: grayscale;
-  vertical-align: middle; }
+  vertical-align: middle;
+}
 
 /**
  * Directory: lib/core/variables.scss
@@ -282,31 +311,35 @@ a {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
-  margin: 10px; }
-  .m-demo .device {
-    position: relative;
-    width: 365px;
-    height: 792px;
-    background: url(../../../../bgimg/phone@2x.png) no-repeat;
-    background-size: 365px 792px; }
-    .m-demo .device .stage {
-      position: absolute;
-      top: 104px;
-      left: 23px;
-      width: 320px;
-      height: 576px;
-      background-color: #fff; }
-  .m-demo .code {
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-    flex: 1;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-    margin: 10px;
-    padding: 10px;
-    border-left: 4px solid #D7DBE4;
-    background-color: #F0F3F8;
-    font-family: Monaco, Menlo, Consolas, "Courier New", monospace; }
+  margin: 10px;
+}
+.m-demo .device {
+  position: relative;
+  width: 365px;
+  height: 792px;
+  background: url(../../../../bgimg/phone@2x.png) no-repeat;
+  background-size: 365px 792px;
+}
+.m-demo .device .stage {
+  position: absolute;
+  top: 104px;
+  left: 23px;
+  width: 320px;
+  height: 576px;
+  background-color: #fff;
+}
+.m-demo .code {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 10px;
+  padding: 10px;
+  border-left: 4px solid #D7DBE4;
+  background-color: #F0F3F8;
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+}
 
 /**
  * module: m-code
@@ -319,16 +352,21 @@ a {
   border-radius: 5px;
   background: #272822;
   color: #51bbe1;
-  font-size: 20px; }
-  .m-code .method {
-    color: #93de08; }
-  .m-code .bracket, .m-code .colon {
-    padding-right: 5px;
-    color: #fff; }
-  .m-code mark {
-    background: none;
-    color: #ccc;
-    font-size: 16px; }
+  font-size: 20px;
+}
+.m-code .method {
+  color: #93de08;
+}
+.m-code .bracket,
+.m-code .colon {
+  padding-right: 5px;
+  color: #fff;
+}
+.m-code mark {
+  background: none;
+  color: #ccc;
+  font-size: 16px;
+}
 
 /**
  * Directory: lib/core/variables.scss
@@ -502,72 +540,68 @@ a {
   border: 1px solid gainsboro;
   box-shadow: inset 1px 1px rgba(255, 255, 255, 0.1);
   border-radius: 0.03rem;
-  background-color: #f5f5f5;
-  color: #333;
+  background-color: whitesmoke;
+  color: #333333;
   text-align: center;
   vertical-align: middle;
-  cursor: pointer; }
-  .yo-btn:hover, .yo-btn:focus, .yo-btn:active {
-    border-color: #e6e6e6;
-    background-color: white;
-    color: #4d4d4d; }
-
+  cursor: pointer;
+}
+.yo-btn:hover, .yo-btn:focus, .yo-btn:active {
+  border-color: #e6e6e6;
+  background-color: white;
+  color: #4d4d4d;
+}
 .yo-btn-s {
   height: 0.28rem;
   line-height: 0.28rem;
-  font-size: 0.12rem; }
+  font-size: 0.12rem;
+}
 
 .yo-btn-m {
   height: 0.36rem;
   line-height: 0.36rem;
-  font-size: 0.15rem; }
+  font-size: 0.15rem;
+}
 
 .yo-btn-l {
   height: 0.44rem;
   line-height: 0.44rem;
-  font-size: 0.2rem; }
-
-.yo-btn-normal {
-  
-  
-   }
+  font-size: 0.2rem;
+}
 
 .yo-btn-primary {
-  
-  
-  
   background-color: #ff801a;
   border: 1px solid #e66600;
-  color: #fff; }
-  .yo-btn-primary:hover, .yo-btn-primary:focus, .yo-btn-primary:active {
-    background-color: #ff8b2e;
-    border-color: #fa7000 !important;
-    color: white; }
+  color: white;
+}
+.yo-btn-primary:hover, .yo-btn-primary:focus, .yo-btn-primary:active {
+  background-color: #ff8b2e;
+  border-color: #fa7000 !important;
+  color: white;
+}
 
 .yo-btn-info {
-  
-  
-  
   background-color: #4a87ee;
   border: 1px solid #1b68ea;
-  color: #fff; }
-  .yo-btn-info:hover, .yo-btn-info:focus, .yo-btn-info:active {
-    background-color: #5d93f0;
-    border-color: #2e74eb !important;
-    color: white; }
+  color: white;
+}
+.yo-btn-info:hover, .yo-btn-info:focus, .yo-btn-info:active {
+  background-color: #5d93f0;
+  border-color: #2e74eb !important;
+  color: white;
+}
 
 .yo-btn-disabled {
-  
-  
-  
-  background-color: #eee;
+  background-color: #eeeeee;
   border: 1px solid #d4d4d4;
   color: #d9d9d9;
-  cursor: not-allowed; }
-  .yo-btn-disabled:hover, .yo-btn-disabled:focus, .yo-btn-disabled:active {
-    background-color: #eee;
-    border: 1px solid #d4d4d4;
-    color: #d9d9d9; }
+  cursor: not-allowed;
+}
+.yo-btn-disabled:hover, .yo-btn-disabled:focus, .yo-btn-disabled:active {
+  background-color: #eeeeee;
+  border: 1px solid #d4d4d4;
+  color: #d9d9d9;
+}
 
 /**
  * Widget: yo-toolbar
@@ -581,19 +615,25 @@ a {
  */
 .yo-toolbar {
   display: inline-block;
-  vertical-align: middle; }
-  .yo-toolbar > .yo-btn {
-    float: left; }
-    .yo-toolbar > .yo-btn:not(:first-child) {
-      margin-left: -1px; }
-    .yo-toolbar > .yo-btn:first-child {
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0; }
-    .yo-toolbar > .yo-btn:last-child {
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0; }
-    .yo-toolbar > .yo-btn:not(:first-child):not(:last-child) {
-      border-radius: 0; }
+  vertical-align: middle;
+}
+.yo-toolbar > .yo-btn {
+  float: left;
+}
+.yo-toolbar > .yo-btn:not(:first-child) {
+  margin-left: -1px;
+}
+.yo-toolbar > .yo-btn:first-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.yo-toolbar > .yo-btn:last-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.yo-toolbar > .yo-btn:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
 
 /**
  * yo-toolbar演示页面
@@ -601,4 +641,5 @@ a {
  * Time: 2014.9.18
  */
 .m-demo .stage div {
-  padding: 10px 0 0 10px; }
+  padding: 10px 0 0 10px;
+}

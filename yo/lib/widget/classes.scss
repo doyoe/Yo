@@ -312,6 +312,7 @@
     height: map-get($number, height);
     line-height: map-get($number, height);
     border: 1px solid map-get($number, bordercolor);
+    border-radius: 0;
     box-shadow: 1px 1px 1px rgba(map-get($number, bordercolor),.3);
     font-size: 0;
     vertical-align: middle;

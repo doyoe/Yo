@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /**
  * Directory: lib/core/variables.scss
  * CSS Variables 定义各种页面沙粒变量
@@ -72,116 +73,144 @@
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  */
-*, ::before, ::after {
+*,
+::before,
+::after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 html {
-  background-color: #f5f5f5;
-  color: #333;
+  background-color: whitesmoke;
+  color: #333333;
   font-size: 100px;
   -webkit-user-select: none;
   -moz-user-select: none;
-  user-select: none; }
+  user-select: none;
+}
 
 body {
-  font-size: 16px; }
+  font-size: 16px;
+}
 
 body, ul, ol, dl, dd, h1, h2, h3, h4, h5, h6, figure, form, fieldset, legend, input, textarea, button, p, blockquote, th, td, pre, xmp {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+}
 
 body, input, textarea, button, select, pre, tt, code, kbd, samp, optgroup, option {
   line-height: 1.5;
-  font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif; }
+  font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+}
 
 table {
   border-collapse: collapse;
   border-spacing: 0;
   table-layout: fixed;
-  text-align: left; }
+  text-align: left;
+}
 
 caption, th {
-  text-align: inherit; }
+  text-align: inherit;
+}
 
 ul, ol, menu {
-  list-style: none; }
+  list-style: none;
+}
 
 fieldset, img {
-  border: 0 none; }
+  border: 0 none;
+}
 
 img, object, input, textarea, button, select {
-  vertical-align: top; }
+  vertical-align: top;
+}
 
 article, aside, footer, header, section, nav, figure, figcaption, hgroup, details, menu, main {
-  display: block; }
+  display: block;
+}
 
 audio, canvas, video {
-  display: inline-block; }
+  display: inline-block;
+}
 
 h1, h2, h3, h4, h5, h6, input, textarea, button, select, small, big {
-  font-size: 100%; }
+  font-size: 100%;
+}
 
 address, cite, dfn, em, i, optgroup, var {
-  font-style: normal; }
+  font-style: normal;
+}
 
 blockquote:before, blockquote:after, q:before, q:after {
-  content: "\0020"; }
+  content: "\0020";
+}
 
 textarea {
-  overflow: auto; }
+  overflow: auto;
+}
 
 textarea, input, button {
-  outline: none; }
+  outline: none;
+}
 
 button::-moz-focus-inner, input::-moz-focus-inner {
   padding: 0;
-  border: 0 none; }
+  border: 0 none;
+}
 
 input[type="button"], input[type="submit"], input[type="reset"], input[type="file"]::-webkit-file-upload-button {
   -webkit-appearance: none;
   -moz-appearance: none;
-  appearance: none; }
+  appearance: none;
+}
 
 mark {
-  background-color: transparent; }
+  background-color: transparent;
+}
 
 ins, s, u, del {
-  text-decoration: none; }
+  text-decoration: none;
+}
 
 input, textarea, button, a {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+  -webkit-tap-highlight-color: transparent;
+}
 
 a, img {
-  -webkit-touch-callout: none; }
+  -webkit-touch-callout: none;
+}
 
 a {
   color: #25a4bb;
-  text-decoration: none; }
-  a:hover {
-    color: #f60; }
+  text-decoration: none;
+}
+a:hover {
+  color: #ff6600;
+}
 
 .g-clear::after, .g-mod::after, #bd::after {
   display: block;
   overflow: hidden;
   clear: both;
   height: 0;
-  content: "\0020"; }
+  content: "\0020";
+}
 
 @font-face {
   font-family: "fontawesome-webfont";
   src: url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.eot");
-  src: url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.eot?#iefix") format("embedded-opentype"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.woff") format("woff"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.ttf") format("truetype"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.svg#iconfont") format("svg"); }
-
+  src: url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.eot?#iefix") format("embedded-opentype"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.woff") format("woff"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.ttf") format("truetype"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.svg#iconfont") format("svg");
+}
 .yo-ico {
   font-family: "fontawesome-webfont" !important;
-  font-size: 16px;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -webkit-text-stroke-width: 0.1px;
   -moz-osx-font-smoothing: grayscale;
-  vertical-align: middle; }
+  vertical-align: middle;
+}
 
 /**
  * Directory: lib/core/variables.scss
@@ -282,31 +311,35 @@ a {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
-  margin: 10px; }
-  .m-demo .device {
-    position: relative;
-    width: 365px;
-    height: 792px;
-    background: url(../../../../bgimg/phone@2x.png) no-repeat;
-    background-size: 365px 792px; }
-    .m-demo .device .stage {
-      position: absolute;
-      top: 104px;
-      left: 23px;
-      width: 320px;
-      height: 576px;
-      background-color: #fff; }
-  .m-demo .code {
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-    flex: 1;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-    margin: 10px;
-    padding: 10px;
-    border-left: 4px solid #D7DBE4;
-    background-color: #F0F3F8;
-    font-family: Monaco, Menlo, Consolas, "Courier New", monospace; }
+  margin: 10px;
+}
+.m-demo .device {
+  position: relative;
+  width: 365px;
+  height: 792px;
+  background: url(../../../../bgimg/phone@2x.png) no-repeat;
+  background-size: 365px 792px;
+}
+.m-demo .device .stage {
+  position: absolute;
+  top: 104px;
+  left: 23px;
+  width: 320px;
+  height: 576px;
+  background-color: #fff;
+}
+.m-demo .code {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 10px;
+  padding: 10px;
+  border-left: 4px solid #D7DBE4;
+  background-color: #F0F3F8;
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+}
 
 /**
  * module: m-code
@@ -319,16 +352,21 @@ a {
   border-radius: 5px;
   background: #272822;
   color: #51bbe1;
-  font-size: 20px; }
-  .m-code .method {
-    color: #93de08; }
-  .m-code .bracket, .m-code .colon {
-    padding-right: 5px;
-    color: #fff; }
-  .m-code mark {
-    background: none;
-    color: #ccc;
-    font-size: 16px; }
+  font-size: 20px;
+}
+.m-code .method {
+  color: #93de08;
+}
+.m-code .bracket,
+.m-code .colon {
+  padding-right: 5px;
+  color: #fff;
+}
+.m-code mark {
+  background: none;
+  color: #ccc;
+  font-size: 16px;
+}
 
 /**
  * Directory: lib/core/variables.scss
@@ -427,34 +465,42 @@ a {
   display: -webkit-flex;
   display: flex;
   height: 0.49rem;
-  border-color: #ddd;
+  border-color: #dddddd;
   background-color: #fafafa;
   text-align: center;
-  line-height: 0.49rem; }
-  .yo-tab > .item {
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-    flex: 1;
-    border-top: 1px solid #ddd;
-    color: #333; }
-    .yo-tab > .item:not(:first-child) {
-      border-left-color: #ddd; }
-    .yo-tab > .item:hover, .yo-tab > .item:active, .yo-tab > .item.on {
-      
-      background-color: #fff;
-      color: #000; }
-    .yo-tab > .item-top-ico, .yo-tab > .item-left-ico {
-      font-size: 0.12rem; }
-    .yo-tab > .item-top-ico {
-      padding-top: 0.08rem;
-      line-height: 0.2rem; }
-      .yo-tab > .item-top-ico .yo-ico {
-        display: block;
-        font-size: 0.28rem; }
-    .yo-tab > .item-left-ico .yo-ico {
-      font-size: 0.24rem; }
-    .yo-tab > .item-only-ico .yo-ico {
-      font-size: 0.32rem; }
+  line-height: 0.49rem;
+}
+.yo-tab > .item {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  border-top: 1px solid #dddddd;
+  color: #333333;
+}
+.yo-tab > .item:not(:first-child) {
+  border-left-color: #dddddd;
+}
+.yo-tab > .item:hover, .yo-tab > .item:active, .yo-tab > .item.on {
+  background-color: white;
+  color: black;
+}
+.yo-tab > .item-top-ico, .yo-tab > .item-left-ico {
+  font-size: .12rem;
+}
+.yo-tab > .item-top-ico {
+  padding-top: .08rem;
+  line-height: .2rem;
+}
+.yo-tab > .item-top-ico .yo-ico {
+  display: block;
+  font-size: .28rem;
+}
+.yo-tab > .item-left-ico .yo-ico {
+  font-size: .24rem;
+}
+.yo-tab > .item-only-ico .yo-ico {
+  font-size: .32rem;
+}
 
 /**
  * g-tab演示页面
@@ -465,30 +511,37 @@ a {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%; }
+  width: 100%;
+}
 .m-demo .yo-tab-test {
   position: static;
   width: 80%;
-  margin: 50px auto; }
+  margin: 50px auto;
+}
 
 .yo-tab-test {
   height: 0.35rem;
   line-height: 0.35rem;
   border-width: 0 1px 1px 1px;
-  border-style: solid; }
-  .yo-tab-test > .item:not(:first-child) {
-    border-left-width: 1px;
-    border-left-style: solid; }
+  border-style: solid;
+}
+.yo-tab-test > .item:not(:first-child) {
+  border-left-width: 1px;
+  border-left-style: solid;
+}
 
 .yo-tab-only-ico {
   height: 1rem;
   line-height: 1rem;
-  border-color: #000;
-  background-color: #999; }
-  .yo-tab-only-ico > .item {
-    border-top-color: #000;
-    color: #fff; }
-    .yo-tab-only-ico > .item:not(:first-child) {
-      border-left-width: 1px;
-      border-left-style: solid;
-      border-left-color: #000; }
+  border-color: black;
+  background-color: #999999;
+}
+.yo-tab-only-ico > .item {
+  border-top-color: black;
+  color: white;
+}
+.yo-tab-only-ico > .item:not(:first-child) {
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-left-color: black;
+}

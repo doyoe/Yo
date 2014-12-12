@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /**
  * Directory: lib/core/variables.scss
  * CSS Variables 定义各种页面沙粒变量
@@ -72,116 +73,144 @@
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  */
-*, ::before, ::after {
+*,
+::before,
+::after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 html {
-  background-color: #f5f5f5;
-  color: #333;
+  background-color: whitesmoke;
+  color: #333333;
   font-size: 100px;
   -webkit-user-select: none;
   -moz-user-select: none;
-  user-select: none; }
+  user-select: none;
+}
 
 body {
-  font-size: 16px; }
+  font-size: 16px;
+}
 
 body, ul, ol, dl, dd, h1, h2, h3, h4, h5, h6, figure, form, fieldset, legend, input, textarea, button, p, blockquote, th, td, pre, xmp {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+}
 
 body, input, textarea, button, select, pre, tt, code, kbd, samp, optgroup, option {
   line-height: 1.5;
-  font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif; }
+  font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+}
 
 table {
   border-collapse: collapse;
   border-spacing: 0;
   table-layout: fixed;
-  text-align: left; }
+  text-align: left;
+}
 
 caption, th {
-  text-align: inherit; }
+  text-align: inherit;
+}
 
 ul, ol, menu {
-  list-style: none; }
+  list-style: none;
+}
 
 fieldset, img {
-  border: 0 none; }
+  border: 0 none;
+}
 
 img, object, input, textarea, button, select {
-  vertical-align: top; }
+  vertical-align: top;
+}
 
 article, aside, footer, header, section, nav, figure, figcaption, hgroup, details, menu, main {
-  display: block; }
+  display: block;
+}
 
 audio, canvas, video {
-  display: inline-block; }
+  display: inline-block;
+}
 
 h1, h2, h3, h4, h5, h6, input, textarea, button, select, small, big {
-  font-size: 100%; }
+  font-size: 100%;
+}
 
 address, cite, dfn, em, i, optgroup, var {
-  font-style: normal; }
+  font-style: normal;
+}
 
 blockquote:before, blockquote:after, q:before, q:after {
-  content: "\0020"; }
+  content: "\0020";
+}
 
 textarea {
-  overflow: auto; }
+  overflow: auto;
+}
 
 textarea, input, button {
-  outline: none; }
+  outline: none;
+}
 
 button::-moz-focus-inner, input::-moz-focus-inner {
   padding: 0;
-  border: 0 none; }
+  border: 0 none;
+}
 
 input[type="button"], input[type="submit"], input[type="reset"], input[type="file"]::-webkit-file-upload-button {
   -webkit-appearance: none;
   -moz-appearance: none;
-  appearance: none; }
+  appearance: none;
+}
 
 mark {
-  background-color: transparent; }
+  background-color: transparent;
+}
 
 ins, s, u, del {
-  text-decoration: none; }
+  text-decoration: none;
+}
 
 input, textarea, button, a {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+  -webkit-tap-highlight-color: transparent;
+}
 
 a, img {
-  -webkit-touch-callout: none; }
+  -webkit-touch-callout: none;
+}
 
 a {
   color: #25a4bb;
-  text-decoration: none; }
-  a:hover {
-    color: #f60; }
+  text-decoration: none;
+}
+a:hover {
+  color: #ff6600;
+}
 
 .g-clear::after, .g-mod::after, #bd::after {
   display: block;
   overflow: hidden;
   clear: both;
   height: 0;
-  content: "\0020"; }
+  content: "\0020";
+}
 
 @font-face {
   font-family: "fontawesome-webfont";
   src: url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.eot");
-  src: url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.eot?#iefix") format("embedded-opentype"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.woff") format("woff"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.ttf") format("truetype"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.svg#iconfont") format("svg"); }
-
+  src: url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.eot?#iefix") format("embedded-opentype"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.woff") format("woff"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.ttf") format("truetype"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.svg#iconfont") format("svg");
+}
 .yo-ico {
   font-family: "fontawesome-webfont" !important;
-  font-size: 16px;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -webkit-text-stroke-width: 0.1px;
   -moz-osx-font-smoothing: grayscale;
-  vertical-align: middle; }
+  vertical-align: middle;
+}
 
 /**
  * Directory: lib/core/variables.scss
@@ -284,16 +313,21 @@ a {
   border-radius: 5px;
   background: #272822;
   color: #51bbe1;
-  font-size: 20px; }
-  .m-code .method {
-    color: #93de08; }
-  .m-code .bracket, .m-code .colon {
-    padding-right: 5px;
-    color: #fff; }
-  .m-code mark {
-    background: none;
-    color: #ccc;
-    font-size: 16px; }
+  font-size: 20px;
+}
+.m-code .method {
+  color: #93de08;
+}
+.m-code .bracket,
+.m-code .colon {
+  padding-right: 5px;
+  color: #fff;
+}
+.m-code mark {
+  background: none;
+  color: #ccc;
+  font-size: 16px;
+}
 
 /**
  * module: m-demo
@@ -304,31 +338,35 @@ a {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
-  margin: 10px; }
-  .m-demo .device {
-    position: relative;
-    width: 365px;
-    height: 792px;
-    background: url(../../../../bgimg/phone@2x.png) no-repeat;
-    background-size: 365px 792px; }
-    .m-demo .device .stage {
-      position: absolute;
-      top: 104px;
-      left: 23px;
-      width: 320px;
-      height: 576px;
-      background-color: #fff; }
-  .m-demo .code {
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-    flex: 1;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-    margin: 10px;
-    padding: 10px;
-    border-left: 4px solid #D7DBE4;
-    background-color: #F0F3F8;
-    font-family: Monaco, Menlo, Consolas, "Courier New", monospace; }
+  margin: 10px;
+}
+.m-demo .device {
+  position: relative;
+  width: 365px;
+  height: 792px;
+  background: url(../../../../bgimg/phone@2x.png) no-repeat;
+  background-size: 365px 792px;
+}
+.m-demo .device .stage {
+  position: absolute;
+  top: 104px;
+  left: 23px;
+  width: 320px;
+  height: 576px;
+  background-color: #fff;
+}
+.m-demo .code {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 10px;
+  padding: 10px;
+  border-left: 4px solid #D7DBE4;
+  background-color: #F0F3F8;
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+}
 
 /**
  * Directory: lib/core/variables.scss
@@ -423,50 +461,71 @@ a {
   display: flex;
   position: relative;
   overflow: hidden;
-  height: 0.44rem;
-  line-height: 0.44rem; }
-  .yo-search > .yo-ico, .yo-search > .cancel, .yo-search > .input {
-    -webkit-transition: all 0.2s ease-in;
-    -moz-transition: all 0.2s ease-in;
-    transition: all 0.2s ease-in;
-    -webkit-transform: translateZ(0);
-    -moz-transform: translateZ(0);
-    transform: translateZ(0); }
-  .yo-search > .yo-ico {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin: -0.22rem 0 0 -0.26rem;
-    color: #999; }
-  .yo-search > .cancel {
-    width: 0;
-    color: #2b94ff;
-    white-space: nowrap;
-    text-align: right; }
-  .yo-search > .input {
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-    flex: 1;
-    padding: 0 0.32rem;
-    border: 1px solid #ddd;
-    border-radius: 0.05rem; }
-    .yo-search > .input::-webkit-input-placeholder {
-      position: relative;
-      left: 50%;
-      -webkit-transform: translate(-0.05rem);
-      -moz-transform: translate(-0.05rem);
-      transform: translate(-0.05rem);
-      -webkit-transition: all 0.2s ease-in;
-      -moz-transition: all 0.2s ease-in;
-      transition: all 0.2s ease-in; }
-    .yo-search > .input:focus {
-      border-color: #2b94ff; }
-      .yo-search > .input:focus ~ .yo-ico {
-        left: 0.38rem; }
-      .yo-search > .input:focus::-webkit-input-placeholder {
-        left: 0.05rem; }
-      .yo-search > .input:focus ~ .cancel {
-        width: 0.4rem; }
+  height: .3rem;
+  line-height: .3rem;
+  font-size: .14rem;
+}
+.yo-search > .action .yo-ico,
+.yo-search > .cancel,
+.yo-search > .input {
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  transform: translateZ(0);
+}
+.yo-search > .action .yo-ico {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-180%, -50%) translatez(0);
+  -moz-transform: translate(-180%, -50%) translatez(0);
+  transform: translate(-180%, -50%) translatez(0);
+  color: #fff;
+}
+.yo-search > .cancel {
+  width: 0;
+  color: #2b94ff;
+  white-space: nowrap;
+  text-align: right;
+}
+.yo-search > .input {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  padding: 0 .32rem;
+  border: 1px solid #ccc;
+  border-radius: .05rem;
+  background-color: #ccc;
+  color: #0f0f0f;
+  font-size: .14rem;
+}
+.yo-search > .input::-webkit-input-placeholder {
+  position: relative;
+  left: 50%;
+  color: #fff;
+  -webkit-transform: translate(-0.05rem);
+  -moz-transform: translate(-0.05rem);
+  transform: translate(-0.05rem);
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+.yo-search > .input:focus {
+  border-color: #ccc;
+  background-color: #ccc;
+}
+.yo-search > .input:focus ~ .action .yo-ico {
+  left: .34rem;
+}
+.yo-search > .input:focus::-webkit-input-placeholder {
+  left: .05rem;
+}
+.yo-search > .input:focus ~ .cancel {
+  width: .6rem;
+  padding-right: .1rem;
+}
 
 /**
  * search演示页面
@@ -474,4 +533,5 @@ a {
  * Time: 2014.4.1
  */
 .yo-search {
-  margin: 10px; }
+  margin: 10px;
+}

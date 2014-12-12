@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /**
  * Directory: lib/core/variables.scss
  * CSS Variables 定义各种页面沙粒变量
@@ -72,116 +73,144 @@
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  */
-*, ::before, ::after {
+*,
+::before,
+::after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 html {
-  background-color: #f5f5f5;
-  color: #333;
+  background-color: whitesmoke;
+  color: #333333;
   font-size: 100px;
   -webkit-user-select: none;
   -moz-user-select: none;
-  user-select: none; }
+  user-select: none;
+}
 
 body {
-  font-size: 16px; }
+  font-size: 16px;
+}
 
 body, ul, ol, dl, dd, h1, h2, h3, h4, h5, h6, figure, form, fieldset, legend, input, textarea, button, p, blockquote, th, td, pre, xmp {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+}
 
 body, input, textarea, button, select, pre, tt, code, kbd, samp, optgroup, option {
   line-height: 1.5;
-  font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif; }
+  font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+}
 
 table {
   border-collapse: collapse;
   border-spacing: 0;
   table-layout: fixed;
-  text-align: left; }
+  text-align: left;
+}
 
 caption, th {
-  text-align: inherit; }
+  text-align: inherit;
+}
 
 ul, ol, menu {
-  list-style: none; }
+  list-style: none;
+}
 
 fieldset, img {
-  border: 0 none; }
+  border: 0 none;
+}
 
 img, object, input, textarea, button, select {
-  vertical-align: top; }
+  vertical-align: top;
+}
 
 article, aside, footer, header, section, nav, figure, figcaption, hgroup, details, menu, main {
-  display: block; }
+  display: block;
+}
 
 audio, canvas, video {
-  display: inline-block; }
+  display: inline-block;
+}
 
 h1, h2, h3, h4, h5, h6, input, textarea, button, select, small, big {
-  font-size: 100%; }
+  font-size: 100%;
+}
 
 address, cite, dfn, em, i, optgroup, var {
-  font-style: normal; }
+  font-style: normal;
+}
 
 blockquote:before, blockquote:after, q:before, q:after {
-  content: "\0020"; }
+  content: "\0020";
+}
 
 textarea {
-  overflow: auto; }
+  overflow: auto;
+}
 
 textarea, input, button {
-  outline: none; }
+  outline: none;
+}
 
 button::-moz-focus-inner, input::-moz-focus-inner {
   padding: 0;
-  border: 0 none; }
+  border: 0 none;
+}
 
 input[type="button"], input[type="submit"], input[type="reset"], input[type="file"]::-webkit-file-upload-button {
   -webkit-appearance: none;
   -moz-appearance: none;
-  appearance: none; }
+  appearance: none;
+}
 
 mark {
-  background-color: transparent; }
+  background-color: transparent;
+}
 
 ins, s, u, del {
-  text-decoration: none; }
+  text-decoration: none;
+}
 
 input, textarea, button, a {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+  -webkit-tap-highlight-color: transparent;
+}
 
 a, img {
-  -webkit-touch-callout: none; }
+  -webkit-touch-callout: none;
+}
 
 a {
   color: #25a4bb;
-  text-decoration: none; }
-  a:hover {
-    color: #f60; }
+  text-decoration: none;
+}
+a:hover {
+  color: #ff6600;
+}
 
 .g-clear::after, .g-mod::after, #bd::after {
   display: block;
   overflow: hidden;
   clear: both;
   height: 0;
-  content: "\0020"; }
+  content: "\0020";
+}
 
 @font-face {
   font-family: "fontawesome-webfont";
   src: url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.eot");
-  src: url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.eot?#iefix") format("embedded-opentype"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.woff") format("woff"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.ttf") format("truetype"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.svg#iconfont") format("svg"); }
-
+  src: url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.eot?#iefix") format("embedded-opentype"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.woff") format("woff"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.ttf") format("truetype"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.svg#iconfont") format("svg");
+}
 .yo-ico {
   font-family: "fontawesome-webfont" !important;
-  font-size: 16px;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -webkit-text-stroke-width: 0.1px;
   -moz-osx-font-smoothing: grayscale;
-  vertical-align: middle; }
+  vertical-align: middle;
+}
 
 /**
  * Directory: lib/core/variables.scss
@@ -282,31 +311,35 @@ a {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
-  margin: 10px; }
-  .m-demo .device {
-    position: relative;
-    width: 365px;
-    height: 792px;
-    background: url(../../../../bgimg/phone@2x.png) no-repeat;
-    background-size: 365px 792px; }
-    .m-demo .device .stage {
-      position: absolute;
-      top: 104px;
-      left: 23px;
-      width: 320px;
-      height: 576px;
-      background-color: #fff; }
-  .m-demo .code {
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-    flex: 1;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-    margin: 10px;
-    padding: 10px;
-    border-left: 4px solid #D7DBE4;
-    background-color: #F0F3F8;
-    font-family: Monaco, Menlo, Consolas, "Courier New", monospace; }
+  margin: 10px;
+}
+.m-demo .device {
+  position: relative;
+  width: 365px;
+  height: 792px;
+  background: url(../../../../bgimg/phone@2x.png) no-repeat;
+  background-size: 365px 792px;
+}
+.m-demo .device .stage {
+  position: absolute;
+  top: 104px;
+  left: 23px;
+  width: 320px;
+  height: 576px;
+  background-color: #fff;
+}
+.m-demo .code {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 10px;
+  padding: 10px;
+  border-left: 4px solid #D7DBE4;
+  background-color: #F0F3F8;
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+}
 
 /**
  * module: m-code
@@ -319,16 +352,21 @@ a {
   border-radius: 5px;
   background: #272822;
   color: #51bbe1;
-  font-size: 20px; }
-  .m-code .method {
-    color: #93de08; }
-  .m-code .bracket, .m-code .colon {
-    padding-right: 5px;
-    color: #fff; }
-  .m-code mark {
-    background: none;
-    color: #ccc;
-    font-size: 16px; }
+  font-size: 20px;
+}
+.m-code .method {
+  color: #93de08;
+}
+.m-code .bracket,
+.m-code .colon {
+  padding-right: 5px;
+  color: #fff;
+}
+.m-code mark {
+  background: none;
+  color: #ccc;
+  font-size: 16px;
+}
 
 /**
  * Directory: lib/core/variables.scss
@@ -422,65 +460,78 @@ a {
   z-index: 201;
   overflow: hidden;
   min-height: 0.7rem;
-  text-align: center; }
-  .yo-loading:before, .yo-loading:after {
-    position: absolute;
-    content: "\0020"; }
-  .yo-loading:before {
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(255, 255, 255, 0.2); }
-  .yo-loading:after {
-    top: 50%;
-    left: 50%;
-    width: 0.04em;
-    height: 0.04em;
-    margin-top: -0.02em;
-    margin-left: -0.02em;
-    background: transparent;
-    border-radius: 50%;
-    -webkit-animation: loading 1s infinite linear;
-    -moz-animation: loading 1s infinite linear;
-    animation: loading 1s infinite linear;
-    -webkit-transform-origin: center;
-    -moz-transform-origin: center;
-    transform-origin: center;
-    box-shadow: 0.35em -0.29em, 0.47em -0.03em 0 0.01em, 0.38em 0.2em 0 0.02em, 0.22em 0.38em 0 0.03em, 0 0.44em 0 0.04em, -0.22em 0.38em 0 0.05em, -0.4em 0.25em 0 0.05em, -0.42em 0 0 0.06em, -0.36em -0.21em 0 0.06em, -0.2em -0.36em 0 0.06em, 0 -0.41em 0 0.07em;
-    color: #666;
-    font-size: 0.5rem; }
-  .yo-loading > .inner {
-    position: relative; }
-
+  text-align: center;
+}
+.yo-loading:before, .yo-loading:after {
+  position: absolute;
+  content: "\0020";
+}
+.yo-loading:before {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.yo-loading:after {
+  top: 50%;
+  left: 50%;
+  width: 0.04em;
+  height: 0.04em;
+  margin-top: -.02em;
+  margin-left: -.02em;
+  background: transparent;
+  border-radius: 50%;
+  -webkit-animation: loading 1s infinite linear;
+  -moz-animation: loading 1s infinite linear;
+  animation: loading 1s infinite linear;
+  -webkit-transform-origin: center;
+  -moz-transform-origin: center;
+  transform-origin: center;
+  box-shadow: .35em -.29em, .47em -.03em 0 .01em, .38em .20em 0 .02em, .22em .38em 0 .03em, 0 .44em 0 .04em, -.22em .38em 0 .05em, -.4em .25em 0 .05em, -.42em 0 0 .06em, -.36em -.21em 0 .06em, -.2em -.36em 0 .06em, 0 -.41em 0 .07em;
+  color: #666666;
+  font-size: 0.5rem;
+}
+.yo-loading > .inner {
+  position: relative;
+}
 @-webkit-keyframes loading {
   from {
-    -webkit-transform: rotatez(0); }
+    -webkit-transform: rotatez(0);
+  }
 
   to {
-    -webkit-transform: rotatez(360deg); } }
-
+    -webkit-transform: rotatez(360deg);
+  }
+}
 @keyframes loading {
   from {
-    transform: rotatez(0); }
+    transform: rotatez(0);
+  }
 
   to {
-    transform: rotatez(360deg); } }
-
+    transform: rotatez(360deg);
+  }
+}
 /**
  * loading演示页面
  * Author: joy.du(飘零雾雨)
  * Time: 2014.4.1
  */
 .yo-loading-a {
-  min-height: 1.2rem; }
-  .yo-loading-a:before {
-    background-color: rgba(0, 0, 0, 0.6); }
-  .yo-loading-a:after {
-    font-size: 1rem;
-    color: red; }
+  min-height: 1.2rem;
+}
+.yo-loading-a:before {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.yo-loading-a:after {
+  font-size: 1rem;
+  color: red;
+}
 
 .yo-loading-b {
-  min-height: 0.8rem; }
-  .yo-loading-b:after {
-    font-size: 0.6rem; }
+  min-height: 0.8rem;
+}
+.yo-loading-b:after {
+  font-size: 0.6rem;
+}

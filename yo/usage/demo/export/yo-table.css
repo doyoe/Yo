@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /**
  * Directory: lib/core/variables.scss
  * CSS Variables 定义各种页面沙粒变量
@@ -72,116 +73,144 @@
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  */
-*, ::before, ::after {
+*,
+::before,
+::after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 html {
-  background-color: #f5f5f5;
-  color: #333;
+  background-color: whitesmoke;
+  color: #333333;
   font-size: 100px;
   -webkit-user-select: none;
   -moz-user-select: none;
-  user-select: none; }
+  user-select: none;
+}
 
 body {
-  font-size: 16px; }
+  font-size: 16px;
+}
 
 body, ul, ol, dl, dd, h1, h2, h3, h4, h5, h6, figure, form, fieldset, legend, input, textarea, button, p, blockquote, th, td, pre, xmp {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+}
 
 body, input, textarea, button, select, pre, tt, code, kbd, samp, optgroup, option {
   line-height: 1.5;
-  font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif; }
+  font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+}
 
 table {
   border-collapse: collapse;
   border-spacing: 0;
   table-layout: fixed;
-  text-align: left; }
+  text-align: left;
+}
 
 caption, th {
-  text-align: inherit; }
+  text-align: inherit;
+}
 
 ul, ol, menu {
-  list-style: none; }
+  list-style: none;
+}
 
 fieldset, img {
-  border: 0 none; }
+  border: 0 none;
+}
 
 img, object, input, textarea, button, select {
-  vertical-align: top; }
+  vertical-align: top;
+}
 
 article, aside, footer, header, section, nav, figure, figcaption, hgroup, details, menu, main {
-  display: block; }
+  display: block;
+}
 
 audio, canvas, video {
-  display: inline-block; }
+  display: inline-block;
+}
 
 h1, h2, h3, h4, h5, h6, input, textarea, button, select, small, big {
-  font-size: 100%; }
+  font-size: 100%;
+}
 
 address, cite, dfn, em, i, optgroup, var {
-  font-style: normal; }
+  font-style: normal;
+}
 
 blockquote:before, blockquote:after, q:before, q:after {
-  content: "\0020"; }
+  content: "\0020";
+}
 
 textarea {
-  overflow: auto; }
+  overflow: auto;
+}
 
 textarea, input, button {
-  outline: none; }
+  outline: none;
+}
 
 button::-moz-focus-inner, input::-moz-focus-inner {
   padding: 0;
-  border: 0 none; }
+  border: 0 none;
+}
 
 input[type="button"], input[type="submit"], input[type="reset"], input[type="file"]::-webkit-file-upload-button {
   -webkit-appearance: none;
   -moz-appearance: none;
-  appearance: none; }
+  appearance: none;
+}
 
 mark {
-  background-color: transparent; }
+  background-color: transparent;
+}
 
 ins, s, u, del {
-  text-decoration: none; }
+  text-decoration: none;
+}
 
 input, textarea, button, a {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+  -webkit-tap-highlight-color: transparent;
+}
 
 a, img {
-  -webkit-touch-callout: none; }
+  -webkit-touch-callout: none;
+}
 
 a {
   color: #25a4bb;
-  text-decoration: none; }
-  a:hover {
-    color: #f60; }
+  text-decoration: none;
+}
+a:hover {
+  color: #ff6600;
+}
 
 .g-clear::after, .g-mod::after, #bd::after {
   display: block;
   overflow: hidden;
   clear: both;
   height: 0;
-  content: "\0020"; }
+  content: "\0020";
+}
 
 @font-face {
   font-family: "fontawesome-webfont";
   src: url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.eot");
-  src: url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.eot?#iefix") format("embedded-opentype"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.woff") format("woff"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.ttf") format("truetype"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.svg#iconfont") format("svg"); }
-
+  src: url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.eot?#iefix") format("embedded-opentype"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.woff") format("woff"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.ttf") format("truetype"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.svg#iconfont") format("svg");
+}
 .yo-ico {
   font-family: "fontawesome-webfont" !important;
-  font-size: 16px;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -webkit-text-stroke-width: 0.1px;
   -moz-osx-font-smoothing: grayscale;
-  vertical-align: middle; }
+  vertical-align: middle;
+}
 
 /**
  * Directory: lib/core/variables.scss
@@ -282,31 +311,35 @@ a {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
-  margin: 10px; }
-  .m-demo .device {
-    position: relative;
-    width: 365px;
-    height: 792px;
-    background: url(../../../../bgimg/phone@2x.png) no-repeat;
-    background-size: 365px 792px; }
-    .m-demo .device .stage {
-      position: absolute;
-      top: 104px;
-      left: 23px;
-      width: 320px;
-      height: 576px;
-      background-color: #fff; }
-  .m-demo .code {
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-    flex: 1;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-    margin: 10px;
-    padding: 10px;
-    border-left: 4px solid #D7DBE4;
-    background-color: #F0F3F8;
-    font-family: Monaco, Menlo, Consolas, "Courier New", monospace; }
+  margin: 10px;
+}
+.m-demo .device {
+  position: relative;
+  width: 365px;
+  height: 792px;
+  background: url(../../../../bgimg/phone@2x.png) no-repeat;
+  background-size: 365px 792px;
+}
+.m-demo .device .stage {
+  position: absolute;
+  top: 104px;
+  left: 23px;
+  width: 320px;
+  height: 576px;
+  background-color: #fff;
+}
+.m-demo .code {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 10px;
+  padding: 10px;
+  border-left: 4px solid #D7DBE4;
+  background-color: #F0F3F8;
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+}
 
 /**
  * module: m-code
@@ -319,16 +352,21 @@ a {
   border-radius: 5px;
   background: #272822;
   color: #51bbe1;
-  font-size: 20px; }
-  .m-code .method {
-    color: #93de08; }
-  .m-code .bracket, .m-code .colon {
-    padding-right: 5px;
-    color: #fff; }
-  .m-code mark {
-    background: none;
-    color: #ccc;
-    font-size: 16px; }
+  font-size: 20px;
+}
+.m-code .method {
+  color: #93de08;
+}
+.m-code .bracket,
+.m-code .colon {
+  padding-right: 5px;
+  color: #fff;
+}
+.m-code mark {
+  background: none;
+  color: #ccc;
+  font-size: 16px;
+}
 
 /**
  * Directory: lib/core/variables.scss
@@ -425,33 +463,37 @@ a {
  * param {default|none|Color} $hover-bgcolor 定义table经过背景色
  */
 .yo-table {
-  background-color: #fff; }
-  .yo-table-zone {
-    padding: 0 0.1rem;
-    border: 1px solid #ddd; }
-    .yo-table-zone table {
-      margin: -1px 0; }
-  .yo-table table {
-    width: 100%; }
-  .yo-table caption {
-    padding: 0.1rem;
-    border-bottom: 1px solid false; }
-  .yo-table thead {
-    background-color: #eee; }
-    .yo-table thead th {
-      padding: 0.05rem 0.1rem; }
-  .yo-table td {
-    padding: 0.1rem; }
-  .yo-table th, .yo-table td {
-    border-width: 0 0 1px 0;
-    border-style: solid;
-    border-color: #ddd; }
-  .yo-table tbody tr:nth-child(odd) {
-     }
-  .yo-table tbody tr:nth-child(even) {
-     }
-  .yo-table tbody tr:hover {
-     }
+  background-color: #fff;
+}
+.yo-table-zone {
+  padding: 0 0.1rem;
+  border: 1px solid #dddddd;
+}
+.yo-table-zone table {
+  margin: -1px 0;
+}
+.yo-table table {
+  width: 100%;
+}
+.yo-table caption {
+  padding: 0.1rem;
+  border-bottom: 1px solid false;
+}
+.yo-table thead {
+  background-color: #eeeeee;
+}
+.yo-table thead th {
+  padding: 0.05rem 0.1rem;
+}
+.yo-table td {
+  padding: 0.1rem;
+}
+.yo-table th,
+.yo-table td {
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  border-color: #dddddd;
+}
 
 /**
  * table演示页面
@@ -459,20 +501,28 @@ a {
  * Time: 2014.4.1
  */
 .m-demo .yo-table .c1 {
-  width: 0.8rem; }
+  width: .8rem;
+}
 
 .yo-table-test caption {
-  border-bottom: 0 none; }
+  border-bottom: 0 none;
+}
 .yo-table-test th, .yo-table-test td {
-  border-width: 1px; }
+  border-width: 1px;
+}
 .yo-table-test tbody tr:nth-child(odd) {
-  background: none; }
+  background: none;
+}
 .yo-table-test tbody tr:hover {
-  background: none; }
+  background: none;
+}
 
 .yo-table-test2 thead {
-  background: #aaa; }
+  background: #aaaaaa;
+}
 .yo-table-test2 tbody tr:nth-child(even) {
-  background: #eee; }
+  background: #eeeeee;
+}
 .yo-table-test2 tbody tr:hover {
-  background: #effbfb; }
+  background: #effbfb;
+}

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /**
  * Directory: lib/core/variables.scss
  * CSS Variables 定义各种页面沙粒变量
@@ -72,116 +73,144 @@
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  */
-*, ::before, ::after {
+*,
+::before,
+::after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 html {
-  background-color: #f5f5f5;
-  color: #333;
+  background-color: whitesmoke;
+  color: #333333;
   font-size: 100px;
   -webkit-user-select: none;
   -moz-user-select: none;
-  user-select: none; }
+  user-select: none;
+}
 
 body {
-  font-size: 16px; }
+  font-size: 16px;
+}
 
 body, ul, ol, dl, dd, h1, h2, h3, h4, h5, h6, figure, form, fieldset, legend, input, textarea, button, p, blockquote, th, td, pre, xmp {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+}
 
 body, input, textarea, button, select, pre, tt, code, kbd, samp, optgroup, option {
   line-height: 1.5;
-  font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif; }
+  font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+}
 
 table {
   border-collapse: collapse;
   border-spacing: 0;
   table-layout: fixed;
-  text-align: left; }
+  text-align: left;
+}
 
 caption, th {
-  text-align: inherit; }
+  text-align: inherit;
+}
 
 ul, ol, menu {
-  list-style: none; }
+  list-style: none;
+}
 
 fieldset, img {
-  border: 0 none; }
+  border: 0 none;
+}
 
 img, object, input, textarea, button, select {
-  vertical-align: top; }
+  vertical-align: top;
+}
 
 article, aside, footer, header, section, nav, figure, figcaption, hgroup, details, menu, main {
-  display: block; }
+  display: block;
+}
 
 audio, canvas, video {
-  display: inline-block; }
+  display: inline-block;
+}
 
 h1, h2, h3, h4, h5, h6, input, textarea, button, select, small, big {
-  font-size: 100%; }
+  font-size: 100%;
+}
 
 address, cite, dfn, em, i, optgroup, var {
-  font-style: normal; }
+  font-style: normal;
+}
 
 blockquote:before, blockquote:after, q:before, q:after {
-  content: "\0020"; }
+  content: "\0020";
+}
 
 textarea {
-  overflow: auto; }
+  overflow: auto;
+}
 
 textarea, input, button {
-  outline: none; }
+  outline: none;
+}
 
 button::-moz-focus-inner, input::-moz-focus-inner {
   padding: 0;
-  border: 0 none; }
+  border: 0 none;
+}
 
 input[type="button"], input[type="submit"], input[type="reset"], input[type="file"]::-webkit-file-upload-button {
   -webkit-appearance: none;
   -moz-appearance: none;
-  appearance: none; }
+  appearance: none;
+}
 
 mark {
-  background-color: transparent; }
+  background-color: transparent;
+}
 
 ins, s, u, del {
-  text-decoration: none; }
+  text-decoration: none;
+}
 
 input, textarea, button, a {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+  -webkit-tap-highlight-color: transparent;
+}
 
 a, img {
-  -webkit-touch-callout: none; }
+  -webkit-touch-callout: none;
+}
 
 a {
   color: #25a4bb;
-  text-decoration: none; }
-  a:hover {
-    color: #f60; }
+  text-decoration: none;
+}
+a:hover {
+  color: #ff6600;
+}
 
 .g-clear::after, .g-mod::after, #bd::after {
   display: block;
   overflow: hidden;
   clear: both;
   height: 0;
-  content: "\0020"; }
+  content: "\0020";
+}
 
 @font-face {
   font-family: "fontawesome-webfont";
   src: url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.eot");
-  src: url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.eot?#iefix") format("embedded-opentype"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.woff") format("woff"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.ttf") format("truetype"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.svg#iconfont") format("svg"); }
-
+  src: url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.eot?#iefix") format("embedded-opentype"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.woff") format("woff"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.ttf") format("truetype"), url("http://source.qunarzz.com/fonts/fontawesome/4.1.0/fontawesome-webfont.svg#iconfont") format("svg");
+}
 .yo-ico {
   font-family: "fontawesome-webfont" !important;
-  font-size: 16px;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -webkit-text-stroke-width: 0.1px;
   -moz-osx-font-smoothing: grayscale;
-  vertical-align: middle; }
+  vertical-align: middle;
+}
 
 /**
  * Directory: lib/core/variables.scss
@@ -282,31 +311,35 @@ a {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
-  margin: 10px; }
-  .m-demo .device {
-    position: relative;
-    width: 365px;
-    height: 792px;
-    background: url(../../../../bgimg/phone@2x.png) no-repeat;
-    background-size: 365px 792px; }
-    .m-demo .device .stage {
-      position: absolute;
-      top: 104px;
-      left: 23px;
-      width: 320px;
-      height: 576px;
-      background-color: #fff; }
-  .m-demo .code {
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-    flex: 1;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-    margin: 10px;
-    padding: 10px;
-    border-left: 4px solid #D7DBE4;
-    background-color: #F0F3F8;
-    font-family: Monaco, Menlo, Consolas, "Courier New", monospace; }
+  margin: 10px;
+}
+.m-demo .device {
+  position: relative;
+  width: 365px;
+  height: 792px;
+  background: url(../../../../bgimg/phone@2x.png) no-repeat;
+  background-size: 365px 792px;
+}
+.m-demo .device .stage {
+  position: absolute;
+  top: 104px;
+  left: 23px;
+  width: 320px;
+  height: 576px;
+  background-color: #fff;
+}
+.m-demo .code {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 10px;
+  padding: 10px;
+  border-left: 4px solid #D7DBE4;
+  background-color: #F0F3F8;
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+}
 
 /**
  * module: m-code
@@ -319,16 +352,21 @@ a {
   border-radius: 5px;
   background: #272822;
   color: #51bbe1;
-  font-size: 20px; }
-  .m-code .method {
-    color: #93de08; }
-  .m-code .bracket, .m-code .colon {
-    padding-right: 5px;
-    color: #fff; }
-  .m-code mark {
-    background: none;
-    color: #ccc;
-    font-size: 16px; }
+  font-size: 20px;
+}
+.m-code .method {
+  color: #93de08;
+}
+.m-code .bracket,
+.m-code .colon {
+  padding-right: 5px;
+  color: #fff;
+}
+.m-code mark {
+  background: none;
+  color: #ccc;
+  font-size: 16px;
+}
 
 /**
  * Directory: lib/core/variables.scss
@@ -422,48 +460,71 @@ a {
 .yo-list {
   overflow: hidden;
   background-color: #fff;
-  outline: 1px solid #ddd;
-  outline-offset: -1px; }
-  .yo-list > .label, .yo-list > .item {
-    border-bottom: 1px solid #ddd;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    align-items: center; }
-    .yo-list > .label > .mark, .yo-list > .item > .mark {
-      margin-right: 0.1rem; }
-    .yo-list > .label .col, .yo-list > .item .col {
-      padding: 0.1rem; }
-      .yo-list > .label .col:first-child, .yo-list > .item .col:first-child {
-        margin-left: -0.1rem; }
-      .yo-list > .label .col:last-child, .yo-list > .item .col:last-child {
-        margin-right: -0.1rem; }
-    .yo-list > .label > .flex, .yo-list > .item > .flex {
-      -webkit-box-flex: 1;
-      -webkit-flex: 1;
-      flex: 1; }
-  .yo-list > .label {
-    padding: 0.1rem 0.1rem;
-    background-color: #eee; }
-  .yo-list > .label:first-of-type {
-    border-top: 1px solid #ddd; }
-  .yo-list > .item {
-    padding: 0.1rem;
-    color: #333; }
-  .yo-list > .item-input {
-    cursor: pointer; }
-    .yo-list > .item-input > .input {
-      -webkit-align-self: stretch;
-      align-self: stretch;
-      width: 100%;
-      border: 0 none;
-      background-color: transparent; }
-  .yo-list > .item-on, .yo-list > a.item {
-    cursor: pointer; }
-    .yo-list > .item-on:hover, .yo-list > .item-on:active, .yo-list > a.item:hover, .yo-list > a.item:active {
-      background-color: #f8f8f8; }
+  outline: 1px solid #dddddd;
+  outline-offset: -1px;
+}
+.yo-list > .label,
+.yo-list > .item {
+  border-bottom: 1px solid #dddddd;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.yo-list > .label > .mark,
+.yo-list > .item > .mark {
+  margin-right: .1rem;
+}
+.yo-list > .label .col,
+.yo-list > .item .col {
+  padding: 0.1rem;
+}
+.yo-list > .label .col:first-child,
+.yo-list > .item .col:first-child {
+  margin-left: -0.1rem;
+}
+.yo-list > .label .col:last-child,
+.yo-list > .item .col:last-child {
+  margin-right: -0.1rem;
+}
+.yo-list > .label > .flex,
+.yo-list > .item > .flex {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+}
+.yo-list > .label {
+  padding: 0.1rem 0.1rem;
+  background-color: #eeeeee;
+}
+.yo-list > .label:first-of-type {
+  border-top: 1px solid #dddddd;
+}
+.yo-list > .item {
+  padding: 0.1rem;
+  color: #333333;
+}
+.yo-list > .item-input {
+  cursor: pointer;
+}
+.yo-list > .item-input > .input {
+  -webkit-align-self: stretch;
+  align-self: stretch;
+  width: 100%;
+  border: 0 none;
+  background-color: transparent;
+}
+.yo-list > .item-on,
+.yo-list > a.item {
+  cursor: pointer;
+}
+.yo-list > .item-on:hover, .yo-list > .item-on:active,
+.yo-list > a.item:hover,
+.yo-list > a.item:active {
+  background-color: #f8f8f8;
+}
 
 /**
  * Directory: lib/core/variables.scss
@@ -561,48 +622,57 @@ a {
   -moz-appearance: none;
   appearance: none;
   position: relative;
-  width: 0.6rem;
-  height: 0.32rem;
+  width: .6rem;
+  height: .32rem;
   margin: 0;
   cursor: pointer;
-  border: 0.02rem solid #ddd;
-  border-radius: 0.16rem;
-  background-color: #f5f5f5;
+  border: 0.02rem solid #dddddd;
+  border-radius: .16rem;
+  background-color: whitesmoke;
   vertical-align: middle;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
-  transition: all 0.3s; }
-  .yo-switch[type="checkbox"]::before {
-    display: block;
-    content: "\0020";
-    width: 0.28rem;
-    height: 0.28rem;
-    border-radius: 50%;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    transition: all 0.3s; }
-  .yo-switch[type="checkbox"]:active, .yo-switch[type="checkbox"]:focus {
-    outline: none; }
-  .yo-switch[type="checkbox"]:active {
-    background-color: #ddd; }
-  .yo-switch[type="checkbox"]:checked {
-    border-color: #4bd763;
-    background-color: #4bd763; }
-    .yo-switch[type="checkbox"]:checked::before {
-      -webkit-transform: translate3d(100%, 0, 0);
-      -moz-transform: translate3d(100%, 0, 0);
-      transform: translate3d(100%, 0, 0); }
-    .yo-switch[type="checkbox"]:checked:active::before {
-      -webkit-transform: translate3d(80%, 0, 0);
-      -moz-transform: translate3d(80%, 0, 0);
-      transform: translate3d(80%, 0, 0); }
-  .yo-switch[type="checkbox"]:disabled, .yo-switch[type="checkbox"]:disabled:checked {
-    border-color: #dfdfdf;
-    background-color: #dfdfdf; }
-  .yo-switch[type="checkbox"]:disabled::before {
-    background-color: #efefef; }
+  transition: all 0.3s;
+}
+.yo-switch[type="checkbox"]::before {
+  display: block;
+  content: "\0020";
+  width: 0.28rem;
+  height: 0.28rem;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.yo-switch[type="checkbox"]:active, .yo-switch[type="checkbox"]:focus {
+  outline: none;
+}
+.yo-switch[type="checkbox"]:active {
+  background-color: #dddddd;
+}
+.yo-switch[type="checkbox"]:checked {
+  border-color: #4bd763;
+  background-color: #4bd763;
+}
+.yo-switch[type="checkbox"]:checked::before {
+  -webkit-transform: translate3d(100%, 0, 0);
+  -moz-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
+}
+.yo-switch[type="checkbox"]:checked:active::before {
+  -webkit-transform: translate3d(80%, 0, 0);
+  -moz-transform: translate3d(80%, 0, 0);
+  transform: translate3d(80%, 0, 0);
+}
+.yo-switch[type="checkbox"]:disabled, .yo-switch[type="checkbox"]:disabled:checked {
+  border-color: #dfdfdf;
+  background-color: #dfdfdf;
+}
+.yo-switch[type="checkbox"]:disabled::before {
+  background-color: #efefef;
+}
 
 /**
  * switch演示页面
@@ -611,28 +681,35 @@ a {
  */
 .yo-switch-b[type="checkbox"]:checked {
   border-color: #4a87ee;
-  background-color: #4a87ee; }
+  background-color: #4a87ee;
+}
 
 .yo-switch-c[type="checkbox"]:checked {
   border-color: #43cee6;
-  background-color: #43cee6; }
+  background-color: #43cee6;
+}
 
 .yo-switch-d[type="checkbox"]:checked {
   border-color: #66cc33;
-  background-color: #66cc33; }
+  background-color: #66cc33;
+}
 
 .yo-switch-e[type="checkbox"]:checked {
   border-color: #f0b840;
-  background-color: #f0b840; }
+  background-color: #f0b840;
+}
 
 .yo-switch-f[type="checkbox"]:checked {
   border-color: #ef4e3a;
-  background-color: #ef4e3a; }
+  background-color: #ef4e3a;
+}
 
 .yo-switch-g[type="checkbox"]:checked {
   border-color: #8a6de9;
-  background-color: #8a6de9; }
+  background-color: #8a6de9;
+}
 
 .yo-switch-h[type="checkbox"]:checked {
-  border-color: #444;
-  background-color: #444; }
+  border-color: #444444;
+  background-color: #444444;
+}
