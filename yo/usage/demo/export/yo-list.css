@@ -472,9 +472,9 @@ a:hover {
   border-radius: .16rem;
   background-color: whitesmoke;
   vertical-align: middle;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  transition: all 0.3s;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
 .yo-switch[type="checkbox"]::before {
   display: block;
@@ -484,29 +484,24 @@ a:hover {
   border-radius: 50%;
   background-color: white;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  transition: all 0.3s;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  -webkit-transform: translate(0, 0) translatez(0);
+  -moz-transform: translate(0, 0) translatez(0);
+  transform: translate(0, 0) translatez(0);
 }
 .yo-switch[type="checkbox"]:active, .yo-switch[type="checkbox"]:focus {
   outline: none;
-}
-.yo-switch[type="checkbox"]:active {
-  background-color: #dddddd;
 }
 .yo-switch[type="checkbox"]:checked {
   border-color: #4bd763;
   background-color: #4bd763;
 }
 .yo-switch[type="checkbox"]:checked::before {
-  -webkit-transform: translate3d(100%, 0, 0);
-  -moz-transform: translate3d(100%, 0, 0);
-  transform: translate3d(100%, 0, 0);
-}
-.yo-switch[type="checkbox"]:checked:active::before {
-  -webkit-transform: translate3d(80%, 0, 0);
-  -moz-transform: translate3d(80%, 0, 0);
-  transform: translate3d(80%, 0, 0);
+  -webkit-transform: translate(100%, 0) translatez(0);
+  -moz-transform: translate(100%, 0) translatez(0);
+  transform: translate(100%, 0) translatez(0);
 }
 .yo-switch[type="checkbox"]:disabled, .yo-switch[type="checkbox"]:disabled:checked {
   border-color: #dfdfdf;
