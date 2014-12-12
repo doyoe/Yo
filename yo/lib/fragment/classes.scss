@@ -175,23 +175,53 @@
 // 使用方法请查看 yo-search.scss
 @mixin _search{
 	@include flexbox();
-	position: relative;
 	overflow: hidden;
 	height: .3rem;
 	line-height: .3rem;
 	font-size: .14rem;
-	> .action .yo-ico,
-	> .cancel,
-	> .input{
+	> .action > .yo-ico-search,
+	> .action,
+	> .cancel{
 		@include transition(all .2s ease-in);
 		@include transform(translateZ(0));
 	}
-	> .action .yo-ico{
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		@include transform(translate(-180%, -50%) translatez(0));
-		color: #fff;
+	> .action{
+		@include flex();
+		position: relative;
+		> .yo-ico,
+		> .input{
+			position: absolute;
+			top: 0;
+		}
+		> .yo-ico-search{
+			left: 50%;
+			margin-left: -.26rem;
+			color: #fff;
+		}
+		> .yo-ico-delete{
+			display: none;
+			right: 0;
+			padding: 0 .08rem;
+			color: #999;
+		}
+		> .input{
+			right: 0;
+			bottom: 0;
+			width: 100%;
+			padding: 0 .3rem;
+			border: 1px solid #ccc;
+			border-radius: .05rem;
+			background-color: #ccc;
+			color: #0f0f0f;
+			font-size: .14rem;
+			&::-webkit-input-placeholder{
+				position: relative;
+				left: 50%;
+				color: #fff;
+				@include transform(translate(-.05rem));
+				@include transition(all .2s ease-in);
+			}
+		}
 	}
 	> .cancel{
 		width: 0;
@@ -199,31 +229,24 @@
 		white-space: nowrap;
 		text-align: right;
 	}
-	> .input{
-		@include flex();
-		padding: 0 .32rem;
-		border: 1px solid #ccc;
-		border-radius: .05rem;
-		background-color: #ccc;
-		color: #0f0f0f;
-		font-size: .14rem;
-		&::-webkit-input-placeholder{
-			position: relative;
-			left: 50%;
-			color: #fff;
-			@include transform(translate(-.05rem));
-			@include transition(all .2s ease-in);
-		}
-		&:focus{
-			border-color: #ccc;
-			background-color: #ccc;
-			~ .action .yo-ico{
-				left: .34rem;
+	@at-root{
+		&-on{
+			> .action{
+				> .input{
+					border-color: #ccc;
+					background-color: #ccc;
+					&::-webkit-input-placeholder{
+						left: .05rem;
+					}
+				}
+				> .yo-ico-search{
+					left: .34rem;
+				}
+				> .yo-ico-delete{
+					display: block;
+				}
 			}
-			&::-webkit-input-placeholder{
-				left: .05rem;
-			}
-			~ .cancel{
+			> .cancel{
 				width: .6rem;
 				padding-right: .1rem;
 			}

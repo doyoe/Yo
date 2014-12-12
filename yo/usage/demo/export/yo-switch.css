@@ -630,9 +630,9 @@ a:hover {
   border-radius: .16rem;
   background-color: whitesmoke;
   vertical-align: middle;
-  -webkit-transition: all 0.2s ease;
-  -moz-transition: all 0.2s ease;
-  transition: all 0.2s ease;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 .yo-switch[type="checkbox"]::before {
   display: block;
@@ -642,9 +642,9 @@ a:hover {
   border-radius: 50%;
   background-color: white;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  -webkit-transition: all 0.2s ease;
-  -moz-transition: all 0.2s ease;
-  transition: all 0.2s ease;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   -webkit-transform: translate(0, 0) translatez(0);
   -moz-transform: translate(0, 0) translatez(0);
   transform: translate(0, 0) translatez(0);

@@ -459,15 +459,14 @@ a:hover {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
-  position: relative;
   overflow: hidden;
   height: .3rem;
   line-height: .3rem;
   font-size: .14rem;
 }
-.yo-search > .action .yo-ico,
-.yo-search > .cancel,
-.yo-search > .input {
+.yo-search > .action > .yo-ico-search,
+.yo-search > .action,
+.yo-search > .cancel {
   -webkit-transition: all 0.2s ease-in;
   -moz-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
@@ -475,33 +474,40 @@ a:hover {
   -moz-transform: translateZ(0);
   transform: translateZ(0);
 }
-.yo-search > .action .yo-ico {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-180%, -50%) translatez(0);
-  -moz-transform: translate(-180%, -50%) translatez(0);
-  transform: translate(-180%, -50%) translatez(0);
-  color: #fff;
-}
-.yo-search > .cancel {
-  width: 0;
-  color: #2b94ff;
-  white-space: nowrap;
-  text-align: right;
-}
-.yo-search > .input {
+.yo-search > .action {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
-  padding: 0 .32rem;
+  position: relative;
+}
+.yo-search > .action > .yo-ico,
+.yo-search > .action > .input {
+  position: absolute;
+  top: 0;
+}
+.yo-search > .action > .yo-ico-search {
+  left: 50%;
+  margin-left: -.26rem;
+  color: #fff;
+}
+.yo-search > .action > .yo-ico-delete {
+  display: none;
+  right: 0;
+  padding: 0 .08rem;
+  color: #999;
+}
+.yo-search > .action > .input {
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 0 .3rem;
   border: 1px solid #ccc;
   border-radius: .05rem;
   background-color: #ccc;
   color: #0f0f0f;
   font-size: .14rem;
 }
-.yo-search > .input::-webkit-input-placeholder {
+.yo-search > .action > .input::-webkit-input-placeholder {
   position: relative;
   left: 50%;
   color: #fff;
@@ -512,17 +518,26 @@ a:hover {
   -moz-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
 }
-.yo-search > .input:focus {
+.yo-search > .cancel {
+  width: 0;
+  color: #2b94ff;
+  white-space: nowrap;
+  text-align: right;
+}
+.yo-search-on > .action > .input {
   border-color: #ccc;
   background-color: #ccc;
 }
-.yo-search > .input:focus ~ .action .yo-ico {
-  left: .34rem;
-}
-.yo-search > .input:focus::-webkit-input-placeholder {
+.yo-search-on > .action > .input::-webkit-input-placeholder {
   left: .05rem;
 }
-.yo-search > .input:focus ~ .cancel {
+.yo-search-on > .action > .yo-ico-search {
+  left: .34rem;
+}
+.yo-search-on > .action > .yo-ico-delete {
+  display: block;
+}
+.yo-search-on > .cancel {
   width: .6rem;
   padding-right: .1rem;
 }
