@@ -71,11 +71,11 @@
                     background-color: $ball-color;
                 }
             }
-            &:active{
-                @if $bordercolor != map-get($switch, bordercolor) {
-                    background-color: $bordercolor;
-                }
-            }
+            // &:active{
+            //     @if $bordercolor != map-get($switch, bordercolor) {
+            //         background-color: $bordercolor;
+            //     }
+            // }
             &:checked{
                 @if $checked-bordercolor != map-get($switch, checked-bordercolor) {
                     border-color: $checked-bordercolor;
