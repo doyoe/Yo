@@ -173,18 +173,26 @@
 // 定义checked的基础构造
 // 使用方法请查看 yo-checked.scss
 @mixin _checked{
+	&[type="checkbox"]{
+		border-radius: .05rem;
+	    border: 1px solid map-get($checked, bordercolor);
+	    box-shadow: inset 0 .01rem .03rem rgba(100, 100, 100, .1);
+	    background-color: map-get($checked, bgcolor);
+	}
 	&[type="checkbox"],
 	&[type="radio"]{
 	    @include appearance(none);
 	    position: relative;
-	    @include square(.2rem);
+	    @include square(map-get($checked, size));
+	    font-size: map-get($checked, size);
 	    cursor: pointer;
 	    vertical-align: middle;
 	    &::after{
 	    	position:absolute;
 		    top: 50%;
-		    right: 0;
-		    @include transform(translatey(-50%));
+		    left: 50%;
+		    @include transform(translate(-50%, -50%));
+	    	@include transition(opacity .5s);
 		    color: map-get($checked, color);
 		    @if map-get($checked, type) == tick {
 			    content: "✓";
@@ -192,9 +200,8 @@
 			    content: "●";
 			}
 		    text-shadow: 0 0 .01rem;
-		    font-size: map-get($checked, size);
+		    font-size: 70%;
 	    	opacity: 0;
-	    	@include transition(opacity .5s);
 	    }
 		&:checked::after{
 			opacity: 1;
@@ -223,18 +230,18 @@
 		    top: 50%;
 		    left: 50%;
 		    @include transform(translate(-50%, -50%));
-		    @include square(40%);
 	    	@include transition(opacity .5s);
-		    border-radius: 50%;
-		    box-shadow: 0 0 .01rem;
+	    	color: map-get($radio, color);
+		    text-shadow: 0 0 .01rem;
 	    	opacity: 0;
-			content: "\0020";
+			content: "●";
+			font-size: 70%;
 	    }
 	    &:checked{
 	    	border-color: map-get($radio, on-bordercolor);
 	    	background-color: map-get($radio, on-bgcolor);
 	    	&::after{
-	    		background-color: map-get($radio, on-color);
+	    		color: map-get($radio, on-color);
 	    		opacity: 1;
 		    }
 	    }
@@ -245,7 +252,6 @@
 			border-color: map-get($radio, disabled-bordercolor);
 			background-color: map-get($radio, disabled-bgcolor);
 			&::after{
-			    background-color: map-get($radio, disabled-color);
 			    color: map-get($radio, disabled-color);
 			}
 		}

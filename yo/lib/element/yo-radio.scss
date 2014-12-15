@@ -83,7 +83,7 @@
                 }
                 &::after{
                     @if $on-color != map-get($radio, on-color) {
-                        background-color: $on-color;
+                        color: $on-color;
                     }
                 }
             }
@@ -96,7 +96,6 @@
                 }
                 &::after{
                     @if $disabled-color != map-get($radio, disabled-color) {
-                        background-color: $disabled-color;
                         color: $disabled-color;
                     }
                 }

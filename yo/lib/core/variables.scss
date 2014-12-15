@@ -186,12 +186,16 @@ $switch: (
 ) !default;
 
 
-// Element checked(4)
+// Element checked(6)
 $checked: (
 	// {String} 选中标记类型: [circle | tick]
 	type:                 circle,
 	// {Length} 标签大小
 	size:                 .2rem,
+	// {Color} 边框色
+	bordercolor:          map-get($base, bordercolor),
+	// {Color} 背景色
+	bgcolor:              #fff,
 	// {Color} 标记颜色
 	color:                #2b94ff,
 	// {Color} 标记禁用色

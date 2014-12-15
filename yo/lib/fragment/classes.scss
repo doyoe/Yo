@@ -214,11 +214,14 @@
 			background-color: map-get($search, bgcolor);
 			color: map-get($search, color);
 			font-size: map-get($search, font-size);
+			text-align: center;
 			&::-webkit-input-placeholder{
-				position: relative;
+				position: absolute;
 				left: 50%;
+				margin-left: -.05rem;
 				color: map-get($search, placeholder-color);
-				@include transform(translate(-.05rem));
+				background: red;
+				// @include transform(translate(-50%));
 				@include transition(all .2s ease-in);
 			}
 		}

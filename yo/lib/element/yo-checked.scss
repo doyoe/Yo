@@ -11,6 +11,8 @@
  * @param {default | String} $name 定义checked名称
  * @param {default | String} $type 定义checked类型，可选值：[circle | tick]
  * @param {default | Length} $size 定义checked大小
+ * @param {default | Color} $bordercolor 定义checked边框色
+ * @param {default | Color} $bgcolor 定义checked背景色
  * @param {default | Color} $color 定义checked颜色
  * @param {default | Color} $disabled-color 定义checked禁用色
  */
@@ -18,6 +20,8 @@
 @mixin yo-checked($name:default,
                 $type:default,
                 $size:default,
+                $bordercolor:default,
+                $bgcolor:default,
                 $color:default,
                 $disabled-color:default) {
 	@if $name == default {
@@ -32,6 +36,12 @@
     @if $size == default {
         $size: map-get($checked, size);
     }
+    @if $bordercolor == default {
+        $bordercolor: map-get($checked, bordercolor);
+    }
+    @if $bgcolor == default {
+        $bgcolor: map-get($checked, bgcolor);
+    }
     @if $color == default {
         $color: map-get($checked, color);
     }
@@ -39,6 +49,21 @@
         $disabled-color: map-get($checked, disabled-color);
     }
 	.yo-checked#{$name} {
+        &[type="checkbox"],
+        &[type="radio"]{
+            @if $size != map-get($checked, size) {
+                @include square($size);
+                font-size: $size;
+            }
+        }
+        &[type="checkbox"]{
+            @if $bordercolor != map-get($checked, bordercolor) {
+                border-color: $bordercolor;
+            }
+            @if $bgcolor != map-get($checked, bgcolor) {
+                background-color: $bgcolor;
+            }
+        }
         &[type="checkbox"],
         &[type="radio"]{
             &::after{

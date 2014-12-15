@@ -639,22 +639,20 @@ a:hover {
   -webkit-transform: translate(-50%, -50%);
   -moz-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  width: 40%;
-  height: 40%;
   -webkit-transition: opacity 0.5s;
   -moz-transition: opacity 0.5s;
   transition: opacity 0.5s;
-  border-radius: 50%;
-  box-shadow: 0 0 .01rem;
+  text-shadow: 0 0 .01rem;
   opacity: 0;
-  content: "\0020";
+  content: "●";
+  font-size: 70%;
 }
 .yo-radio[type="radio"]:checked {
   border-color: #2b94ff;
   background-color: #2b94ff;
 }
 .yo-radio[type="radio"]:checked::after {
-  background-color: white;
+  color: white;
   opacity: 1;
 }
 .yo-radio[type="radio"]:active {
@@ -665,7 +663,6 @@ a:hover {
   background-color: #eeeeee;
 }
 .yo-radio[type="radio"]:disabled::after {
-  background-color: #d9d9d9;
   color: #d9d9d9;
 }
 

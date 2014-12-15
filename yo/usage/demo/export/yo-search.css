@@ -515,14 +515,14 @@ a:hover {
   background-color: #dddddd;
   color: #333333;
   font-size: 0.14rem;
+  text-align: center;
 }
 .yo-search > .action > .input::-webkit-input-placeholder {
-  position: relative;
+  position: absolute;
   left: 50%;
+  margin-left: -.05rem;
   color: white;
-  -webkit-transform: translate(-0.05rem);
-  -moz-transform: translate(-0.05rem);
-  transform: translate(-0.05rem);
+  background: red;
   -webkit-transition: all 0.2s ease-in;
   -moz-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
