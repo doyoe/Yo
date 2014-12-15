@@ -176,9 +176,9 @@
 @mixin _search{
 	@include flexbox();
 	overflow: hidden;
-	height: .3rem;
-	line-height: .3rem;
-	font-size: .14rem;
+	height: map-get($search, height);
+	line-height: map-get($search, height);
+	font-size: map-get($search, font-size);
 	> .action > .yo-ico-search,
 	> .action,
 	> .cancel{
@@ -195,29 +195,29 @@
 		}
 		> .yo-ico-search{
 			left: 50%;
-			margin-left: -.26rem;
-			color: #fff;
+			margin-left: -.25rem;
+			color: map-get($search, ico-search-color);
 		}
 		> .yo-ico-delete{
 			display: none;
 			right: 0;
 			padding: 0 .08rem;
-			color: #999;
+			color: map-get($search, ico-delete-color);
 		}
 		> .input{
 			right: 0;
 			bottom: 0;
 			width: 100%;
-			padding: 0 .3rem;
-			border: 1px solid #ccc;
-			border-radius: .05rem;
-			background-color: #ccc;
-			color: #0f0f0f;
-			font-size: .14rem;
+			padding: map-get($search, padding);
+			border: 1px solid map-get($search, bordercolor);
+			border-radius: map-get($search, radius);
+			background-color: map-get($search, bgcolor);
+			color: map-get($search, color);
+			font-size: map-get($search, font-size);
 			&::-webkit-input-placeholder{
 				position: relative;
 				left: 50%;
-				color: #fff;
+				color: map-get($search, placeholder-color);
 				@include transform(translate(-.05rem));
 				@include transition(all .2s ease-in);
 			}
@@ -225,7 +225,7 @@
 	}
 	> .cancel{
 		width: 0;
-		color: #2b94ff;
+		color: map-get($search, cancel-color);
 		white-space: nowrap;
 		text-align: right;
 	}
@@ -233,8 +233,8 @@
 		&-on{
 			> .action{
 				> .input{
-					border-color: #ccc;
-					background-color: #ccc;
+					border-color: map-get($search, on-bordercolor);
+					background-color: map-get($search, on-bgcolor);
 					&::-webkit-input-placeholder{
 						left: .05rem;
 					}

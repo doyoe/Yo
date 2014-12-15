@@ -7,30 +7,57 @@
  * Time: 2012.1.1
  ------------------------
  * @method yo-search
- * variables length(5)
+ * variables length(14)
  * @param {default | String} $name 定义yo-search名称
+ * @param {default | Length} $height 定义yo-search高度
+ * @param {default | Length} $font-size 定义yo-search文本大小
  * @param {default | Length} $padding 定义yo-search内补白
  * @param {default | Length} $radius 定义yo-search圆角
+ * @param {default | Color} $bordercolor 定义yo-search边框色
  * @param {default | Color} $bgcolor 定义yo-search背景色
  * @param {default | Color} $color 定义yo-search文本色
+ * @param {default | Color} $on-bordercolor 定义yo-search激活边框色
+ * @param {default | Color} $on-bgcolor 定义yo-search激活背景色
+ * @param {default | Color} $placeholder-color 定义yo-search占位背景色
+ * @param {default | Color} $ico-search-color 定义yo-search放大镜颜色
+ * @param {default | Color} $ico-delete-color 定义yo-search删除按钮颜色
+ * @param {default | Color} $cancel-color 定义yo-search取消按钮颜色
  */
 
 @mixin yo-search($name:default,
+			$height:default,
+			$font-size:default,
 			$padding:default,
 			$radius:default,
+			$bordercolor:default,
 			$bgcolor:default,
-			$color:default){
+			$color:default,
+			$on-bordercolor:default,
+			$on-bgcolor:default,
+			$placeholder-color:default,
+			$ico-search-color:default,
+			$ico-delete-color:default,
+			$cancel-color:default){
 	@if $name == default {
         $name: "";
     } @else {
         $name: "-#{$name}";
     }
 	// 如果值为default，则取config的定义
+	@if $height == default {
+		$height: map-get($search, height);
+	}
+	@if $font-size == default {
+		$font-size: map-get($search, font-size);
+	}
 	@if $padding == default {
 		$padding: map-get($search, padding);
 	}
 	@if $radius == default {
 		$radius: map-get($search, radius);
+	}
+	@if $bordercolor == default {
+		$bordercolor: map-get($search, bordercolor);
 	}
 	@if $bgcolor == default {
 		$bgcolor: map-get($search, bgcolor);
@@ -38,19 +65,60 @@
 	@if $color == default {
 		$color: map-get($search,color);
 	}
+	@if $on-bordercolor == default {
+		$on-bordercolor: map-get($search, on-bordercolor);
+	}
+	@if $on-bgcolor == default {
+		$on-bgcolor: map-get($search, on-bgcolor);
+	}
+	@if $placeholder-color == default {
+		$placeholder-color: map-get($search, placeholder-color);
+	}
+	@if $ico-search-color == default {
+		$ico-search-color: map-get($search, ico-search-color);
+	}
+	@if $ico-delete-color == default {
+		$ico-delete-color: map-get($search, ico-delete-color);
+	}
+	@if $cancel-color == default {
+		$cancel-color: map-get($search, cancel-color);
+	}
 	.yo-search#{$name}{
-		@if $padding != map-get($search, padding) {
-			padding: $padding;
+		height: map-get($search, height);
+		line-height: map-get($search, height);
+		font-size: map-get($search, font-size);
+		> .action{
+			> .yo-ico-search{
+				color: map-get($search, ico-search-color);
+			}
+			> .yo-ico-delete{
+				color: map-get($search, ico-delete-color);
+			}
+			> .input{
+				padding: map-get($search, padding);
+				border: 1px solid map-get($search, bordercolor);
+				border-radius: map-get($search, radius);
+				background-color: map-get($search, bgcolor);
+				color: map-get($search, color);
+				font-size: map-get($search, font-size);
+				&::-webkit-input-placeholder{
+					color: map-get($search, placeholder-color);
+				}
+			}
 		}
-		@if $radius != map-get($search, radius) {
-	    	border-radius: $radius;
-	    }
-    	@if $bgcolor != map-get($search, bgcolor) {
-    		background-color: rgba($bgcolor, .5);
-    	}
-    	@if $color != map-get($search, color) {
-    		color: $color;
-	    }
+		> .cancel{
+			color: map-get($search, cancel-color);
+		}
+		@at-root{
+			&-on{
+				> .action{
+					> .input{
+						border-color: map-get($search, on-bordercolor);
+						background-color: map-get($search, on-bgcolor);
+					}
+				}
+			}
+		}
 	}
 }
 

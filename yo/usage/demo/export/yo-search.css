@@ -183,7 +183,7 @@ a, img {
 }
 
 a {
-  color: #25a4bb;
+  color: #2b94ff;
   text-decoration: none;
 }
 a:hover {
@@ -448,21 +448,30 @@ a:hover {
  * Time: 2012.1.1
  ------------------------
  * @method yo-search
- * variables length(5)
+ * variables length(14)
  * @param {default | String} $name 定义yo-search名称
+ * @param {default | Length} $height 定义yo-search高度
+ * @param {default | Length} $font-size 定义yo-search文本大小
  * @param {default | Length} $padding 定义yo-search内补白
  * @param {default | Length} $radius 定义yo-search圆角
+ * @param {default | Color} $bordercolor 定义yo-search边框色
  * @param {default | Color} $bgcolor 定义yo-search背景色
  * @param {default | Color} $color 定义yo-search文本色
+ * @param {default | Color} $on-bordercolor 定义yo-search激活边框色
+ * @param {default | Color} $on-bgcolor 定义yo-search激活背景色
+ * @param {default | Color} $placeholder-color 定义yo-search占位背景色
+ * @param {default | Color} $ico-search-color 定义yo-search放大镜颜色
+ * @param {default | Color} $ico-delete-color 定义yo-search删除按钮颜色
+ * @param {default | Color} $cancel-color 定义yo-search取消按钮颜色
  */
 .yo-search {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
   overflow: hidden;
-  height: .3rem;
-  line-height: .3rem;
-  font-size: .14rem;
+  height: 0.3rem;
+  line-height: 0.3rem;
+  font-size: 0.14rem;
 }
 .yo-search > .action > .yo-ico-search,
 .yo-search > .action,
@@ -487,30 +496,30 @@ a:hover {
 }
 .yo-search > .action > .yo-ico-search {
   left: 50%;
-  margin-left: -.26rem;
-  color: #fff;
+  margin-left: -.25rem;
+  color: white;
 }
 .yo-search > .action > .yo-ico-delete {
   display: none;
   right: 0;
   padding: 0 .08rem;
-  color: #999;
+  color: #999999;
 }
 .yo-search > .action > .input {
   right: 0;
   bottom: 0;
   width: 100%;
-  padding: 0 .3rem;
-  border: 1px solid #ccc;
-  border-radius: .05rem;
-  background-color: #ccc;
-  color: #0f0f0f;
-  font-size: .14rem;
+  padding: 0 0.3rem;
+  border: 1px solid #dddddd;
+  border-radius: 0.05rem;
+  background-color: #dddddd;
+  color: #333333;
+  font-size: 0.14rem;
 }
 .yo-search > .action > .input::-webkit-input-placeholder {
   position: relative;
   left: 50%;
-  color: #fff;
+  color: white;
   -webkit-transform: translate(-0.05rem);
   -moz-transform: translate(-0.05rem);
   transform: translate(-0.05rem);
@@ -523,10 +532,6 @@ a:hover {
   color: #2b94ff;
   white-space: nowrap;
   text-align: right;
-}
-.yo-search-on > .action > .input {
-  border-color: #ccc;
-  background-color: #ccc;
 }
 .yo-search-on > .action > .input::-webkit-input-placeholder {
   left: .05rem;

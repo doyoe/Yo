@@ -81,7 +81,7 @@ $base: (
 	price-color:          #f60,
 	// Link Colors
 	// 默认链接色
-	link-color:           #25a4bb,
+	link-color:           #2b94ff,
 	// 链接经过色
 	link-hover-color:     #f60
 ) !default;
@@ -315,6 +315,37 @@ $table: (
 	even-bgcolor:    null,
 	// {Color} 表主体经过行背景色
 	hover-bgcolor:   null
+) !default;
+
+
+// Fragment search(13)
+$search: (
+	// {Length} 高度
+	height:           .3rem,
+	// {Length} 文字大小
+	font-size:        .14rem,
+	// {Length} 内补白
+	padding:          0 .3rem,
+	// {Length} 圆角
+	radius:           .05rem,
+	// {Color} 边框色
+	bordercolor:      map-get($base, bordercolor),
+	// {Color} 背景色
+	bgcolor:          map-get($base, bordercolor),
+	// {Color} 输入框文本色
+	color:            map-get($base, color),
+	// {Color} 激活边框色
+	on-bordercolor:   null,
+	// {Color} 激活背景色
+	on-bgcolor:       null,
+	// {Color} placeholder文本色
+	placeholder-color:#fff,
+	// {Color} 放大镜颜色
+	ico-search-color: #fff,
+	// {Color} 删除图标颜色
+	ico-delete-color: #999,
+	// {Color} 取消按钮颜色
+	cancel-color:     map-get($base, link-color)
 ) !default;
 
 
