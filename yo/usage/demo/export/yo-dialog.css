@@ -638,11 +638,6 @@ html {
   flex-direction: column;
   position: fixed;
   z-index: 1001;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
   border-radius: 0.05rem;
   box-shadow: 0 0 5px rgba(221, 221, 221, 0.5);
   border: 1px solid #dddddd;
@@ -695,4 +690,9 @@ html {
  */
 .yo-dialog {
   position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
