@@ -186,9 +186,10 @@
 // 使用方法请查看 yo-tip.scss
 @mixin _tip{
     position: fixed;
-    top: 50%;
-    left: 50%;
-    @include transform(translate(-50%, -50%));
+    // 位置计算权限开放给具体业务
+    // top: 50%;
+    // left: 50%;
+    // @include transform(translate(-50%, -50%));
     z-index: map-get($z-index, tip);
     padding: map-get($tip, padding);
     border-radius: map-get($tip, radius);
