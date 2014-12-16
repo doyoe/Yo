@@ -13,5 +13,8 @@
 
 .yo-tip{
 	position: absolute;
+	top: 50%;
+    left: 50%;
+    @include transform(translate(-50%, -50%));
 }
 // @include yo-tip(default,.2rem,.1rem,red,#000);
