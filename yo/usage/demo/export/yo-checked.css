@@ -212,6 +212,12 @@ a:hover {
   vertical-align: middle;
 }
 
+html {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  user-select: text;
+}
+
 /**
  * Directory: lib/core/variables.scss
  * CSS Variables 定义各种页面沙粒变量

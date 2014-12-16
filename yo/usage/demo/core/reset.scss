@@ -2,3 +2,8 @@
 
 @import "config";
 @import "../../../lib/core/reset";
+
+// 开启demo中的选中功能，用以拷贝代码
+html{
+	@include user-select(text);
+}
