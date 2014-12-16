@@ -262,7 +262,7 @@ $toolbar: (
 // Fragment list(7)
 $list: (
 	// {Boole} 列表是否有外边框
-	is-outline:    true,
+	is-outline:    false,
 	// {Color} 列表边框色
 	bordercolor:   map-get($base, bordercolor),
 	// {Length} 列表项内补白，只能一个数字
