@@ -573,6 +573,10 @@ html {
   width: 100%;
   overflow: hidden;
 }
+.yo-search > .cont > .recommend .yo-list,
+.yo-search > .cont > .result .yo-list {
+  outline: none;
+}
 .yo-search-on, .yo-search-fresh, .yo-search-stop {
   position: fixed;
   z-index: 2501;
