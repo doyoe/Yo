@@ -416,7 +416,17 @@
     }
     > .cont{
         @include flex();
+        position: relative;
         background-color: rgba(map-get($search, mask-bgcolor),.9);
+        > .recommend,
+        > .result{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+        }
     }
     @at-root{
         &-on,

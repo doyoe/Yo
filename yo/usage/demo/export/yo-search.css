@@ -561,7 +561,17 @@ html {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
+  position: relative;
   background-color: rgba(255, 255, 255, 0.9);
+}
+.yo-search > .cont > .recommend,
+.yo-search > .cont > .result {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
 }
 .yo-search-on, .yo-search-fresh, .yo-search-stop {
   position: fixed;
