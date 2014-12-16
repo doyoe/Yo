@@ -186,18 +186,20 @@ $switch: (
 ) !default;
 
 
-// Element checked(6)
+// Element checked(7)
 $checked: (
 	// {String} 选中标记类型: [circle | tick]
 	type:                 circle,
 	// {Length} 标签大小
 	size:                 .2rem,
+	// {Boole} 是否需要边框
+	is-border:            true,
 	// {Color} 边框色
 	bordercolor:          map-get($base, bordercolor),
 	// {Color} 背景色
 	bgcolor:              #fff,
 	// {Color} 标记颜色
-	color:                #2b94ff,
+	on-color:             #2b94ff,
 	// {Color} 标记禁用色
 	disabled-color:       map-get($base, disabled-color)
 ) !default;

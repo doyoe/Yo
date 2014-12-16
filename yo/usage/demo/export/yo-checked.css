@@ -606,13 +606,14 @@ a:hover {
  * Time: 2014.11.14
  -----------------------
  * @method yo-checked
- * variables length(5)
+ * variables length(8)
  * @param {default | String} $name 定义checked名称
  * @param {default | String} $type 定义checked类型，可选值：[circle | tick]
  * @param {default | Length} $size 定义checked大小
+ * @param {default | Boolen} $is-border 定义checked是否需要边框
  * @param {default | Color} $bordercolor 定义checked边框色
  * @param {default | Color} $bgcolor 定义checked背景色
- * @param {default | Color} $color 定义checked颜色
+ * @param {default | Color} $on-color 定义checked激活标记色
  * @param {default | Color} $disabled-color 定义checked禁用色
  */
 .yo-checked[type="checkbox"] {
@@ -642,13 +643,13 @@ a:hover {
   -webkit-transition: opacity 0.5s;
   -moz-transition: opacity 0.5s;
   transition: opacity 0.5s;
-  color: #2b94ff;
   content: "●";
   text-shadow: 0 0 .01rem;
   font-size: 70%;
   opacity: 0;
 }
 .yo-checked[type="checkbox"]:checked::after, .yo-checked[type="radio"]:checked::after {
+  color: #2b94ff;
   opacity: 1;
 }
 .yo-checked[type="checkbox"]:disabled::after, .yo-checked[type="radio"]:disabled::after {
