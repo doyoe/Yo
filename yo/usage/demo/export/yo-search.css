@@ -458,7 +458,7 @@ html {
  * @param {default | String} $name 定义yo-search名称
  * @param {default | Length} $height 定义yo-search高度
  * @param {default | Length} $font-size 定义yo-search文本大小
- * @param {default | Length} $padding 定义yo-search内补白
+ * @param {default | Length} $op-padding 定义yo-search内补白
  * @param {default | Length} $radius 定义yo-search圆角
  * @param {default | Color} $bordercolor 定义yo-search边框色
  * @param {default | Color} $bgcolor 定义yo-search背景色
@@ -468,49 +468,63 @@ html {
  * @param {default | Color} $placeholder-color 定义yo-search占位背景色
  * @param {default | Color} $ico-color 定义yo-search 操作区ico颜色
  * @param {default | Color} $cancel-color 定义yo-search取消按钮颜色
+ * @param {default | Color} $op-bgcolor 定义yo-search搜索区域背景色
+ * @param {default | Color} $mask-bgcolor 定义yo-search遮罩背景色
  */
 .yo-search {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
-  position: relative;
-  overflow: hidden;
-  height: 0.3rem;
-  line-height: 0.3rem;
-  font-size: 0.14rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column;
 }
-.yo-search > .action
-> .action > .label,
-.yo-search > .cancel {
+.yo-search > .operate > .action
+> .operate > .action > .label,
+.yo-search > .operate > .cancel {
   -webkit-transition: all 0.2s ease-in;
   -moz-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
 }
-.yo-search .action {
+.yo-search .operate {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  font-size: 0.14rem;
+  line-height: 0.3rem;
+  padding: 0.1rem;
+  border-bottom: 1px solid #dddddd;
+  background-color: white;
+}
+.yo-search .operate > .action {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
   -webkit-transform: translatez(0);
   -moz-transform: translatez(0);
   transform: translatez(0);
-  height: 100%;
+  position: relative;
+  height: 0.3rem;
 }
-.yo-search .action > .input {
+.yo-search .operate > .action > .input {
   -webkit-transform: translatez(0);
   -moz-transform: translatez(0);
   transform: translatez(0);
   width: 100%;
   height: 100%;
-  padding: 0 0.3rem;
+  padding: 0 .3rem;
   border: 1px solid #dddddd;
   border-radius: 0.05rem;
   background-color: #dddddd;
   color: #333333;
   font-size: 0.14rem;
 }
-.yo-search .action > .yo-ico-delete,
-.yo-search .action > .yo-ico-fresh,
-.yo-search .action > .yo-ico-stop {
+.yo-search .operate > .action > .yo-ico-delete,
+.yo-search .operate > .action > .yo-ico-fresh,
+.yo-search .operate > .action > .yo-ico-stop {
   display: none;
   position: absolute;
   top: 0;
@@ -519,7 +533,7 @@ html {
   padding: 0 .08rem;
   color: #999999;
 }
-.yo-search .action > .label {
+.yo-search .operate > .action > .label {
   position: absolute;
   top: 0;
   left: 50%;
@@ -529,45 +543,61 @@ html {
   color: white;
   word-spacing: -.05rem;
 }
-.yo-search .action > .label > .yo-ico-search {
+.yo-search .operate > .action > .label > .yo-ico-search {
   vertical-align: top;
   margin: 0 .08rem 0 .1rem;
 }
-.yo-search > .cancel {
+.yo-search .operate > .cancel {
   -webkit-transform: translatez(0);
   -moz-transform: translatez(0);
   transform: translatez(0);
+  overflow: hidden;
   width: 0;
   color: #2b94ff;
   white-space: nowrap;
   text-align: right;
 }
-.yo-search-on > .action > .label {
+.yo-search > .cont {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+.yo-search-on, .yo-search-fresh, .yo-search-stop {
+  position: fixed;
+  z-index: 2501;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 100%;
+}
+
+.yo-search-on > .operate > .action > .label {
   left: 0;
   -webkit-transform: translatex(0) translatez(0);
   -moz-transform: translatex(0) translatez(0);
   transform: translatex(0) translatez(0);
 }
-.yo-search-on > .action > .yo-ico-delete {
+.yo-search-on > .operate > .action > .yo-ico-delete {
   display: inline-block;
 }
-.yo-search-on > .cancel {
+.yo-search-on > .operate > .cancel {
   width: .6rem;
   padding-right: .1rem;
 }
 
-.yo-search-fresh > .action > .input, .yo-search-stop > .action > .input {
+.yo-search-fresh > .operate > .action > .input, .yo-search-stop > .operate > .action > .input {
   text-align: center;
 }
-.yo-search-fresh > .action > .label, .yo-search-stop > .action > .label {
+.yo-search-fresh > .operate > .action > .label, .yo-search-stop > .operate > .action > .label {
   display: none;
 }
 
-.yo-search-fresh > .action > .yo-ico-fresh {
+.yo-search-fresh > .operate > .action > .yo-ico-fresh {
   display: inline-block;
 }
 
-.yo-search-stop > .action > .yo-ico-stop {
+.yo-search-stop > .operate > .action > .yo-ico-stop {
   display: inline-block;
 }
 
@@ -576,6 +606,3 @@ html {
  * Author: joy.du(飘零雾雨)
  * Time: 2014.4.1
  */
-.yo-search {
-  margin: 10px;
-}

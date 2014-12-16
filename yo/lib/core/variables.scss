@@ -324,15 +324,15 @@ $table: (
 ) !default;
 
 
-// Fragment search(12)
+// Fragment search(14)
 $search: (
-	// {Length} 高度
-	height:           .3rem,
-	// {Length} 文字大小
+	// {Length} 输入框高度
+	height:     .3rem,
+	// {Length} 搜索区文字大小
 	font-size:        .14rem,
-	// {Length} 内补白
-	padding:          0 .3rem,
-	// {Length} 圆角
+	// {Length} 搜索区内补白
+	op-padding:       .1rem,
+	// {Length} 输入框圆角
 	radius:           .05rem,
 	// {Color} 边框色
 	bordercolor:      map-get($base, bordercolor),
@@ -349,7 +349,11 @@ $search: (
 	// {Color} 操作区图标颜色
 	ico-color: #999,
 	// {Color} 取消按钮颜色
-	cancel-color:     map-get($base, link-color)
+	cancel-color:     map-get($base, link-color),
+	// {Color} 搜索区背景色
+	op-bgcolor:       #fff,
+	// {Color} mask背景色
+	mask-bgcolor:     #fff
 ) !default;
 
 
@@ -458,8 +462,10 @@ $z-index: (
 	mask:     1000,
 	// {Number} 弹窗层级范围1001-2000
 	dialog:   1001,
-	// {Number} 浮层层级范围2001-3000
+	// {Number} 浮层层级范围2001-2500
 	popup:    2001,
+	// {Number} 浮层层级范围2501-3000
+	search:   2501,
 	// {Number} 浮层层级范围3001-4000
 	tip:      3001
 ) !default;
