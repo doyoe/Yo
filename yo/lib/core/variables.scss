@@ -324,7 +324,7 @@ $table: (
 ) !default;
 
 
-// Fragment search(14)
+// Widget search(14)
 $search: (
 	// {Length} 输入框高度
 	height:     .3rem,
@@ -336,7 +336,7 @@ $search: (
 	radius:           .05rem,
 	// {Color} 边框色
 	bordercolor:      map-get($base, bordercolor),
-	// {Color} 背景色
+	// {Color} 输入框背景色
 	bgcolor:          map-get($base, bordercolor),
 	// {Color} 输入框文本色
 	color:            map-get($base, color),

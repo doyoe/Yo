@@ -443,8 +443,8 @@ html {
  * @param {String} $transition 取值与原生语法一致
  */
 /**
- * Directory: lib/fragment/classes.scss
- * fragment的基础构造
+ * Directory: lib/widget/classes.scss
+ * widget的基础构造
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  */
@@ -454,7 +454,7 @@ html {
  * Time: 2012.1.1
  ------------------------
  * @method yo-search
- * variables length(13)
+ * variables length(15)
  * @param {default | String} $name 定义yo-search名称
  * @param {default | Length} $height 定义yo-search高度
  * @param {default | Length} $font-size 定义yo-search文本大小
@@ -606,3 +606,6 @@ html {
  * Author: joy.du(飘零雾雨)
  * Time: 2014.4.1
  */
+.yo-search-on, .yo-search-fresh, .yo-search-stop {
+  position: absolute;
+}

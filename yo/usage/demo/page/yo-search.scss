@@ -2,7 +2,7 @@
 @import "../layout/layout";
 @import "../module/m-code";
 @import "../module/m-demo";
-@import "../../../lib/fragment/yo-search";
+@import "../../../lib/widget/yo-search";
 
 /**
  * search演示页面
@@ -11,6 +11,11 @@
  */
 
 .yo-search{
-	// margin: 10px;
+	&-on,
+	&-fresh,
+	&-stop{
+		// margin: 10px;
+		position: absolute;
+	}
 }
 // @include yo-search(default,.3rem,.14rem,0 .3rem,.05rem,red,#000,blue,default,default,red,red,red);
