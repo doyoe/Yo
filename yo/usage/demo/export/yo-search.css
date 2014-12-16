@@ -454,7 +454,7 @@ html {
  * Time: 2012.1.1
  ------------------------
  * @method yo-search
- * variables length(14)
+ * variables length(13)
  * @param {default | String} $name 定义yo-search名称
  * @param {default | Length} $height 定义yo-search高度
  * @param {default | Length} $font-size 定义yo-search文本大小
@@ -466,91 +466,109 @@ html {
  * @param {default | Color} $on-bordercolor 定义yo-search激活边框色
  * @param {default | Color} $on-bgcolor 定义yo-search激活背景色
  * @param {default | Color} $placeholder-color 定义yo-search占位背景色
- * @param {default | Color} $ico-search-color 定义yo-search放大镜颜色
- * @param {default | Color} $ico-delete-color 定义yo-search删除按钮颜色
+ * @param {default | Color} $ico-color 定义yo-search 操作区ico颜色
  * @param {default | Color} $cancel-color 定义yo-search取消按钮颜色
  */
 .yo-search {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
+  position: relative;
   overflow: hidden;
   height: 0.3rem;
   line-height: 0.3rem;
   font-size: 0.14rem;
 }
-.yo-search > .action > .yo-ico-search,
-.yo-search > .action,
+.yo-search > .action
+> .action > .label,
 .yo-search > .cancel {
   -webkit-transition: all 0.2s ease-in;
   -moz-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
-  -webkit-transform: translateZ(0);
-  -moz-transform: translateZ(0);
-  transform: translateZ(0);
 }
-.yo-search > .action {
+.yo-search .action {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
-  position: relative;
+  -webkit-transform: translatez(0);
+  -moz-transform: translatez(0);
+  transform: translatez(0);
+  height: 100%;
 }
-.yo-search > .action > .yo-ico,
-.yo-search > .action > .input {
-  position: absolute;
-  top: 0;
-}
-.yo-search > .action > .yo-ico-search {
-  left: 50%;
-  margin-left: -.25rem;
-  color: white;
-}
-.yo-search > .action > .yo-ico-delete {
-  display: none;
-  right: 0;
-  padding: 0 .08rem;
-  color: #999999;
-}
-.yo-search > .action > .input {
-  right: 0;
-  bottom: 0;
+.yo-search .action > .input {
+  -webkit-transform: translatez(0);
+  -moz-transform: translatez(0);
+  transform: translatez(0);
   width: 100%;
+  height: 100%;
   padding: 0 0.3rem;
   border: 1px solid #dddddd;
   border-radius: 0.05rem;
   background-color: #dddddd;
   color: #333333;
   font-size: 0.14rem;
-  text-align: center;
 }
-.yo-search > .action > .input::-webkit-input-placeholder {
+.yo-search .action > .yo-ico-delete,
+.yo-search .action > .yo-ico-fresh,
+.yo-search .action > .yo-ico-stop {
+  display: none;
   position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  padding: 0 .08rem;
+  color: #999999;
+}
+.yo-search .action > .label {
+  position: absolute;
+  top: 0;
   left: 50%;
-  margin-left: -.05rem;
+  -webkit-transform: translatex(-50%) translatez(0);
+  -moz-transform: translatex(-50%) translatez(0);
+  transform: translatex(-50%) translatez(0);
   color: white;
-  background: red;
-  -webkit-transition: all 0.2s ease-in;
-  -moz-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
+  word-spacing: -.05rem;
+}
+.yo-search .action > .label > .yo-ico-search {
+  vertical-align: top;
+  margin: 0 .08rem 0 .1rem;
 }
 .yo-search > .cancel {
+  -webkit-transform: translatez(0);
+  -moz-transform: translatez(0);
+  transform: translatez(0);
   width: 0;
   color: #2b94ff;
   white-space: nowrap;
   text-align: right;
 }
-.yo-search-on > .action > .input::-webkit-input-placeholder {
-  left: .05rem;
-}
-.yo-search-on > .action > .yo-ico-search {
-  left: .34rem;
+.yo-search-on > .action > .label {
+  left: 0;
+  -webkit-transform: translatex(0) translatez(0);
+  -moz-transform: translatex(0) translatez(0);
+  transform: translatex(0) translatez(0);
 }
 .yo-search-on > .action > .yo-ico-delete {
-  display: block;
+  display: inline-block;
 }
 .yo-search-on > .cancel {
   width: .6rem;
   padding-right: .1rem;
+}
+
+.yo-search-fresh > .action > .input, .yo-search-stop > .action > .input {
+  text-align: center;
+}
+.yo-search-fresh > .action > .label, .yo-search-stop > .action > .label {
+  display: none;
+}
+
+.yo-search-fresh > .action > .yo-ico-fresh {
+  display: inline-block;
+}
+
+.yo-search-stop > .action > .yo-ico-stop {
+  display: inline-block;
 }
 
 /**

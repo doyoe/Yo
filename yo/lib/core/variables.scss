@@ -324,7 +324,7 @@ $table: (
 ) !default;
 
 
-// Fragment search(13)
+// Fragment search(12)
 $search: (
 	// {Length} 高度
 	height:           .3rem,
@@ -346,10 +346,8 @@ $search: (
 	on-bgcolor:       null,
 	// {Color} placeholder文本色
 	placeholder-color:#fff,
-	// {Color} 放大镜颜色
-	ico-search-color: #fff,
-	// {Color} 删除图标颜色
-	ico-delete-color: #999,
+	// {Color} 操作区图标颜色
+	ico-color: #999,
 	// {Color} 取消按钮颜色
 	cancel-color:     map-get($base, link-color)
 ) !default;

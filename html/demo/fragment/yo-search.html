@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <meta name="format-detection" content="telephone=no" />
 <link rel="apple-touch-icon-precomposed" href="/qunar-touch.png" />
-<title>search - 浮层提示</title>
+<title>search - 搜索框</title>
 <link rel="stylesheet" href="../../../yo/usage/demo/export/yo-search.css" />
 </head>
 <body>
@@ -16,21 +16,33 @@
     <div class="device">
     <div class="stage">
         <div class="yo-search">
-            <label class="action">
-                <input type="text" class="input" placeholder="请输入城市关键字" />
-                <i class="yo-ico yo-ico-search">&#xf002;sdfsdfsdfsdf</i>
+            <span class="action">
+                <input type="text" id="yo-search-input" class="input" />
+                <label class="label" for="yo-search-input">
+                    <i class="yo-ico yo-ico-search">&#xf002;</i>
+                    <span class="placeholder">搜索</span>
+                </label>
                 <i class="yo-ico yo-ico-delete">&#xf057;</i>
-            </label>
+                <i class="yo-ico yo-ico-fresh">&#xf01e;</i>
+                <i class="yo-ico yo-ico-stop">&#xf00d;</i>
+            </span>
             <span class="cancel">取消</span>
+            <div class="mask"></div>
+            <div class="result"></div>
         </div>
     </div>
     </div>
     <code class="code"><xmp><div class="yo-search">
-    <label class="action">
-        <input type="text" class="input" placeholder="搜索" />
-        <i class="yo-ico yo-ico-search">&#xf002;</i>
+    <span class="action">
+        <input type="text" id="yo-search-input" class="input" />
+        <label class="label" for="yo-search-input">
+            <i class="yo-ico yo-ico-search">&#xf002;</i>
+            <span class="placeholder">搜索</span>
+        </label>
         <i class="yo-ico yo-ico-delete">&#xf057;</i>
-    </label>
+        <i class="yo-ico yo-ico-fresh">&#xf01e;</i>
+        <i class="yo-ico yo-ico-stop">&#xf00d;</i>
+    </span>
     <span class="cancel">取消</span>
 </div></xmp></code>
 </div>
@@ -39,21 +51,97 @@
     <div class="device">
     <div class="stage">
         <div class="yo-search yo-search-on">
-            <label class="action">
-                <input type="text" class="input" placeholder="搜索" />
-                <i class="yo-ico yo-ico-search">&#xf002;</i>
+            <span class="action">
+                <input type="text" id="yo-search-input" class="input" />
+                <label class="label" for="yo-search-input">
+                    <i class="yo-ico yo-ico-search">&#xf002;</i>
+                    <span class="placeholder">搜索</span>
+                </label>
                 <i class="yo-ico yo-ico-delete">&#xf057;</i>
-            </label>
+                <i class="yo-ico yo-ico-fresh">&#xf01e;</i>
+                <i class="yo-ico yo-ico-stop">&#xf00d;</i>
+            </span>
             <span class="cancel">取消</span>
         </div>
     </div>
     </div>
     <code class="code"><xmp><div class="yo-search yo-search-on">
-    <label class="action">
-        <input type="text" class="input" placeholder="搜索" />
-        <i class="yo-ico yo-ico-search">&#xf002;</i>
+    <span class="action">
+        <input type="text" id="yo-search-input" class="input" />
+        <label class="label" for="yo-search-input">
+            <i class="yo-ico yo-ico-search">&#xf002;</i>
+            <span class="placeholder">搜索</span>
+        </label>
         <i class="yo-ico yo-ico-delete">&#xf057;</i>
-    </label>
+        <i class="yo-ico yo-ico-fresh">&#xf01e;</i>
+        <i class="yo-ico yo-ico-stop">&#xf00d;</i>
+    </span>
+    <span class="cancel">取消</span>
+</div></xmp></code>
+</div>
+
+<div class="m-demo">
+    <div class="device">
+    <div class="stage">
+        <div class="yo-search yo-search-fresh">
+            <span class="action">
+                <input type="text" id="yo-search-input" class="input" value="五星级酒店" />
+                <label class="label" for="yo-search-input">
+                    <i class="yo-ico yo-ico-search">&#xf002;</i>
+                    <span class="placeholder">搜索</span>
+                </label>
+                <i class="yo-ico yo-ico-delete">&#xf057;</i>
+                <i class="yo-ico yo-ico-fresh">&#xf01e;</i>
+                <i class="yo-ico yo-ico-stop">&#xf00d;</i>
+            </span>
+            <span class="cancel">取消</span>
+        </div>
+    </div>
+    </div>
+    <code class="code"><xmp><div class="yo-search yo-search-fresh">
+    <span class="action">
+        <input type="text" id="yo-search-input" class="input" />
+        <label class="label" for="yo-search-input">
+            <i class="yo-ico yo-ico-search">&#xf002;</i>
+            <span class="placeholder">搜索</span>
+        </label>
+        <i class="yo-ico yo-ico-delete">&#xf057;</i>
+        <i class="yo-ico yo-ico-fresh">&#xf01e;</i>
+        <i class="yo-ico yo-ico-stop">&#xf00d;</i>
+    </span>
+    <span class="cancel">取消</span>
+</div></xmp></code>
+</div>
+
+<div class="m-demo">
+    <div class="device">
+    <div class="stage">
+        <div class="yo-search yo-search-stop">
+            <span class="action">
+                <input type="text" id="yo-search-input" class="input" value="五星级酒店" />
+                <label class="label" for="yo-search-input">
+                    <i class="yo-ico yo-ico-search">&#xf002;</i>
+                    <span class="placeholder">搜索</span>
+                </label>
+                <i class="yo-ico yo-ico-delete">&#xf057;</i>
+                <i class="yo-ico yo-ico-fresh">&#xf01e;</i>
+                <i class="yo-ico yo-ico-stop">&#xf00d;</i>
+            </span>
+            <span class="cancel">取消</span>
+        </div>
+    </div>
+    </div>
+    <code class="code"><xmp><div class="yo-search yo-search-stop">
+    <span class="action">
+        <input type="text" id="yo-search-input" class="input" />
+        <label class="label" for="yo-search-input">
+            <i class="yo-ico yo-ico-search">&#xf002;</i>
+            <span class="placeholder">搜索</span>
+        </label>
+        <i class="yo-ico yo-ico-delete">&#xf057;</i>
+        <i class="yo-ico yo-ico-fresh">&#xf01e;</i>
+        <i class="yo-ico yo-ico-stop">&#xf00d;</i>
+    </span>
     <span class="cancel">取消</span>
 </div></xmp></code>
 </div>
