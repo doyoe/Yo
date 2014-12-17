@@ -661,13 +661,14 @@ html {
   border: 0 none;
   background-color: transparent;
 }
-.yo-list > .item-on,
-.yo-list > a.item {
+.yo-list > .item-active,
+.yo-list > .item-on {
   cursor: pointer;
 }
-.yo-list > .item-on:hover, .yo-list > .item-on:active,
-.yo-list > a.item:hover,
-.yo-list > a.item:active {
+.yo-list > .item-active:hover, .yo-list > .item-active:active {
+  background-color: #f8f8f8;
+}
+.yo-list > .item-on {
   background-color: #f8f8f8;
 }
 

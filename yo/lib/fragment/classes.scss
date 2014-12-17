@@ -63,13 +63,18 @@
 			background-color: transparent;
 		}
 	}
-	> .item-on,
-	> a.item{
+	> .item-active,
+	> .item-on{
 		cursor: pointer;
+	}
+	> .item-active{
 		&:hover,
 		&:active{
 			background-color: map-get($list,on-bgcolor);
 		}
+	}
+	> .item-on{
+		background-color: map-get($list,on-bgcolor);
 	}
 }
 

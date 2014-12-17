@@ -86,13 +86,17 @@
 				padding: $item-padding;
 			}
 		}
-		> .item-on,
-		> a.item{
+		> .item-active{
 			&:hover,
 			&:active{
 				@if $on-bgcolor != map-get($list,on-bgcolor) {
 					background-color: $on-bgcolor;
 				}
+			}
+		}
+		> .item-on{
+			@if $on-bgcolor != map-get($list,on-bgcolor) {
+				background-color: $on-bgcolor;
 			}
 		}
 	}
