@@ -46,9 +46,9 @@
 		padding: map-get($list,label-padding);
 		background-color: map-get($list,label-bgcolor);
 	}
-	> .label:first-of-type{
-		border-top: 1px solid map-get($list,bordercolor);
-	}
+	// > .label:first-of-type{
+	// 	border-top: 1px solid map-get($list,bordercolor);
+	// }
 	> .item{
 		padding: map-get($list,item-padding);
 		color: map-get($base,color);
@@ -171,3 +171,16 @@
 	}
 }
 
+// 定义header的基础构造
+// 使用方法请查看 yo-header.scss
+@mixin _header{
+	overflow: hidden;
+	height: map-get($header, height);
+	line-height: map-get($header, height);
+	border-bottom: 1px solid darken(map-get($header, bgcolor), 10%);
+	background-color: map-get($header, bgcolor);
+	color: map-get($header, color);
+	font-size: map-get($header, font-size);
+	text-align: center;
+	@include ellipsis();
+}

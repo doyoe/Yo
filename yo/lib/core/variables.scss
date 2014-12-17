@@ -324,6 +324,19 @@ $table: (
 ) !default;
 
 
+// Fragment header(4)
+$header: (
+	// {Length} 高度
+	height:  .44rem,
+	// {Color} 背景色
+	bgcolor: map-get($base, bgcolor),
+	// {Color} 文本色
+	color: null,
+	// {Length} 文本大小
+	font-size: null
+) !default;
+
+
 // Widget search(14)
 $search: (
 	// {Length} 输入框高度

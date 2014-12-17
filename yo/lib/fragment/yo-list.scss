@@ -76,11 +76,11 @@
 				background-color: $label-bgcolor;
 			}
 		}
-		> .label:first-of-type{
-			@if $bordercolor != map-get($list,bordercolor) {
-				border-top-color: $bordercolor;
-			}
-		}
+		// > .label:first-of-type{
+		// 	@if $bordercolor != map-get($list,bordercolor) {
+		// 		border-top-color: $bordercolor;
+		// 	}
+		// }
 		> .item{
 			@if $item-padding != map-get($list,item-padding) {
 				padding: $item-padding;
