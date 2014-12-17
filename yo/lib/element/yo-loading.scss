@@ -36,6 +36,7 @@
 	.yo-loading#{$name}{
 		// 如果$size不等于config预设值时，则重设容器高度
 		@if $size != map-get($loading,size) {
+			min-width: $size + .2rem;
 			min-height: $size + .2rem;
 		}
 		&:before{
@@ -52,6 +53,14 @@
 			// 如果$bordercolor不等于config预设值时，则重设颜色
 			@if $bordercolor != map-get($loading,bordercolor) {
 			    color: $bordercolor;
+			}
+		}
+		> .inner{
+			@if $size != map-get($loading,size) {
+				margin-top: $size - .1rem;
+			}
+			@if $bordercolor != map-get($loading,bordercolor) {
+				color: $bordercolor;
 			}
 		}
 	}

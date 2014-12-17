@@ -463,9 +463,14 @@ html {
  */
 .yo-loading {
   display: block;
-  position: relative;
-  z-index: 201;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   overflow: hidden;
+  min-width: 0.7rem;
   min-height: 0.7rem;
   text-align: center;
 }
@@ -478,7 +483,7 @@ html {
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.5);
 }
 .yo-loading:after {
   top: 50%;
@@ -500,7 +505,15 @@ html {
   font-size: 0.5rem;
 }
 .yo-loading > .inner {
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  margin-top: 0.4rem;
+  color: #666666;
+  font-size: .14rem;
 }
 @-webkit-keyframes loading {
   from {
@@ -525,20 +538,3 @@ html {
  * Author: joy.du(飘零雾雨)
  * Time: 2014.4.1
  */
-.yo-loading-a {
-  min-height: 1.2rem;
-}
-.yo-loading-a:before {
-  background-color: rgba(0, 0, 0, 0.6);
-}
-.yo-loading-a:after {
-  font-size: 1rem;
-  color: red;
-}
-
-.yo-loading-b {
-  min-height: 0.8rem;
-}
-.yo-loading-b:after {
-  font-size: 0.6rem;
-}

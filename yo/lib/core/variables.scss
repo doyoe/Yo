@@ -115,7 +115,7 @@ $loading: (
 	// {Color} 菊花颜色
 	bordercolor: #666,
 	// {String} mask颜色
-	bgcolor:     rgba(255, 255, 255, .2)
+	bgcolor:     rgba(255, 255, 255, .5)
 ) !default;
 
 
@@ -476,8 +476,6 @@ $mask: (
 $z-index: (
 	// {Number} 下拉菜单层级范围50-100
 	dropdown: 50,
-	// {Number} loading层级
-	loading:  201,
 	// {Number} 遮罩层级
 	mask:     1000,
 	// {Number} 弹窗层级范围1001-2000
@@ -487,5 +485,7 @@ $z-index: (
 	// {Number} 浮层层级范围2501-3000
 	search:   2501,
 	// {Number} 浮层层级范围3001-4000
-	tip:      3001
+	tip:      3001,
+	// {Number} loading层级
+	loading:  9999
 ) !default;
