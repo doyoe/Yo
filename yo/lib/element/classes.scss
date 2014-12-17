@@ -181,6 +181,11 @@
 		    background-color: map-get($checked, bgcolor);
 		}
 	}
+	// mobile safari上清除appearance后仍然有边框及背景
+	&[type="radio"]{
+		border: 0 none;
+		background-color: transparent;
+	}
 	&[type="checkbox"],
 	&[type="radio"]{
 	    @include appearance(none);
@@ -203,6 +208,7 @@
 		    text-shadow: 0 0 .01rem;
 		    font-size: 70%;
 	    	opacity: 0;
+	    	color: #fff;
 	    }
 		&:checked::after{
 			color: map-get($checked, on-color);
