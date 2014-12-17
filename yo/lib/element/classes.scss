@@ -47,23 +47,6 @@
 	}
 }
 
-// 定义select-arrow的基础构造
-// 用于选择场景的小箭头
-%_select-arrow{
-	position: relative;
-	color: map-get($select-arrow,color);
-	&::after{
-		position: absolute;
-		top: 50%;
-		margin-top: -#{map-get($select-arrow,size)/2};
-		content: "\0020";
-		@include square(map-get($select-arrow,size));
-		border-width: 1px 1px 0 0;
-		border-style: solid;
-		@include transform(rotate(45deg));
-	}
-}
-
 // 定义loading的基础构造
 // 使用方法请查看 yo-loading.scss
 @mixin _loading{

@@ -41,6 +41,8 @@
         line-height: map-get($dialog, hd-height);
         text-align: center;
         .title{
+            overflow: hidden;
+            height: 100%;
             margin: 0 60px;
             @if map-get($dialog, title-color) != map-get($base, color) {
                 color: map-get($dialog, title-color);
@@ -152,6 +154,8 @@
         line-height: map-get($popup, hd-height);
         text-align: center;
         .title{
+            overflow: hidden;
+            height: 100%;
             margin: 0 60px;
             @if map-get($popup, title-color) != map-get($base, color) {
                 color: map-get($popup, title-color);
@@ -195,6 +199,18 @@
     border-radius: map-get($tip, radius);
     background-color: rgba(map-get($tip, bgcolor), .5);
     color: map-get($tip, color);
+}
+
+// 定义mask的基础构造
+// 使用方法请查看 yo-mask.scss
+@mixin _mask{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: map-get($z-index, mask);
+    background-color: rgba(map-get($mask, bgcolor), .5);
 }
 
 // 定义select的基础构造

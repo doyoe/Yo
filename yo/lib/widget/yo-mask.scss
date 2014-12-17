@@ -1,0 +1,36 @@
+@charset "utf-8";
+@import "classes";
+
+/**
+ * Fragment: yo-mask
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ ------------------------
+ * @method yo-mask
+ * variables length(2)
+ * @param {default | String} $name 定义yo-mask名称
+ * @param {default | Color} $bgcolor 定义yo-mask背景色
+ */
+
+@mixin yo-mask($name:default,
+			$bgcolor:default){
+	@if $name == default {
+        $name: "";
+    } @else {
+        $name: "-#{$name}";
+    }
+	// 如果值为default，则取config的定义
+	@if $bgcolor == default {
+		$bgcolor: map-get($mask, bgcolor);
+	}
+	.yo-mask#{$name}{
+    	@if $bgcolor != map-get($mask, bgcolor) {
+    		background-color: rgba($bgcolor, .5);
+    	}
+	}
+}
+
+// 调用本文件时载入mask基础构造
+.yo-mask{
+	@include _mask;
+}

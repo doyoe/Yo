@@ -310,6 +310,33 @@ html {
 * Time: 2013.10.17
 */
 /**
+ * module: m-code
+ * Author: joy.du(飘零雾雨)
+ * Time: 2013.10.17
+ */
+.m-code {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  background: #272822;
+  color: #51bbe1;
+  font-size: 20px;
+}
+.m-code .method {
+  color: #93de08;
+}
+.m-code .bracket,
+.m-code .colon {
+  padding-right: 5px;
+  color: #fff;
+}
+.m-code mark {
+  background: none;
+  color: #ccc;
+  font-size: 16px;
+}
+
+/**
  * module: m-demo
  * Author: joy.du(飘零雾雨)
  * Time: 2013.10.17
@@ -349,33 +376,6 @@ html {
 }
 
 /**
- * module: m-code
- * Author: joy.du(飘零雾雨)
- * Time: 2013.10.17
- */
-.m-code {
-  margin: 10px;
-  padding: 10px;
-  border-radius: 5px;
-  background: #272822;
-  color: #51bbe1;
-  font-size: 20px;
-}
-.m-code .method {
-  color: #93de08;
-}
-.m-code .bracket,
-.m-code .colon {
-  padding-right: 5px;
-  color: #fff;
-}
-.m-code mark {
-  background: none;
-  color: #ccc;
-  font-size: 16px;
-}
-
-/**
  * Directory: lib/core/variables.scss
  * CSS Variables 定义各种页面沙粒变量
  * Author: joy.du(飘零雾雨)
@@ -444,91 +444,29 @@ html {
  * @param {String} $transition 取值与原生语法一致
  */
 /**
- * Directory: lib/fragment/classes.scss
- * fragment的基础构造
+ * Directory: lib/widget/classes.scss
+ * widget的基础构造
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  */
 /**
- * Widget: yo-list
+ * Fragment: yo-mask
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  ------------------------
- * @method yo-list
- * variables length(8)
- * @param {default|String} $name 定义list名称
- * @param {default|Boole} $is-outline 定义list是否需要轮廓（即外边框）
- * @param {default|Color} $bordercolor 定义list边框色
- * @param {default|Length} $item-padding 定义list项的内补白
- * @param {default|Length} $label-padding 定义list分组标题内补白
- * @param {default|Color} $label-bgcolor 定义list分组标题背景色
- * @param {default|Color} $on-bgcolor 定义list经过/选中背景色
+ * @method yo-mask
+ * variables length(2)
+ * @param {default | String} $name 定义yo-mask名称
+ * @param {default | Color} $bgcolor 定义yo-mask背景色
  */
-.yo-list {
-  overflow: hidden;
-  background-color: #fff;
-}
-.yo-list > .label,
-.yo-list > .item {
-  border-bottom: 1px solid #dddddd;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-}
-.yo-list > .label > .mark,
-.yo-list > .item > .mark {
-  margin-right: .1rem;
-}
-.yo-list > .label .col,
-.yo-list > .item .col {
-  padding: 0.1rem;
-}
-.yo-list > .label .col:first-child,
-.yo-list > .item .col:first-child {
-  margin-left: -0.1rem;
-}
-.yo-list > .label .col:last-child,
-.yo-list > .item .col:last-child {
-  margin-right: -0.1rem;
-}
-.yo-list > .label > .flex,
-.yo-list > .item > .flex {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  flex: 1;
-}
-.yo-list > .label {
-  padding: 0.03rem 0.1rem;
-  background-color: #eeeeee;
-}
-.yo-list > .label:first-of-type {
-  border-top: 1px solid #dddddd;
-}
-.yo-list > .item {
-  padding: 0.1rem;
-  color: #333333;
-}
-.yo-list > .item-input {
-  cursor: pointer;
-}
-.yo-list > .item-input > .input {
-  -webkit-align-self: stretch;
-  align-self: stretch;
-  width: 100%;
-  border: 0 none;
-  background-color: transparent;
-}
-.yo-list > .item-on,
-.yo-list > a.item {
-  cursor: pointer;
-}
-.yo-list > .item-on:hover, .yo-list > .item-on:active,
-.yo-list > a.item:hover,
-.yo-list > a.item:active {
-  background-color: #f8f8f8;
+.yo-mask {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 /**
@@ -600,81 +538,42 @@ html {
  * @param {String} $transition 取值与原生语法一致
  */
 /**
- * Directory: lib/element/classes.scss
- * element的基础构造
+ * Directory: lib/widget/classes.scss
+ * widget的基础构造
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  */
 /**
- * widget: yo-checkbox
+ * Fragment: yo-tip
  * Author: joy.du(飘零雾雨)
- * Time: 2014.11.14
- -----------------------
- * @method yo-checkbox
- * variables length(10)
- * @param {default | String} $name 定义checkbox名称
- * @param {default | Length} $size 定义checkbox大小
- * @param {default | Color} $bordercolor 定义checkbox边框色
- * @param {default | Color} $bgcolor 定义checkbox背景色
- * @param {default | Color} $on-bordercolor 定义checkbox选中边框色
- * @param {default | Color} $on-bgcolor 定义checkbox选中背景色
- * @param {default | Color} $on-color 定义checkbox选中标记色
- * @param {default | Color} $disabled-bordercolor 定义checkbox禁用边框色
- * @param {default | Color} $disabled-bgcolor 定义checkbox禁用背景色
- * @param {default | Color} $disabled-color 定义checkbox禁用标记色
+ * Time: 2012.1.1
+ ------------------------
+ * @method yo-tip
+ * variables length(5)
+ * @param {default | String} $name 定义yo-tip名称
+ * @param {default | Length} $padding 定义yo-tip内补白
+ * @param {default | Length} $radius 定义yo-tip圆角
+ * @param {default | Color} $bgcolor 定义yo-tip背景色
+ * @param {default | Color} $color 定义yo-tip文本色
  */
-.yo-checkbox[type="checkbox"] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  position: relative;
-  width: 0.2rem;
-  height: 0.2rem;
-  font-size: 0.2rem;
-  border-radius: .05rem;
-  border: 1px solid #dddddd;
-  box-shadow: inset 0 0.01rem 0.03rem rgba(100, 100, 100, 0.1);
-  background-color: white;
-  cursor: pointer;
-  vertical-align: middle;
+.yo-tip {
+  position: fixed;
+  z-index: 3001;
+  padding: 0.06rem 0.15rem;
+  border-radius: 0.05rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
 }
-.yo-checkbox[type="checkbox"]::after {
-  position: absolute;
+
+/**
+ * tip演示页面
+ * Author: joy.du(飘零雾雨)
+ * Time: 2014.4.1
+ */
+.yo-tip {
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   -moz-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  -webkit-transition: opacity 0.5s;
-  -moz-transition: opacity 0.5s;
-  transition: opacity 0.5s;
-  content: "✓";
-  text-shadow: 0 0 .01rem;
-  font-size: 70%;
-  opacity: 0;
-  color: #fff;
 }
-.yo-checkbox[type="checkbox"]:checked {
-  border-color: #2b94ff;
-  background-color: #2b94ff;
-}
-.yo-checkbox[type="checkbox"]:checked::after {
-  color: white;
-  opacity: 1;
-}
-.yo-checkbox[type="checkbox"]:active {
-  opacity: .5;
-}
-.yo-checkbox[type="checkbox"]:disabled {
-  border-color: #dfdfdf;
-  background-color: #eeeeee;
-}
-.yo-checkbox[type="checkbox"]:disabled::after {
-  color: #d9d9d9;
-}
-
-/**
- * checkbox演示页面
- * Author: joy.du(飘零雾雨)
- * Time: 2014.11.14
- */

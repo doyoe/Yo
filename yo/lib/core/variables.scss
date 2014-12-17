@@ -104,7 +104,7 @@ $ico: (
 	// {String} 使用哪几种图标
 	// font-types: woff ttf svg,
 	// {Url} 图标字体路径
-	font-path:  "http://source.qunarzz.com/fonts/fontawesome/4.1.0/",
+	font-path:  "http://source.qunarzz.com/fonts/fontawesome/4.2.0/",
 ) !default;
 
 
@@ -449,6 +449,13 @@ $number: (
 	sign-color:           #999,
 	// {Color} 禁用加减号文本色
 	disabled-sign-color:  map-get($base, disabled-color)
+) !default;
+
+
+// Widget UI mask(1)
+$mask: (
+	// {Color} 背景色
+	bgcolor:  #fff
 ) !default;
 
 
