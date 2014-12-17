@@ -153,6 +153,7 @@ textarea {
 
 textarea, input, button {
   outline: none;
+  border-radius: 0;
 }
 
 button::-moz-focus-inner, input::-moz-focus-inner {
@@ -659,9 +660,15 @@ html {
   border: 1px solid #dddddd;
   border-width: 0 1px;
   box-shadow: inset 1px 1px 1px rgba(221, 221, 221, 0.1);
+  border-radius: 0;
   background-color: #fff;
   color: #333333;
   font-size: .16rem;
+}
+.yo-number > .input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 /**

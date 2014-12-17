@@ -90,6 +90,7 @@ textarea{
 // 清除webkit下表单元素的outline
 textarea,input,button{
     outline: none;
+    border-radius: 0;
 }
 // 清除Firefox按钮内部边框和补白
 button::-moz-focus-inner,input::-moz-focus-inner{

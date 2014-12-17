@@ -340,9 +340,13 @@
         border: 1px solid map-get($number, bordercolor);
         border-width: 0 1px;
         box-shadow: inset 1px 1px 1px rgba(map-get($number, bordercolor), .1);
+        border-radius: 0;
         background-color: #fff;
         color: map-get($number, color);
         font-size: .16rem;
+        &::-webkit-inner-spin-button{
+            @include appearance();
+        }
     }
 }
 

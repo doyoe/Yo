@@ -90,7 +90,9 @@
 	}
 	.yo-search#{$name}{
 		.operate{
+			@if $arrow-size != map-get($popup,arrow-size) {
 			font-size: map-get($search, font-size);
+		}
 			line-height: map-get($search, height);
 			padding: map-get($search, op-padding);
 			border-bottom: 1px solid map-get($search, bordercolor);
