@@ -665,7 +665,7 @@ html {
   color: #333333;
   font-size: .16rem;
 }
-.yo-number > .input::-webkit-inner-spin-button {
+.yo-number > .input, .yo-number > .input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;

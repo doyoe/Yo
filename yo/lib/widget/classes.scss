@@ -344,6 +344,7 @@
         background-color: #fff;
         color: map-get($number, color);
         font-size: .16rem;
+        &,
         &::-webkit-inner-spin-button{
             @include appearance();
         }
