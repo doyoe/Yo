@@ -647,10 +647,11 @@ html {
   -webkit-transition: opacity 0.5s;
   -moz-transition: opacity 0.5s;
   transition: opacity 0.5s;
-  text-shadow: 0 0 .01rem;
-  opacity: 0;
   content: "●";
+  text-shadow: 0 0 .01rem;
   font-size: 70%;
+  opacity: 0;
+  color: #fff;
 }
 .yo-radio[type="radio"]:checked {
   border-color: #2b94ff;

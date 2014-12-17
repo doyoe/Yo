@@ -239,10 +239,11 @@
 		    left: 50%;
 		    @include transform(translate(-50%, -50%));
 	    	@include transition(opacity .5s);
-		    text-shadow: 0 0 .01rem;
-	    	opacity: 0;
 			content: "●";
+		    text-shadow: 0 0 .01rem;
 			font-size: 70%;
+	    	opacity: 0;
+	    	color: #fff;
 	    }
 	    &:checked{
 	    	border-color: map-get($radio, on-bordercolor);
@@ -285,10 +286,11 @@
 		    left: 50%;
 		    @include transform(translate(-50%, -50%));
 	    	@include transition(opacity .5s);
-		    text-shadow: 0 0 .01rem;
-	    	opacity: 0;
 			content: "✓";
+		    text-shadow: 0 0 .01rem;
 			font-size: 70%;
+	    	opacity: 0;
+			color: #fff;
 	    }
 	    &:checked{
 	    	border-color: map-get($checkbox, on-bordercolor);
