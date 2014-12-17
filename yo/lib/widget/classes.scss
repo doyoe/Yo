@@ -242,6 +242,16 @@
         position: relative;
         z-index: 2;
         text-align: center;
+        > .mask{
+            position: absolute;
+            z-index: 2;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            content: "\0020";
+            // background: -webkit-linear-gradient(top,rgba(255,255,255,.6),transparent 40%,transparent 40%,transparent 60%,transparent 60%,rgba(255,255,255,.6));
+        }
     }
     .yo-select-item-list{
         ul{

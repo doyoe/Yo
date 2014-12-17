@@ -455,6 +455,15 @@ html {
   z-index: 2;
   text-align: center;
 }
+.yo-select .yo-select-item > .mask {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: "\0020";
+}
 .yo-select .yo-select-item-list ul {
   position: relative;
 }
