@@ -9,11 +9,12 @@
  * Time: 2012.1.1
  */
 
-// 改变所有元素的盒模型
+// 改变所有元素的盒模型及清除tap时出现的焦点框
 *,
 ::before,
 ::after{
     @include box-sizing(border-box);
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 // 防止用户自定义网页背景及文字颜色、大小影响
 html{
@@ -108,10 +109,6 @@ mark{
 // 清除文本线条装饰
 ins,s,u,del{
     text-decoration: none;
-}
-// 清除tap时出现的焦点框
-input,textarea,button,label,li,a{
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 // 禁止长按链接与图片弹出菜单
 a,img{

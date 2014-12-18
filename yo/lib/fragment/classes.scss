@@ -179,6 +179,7 @@
 // 定义header的基础构造
 // 使用方法请查看 yo-header.scss
 @mixin _header{
+	position: relative;
 	overflow: hidden;
 	height: map-get($header, height);
 	line-height: map-get($header, height);
@@ -186,6 +187,20 @@
 	background-color: map-get($header, bgcolor);
 	color: map-get($header, color);
 	font-size: map-get($header, font-size);
-	text-align: center;
 	@include ellipsis();
+	text-align: center;
+	.title{
+		@include ellipsis();
+		margin: 0 .6rem;
+	}
+	.regret,
+    .affirm{
+        position: absolute;
+        top: 0;
+        width: .6rem;
+        text-align: center;
+        color: map-get($base, link-color);
+    }
+    .regret{left: 0;}
+    .affirm{right: 0;}
 }

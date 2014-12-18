@@ -79,6 +79,7 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 html {
@@ -173,10 +174,6 @@ mark {
 
 ins, s, u, del {
   text-decoration: none;
-}
-
-input, textarea, button, label, li, a {
-  -webkit-tap-highlight-color: transparent;
 }
 
 a, img {
@@ -617,15 +614,36 @@ html {
  * @param {default | Length} $font-size 定义yo-header文本大小
  */
 .yo-header {
+  position: relative;
   overflow: hidden;
   height: 0.44rem;
   line-height: 0.44rem;
   border-bottom: 1px solid #e1e1e1;
   background-color: #fafafa;
-  text-align: center;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  text-align: center;
+}
+.yo-header .title {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin: 0 .6rem;
+}
+.yo-header .regret,
+.yo-header .affirm {
+  position: absolute;
+  top: 0;
+  width: .6rem;
+  text-align: center;
+  color: #00afc7;
+}
+.yo-header .regret {
+  left: 0;
+}
+.yo-header .affirm {
+  right: 0;
 }
 
 /**
