@@ -495,10 +495,12 @@
         }
     }
     > .cont{
+        display: none;
         @include flex();
         position: absolute;
         top: .51rem;
         right: 0;
+        bottom: 0;
         left: 0;
         background-color: rgba(map-get($search, mask-bgcolor),.9);
         > .recommend,
@@ -509,6 +511,9 @@
             left: 0;
             width: 100%;
             overflow: hidden;
+        }
+        &-on{
+            display: block;
         }
     }
     @at-root{

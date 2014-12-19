@@ -584,12 +584,14 @@ html {
   display: inline-block;
 }
 .yo-search > .cont {
+  display: none;
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
   position: absolute;
   top: .51rem;
   right: 0;
+  bottom: 0;
   left: 0;
   background-color: rgba(255, 255, 255, 0.9);
 }
@@ -601,6 +603,9 @@ html {
   left: 0;
   width: 100%;
   overflow: hidden;
+}
+.yo-search > .cont-on {
+  display: block;
 }
 .yo-search-modal {
   position: fixed;
