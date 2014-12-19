@@ -478,13 +478,6 @@ html {
   -webkit-flex-direction: column;
   flex-direction: column;
 }
-.yo-search > .operate > .action
-> .operate > .action > .label,
-.yo-search > .operate > .cancel {
-  -webkit-transition: all 0.2s ease-in;
-  -moz-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
-}
 .yo-search .operate {
   display: -webkit-box;
   display: -webkit-flex;
@@ -496,6 +489,13 @@ html {
   padding: 0.1rem;
   border-bottom: 1px solid #dddddd;
   background-color: white;
+}
+.yo-search .operate > .action
+> .action > .label,
+.yo-search .operate > .cancel {
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
 }
 .yo-search .operate > .action {
   -webkit-box-flex: 1;
@@ -558,11 +558,39 @@ html {
   white-space: nowrap;
   text-align: right;
 }
+.yo-search .operate-on > .action > .label {
+  left: 0;
+  -webkit-transform: translatex(0) translatez(0);
+  -moz-transform: translatex(0) translatez(0);
+  transform: translatex(0) translatez(0);
+}
+.yo-search .operate-on > .action > .yo-ico-delete {
+  display: inline-block;
+}
+.yo-search .operate-on > .cancel {
+  width: .6rem;
+  padding-right: .1rem;
+}
+.yo-search .operate-fresh > .action > .input, .yo-search .operate-stop > .action > .input {
+  text-align: center;
+}
+.yo-search .operate-fresh > .action > .label, .yo-search .operate-stop > .action > .label {
+  display: none;
+}
+.yo-search .operate-fresh > .action > .yo-ico-fresh {
+  display: inline-block;
+}
+.yo-search .operate-stop > .action > .yo-ico-stop {
+  display: inline-block;
+}
 .yo-search > .cont {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
-  position: relative;
+  position: absolute;
+  top: .51rem;
+  right: 0;
+  left: 0;
   background-color: rgba(255, 255, 255, 0.9);
 }
 .yo-search > .cont > .recommend,
@@ -574,7 +602,7 @@ html {
   width: 100%;
   overflow: hidden;
 }
-.yo-search-on, .yo-search-fresh, .yo-search-stop {
+.yo-search-modal {
   position: fixed;
   z-index: 2501;
   top: 0;
@@ -582,34 +610,9 @@ html {
   left: 0;
   height: 100%;
 }
-
-.yo-search-on > .operate > .action > .label {
-  left: 0;
-  -webkit-transform: translatex(0) translatez(0);
-  -moz-transform: translatex(0) translatez(0);
-  transform: translatex(0) translatez(0);
-}
-.yo-search-on > .operate > .action > .yo-ico-delete {
-  display: inline-block;
-}
-.yo-search-on > .operate > .cancel {
-  width: .6rem;
-  padding-right: .1rem;
-}
-
-.yo-search-fresh > .operate > .action > .input, .yo-search-stop > .operate > .action > .input {
-  text-align: center;
-}
-.yo-search-fresh > .operate > .action > .label, .yo-search-stop > .operate > .action > .label {
-  display: none;
-}
-
-.yo-search-fresh > .operate > .action > .yo-ico-fresh {
-  display: inline-block;
-}
-
-.yo-search-stop > .operate > .action > .yo-ico-stop {
-  display: inline-block;
+.yo-search-modal > .cont {
+  position: relative;
+  top: 0;
 }
 
 /**
@@ -617,6 +620,3 @@ html {
  * Author: joy.du(飘零雾雨)
  * Time: 2014.4.1
  */
-.yo-search-on, .yo-search-fresh, .yo-search-stop {
-  position: absolute;
-}

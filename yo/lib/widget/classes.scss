@@ -382,11 +382,6 @@
 @mixin _search{
     @include flexbox();
     @include flex-direction(column);
-    > .operate > .action
-    > .operate > .action > .label,
-    > .operate > .cancel{
-        @include transition(all .2s ease-in);
-    }
     .operate{
         @include flexbox();
         position: relative;
@@ -396,6 +391,11 @@
         padding: map-get($search, op-padding);
         border-bottom: 1px solid map-get($search, bordercolor);
         background-color: map-get($search, op-bgcolor);
+        > .action
+        > .action > .label,
+        > .cancel{
+            @include transition(all .2s ease-in);
+        }
         > .action{
             @include flex();
             @include transform(translatez(0));
@@ -445,10 +445,61 @@
             white-space: nowrap;
             text-align: right;
         }
+        &-on,
+        &-fresh,
+        &-stop{
+            > .action > .input{
+                border-color: map-get($search, on-bordercolor);
+                background-color: map-get($search, on-bgcolor);
+            }
+        }
+        &-on{
+            > .action{
+                > .label{
+                    left: 0;
+                    @include transform(translatex(0) translatez(0));
+                }
+                > .yo-ico-delete{
+                    display: inline-block;
+                }
+            }
+            > .cancel{
+                width: .6rem;
+                padding-right: .1rem;
+            }
+        }
+        &-fresh,
+        &-stop{
+            > .action{
+                > .input{
+                    text-align: center;
+                }
+                > .label{
+                    display: none;
+                }
+            }
+        }
+        &-fresh{
+            > .action{
+                > .yo-ico-fresh{
+                    display: inline-block;
+                }
+            }
+        }
+        &-stop{
+            > .action{
+                > .yo-ico-stop{
+                    display: inline-block;
+                }
+            }
+        }
     }
     > .cont{
         @include flex();
-        position: relative;
+        position: absolute;
+        top: .51rem;
+        right: 0;
+        left: 0;
         background-color: rgba(map-get($search, mask-bgcolor),.9);
         > .recommend,
         > .result{
@@ -461,58 +512,16 @@
         }
     }
     @at-root{
-        &-on,
-        &-fresh,
-        &-stop{
+        &-modal{
             position: fixed;
             z-index: map-get($z-index, search);
             top: 0;
             right: 0;
             left: 0;
             height: 100%;
-            > .operate > .action > .input{
-                border-color: map-get($search, on-bordercolor);
-                background-color: map-get($search, on-bgcolor);
-            }
-        }
-        &-on{
-            > .operate > .action{
-                > .label{
-                    left: 0;
-                    @include transform(translatex(0) translatez(0));
-                }
-                > .yo-ico-delete{
-                    display: inline-block;
-                }
-            }
-            > .operate > .cancel{
-                width: .6rem;
-                padding-right: .1rem;
-            }
-        }
-        &-fresh,
-        &-stop{
-            > .operate > .action{
-                > .input{
-                    text-align: center;
-                }
-                > .label{
-                    display: none;
-                }
-            }
-        }
-        &-fresh{
-            > .operate > .action{
-                > .yo-ico-fresh{
-                    display: inline-block;
-                }
-            }
-        }
-        &-stop{
-            > .operate > .action{
-                > .yo-ico-stop{
-                    display: inline-block;
-                }
+            > .cont{
+                position: relative;
+                top: 0;
             }
         }
     }
