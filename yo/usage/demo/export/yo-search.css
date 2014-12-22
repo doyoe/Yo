@@ -484,6 +484,7 @@ html {
   display: flex;
   position: relative;
   overflow: hidden;
+  z-index: 2501;
   font-size: 0.14rem;
   line-height: 0.3rem;
   padding: 0.1rem;
@@ -609,7 +610,6 @@ html {
 }
 .yo-search-modal {
   position: fixed;
-  z-index: 2501;
   top: 0;
   right: 0;
   left: 0;

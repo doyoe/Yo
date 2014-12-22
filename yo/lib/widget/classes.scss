@@ -386,6 +386,7 @@
         @include flexbox();
         position: relative;
         overflow: hidden;
+        z-index: map-get($z-index, search);
         font-size: map-get($search, font-size);
         line-height: map-get($search, height);
         padding: map-get($search, op-padding);
@@ -519,7 +520,6 @@
     @at-root{
         &-modal{
             position: fixed;
-            z-index: map-get($z-index, search);
             top: 0;
             right: 0;
             left: 0;
