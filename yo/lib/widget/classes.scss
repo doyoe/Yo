@@ -199,6 +199,7 @@
     border-radius: map-get($tip, radius);
     background-color: rgba(map-get($tip, bgcolor), .5);
     color: map-get($tip, color);
+    opacity: 0;
 }
 
 // 定义mask的基础构造
