@@ -68,7 +68,7 @@
 		cursor: pointer;
 	}
 	> .item-active{
-		&:hover,
+		// &:hover,
 		&:active{
 			background-color: map-get($list,on-bgcolor);
 		}
