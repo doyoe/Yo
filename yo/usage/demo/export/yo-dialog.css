@@ -564,13 +564,13 @@ html {
 .yo-btn-m {
   height: 0.36rem;
   line-height: 0.36rem;
-  font-size: 0.15rem;
+  font-size: 0.14rem;
 }
 
 .yo-btn-l {
   height: 0.44rem;
   line-height: 0.44rem;
-  font-size: 0.2rem;
+  font-size: 0.18rem;
 }
 
 .yo-btn-primary {
@@ -636,6 +636,7 @@ html {
   flex-direction: column;
   position: fixed;
   z-index: 1001;
+  overflow: hidden;
   border-radius: 0.05rem;
   box-shadow: 0 0 5px rgba(221, 221, 221, 0.5);
   border: 1px solid #dddddd;
@@ -678,9 +679,23 @@ html {
   padding: 0.1rem;
 }
 .yo-dialog > .ft {
-  padding: .1rem 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
   border-top: 1px solid #dddddd;
   text-align: center;
+}
+.yo-dialog > .ft > .yo-btn {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  border: 0 none;
+  border-radius: 0;
+  color: #00afc7;
+}
+.yo-dialog > .ft > .yo-btn:last-child:not(:only-child) {
+  border-left: 1px solid #dddddd;
+  font-weight: bold;
 }
 
 /**

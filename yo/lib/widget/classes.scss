@@ -16,6 +16,7 @@
     @include flex-direction(column);
     position: fixed;
     z-index: map-get($z-index, dialog);
+    overflow: hidden;
     // top: 50%;
     // left: 50%;
     // @include transform(translate(-50%, -50%));
@@ -67,9 +68,19 @@
         }
     }
     > .ft{
-        padding: .1rem 0;
+        @include flexbox();
         border-top: 1px solid map-get($dialog, bordercolor);
         text-align: center;
+        > .yo-btn{
+            @include flex();
+            border: 0 none;
+            border-radius: 0;
+            color: map-get($base, link-color);
+            &:last-child:not(:only-child){
+                border-left: 1px solid map-get($dialog, bordercolor);
+                font-weight: bold;
+            }
+        }
     }
 }
 
