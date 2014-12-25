@@ -26,7 +26,7 @@
         box-shadow: 0 0 5px rgba(map-get($dialog, bordercolor), map-get($dialog, shadow-opacity));
     }
     border: 1px solid map-get($dialog, bordercolor);
-    min-width: 2rem;
+    min-width: 2.8rem;
     min-height: 1rem;
     width: map-get($dialog, width);
     height: map-get($dialog, height);
@@ -80,7 +80,7 @@
     @include flex-direction(column);
     position: absolute;
     z-index: map-get($z-index, popup);
-    min-width: 2rem;
+    min-width: 2.8rem;
     min-height: 1rem;
     width: map-get($popup, width);
     height: map-get($popup, height);
@@ -204,7 +204,7 @@
 // 定义mask的基础构造
 // 使用方法请查看 yo-mask.scss
 @mixin _mask{
-    position: fixed;
+    position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
