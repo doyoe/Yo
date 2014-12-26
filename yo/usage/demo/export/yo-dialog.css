@@ -693,9 +693,11 @@ html {
   border-radius: 0;
   color: #00afc7;
 }
+.yo-dialog > .ft > .yo-btn:last-child:not(:only-child), .yo-dialog > .ft > .yo-btn:only-child {
+  font-weight: bold;
+}
 .yo-dialog > .ft > .yo-btn:last-child:not(:only-child) {
   border-left: 1px solid #dddddd;
-  font-weight: bold;
 }
 
 /**

@@ -76,9 +76,12 @@
             border: 0 none;
             border-radius: 0;
             color: map-get($base, link-color);
+            &:last-child:not(:only-child),
+            &:only-child{
+                font-weight: bold;
+            }
             &:last-child:not(:only-child){
                 border-left: 1px solid map-get($dialog, bordercolor);
-                font-weight: bold;
             }
         }
     }

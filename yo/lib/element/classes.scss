@@ -51,7 +51,7 @@
 // 使用方法请查看 yo-loading.scss
 @mixin _loading{
 	display: block;
-	position: fixed;
+	position: absolute;
 	z-index: map-get($z-index, loading);
 	top: 0;
 	right: 0;
