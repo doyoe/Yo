@@ -94,7 +94,7 @@
 				}
 			}
 		}
-		> .item-on{
+		> .item-on,
 		> .item-light{
 			@if $on-bgcolor != map-get($list,on-bgcolor) {
 				background-color: $on-bgcolor;
