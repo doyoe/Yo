@@ -67,13 +67,16 @@
 	> .item-on{
 		cursor: pointer;
 	}
+	// 常规需要active的项目，没有使用到第3方组件的
 	> .item-active{
 		// &:hover,
-		// &:active{
+		&:active{
 			background-color: map-get($list,on-bgcolor);
-		// }
+		}
 	}
-	> .item-on{
+	> .item-on,
+	// 为第3方组件提供active状态
+	> .item-light{
 		background-color: map-get($list,on-bgcolor);
 	}
 }

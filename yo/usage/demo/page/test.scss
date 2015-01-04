@@ -1,0 +1,15 @@
+@charset "utf-8";
+@import "test-import1";
+@import "test-import2";
+@import "mod1";
+@import "mod2";
+
+/**
+* Sass import 去重测试页面
+* Author: joy.du(飘零雾雨)
+* Time: 2015.1.4
+*/
+
+.demo::after{
+	content: "这是一个 Sass once import 测试示例";
+}

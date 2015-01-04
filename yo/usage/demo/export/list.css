@@ -199,7 +199,7 @@ a:hover {
 @font-face {
   font-family: fontawesome-webfont;
   src: url(http://source.qunarzz.com/fonts/fontawesome/4.2.0/fontawesome-webfont.eot);
-  src: url(http://source.qunarzz.com/fonts/fontawesome/4.2.0/fontawesome-webfont.eot?#iefix) format("embedded-opentype"), url(about:blank) format("woff"), url(about:blank) format("truetype"), url(http://source.qunarzz.com/fonts/fontawesome/4.2.0/fontawesome-webfont.svg#iconfont) format("svg");
+  src: url(http://source.qunarzz.com/fonts/fontawesome/4.2.0/fontawesome-webfont.eot?#iefix) format("embedded-opentype"), url(http://source.qunarzz.com/fonts/fontawesome/4.2.0/fontawesome-webfont.woff) format("woff"), url(http://source.qunarzz.com/fonts/fontawesome/4.2.0/fontawesome-webfont.ttf) format("truetype"), url(http://source.qunarzz.com/fonts/fontawesome/4.2.0/fontawesome-webfont.svg#iconfont) format("svg");
 }
 .yo-ico {
   font-family: fontawesome-webfont !important;
@@ -208,7 +208,6 @@ a:hover {
   -webkit-text-stroke-width: .1px;
   -moz-osx-font-smoothing: grayscale;
   vertical-align: middle;
-  width: 2rem;
 }
 
 html {
@@ -520,7 +519,7 @@ html {
 .yo-list > .item-on {
   cursor: pointer;
 }
-.yo-list > .item-active:active {
+.yo-list > .item-active {
   background-color: #f8f8f8;
 }
 .yo-list > .item-on {

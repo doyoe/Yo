@@ -1,0 +1,33 @@
+@charset "UTF-8";
+.test1 {
+  color: red;
+}
+
+.test1 {
+  color: blue;
+}
+
+.test1 {
+  color: red;
+}
+
+.test1 {
+  color: blue;
+}
+
+.test1 {
+  color: red;
+}
+
+.test1 {
+  color: blue;
+}
+
+/**
+* Sass import 去重测试页面
+* Author: joy.du(飘零雾雨)
+* Time: 2015.1.4
+*/
+.demo::after {
+  content: "这是一个 Sass once import 测试示例";
+}
