@@ -519,10 +519,11 @@ html {
 .yo-list > .item-on {
   cursor: pointer;
 }
-.yo-list > .item-active {
+.yo-list > .item-active:active {
   background-color: #f8f8f8;
 }
-.yo-list > .item-on {
+.yo-list > .item-on,
+.yo-list > .item-light {
   background-color: #f8f8f8;
 }
 
@@ -615,11 +616,14 @@ html {
  */
 .yo-tip {
   position: fixed;
+  min-width: 1rem;
+  max-width: 90%;
   z-index: 3001;
   padding: 0.06rem 0.15rem;
   border-radius: 0.05rem;
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
+  text-align: center;
 }
 
 /**

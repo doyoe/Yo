@@ -28,6 +28,7 @@
     }
     border: 1px solid map-get($dialog, bordercolor);
     min-width: 2.8rem;
+    max-width: 90%;
     min-height: 1rem;
     width: map-get($dialog, width);
     height: map-get($dialog, height);
@@ -208,11 +209,14 @@
     // top: 50%;
     // left: 50%;
     // @include transform(translate(-50%, -50%));
+    min-width: 1rem;
+    max-width: 90%;
     z-index: map-get($z-index, tip);
     padding: map-get($tip, padding);
     border-radius: map-get($tip, radius);
     background-color: rgba(map-get($tip, bgcolor), .5);
     color: map-get($tip, color);
+    text-align: center;
 }
 
 // 定义mask的基础构造

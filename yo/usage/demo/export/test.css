@@ -1,12 +1,5 @@
 @charset "UTF-8";
-.test1 {
-  color: red;
-}
-
-.test1 {
-  color: blue;
-}
-
+@import url(test-once-import/mod2);
 .test1 {
   color: red;
 }
@@ -28,6 +21,51 @@
 * Author: joy.du(飘零雾雨)
 * Time: 2015.1.4
 */
-.demo::after {
-  content: "这是一个 Sass once import 测试示例";
+.demo {
+  height: -webkit-calc(500px - 90px);
+}
+
+.test-xx {
+  overflow: hidden;
+  width: 15px;
+}
+
+.test {
+  font-size: 16px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: red;
+  border-top-width: 5px;
+  border-top-style: dashed;
+  border-top-color: black;
+}
+.test-xx {
+  background-color: red;
+  color: black;
+  background-color: white;
+}
+
+.test-1 {
+  width: 1em;
+}
+
+.test-2 {
+  width: 2em;
+}
+
+.test-3 {
+  width: 3em;
+}
+
+@media screen and (orientation: landscape) {
+  html, body {
+    color: red;
+  }
+}
+.test-xx {
+  color: black;
+}
+
+.test-yy {
+  color: red;
 }
