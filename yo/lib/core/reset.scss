@@ -88,10 +88,15 @@ blockquote:before,blockquote:after,q:before,q:after{
 textarea{
     overflow: auto;
 }
-// 清除webkit下表单元素的outline
+// 清除webkit下表单元素的outline及300ms延迟
 textarea,input,button{
     outline: none;
     border-radius: 0;
+    touch-action: none;
+    &:disabled{ 
+        // iOS上当禁用时会设置opacity:.4
+        opacity: 1;
+    }
 }
 // 清除Firefox按钮内部边框和补白
 button::-moz-focus-inner,input::-moz-focus-inner{

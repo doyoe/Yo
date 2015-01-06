@@ -155,6 +155,10 @@ textarea {
 textarea, input, button {
   outline: none;
   border-radius: 0;
+  touch-action: none;
+}
+textarea:disabled, input:disabled, button:disabled {
+  opacity: 1;
 }
 
 button::-moz-focus-inner, input::-moz-focus-inner {
