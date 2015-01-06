@@ -28,7 +28,7 @@
 			margin-right: .1rem;
 		}
 		// 定义单元格的padding
-		.col{
+		> .col{
 			padding: map-get($list,item-padding);
 			&:first-child{
 				margin-left: -#{map-get($list,item-padding)};
@@ -40,6 +40,11 @@
 		// 定义需要自适应宽度的列
 		> .flex{
 			@include flex(1);
+		}
+		> .mark,
+		> .col,
+		> .flex{
+			display: block;
 		}
 	}
 	> .label{

@@ -123,15 +123,17 @@
         border-radius: .16rem;
         background-color: map-get($switch, bgcolor);
         vertical-align: middle;
-        @include transition(all .2s ease-in-out);
+        @include transition(border-color .1s ease-out, background-color .1s ease-out);
         &::before{
-            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
             content: "\0020";
             @include square(.28rem);
             border-radius: 50%;
             background-color: map-get($switch, ball-color);
             box-shadow: 0 2px 5px rgba(0,0,0,.3);
-            @include transition(all .2s ease-in-out);
+            @include transition(transform .1s ease-out);
             @include transform(translate(0, 0) translatez(0));
         }
         &:active,
