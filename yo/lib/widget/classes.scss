@@ -317,7 +317,6 @@
             border-left-color: map-get($tab, bordercolor);
         }
         color: map-get($tab, color);
-        &:hover,
         &:active,
         &.on{
             border-top-color: map-get($tab, on-bordercolor);
@@ -415,6 +414,10 @@
         > .action > .label,
         > .cancel{
             @include transition(all .2s ease-in);
+        }
+        > .action,
+        > .cancel{
+            display: block;
         }
         > .action{
             @include flex();

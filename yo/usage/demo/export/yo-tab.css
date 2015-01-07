@@ -192,7 +192,7 @@ a:hover {
   color: #ff6600;
 }
 
-.g-clear::after, .g-mod::after, #bd::after {
+.g-clear::after, .g-mod::after {
   display: block;
   overflow: hidden;
   clear: both;
@@ -488,7 +488,7 @@ html {
 .yo-tab > .item:not(:first-child) {
   border-left-color: #dddddd;
 }
-.yo-tab > .item:hover, .yo-tab > .item:active, .yo-tab > .item.on {
+.yo-tab > .item:active, .yo-tab > .item.on {
   background-color: white;
   color: black;
 }

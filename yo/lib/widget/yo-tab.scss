@@ -116,7 +116,6 @@
 	        @if $color != map-get($tab, color) {
 		        color: $color;
 		    }
-	        &:hover,
 	        &:active,
 	        &.on{
 	        	@if $on-bordercolor != map-get($tab, on-bordercolor) {
