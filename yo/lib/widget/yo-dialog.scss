@@ -35,7 +35,7 @@
     $title-color:default,
     $title-font-size:default,
     $bd-padding:default,
-    $bd-font-size:default){
+    $bd-font-size:default) {
     // 区别是否新增实例还是修改本身
 	@if $name == default {
         $name: "";
@@ -103,7 +103,7 @@
 	            background: $hd-bgcolor;
 	        }
             .title{
-                @if $title-color != map-get($dialog, title-color) and $title-color != $text-color {
+                @if $title-color != map-get($dialog, title-color) and $title-color != map-get($base, color) {
                     color: $title-color;
                 }
                 @if $title-font-size != map-get($dialog, title-font-size) and $title-font-size != map-get($base, font-size) {

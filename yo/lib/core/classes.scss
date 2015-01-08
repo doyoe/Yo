@@ -201,7 +201,7 @@
     // iOS6要求所有的伸缩盒子元素需要为非inline
     display: block;
     // 修复iOS6下不均分bug，任意非auto的值
-    width: 100%;
+    width: 0;
 }
 // 定义伸缩盒子元素的排版顺序
 @mixin order($order:1){

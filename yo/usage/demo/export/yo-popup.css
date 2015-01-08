@@ -368,7 +368,7 @@ html {
   -webkit-flex: 1;
   flex: 1;
   display: block;
-  width: 100%;
+  width: 0;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   margin: 10px;
@@ -565,9 +565,10 @@ html {
   -webkit-flex: 1;
   flex: 1;
   display: block;
-  width: 100%;
+  width: 0;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
+  width: auto;
   padding: 0.1rem;
 }
 .yo-popup > .ft {

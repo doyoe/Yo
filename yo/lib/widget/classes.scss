@@ -56,6 +56,7 @@
     > .bd{
         @include flex();
         @include overflow();
+        width: auto;
         padding: map-get($dialog, bd-padding);
         @if map-get($dialog, bd-font-size) != map-get($base, font-size) {
             font-size: map-get($dialog, bd-font-size);
@@ -187,9 +188,8 @@
     > .bd{
         @include flex();
         @include overflow();
-        @if map-get($popup, bd-padding) > 0 {
-            padding: map-get($popup, bd-padding);
-        }
+        width: auto;
+        padding: map-get($popup, bd-padding);
     }
     > .ft{
         padding: .1rem 0;
