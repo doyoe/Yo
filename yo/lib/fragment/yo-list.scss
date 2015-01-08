@@ -87,7 +87,6 @@
 			}
 		}
 		> .item-active{
-			// &:hover,
 			&:active{
 				@if $on-bgcolor != map-get($list,on-bgcolor) {
 					background-color: $on-bgcolor;

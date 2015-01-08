@@ -485,18 +485,6 @@ html {
 .yo-list > .item > .mark {
   margin-right: .1rem;
 }
-.yo-list > .label > .col,
-.yo-list > .item > .col {
-  padding: 0.1rem;
-}
-.yo-list > .label > .col:first-child,
-.yo-list > .item > .col:first-child {
-  margin-left: -0.1rem;
-}
-.yo-list > .label > .col:last-child,
-.yo-list > .item > .col:last-child {
-  margin-right: -0.1rem;
-}
 .yo-list > .label > .flex,
 .yo-list > .item > .flex {
   -webkit-box-flex: 1;
@@ -514,13 +502,23 @@ html {
 .yo-list > .item > .flex {
   display: block;
 }
+.yo-list > .label.tr,
+.yo-list > .item.tr {
+  padding: 0;
+}
 .yo-list > .label {
   padding: 0.03rem 0.1rem;
   background-color: #fafafa;
 }
+.yo-list > .label > .col {
+  padding: 0.03rem 0.1rem;
+}
 .yo-list > .item {
   padding: 0.1rem;
   color: #212121;
+}
+.yo-list > .item > .col {
+  padding: 0.1rem;
 }
 .yo-list > .item-input {
   cursor: pointer;

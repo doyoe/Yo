@@ -27,16 +27,6 @@
 		> .mark{
 			margin-right: .1rem;
 		}
-		// 定义单元格的padding
-		> .col{
-			padding: map-get($list,item-padding);
-			&:first-child{
-				margin-left: -#{map-get($list,item-padding)};
-			}
-			&:last-child{
-				margin-right: -#{map-get($list,item-padding)};
-			}
-		}
 		// 定义需要自适应宽度的列
 		> .flex{
 			@include flex(1);
@@ -47,10 +37,18 @@
 		> .flex{
 			display: block;
 		}
+		&.tr{
+			// 当模式为table时，padding将设置到col上
+			padding: 0;
+		}
 	}
 	> .label{
 		padding: map-get($list,label-padding);
 		background-color: map-get($list,label-bgcolor);
+		// 定义单元格的padding
+		> .col{
+			padding: map-get($list,label-padding);
+		}
 	}
 	// > .label:first-of-type{
 	// 	border-top: 1px solid map-get($list,bordercolor);
@@ -58,6 +56,10 @@
 	> .item{
 		padding: map-get($list,item-padding);
 		color: map-get($base,color);
+		// 定义单元格的padding
+		> .col{
+			padding: map-get($list,item-padding);
+		}
 	}
 	> .item-input{
 		cursor: pointer;
@@ -75,7 +77,6 @@
 	}
 	// 常规需要active的项目，没有使用到第3方组件的
 	> .item-active{
-		// &:hover,
 		&:active{
 			background-color: map-get($list,on-bgcolor);
 		}
