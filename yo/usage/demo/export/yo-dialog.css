@@ -368,7 +368,7 @@ html {
   -webkit-flex: 1;
   flex: 1;
   display: block;
-  width: 0;
+  width: 100%;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   margin: 10px;
@@ -682,10 +682,9 @@ html {
   -webkit-flex: 1;
   flex: 1;
   display: block;
-  width: 0;
+  width: 100%;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
-  width: auto;
   padding: 0.16rem 0.1rem 0.15rem;
   font-size: 0.16rem;
 }
@@ -700,7 +699,7 @@ html {
   -webkit-flex: 1;
   flex: 1;
   display: block;
-  width: 0;
+  width: 100%;
   border-width: 1px 0 0 0;
   border-radius: 0;
   background-color: #fff;
