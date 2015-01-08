@@ -196,14 +196,18 @@
 // 定义伸缩盒子元素如何分配空间
 @mixin flex($flex:1){
     -webkit-box-flex: $flex;
-        -webkit-flex: $flex;
-                flex: $flex;
+    -webkit-flex: $flex;
+    flex: $flex;
+    // iOS6要求所有的伸缩盒子元素需要为非inline
+    display: block;
+    // 修复iOS6下不均分bug
+    width: 0;
 }
 // 定义伸缩盒子元素的排版顺序
 @mixin order($order:1){
     -webkit-box-ordinal-group: $order;
-                -webkit-order: $order;
-                        order: $order;
+    -webkit-order: $order;
+    order: $order;
 }
 // 定义伸缩盒子元素的流动方向
 @mixin flex-direction($flex-direction:row){
@@ -231,7 +235,7 @@
         -webkit-box-lines: multiple;
     }
     -webkit-flex-wrap: $flex-wrap;
-            flex-wrap: $flex-wrap;
+    flex-wrap: $flex-wrap;
 }
 // 定义伸缩盒子元素的水平对齐方式
 @mixin justify-content($justify-content:center){
