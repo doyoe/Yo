@@ -17,31 +17,23 @@
     position: fixed;
     z-index: map-get($z-index, dialog);
     overflow: hidden;
-    // top: 50%;
-    // left: 50%;
-    // @include transform(translate(-50%, -50%));
-    @if map-get($dialog, radius) != 0 {
-        border-radius: map-get($dialog, radius);
-    }
+    border-radius: map-get($dialog, radius);
     @if map-get($dialog, shadow-opacity) < 1 {
         box-shadow: 0 0 5px rgba(map-get($dialog, bordercolor), map-get($dialog, shadow-opacity));
     }
     border: 1px solid map-get($dialog, bordercolor);
     min-width: 2.8rem;
     max-width: 90%;
-    min-height: 1rem;
     width: map-get($dialog, width);
     height: map-get($dialog, height);
     background: #fff;
+    text-align: center;
     > .hd{
-        @if map-get($dialog, radius) != 0 {
-            border-radius: map-get($dialog, radius) map-get($dialog, radius) 0 0;
-        }
+        position: relative;
         height: map-get($dialog, hd-height);
-        border-bottom: 1px solid map-get($dialog, bordercolor);
         background: map-get($dialog, hd-bgcolor);
         line-height: map-get($dialog, hd-height);
-        text-align: center;
+        margin-bottom: -.2rem;
         .title{
             overflow: hidden;
             height: 100%;
@@ -64,25 +56,30 @@
     > .bd{
         @include flex();
         @include overflow();
-        @if map-get($dialog, bd-padding) > 0 {
-            padding: map-get($dialog, bd-padding);
+        padding: map-get($dialog, bd-padding);
+        @if map-get($dialog, bd-font-size) != map-get($base, font-size) {
+            font-size: map-get($dialog, bd-font-size);
         }
     }
     > .ft{
         @include flexbox();
-        border-top: 1px solid map-get($dialog, bordercolor);
         text-align: center;
         > .yo-btn{
             @include flex();
-            border: 0 none;
+            border-width: 1px 0 0 0;
             border-radius: 0;
+            background-color: #fff;
             color: map-get($base, link-color);
             &:last-child:not(:only-child),
             &:only-child{
                 font-weight: bold;
             }
             &:last-child:not(:only-child){
-                border-left: 1px solid map-get($dialog, bordercolor);
+                border-left-width: 1px;
+            }
+            &:focus,
+            &:active{
+                background-color: #f9f9f9;
             }
         }
     }

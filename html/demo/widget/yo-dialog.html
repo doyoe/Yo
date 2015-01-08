@@ -17,9 +17,7 @@
     <div class="stage">
         <div class="yo-dialog">
             <header class="hd">
-                <h2 class="title">Dialog</h2>
-                <span class="regret">取消</span>
-                <span class="affirm">保存</span>
+                <h2 class="title">Dialog标题</h2>
             </header>
             <div class="bd">
                 <p>dialog内容</p>
@@ -62,9 +60,7 @@
     </div>
     <code class="code"><xmp><div class="yo-dialog">
     <header class="hd">
-        <h2 class="title">Dialog</h2>
-        <span class="regret">取消</span>
-        <span class="affirm">保存</span>
+        <h2 class="title">Dialog标题</h2>
     </header>
     <div class="bd">
         <p>dialog内容</p>
@@ -85,6 +81,62 @@
         <p>dialog内容</p>
         <p>dialog内容</p>
         <p>dialog内容</p>
+        <p>dialog内容</p>
+    </div>
+    <footer class="ft">
+        <a href="#" class="yo-btn yo-btn-primary yo-btn-m">确定</a>
+        <a href="#" class="yo-btn yo-btn-normal yo-btn-m">取消</a>
+    </footer>
+</div></xmp></code>
+</div>
+
+<div class="m-demo">
+    <div class="device">
+    <div class="stage">
+        <div class="yo-dialog yo-dialog-test">
+            <div class="bd">
+                <p>dialog内容</p>
+            </div>
+            <footer class="ft">
+                <span class="yo-btn yo-btn-dialog yo-btn-l">取消</span>
+                <span class="yo-btn yo-btn-dialog yo-btn-l">确定</span>
+            </footer>
+        </div>
+    </div>
+    </div>
+    <code class="code"><xmp><div class="yo-dialog">
+    <div class="bd">
+        <p>dialog内容</p>
+    </div>
+    <footer class="ft">
+        <a href="#" class="yo-btn yo-btn-primary yo-btn-m">确定</a>
+        <a href="#" class="yo-btn yo-btn-normal yo-btn-m">取消</a>
+    </footer>
+</div></xmp></code>
+</div>
+
+<div class="m-demo">
+    <div class="device">
+    <div class="stage">
+        <div class="yo-dialog yo-dialog-test">
+            <header class="hd">
+                <h2 class="title">弹窗标题</h2>
+            </header>
+            <div class="bd">
+                <p>dialog内容</p>
+            </div>
+            <footer class="ft">
+                <span class="yo-btn yo-btn-dialog yo-btn-l">取消</span>
+                <span class="yo-btn yo-btn-dialog yo-btn-l">确定</span>
+            </footer>
+        </div>
+    </div>
+    </div>
+    <code class="code"><xmp><div class="yo-dialog">
+    <header class="hd">
+        <h2 class="title">弹窗标题</h2>
+    </header>
+    <div class="bd">
         <p>dialog内容</p>
     </div>
     <footer class="ft">
@@ -243,7 +295,8 @@
     $hd-bgcolor<span class="colon">:</span>default, <mark>//{default | Color} dialog头部背景色</mark>
     $title-color<span class="colon">:</span>default, <mark>//{default | Color} Dialog文本色</mark>
     $title-font-size<span class="colon">:</span>default, <mark>//{default | Length} Dialog字号</mark>
-    $bd-padding<span class="colon">:</span>default <mark>//{default | Length} dialog主体补白</mark>
+    $bd-padding<span class="colon">:</span>default, <mark>//{default | Length} dialog主体补白</mark>
+    $bd-font-size<span class="colon">:</span>default <mark>//{default | Length} dialog主体字号</mark>
 <span class="bracket">)</span>
 </pre>
 

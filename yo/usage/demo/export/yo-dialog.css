@@ -556,7 +556,7 @@ html {
   vertical-align: middle;
   cursor: pointer;
 }
-.yo-btn:hover, .yo-btn:focus, .yo-btn:active {
+.yo-btn:focus, .yo-btn:active {
   border-color: #ebebeb;
   background-color: white;
   color: #3b3b3b;
@@ -576,7 +576,7 @@ html {
 .yo-btn-l {
   height: 0.44rem;
   line-height: 0.44rem;
-  font-size: 0.18rem;
+  font-size: 0.16rem;
 }
 
 .yo-btn-primary {
@@ -584,7 +584,7 @@ html {
   border: 1px solid #e66600;
   color: white;
 }
-.yo-btn-primary:hover, .yo-btn-primary:focus, .yo-btn-primary:active {
+.yo-btn-primary:focus, .yo-btn-primary:active {
   background-color: #ff8b2e;
   border-color: #fa7000 !important;
   color: white;
@@ -595,7 +595,7 @@ html {
   border: 1px solid #1b68ea;
   color: white;
 }
-.yo-btn-info:hover, .yo-btn-info:focus, .yo-btn-info:active {
+.yo-btn-info:focus, .yo-btn-info:active {
   background-color: #5d93f0;
   border-color: #2e74eb !important;
   color: white;
@@ -619,7 +619,7 @@ html {
  * Time: 2012.1.1
  ------------------------
  * @method yo-dialog
- * variables length(11)
+ * variables length(12)
  * @param {default | String} $name 定义dialog名称
  * @param {default | Length | null} $width 定义dialog宽度
  * @param {default | Length} $height 定义dialog高度
@@ -631,6 +631,7 @@ html {
  * @param {default | Color} $title-color 定义dialog标题文本色
  * @param {default | Length} $title-font-size 定义dialog标题字号
  * @param {default | Length} $bd-padding 定义dialog主体补白
+ * @param {default | Length} $bd-font-size 定义dialog主体字号
  */
 .yo-dialog {
   display: -webkit-box;
@@ -648,17 +649,16 @@ html {
   border: 1px solid #dddddd;
   min-width: 2.8rem;
   max-width: 90%;
-  min-height: 1rem;
   height: 3rem;
   background: #fff;
+  text-align: center;
 }
 .yo-dialog > .hd {
-  border-radius: 0.05rem 0.05rem 0 0;
-  height: 0.5rem;
-  border-bottom: 1px solid #dddddd;
-  background: #eeeeee;
-  line-height: 0.5rem;
-  text-align: center;
+  position: relative;
+  height: 0.44rem;
+  background: white;
+  line-height: 0.44rem;
+  margin-bottom: -.2rem;
 }
 .yo-dialog > .hd .title {
   overflow: hidden;
@@ -685,13 +685,13 @@ html {
   width: 100%;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
-  padding: 0.1rem;
+  padding: 0.16rem 0.1rem 0.15rem;
+  font-size: 0.16rem;
 }
 .yo-dialog > .ft {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
-  border-top: 1px solid #dddddd;
   text-align: center;
 }
 .yo-dialog > .ft > .yo-btn {
@@ -700,15 +700,19 @@ html {
   flex: 1;
   display: block;
   width: 100%;
-  border: 0 none;
+  border-width: 1px 0 0 0;
   border-radius: 0;
+  background-color: #fff;
   color: #00afc7;
 }
 .yo-dialog > .ft > .yo-btn:last-child:not(:only-child), .yo-dialog > .ft > .yo-btn:only-child {
   font-weight: bold;
 }
 .yo-dialog > .ft > .yo-btn:last-child:not(:only-child) {
-  border-left: 1px solid #dddddd;
+  border-left-width: 1px;
+}
+.yo-dialog > .ft > .yo-btn:focus, .yo-dialog > .ft > .yo-btn:active {
+  background-color: #f9f9f9;
 }
 
 /**
@@ -723,4 +727,8 @@ html {
   -webkit-transform: translate(-50%, -50%);
   -moz-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+}
+
+.yo-dialog-test {
+  height: auto;
 }

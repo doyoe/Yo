@@ -88,7 +88,6 @@
 		}
 		// 如果是禁用按钮，则不需要交互状态
 		@if $name != -disabled {
-		    &:hover,
 			&:focus,
 			&:active{
 				// 如果$bgcolor不等于default，则重绘经过时的背景色

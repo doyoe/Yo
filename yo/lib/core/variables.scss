@@ -140,7 +140,7 @@ $btn: (
 	m-font-size: .14rem,
 	// large
 	l-height:    .44rem,
-	l-font-size: .18rem,
+	l-font-size: .16rem,
 	// {Color} 默认预设4种风格按钮：
 	// 1. disabled
 	disabled-bgcolor: map-get($base, disabled-bgcolor),
@@ -370,7 +370,7 @@ $search: (
 ) !default;
 
 
-// Widget UI Dialog(10)
+// Widget UI Dialog(11)
 $dialog: (
 	// {Length | null} 宽度
 	width:           null,
@@ -383,15 +383,17 @@ $dialog: (
 	// {Color} 边框色
 	bordercolor:     map-get($base, bordercolor),
 	// {Length} 头部高度
-	hd-height:       .5rem,
+	hd-height:       .44rem,
 	// {Color} 头部背景色
-	hd-bgcolor:      #eee,
+	hd-bgcolor:      white,
 	// {Color} 标题颜色
 	title-color:     map-get($base, color),
 	// {Length} 标题文字大小
 	title-font-size: .16rem,
 	// {Length} 主体区域间隙
-	bd-padding:      .1rem
+	bd-padding:      .16rem .1rem .15rem,
+	// {Length} 主体区域文字大小
+	bd-font-size:    .16rem
 ) !default;
 
 

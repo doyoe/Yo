@@ -40,6 +40,7 @@
 		// 定义需要自适应宽度的列
 		> .flex{
 			@include flex(1);
+			width: 100%; // 修复iOS6不均分bug
 		}
 		> .mark,
 		> .col,
