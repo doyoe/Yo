@@ -14,7 +14,8 @@
  * @param {default|Length} $item-padding 定义list项的内补白
  * @param {default|Length} $label-padding 定义list分组标题内补白
  * @param {default|Color} $label-bgcolor 定义list分组标题背景色
- * @param {default|Color} $on-bgcolor 定义list经过/选中背景色
+ * @param {default|Color} $active-bgcolor 定义list点击反馈背景色
+ * @param {default|Color} $on-bgcolor 定义list选中背景色
  */
 
 @mixin yo-list($name:default,
@@ -23,6 +24,7 @@
 			$item-padding:default,
 			$label-padding:default,
 			$label-bgcolor:default,
+			$active-bgcolor:default,
 			$on-bgcolor:default){
 	@if $name == default {
         $name: "";
@@ -44,6 +46,9 @@
 	}
 	@if $label-bgcolor == default {
 		$label-bgcolor: map-get($list,label-bgcolor);
+	}
+	@if $active-bgcolor == default {
+		$active-bgcolor: map-get($list,active-bgcolor);
 	}
 	@if $on-bgcolor == default {
 		$on-bgcolor: map-get($list,on-bgcolor);
@@ -82,20 +87,20 @@
 		// 	}
 		// }
 		> .item{
-			@if $item-padding != map-get($list,item-padding) {
+			@if $item-padding != map-get($list, item-padding) {
 				padding: $item-padding;
 			}
-			&.item-active{
-				&:active{
+			&{
+				.item-active:active,
+				.item-light{
+					@if $active-bgcolor != map-get($list, active-bgcolor) {
+						background-color: $active-bgcolor;
+					}
+				}
+				.item-on{
 					@if $on-bgcolor != map-get($list,on-bgcolor) {
 						background-color: $on-bgcolor;
 					}
-				}
-			}
-			&.item-on,
-			&.item-light{
-				@if $on-bgcolor != map-get($list,on-bgcolor) {
-					background-color: $on-bgcolor;
 				}
 			}
 		}

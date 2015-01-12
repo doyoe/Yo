@@ -271,8 +271,10 @@ $list: (
 	label-padding: .03rem .1rem,
 	// {Color} 列表组头背景色
 	label-bgcolor: map-get($base, bgcolor),
-	// {Color} 经过/选中背景色
-	on-bgcolor:    #f8f8f8
+	// {Color} 点击反馈背景色
+	active-bgcolor:    #f8f8f8,
+	// {Color} 选中背景色
+	on-bgcolor:    null
 ) !default;
 
 

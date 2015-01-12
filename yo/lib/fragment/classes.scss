@@ -67,6 +67,7 @@
 				@include align-self(stretch);
 				width: 100%;
 				border: 0 none;
+				background-color: transparent;
 			}
 		}
 		&.item-active,
@@ -74,16 +75,17 @@
 		&.item-light{
 			cursor: pointer;
 		}
-		// 常规需要active的项目，没有使用到第3方组件的
-		&.item-active{
-			&:active{
-				background-color: map-get($list,on-bgcolor);
+		&{
+			// 常规需要active的项目，没有使用到第3方组件的
+			.item-active:active,
+			// 为第3方组件提供active状态
+			.item-light{
+				background-color: map-get($list, active-bgcolor);
 			}
-		}
-		&.item-on,
-		// 为第3方组件提供active状态
-		&.item-light{
-			background-color: map-get($list,on-bgcolor);
+			// 选中时背景色
+			.item-on{
+				background-color: map-get($list, on-bgcolor);
+			}
 		}
 	}
 }

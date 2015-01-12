@@ -465,7 +465,8 @@ html {
  * @param {default|Length} $item-padding 定义list项的内补白
  * @param {default|Length} $label-padding 定义list分组标题内补白
  * @param {default|Color} $label-bgcolor 定义list分组标题背景色
- * @param {default|Color} $on-bgcolor 定义list经过/选中背景色
+ * @param {default|Color} $active-bgcolor 定义list点击反馈背景色
+ * @param {default|Color} $on-bgcolor 定义list选中背景色
  */
 .yo-list {
   overflow: hidden;
@@ -528,14 +529,13 @@ html {
   align-self: stretch;
   width: 100%;
   border: 0 none;
+  background-color: transparent;
 }
 .yo-list > .item.item-active, .yo-list > .item.item-on, .yo-list > .item.item-light {
   cursor: pointer;
 }
-.yo-list > .item.item-active:active {
-  background-color: #f8f8f8;
-}
-.yo-list > .item.item-on, .yo-list > .item.item-light {
+.yo-list > .item .item-active:active,
+.yo-list > .item .item-light {
   background-color: #f8f8f8;
 }
 
