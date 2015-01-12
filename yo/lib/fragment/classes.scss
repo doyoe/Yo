@@ -60,31 +60,31 @@
 		> .col{
 			padding: map-get($list,item-padding);
 		}
-	}
-	> .item-input{
-		cursor: pointer;
-		// 让输入框占满整个父容器
-		> .input{
-			@include align-self(stretch);
-			width: 100%;
-			border: 0 none;
-			background-color: transparent;
+		&.item-input{
+			cursor: pointer;
+			// 让输入框占满整个父容器
+			> .input{
+				@include align-self(stretch);
+				width: 100%;
+				border: 0 none;
+			}
 		}
-	}
-	> .item-active,
-	> .item-on{
-		cursor: pointer;
-	}
-	// 常规需要active的项目，没有使用到第3方组件的
-	> .item-active{
-		&:active{
+		&.item-active,
+		&.item-on,
+		&.item-light{
+			cursor: pointer;
+		}
+		// 常规需要active的项目，没有使用到第3方组件的
+		&.item-active{
+			&:active{
+				background-color: map-get($list,on-bgcolor);
+			}
+		}
+		&.item-on,
+		// 为第3方组件提供active状态
+		&.item-light{
 			background-color: map-get($list,on-bgcolor);
 		}
-	}
-	> .item-on,
-	// 为第3方组件提供active状态
-	> .item-light{
-		background-color: map-get($list,on-bgcolor);
 	}
 }
 

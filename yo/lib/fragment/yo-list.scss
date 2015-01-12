@@ -85,18 +85,18 @@
 			@if $item-padding != map-get($list,item-padding) {
 				padding: $item-padding;
 			}
-		}
-		> .item-active{
-			&:active{
+			&.item-active{
+				&:active{
+					@if $on-bgcolor != map-get($list,on-bgcolor) {
+						background-color: $on-bgcolor;
+					}
+				}
+			}
+			&.item-on,
+			&.item-light{
 				@if $on-bgcolor != map-get($list,on-bgcolor) {
 					background-color: $on-bgcolor;
 				}
-			}
-		}
-		> .item-on,
-		> .item-light{
-			@if $on-bgcolor != map-get($list,on-bgcolor) {
-				background-color: $on-bgcolor;
 			}
 		}
 	}

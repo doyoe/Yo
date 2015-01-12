@@ -665,25 +665,22 @@ html {
 .yo-list > .item > .col {
   padding: 0.1rem;
 }
-.yo-list > .item-input {
+.yo-list > .item.item-input {
   cursor: pointer;
 }
-.yo-list > .item-input > .input {
+.yo-list > .item.item-input > .input {
   -webkit-align-self: stretch;
   align-self: stretch;
   width: 100%;
   border: 0 none;
-  background-color: transparent;
 }
-.yo-list > .item-active,
-.yo-list > .item-on {
+.yo-list > .item.item-active, .yo-list > .item.item-on, .yo-list > .item.item-light {
   cursor: pointer;
 }
-.yo-list > .item-active:active {
+.yo-list > .item.item-active:active {
   background-color: #f8f8f8;
 }
-.yo-list > .item-on,
-.yo-list > .item-light {
+.yo-list > .item.item-on, .yo-list > .item.item-light {
   background-color: #f8f8f8;
 }
 
