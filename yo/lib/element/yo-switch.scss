@@ -106,5 +106,5 @@
 
 // 调用本文件时载入switch基础构造
 .yo-switch {
-	@include _switch;
+	@extend %_switch;
 }

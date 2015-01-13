@@ -57,5 +57,5 @@
 
 // 调用本文件时载入select基础构造
 .yo-select{
-	@include _select;
+	@extend %_select;
 }

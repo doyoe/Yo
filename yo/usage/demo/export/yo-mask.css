@@ -121,14 +121,14 @@ ul, ol, menu {
 }
 
 fieldset, img {
-  border: 0 none;
+  border: 0;
 }
 
 img, object, input, textarea, button, select {
   vertical-align: top;
 }
 
-article, aside, footer, header, section, nav, figure, figcaption, hgroup, details, menu, main {
+article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {
   display: block;
 }
 
@@ -150,10 +150,11 @@ blockquote:before, blockquote:after, q:before, q:after {
 
 textarea {
   overflow: auto;
+  resize: vertical;
 }
 
 textarea, input, button {
-  outline: none;
+  outline: 0;
   border-radius: 0;
   touch-action: none;
 }
@@ -188,7 +189,8 @@ a {
   color: #00afc7;
   text-decoration: none;
 }
-a:hover {
+a:active {
+  outline: 0;
   color: #ff6600;
 }
 
@@ -452,16 +454,6 @@ html {
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  */
-/**
- * Fragment: yo-mask
- * Author: joy.du(飘零雾雨)
- * Time: 2012.1.1
- ------------------------
- * @method yo-mask
- * variables length(2)
- * @param {default | String} $name 定义yo-mask名称
- * @param {default | Color} $bgcolor 定义yo-mask背景色
- */
 .yo-mask {
   position: absolute;
   top: 0;
@@ -472,6 +464,16 @@ html {
   background-color: rgba(255, 255, 255, 0.5);
 }
 
+/**
+ * Fragment: yo-mask
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ ------------------------
+ * @method yo-mask
+ * variables length(2)
+ * @param {default | String} $name 定义yo-mask名称
+ * @param {default | Color} $bgcolor 定义yo-mask背景色
+ */
 /**
  * mask演示页面
  * Author: joy.du(飘零雾雨)

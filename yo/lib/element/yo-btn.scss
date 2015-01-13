@@ -133,7 +133,7 @@
 
 // 调用本文件时载入按钮基础构造
 .yo-btn{
-	@include _btn;
+	@extend %_btn;
 	@at-root{
 		// 默认载入按钮的三种尺寸:s, m, l
 		&-s{

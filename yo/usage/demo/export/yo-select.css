@@ -121,14 +121,14 @@ ul, ol, menu {
 }
 
 fieldset, img {
-  border: 0 none;
+  border: 0;
 }
 
 img, object, input, textarea, button, select {
   vertical-align: top;
 }
 
-article, aside, footer, header, section, nav, figure, figcaption, hgroup, details, menu, main {
+article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {
   display: block;
 }
 
@@ -150,10 +150,11 @@ blockquote:before, blockquote:after, q:before, q:after {
 
 textarea {
   overflow: auto;
+  resize: vertical;
 }
 
 textarea, input, button {
-  outline: none;
+  outline: 0;
   border-radius: 0;
   touch-action: none;
 }
@@ -188,7 +189,8 @@ a {
   color: #00afc7;
   text-decoration: none;
 }
-a:hover {
+a:active {
+  outline: 0;
   color: #ff6600;
 }
 
@@ -411,18 +413,6 @@ html {
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  */
-/**
- * widget: yo-select
- * Author: joy.du(飘零雾雨)
- * Time: 2014.11.13
- -----------------------
- * @method yo-select
- * variables length(4)
- * @param {default | String} $name 定义select名称
- * @param {default | Length} $width 定义select显示的子项个数
- * @param {default | Length} $height 定义select子项高度
- * @param {default | Color} $bordercolor 定义select边框色
- */
 .yo-select {
   display: -webkit-box;
   display: -webkit-flex;
@@ -484,6 +474,18 @@ html {
   margin-top: -0.15rem;
 }
 
+/**
+ * widget: yo-select
+ * Author: joy.du(飘零雾雨)
+ * Time: 2014.11.13
+ -----------------------
+ * @method yo-select
+ * variables length(4)
+ * @param {default | String} $name 定义select名称
+ * @param {default | Length} $width 定义select显示的子项个数
+ * @param {default | Length} $height 定义select子项高度
+ * @param {default | Color} $bordercolor 定义select边框色
+ */
 /**
  * select演示页面
  * Author: joy.du(飘零雾雨)

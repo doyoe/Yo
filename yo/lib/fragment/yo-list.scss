@@ -109,5 +109,5 @@
 
 // 调用本文件时载入list基础构造
 .yo-list{
-	@include _list;
+	@extend %_list;
 }

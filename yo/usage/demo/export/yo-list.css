@@ -121,14 +121,14 @@ ul, ol, menu {
 }
 
 fieldset, img {
-  border: 0 none;
+  border: 0;
 }
 
 img, object, input, textarea, button, select {
   vertical-align: top;
 }
 
-article, aside, footer, header, section, nav, figure, figcaption, hgroup, details, menu, main {
+article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {
   display: block;
 }
 
@@ -150,10 +150,11 @@ blockquote:before, blockquote:after, q:before, q:after {
 
 textarea {
   overflow: auto;
+  resize: vertical;
 }
 
 textarea, input, button {
-  outline: none;
+  outline: 0;
   border-radius: 0;
   touch-action: none;
 }
@@ -188,7 +189,8 @@ a {
   color: #00afc7;
   text-decoration: none;
 }
-a:hover {
+a:active {
+  outline: 0;
   color: #ff6600;
 }
 
@@ -452,6 +454,60 @@ html {
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  */
+[type="checkbox"].yo-switch {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;
+  width: .6rem;
+  height: .32rem;
+  margin: 0;
+  cursor: pointer;
+  border: 0.02rem solid #dddddd;
+  border-radius: .16rem;
+  background-color: #fafafa;
+  vertical-align: middle;
+  -webkit-transition: border-color 0.1s ease-out, background-color 0.1s ease-out;
+  -moz-transition: border-color 0.1s ease-out, background-color 0.1s ease-out;
+  transition: border-color 0.1s ease-out, background-color 0.1s ease-out;
+}
+[type="checkbox"].yo-switch::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "\0020";
+  width: 0.28rem;
+  height: 0.28rem;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  -webkit-transition: transform 0.1s ease-out;
+  -moz-transition: transform 0.1s ease-out;
+  transition: transform 0.1s ease-out;
+  -webkit-transform: translate(0, 0) translatez(0);
+  -moz-transform: translate(0, 0) translatez(0);
+  transform: translate(0, 0) translatez(0);
+}
+[type="checkbox"].yo-switch:active, [type="checkbox"].yo-switch:focus {
+  outline: none;
+}
+[type="checkbox"].yo-switch:checked {
+  border-color: #4bd763;
+  background-color: #4bd763;
+}
+[type="checkbox"].yo-switch:checked::before {
+  -webkit-transform: translate(100%, 0) translatez(0);
+  -moz-transform: translate(100%, 0) translatez(0);
+  transform: translate(100%, 0) translatez(0);
+}
+[type="checkbox"].yo-switch:disabled, [type="checkbox"].yo-switch:disabled:checked {
+  border-color: #dfdfdf;
+  background-color: #dfdfdf;
+}
+[type="checkbox"].yo-switch:disabled::before {
+  background-color: #efefef;
+}
+
 /**
  * widget: yo-switch
  * Author: joy.du(飘零雾雨)
@@ -469,60 +525,6 @@ html {
  * @param {default | Color} $disabled-bgcolor 定义switch禁用背景色
  * @param {default | Color} $disabled-ball-color 定义switch禁用滑块色
  */
-.yo-switch[type="checkbox"] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  position: relative;
-  width: .6rem;
-  height: .32rem;
-  margin: 0;
-  cursor: pointer;
-  border: 0.02rem solid #dddddd;
-  border-radius: .16rem;
-  background-color: #fafafa;
-  vertical-align: middle;
-  -webkit-transition: border-color 0.1s ease-out, background-color 0.1s ease-out;
-  -moz-transition: border-color 0.1s ease-out, background-color 0.1s ease-out;
-  transition: border-color 0.1s ease-out, background-color 0.1s ease-out;
-}
-.yo-switch[type="checkbox"]::before {
-  position: absolute;
-  top: 0;
-  left: 0;
-  content: "\0020";
-  width: 0.28rem;
-  height: 0.28rem;
-  border-radius: 50%;
-  background-color: white;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  -webkit-transition: transform 0.1s ease-out;
-  -moz-transition: transform 0.1s ease-out;
-  transition: transform 0.1s ease-out;
-  -webkit-transform: translate(0, 0) translatez(0);
-  -moz-transform: translate(0, 0) translatez(0);
-  transform: translate(0, 0) translatez(0);
-}
-.yo-switch[type="checkbox"]:active, .yo-switch[type="checkbox"]:focus {
-  outline: none;
-}
-.yo-switch[type="checkbox"]:checked {
-  border-color: #4bd763;
-  background-color: #4bd763;
-}
-.yo-switch[type="checkbox"]:checked::before {
-  -webkit-transform: translate(100%, 0) translatez(0);
-  -moz-transform: translate(100%, 0) translatez(0);
-  transform: translate(100%, 0) translatez(0);
-}
-.yo-switch[type="checkbox"]:disabled, .yo-switch[type="checkbox"]:disabled:checked {
-  border-color: #dfdfdf;
-  background-color: #dfdfdf;
-}
-.yo-switch[type="checkbox"]:disabled::before {
-  background-color: #efefef;
-}
-
 /**
  * Directory: lib/core/variables.scss
  * CSS Variables 定义各种页面沙粒变量
@@ -597,22 +599,6 @@ html {
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  */
-/**
- * Widget: yo-list
- * Author: joy.du(飘零雾雨)
- * Time: 2012.1.1
- ------------------------
- * @method yo-list
- * variables length(8)
- * @param {default|String} $name 定义list名称
- * @param {default|Boole} $is-outline 定义list是否需要轮廓（即外边框）
- * @param {default|Color} $bordercolor 定义list边框色
- * @param {default|Length} $item-padding 定义list项的内补白
- * @param {default|Length} $label-padding 定义list分组标题内补白
- * @param {default|Color} $label-bgcolor 定义list分组标题背景色
- * @param {default|Color} $active-bgcolor 定义list点击反馈背景色
- * @param {default|Color} $on-bgcolor 定义list选中背景色
- */
 .yo-list {
   overflow: hidden;
   background-color: #fff;
@@ -684,6 +670,22 @@ html {
   background-color: #f8f8f8;
 }
 
+/**
+ * Widget: yo-list
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ ------------------------
+ * @method yo-list
+ * variables length(8)
+ * @param {default|String} $name 定义list名称
+ * @param {default|Boole} $is-outline 定义list是否需要轮廓（即外边框）
+ * @param {default|Color} $bordercolor 定义list边框色
+ * @param {default|Length} $item-padding 定义list项的内补白
+ * @param {default|Length} $label-padding 定义list分组标题内补白
+ * @param {default|Color} $label-bgcolor 定义list分组标题背景色
+ * @param {default|Color} $active-bgcolor 定义list点击反馈背景色
+ * @param {default|Color} $on-bgcolor 定义list选中背景色
+ */
 /**
  * list演示页面
  * Author: joy.du(飘零雾雨)

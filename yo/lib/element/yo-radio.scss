@@ -106,5 +106,5 @@
 
 // 调用本文件时载入radio基础构造
 .yo-radio {
-	@include _radio;
+	@extend %_radio;
 }

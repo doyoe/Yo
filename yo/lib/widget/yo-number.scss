@@ -94,5 +94,5 @@
 
 // 调用本文件时载入number基础构造
 .yo-number{
-	@include _number;
+	@extend %_number;
 }

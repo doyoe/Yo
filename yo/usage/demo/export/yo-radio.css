@@ -121,14 +121,14 @@ ul, ol, menu {
 }
 
 fieldset, img {
-  border: 0 none;
+  border: 0;
 }
 
 img, object, input, textarea, button, select {
   vertical-align: top;
 }
 
-article, aside, footer, header, section, nav, figure, figcaption, hgroup, details, menu, main {
+article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {
   display: block;
 }
 
@@ -150,10 +150,11 @@ blockquote:before, blockquote:after, q:before, q:after {
 
 textarea {
   overflow: auto;
+  resize: vertical;
 }
 
 textarea, input, button {
-  outline: none;
+  outline: 0;
   border-radius: 0;
   touch-action: none;
 }
@@ -188,7 +189,8 @@ a {
   color: #00afc7;
   text-decoration: none;
 }
-a:hover {
+a:active {
+  outline: 0;
   color: #ff6600;
 }
 
@@ -452,22 +454,6 @@ html {
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  */
-/**
- * Widget: yo-list
- * Author: joy.du(飘零雾雨)
- * Time: 2012.1.1
- ------------------------
- * @method yo-list
- * variables length(8)
- * @param {default|String} $name 定义list名称
- * @param {default|Boole} $is-outline 定义list是否需要轮廓（即外边框）
- * @param {default|Color} $bordercolor 定义list边框色
- * @param {default|Length} $item-padding 定义list项的内补白
- * @param {default|Length} $label-padding 定义list分组标题内补白
- * @param {default|Color} $label-bgcolor 定义list分组标题背景色
- * @param {default|Color} $active-bgcolor 定义list点击反馈背景色
- * @param {default|Color} $on-bgcolor 定义list选中背景色
- */
 .yo-list {
   overflow: hidden;
   background-color: #fff;
@@ -539,6 +525,22 @@ html {
   background-color: #f8f8f8;
 }
 
+/**
+ * Widget: yo-list
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ ------------------------
+ * @method yo-list
+ * variables length(8)
+ * @param {default|String} $name 定义list名称
+ * @param {default|Boole} $is-outline 定义list是否需要轮廓（即外边框）
+ * @param {default|Color} $bordercolor 定义list边框色
+ * @param {default|Length} $item-padding 定义list项的内补白
+ * @param {default|Length} $label-padding 定义list分组标题内补白
+ * @param {default|Color} $label-bgcolor 定义list分组标题背景色
+ * @param {default|Color} $active-bgcolor 定义list点击反馈背景色
+ * @param {default|Color} $on-bgcolor 定义list选中背景色
+ */
 /**
  * Directory: lib/core/variables.scss
  * CSS Variables 定义各种页面沙粒变量
@@ -613,6 +615,55 @@ html {
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  */
+[type="radio"].yo-radio {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;
+  width: 0.2rem;
+  height: 0.2rem;
+  border-radius: 50%;
+  border: 1px solid #dddddd;
+  box-shadow: inset 0 0.01rem 0.03rem rgba(100, 100, 100, 0.1);
+  background-color: white;
+  cursor: pointer;
+  vertical-align: middle;
+}
+[type="radio"].yo-radio::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transition: opacity 0.5s;
+  -moz-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+  content: "●";
+  text-shadow: 0 0 .01rem;
+  font-size: 70%;
+  opacity: 0;
+  color: #fff;
+}
+[type="radio"].yo-radio:checked {
+  border-color: #2b94ff;
+  background-color: #2b94ff;
+}
+[type="radio"].yo-radio:checked::after {
+  color: white;
+  opacity: 1;
+}
+[type="radio"].yo-radio:active {
+  opacity: .5;
+}
+[type="radio"].yo-radio:disabled {
+  border-color: #dfdfdf;
+  background-color: #eeeeee;
+}
+[type="radio"].yo-radio:disabled::after {
+  color: #d9d9d9;
+}
+
 /**
  * widget: yo-radio
  * Author: joy.du(飘零雾雨)
@@ -631,55 +682,6 @@ html {
  * @param {default | Color} $disabled-bgcolor 定义radio禁用背景色
  * @param {default | Color} $disabled-color 定义radio禁用标记色
  */
-.yo-radio[type="radio"] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  position: relative;
-  width: 0.2rem;
-  height: 0.2rem;
-  border-radius: 50%;
-  border: 1px solid #dddddd;
-  box-shadow: inset 0 0.01rem 0.03rem rgba(100, 100, 100, 0.1);
-  background-color: white;
-  cursor: pointer;
-  vertical-align: middle;
-}
-.yo-radio[type="radio"]::after {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  -webkit-transition: opacity 0.5s;
-  -moz-transition: opacity 0.5s;
-  transition: opacity 0.5s;
-  content: "●";
-  text-shadow: 0 0 .01rem;
-  font-size: 70%;
-  opacity: 0;
-  color: #fff;
-}
-.yo-radio[type="radio"]:checked {
-  border-color: #2b94ff;
-  background-color: #2b94ff;
-}
-.yo-radio[type="radio"]:checked::after {
-  color: white;
-  opacity: 1;
-}
-.yo-radio[type="radio"]:active {
-  opacity: .5;
-}
-.yo-radio[type="radio"]:disabled {
-  border-color: #dfdfdf;
-  background-color: #eeeeee;
-}
-.yo-radio[type="radio"]:disabled::after {
-  color: #d9d9d9;
-}
-
 /**
  * radio演示页面
  * Author: joy.du(飘零雾雨)

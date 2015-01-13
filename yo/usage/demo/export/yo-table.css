@@ -121,14 +121,14 @@ ul, ol, menu {
 }
 
 fieldset, img {
-  border: 0 none;
+  border: 0;
 }
 
 img, object, input, textarea, button, select {
   vertical-align: top;
 }
 
-article, aside, footer, header, section, nav, figure, figcaption, hgroup, details, menu, main {
+article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {
   display: block;
 }
 
@@ -150,10 +150,11 @@ blockquote:before, blockquote:after, q:before, q:after {
 
 textarea {
   overflow: auto;
+  resize: vertical;
 }
 
 textarea, input, button {
-  outline: none;
+  outline: 0;
   border-radius: 0;
   touch-action: none;
 }
@@ -188,7 +189,8 @@ a {
   color: #00afc7;
   text-decoration: none;
 }
-a:hover {
+a:active {
+  outline: 0;
   color: #ff6600;
 }
 
@@ -452,35 +454,8 @@ html {
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  */
-/**
- * Widget: yo-table
- * Author: joy.du(飘零雾雨)
- * Time: 2012.1.1
- -----------------------
- * method yo-table
- * variables length(12)
- * param {default|String} $name 定义table名称
- * param {default|String} $width 定义table长度
- * param {default|Boole} $is-vertical-border 定义table是否需要纵向边框
- * param {default|Length} $padding 定义table与外边框的距离
- * param {default|Length} $caption-padding 定义table标题内补白
- * param {default|Length} $thead-padding 定义table头部内补白
- * param {default|Length} $tbody-padding 定义table主体内补白
- * param {default|Color} $bordercolor 定义table边框色
- * param {default|none|Color} $thead-bgcolor 定义table头部背景色
- * param {default|none|Color} $odd-bgcolor 定义table奇数行背景色
- * param {default|none|Color} $even-bgcolor 定义table偶数行背景色
- * param {default|none|Color} $hover-bgcolor 定义table经过背景色
- */
 .yo-table {
   background-color: #fff;
-}
-.yo-table-zone {
-  padding: 0 0.1rem;
-  border: 1px solid #dddddd;
-}
-.yo-table-zone table {
-  margin: -1px 0;
 }
 .yo-table table {
   width: 100%;
@@ -505,6 +480,26 @@ html {
   border-color: #dddddd;
 }
 
+/**
+ * Widget: yo-table
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ -----------------------
+ * method yo-table
+ * variables length(12)
+ * param {default|String} $name 定义table名称
+ * param {default|String} $width 定义table长度
+ * param {default|Boole} $is-vertical-border 定义table是否需要纵向边框
+ * param {default|Length} $padding 定义table与外边框的距离
+ * param {default|Length} $caption-padding 定义table标题内补白
+ * param {default|Length} $thead-padding 定义table头部内补白
+ * param {default|Length} $tbody-padding 定义table主体内补白
+ * param {default|Color} $bordercolor 定义table边框色
+ * param {default|none|Color} $thead-bgcolor 定义table头部背景色
+ * param {default|none|Color} $odd-bgcolor 定义table奇数行背景色
+ * param {default|none|Color} $even-bgcolor 定义table偶数行背景色
+ * param {default|none|Color} $hover-bgcolor 定义table经过背景色
+ */
 /**
  * table演示页面
  * Author: joy.du(飘零雾雨)

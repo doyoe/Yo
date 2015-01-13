@@ -124,5 +124,5 @@
 
 // 调用本文件时载入dialog基础构造
 .yo-dialog{
-	@include _dialog;
+	@extend %_dialog;
 }

@@ -11,7 +11,7 @@
 
 // 定义按钮的基础构造
 // 使用方法请查看 yo-btn.scss
-@mixin _btn{
+%_btn{
 	display: inline-block;
 	overflow: hidden;
 	// 如果map-get($btn,padding)不等于0，则需要内补白
@@ -48,7 +48,7 @@
 
 // 定义loading的基础构造
 // 使用方法请查看 yo-loading.scss
-@mixin _loading{
+%_loading{
 	display: block;
 	position: absolute;
 	z-index: map-get($z-index, loading);
@@ -110,7 +110,7 @@
 
 // 定义switch的基础构造
 // 使用方法请查看 yo-switch.scss
-@mixin _switch{
+%_switch{
     &[type="checkbox"]{
         @include appearance(none);
         position: relative;
@@ -167,7 +167,7 @@
 
 // 定义checked的基础构造
 // 使用方法请查看 yo-checked.scss
-@mixin _checked{
+%_checked{
 	@if map-get($checked, is-border) {
 		&[type="checkbox"]{
 			border-radius: .05rem;
@@ -217,7 +217,7 @@
 
 // 定义radio的基础构造
 // 使用方法请查看 yo-radio.scss
-@mixin _radio{
+%_radio{
 	&[type="radio"]{
 	    @include appearance(none);
 	    position: relative;
@@ -263,7 +263,7 @@
 
 // 定义checkbox的基础构造
 // 使用方法请查看 yo-checkbox.scss
-@mixin _checkbox{
+%_checkbox{
 	&[type="checkbox"]{
 	    @include appearance(none);
 	    position: relative;
@@ -310,7 +310,7 @@
 
 // 定义badge的基础构造
 // 使用方法请查看 yo-badge.scss
-@mixin _badge{
+%_badge{
 	display: inline-block;
 	min-width: .22rem;
 	min-height: .22rem;

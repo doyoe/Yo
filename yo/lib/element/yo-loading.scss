@@ -68,7 +68,7 @@
 
 // 调用本文件时载入loading基础构造
 .yo-loading{
-	@include _loading;
+	@extend %_loading;
 	@at-root{
 		@-webkit-keyframes loading{
 			from{-webkit-transform: rotatez(0);}

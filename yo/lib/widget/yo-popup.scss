@@ -173,5 +173,5 @@
 
 // 调用本文件时载入popup基础构造
 .yo-popup{
-	@include _popup;
+	@extend %_popup;
 }

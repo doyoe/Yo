@@ -134,5 +134,5 @@
 
 // 调用本文件时载入tab基础构造
 .yo-tab{
-	@include _tab;
+	@extend %_tab;
 }

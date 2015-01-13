@@ -11,7 +11,7 @@
 
 // 定义list的基础构造
 // 使用方法请查看 yo-list.scss
-@mixin _list{
+%_list{
 	overflow: hidden;
 	background-color: #fff;
 	// 如果config变量$list-is-outline为true，则列表需要轮廓
@@ -92,7 +92,7 @@
 
 // 定义table的基础构造
 // 使用方法请查看 yo-table.scss
-@mixin _table{
+%_table{
 	background-color: #fff;
 	&-zone{
 		padding: map-get($table,padding);
@@ -147,7 +147,7 @@
 
 // 定义toolbar的基础构造
 // 使用方法请查看 yo-toolbar.scss
-@mixin _toolbar{
+%_toolbar{
 	display: inline-block;
 	vertical-align: middle;
 	> .yo-btn{
@@ -190,7 +190,7 @@
 
 // 定义header的基础构造
 // 使用方法请查看 yo-header.scss
-@mixin _header{
+%_header{
 	position: relative;
 	overflow: hidden;
 	height: map-get($header, height);

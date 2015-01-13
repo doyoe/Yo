@@ -14,22 +14,22 @@
 ::before,
 ::after{
     @include box-sizing(border-box);
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 // 防止用户自定义网页背景及文字颜色、大小影响
 html{
-    background-color: map-get($base,bgcolor);
-    color: map-get($base,color);
-    font-size: map-get($base,font-size-root);
+    background-color: map-get($base, bgcolor);
+    color: map-get($base, color);
+    font-size: map-get($base, font-size-root);
     // 如果是适配大小的场景
-    @if map-get($doc,responsive-type) == scaling {
-        font-size: map-get($base,font-size-root-scaling);
+    @if map-get($doc, responsive-type) == scaling {
+        font-size: map-get($base, font-size-root-scaling);
     }
     @include user-select();
 }
 // 定义页面的基准字号
 body{
-    font-size: map-get($base,font-size);
+    font-size: map-get($base, font-size);
 }
 // 清除某些元素在不同浏览器下内外补白不同造成的影响
 body,ul,ol,dl,dd,h1,h2,h3,h4,h5,h6,figure,form,fieldset,legend,input,textarea,button,p,blockquote,th,td,pre,xmp{
@@ -38,8 +38,8 @@ body,ul,ol,dl,dd,h1,h2,h3,h4,h5,h6,figure,form,fieldset,legend,input,textarea,bu
 }
 // 设置默认字集及行高，表单及某些特殊元素不继承祖先font相关属性
 body,input,textarea,button,select,pre,tt,code,kbd,samp,optgroup,option{
-    line-height: map-get($base,line-height);
-    font-family: map-get($base,font-family);
+    line-height: map-get($base, line-height);
+    font-family: map-get($base, font-family);
 }
 // 清除单元格边距并让边框合并
 table{
@@ -58,14 +58,14 @@ ul,ol,menu{
 }
 // 清除默认边框
 fieldset,img{
-    border: 0 none;
+    border: 0;
 }
 // 设置某些元素居中对齐
 img,object,input,textarea,button,select{
     vertical-align: top;
 }
 // 设置某些HTML5元素为块元素
-article,aside,footer,header,section,nav,figure,figcaption,hgroup,details,menu,main{
+article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{
     display: block;
 }
 // 设置HTML5新增媒体元素与img,object保持一致
@@ -84,13 +84,14 @@ address,cite,dfn,em,i,optgroup,var{
 blockquote:before,blockquote:after,q:before,q:after{
     content: "\0020";
 }
-// 设置文本域滚动条需要时才出现
+// 设置文本域滚动条需要时才出现，并定义只能手动改变垂直方向大小
 textarea{
     overflow: auto;
+    resize: vertical;
 }
 // 清除webkit下表单元素的outline及300ms延迟
 textarea,input,button{
-    outline: none;
+    outline: 0;
     border-radius: 0;
     touch-action: none;
     &:disabled{ 
@@ -109,7 +110,7 @@ input[type="button"],input[type="submit"],input[type="reset"],input[type="file"]
 }
 // 设置mark元素有默认背景色
 mark{
-    background-color: map-get($base,mark-bgcolor);
+    background-color: map-get($base, mark-bgcolor);
 }
 // 清除文本线条装饰
 ins,s,u,del{
@@ -121,10 +122,11 @@ a,img{
 }
 // 预设默认链接表现
 a{
-    color: map-get($base,link-color);
+    color: map-get($base, link-color);
     text-decoration: none;
-    &:hover{
-        color: map-get($base,link-hover-color);
+    &:active{
+        outline: 0;
+        color: map-get($base, link-hover-color);
     }
 }
 // 预设清除浮动

@@ -121,14 +121,14 @@ ul, ol, menu {
 }
 
 fieldset, img {
-  border: 0 none;
+  border: 0;
 }
 
 img, object, input, textarea, button, select {
   vertical-align: top;
 }
 
-article, aside, footer, header, section, nav, figure, figcaption, hgroup, details, menu, main {
+article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {
   display: block;
 }
 
@@ -150,10 +150,11 @@ blockquote:before, blockquote:after, q:before, q:after {
 
 textarea {
   overflow: auto;
+  resize: vertical;
 }
 
 textarea, input, button {
-  outline: none;
+  outline: 0;
   border-radius: 0;
   touch-action: none;
 }
@@ -188,7 +189,8 @@ a {
   color: #00afc7;
   text-decoration: none;
 }
-a:hover {
+a:active {
+  outline: 0;
   color: #ff6600;
 }
 
@@ -452,26 +454,6 @@ html {
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  */
-/**
- * widget: yo-popup
- * Author: joy.du(飘零雾雨)
- * Time: 2012.1.1
- -----------------------
- * @method yo-popup
- * variables length(12)
- * @param {default | String} $name 定义popup名称
- * @param {default | Length | null} $width 定义popup宽度
- * @param {default | Length} $height 定义popup高度
- * @param {default | Length} $radius 定义popup圆角
- * @param {default | Number} $shadow-opacity 定义popup阴影透明度
- * @param {default | Color} $bordercolor 定义popup边框色
- * @param {default | Length} $hd-height 定义popup头部高度
- * @param {default | Color} $hd-bgcolor 定义popup头部背景色
- * @param {default | Color} $title-color 定义popup标题文本色
- * @param {default | Length} $title-font-size 定义popup标题字号
- * @param {default | Length} $bd-padding 定义popup主体补白
- * @param {default | Length} $arrow-size 定义popup箭头高度
- */
 .yo-popup {
   display: -webkit-box;
   display: -webkit-flex;
@@ -576,6 +558,26 @@ html {
   text-align: center;
 }
 
+/**
+ * widget: yo-popup
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ -----------------------
+ * @method yo-popup
+ * variables length(12)
+ * @param {default | String} $name 定义popup名称
+ * @param {default | Length | null} $width 定义popup宽度
+ * @param {default | Length} $height 定义popup高度
+ * @param {default | Length} $radius 定义popup圆角
+ * @param {default | Number} $shadow-opacity 定义popup阴影透明度
+ * @param {default | Color} $bordercolor 定义popup边框色
+ * @param {default | Length} $hd-height 定义popup头部高度
+ * @param {default | Color} $hd-bgcolor 定义popup头部背景色
+ * @param {default | Color} $title-color 定义popup标题文本色
+ * @param {default | Length} $title-font-size 定义popup标题字号
+ * @param {default | Length} $bd-padding 定义popup主体补白
+ * @param {default | Length} $arrow-size 定义popup箭头高度
+ */
 /**
  * popup演示页面
  * Author: joy.du(飘零雾雨)

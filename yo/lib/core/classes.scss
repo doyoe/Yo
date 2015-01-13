@@ -41,9 +41,7 @@
             font-family: map-get($ico, font-name);
             // 如果只需要其中的某种字体，其它的几种字体可以使用空文件（不会请求），但必须存在
             // IE9
-            // @if index(map-get($ico, font-types), eot) {
             src: url(#{map-get($ico,font-path)}#{map-get($ico,font-name)}.eot);
-            // }
             src: 
                 // IE6-8
                 url(#{map-get($ico,font-path)}#{map-get($ico,font-name)}.eot?#iefix) format("embedded-opentype"),
@@ -309,12 +307,12 @@
 
 // 隐藏方案
 @mixin hide(){
-    display: none !important;
+    display: none;
 }
 
 // 显示方案
 @mixin show(){
-    display: block !important;
+    display: block;
 }
 
 // 强制换行方案
