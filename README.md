@@ -2,11 +2,12 @@
 
 移动前端CSS Framework
 
-尚在优化中，项目使用碰到问题请及时反馈。
+
 
 ## 目录
 
 * [快速开始](#quick-start)
+* [浏览器支持](#browser-support)
 * [问题和特性反馈](#bugs-and-feature-requests)
 * [文档](#documentation)
 * [版本](#version)
@@ -16,6 +17,13 @@
 
 <a name="quick-start"></a>
 ## 快速开始
+
+<a name="browser-support"></a>
+## 浏览器支持
+
+* iOS6.x, iOS7.x, iOS8.x
+* Android4.x, Android5.x
+* Latest Stable: Chrome, Safari
 
 <a name="bugs-and-feature-requests"></a>
 ## 问题和特性反馈
