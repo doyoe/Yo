@@ -26,6 +26,8 @@
 <a name="version"></a>
 ## 版本
 
+v1.0.0
+
 <a name="author"></a>
 ## 作者
 
@@ -41,4 +43,4 @@
 <a name="copyright-and-license"></a>
 ## 版权和许可
 
-Code and documentation copyright 2014-2015 [doyoe.com](http://www.doyoe.com). Code released under the MIT license. Docs released under Creative Commons.
+Code and documentation copyright 2014-2015 [doyoe.com](http://www.doyoe.com). Code released under [the MIT license](http://opensource.org/licenses/MIT). Docs released under [Creative Commons](http://creativecommons.org/licenses/by/4.0/).
