@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<link rel="apple-touch-icon-precomposed" href="/qunar-touch.png" />
+<title>tab - 选项卡</title>
+<link rel="stylesheet" href="../../usage/demo/export/yo-tab.css" />
+</head>
+<body>
+<div class="m-demo">
+    <div class="device">
+    <div class="stage">
+        <div class="yo-tab">
+            <a href="#" class="item">Home</a>
+            <a href="#" class="item">Favorites</a>
+            <a href="#" class="item">Settings</a>
+        </div>
+    </div>
+    </div>
+    <code class="code"><xmp><div class="yo-tab">
+    <a href="#" class="item">Home</a>
+    <a href="#" class="item">Favorites</a>
+    <a href="#" class="item">Settings</a>
+</div></xmp></code>
+</div>
+
+<div class="m-demo">
+    <div class="device">
+    <div class="stage">
+        <div class="yo-tab yo-tab-test">
+            <a href="#" class="item">Home</a>
+            <a href="#" class="item">Favorites</a>
+            <a href="#" class="item">Settings</a>
+        </div>
+    </div>
+    </div>
+    <code class="code"><xmp><div class="yo-tab yo-tab-test">
+    <a href="#" class="item">Home</a>
+    <a href="#" class="item">Favorites</a>
+    <a href="#" class="item">Settings</a>
+</div></xmp></code>
+</div>
+
+<div class="m-demo">
+    <div class="device">
+    <div class="stage">
+        <div class="yo-tab">
+            <a href="#" class="item item-only-ico">
+                <i class="yo-ico">&#xf015;</i>
+            </a>
+            <a href="#" class="item item-only-ico">
+                <i class="yo-ico">&#xf005;</i>
+            </a>
+            <a href="#" class="item item-only-ico">
+                <i class="yo-ico">&#xf013;</i>
+            </a>
+        </div>
+    </div>
+    </div>
+    <code class="code"><xmp><div class="yo-tab">
+    <a href="#" class="item item-only-ico">
+        <i class="yo-ico">&#xf015;</i>
+    </a>
+    <a href="#" class="item item-only-ico">
+        <i class="yo-ico">&#xf005;</i>
+    </a>
+    <a href="#" class="item item-only-ico">
+        <i class="yo-ico">&#xf013;</i>
+    </a>
+</div></xmp></code>
+</div>
+
+<div class="m-demo">
+    <div class="device">
+    <div class="stage">
+        <div class="yo-tab">
+            <a href="#" class="item item-top-ico">
+                <i class="yo-ico">&#xf015;</i>
+                Home
+            </a>
+            <a href="#" class="item item-top-ico">
+                <i class="yo-ico">&#xf005;</i>
+                Favorites
+            </a>
+            <a href="#" class="item item-top-ico">
+                <i class="yo-ico">&#xf013;</i>
+                Settings
+            </a>
+        </div>
+    </div>
+    </div>
+    <code class="code"><xmp><div class="yo-tab">
+    <a href="#" class="item item-top-ico">
+        <i class="yo-ico">&#xf015;</i>
+        Home
+    </a>
+    <a href="#" class="item item-top-ico">
+        <i class="yo-ico">&#xf005;</i>
+        Favorites
+    </a>
+    <a href="#" class="item item-top-ico">
+        <i class="yo-ico">&#xf013;</i>
+        Settings
+    </a>
+</div></xmp></code>
+</div>
+
+<div class="m-demo">
+    <div class="device">
+    <div class="stage">
+        <div class="yo-tab">
+            <a href="#" class="item item-left-ico">
+                <i class="yo-ico">&#xf015;</i>
+                Home
+            </a>
+            <a href="#" class="item item-left-ico">
+                <i class="yo-ico">&#xf005;</i>
+                Favorites
+            </a>
+            <a href="#" class="item item-left-ico">
+                <i class="yo-ico">&#xf013;</i>
+                Settings
+            </a>
+        </div>
+    </div>
+    </div>
+    <code class="code"><xmp><div class="yo-tab">
+    <a href="#" class="item item-left-ico">
+        <i class="yo-ico">&#xf015;</i>
+        Home
+    </a>
+    <a href="#" class="item item-left-ico">
+        <i class="yo-ico">&#xf005;</i>
+        Favorites
+    </a>
+    <a href="#" class="item item-left-ico">
+        <i class="yo-ico">&#xf013;</i>
+        Settings
+    </a>
+</div></xmp></code>
+</div>
+
+<pre class="m-code"><span class="method">@include yo-tab</span><span class="bracket">(</span>
+    $name<span class="colon">:</span>default, <mark>//{default | String} yo-tab名称</mark>
+    $is-border<span class="colon">:</span>default, <mark>//{default | Booln} yo-tab是否有外边框</mark>
+    $is-item-border<span class="colon">:</span>default, <mark>//{default | Booln} yo-tab是否有间隔线</mark>
+    $height<span class="colon">:</span>default, <mark>//{default | Length} yo-tab高度</mark>
+    $bordercolor<span class="colon">:</span>default, <mark>//{default | Color} yo-tab外边框色</mark>
+    $bgcolor<span class="colon">:</span>default, <mark>//{default | Color} yo-tab背景色</mark>
+    $color<span class="colon">:</span>default, <mark>//{default | Color} yo-tab文本色</mark>
+    $on-bordercolor<span class="colon">:</span>default, <mark>//{default | Color} yo-tab激活外边框色</mark>
+    $on-bgcolor<span class="colon">:</span>default, <mark>//{default | Color} yo-tab激活背景色</mark>
+    $on-color<span class="colon">:</span>default <mark>//{default | Color} yo-tab激活文本色</mark>
+<span class="bracket">)</span>
+</pre>
+
+</body>
+</html>

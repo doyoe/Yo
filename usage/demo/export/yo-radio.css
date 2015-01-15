@@ -1,0 +1,727 @@
+@charset "UTF-8";
+/**
+ * Directory: lib/core/variables.scss
+ * CSS Variables 定义各种页面沙粒变量
+ * Author: joy.du(飘零雾雨)
+ * Edit: 2014.12.5
+ */
+/**
+ * Directory: lib/core/classes.scss
+ * Global Classes 约定常规解决方案
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ */
+/**
+ * 定义响应式方案
+ * @method responsive
+ * @param {String} $media 指定媒体查询条件
+ * 使用方法如下，结合variables中的$media-types：
+    @include responsive(phone) {
+        .foo {
+            background: blue;
+        }
+    }
+ */
+/**
+ * 定义字体图标
+ * @method yofont
+ */
+/**
+ * 定义UA默认外观
+ * @method appearance
+ * @param {String} $appearance 指定UA外观类型
+ */
+/**
+ * 定义是否可以选中元素
+ * @method user-select
+ * @param {String} $user-select 指定是否可以选中
+ */
+/**
+ * 定义渐变色值
+ * @method gradient
+ * @param {String} $type 指定渐变的4种类型：linear, repeating-linear, radial, repeating-radial
+ * @param {String} $gradient 指定渐变取值，与原生语法一致
+ */
+/**
+ * 定义盒模型
+ * @method box-sizing
+ * @param {String} $box-sizing 的2个值分别为：content-box(标准盒模型) | border-box(怪异盒模型)
+ */
+/**
+ * 定义简单变换
+ * @method transform
+ * @param {String} $transform 取值与原生语法一致
+ */
+/**
+ * 定义变换原点
+ * @method transform-origin
+ * @param {String} $transform-origin 取值与原生语法一致
+ */
+/**
+ * 定义动画
+ * @method animation
+ * @param {String} $animation 取值与原生语法一致
+ */
+/**
+ * 定义补间
+ * @method transition
+ * @param {String} $transition 取值与原生语法一致
+ */
+/**
+ * Directory: lib/core/reset.scss
+ * Css Reset
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ */
+*,
+::before,
+::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  background-color: #fafafa;
+  color: #212121;
+  font-size: 100px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+body {
+  font-size: 16px;
+}
+
+body, ul, ol, dl, dd, h1, h2, h3, h4, h5, h6, figure, form, fieldset, legend, input, textarea, button, p, blockquote, th, td, pre, xmp {
+  margin: 0;
+  padding: 0;
+}
+
+body, input, textarea, button, select, pre, tt, code, kbd, samp, optgroup, option {
+  line-height: 1.5;
+  font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  table-layout: fixed;
+  text-align: left;
+}
+
+caption, th {
+  text-align: inherit;
+}
+
+ul, ol, menu {
+  list-style: none;
+}
+
+fieldset, img {
+  border: 0;
+}
+
+img, object, input, textarea, button, select {
+  vertical-align: top;
+}
+
+article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {
+  display: block;
+}
+
+audio, canvas, video {
+  display: inline-block;
+}
+
+h1, h2, h3, h4, h5, h6, input, textarea, button, select, small, big {
+  font-size: 100%;
+}
+
+address, cite, dfn, em, i, optgroup, var {
+  font-style: normal;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "\0020";
+}
+
+textarea {
+  overflow: auto;
+  resize: vertical;
+}
+
+textarea, input, button {
+  outline: 0;
+  border-radius: 0;
+  touch-action: none;
+}
+textarea:disabled, input:disabled, button:disabled {
+  opacity: 1;
+}
+
+button::-moz-focus-inner, input::-moz-focus-inner {
+  padding: 0;
+  border: 0 none;
+}
+
+input[type="button"], input[type="submit"], input[type="reset"], input[type="file"]::-webkit-file-upload-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+mark {
+  background-color: transparent;
+}
+
+ins, s, u, del {
+  text-decoration: none;
+}
+
+a, img {
+  -webkit-touch-callout: none;
+}
+
+a {
+  color: #00afc7;
+  text-decoration: none;
+}
+a:active {
+  outline: 0;
+  color: #ff6600;
+}
+
+.g-clear::after, .g-mod::after {
+  display: block;
+  overflow: hidden;
+  clear: both;
+  height: 0;
+  content: "\0020";
+}
+
+@font-face {
+  font-family: fontawesome-webfont;
+  src: url(http://source.qunarzz.com/fonts/fontawesome/4.2.0/fontawesome-webfont.eot);
+  src: url(http://source.qunarzz.com/fonts/fontawesome/4.2.0/fontawesome-webfont.eot?#iefix) format("embedded-opentype"), url(http://source.qunarzz.com/fonts/fontawesome/4.2.0/fontawesome-webfont.woff) format("woff"), url(http://source.qunarzz.com/fonts/fontawesome/4.2.0/fontawesome-webfont.ttf) format("truetype"), url(http://source.qunarzz.com/fonts/fontawesome/4.2.0/fontawesome-webfont.svg#iconfont) format("svg");
+}
+.yo-ico {
+  font-family: fontawesome-webfont !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: .1px;
+  -moz-osx-font-smoothing: grayscale;
+  vertical-align: middle;
+}
+
+html {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  user-select: text;
+}
+
+/**
+ * Directory: lib/core/variables.scss
+ * CSS Variables 定义各种页面沙粒变量
+ * Author: joy.du(飘零雾雨)
+ * Edit: 2014.12.5
+ */
+/**
+ * Directory: lib/core/classes.scss
+ * Global Classes 约定常规解决方案
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ */
+/**
+ * 定义响应式方案
+ * @method responsive
+ * @param {String} $media 指定媒体查询条件
+ * 使用方法如下，结合variables中的$media-types：
+    @include responsive(phone) {
+        .foo {
+            background: blue;
+        }
+    }
+ */
+/**
+ * 定义字体图标
+ * @method yofont
+ */
+/**
+ * 定义UA默认外观
+ * @method appearance
+ * @param {String} $appearance 指定UA外观类型
+ */
+/**
+ * 定义是否可以选中元素
+ * @method user-select
+ * @param {String} $user-select 指定是否可以选中
+ */
+/**
+ * 定义渐变色值
+ * @method gradient
+ * @param {String} $type 指定渐变的4种类型：linear, repeating-linear, radial, repeating-radial
+ * @param {String} $gradient 指定渐变取值，与原生语法一致
+ */
+/**
+ * 定义盒模型
+ * @method box-sizing
+ * @param {String} $box-sizing 的2个值分别为：content-box(标准盒模型) | border-box(怪异盒模型)
+ */
+/**
+ * 定义简单变换
+ * @method transform
+ * @param {String} $transform 取值与原生语法一致
+ */
+/**
+ * 定义变换原点
+ * @method transform-origin
+ * @param {String} $transform-origin 取值与原生语法一致
+ */
+/**
+ * 定义动画
+ * @method animation
+ * @param {String} $animation 取值与原生语法一致
+ */
+/**
+ * 定义补间
+ * @method transition
+ * @param {String} $transition 取值与原生语法一致
+ */
+/**
+ * Directory: lib/layout/classes.scss
+ * Global Document Classes 约定文档级布局方案
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ */
+/**
+ * document: doc
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ ------------------------
+ * @method doc
+ * @param {String} $name 定义page-name
+ * @param {String} $fixed 定义头尾是否固定
+ * @param {Length} $hd-gap 定义主体到viewport顶部的距离
+ * @param {Length} $ft-gap 定义主体到viewport底部的距离
+ */
+/**
+* document layout
+* Author: joy.du(飘零雾雨)
+* Time: 2013.10.17
+*/
+/**
+ * module: m-demo
+ * Author: joy.du(飘零雾雨)
+ * Time: 2013.10.17
+ */
+.m-demo {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  margin: .1rem;
+}
+.m-demo .device {
+  position: relative;
+  width: 3.66rem;
+  height: 7.83rem;
+  border: .05rem solid #505559;
+  border-radius: .55rem;
+  background-color: #313538;
+}
+.m-demo .device::before, .m-demo .device::after {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+  -moz-transform: translate(-50%);
+  transform: translate(-50%);
+  content: "\0020";
+}
+.m-demo .device::before {
+  top: .58rem;
+  width: .68rem;
+  height: .08rem;
+  border-radius: 4px;
+  background-color: #3e4243;
+}
+.m-demo .device::after {
+  bottom: .18rem;
+  width: 0.65rem;
+  height: 0.65rem;
+  border: .05rem solid #3e4243;
+  border-radius: 50%;
+}
+.m-demo .device .stage {
+  top: .99rem;
+  left: .18rem;
+  width: 3.20rem;
+  height: 5.68rem;
+  background-color: #fff;
+}
+.m-demo .device .stage, .m-demo .device .stage::before {
+  position: absolute;
+}
+.m-demo .device .stage::before {
+  top: -.68rem;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+  -moz-transform: translate(-50%);
+  transform: translate(-50%);
+  width: 0.1rem;
+  height: 0.1rem;
+  border-radius: 50%;
+  background-color: #3e4243;
+  box-shadow: -.5rem .26rem #3e4243;
+  content: "\0020";
+}
+.m-demo .code {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  display: block;
+  width: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: .1rem;
+  padding: .1rem;
+  border-left: .04rem solid #D7DBE4;
+  background-color: #F0F3F8;
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+}
+
+/**
+ * module: m-code
+ * Author: joy.du(飘零雾雨)
+ * Time: 2013.10.17
+ */
+.m-code {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  background: #272822;
+  color: #51bbe1;
+  font-size: 20px;
+}
+.m-code .method {
+  color: #93de08;
+}
+.m-code .bracket,
+.m-code .colon {
+  padding-right: 5px;
+  color: #fff;
+}
+.m-code mark {
+  background: none;
+  color: #ccc;
+  font-size: 16px;
+}
+
+/**
+ * Directory: lib/core/variables.scss
+ * CSS Variables 定义各种页面沙粒变量
+ * Author: joy.du(飘零雾雨)
+ * Edit: 2014.12.5
+ */
+/**
+ * Directory: lib/core/classes.scss
+ * Global Classes 约定常规解决方案
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ */
+/**
+ * 定义响应式方案
+ * @method responsive
+ * @param {String} $media 指定媒体查询条件
+ * 使用方法如下，结合variables中的$media-types：
+    @include responsive(phone) {
+        .foo {
+            background: blue;
+        }
+    }
+ */
+/**
+ * 定义字体图标
+ * @method yofont
+ */
+/**
+ * 定义UA默认外观
+ * @method appearance
+ * @param {String} $appearance 指定UA外观类型
+ */
+/**
+ * 定义是否可以选中元素
+ * @method user-select
+ * @param {String} $user-select 指定是否可以选中
+ */
+/**
+ * 定义渐变色值
+ * @method gradient
+ * @param {String} $type 指定渐变的4种类型：linear, repeating-linear, radial, repeating-radial
+ * @param {String} $gradient 指定渐变取值，与原生语法一致
+ */
+/**
+ * 定义盒模型
+ * @method box-sizing
+ * @param {String} $box-sizing 的2个值分别为：content-box(标准盒模型) | border-box(怪异盒模型)
+ */
+/**
+ * 定义简单变换
+ * @method transform
+ * @param {String} $transform 取值与原生语法一致
+ */
+/**
+ * 定义变换原点
+ * @method transform-origin
+ * @param {String} $transform-origin 取值与原生语法一致
+ */
+/**
+ * 定义动画
+ * @method animation
+ * @param {String} $animation 取值与原生语法一致
+ */
+/**
+ * 定义补间
+ * @method transition
+ * @param {String} $transition 取值与原生语法一致
+ */
+/**
+ * Directory: lib/fragment/classes.scss
+ * fragment的基础构造
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ */
+.yo-list {
+  overflow: hidden;
+  background-color: #fff;
+}
+.yo-list > .label,
+.yo-list > .item {
+  border-bottom: 1px solid #dddddd;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.yo-list > .label > .mark,
+.yo-list > .item > .mark {
+  margin-right: .1rem;
+}
+.yo-list > .label > .flex,
+.yo-list > .item > .flex {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  display: block;
+  width: 100%;
+  width: 100%;
+}
+.yo-list > .label > .mark,
+.yo-list > .label > .col,
+.yo-list > .label > .flex,
+.yo-list > .item > .mark,
+.yo-list > .item > .col,
+.yo-list > .item > .flex {
+  display: block;
+}
+.yo-list > .label.tr,
+.yo-list > .item.tr {
+  padding: 0;
+}
+.yo-list > .label {
+  padding: 0.03rem 0.1rem;
+  background-color: #fafafa;
+}
+.yo-list > .label > .col {
+  padding: 0.03rem 0.1rem;
+}
+.yo-list > .item {
+  padding: 0.1rem;
+  color: #212121;
+}
+.yo-list > .item > .col {
+  padding: 0.1rem;
+}
+.yo-list > .item.item-input {
+  cursor: pointer;
+}
+.yo-list > .item.item-input > .input {
+  -webkit-align-self: stretch;
+  align-self: stretch;
+  width: 100%;
+  border: 0 none;
+  background-color: transparent;
+}
+.yo-list > .item.item-active, .yo-list > .item.item-on, .yo-list > .item.item-light {
+  cursor: pointer;
+}
+.yo-list > .item .item-active:active,
+.yo-list > .item .item-light {
+  background-color: #f8f8f8;
+}
+
+/**
+ * Widget: yo-list
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ ------------------------
+ * @method yo-list
+ * variables length(8)
+ * @param {default|String} $name 定义list名称
+ * @param {default|Boole} $is-outline 定义list是否需要轮廓（即外边框）
+ * @param {default|Color} $bordercolor 定义list边框色
+ * @param {default|Length} $item-padding 定义list项的内补白
+ * @param {default|Length} $label-padding 定义list分组标题内补白
+ * @param {default|Color} $label-bgcolor 定义list分组标题背景色
+ * @param {default|Color} $active-bgcolor 定义list点击反馈背景色
+ * @param {default|Color} $on-bgcolor 定义list选中背景色
+ */
+/**
+ * Directory: lib/core/variables.scss
+ * CSS Variables 定义各种页面沙粒变量
+ * Author: joy.du(飘零雾雨)
+ * Edit: 2014.12.5
+ */
+/**
+ * Directory: lib/core/classes.scss
+ * Global Classes 约定常规解决方案
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ */
+/**
+ * 定义响应式方案
+ * @method responsive
+ * @param {String} $media 指定媒体查询条件
+ * 使用方法如下，结合variables中的$media-types：
+    @include responsive(phone) {
+        .foo {
+            background: blue;
+        }
+    }
+ */
+/**
+ * 定义字体图标
+ * @method yofont
+ */
+/**
+ * 定义UA默认外观
+ * @method appearance
+ * @param {String} $appearance 指定UA外观类型
+ */
+/**
+ * 定义是否可以选中元素
+ * @method user-select
+ * @param {String} $user-select 指定是否可以选中
+ */
+/**
+ * 定义渐变色值
+ * @method gradient
+ * @param {String} $type 指定渐变的4种类型：linear, repeating-linear, radial, repeating-radial
+ * @param {String} $gradient 指定渐变取值，与原生语法一致
+ */
+/**
+ * 定义盒模型
+ * @method box-sizing
+ * @param {String} $box-sizing 的2个值分别为：content-box(标准盒模型) | border-box(怪异盒模型)
+ */
+/**
+ * 定义简单变换
+ * @method transform
+ * @param {String} $transform 取值与原生语法一致
+ */
+/**
+ * 定义变换原点
+ * @method transform-origin
+ * @param {String} $transform-origin 取值与原生语法一致
+ */
+/**
+ * 定义动画
+ * @method animation
+ * @param {String} $animation 取值与原生语法一致
+ */
+/**
+ * 定义补间
+ * @method transition
+ * @param {String} $transition 取值与原生语法一致
+ */
+/**
+ * Directory: lib/element/classes.scss
+ * element的基础构造
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ */
+[type="radio"].yo-radio {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;
+  width: 0.2rem;
+  height: 0.2rem;
+  border-radius: 50%;
+  border: 1px solid #dddddd;
+  box-shadow: inset 0 0.01rem 0.03rem rgba(100, 100, 100, 0.1);
+  background-color: white;
+  cursor: pointer;
+  vertical-align: middle;
+}
+[type="radio"].yo-radio::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transition: opacity 0.5s;
+  -moz-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+  content: "●";
+  text-shadow: 0 0 .01rem;
+  font-size: 70%;
+  opacity: 0;
+  color: #fff;
+}
+[type="radio"].yo-radio:checked {
+  border-color: #2b94ff;
+  background-color: #2b94ff;
+}
+[type="radio"].yo-radio:checked::after {
+  color: white;
+  opacity: 1;
+}
+[type="radio"].yo-radio:active {
+  opacity: .5;
+}
+[type="radio"].yo-radio:disabled {
+  border-color: #dfdfdf;
+  background-color: #eeeeee;
+}
+[type="radio"].yo-radio:disabled::after {
+  color: #d9d9d9;
+}
+
+/**
+ * widget: yo-radio
+ * Author: joy.du(飘零雾雨)
+ * Time: 2014.11.14
+ -----------------------
+ * @method yo-radio
+ * variables length(10)
+ * @param {default | String} $name 定义radio名称
+ * @param {default | Length} $size 定义radio大小
+ * @param {default | Color} $bordercolor 定义radio边框色
+ * @param {default | Color} $bgcolor 定义radio背景色
+ * @param {default | Color} $on-bordercolor 定义radio选中边框色
+ * @param {default | Color} $on-bgcolor 定义radio选中背景色
+ * @param {default | Color} $on-color 定义radio选中标记色
+ * @param {default | Color} $disabled-bordercolor 定义radio禁用边框色
+ * @param {default | Color} $disabled-bgcolor 定义radio禁用背景色
+ * @param {default | Color} $disabled-color 定义radio禁用标记色
+ */
+/**
+ * radio演示页面
+ * Author: joy.du(飘零雾雨)
+ * Time: 2014.11.14
+ */

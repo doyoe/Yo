@@ -1,0 +1,68 @@
+@charset "utf-8";
+/**
+ * module: m-demo
+ * Author: joy.du(飘零雾雨)
+ * Time: 2013.10.17
+ */
+.m-demo{
+	@include flexbox();
+	margin: .1rem;
+	.device{
+		position: relative;
+		width: 3.66rem;
+		height: 7.83rem;
+		border: .05rem solid #505559;
+		border-radius: .55rem;
+		background-color: #313538;
+		&::before,
+		&::after{
+			position: absolute;
+			left: 50%;
+			@include transform(translate(-50%));
+			content: "\0020";
+		}
+		&::before{
+			top: .58rem;
+			width: .68rem;
+			height: .08rem;
+			border-radius: 4px;
+			background-color: #3e4243;
+		}
+		&::after{
+			bottom: .18rem;
+			@include square(.65rem);
+			border: .05rem solid #3e4243;
+			border-radius: 50%;
+		}
+		.stage{
+			top: .99rem;
+			left: .18rem;
+			width: 3.20rem;
+			height: 5.68rem;
+			background-color: #fff;
+			&,
+			&::before{
+				position: absolute;
+			}
+			&::before{
+				top: -.68rem;
+				left: 50%;
+				@include transform(translate(-50%));
+				@include square(.1rem);
+				border-radius: 50%;
+				background-color: #3e4243;
+				box-shadow: -.5rem .26rem #3e4243;
+				content: "\0020";
+			}
+		}
+	}
+	.code{
+		@include flex();
+		@include overflow();
+		margin: .1rem;
+		padding: .1rem;
+		border-left: .04rem solid #D7DBE4;
+		background-color: #F0F3F8;
+		font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+	}
+}

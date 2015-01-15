@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<link rel="apple-touch-icon-precomposed" href="/qunar-touch.png" />
+<title>dropdown - 下拉框</title>
+<link rel="stylesheet" href="../../usage/demo/export/yo-dropdown.css" />
+<style>
+
+</style>
+</head>
+<body>
+
+<section class="m-case">
+    <header class="hd">
+        <h2 class="title">Case 1: list</h2>
+    </header>
+    <div class="bd">
+        <div class="yo-dropdown">
+            <select>
+                <optgroup label="分组1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                </optgroup>
+                <optgroup label="分组2">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                </optgroup>
+            </select>
+        </div>
+    </div>
+    <footer class="ft">
+<xmp><div class="yo-dropdown">
+    <select>
+        <option>请选择</option>
+        <option>1</option>
+        ...
+    </select>
+</div></xmp>
+    </footer>
+</section>
+
+<pre class="m-code"><span class="method">@include yo-list</span><span class="bracket">(</span>
+    $name<span class="colon">:</span>default, <mark>//{default|String} yo-list名称</mark>
+    $is-outline<span class="colon">:</span>default, <mark>//{default|Boole} yo-list是否需要轮廓（即外边框）</mark>
+    $bordercolor<span class="colon">:</span>default, <mark>//{default|Color} yo-list边框色</mark>
+    $item-padding<span class="colon">:</span>default, <mark>//{default|Length} yo-list项的内补白</mark>
+    $mark-width<span class="colon">:</span>default, <mark>//{default|Length} yo-list项的mark宽度</mark>
+    $label-padding<span class="colon">:</span>default, <mark>//{default|Length} yo-list分组标题内补白</mark>
+    $label-bgcolor<span class="colon">:</span>default <mark>//{default|Length} yo-list分组标题背景色</mark>
+<span class="bracket">)</span>
+</pre>
+
+</body>
+</html>
