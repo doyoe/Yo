@@ -20,10 +20,12 @@
 <a name="bugs-and-feature-requests"></a>
 ## 问题和特性反馈
 
-如果你或者你所在的公司正在使用 Yo，在使用的过程中发现了任何问题，或者有任何帮助 Yo 更完善的建议，都可以直接给我提[Issues](https://github.com/doyoe/Yo/issues/new)和[Pull Requests](https://github.com/doyoe/Yo/pulls)。
+如果你或者你所在的公司正在使用 Yo，过程中发现了任何问题，或者有任何帮助 Yo 更完善的想法和建议，都可以直接给我提[Issues](https://github.com/doyoe/Yo/issues/new)和[Pull Requests](https://github.com/doyoe/Yo/pulls)。
 
 <a name="documentation"></a>
 ## 文档
+
+待发布...
 
 <a name="version"></a>
 ## 版本
