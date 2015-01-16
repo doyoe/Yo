@@ -4,7 +4,7 @@
 
 /**
  * Directory: lib/layout/classes.scss
- * Global Document Classes 约定文档级布局方案
+ * Global Layout Classes 约定布局方案
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  */
@@ -18,4 +18,12 @@
 			height: 100%;
 		}
 	}
+}
+
+// 定义区块的基础构造
+// 使用方法请查看 yo-panel.scss
+@mixin _panel {
+	display: block;
+	margin: map-get($panel, margin);
+	@include clearfix;
 }

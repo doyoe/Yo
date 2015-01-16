@@ -2,14 +2,16 @@
 @import "classes";
 
 /**
- * Widget: yo-list
+ * Fragment: yo-list
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  ------------------------
  * @method yo-list
- * variables length(8)
+ * variables length(10)
  * @param {default|String} $name 定义list名称
+ * @param {default|Length} $margin 定义list外边距
  * @param {default|Boole} $is-outline 定义list是否需要轮廓（即外边框）
+ * @param {default|Length} $radius 定义list圆角
  * @param {default|Color} $bordercolor 定义list边框色
  * @param {default|Length} $item-padding 定义list项的内补白
  * @param {default|Length} $label-padding 定义list分组标题内补白
@@ -18,74 +20,88 @@
  * @param {default|Color} $on-bgcolor 定义list选中背景色
  */
 
-@mixin yo-list($name:default,
-			$is-outline:default,
-			$bordercolor:default,
-			$item-padding:default,
-			$label-padding:default,
-			$label-bgcolor:default,
-			$active-bgcolor:default,
-			$on-bgcolor:default){
+@mixin yo-list(
+	$name:default,
+	$margin:default,
+	$is-outline:default,
+	$radius:default,
+	$bordercolor:default,
+	$item-padding:default,
+	$label-padding:default,
+	$label-bgcolor:default,
+	$active-bgcolor:default,
+	$on-bgcolor:default){
 	@if $name == default {
         $name: "";
     } @else {
         $name: "-#{$name}";
     }
 	// 如果值为default，则取config的定义
+	@if $margin == default {
+		$margin: map-get($list, margin);
+	}
 	@if $is-outline == default {
-		$is-outline: map-get($list,is-outline);
+		$is-outline: map-get($list, is-outline);
+	}
+	@if $radius == default {
+		$radius: map-get($list, radius);
 	}
 	@if $bordercolor == default {
-		$bordercolor: map-get($list,bordercolor);
+		$bordercolor: map-get($list, bordercolor);
 	}
 	@if $item-padding == default {
-		$item-padding: map-get($list,item-padding);
+		$item-padding: map-get($list, item-padding);
 	}
 	@if $label-padding == default {
-		$label-padding: map-get($list,label-padding);
+		$label-padding: map-get($list, label-padding);
 	}
 	@if $label-bgcolor == default {
-		$label-bgcolor: map-get($list,label-bgcolor);
+		$label-bgcolor: map-get($list, label-bgcolor);
 	}
 	@if $active-bgcolor == default {
-		$active-bgcolor: map-get($list,active-bgcolor);
+		$active-bgcolor: map-get($list, active-bgcolor);
 	}
 	@if $on-bgcolor == default {
-		$on-bgcolor: map-get($list,on-bgcolor);
+		$on-bgcolor: map-get($list, on-bgcolor);
 	}
 	.yo-list#{$name}{
-		// 如果$is-outline为true，且$bordercolor不为config预设值，则重绘轮廓
-		@if $is-outline == true {
-			@if $bordercolor != map-get($list,bordercolor) {
-				outline-color: $bordercolor;
+		@if $margin != map-get($list, margin) {
+			margin: $margin;
+		}
+		@if $radius != map-get($list, radius) {
+			border-radius: $radius;
+		}
+		// 如果$is-outline为true，则重绘轮廓
+		@if $is-outline {
+			@if $is-outline != map-get($list, is-outline) {
+				border-width: .01rem .01rem 0 .01rem;
+				border-style: solid;
+				border-color: $bordercolor;
 			}
 		} @else {
-			outline: 0 none;
+			@if $is-outline != map-get($list, is-outline) {
+				border: 0;
+			}
 		}
 		> .label,
 		> .item{
-			@if $bordercolor != map-get($list,bordercolor) {
+			@if $bordercolor != map-get($list, bordercolor) {
 				border-bottom-color: $bordercolor;
 			}
 			> .col{
-				@if $item-padding != map-get($list,item-padding) {
+				@if $item-padding != map-get($list, item-padding) {
 					padding: $item-padding;
 				}
 			}
 		}
 		> .label{
-			@if $label-padding != map-get($list,label-padding) {
+			@if $label-padding != map-get($list, label-padding) {
 				padding: $label-padding;
 			}
-			@if $label-bgcolor != map-get($list,label-bgcolor) {
+			@if $label-bgcolor != map-get($list, label-bgcolor) {
 				background-color: $label-bgcolor;
 			}
 		}
-		// > .label:first-of-type{
-		// 	@if $bordercolor != map-get($list,bordercolor) {
-		// 		border-top-color: $bordercolor;
-		// 	}
-		// }
 		> .item{
 			@if $item-padding != map-get($list, item-padding) {
 				padding: $item-padding;
@@ -98,7 +114,7 @@
 					}
 				}
 				.item-on{
-					@if $on-bgcolor != map-get($list,on-bgcolor) {
+					@if $on-bgcolor != map-get($list, on-bgcolor) {
 						background-color: $on-bgcolor;
 					}
 				}
@@ -109,5 +125,5 @@
 
 // 调用本文件时载入list基础构造
 .yo-list{
-	@extend %_list;
+	@include _list;
 }

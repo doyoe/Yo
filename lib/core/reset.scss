@@ -20,6 +20,7 @@
 html{
     background-color: map-get($base, bgcolor);
     color: map-get($base, color);
+    // 用于rem计算
     font-size: map-get($base, font-size-root);
     // 如果是适配大小的场景
     @if map-get($doc, responsive-type) == scaling {
@@ -27,7 +28,7 @@ html{
     }
     @include user-select();
 }
-// 定义页面的基准字号
+// 定义页面的默认字号
 body{
     font-size: map-get($base, font-size);
 }

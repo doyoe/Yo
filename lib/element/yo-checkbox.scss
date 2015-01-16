@@ -107,5 +107,5 @@
 
 // 调用本文件时载入checkbox基础构造
 .yo-checkbox {
-	@extend %_checkbox;
+	@include _checkbox;
 }

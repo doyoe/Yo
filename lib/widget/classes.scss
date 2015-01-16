@@ -11,7 +11,7 @@
 
 // 定义弹窗dialog的基础构造
 // 使用方法请查看 yo-dialog.scss
-%_dialog{
+@mixin _dialog{
     @include flexbox();
     @include flex-direction(column);
     position: fixed;
@@ -87,7 +87,7 @@
 
 // 定义浮层popup的基础构造
 // 使用方法请查看 yo-popup.scss
-%_popup{
+@mixin _popup{
     @include flexbox();
     @include flex-direction(column);
     position: absolute;
@@ -198,7 +198,7 @@
 
 // 定义浮层tip的基础构造
 // 使用方法请查看 yo-tip.scss
-%_tip{
+@mixin _tip{
     position: fixed;
     min-width: 1rem;
     max-width: 90%;
@@ -212,7 +212,7 @@
 
 // 定义mask的基础构造
 // 使用方法请查看 yo-mask.scss
-%_mask{
+@mixin _mask{
     position: absolute;
     top: 0;
     right: 0;
@@ -224,7 +224,7 @@
 
 // 定义select的基础构造
 // 使用方法请查看 yo-select.scss
-%_select{
+@mixin _select{
     @include flexbox();
     position: relative;
     overflow: hidden;
@@ -284,7 +284,7 @@
 
 // 定义tab的基础构造
 // 使用方法请查看 yo-tab.scss
-%_tab{
+@mixin _tab{
     @include flexbox();
     height: map-get($tab, height);
     // 是否有外边框
@@ -341,7 +341,7 @@
 
 // 定义number的基础构造
 // 使用方法请查看 yo-number.scss
-%_number{
+@mixin _number{
     @include flexbox(inline-flex);
     width: map-get($number, width);
     height: map-get($number, height);
@@ -388,7 +388,7 @@
 
 // 定义search的基础构造
 // 使用方法请查看 yo-search.scss
-%_search{
+@mixin _search{
     @include flexbox();
     @include flex-direction(column);
     .operate{

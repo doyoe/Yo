@@ -147,5 +147,5 @@
 
 // 调用本文件时载入table基础构造
 .yo-table{
-	@extend %_table;
+	@include _table;
 }

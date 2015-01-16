@@ -92,7 +92,7 @@ html {
 }
 
 body {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 body, ul, ol, dl, dd, h1, h2, h3, h4, h5, h6, figure, form, fieldset, legend, input, textarea, button, p, blockquote, th, td, pre, xmp {
@@ -292,7 +292,7 @@ html {
  */
 /**
  * Directory: lib/layout/classes.scss
- * Global Document Classes 约定文档级布局方案
+ * Global Layout Classes 约定布局方案
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  */
@@ -307,6 +307,28 @@ html {
  * @param {Length} $hd-gap 定义主体到viewport顶部的距离
  * @param {Length} $ft-gap 定义主体到viewport底部的距离
  */
+/**
+ * Layout: yo-panel
+ * Author: joy.du(飘零雾雨)
+ * Edit: 2015.1.15
+ -----------------------
+ * @method panel
+ * variables length(2)
+ * @param {defailt | String} $name 定义名称
+ * @param {defailt | Color} $margin 定义外边距
+ */
+.yo-panel {
+  display: block;
+  margin: 0.2rem 0.1rem;
+}
+.yo-panel::after {
+  display: block;
+  overflow: hidden;
+  clear: both;
+  height: 0;
+  content: "\0020";
+}
+
 /**
 * document layout
 * Author: joy.du(飘零雾雨)
@@ -492,28 +514,6 @@ html {
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  */
-.yo-toolbar {
-  display: inline-block;
-  vertical-align: middle;
-}
-.yo-toolbar > .yo-btn {
-  float: left;
-}
-.yo-toolbar > .yo-btn:not(:first-child) {
-  margin-left: -1px;
-}
-.yo-toolbar > .yo-btn:first-child {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-.yo-toolbar > .yo-btn:last-child {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-.yo-toolbar > .yo-btn:not(:first-child):not(:last-child) {
-  border-radius: 0;
-}
-
 /**
  * Directory: lib/core/variables.scss
  * CSS Variables 定义各种页面沙粒变量
@@ -588,6 +588,23 @@ html {
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  */
+/**
+ * Element: yo-btn
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ ------------------------
+ * 定义按钮使用方法
+ * @method yo-btn
+ * variables length(8)
+ * @param {default | String} $name 定义按钮名称
+ * @param {default | Color} $bgcolor 定义按钮背景色
+ * @param {default | Color} $color 定义按钮文本色
+ * @param {default | Boole} $is-border 定义按钮是否有边框
+ * @param {default | Length} $width 定义按钮宽度
+ * @param {default | Length} $height 定义按钮高度
+ * @param {default | Length} $padding 定义按钮横向补白
+ * @param {default | Length} $radius 定义按钮圆角
+ */
 .yo-btn {
   display: inline-block;
   overflow: hidden;
@@ -606,24 +623,6 @@ html {
   background-color: white;
   color: #3b3b3b;
 }
-
-/**
- * Element: yo-btn
- * Author: joy.du(飘零雾雨)
- * Time: 2012.1.1
- ------------------------
- * 定义按钮使用方法
- * @method yo-btn
- * variables length(8)
- * @param {default | String} $name 定义按钮名称
- * @param {default | Color} $bgcolor 定义按钮背景色
- * @param {default | Color} $color 定义按钮文本色
- * @param {default | Boole} $is-border 定义按钮是否有边框
- * @param {default | Length} $width 定义按钮宽度
- * @param {default | Length} $height 定义按钮高度
- * @param {default | Length} $padding 定义按钮横向补白
- * @param {default | Length} $radius 定义按钮圆角
- */
 .yo-btn-s {
   height: 0.28rem;
   line-height: 0.28rem;
@@ -640,6 +639,12 @@ html {
   height: 0.44rem;
   line-height: 0.44rem;
   font-size: 0.16rem;
+}
+
+.yo-btn-stacked {
+  display: block;
+  width: 100%;
+  clear: both;
 }
 
 .yo-btn-primary {
@@ -686,6 +691,28 @@ html {
  * @param {default | String} $name 定义yo-toolbar名称
  * @param {default | auto | Length} $radius 定义yo-toolbar圆角，当值为auto时，圆角大小取决于按钮的圆角大小
  */
+.yo-toolbar {
+  display: inline-block;
+  vertical-align: middle;
+}
+.yo-toolbar > .yo-btn {
+  float: left;
+}
+.yo-toolbar > .yo-btn:not(:first-child) {
+  margin-left: -1px;
+}
+.yo-toolbar > .yo-btn:first-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.yo-toolbar > .yo-btn:last-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.yo-toolbar > .yo-btn:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+
 /**
  * yo-toolbar演示页面
  * Author: joy.du(飘零雾雨)

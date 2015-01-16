@@ -21,10 +21,17 @@ $setting: (
 ) !default;
 
 
-// Document Layout
+//  Layout Document
 $doc: (
 	responsive-type: none,
 	is-scroll:       false
+) !default;
+
+
+// Layout Panel
+$panel: (
+	// {Length} 区块外边距
+	margin: .2rem .1rem
 ) !default;
 
 
@@ -50,7 +57,7 @@ $base: (
     // 只要引用了外部样式，不论里面的内容是什么，body上的rem就会失效
     // 这时在开发者工具里，关闭又开启一次该条属性，则生效，刷新又挂
     // 所以这里注释该条属性，默认字号不能从root相对而来，所以定义成px
-	font-size:            16px,
+	font-size:            14px,
 	// font-family
 	// escape('微软雅黑').replace(/\%u/g,'\\').toLowerCase()
 	// 可参考http://alloyteam.github.io/Spirit/modules/Standard/index.html
@@ -86,15 +93,6 @@ $base: (
 	link-hover-color:     #f60
 ) !default;
 
-
-// arrow for select
-$select-arrow: (
-	// {Length} 箭头大小
-	size:       .12rem,
-	// {Color} 箭头颜色
-	color:      #aaa
-) !default;
-
 // ico font
 $ico: (
 	// {Boole} 是否使用图标字体
@@ -116,6 +114,25 @@ $loading: (
 	bordercolor: #666,
 	// {String} mask颜色
 	bgcolor:     rgba(255, 255, 255, .5)
+) !default;
+
+
+// Element Input()
+$input: (
+	// {Length} 输入框宽度
+	width:            null,
+	// {Length} 输入框高度
+	height:           null,
+	// {Length} 输入框圆角
+	radius:           null,
+	// {Color} 输入框边框色
+	bordercolor:      map-get($base, bordercolor),
+	// {Color} 输入框背景色
+	bgcolor:          transparent,
+	// {Color} 文本色
+	color:            map-get($base, color),
+	// {Color} 占位符颜色
+	placeholder-color:#aaa
 ) !default;
 
 
@@ -259,10 +276,14 @@ $toolbar: (
 ) !default;
 
 
-// Fragment list(7)
+// Fragment list(9)
 $list: (
+	// {Length} 列表外边距
+	margin:        null,
 	// {Boole} 列表是否有外边框
 	is-outline:    false,
+	// {Length} 列表圆角
+	radius:        null,
 	// {Color} 列表边框色
 	bordercolor:   map-get($base, bordercolor),
 	// {Length} 列表项内补白，只能一个数字
@@ -272,7 +293,7 @@ $list: (
 	// {Color} 列表组头背景色
 	label-bgcolor: map-get($base, bgcolor),
 	// {Color} 点击反馈背景色
-	active-bgcolor:    #f8f8f8,
+	active-bgcolor:#f8f8f8,
 	// {Color} 选中背景色
 	on-bgcolor:    null
 ) !default;
@@ -329,13 +350,13 @@ $table: (
 // Fragment header(4)
 $header: (
 	// {Length} 高度
-	height:  .44rem,
+	height:   .44rem,
 	// {Color} 背景色
-	bgcolor: map-get($base, bgcolor),
+	bgcolor:  map-get($base, bgcolor),
 	// {Color} 文本色
-	color: null,
+	color:    null,
 	// {Length} 文本大小
-	font-size: null
+	font-size:.16rem
 ) !default;
 
 

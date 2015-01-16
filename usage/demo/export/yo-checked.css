@@ -92,7 +92,7 @@ html {
 }
 
 body {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 body, ul, ol, dl, dd, h1, h2, h3, h4, h5, h6, figure, form, fieldset, legend, input, textarea, button, p, blockquote, th, td, pre, xmp {
@@ -292,7 +292,7 @@ html {
  */
 /**
  * Directory: lib/layout/classes.scss
- * Global Document Classes 约定文档级布局方案
+ * Global Layout Classes 约定布局方案
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  */
@@ -307,6 +307,28 @@ html {
  * @param {Length} $hd-gap 定义主体到viewport顶部的距离
  * @param {Length} $ft-gap 定义主体到viewport底部的距离
  */
+/**
+ * Layout: yo-panel
+ * Author: joy.du(飘零雾雨)
+ * Edit: 2015.1.15
+ -----------------------
+ * @method panel
+ * variables length(2)
+ * @param {defailt | String} $name 定义名称
+ * @param {defailt | Color} $margin 定义外边距
+ */
+.yo-panel {
+  display: block;
+  margin: 0.2rem 0.1rem;
+}
+.yo-panel::after {
+  display: block;
+  overflow: hidden;
+  clear: both;
+  height: 0;
+  content: "\0020";
+}
+
 /**
 * document layout
 * Author: joy.du(飘零雾雨)
@@ -492,13 +514,31 @@ html {
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  */
+/**
+ * Fragment: yo-list
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ ------------------------
+ * @method yo-list
+ * variables length(10)
+ * @param {default|String} $name 定义list名称
+ * @param {default|Length} $margin 定义list外边距
+ * @param {default|Boole} $is-outline 定义list是否需要轮廓（即外边框）
+ * @param {default|Length} $radius 定义list圆角
+ * @param {default|Color} $bordercolor 定义list边框色
+ * @param {default|Length} $item-padding 定义list项的内补白
+ * @param {default|Length} $label-padding 定义list分组标题内补白
+ * @param {default|Color} $label-bgcolor 定义list分组标题背景色
+ * @param {default|Color} $active-bgcolor 定义list点击反馈背景色
+ * @param {default|Color} $on-bgcolor 定义list选中背景色
+ */
 .yo-list {
   overflow: hidden;
   background-color: #fff;
 }
 .yo-list > .label,
 .yo-list > .item {
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 0.01rem solid #dddddd;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -542,12 +582,6 @@ html {
   padding: 0.1rem;
   color: #212121;
 }
-.yo-list > .item > .col {
-  padding: 0.1rem;
-}
-.yo-list > .item.item-input {
-  cursor: pointer;
-}
 .yo-list > .item.item-input > .input {
   -webkit-align-self: stretch;
   align-self: stretch;
@@ -555,30 +589,17 @@ html {
   border: 0 none;
   background-color: transparent;
 }
-.yo-list > .item.item-active, .yo-list > .item.item-on, .yo-list > .item.item-light {
+.yo-list > .item.item-input, .yo-list > .item.item-active, .yo-list > .item.item-on, .yo-list > .item.item-light {
   cursor: pointer;
 }
 .yo-list > .item .item-active:active,
 .yo-list > .item .item-light {
   background-color: #f8f8f8;
 }
+.yo-list > .item > .col {
+  padding: 0.1rem;
+}
 
-/**
- * Widget: yo-list
- * Author: joy.du(飘零雾雨)
- * Time: 2012.1.1
- ------------------------
- * @method yo-list
- * variables length(8)
- * @param {default|String} $name 定义list名称
- * @param {default|Boole} $is-outline 定义list是否需要轮廓（即外边框）
- * @param {default|Color} $bordercolor 定义list边框色
- * @param {default|Length} $item-padding 定义list项的内补白
- * @param {default|Length} $label-padding 定义list分组标题内补白
- * @param {default|Color} $label-bgcolor 定义list分组标题背景色
- * @param {default|Color} $active-bgcolor 定义list点击反馈背景色
- * @param {default|Color} $on-bgcolor 定义list选中背景色
- */
 /**
  * Directory: lib/core/variables.scss
  * CSS Variables 定义各种页面沙粒变量
@@ -653,51 +674,6 @@ html {
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  */
-[type="checkbox"].yo-checked {
-  border-radius: .05rem;
-  border: 1px solid #dddddd;
-  box-shadow: inset 0 0.01rem 0.03rem rgba(100, 100, 100, 0.1);
-  background-color: white;
-}
-[type="radio"].yo-checked {
-  border: 0 none;
-  background-color: transparent;
-}
-[type="checkbox"].yo-checked, [type="radio"].yo-checked {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  position: relative;
-  width: 0.2rem;
-  height: 0.2rem;
-  font-size: 0.2rem;
-  cursor: pointer;
-  vertical-align: middle;
-}
-[type="checkbox"].yo-checked::after, [type="radio"].yo-checked::after {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  -webkit-transition: opacity 0.5s;
-  -moz-transition: opacity 0.5s;
-  transition: opacity 0.5s;
-  content: "●";
-  text-shadow: 0 0 .01rem;
-  font-size: 70%;
-  opacity: 0;
-  color: #fff;
-}
-[type="checkbox"].yo-checked:checked::after, [type="radio"].yo-checked:checked::after {
-  color: #2b94ff;
-  opacity: 1;
-}
-[type="checkbox"].yo-checked:disabled::after, [type="radio"].yo-checked:disabled::after {
-  color: #d9d9d9;
-}
-
 /**
  * widget: yo-checked
  * Author: joy.du(飘零雾雨)
@@ -714,6 +690,48 @@ html {
  * @param {default | Color} $on-color 定义checked激活标记色
  * @param {default | Color} $disabled-color 定义checked禁用色
  */
+.yo-checked[type="checkbox"] {
+  border-radius: .05rem;
+  border: 1px solid #dddddd;
+  box-shadow: inset 0 0.01rem 0.03rem rgba(100, 100, 100, 0.1);
+  background-color: white;
+}
+.yo-checked[type="radio"] {
+  border: 0 none;
+  background-color: transparent;
+}
+.yo-checked[type="checkbox"], .yo-checked[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;
+  width: 0.2rem;
+  height: 0.2rem;
+  font-size: 0.2rem;
+  cursor: pointer;
+  vertical-align: middle;
+}
+.yo-checked[type="checkbox"]::after, .yo-checked[type="radio"]::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  content: "●";
+  text-shadow: 0 0 .01rem;
+  font-size: 70%;
+  opacity: 0;
+  color: #fff;
+}
+.yo-checked[type="checkbox"]:checked::after, .yo-checked[type="radio"]:checked::after {
+  color: #2b94ff;
+  opacity: 1;
+}
+.yo-checked[type="checkbox"]:disabled::after, .yo-checked[type="radio"]:disabled::after {
+  color: #d9d9d9;
+}
+
 /**
  * checked演示页面
  * Author: joy.du(飘零雾雨)

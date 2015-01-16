@@ -56,5 +56,5 @@
 
 // 调用本文件时载入tip基础构造
 .yo-tip{
-	@extend %_tip;
+	@include _tip;
 }

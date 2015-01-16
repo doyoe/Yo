@@ -92,7 +92,7 @@ html {
 }
 
 body {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 body, ul, ol, dl, dd, h1, h2, h3, h4, h5, h6, figure, form, fieldset, legend, input, textarea, button, p, blockquote, th, td, pre, xmp {
@@ -292,7 +292,7 @@ html {
  */
 /**
  * Directory: lib/layout/classes.scss
- * Global Document Classes 约定文档级布局方案
+ * Global Layout Classes 约定布局方案
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  */
@@ -307,6 +307,28 @@ html {
  * @param {Length} $hd-gap 定义主体到viewport顶部的距离
  * @param {Length} $ft-gap 定义主体到viewport底部的距离
  */
+/**
+ * Layout: yo-panel
+ * Author: joy.du(飘零雾雨)
+ * Edit: 2015.1.15
+ -----------------------
+ * @method panel
+ * variables length(2)
+ * @param {defailt | String} $name 定义名称
+ * @param {defailt | Color} $margin 定义外边距
+ */
+.yo-panel {
+  display: block;
+  margin: 0.2rem 0.1rem;
+}
+.yo-panel::after {
+  display: block;
+  overflow: hidden;
+  clear: both;
+  height: 0;
+  content: "\0020";
+}
+
 /**
 * document layout
 * Author: joy.du(飘零雾雨)
@@ -492,6 +514,29 @@ html {
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  */
+/**
+ * Fragment: yo-search
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ ------------------------
+ * @method yo-search
+ * variables length(15)
+ * @param {default | String} $name 定义yo-search名称
+ * @param {default | Length} $height 定义yo-search高度
+ * @param {default | Length} $font-size 定义yo-search文本大小
+ * @param {default | Length} $op-padding 定义yo-search内补白
+ * @param {default | Length} $radius 定义yo-search圆角
+ * @param {default | Color} $bordercolor 定义yo-search边框色
+ * @param {default | Color} $bgcolor 定义yo-search背景色
+ * @param {default | Color} $color 定义yo-search文本色
+ * @param {default | Color} $on-bordercolor 定义yo-search激活边框色
+ * @param {default | Color} $on-bgcolor 定义yo-search激活背景色
+ * @param {default | Color} $placeholder-color 定义yo-search占位背景色
+ * @param {default | Color} $ico-color 定义yo-search 操作区ico颜色
+ * @param {default | Color} $cancel-color 定义yo-search取消按钮颜色
+ * @param {default | Color} $op-bgcolor 定义yo-search搜索区域背景色
+ * @param {default | Color} $mask-bgcolor 定义yo-search遮罩背景色
+ */
 .yo-search {
   display: -webkit-box;
   display: -webkit-flex;
@@ -639,29 +684,18 @@ html {
 .yo-search > .cont-on {
   display: block;
 }
-/**
- * Fragment: yo-search
- * Author: joy.du(飘零雾雨)
- * Time: 2012.1.1
- ------------------------
- * @method yo-search
- * variables length(15)
- * @param {default | String} $name 定义yo-search名称
- * @param {default | Length} $height 定义yo-search高度
- * @param {default | Length} $font-size 定义yo-search文本大小
- * @param {default | Length} $op-padding 定义yo-search内补白
- * @param {default | Length} $radius 定义yo-search圆角
- * @param {default | Color} $bordercolor 定义yo-search边框色
- * @param {default | Color} $bgcolor 定义yo-search背景色
- * @param {default | Color} $color 定义yo-search文本色
- * @param {default | Color} $on-bordercolor 定义yo-search激活边框色
- * @param {default | Color} $on-bgcolor 定义yo-search激活背景色
- * @param {default | Color} $placeholder-color 定义yo-search占位背景色
- * @param {default | Color} $ico-color 定义yo-search 操作区ico颜色
- * @param {default | Color} $cancel-color 定义yo-search取消按钮颜色
- * @param {default | Color} $op-bgcolor 定义yo-search搜索区域背景色
- * @param {default | Color} $mask-bgcolor 定义yo-search遮罩背景色
- */
+.yo-search-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 100%;
+}
+.yo-search-modal > .cont {
+  position: relative;
+  top: 0;
+}
+
 /**
  * search演示页面
  * Author: joy.du(飘零雾雨)

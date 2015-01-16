@@ -92,7 +92,7 @@ html {
 }
 
 body {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 body, ul, ol, dl, dd, h1, h2, h3, h4, h5, h6, figure, form, fieldset, legend, input, textarea, button, p, blockquote, th, td, pre, xmp {
@@ -292,7 +292,7 @@ html {
  */
 /**
  * Directory: lib/layout/classes.scss
- * Global Document Classes 约定文档级布局方案
+ * Global Layout Classes 约定布局方案
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  */
@@ -307,6 +307,28 @@ html {
  * @param {Length} $hd-gap 定义主体到viewport顶部的距离
  * @param {Length} $ft-gap 定义主体到viewport底部的距离
  */
+/**
+ * Layout: yo-panel
+ * Author: joy.du(飘零雾雨)
+ * Edit: 2015.1.15
+ -----------------------
+ * @method panel
+ * variables length(2)
+ * @param {defailt | String} $name 定义名称
+ * @param {defailt | Color} $margin 定义外边距
+ */
+.yo-panel {
+  display: block;
+  margin: 0.2rem 0.1rem;
+}
+.yo-panel::after {
+  display: block;
+  overflow: hidden;
+  clear: both;
+  height: 0;
+  content: "\0020";
+}
+
 /**
 * document layout
 * Author: joy.du(飘零雾雨)
@@ -492,6 +514,26 @@ html {
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  */
+/**
+ * widget: yo-popup
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ -----------------------
+ * @method yo-popup
+ * variables length(12)
+ * @param {default | String} $name 定义popup名称
+ * @param {default | Length | null} $width 定义popup宽度
+ * @param {default | Length} $height 定义popup高度
+ * @param {default | Length} $radius 定义popup圆角
+ * @param {default | Number} $shadow-opacity 定义popup阴影透明度
+ * @param {default | Color} $bordercolor 定义popup边框色
+ * @param {default | Length} $hd-height 定义popup头部高度
+ * @param {default | Color} $hd-bgcolor 定义popup头部背景色
+ * @param {default | Color} $title-color 定义popup标题文本色
+ * @param {default | Length} $title-font-size 定义popup标题字号
+ * @param {default | Length} $bd-padding 定义popup主体补白
+ * @param {default | Length} $arrow-size 定义popup箭头高度
+ */
 .yo-popup {
   display: -webkit-box;
   display: -webkit-flex;
@@ -596,26 +638,6 @@ html {
   text-align: center;
 }
 
-/**
- * widget: yo-popup
- * Author: joy.du(飘零雾雨)
- * Time: 2012.1.1
- -----------------------
- * @method yo-popup
- * variables length(12)
- * @param {default | String} $name 定义popup名称
- * @param {default | Length | null} $width 定义popup宽度
- * @param {default | Length} $height 定义popup高度
- * @param {default | Length} $radius 定义popup圆角
- * @param {default | Number} $shadow-opacity 定义popup阴影透明度
- * @param {default | Color} $bordercolor 定义popup边框色
- * @param {default | Length} $hd-height 定义popup头部高度
- * @param {default | Color} $hd-bgcolor 定义popup头部背景色
- * @param {default | Color} $title-color 定义popup标题文本色
- * @param {default | Length} $title-font-size 定义popup标题字号
- * @param {default | Length} $bd-padding 定义popup主体补白
- * @param {default | Length} $arrow-size 定义popup箭头高度
- */
 /**
  * popup演示页面
  * Author: joy.du(飘零雾雨)

@@ -92,7 +92,7 @@ html {
 }
 
 body {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 body, ul, ol, dl, dd, h1, h2, h3, h4, h5, h6, figure, form, fieldset, legend, input, textarea, button, p, blockquote, th, td, pre, xmp {
@@ -292,7 +292,7 @@ html {
  */
 /**
  * Directory: lib/layout/classes.scss
- * Global Document Classes 约定文档级布局方案
+ * Global Layout Classes 约定布局方案
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  */
@@ -307,6 +307,28 @@ html {
  * @param {Length} $hd-gap 定义主体到viewport顶部的距离
  * @param {Length} $ft-gap 定义主体到viewport底部的距离
  */
+/**
+ * Layout: yo-panel
+ * Author: joy.du(飘零雾雨)
+ * Edit: 2015.1.15
+ -----------------------
+ * @method panel
+ * variables length(2)
+ * @param {defailt | String} $name 定义名称
+ * @param {defailt | Color} $margin 定义外边距
+ */
+.yo-panel {
+  display: block;
+  margin: 0.2rem 0.1rem;
+}
+.yo-panel::after {
+  display: block;
+  overflow: hidden;
+  clear: both;
+  height: 0;
+  content: "\0020";
+}
+
 /**
 * document layout
 * Author: joy.du(飘零雾雨)
@@ -492,6 +514,24 @@ html {
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  */
+/**
+ * Fragment: yo-tab
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ ------------------------
+ * @method yo-tab
+ * variables length(10)
+ * @param {default | String} $name 定义yo-tab名称
+ * @param {default | Boole} $is-border 定义yo-tab是否有边框
+ * @param {default | Boole} $is-item-border 定义yo-tab是否有间隔线
+ * @param {default | Length} $height 定义yo-tab高度
+ * @param {default | Color} $bordercolor 定义yo-tab边框色
+ * @param {default | Color} $bgcolor 定义yo-tab背景色
+ * @param {default | Color} $color 定义yo-tab文本色
+ * @param {default | Color} $on-bordercolor 定义yo-tab激活边框色
+ * @param {default | Color} $on-bgcolor 定义yo-tab激活背景色
+ * @param {default | Color} $$on-color 定义yo-tab激活文本色
+ */
 .yo-tab {
   display: -webkit-box;
   display: -webkit-flex;
@@ -536,24 +576,6 @@ html {
   font-size: .32rem;
 }
 
-/**
- * Fragment: yo-tab
- * Author: joy.du(飘零雾雨)
- * Time: 2012.1.1
- ------------------------
- * @method yo-tab
- * variables length(10)
- * @param {default | String} $name 定义yo-tab名称
- * @param {default | Boole} $is-border 定义yo-tab是否有边框
- * @param {default | Boole} $is-item-border 定义yo-tab是否有间隔线
- * @param {default | Length} $height 定义yo-tab高度
- * @param {default | Color} $bordercolor 定义yo-tab边框色
- * @param {default | Color} $bgcolor 定义yo-tab背景色
- * @param {default | Color} $color 定义yo-tab文本色
- * @param {default | Color} $on-bordercolor 定义yo-tab激活边框色
- * @param {default | Color} $on-bgcolor 定义yo-tab激活背景色
- * @param {default | Color} $$on-color 定义yo-tab激活文本色
- */
 /**
  * g-tab演示页面
  * Author: joy.du(飘零雾雨)

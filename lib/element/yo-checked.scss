@@ -98,5 +98,5 @@
 
 // 调用本文件时载入checked基础构造
 .yo-checked {
-	@extend %_checked;
+	@include _checked;
 }

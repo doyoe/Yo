@@ -92,7 +92,7 @@ html {
 }
 
 body {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 body, ul, ol, dl, dd, h1, h2, h3, h4, h5, h6, figure, form, fieldset, legend, input, textarea, button, p, blockquote, th, td, pre, xmp {
@@ -292,7 +292,7 @@ html {
  */
 /**
  * Directory: lib/layout/classes.scss
- * Global Document Classes 约定文档级布局方案
+ * Global Layout Classes 约定布局方案
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  */
@@ -307,6 +307,28 @@ html {
  * @param {Length} $hd-gap 定义主体到viewport顶部的距离
  * @param {Length} $ft-gap 定义主体到viewport底部的距离
  */
+/**
+ * Layout: yo-panel
+ * Author: joy.du(飘零雾雨)
+ * Edit: 2015.1.15
+ -----------------------
+ * @method panel
+ * variables length(2)
+ * @param {defailt | String} $name 定义名称
+ * @param {defailt | Color} $margin 定义外边距
+ */
+.yo-panel {
+  display: block;
+  margin: 0.2rem 0.1rem;
+}
+.yo-panel::after {
+  display: block;
+  overflow: hidden;
+  clear: both;
+  height: 0;
+  content: "\0020";
+}
+
 /**
 * document layout
 * Author: joy.du(飘零雾雨)
@@ -492,13 +514,31 @@ html {
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  */
+/**
+ * Fragment: yo-list
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ ------------------------
+ * @method yo-list
+ * variables length(10)
+ * @param {default|String} $name 定义list名称
+ * @param {default|Length} $margin 定义list外边距
+ * @param {default|Boole} $is-outline 定义list是否需要轮廓（即外边框）
+ * @param {default|Length} $radius 定义list圆角
+ * @param {default|Color} $bordercolor 定义list边框色
+ * @param {default|Length} $item-padding 定义list项的内补白
+ * @param {default|Length} $label-padding 定义list分组标题内补白
+ * @param {default|Color} $label-bgcolor 定义list分组标题背景色
+ * @param {default|Color} $active-bgcolor 定义list点击反馈背景色
+ * @param {default|Color} $on-bgcolor 定义list选中背景色
+ */
 .yo-list {
   overflow: hidden;
   background-color: #fff;
 }
 .yo-list > .label,
 .yo-list > .item {
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 0.01rem solid #dddddd;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -542,12 +582,6 @@ html {
   padding: 0.1rem;
   color: #212121;
 }
-.yo-list > .item > .col {
-  padding: 0.1rem;
-}
-.yo-list > .item.item-input {
-  cursor: pointer;
-}
 .yo-list > .item.item-input > .input {
   -webkit-align-self: stretch;
   align-self: stretch;
@@ -555,63 +589,17 @@ html {
   border: 0 none;
   background-color: transparent;
 }
-.yo-list > .item.item-active, .yo-list > .item.item-on, .yo-list > .item.item-light {
+.yo-list > .item.item-input, .yo-list > .item.item-active, .yo-list > .item.item-on, .yo-list > .item.item-light {
   cursor: pointer;
 }
 .yo-list > .item .item-active:active,
 .yo-list > .item .item-light {
   background-color: #f8f8f8;
 }
-
-.yo-header {
-  position: relative;
-  overflow: hidden;
-  height: 0.44rem;
-  line-height: 0.44rem;
-  border-bottom: 1px solid #e1e1e1;
-  background-color: #fafafa;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  text-align: center;
-}
-.yo-header .title {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  margin: 0 .6rem;
-}
-.yo-header .regret,
-.yo-header .affirm {
-  position: absolute;
-  top: 0;
-  width: .6rem;
-  text-align: center;
-  color: #00afc7;
-}
-.yo-header .regret {
-  left: 0;
-}
-.yo-header .affirm {
-  right: 0;
+.yo-list > .item > .col {
+  padding: 0.1rem;
 }
 
-/**
- * Widget: yo-list
- * Author: joy.du(飘零雾雨)
- * Time: 2012.1.1
- ------------------------
- * @method yo-list
- * variables length(8)
- * @param {default|String} $name 定义list名称
- * @param {default|Boole} $is-outline 定义list是否需要轮廓（即外边框）
- * @param {default|Color} $bordercolor 定义list边框色
- * @param {default|Length} $item-padding 定义list项的内补白
- * @param {default|Length} $label-padding 定义list分组标题内补白
- * @param {default|Color} $label-bgcolor 定义list分组标题背景色
- * @param {default|Color} $active-bgcolor 定义list点击反馈背景色
- * @param {default|Color} $on-bgcolor 定义list选中背景色
- */
 /**
  * Directory: lib/core/variables.scss
  * CSS Variables 定义各种页面沙粒变量
@@ -686,77 +674,19 @@ html {
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  */
-.yo-list {
-  overflow: hidden;
-  background-color: #fff;
-}
-.yo-list > .label,
-.yo-list > .item {
-  border-bottom: 1px solid #dddddd;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-}
-.yo-list > .label > .mark,
-.yo-list > .item > .mark {
-  margin-right: .1rem;
-}
-.yo-list > .label > .flex,
-.yo-list > .item > .flex {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  flex: 1;
-  display: block;
-  width: 100%;
-  width: 100%;
-}
-.yo-list > .label > .mark,
-.yo-list > .label > .col,
-.yo-list > .label > .flex,
-.yo-list > .item > .mark,
-.yo-list > .item > .col,
-.yo-list > .item > .flex {
-  display: block;
-}
-.yo-list > .label.tr,
-.yo-list > .item.tr {
-  padding: 0;
-}
-.yo-list > .label {
-  padding: 0.03rem 0.1rem;
-  background-color: #fafafa;
-}
-.yo-list > .label > .col {
-  padding: 0.03rem 0.1rem;
-}
-.yo-list > .item {
-  padding: 0.1rem;
-  color: #212121;
-}
-.yo-list > .item > .col {
-  padding: 0.1rem;
-}
-.yo-list > .item.item-input {
-  cursor: pointer;
-}
-.yo-list > .item.item-input > .input {
-  -webkit-align-self: stretch;
-  align-self: stretch;
-  width: 100%;
-  border: 0 none;
-  background-color: transparent;
-}
-.yo-list > .item.item-active, .yo-list > .item.item-on, .yo-list > .item.item-light {
-  cursor: pointer;
-}
-.yo-list > .item .item-active:active,
-.yo-list > .item .item-light {
-  background-color: #f8f8f8;
-}
-
+/**
+ * Widget: yo-header
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ ------------------------
+ * @method yo-header
+ * variables length(5)
+ * @param {default | String} $name 定义yo-header名称
+ * @param {default | Length} $height 定义yo-header高度
+ * @param {default | Color} $bgcolor 定义yo-header背景色
+ * @param {default | Color} $color 定义yo-header文本色
+ * @param {default | Length} $font-size 定义yo-header文本大小
+ */
 .yo-header {
   position: relative;
   overflow: hidden;
@@ -764,6 +694,7 @@ html {
   line-height: 0.44rem;
   border-bottom: 1px solid #e1e1e1;
   background-color: #fafafa;
+  font-size: 0.16rem;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -790,19 +721,6 @@ html {
   right: 0;
 }
 
-/**
- * Widget: yo-header
- * Author: joy.du(飘零雾雨)
- * Time: 2012.1.1
- ------------------------
- * @method yo-header
- * variables length(5)
- * @param {default | String} $name 定义yo-header名称
- * @param {default | Length} $height 定义yo-header高度
- * @param {default | Color} $bgcolor 定义yo-header背景色
- * @param {default | Color} $color 定义yo-header文本色
- * @param {default | Length} $font-size 定义yo-header文本大小
- */
 /**
  * list演示页面
  * Author: joy.du(飘零雾雨)

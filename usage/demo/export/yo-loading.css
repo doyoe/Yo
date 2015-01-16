@@ -92,7 +92,7 @@ html {
 }
 
 body {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 body, ul, ol, dl, dd, h1, h2, h3, h4, h5, h6, figure, form, fieldset, legend, input, textarea, button, p, blockquote, th, td, pre, xmp {
@@ -292,7 +292,7 @@ html {
  */
 /**
  * Directory: lib/layout/classes.scss
- * Global Document Classes 约定文档级布局方案
+ * Global Layout Classes 约定布局方案
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  */
@@ -307,6 +307,28 @@ html {
  * @param {Length} $hd-gap 定义主体到viewport顶部的距离
  * @param {Length} $ft-gap 定义主体到viewport底部的距离
  */
+/**
+ * Layout: yo-panel
+ * Author: joy.du(飘零雾雨)
+ * Edit: 2015.1.15
+ -----------------------
+ * @method panel
+ * variables length(2)
+ * @param {defailt | String} $name 定义名称
+ * @param {defailt | Color} $margin 定义外边距
+ */
+.yo-panel {
+  display: block;
+  margin: 0.2rem 0.1rem;
+}
+.yo-panel::after {
+  display: block;
+  overflow: hidden;
+  clear: both;
+  height: 0;
+  content: "\0020";
+}
+
 /**
 * document layout
 * Author: joy.du(飘零雾雨)
@@ -492,6 +514,18 @@ html {
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  */
+/**
+ * Element: yo-loading
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ -----------------------
+ * @method loading
+ * variables length(4)
+ * @param {defailt | String} $name 定义名称
+ * @param {defailt | Length} $size 定义尺寸
+ * @param {defailt | Color} $bordercolor 定义边框色
+ * @param {defailt | Color} $bgcolor 定义背景色
+ */
 .yo-loading {
   display: block;
   position: absolute;
@@ -546,19 +580,6 @@ html {
   color: #666666;
   font-size: .14rem;
 }
-
-/**
- * Element: yo-loading
- * Author: joy.du(飘零雾雨)
- * Time: 2012.1.1
- -----------------------
- * @method loading
- * variables length(4)
- * @param {defailt | String} $name 定义名称
- * @param {defailt | Length} $size 定义尺寸
- * @param {defailt | Color} $bordercolor 定义边框色
- * @param {defailt | Color} $bgcolor 定义背景色
- */
 @-webkit-keyframes loading {
   from {
     -webkit-transform: rotatez(0);

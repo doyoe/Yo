@@ -46,5 +46,5 @@
 
 // 调用本文件时载入toolbar基础构造
 .yo-toolbar{
-	@extend %_toolbar;
+	@include _toolbar;
 }

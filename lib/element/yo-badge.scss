@@ -41,5 +41,5 @@
 
 // 调用本文件时载入气泡基础构造
 .yo-badge{
-	@extend %_badge;
+	@include _badge;
 }

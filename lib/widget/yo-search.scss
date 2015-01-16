@@ -137,5 +137,5 @@
 
 // 调用本文件时载入search基础构造
 .yo-search{
-	@extend %_search;
+	@include _search;
 }

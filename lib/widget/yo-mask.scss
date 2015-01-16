@@ -32,5 +32,5 @@
 
 // 调用本文件时载入mask基础构造
 .yo-mask{
-	@extend %_mask;
+	@include _mask;
 }

@@ -11,44 +11,45 @@
 
 // 定义按钮的基础构造
 // 使用方法请查看 yo-btn.scss
-%_btn{
+@mixin _btn {
 	display: inline-block;
 	overflow: hidden;
 	// 如果map-get($btn,padding)不等于0，则需要内补白
-	@if map-get($btn,padding) != 0 {
-		padding: map-get($btn,padding);
+	@if map-get($btn, padding) != 0 {
+		padding: map-get($btn, padding);
 	}
 	// 如果需要边框，则使用加深的背景色作为边框色
-	@if map-get($btn,is-border) != false {
-		border: 1px solid darken(map-get($btn,bgcolor),10%);
+	@if map-get($btn, is-border) != false {
+		border: 1px solid darken(map-get($btn, bgcolor), 10%);
 	} @else {
 		border: 0 none;
 	}
 	// 内阴影，用来描内部的1px白边
-	box-shadow: inset 1px 1px rgba(255,255,255,.1);
+	box-shadow: inset 1px 1px rgba(255, 255, 255, .1);
 	// 如果map-get($btn,radius)大于0，则需要圆角
-	@if map-get($btn,radius) > 0 {
-		border-radius: map-get($btn,radius);
+	@if map-get($btn, radius) > 0 {
+		border-radius: map-get($btn, radius);
 	}
-	background-color: map-get($btn,bgcolor);
-	color: map-get($btn,color);
+	background-color: map-get($btn, bgcolor);
+	color: map-get($btn, color);
 	text-align: center;
 	vertical-align: middle;
 	cursor: pointer;
 	&:focus,
-	&:active{
+	&:active {
 		// 如果map-get($btn,is-border)不为false，则重绘经过时的边框色
-		@if map-get($btn,is-border) != false {
-			border-color: darken(map-get($btn,bgcolor),6%);
+		@if map-get($btn, is-border) != false {
+			border-color: darken(map-get($btn, bgcolor),6%);
 		}
-		background-color: lighten(map-get($btn,bgcolor),4%);
-		color: lighten(map-get($btn,color),10%);
+		background-color: lighten(map-get($btn, bgcolor),4%);
+		color: lighten(map-get($btn, color), 10%);
 	}
+	
 }
 
 // 定义loading的基础构造
 // 使用方法请查看 yo-loading.scss
-%_loading{
+@mixin _loading {
 	display: block;
 	position: absolute;
 	z-index: map-get($z-index, loading);
@@ -110,7 +111,7 @@
 
 // 定义switch的基础构造
 // 使用方法请查看 yo-switch.scss
-%_switch{
+@mixin _switch {
     &[type="checkbox"]{
         @include appearance(none);
         position: relative;
@@ -167,7 +168,7 @@
 
 // 定义checked的基础构造
 // 使用方法请查看 yo-checked.scss
-%_checked{
+@mixin _checked {
 	@if map-get($checked, is-border) {
 		&[type="checkbox"]{
 			border-radius: .05rem;
@@ -194,7 +195,7 @@
 		    top: 50%;
 		    left: 50%;
 		    @include transform(translate(-50%, -50%));
-	    	@include transition(opacity .5s);
+	    	// @include transition(opacity .5s);
 		    @if map-get($checked, type) == tick {
 			    content: "✓";
 			} @else {
@@ -217,7 +218,7 @@
 
 // 定义radio的基础构造
 // 使用方法请查看 yo-radio.scss
-%_radio{
+@mixin _radio {
 	&[type="radio"]{
 	    @include appearance(none);
 	    position: relative;
@@ -233,7 +234,7 @@
 		    top: 50%;
 		    left: 50%;
 		    @include transform(translate(-50%, -50%));
-	    	@include transition(opacity .5s);
+	    	// @include transition(opacity .5s);
 			content: "●";
 		    text-shadow: 0 0 .01rem;
 			font-size: 70%;
@@ -263,7 +264,7 @@
 
 // 定义checkbox的基础构造
 // 使用方法请查看 yo-checkbox.scss
-%_checkbox{
+@mixin _checkbox {
 	&[type="checkbox"]{
 	    @include appearance(none);
 	    position: relative;
@@ -280,7 +281,7 @@
 		    top: 50%;
 		    left: 50%;
 		    @include transform(translate(-50%, -50%));
-	    	@include transition(opacity .5s);
+	    	// @include transition(opacity .5s);
 			content: "✓";
 		    text-shadow: 0 0 .01rem;
 			font-size: 70%;
@@ -310,7 +311,7 @@
 
 // 定义badge的基础构造
 // 使用方法请查看 yo-badge.scss
-%_badge{
+@mixin _badge {
 	display: inline-block;
 	min-width: .22rem;
 	min-height: .22rem;

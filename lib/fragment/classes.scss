@@ -11,19 +11,22 @@
 
 // 定义list的基础构造
 // 使用方法请查看 yo-list.scss
-%_list{
+@mixin _list{
 	overflow: hidden;
+	margin: map-get($list, margin);
+	border-radius: map-get($list, radius);
 	background-color: #fff;
-	// 如果config变量$list-is-outline为true，则列表需要轮廓
-	@if map-get($list,is-outline) == true {
-		outline: 1px solid map-get($list,bordercolor);
-		outline-offset: -1px;
+	// 如果config变量$is-outline为true，则列表需要轮廓
+	@if map-get($list, is-outline) {
+		border-width: .01rem .01rem 0 .01rem;
+		border-style: solid;
+		border-color: map-get($list, bordercolor);
 	}
 	> .label,
 	> .item{
-		border-bottom: 1px solid map-get($list,bordercolor);
-		@include flexbox();
-		@include align-items();
+		border-bottom: .01rem solid map-get($list, bordercolor);
+		@include flexbox;
+		@include align-items;
 		> .mark{
 			margin-right: .1rem;
 		}
@@ -43,25 +46,17 @@
 		}
 	}
 	> .label{
-		padding: map-get($list,label-padding);
-		background-color: map-get($list,label-bgcolor);
+		padding: map-get($list, label-padding);
+		background-color: map-get($list, label-bgcolor);
 		// 定义单元格的padding
 		> .col{
-			padding: map-get($list,label-padding);
+			padding: map-get($list, label-padding);
 		}
 	}
-	// > .label:first-of-type{
-	// 	border-top: 1px solid map-get($list,bordercolor);
-	// }
 	> .item{
-		padding: map-get($list,item-padding);
-		color: map-get($base,color);
-		// 定义单元格的padding
-		> .col{
-			padding: map-get($list,item-padding);
-		}
+		padding: map-get($list, item-padding);
+		color: map-get($base, color);
 		&.item-input{
-			cursor: pointer;
 			// 让输入框占满整个父容器
 			> .input{
 				@include align-self(stretch);
@@ -70,6 +65,7 @@
 				background-color: transparent;
 			}
 		}
+		&.item-input,
 		&.item-active,
 		&.item-on,
 		&.item-light{
@@ -87,12 +83,16 @@
 				background-color: map-get($list, on-bgcolor);
 			}
 		}
+		// 定义单元格的padding
+		> .col{
+			padding: map-get($list, item-padding);
+		}
 	}
 }
 
 // 定义table的基础构造
 // 使用方法请查看 yo-table.scss
-%_table{
+@mixin _table{
 	background-color: #fff;
 	&-zone{
 		padding: map-get($table,padding);
@@ -147,7 +147,7 @@
 
 // 定义toolbar的基础构造
 // 使用方法请查看 yo-toolbar.scss
-%_toolbar{
+@mixin _toolbar{
 	display: inline-block;
 	vertical-align: middle;
 	> .yo-btn{
@@ -190,7 +190,7 @@
 
 // 定义header的基础构造
 // 使用方法请查看 yo-header.scss
-%_header{
+@mixin _header{
 	position: relative;
 	overflow: hidden;
 	height: map-get($header, height);
