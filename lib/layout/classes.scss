@@ -21,9 +21,9 @@
 }
 
 // 定义区块的基础构造
-// 使用方法请查看 yo-panel.scss
-@mixin _panel {
+// 使用方法请查看 yo-stacked.scss
+@mixin _stacked {
 	display: block;
-	margin: map-get($panel, margin);
+	margin: map-get($stacked, margin);
 	@include clearfix;
 }

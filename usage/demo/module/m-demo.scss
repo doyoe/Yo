@@ -4,12 +4,12 @@
  * Author: joy.du(飘零雾雨)
  * Time: 2013.10.17
  */
-.m-demo{
-	@include responsive(pc){
+.m-demo {
+	@include responsive(pc) {
 		@include flexbox;
 	}
 	margin: .1rem;
-	.device{
+	.device {
 		position: relative;
 		width: 3.66rem;
 		height: 7.83rem;

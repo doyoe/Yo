@@ -386,20 +386,20 @@ html {
  * Time: 2012.1.1
  */
 /**
- * Layout: yo-panel
+ * Layout: yo-stacked
  * Author: joy.du(飘零雾雨)
  * Edit: 2015.1.15
  -----------------------
- * @method panel
+ * @method stacked
  * variables length(2)
  * @param {defailt | String} $name 定义名称
  * @param {defailt | Color} $margin 定义外边距
  */
-.yo-panel {
+.yo-stacked {
   display: block;
   margin: 0.2rem 0.1rem;
 }
-.yo-panel::after {
+.yo-stacked::after {
   display: block;
   overflow: hidden;
   clear: both;
