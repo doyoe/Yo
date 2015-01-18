@@ -57,17 +57,19 @@
 		color: map-get($base, color);
 		&-stacked {
 			display: block;
-			> .input{
-				margin-top: .02rem;
+			> .mark {
+				padding-bottom: 5px;
 			}
 		}
 		&-input {
 			// 让输入框占满整个父容器
-			> .input {
-				@include align-self(stretch);
-				width: 100%;
+			> .input,
+			> .yo-input {
+				height: auto;
+				padding: 0;
 				border: 0;
-				background-color: transparent;
+				// 替换为yo-input后，可删除
+				width: 100%;
 			}
 		}
 		&-input,

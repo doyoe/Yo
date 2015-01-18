@@ -117,12 +117,14 @@ $loading: (
 ) !default;
 
 
-// Element Input(7)
+// Element Input(8)
 $input: (
 	// {Length} 输入框宽度
 	width:            100%,
 	// {Length} 输入框高度
 	height:           .44rem,
+	// {Length} 输入框内补白
+	padding:           .1rem,
 	// {Length} 输入框圆角
 	radius:           .02rem,
 	// {Color} 输入框边框色
@@ -132,7 +134,7 @@ $input: (
 	// {Color} 文本色
 	color:            map-get($base, color),
 	// {Color} 占位符颜色
-	placeholder-color:#aaa
+	placeholder-color:#bbb
 ) !default;
 
 
@@ -287,7 +289,7 @@ $list: (
 	// {Color} 列表边框色
 	bordercolor:   map-get($base, bordercolor),
 	// {Length} 列表项内补白，只能一个数字
-	item-padding:  .1rem,
+	item-padding:  .11rem,
 	// {Length} 列表组头内补白，可以同时设定4个方位
 	label-padding: .03rem .1rem,
 	// {Color} 列表组头背景色

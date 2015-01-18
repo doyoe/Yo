@@ -8,10 +8,11 @@
  ------------------------
  * 定义按钮使用方法
  * @method yo-input
- * variables length(8)
+ * variables length(9)
  * @param {default | String} $name 定义输入框名称
  * @param {default | Length} $width 定义输入框宽度
  * @param {default | Length} $height 定义输入框高度
+ * @param {default | Length} $padding 定义输入框内补白
  * @param {default | Length} $radius 定义输入框圆角
  * @param {default | Color} $bordercolor 定义输入框边框色
  * @param {default | Color} $bgcolor 定义输入框背景色
@@ -23,6 +24,7 @@
 	$name: default,
 	$width: default,
 	$height: default,
+	$padding: default,
 	$radius: default,
 	$bordercolor: default,
 	$bgcolor: default,
@@ -40,6 +42,9 @@
     }
     @if $height == default {
         $height: map-get($input, height);
+    }
+    @if $padding == default {
+        $padding: map-get($input, padding);
     }
     @if $radius == default {
         $radius: map-get($input, radius);
@@ -63,11 +68,14 @@
 		@if $height != map-get($input, height) {
 			height: $height;
 		}
-		@if $bordercolor != map-get($input, bordercolor) {
-			border-color: $bordercolor;
+		@if $padding != map-get($input, padding) {
+			padding: $padding;
 		}
 		@if $radius != map-get($input, radius) {
 			border-radius: $radius;
+		}
+		@if $bordercolor != map-get($input, bordercolor) {
+			border-color: $bordercolor;
 		}
 		@if $bgcolor != map-get($input, bgcolor) {
 			background-color: $bgcolor;

@@ -783,21 +783,21 @@ html {
   padding: 0.03rem 0.1rem;
 }
 .yo-list > .item {
-  padding: 0.1rem;
+  padding: 0.11rem;
   color: #212121;
 }
 .yo-list > .item-stacked {
   display: block;
 }
-.yo-list > .item-stacked > .input {
-  margin-top: .02rem;
+.yo-list > .item-stacked > .mark {
+  padding-bottom: 5px;
 }
-.yo-list > .item-input > .input {
-  -webkit-align-self: stretch;
-  align-self: stretch;
-  width: 100%;
+.yo-list > .item-input > .input,
+.yo-list > .item-input > .yo-input {
+  height: auto;
+  padding: 0;
   border: 0;
-  background-color: transparent;
+  width: 100%;
 }
 .yo-list > .item-input, .yo-list > .item-active, .yo-list > .item-on, .yo-list > .item-light {
   cursor: pointer;
@@ -806,7 +806,7 @@ html {
   background-color: #f8f8f8;
 }
 .yo-list > .item > .col {
-  padding: 0.1rem;
+  padding: 0.11rem;
 }
 
 /**
@@ -902,10 +902,11 @@ html {
  ------------------------
  * 定义按钮使用方法
  * @method yo-input
- * variables length(8)
+ * variables length(9)
  * @param {default | String} $name 定义输入框名称
  * @param {default | Length} $width 定义输入框宽度
  * @param {default | Length} $height 定义输入框高度
+ * @param {default | Length} $padding 定义输入框内补白
  * @param {default | Length} $radius 定义输入框圆角
  * @param {default | Color} $bordercolor 定义输入框边框色
  * @param {default | Color} $bgcolor 定义输入框背景色
@@ -915,12 +916,18 @@ html {
 .yo-input {
   width: 100%;
   height: 0.44rem;
+  padding: 0.1rem;
   border: 0.01rem solid #dddddd;
   border-radius: 0.02rem;
   background-color: transparent;
 }
+.yo-input, .yo-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
 .yo-input::-webkit-input-placeholder {
-  color: #aaaaaa;
+  color: #bbbbbb;
 }
 
 /**

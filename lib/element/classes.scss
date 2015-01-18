@@ -49,8 +49,13 @@
 // 定义按钮的基础构造
 // 使用方法请查看 yo-input.scss
 @mixin _input {
+	&,
+	&::-webkit-inner-spin-button {
+		@include appearance;
+	}
 	width: map-get($input, width);
 	height: map-get($input, height);
+	padding: map-get($input, padding);
 	border: .01rem solid map-get($input, bordercolor);
 	border-radius: map-get($input, radius);
 	background-color: map-get($input, bgcolor);
