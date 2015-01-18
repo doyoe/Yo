@@ -138,18 +138,20 @@ $input: (
 ) !default;
 
 
-// Element Button(17)
+// Element Button(15)
 $btn: (
+	// {Color} 按钮边框色
+	bordercolor: #e26704,
 	// {Color} 按钮背景色
-	bgcolor:     map-get($base, bgcolor),
+	bgcolor:     #ff801a,
 	// {Color} 按钮文本色
-	color:       map-get($base, color),
-	// {Boole} 是否需要边框（按钮的边框色都由背景色计算而来）
-	is-border:   true,
-	// {Length} 按钮内补白
-	padding:     0 1.5em,
+	color:       #fff,
+	// {Length} 按钮内补白(使用em让根据字号动态调整)
+	padding:     0 1.2em,
 	// {Length} 按钮圆角
-	radius:      .03rem,
+	radius:      .02rem,
+	// {Length} 按钮字号
+	font-size:   null,
 	// {Length} 默认预设3种尺寸按钮：
 	// small
 	s-height:    .28rem,
@@ -160,18 +162,10 @@ $btn: (
 	// large
 	l-height:    .44rem,
 	l-font-size: .16rem,
-	// {Color} 默认预设4种风格按钮：
-	// 1. disabled
-	disabled-bgcolor: map-get($base, disabled-bgcolor),
-	disabled-color:   map-get($base, disabled-color),
-	// 2. primary
-	primary-bgcolor:  #ff801a,
-	primary-color:    #fff,
-	// 3. info
-	info-bgcolor:     #4a87ee,
-	info-color:       #fff
-	// 4. normal
-	// normal为默认按钮 
+	// 预设disabled状态
+	disabled-bordercolor: map-get($base, disabled-bordercolor),
+	disabled-bgcolor:     map-get($base, disabled-bgcolor),
+	disabled-color:       map-get($base, disabled-color)
 ) !default;
 
 

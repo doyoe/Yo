@@ -186,7 +186,7 @@ mark {
   background-color: transparent;
 }
 
-ins, s, u, del {
+a, ins, s, u, del {
   text-decoration: none;
 }
 
@@ -196,11 +196,6 @@ a, img {
 
 a {
   color: #00afc7;
-  text-decoration: none;
-}
-a:active {
-  outline: 0;
-  color: #ff6600;
 }
 
 .g-clear::after, .g-mod::after {
@@ -521,6 +516,9 @@ html {
   border-left: .04rem solid #D7DBE4;
   background-color: #F0F3F8;
   font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+}
+.m-demo .code h3 {
+  margin-top: .1rem;
 }
 
 /**

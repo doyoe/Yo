@@ -14,22 +14,11 @@
 @mixin _btn {
 	display: inline-block;
 	overflow: hidden;
-	// 如果map-get($btn,padding)不等于0，则需要内补白
-	@if map-get($btn, padding) != 0 {
-		padding: map-get($btn, padding);
-	}
-	// 如果需要边框，则使用加深的背景色作为边框色
-	@if map-get($btn, is-border) != false {
-		border: 1px solid darken(map-get($btn, bgcolor), 10%);
-	} @else {
-		border: 0 none;
-	}
+	padding: map-get($btn, padding);
+	border: .01rem solid map-get($btn, bordercolor);
 	// 内阴影，用来描内部的1px白边
 	box-shadow: inset 1px 1px rgba(255, 255, 255, .1);
-	// 如果map-get($btn,radius)大于0，则需要圆角
-	@if map-get($btn, radius) > 0 {
-		border-radius: map-get($btn, radius);
-	}
+	border-radius: map-get($btn, radius);
 	background-color: map-get($btn, bgcolor);
 	color: map-get($btn, color);
 	text-align: center;
@@ -37,12 +26,7 @@
 	cursor: pointer;
 	&:focus,
 	&:active {
-		// 如果map-get($btn,is-border)不为false，则重绘经过时的边框色
-		@if map-get($btn, is-border) != false {
-			border-color: darken(map-get($btn, bgcolor), 6%);
-		}
-		background-color: lighten(map-get($btn, bgcolor), 4%);
-		color: lighten(map-get($btn, color), 10%);
+		opacity: .8;
 	}
 }
 
@@ -198,7 +182,7 @@
 		    background-color: map-get($checked, bgcolor);
 		}
 	}
-	// mobile safari上清除appearance后仍然有边框及背景
+	// iOS Safari上清除appearance后仍然有边框及背景
 	&[type="radio"] {
 		border: 0 none;
 		background-color: transparent;

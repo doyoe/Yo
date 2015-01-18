@@ -3,8 +3,8 @@
 @import "../module/m-demo";
 @import "../module/m-code";
 @import "../fragment/yo-list";
-@import "../../../lib/fragment/yo-header";
-@import "../../../lib/element/yo-btn";
+@import "../fragment/yo-header";
+@import "../element/yo-btn";
 
 /**
  * button演示页面
@@ -14,7 +14,7 @@
 
  .m-demo{
  	.stage{
- 		.yo-btn{
+ 		.yo-btn:not(:last-child){
  			margin-right: .1rem;
  		}
  	}

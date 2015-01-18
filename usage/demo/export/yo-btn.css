@@ -186,7 +186,7 @@ mark {
   background-color: transparent;
 }
 
-ins, s, u, del {
+a, ins, s, u, del {
   text-decoration: none;
 }
 
@@ -196,11 +196,6 @@ a, img {
 
 a {
   color: #00afc7;
-  text-decoration: none;
-}
-a:active {
-  outline: 0;
-  color: #ff6600;
 }
 
 .g-clear::after, .g-mod::after {
@@ -494,6 +489,9 @@ html {
   border-left: .04rem solid #D7DBE4;
   background-color: #F0F3F8;
   font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+}
+.m-demo .code h3 {
+  margin-top: .1rem;
 }
 
 /**
@@ -833,6 +831,21 @@ html {
 }
 
 /**
+ * Fragment扩展: yo-header-light, yo-header-positive
+ * Author: joy.du(飘零雾雨)
+ * Time: 2015.1.16
+ */
+.yo-header-light {
+  background-color: white;
+}
+
+.yo-header-positive {
+  border-color: #145fd7;
+  background-color: #4a87ee;
+  color: white;
+}
+
+/**
  * Directory: lib/core/variables.scss
  * CSS Variables 定义各种页面沙粒变量
  * Author: joy.du(飘零雾雨)
@@ -913,90 +926,84 @@ html {
  ------------------------
  * 定义按钮使用方法
  * @method yo-btn
- * variables length(8)
+ * variables length(9)
  * @param {default | String} $name 定义按钮名称
+ * @param {default | Color} $bordercolor 定义按钮边框色
  * @param {default | Color} $bgcolor 定义按钮背景色
  * @param {default | Color} $color 定义按钮文本色
- * @param {default | Boole} $is-border 定义按钮是否有边框
- * @param {default | Length} $width 定义按钮宽度
- * @param {default | Length} $height 定义按钮高度
  * @param {default | Length} $padding 定义按钮横向补白
  * @param {default | Length} $radius 定义按钮圆角
+ * @param {default | Length} $font-size 定义按钮字号
+ * @param {default | Length} $width 定义按钮宽度
+ * @param {default | Length} $height 定义按钮高度
  */
 .yo-btn {
   display: inline-block;
   overflow: hidden;
-  padding: 0 1.5em;
-  border: 1px solid #e1e1e1;
+  padding: 0 1.2em;
+  border: 0.01rem solid #e26704;
   box-shadow: inset 1px 1px rgba(255, 255, 255, 0.1);
-  border-radius: 0.03rem;
-  background-color: #fafafa;
-  color: #212121;
+  border-radius: 0.02rem;
+  background-color: #ff801a;
+  color: white;
   text-align: center;
   vertical-align: middle;
   cursor: pointer;
 }
 .yo-btn:focus, .yo-btn:active {
-  border-color: #ebebeb;
-  background-color: white;
-  color: #3b3b3b;
+  opacity: .8;
 }
 .yo-btn-s {
   height: 0.28rem;
   line-height: 0.28rem;
   font-size: 0.12rem;
 }
-
 .yo-btn-m {
   height: 0.36rem;
   line-height: 0.36rem;
   font-size: 0.14rem;
 }
-
 .yo-btn-l {
   height: 0.44rem;
   line-height: 0.44rem;
   font-size: 0.16rem;
 }
-
 .yo-btn-stacked {
   display: block;
   width: 100%;
   clear: both;
 }
 
-.yo-btn-primary {
-  background-color: #ff801a;
-  border: 1px solid #e66600;
-  color: white;
-}
-.yo-btn-primary:focus, .yo-btn-primary:active {
-  background-color: #ff8b2e;
-  border-color: #fa7000 !important;
-  color: white;
-}
-
-.yo-btn-info {
-  background-color: #4a87ee;
-  border: 1px solid #1b68ea;
-  color: white;
-}
-.yo-btn-info:focus, .yo-btn-info:active {
-  background-color: #5d93f0;
-  border-color: #2e74eb !important;
-  color: white;
-}
-
 .yo-btn-disabled {
+  border-color: #dfdfdf;
   background-color: #eeeeee;
-  border: 1px solid #d4d4d4;
   color: #d9d9d9;
   cursor: not-allowed;
 }
-.yo-btn-disabled:hover, .yo-btn-disabled:focus, .yo-btn-disabled:active {
+.yo-btn-disabled:focus, .yo-btn-disabled:active {
+  opacity: 1;
+}
+
+/**
+ * Fragment扩展: yo-btn-normal, yo-btn-light, yo-btn-info
+ * Author: joy.du(飘零雾雨)
+ * Time: 2015.1.16
+ */
+.yo-btn-normal {
+  border-color: #dddddd;
   background-color: #eeeeee;
-  border: 1px solid #d4d4d4;
-  color: #d9d9d9;
+  color: #212121;
+}
+
+.yo-btn-light {
+  border-color: #dddddd;
+  background-color: white;
+  color: #212121;
+}
+
+.yo-btn-info {
+  border-color: #0456e2;
+  background-color: #4a87ee;
 }
 
 /**
@@ -1004,6 +1011,6 @@ html {
  * Author: joy.du(飘零雾雨)
  * Time: 2014.4.1
  */
-.m-demo .stage .yo-btn {
+.m-demo .stage .yo-btn:not(:last-child) {
   margin-right: .1rem;
 }

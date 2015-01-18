@@ -186,7 +186,7 @@ mark {
   background-color: transparent;
 }
 
-ins, s, u, del {
+a, ins, s, u, del {
   text-decoration: none;
 }
 
@@ -196,11 +196,6 @@ a, img {
 
 a {
   color: #00afc7;
-  text-decoration: none;
-}
-a:active {
-  outline: 0;
-  color: #ff6600;
 }
 
 .g-clear::after, .g-mod::after {

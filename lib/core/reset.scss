@@ -128,7 +128,7 @@ mark {
     background-color: map-get($base, mark-bgcolor);
 }
 // 1. 清除文本线条装饰
-ins, s, u, del {
+a, ins, s, u, del {
     text-decoration: none;
 }
 // 1. 禁止长按链接与图片弹出菜单
@@ -138,11 +138,6 @@ a, img {
 // 1. 预设默认链接表现
 a {
     color: map-get($base, link-color);
-    text-decoration: none;
-    &:active {
-        outline: 0;
-        color: map-get($base, link-hover-color);
-    }
 }
 // 1. 预设清除浮动
 .g-clear, .g-mod {
