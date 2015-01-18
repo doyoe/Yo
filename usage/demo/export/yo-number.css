@@ -788,17 +788,18 @@ html {
   border: 1px solid #dddddd;
   border-radius: 0;
   box-shadow: 1px 1px 1px rgba(221, 221, 221, 0.3);
+  background-color: #fff;
   font-size: 0;
   vertical-align: middle;
 }
 .yo-number > .minus,
 .yo-number > .plus,
 .yo-number > .input {
-  display: block;
   text-align: center;
 }
 .yo-number > .minus,
 .yo-number > .plus {
+  display: block;
   width: .35rem;
   background-color: #fafafa;
   color: #999999;
@@ -821,7 +822,6 @@ html {
   border-width: 0 1px;
   box-shadow: inset 1px 1px 1px rgba(221, 221, 221, 0.1);
   border-radius: 0;
-  background-color: #fff;
   color: #212121;
   font-size: .16rem;
 }

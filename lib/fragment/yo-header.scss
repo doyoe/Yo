@@ -7,20 +7,23 @@
  * Time: 2012.1.1
  ------------------------
  * @method yo-header
- * variables length(5)
+ * variables length(6)
  * @param {default | String} $name 定义yo-header名称
  * @param {default | Length} $height 定义yo-header高度
  * @param {default | Color} $bgcolor 定义yo-header背景色
+ * @param {default | Color} $bordercolor 定义yo-header边框色
  * @param {default | Color} $color 定义yo-header文本色
  * @param {default | Length} $font-size 定义yo-header文本大小
  */
 
 @mixin yo-header(
-	$name:default,
-	$height:default,
-	$bgcolor:default,
-	$color:default,
-	$font-size:default){
+	$name: default,
+	$height: default,
+	$bordercolor: default,
+	$bgcolor: default,
+	$color: default,
+	$font-size: default) {
+	// 区别是否新增实例还是修改本身
 	@if $name == default {
         $name: "";
     } @else {
@@ -29,6 +32,9 @@
 	// 如果值为default，则取config的定义
 	@if $height == default {
 		$height: map-get($header, height);
+	}
+	@if $bordercolor == default {
+		$bordercolor: map-get($header, bordercolor);
 	}
 	@if $bgcolor == default {
 		$bgcolor: map-get($header, bgcolor);
@@ -39,13 +45,15 @@
 	@if $font-size == default {
 		$font-size: map-get($header, font-size);
 	}
-	.yo-header#{$name}{
+	.yo-header#{$name} {
 		@if $height != map-get($header, height) {
 			height: $height;
 			line-height: $height;
 		}
+		@if $bordercolor != map-get($header, bordercolor) {
+			border-color: $bordercolor;
+		}
 		@if $bgcolor != map-get($header, bgcolor) {
-			border-color: darken($bgcolor,6%);
 			background-color: $bgcolor;
 		}
 		@if $color != map-get($header, color) {

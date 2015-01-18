@@ -768,10 +768,11 @@ html {
  * Time: 2012.1.1
  ------------------------
  * @method yo-header
- * variables length(5)
+ * variables length(6)
  * @param {default | String} $name 定义yo-header名称
  * @param {default | Length} $height 定义yo-header高度
  * @param {default | Color} $bgcolor 定义yo-header背景色
+ * @param {default | Color} $bordercolor 定义yo-header边框色
  * @param {default | Color} $color 定义yo-header文本色
  * @param {default | Length} $font-size 定义yo-header文本大小
  */
@@ -780,7 +781,7 @@ html {
   overflow: hidden;
   height: 0.44rem;
   line-height: 0.44rem;
-  border-bottom: 1px solid #e1e1e1;
+  border-bottom: 1px solid #dddddd;
   background-color: #fafafa;
   font-size: 0.16rem;
   overflow: hidden;
@@ -801,6 +802,11 @@ html {
   width: .6rem;
   text-align: center;
   color: #00afc7;
+  cursor: pointer;
+}
+.yo-header .regret:active,
+.yo-header .affirm:active {
+  opacity: .5;
 }
 .yo-header .regret {
   left: 0;

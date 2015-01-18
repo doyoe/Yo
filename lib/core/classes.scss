@@ -315,6 +315,15 @@
     display: block;
 }
 
+// 链接处理方式
+@mixin link($color: map-get($base, link-color)){
+    color: $color;
+    cursor: pointer;
+    &:active{
+        opacity: .5;
+    }
+}
+
 // 强制换行方案
 @mixin wrap(){
     word-wrap: break-word;

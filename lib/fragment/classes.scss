@@ -204,7 +204,7 @@
 	overflow: hidden;
 	height: map-get($header, height);
 	line-height: map-get($header, height);
-	border-bottom: 1px solid darken(map-get($header, bgcolor), 10%);
+	border-bottom: 1px solid map-get($header, bordercolor);
 	background-color: map-get($header, bgcolor);
 	color: map-get($header, color);
 	font-size: map-get($header, font-size);
@@ -220,7 +220,7 @@
         top: 0;
         width: .6rem;
         text-align: center;
-        color: map-get($base, link-color);
+        @include link;
     }
     .regret {
     	left: 0;

@@ -2,6 +2,8 @@
 @import "../layout/layout";
 @import "../module/m-demo";
 @import "../module/m-code";
+@import "../fragment/yo-list";
+@import "../../../lib/fragment/yo-header";
 @import "../../../lib/element/yo-btn";
 
 /**
@@ -12,8 +14,8 @@
 
  .m-demo{
  	.stage{
- 		div{
- 			padding: 10px 0 0 10px;
+ 		.yo-btn{
+ 			margin-right: .1rem;
  		}
  	}
  }

@@ -2,15 +2,11 @@
 @import "../layout/layout";
 @import "../module/m-code";
 @import "../module/m-demo";
+@import "../fragment/yo-header";
 @import "../../../lib/fragment/yo-list";
-@import "../../../lib/fragment/yo-header";
 
 /**
  * header演示页面
  * Author: joy.du(飘零雾雨)
  * Time: 2014.4.1
  */
-
-
-@include yo-header(light,default,#fff);
-@include yo-header(positive,default,#4a87ee,#fff);

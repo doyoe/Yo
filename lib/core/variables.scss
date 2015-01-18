@@ -349,10 +349,12 @@ $table: (
 ) !default;
 
 
-// Fragment header(4)
+// Fragment header(5)
 $header: (
 	// {Length} 高度
 	height:   .44rem,
+	// {Color} 边框色
+	bordercolor:  map-get($base, bordercolor),
 	// {Color} 背景色
 	bgcolor:  map-get($base, bgcolor),
 	// {Color} 文本色

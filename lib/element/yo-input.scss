@@ -61,7 +61,7 @@
     @if $placeholder-color == default {
         $placeholder-color: map-get($input, placeholder-color);
     }
-	.yo-input#{$name}{
+	.yo-input#{$name} {
 		@if $width != map-get($input, width) {
 			width: $width;
 		}
