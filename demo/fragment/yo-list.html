@@ -222,62 +222,6 @@
 <div class="m-demo">
     <div class="device">
     <div class="stage">
-        <div class="yo-list">
-            <label class="item item-input">
-                <span class="mark">账号</span>
-                <input type="text" class="input flex" placeholder="必须为中文" />
-            </label>
-            <label class="item item-input">
-                <span class="mark">密码</span>
-                <input type="text" class="input flex" placeholder="必须为中文" />
-            </label>
-        </div>
-    </div>
-    </div>
-    <code class="code"><xmp><div class="yo-list">
-    <label class="item item-input">
-        <span class="mark">账号</span>
-        <input type="text" class="input flex" placeholder="必须为中文" />
-    </label>
-    <label class="item item-input">
-        <span class="mark">密码</span>
-        <input type="text" class="input flex" placeholder="必须为中文" />
-    </label>
-</div></xmp></code>
-</div>
-
-<div class="m-demo">
-    <div class="device">
-    <div class="stage">
-        <div class="yo-list">
-            <label class="item item-input">
-                <input type="text" class="input flex" placeholder="用户名" />
-            </label>
-            <label class="item item-input">
-                <input type="text" class="input flex" placeholder="密码" />
-            </label>
-            <label class="item item-input">
-                <textarea class="input flex" placeholder="留言"></textarea>
-            </label>
-        </div>
-    </div>
-    </div>
-    <code class="code"><xmp><div class="yo-list">
-    <label class="item item-input">
-        <input type="text" class="input flex" placeholder="用户名" />
-    </label>
-    <label class="item item-input">
-        <input type="text" class="input flex" placeholder="密码" />
-    </label>
-    <label class="item item-input">
-        <textarea class="input flex" placeholder="留言"></textarea>
-    </label>
-</div></xmp></code>
-</div>
-
-<div class="m-demo">
-    <div class="device">
-    <div class="stage">
         <ul class="yo-list">
             <li class="label tr">
                 <div class="col c1">name</div>
@@ -337,12 +281,15 @@
 
 <pre class="m-code"><span class="method">@include yo-list</span><span class="bracket">(</span>
     $name<span class="colon">:</span>default, <mark>//{default|String} yo-list名称</mark>
+    $margin<span class="colon">:</span>default, <mark>//{default|Length} yo-list外边距</mark>
     $is-outline<span class="colon">:</span>default, <mark>//{default|Boole} yo-list是否需要轮廓（即外边框）</mark>
+    $radius<span class="colon">:</span>default, <mark>//{default|Length} yo-list圆角</mark>
     $bordercolor<span class="colon">:</span>default, <mark>//{default|Color} yo-list边框色</mark>
     $item-padding<span class="colon">:</span>default, <mark>//{default|Length} yo-list项的内补白</mark>
     $label-padding<span class="colon">:</span>default, <mark>//{default|Length} yo-list分组标题内补白</mark>
     $label-bgcolor<span class="colon">:</span>default, <mark>//{default|Length} yo-list分组标题背景色</mark>
-    $on-bgcolor<span class="colon">:</span>default <mark>//{default|Color} yo-list项的经过/选中背景色</mark>
+    $active-bgcolor<span class="colon">:</span>default, <mark>//{default|Color} yo-list项的激活背景色</mark>
+    $on-bgcolor<span class="colon">:</span>default <mark>//{default|Color} yo-list项的选中背景色</mark>
 <span class="bracket">)</span>
 </pre>
 

@@ -39,12 +39,28 @@
 	&:active {
 		// 如果map-get($btn,is-border)不为false，则重绘经过时的边框色
 		@if map-get($btn, is-border) != false {
-			border-color: darken(map-get($btn, bgcolor),6%);
+			border-color: darken(map-get($btn, bgcolor), 6%);
 		}
-		background-color: lighten(map-get($btn, bgcolor),4%);
+		background-color: lighten(map-get($btn, bgcolor), 4%);
 		color: lighten(map-get($btn, color), 10%);
 	}
-	
+}
+
+// 定义按钮的基础构造
+// 使用方法请查看 yo-input.scss
+@mixin _input {
+	width: map-get($input, width);
+	height: map-get($input, height);
+	border: .01rem solid map-get($input, bordercolor);
+	border-radius: map-get($input, radius);
+	background-color: map-get($input, bgcolor);
+	// 如果input颜色值与base相同，则不设置
+	@if map-get($input, color) != map-get($base, color) {
+		color: map-get($input, color);
+	}
+	&::-webkit-input-placeholder {
+		color: map-get($input, placeholder-color);
+	}
 }
 
 // 定义loading的基础构造
@@ -62,18 +78,18 @@
 	min-height: map-get($loading, size) + .2rem;
 	text-align: center;
 	&:before,
-	&:after{
+	&:after {
 		position: absolute;
 		content: "\0020";
 	}
-	&:before{
+	&:before {
 		top: 0;
 		right: 0;
 		bottom: 0;
 		left: 0;
 		background-color: map-get($loading, bgcolor);
 	}
-	&:after{
+	&:after {
 		top: 50%;
 		left: 50%;
 		@include square(.04em);
@@ -98,7 +114,7 @@
 		color: map-get($loading, bordercolor);
 		font-size: map-get($loading, size);
 	}
-	> .inner{
+	> .inner {
 		position: absolute;
 		top: 50%;
 		left: 50%;
@@ -112,7 +128,7 @@
 // 定义switch的基础构造
 // 使用方法请查看 yo-switch.scss
 @mixin _switch {
-    &[type="checkbox"]{
+    &[type="checkbox"] {
         @include appearance(none);
         position: relative;
         width: .6rem;
@@ -124,7 +140,7 @@
         background-color: map-get($switch, bgcolor);
         vertical-align: middle;
         @include transition(border-color .1s ease-out, background-color .1s ease-out);
-        &::before{
+        &::before {
             position: absolute;
             top: 0;
             left: 0;
@@ -137,29 +153,29 @@
             @include transform(translate(0, 0) translatez(0));
         }
         &:active,
-        &:focus{
+        &:focus {
             outline: none;
         }
         // &:active{
         //     background-color: map-get($switch, bordercolor);
         // }
-        &:checked{
+        &:checked {
             border-color: map-get($switch, checked-bordercolor);
             background-color: map-get($switch, checked-bgcolor);
-            &::before{
+            &::before {
                 @include transform(translate(100%, 0) translatez(0));
             }
             // &:active::before{
             //     @include transform(translate3d(80%,0,0));
             // }
         }
-        &:disabled{
+        &:disabled {
         	&,
-        	&:checked{
+        	&:checked {
 	            border-color: map-get($switch, disabled-bordercolor);
 	            background-color: map-get($switch, disabled-bgcolor);
 	        }
-            &::before{
+            &::before {
                 background-color: map-get($switch, disabled-ball-color);
             }
         }
@@ -170,7 +186,7 @@
 // 使用方法请查看 yo-checked.scss
 @mixin _checked {
 	@if map-get($checked, is-border) {
-		&[type="checkbox"]{
+		&[type="checkbox"] {
 			border-radius: .05rem;
 		    border: 1px solid map-get($checked, bordercolor);
 		    box-shadow: inset 0 .01rem .03rem rgba(100, 100, 100, .1);
@@ -178,19 +194,19 @@
 		}
 	}
 	// mobile safari上清除appearance后仍然有边框及背景
-	&[type="radio"]{
+	&[type="radio"] {
 		border: 0 none;
 		background-color: transparent;
 	}
 	&[type="checkbox"],
-	&[type="radio"]{
+	&[type="radio"] {
 	    @include appearance(none);
 	    position: relative;
 	    @include square(map-get($checked, size));
 	    font-size: map-get($checked, size);
 	    cursor: pointer;
 	    vertical-align: middle;
-	    &::after{
+	    &::after {
 	    	position:absolute;
 		    top: 50%;
 		    left: 50%;
@@ -206,11 +222,11 @@
 	    	opacity: 0;
 	    	color: #fff;
 	    }
-		&:checked::after{
+		&:checked::after {
 			color: map-get($checked, on-color);
 			opacity: 1;
 		}
-		&:disabled::after{
+		&:disabled::after {
 		    color: map-get($checked, disabled-color);
 		}
 	}
@@ -219,7 +235,7 @@
 // 定义radio的基础构造
 // 使用方法请查看 yo-radio.scss
 @mixin _radio {
-	&[type="radio"]{
+	&[type="radio"] {
 	    @include appearance(none);
 	    position: relative;
 	    @include square(map-get($radio, size));
@@ -229,7 +245,7 @@
 	    background-color: map-get($radio, bgcolor);
 	    cursor: pointer;
 	    vertical-align: middle;
-	    &::after{
+	    &::after {
 	    	position:absolute;
 		    top: 50%;
 		    left: 50%;
@@ -241,21 +257,21 @@
 	    	opacity: 0;
 	    	color: #fff;
 	    }
-	    &:checked{
+	    &:checked {
 	    	border-color: map-get($radio, on-bordercolor);
 	    	background-color: map-get($radio, on-bgcolor);
-	    	&::after{
+	    	&::after {
 	    		color: map-get($radio, on-color);
 	    		opacity: 1;
 		    }
 	    }
-	    &:active{
+	    &:active {
 	    	opacity: .5;
 	    }
-		&:disabled{
+		&:disabled {
 			border-color: map-get($radio, disabled-bordercolor);
 			background-color: map-get($radio, disabled-bgcolor);
-			&::after{
+			&::after {
 			    color: map-get($radio, disabled-color);
 			}
 		}
@@ -265,7 +281,7 @@
 // 定义checkbox的基础构造
 // 使用方法请查看 yo-checkbox.scss
 @mixin _checkbox {
-	&[type="checkbox"]{
+	&[type="checkbox"] {
 	    @include appearance(none);
 	    position: relative;
 	    @include square(map-get($checkbox, size));
@@ -276,7 +292,7 @@
 	    background-color: map-get($checkbox, bgcolor);
 	    cursor: pointer;
 	    vertical-align: middle;
-	    &::after{
+	    &::after {
 	    	position:absolute;
 		    top: 50%;
 		    left: 50%;
@@ -288,21 +304,21 @@
 	    	opacity: 0;
 			color: #fff;
 	    }
-	    &:checked{
+	    &:checked {
 	    	border-color: map-get($checkbox, on-bordercolor);
 	    	background-color: map-get($checkbox, on-bgcolor);
-	    	&::after{
+	    	&::after {
 	    		color: map-get($checkbox, on-color);
 	    		opacity: 1;
 		    }
 	    }
-	    &:active{
+	    &:active {
 	    	opacity: .5;
 	    }
-		&:disabled{
+		&:disabled {
 			border-color: map-get($checkbox, disabled-bordercolor);
 			background-color: map-get($checkbox, disabled-bgcolor);
-			&::after{
+			&::after {
 			    color: map-get($checkbox, disabled-color);
 			}
 		}

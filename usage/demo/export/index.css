@@ -71,7 +71,8 @@
  * Directory: lib/core/reset.scss
  * Css Reset
  * Author: joy.du(飘零雾雨)
- * Time: 2012.1.1
+ * Edit: 2015.1.18
+ * Note: only for mobile
  */
 *,
 ::before,
@@ -92,17 +93,28 @@ html {
 }
 
 body {
+  margin: 0;
   font-size: 14px;
+  line-height: 1.5;
+  font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
 }
 
-body, ul, ol, dl, dd, h1, h2, h3, h4, h5, h6, figure, form, fieldset, legend, input, textarea, button, p, blockquote, th, td, pre, xmp {
+ul, ol, dl, dd, h1, h2, h3, h4, h5, h6, figure, form, fieldset, legend, input, textarea, button, p, blockquote, th, td, pre, xmp {
   margin: 0;
   padding: 0;
 }
 
-body, input, textarea, button, select, pre, tt, code, kbd, samp, optgroup, option {
-  line-height: 1.5;
-  font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+input, textarea, button, select, pre, tt, code, kbd, samp, optgroup, option {
+  line-height: inherit;
+  font-family: inherit;
+}
+
+h1, h2, h3, h4, h5, h6, input, textarea, button, select, small, big {
+  font-size: inherit;
+}
+
+address, cite, dfn, em, i, optgroup, var {
+  font-style: normal;
 }
 
 table {
@@ -124,7 +136,7 @@ fieldset, img {
   border: 0;
 }
 
-img, object, input, textarea, button, select {
+img {
   vertical-align: top;
 }
 
@@ -136,27 +148,24 @@ audio, canvas, video {
   display: inline-block;
 }
 
-h1, h2, h3, h4, h5, h6, input, textarea, button, select, small, big {
-  font-size: 100%;
-}
-
-address, cite, dfn, em, i, optgroup, var {
-  font-style: normal;
-}
-
 blockquote:before, blockquote:after, q:before, q:after {
   content: "\0020";
 }
 
-textarea {
+textarea, pre {
   overflow: auto;
+}
+
+textarea {
   resize: vertical;
 }
 
-textarea, input, button {
+textarea, input, button, a {
   outline: 0;
-  border-radius: 0;
-  touch-action: none;
+}
+
+textarea, input, button {
+  color: inherit;
 }
 textarea:disabled, input:disabled, button:disabled {
   opacity: 1;
@@ -164,7 +173,7 @@ textarea:disabled, input:disabled, button:disabled {
 
 button::-moz-focus-inner, input::-moz-focus-inner {
   padding: 0;
-  border: 0 none;
+  border: 0;
 }
 
 input[type="button"], input[type="submit"], input[type="reset"], input[type="file"]::-webkit-file-upload-button {

@@ -1,0 +1,89 @@
+@charset "utf-8";
+@import "classes";
+
+/**
+ * Element: yo-input
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ ------------------------
+ * 定义按钮使用方法
+ * @method yo-input
+ * variables length(8)
+ * @param {default | String} $name 定义输入框名称
+ * @param {default | Length} $width 定义输入框宽度
+ * @param {default | Length} $height 定义输入框高度
+ * @param {default | Length} $radius 定义输入框圆角
+ * @param {default | Color} $bordercolor 定义输入框边框色
+ * @param {default | Color} $bgcolor 定义输入框背景色
+ * @param {default | Color} $color 定义输入框文本色
+ * @param {default | Color} $placeholder-color 定义输入框placeholder文本色
+ */
+
+@mixin yo-input(
+	$name: default,
+	$width: default,
+	$height: default,
+	$radius: default,
+	$bordercolor: default,
+	$bgcolor: default,
+	$color: default,
+	$placeholder-color: default) {
+	// 区别是否新增实例还是修改本身
+	@if $name == default {
+        $name: "";
+    } @else {
+        $name: "-#{$name}";
+    }
+	// 如果值为default，则取config的定义
+	@if $width == default {
+        $width: map-get($input, width);
+    }
+    @if $height == default {
+        $height: map-get($input, height);
+    }
+    @if $radius == default {
+        $radius: map-get($input, radius);
+    }
+    @if $bordercolor == default {
+        $bordercolor: map-get($input, bordercolor);
+    }
+    @if $bgcolor == default {
+        $bgcolor: map-get($input, bgcolor);
+    }
+    @if $color == default {
+        $color: map-get($input, color);
+    }
+    @if $placeholder-color == default {
+        $placeholder-color: map-get($input, placeholder-color);
+    }
+	.yo-input#{$name}{
+		@if $width != map-get($input, width) {
+			width: $width;
+		}
+		@if $height != map-get($input, height) {
+			height: $height;
+		}
+		@if $bordercolor != map-get($input, bordercolor) {
+			border-color: $bordercolor;
+		}
+		@if $radius != map-get($input, radius) {
+			border-radius: $radius;
+		}
+		@if $bgcolor != map-get($input, bgcolor) {
+			background-color: $bgcolor;
+		}
+		@if $color != map-get($input, color) {
+			color: $color;
+		}
+		&::-webkit-input-placeholder {
+			@if $placeholder-color != map-get($input, placeholder-color) {
+				color: $placeholder-color;
+			}
+		}
+	}
+}
+
+// 调用本文件时载入按钮基础构造
+.yo-input{
+	@include _input;
+}

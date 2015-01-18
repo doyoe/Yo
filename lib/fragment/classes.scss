@@ -11,80 +11,83 @@
 
 // 定义list的基础构造
 // 使用方法请查看 yo-list.scss
-@mixin _list{
+@mixin _list {
 	overflow: hidden;
 	margin: map-get($list, margin);
 	border-radius: map-get($list, radius);
 	background-color: #fff;
+	color: map-get($list, bordercolor);
 	// 如果config变量$is-outline为true，则列表需要轮廓
 	@if map-get($list, is-outline) {
 		border-width: .01rem .01rem 0 .01rem;
 		border-style: solid;
-		border-color: map-get($list, bordercolor);
 	}
 	> .label,
-	> .item{
+	> .item {
 		border-bottom: .01rem solid map-get($list, bordercolor);
 		@include flexbox;
 		@include align-items;
-		> .mark{
+		> .mark {
 			margin-right: .1rem;
 		}
 		// 定义需要自适应宽度的列
-		> .flex{
-			@include flex(1);
-			width: 100%; // 修复iOS6不均分bug
+		> .flex {
+			@include flex;
 		}
 		> .mark,
 		> .col,
-		> .flex{
+		> .flex {
 			display: block;
 		}
-		&.tr{
+		&.tr {
 			// 当模式为table时，padding将设置到col上
 			padding: 0;
 		}
 	}
-	> .label{
+	> .label {
 		padding: map-get($list, label-padding);
 		background-color: map-get($list, label-bgcolor);
 		// 定义单元格的padding
-		> .col{
+		> .col {
 			padding: map-get($list, label-padding);
 		}
 	}
-	> .item{
+	> .item {
 		padding: map-get($list, item-padding);
 		color: map-get($base, color);
-		&.item-input{
-			// 让输入框占满整个父容器
+		&-stacked {
+			display: block;
 			> .input{
+				margin-top: .02rem;
+			}
+		}
+		&-input {
+			// 让输入框占满整个父容器
+			> .input {
 				@include align-self(stretch);
 				width: 100%;
-				border: 0 none;
+				border: 0;
 				background-color: transparent;
 			}
 		}
-		&.item-input,
-		&.item-active,
-		&.item-on,
-		&.item-light{
+		&-input,
+		&-active,
+		&-on,
+		&-light {
 			cursor: pointer;
 		}
-		&{
-			// 常规需要active的项目，没有使用到第3方组件的
-			.item-active:active,
-			// 为第3方组件提供active状态
-			.item-light{
-				background-color: map-get($list, active-bgcolor);
-			}
-			// 选中时背景色
-			.item-on{
-				background-color: map-get($list, on-bgcolor);
-			}
+		// 常规需要active的项目，没有使用到第3方组件的
+		&.item-active:active,
+		// 为第3方组件提供active状态
+		&.item-light {
+			background-color: map-get($list, active-bgcolor);
+		}
+		// 选中时背景色
+		&.item-on {
+			background-color: map-get($list, on-bgcolor);
 		}
 		// 定义单元格的padding
-		> .col{
+		> .col {
 			padding: map-get($list, item-padding);
 		}
 	}
@@ -92,96 +95,100 @@
 
 // 定义table的基础构造
 // 使用方法请查看 yo-table.scss
-@mixin _table{
+@mixin _table {
 	background-color: #fff;
-	&-zone{
-		padding: map-get($table,padding);
-		border: 1px solid map-get($table,bordercolor);
-		table{margin: -1px 0;}
-	}
-	table{width: 100%;}
-	caption{
-		padding: map-get($table,caption-padding);
-		@if map-get($table,is-vertical-border) == false {
-			border-bottom: 1px solid map-get($table,is-vertical-border);
+	&-zone {
+		padding: map-get($table, padding);
+		border: 1px solid map-get($table, bordercolor);
+		table {
+			margin: -1px 0;
 		}
 	}
-	thead{
+	table {
+		width: 100%;
+	}
+	caption {
+		padding: map-get($table, caption-padding);
+		@if map-get($table, is-vertical-border) == false {
+			border-bottom: 1px solid map-get($table, is-vertical-border);
+		}
+	}
+	thead {
 		@if map-get($table,thead-bgcolor) != none {
-			background-color: map-get($table,thead-bgcolor);
+			background-color: map-get($table, thead-bgcolor);
 		}
-		th{
+		th {
 			@if map-get($table,thead-padding) != 0 {
-				padding: map-get($table,thead-padding);
+				padding: map-get($table, thead-padding);
 			}
 		}
 	}
-	td{
-		@if map-get($table,tbody-padding) != 0 {
-			padding: map-get($table,tbody-padding);
+	td {
+		@if map-get($table, tbody-padding) != 0 {
+			padding: map-get($table, tbody-padding);
 		}
 	}
 	th,
-	td{
+	td {
 		// 判断是够需要垂直边框
-		@if map-get($table,is-vertical-border) == false {
+		@if map-get($table, is-vertical-border) == false {
 			border-width: 0 0 1px 0;
 		} @else {
 			border-width: 1px;
 		}
 		border-style: solid;
-		border-color: map-get($table,bordercolor);
+		border-color: map-get($table, bordercolor);
 	}
-	tbody{
-		tr:nth-child(odd){
-			background-color: map-get($table,odd-bgcolor);
+	tbody {
+		tr:nth-child(odd) {
+			background-color: map-get($table, odd-bgcolor);
 		}
-		tr:nth-child(even){
-			background-color: map-get($table,even-bgcolor);
+		tr:nth-child(even) {
+			background-color: map-get($table, even-bgcolor);
 		}
-		tr:hover{
-			background-color: map-get($table,hover-bgcolor);
+		tr:hover {
+			background-color: map-get($table, hover-bgcolor);
 		}
 	}
 }
 
 // 定义toolbar的基础构造
 // 使用方法请查看 yo-toolbar.scss
-@mixin _toolbar{
+@mixin _toolbar {
 	display: inline-block;
 	vertical-align: middle;
-	> .yo-btn{
+	> .yo-btn {
 		float: left;
-		&:not(:first-child){
+		&:not(:first-child) {
 			margin-left: -1px;
 		}
-		&:first-child{
+		&:first-child {
 			// 如果按钮有圆角，那么去掉第一个按钮的右侧圆角
-			@if map-get($btn,radius) != 0 {
+			@if map-get($btn, radius) != 0 {
 				border-top-right-radius: 0;
 				border-bottom-right-radius: 0;
 			}
 			// 如果工具栏定义了圆角，那么不管按钮有没有左侧圆角，都重绘
-			@if map-get($toolbar,radius) != auto and map-get($toolbar,radius) != map-get($btn,radius) {
-				border-top-left-radius: map-get($toolbar,radius);
-				border-bottom-left-radius: map-get($toolbar,radius);
+			@if map-get($toolbar, radius) != auto and map-get($toolbar, radius) != map-get($btn, radius) {
+				border-top-left-radius: map-get($toolbar, radius);
+				border-bottom-left-radius: map-get($toolbar, radius);
 			}
 		}
-		&:last-child{
+		&:last-child {
 			// 如果按钮有圆角，那么去掉最后一个按钮的左侧圆角
-			@if map-get($btn,radius) != 0 {
+			@if map-get($btn, radius) != 0 {
 				border-top-left-radius: 0;
 				border-bottom-left-radius: 0;
 			}
 			// 如果工具栏定义了圆角，那么不管按钮有没有右侧圆角，都重绘
-			@if map-get($toolbar,radius) != auto and map-get($toolbar,radius) != map-get($btn,radius) {
-				border-top-right-radius: map-get($toolbar,radius);
-				border-bottom-right-radius: map-get($toolbar,radius);
+			@if map-get($toolbar, radius) != auto and map-get($toolbar, radius) != map-get($btn, radius) {
+				border-top-right-radius: map-get($toolbar, radius);
+				border-bottom-right-radius: map-get($toolbar, radius);
 			}
 		}
 		&:not(:first-child):not(:last-child){
 			// 如果按钮有圆角，那么清除中间所有按钮的圆角
-			@if map-get($btn,radius) != 0 {
+			@if map-get($btn, radius) != 0 {
 				border-radius: 0;
 			}
 		}
@@ -190,7 +197,7 @@
 
 // 定义header的基础构造
 // 使用方法请查看 yo-header.scss
-@mixin _header{
+@mixin _header {
 	position: relative;
 	overflow: hidden;
 	height: map-get($header, height);
@@ -199,20 +206,24 @@
 	background-color: map-get($header, bgcolor);
 	color: map-get($header, color);
 	font-size: map-get($header, font-size);
-	@include ellipsis();
+	@include ellipsis;
 	text-align: center;
-	.title{
-		@include ellipsis();
+	.title {
+		@include ellipsis;
 		margin: 0 .6rem;
 	}
 	.regret,
-    .affirm{
+    .affirm {
         position: absolute;
         top: 0;
         width: .6rem;
         text-align: center;
         color: map-get($base, link-color);
     }
-    .regret{left: 0;}
-    .affirm{right: 0;}
+    .regret {
+    	left: 0;
+    }
+    .affirm {
+    	right: 0;
+    }
 }

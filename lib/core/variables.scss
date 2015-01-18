@@ -117,14 +117,14 @@ $loading: (
 ) !default;
 
 
-// Element Input()
+// Element Input(7)
 $input: (
 	// {Length} 输入框宽度
-	width:            null,
+	width:            100%,
 	// {Length} 输入框高度
-	height:           null,
+	height:           .44rem,
 	// {Length} 输入框圆角
-	radius:           null,
+	radius:           .02rem,
 	// {Color} 输入框边框色
 	bordercolor:      map-get($base, bordercolor),
 	// {Color} 输入框背景色

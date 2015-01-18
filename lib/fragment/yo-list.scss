@@ -21,16 +21,17 @@
  */
 
 @mixin yo-list(
-	$name:default,
-	$margin:default,
-	$is-outline:default,
-	$radius:default,
-	$bordercolor:default,
-	$item-padding:default,
-	$label-padding:default,
-	$label-bgcolor:default,
-	$active-bgcolor:default,
-	$on-bgcolor:default){
+	$name: default,
+	$margin: default,
+	$is-outline: default,
+	$radius: default,
+	$bordercolor: default,
+	$item-padding: default,
+	$label-padding: default,
+	$label-bgcolor: default,
+	$active-bgcolor: default,
+	$on-bgcolor: default) {
+	// 区别是否新增实例还是修改本身
 	@if $name == default {
         $name: "";
     } @else {
@@ -71,12 +72,14 @@
 		@if $radius != map-get($list, radius) {
 			border-radius: $radius;
 		}
+		@if $bordercolor != map-get($list, bordercolor) {
+			color: $bordercolor;
+		}
 		// 如果$is-outline为true，则重绘轮廓
 		@if $is-outline {
 			@if $is-outline != map-get($list, is-outline) {
 				border-width: .01rem .01rem 0 .01rem;
 				border-style: solid;
-				border-color: $bordercolor;
 			}
 		} @else {
 			@if $is-outline != map-get($list, is-outline) {
@@ -88,15 +91,13 @@
 			@if $bordercolor != map-get($list, bordercolor) {
 				border-bottom-color: $bordercolor;
 			}
-			> .col{
-				@if $item-padding != map-get($list, item-padding) {
-					padding: $item-padding;
-				}
-			}
 		}
 		> .label{
 			@if $label-padding != map-get($list, label-padding) {
 				padding: $label-padding;
+				> .col{
+					padding: $label-padding;
+				}
 			}
 			@if $label-bgcolor != map-get($list, label-bgcolor) {
 				background-color: $label-bgcolor;
@@ -105,18 +106,19 @@
 		> .item{
 			@if $item-padding != map-get($list, item-padding) {
 				padding: $item-padding;
-			}
-			&{
-				.item-active:active,
-				.item-light{
-					@if $active-bgcolor != map-get($list, active-bgcolor) {
-						background-color: $active-bgcolor;
-					}
+				> .col{
+					padding: $item-padding;
 				}
-				.item-on{
-					@if $on-bgcolor != map-get($list, on-bgcolor) {
-						background-color: $on-bgcolor;
-					}
+			}
+			&.item-active:active,
+			&.item-light{
+				@if $active-bgcolor != map-get($list, active-bgcolor) {
+					background-color: $active-bgcolor;
+				}
+			}
+			&.item-on{
+				@if $on-bgcolor != map-get($list, on-bgcolor) {
+					background-color: $on-bgcolor;
 				}
 			}
 		}

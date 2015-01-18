@@ -6,18 +6,20 @@
  * Directory: lib/core/reset.scss
  * Css Reset
  * Author: joy.du(飘零雾雨)
- * Time: 2012.1.1
+ * Edit: 2015.1.18
+ * Note: only for mobile
  */
 
-// 改变所有元素的盒模型及清除tap时出现的焦点框
-*,
-::before,
-::after{
+// 1. 将元素的盒模型统一为：border-box
+// 2. 清除元素tap时出现的焦点框
+*, 
+::before, 
+::after {
     @include box-sizing(border-box);
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-// 防止用户自定义网页背景及文字颜色、大小影响
-html{
+// 1. 防止用户自定义网页背景及文字颜色、大小影响
+html {
     background-color: map-get($base, bgcolor);
     color: map-get($base, color);
     // 用于rem计算
@@ -28,111 +30,123 @@ html{
     }
     @include user-select();
 }
-// 定义页面的默认字号
-body{
-    font-size: map-get($base, font-size);
-}
-// 清除某些元素在不同浏览器下内外补白不同造成的影响
-body,ul,ol,dl,dd,h1,h2,h3,h4,h5,h6,figure,form,fieldset,legend,input,textarea,button,p,blockquote,th,td,pre,xmp{
+// 1. 清除body的默认margin
+// 1. 定义页面的默认字号
+// 1. 定义页面的默认行高
+// 4. 定义页面的默认字体
+body {
     margin: 0;
-    padding: 0;
-}
-// 设置默认字集及行高，表单及某些特殊元素不继承祖先font相关属性
-body,input,textarea,button,select,pre,tt,code,kbd,samp,optgroup,option{
+    font-size: map-get($base, font-size);
     line-height: map-get($base, line-height);
     font-family: map-get($base, font-family);
 }
-// 清除单元格边距并让边框合并
-table{
+// 1. 清除某些元素在不同浏览器下内外补白不同造成的影响
+ul, ol, dl, dd, h1, h2, h3, h4, h5, h6, figure, form, fieldset, legend, input, textarea, button, p, blockquote, th, td, pre, xmp {
+    margin: 0;
+    padding: 0;
+}
+// 1. 为不继承的元素设定继承父级行高
+// 2. 为不继承的元素设定继承父级字体
+input, textarea, button, select, pre, tt, code, kbd, samp, optgroup, option {
+    line-height: inherit;
+    font-family: inherit;
+}
+// 1. 为不继承的元素设定继承父级字号
+h1, h2, h3, h4, h5, h6, input, textarea, button, select, small, big {
+    font-size: inherit;
+}
+// 1. 重置斜体表现的元素为正常文本
+address, cite, dfn, em, i, optgroup, var {
+    font-style: normal;
+}
+// 1. 清除单元格边距并让边框合并
+table {
     border-collapse: collapse;
     border-spacing: 0;
     table-layout: fixed;
     text-align: left;
 }
-// 设置caption继承父元素的对齐方式，同时修复IE下th不继承父元素对齐方式bug
-caption,th{
+// 1. 设置caption继承父元素的对齐方式，同时修复IE下th不继承父元素对齐方式bug
+caption, th {
     text-align: inherit;
 }
-// 清除列表默认序号
-ul,ol,menu{
+// 1. 清除列表默认序号
+ul, ol, menu {
     list-style: none;
 }
-// 清除默认边框
-fieldset,img{
+// 1. 清除默认边框
+fieldset, img {
     border: 0;
 }
-// 设置某些元素居中对齐
-img,object,input,textarea,button,select{
+// 1. 清除img底部留白问题
+img {
     vertical-align: top;
 }
-// 设置某些HTML5元素为块元素
-article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{
+// 1. 设置某些HTML5元素为块元素
+article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {
     display: block;
 }
-// 设置HTML5新增媒体元素与img,object保持一致
-audio,canvas,video{
+// 1. 设置HTML5新增媒体元素与img, object保持一致
+audio, canvas, video {
     display: inline-block;
 }
-// 清除某些元素不继承祖先元素font-size的影响
-h1,h2,h3,h4,h5,h6,input,textarea,button,select,small,big{
-    font-size: 100%;
-}
-// 将呈现为斜体的元素重置为正常文本
-address,cite,dfn,em,i,optgroup,var{
-    font-style: normal;
-}
-// 清除引用元素的默认派生标识
-blockquote:before,blockquote:after,q:before,q:after{
+// 1. 清除引用元素的默认派生标识
+blockquote:before, blockquote:after, q:before, q:after {
     content: "\0020";
 }
-// 设置文本域滚动条需要时才出现，并定义只能手动改变垂直方向大小
-textarea{
+// 1. 设置文本域和代码块在需要时出现滚动条
+textarea, pre {
     overflow: auto;
+}
+// 1. 设置文本域滚可拖动改变垂直方向尺寸
+textarea {
     resize: vertical;
 }
-// 清除webkit下表单元素的outline及300ms延迟
-textarea,input,button{
+// 1. 清除webkit下表单元素的outline
+textarea, input, button, a {
     outline: 0;
-    border-radius: 0;
-    touch-action: none;
-    &:disabled{ 
-        // iOS上当禁用时会设置opacity:.4
+}
+// 1. 让表单元素具有颜色继承
+// 2. iOS上当禁用时会设置opacity:.4
+textarea, input, button {
+    color: inherit;
+    &:disabled{
         opacity: 1;
     }
 }
-// 清除Firefox按钮内部边框和补白
-button::-moz-focus-inner,input::-moz-focus-inner{
+// 1. 清除Firefox按钮内部边框和补白
+button::-moz-focus-inner, input::-moz-focus-inner {
     padding: 0;
-	border: 0 none;
+	border: 0;
 }
-// 重置按钮的外观
-input[type="button"],input[type="submit"],input[type="reset"],input[type="file"]::-webkit-file-upload-button{
+// 1. 重置按钮的外观
+input[type="button"], input[type="submit"], input[type="reset"], input[type="file"]::-webkit-file-upload-button {
     @include appearance(none);
 }
-// 设置mark元素有默认背景色
-mark{
+// 1. 设置mark元素有默认背景色
+mark {
     background-color: map-get($base, mark-bgcolor);
 }
-// 清除文本线条装饰
-ins,s,u,del{
+// 1. 清除文本线条装饰
+ins, s, u, del {
     text-decoration: none;
 }
-// 禁止长按链接与图片弹出菜单
-a,img{
+// 1. 禁止长按链接与图片弹出菜单
+a, img {
     -webkit-touch-callout: none;
 }
-// 预设默认链接表现
-a{
+// 1. 预设默认链接表现
+a {
     color: map-get($base, link-color);
     text-decoration: none;
-    &:active{
+    &:active {
         outline: 0;
         color: map-get($base, link-hover-color);
     }
 }
-// 预设清除浮动
-.g-clear,.g-mod{
+// 1. 预设清除浮动
+.g-clear, .g-mod {
 	@include clearfix();
 }
-// 使用字体图标
+// 1. 使用字体图标
 @include yofont();

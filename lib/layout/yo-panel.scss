@@ -1,0 +1,38 @@
+@charset "utf-8";
+@import "classes";
+
+/**
+ * Layout: yo-panel
+ * Author: joy.du(飘零雾雨)
+ * Edit: 2015.1.15
+ -----------------------
+ * @method panel
+ * variables length(2)
+ * @param {defailt | String} $name 定义名称
+ * @param {defailt | Color} $margin 定义外边距
+ */
+
+@mixin yo-panel(
+	$name:default,
+	$margin:default){
+	@if $name == default {
+        $name: "";
+    } @else {
+        $name: "-#{$name}";
+    }
+    // 如果值为default，则取config的定义
+	@if $margin == default {
+        $margin: map-get($panel, margin);
+    }
+	.yo-panel#{$name}{
+		// 如果$margin不等于margin，则重绘外边距
+		@if $margin != map-get($panel, margin) {
+			margin: $margin;
+		}
+	}
+}
+
+// 调用本文件时载入区块基础构造
+.yo-panel{
+	@include _panel;
+}

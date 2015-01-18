@@ -71,7 +71,8 @@
  * Directory: lib/core/reset.scss
  * Css Reset
  * Author: joy.du(飘零雾雨)
- * Time: 2012.1.1
+ * Edit: 2015.1.18
+ * Note: only for mobile
  */
 *,
 ::before,
@@ -92,17 +93,28 @@ html {
 }
 
 body {
+  margin: 0;
   font-size: 14px;
+  line-height: 1.5;
+  font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
 }
 
-body, ul, ol, dl, dd, h1, h2, h3, h4, h5, h6, figure, form, fieldset, legend, input, textarea, button, p, blockquote, th, td, pre, xmp {
+ul, ol, dl, dd, h1, h2, h3, h4, h5, h6, figure, form, fieldset, legend, input, textarea, button, p, blockquote, th, td, pre, xmp {
   margin: 0;
   padding: 0;
 }
 
-body, input, textarea, button, select, pre, tt, code, kbd, samp, optgroup, option {
-  line-height: 1.5;
-  font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+input, textarea, button, select, pre, tt, code, kbd, samp, optgroup, option {
+  line-height: inherit;
+  font-family: inherit;
+}
+
+h1, h2, h3, h4, h5, h6, input, textarea, button, select, small, big {
+  font-size: inherit;
+}
+
+address, cite, dfn, em, i, optgroup, var {
+  font-style: normal;
 }
 
 table {
@@ -124,7 +136,7 @@ fieldset, img {
   border: 0;
 }
 
-img, object, input, textarea, button, select {
+img {
   vertical-align: top;
 }
 
@@ -136,27 +148,24 @@ audio, canvas, video {
   display: inline-block;
 }
 
-h1, h2, h3, h4, h5, h6, input, textarea, button, select, small, big {
-  font-size: 100%;
-}
-
-address, cite, dfn, em, i, optgroup, var {
-  font-style: normal;
-}
-
 blockquote:before, blockquote:after, q:before, q:after {
   content: "\0020";
 }
 
-textarea {
+textarea, pre {
   overflow: auto;
+}
+
+textarea {
   resize: vertical;
 }
 
-textarea, input, button {
+textarea, input, button, a {
   outline: 0;
-  border-radius: 0;
-  touch-action: none;
+}
+
+textarea, input, button {
+  color: inherit;
 }
 textarea:disabled, input:disabled, button:disabled {
   opacity: 1;
@@ -164,7 +173,7 @@ textarea:disabled, input:disabled, button:disabled {
 
 button::-moz-focus-inner, input::-moz-focus-inner {
   padding: 0;
-  border: 0 none;
+  border: 0;
 }
 
 input[type="button"], input[type="submit"], input[type="reset"], input[type="file"]::-webkit-file-upload-button {
@@ -306,6 +315,80 @@ html {
  * @param {String} $fixed 定义头尾是否固定
  * @param {Length} $hd-gap 定义主体到viewport顶部的距离
  * @param {Length} $ft-gap 定义主体到viewport底部的距离
+ */
+/**
+ * Directory: lib/core/variables.scss
+ * CSS Variables 定义各种页面沙粒变量
+ * Author: joy.du(飘零雾雨)
+ * Edit: 2014.12.5
+ */
+/**
+ * Directory: lib/core/classes.scss
+ * Global Classes 约定常规解决方案
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ */
+/**
+ * 定义响应式方案
+ * @method responsive
+ * @param {String} $media 指定媒体查询条件
+ * 使用方法如下，结合variables中的$media-types：
+    @include responsive(phone) {
+        .foo {
+            background: blue;
+        }
+    }
+ */
+/**
+ * 定义字体图标
+ * @method yofont
+ */
+/**
+ * 定义UA默认外观
+ * @method appearance
+ * @param {String} $appearance 指定UA外观类型
+ */
+/**
+ * 定义是否可以选中元素
+ * @method user-select
+ * @param {String} $user-select 指定是否可以选中
+ */
+/**
+ * 定义渐变色值
+ * @method gradient
+ * @param {String} $type 指定渐变的4种类型：linear, repeating-linear, radial, repeating-radial
+ * @param {String} $gradient 指定渐变取值，与原生语法一致
+ */
+/**
+ * 定义盒模型
+ * @method box-sizing
+ * @param {String} $box-sizing 的2个值分别为：content-box(标准盒模型) | border-box(怪异盒模型)
+ */
+/**
+ * 定义简单变换
+ * @method transform
+ * @param {String} $transform 取值与原生语法一致
+ */
+/**
+ * 定义变换原点
+ * @method transform-origin
+ * @param {String} $transform-origin 取值与原生语法一致
+ */
+/**
+ * 定义动画
+ * @method animation
+ * @param {String} $animation 取值与原生语法一致
+ */
+/**
+ * 定义补间
+ * @method transition
+ * @param {String} $transition 取值与原生语法一致
+ */
+/**
+ * Directory: lib/layout/classes.scss
+ * Global Layout Classes 约定布局方案
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
  */
 /**
  * Layout: yo-panel
