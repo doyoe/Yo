@@ -27,7 +27,8 @@
 		border-bottom: .01rem solid map-get($list, bordercolor);
 		@include flexbox;
 		@include align-items;
-		> .mark {
+		> .mark:not(:last-child),
+		> .yo-ico:not(:last-child) {
 			margin-right: .1rem;
 		}
 		// 定义需要自适应宽度的列
@@ -35,6 +36,7 @@
 			@include flex;
 		}
 		> .mark,
+		> .yo-ico,
 		> .col,
 		> .flex {
 			display: block;
@@ -47,6 +49,7 @@
 	> .label {
 		padding: map-get($list, label-padding);
 		background-color: map-get($list, label-bgcolor);
+		color: map-get($base, sub-color);
 		// 定义单元格的padding
 		> .col {
 			padding: map-get($list, label-padding);

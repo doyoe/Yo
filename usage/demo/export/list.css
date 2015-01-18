@@ -630,8 +630,10 @@ html {
   -webkit-align-items: center;
   align-items: center;
 }
-.yo-list > .label > .mark,
-.yo-list > .item > .mark {
+.yo-list > .label > .mark:not(:last-child),
+.yo-list > .label > .yo-ico:not(:last-child),
+.yo-list > .item > .mark:not(:last-child),
+.yo-list > .item > .yo-ico:not(:last-child) {
   margin-right: .1rem;
 }
 .yo-list > .label > .flex,
@@ -643,9 +645,11 @@ html {
   width: 100%;
 }
 .yo-list > .label > .mark,
+.yo-list > .label > .yo-ico,
 .yo-list > .label > .col,
 .yo-list > .label > .flex,
 .yo-list > .item > .mark,
+.yo-list > .item > .yo-ico,
 .yo-list > .item > .col,
 .yo-list > .item > .flex {
   display: block;
@@ -657,6 +661,7 @@ html {
 .yo-list > .label {
   padding: 0.03rem 0.1rem;
   background-color: #fafafa;
+  color: #9e9e9e;
 }
 .yo-list > .label > .col {
   padding: 0.03rem 0.1rem;
@@ -686,6 +691,18 @@ html {
 }
 .yo-list > .item > .col {
   padding: 0.11rem;
+}
+
+/**
+ * Fragment扩展: 嵌入式的 yo-list
+ * Author: joy.du(飘零雾雨)
+ * Time: 2015.1.16
+ */
+.yo-list-inset {
+  margin: 0.2rem 0.1rem;
+  border-radius: 0.02rem;
+  border-width: .01rem .01rem 0 .01rem;
+  border-style: solid;
 }
 
 /**
@@ -813,6 +830,21 @@ html {
 }
 .yo-header .affirm {
   right: 0;
+}
+
+/**
+ * Fragment扩展: yo-header-light, yo-header-positive
+ * Author: joy.du(飘零雾雨)
+ * Time: 2015.1.16
+ */
+.yo-header-light {
+  background-color: white;
+}
+
+.yo-header-positive {
+  border-color: #145fd7;
+  background-color: #4a87ee;
+  color: white;
 }
 
 /**

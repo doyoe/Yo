@@ -3,7 +3,8 @@
 @import "../module/m-demo";
 @import "../module/m-code";
 @import "../../../lib/element/yo-switch";
-@import "../../../lib/fragment/yo-list";
+@import "../fragment/yo-header";
+@import "../fragment/yo-list";
 
 /**
  * list演示页面
@@ -17,5 +18,3 @@
 		height: 50px;
 	}
 }
-
-// @include yo-list(table,false,#000);

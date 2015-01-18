@@ -630,8 +630,10 @@ html {
   -webkit-align-items: center;
   align-items: center;
 }
-.yo-list > .label > .mark,
-.yo-list > .item > .mark {
+.yo-list > .label > .mark:not(:last-child),
+.yo-list > .label > .yo-ico:not(:last-child),
+.yo-list > .item > .mark:not(:last-child),
+.yo-list > .item > .yo-ico:not(:last-child) {
   margin-right: .1rem;
 }
 .yo-list > .label > .flex,
@@ -643,9 +645,11 @@ html {
   width: 100%;
 }
 .yo-list > .label > .mark,
+.yo-list > .label > .yo-ico,
 .yo-list > .label > .col,
 .yo-list > .label > .flex,
 .yo-list > .item > .mark,
+.yo-list > .item > .yo-ico,
 .yo-list > .item > .col,
 .yo-list > .item > .flex {
   display: block;
@@ -657,6 +661,7 @@ html {
 .yo-list > .label {
   padding: 0.03rem 0.1rem;
   background-color: #fafafa;
+  color: #9e9e9e;
 }
 .yo-list > .label > .col {
   padding: 0.03rem 0.1rem;
