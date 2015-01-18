@@ -41,8 +41,10 @@ $media-types: (
 	landscape: "screen and (orientation: landscape)",
 	// {String} 竖屏
 	portrait:  "screen and (orientation: portrait)",
-	// 视网膜屏
-    retina:    "screen and (-webkit-min-device-pixel-ratio: 2)"
+	// {String} 视网膜屏
+    retina:    "screen and (-webkit-min-device-pixel-ratio: 2)",
+    // {String} PC
+    pc:        "screen and (min-width: 800px)"
 ) !default;
 
 

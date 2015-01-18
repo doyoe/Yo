@@ -5,7 +5,9 @@
  * Time: 2013.10.17
  */
 .m-demo{
-	@include flexbox();
+	@include responsive(pc){
+		@include flexbox;
+	}
 	margin: .1rem;
 	.device{
 		position: relative;

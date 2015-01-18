@@ -445,10 +445,14 @@ html {
  * Time: 2013.10.17
  */
 .m-demo {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
   margin: .1rem;
+}
+@media screen and (min-width: 800px) {
+  .m-demo {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+  }
 }
 .m-demo .device {
   position: relative;
