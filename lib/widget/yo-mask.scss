@@ -12,8 +12,10 @@
  * @param {default | Color} $bgcolor 定义yo-mask背景色
  */
 
-@mixin yo-mask($name:default,
-			$bgcolor:default){
+@mixin yo-mask(
+	$name: default,
+	$bgcolor: default) {
+	// 区别是否新增实例还是修改本身
 	@if $name == default {
         $name: "";
     } @else {
@@ -23,7 +25,7 @@
 	@if $bgcolor == default {
 		$bgcolor: map-get($mask, bgcolor);
 	}
-	.yo-mask#{$name}{
+	.yo-mask#{$name} {
     	@if $bgcolor != map-get($mask, bgcolor) {
     		background-color: rgba($bgcolor, .5);
     	}
@@ -31,6 +33,6 @@
 }
 
 // 调用本文件时载入mask基础构造
-.yo-mask{
+.yo-mask {
 	@include _mask;
 }

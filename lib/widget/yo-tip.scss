@@ -15,11 +15,13 @@
  * @param {default | Color} $color 定义yo-tip文本色
  */
 
-@mixin yo-tip($name:default,
-			$padding:default,
-			$radius:default,
-			$bgcolor:default,
-			$color:default){
+@mixin yo-tip(
+	$name: default,
+	$padding: default,
+	$radius: default,
+	$bgcolor: default,
+	$color: default) {
+	// 区别是否新增实例还是修改本身
 	@if $name == default {
         $name: "";
     } @else {
@@ -38,7 +40,7 @@
 	@if $color == default {
 		$color: map-get($tip,color);
 	}
-	.yo-tip#{$name}{
+	.yo-tip#{$name} {
 		@if $padding != map-get($tip, padding) {
 			padding: $padding;
 		}
@@ -55,6 +57,6 @@
 }
 
 // 调用本文件时载入tip基础构造
-.yo-tip{
+.yo-tip {
 	@include _tip;
 }

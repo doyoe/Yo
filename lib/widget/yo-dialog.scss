@@ -24,18 +24,18 @@
  */
 
 @mixin yo-dialog(
-    $name:default,
-    $width:default,
-    $height:default,
-    $radius:default,
-    $shadow-opacity:default,
-    $bordercolor:default,
-    $hd-height:default,
-    $hd-bgcolor:default,
-    $title-color:default,
-    $title-font-size:default,
-    $bd-padding:default,
-    $bd-font-size:default) {
+    $name: default,
+    $width: default,
+    $height: default,
+    $radius: default,
+    $shadow-opacity: default,
+    $bordercolor: default,
+    $hd-height: default,
+    $hd-bgcolor: default,
+    $title-color: default,
+    $title-font-size: default,
+    $bd-padding: default,
+    $bd-font-size: default) {
     // 区别是否新增实例还是修改本身
 	@if $name == default {
         $name: "";
@@ -76,7 +76,7 @@
     @if $bd-font-size == default {
         $bd-font-size: map-get($dialog, bd-font-size);
     }
-	.yo-dialog#{$name}{
+	.yo-dialog#{$name} {
         @if $radius != map-get($dialog, radius) {
             border-radius: $radius;
         }
@@ -94,7 +94,7 @@
 	    @if $height != map-get($dialog, height) {
 	        height: $height;
 	    }
-        > .hd{
+        > .hd {
         	@if $hd-height != map-get($dialog, hd-height) {
             	height: $hd-height;
             	line-height: $hd-height;
@@ -102,7 +102,7 @@
 	        @if $hd-bgcolor != map-get($dialog, hd-bgcolor) {
 	            background: $hd-bgcolor;
 	        }
-            .title{
+            .title {
                 @if $title-color != map-get($dialog, title-color) and $title-color != map-get($base, color) {
                     color: $title-color;
                 }
@@ -111,7 +111,7 @@
                 }
             }
         }
-        > .bd{
+        > .bd {
         	@if $bd-padding != map-get($dialog, bd-padding) {
 	        	padding: $bd-padding;
 	        }
@@ -123,6 +123,6 @@
 }
 
 // 调用本文件时载入dialog基础构造
-.yo-dialog{
+.yo-dialog {
 	@include _dialog;
 }

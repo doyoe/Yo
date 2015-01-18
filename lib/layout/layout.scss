@@ -13,8 +13,10 @@
  * @param {Length} $ft-gap 定义主体到viewport底部的距离
  */
 
-@mixin doc($name:default,
-            $is-scroll:default){
+@mixin doc(
+	$name: default,
+	$is-scroll: default) {
+	// 区别是否新增实例还是修改本身
     @if $is-scroll == default {
         $is-scroll: map-get($doc,is-scroll);
     }

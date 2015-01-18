@@ -20,16 +20,18 @@
  * @param {default | Color} $disabled-color 定义checkbox禁用标记色
  */
 
-@mixin yo-checkbox($name:default,
-                $size:default,
-                $bordercolor:default,
-                $bgcolor:default,
-                $on-bordercolor:default,
-                $on-bgcolor:default,
-                $on-color:default,
-                $disabled-bordercolor:default,
-                $disabled-bgcolor:default,
-                $disabled-color:default) {
+@mixin yo-checkbox(
+    $name: default,
+    $size: default,
+    $bordercolor: default,
+    $bgcolor: default,
+    $on-bordercolor: default,
+    $on-bgcolor: default,
+    $on-color: default,
+    $disabled-bordercolor: default,
+    $disabled-bgcolor: default,
+    $disabled-color: default) {
+    // 区别是否新增实例还是修改本身
 	@if $name == default {
         $name: "";
     } @else {
@@ -64,7 +66,7 @@
         $disabled-color: map-get($checkbox, disabled-color);
     }
 	.yo-checkbox#{$name} {
-        &[type="checkbox"]{
+        &[type="checkbox"] {
             @if $size != map-get($checkbox, size) {
                 @include square($size);
                 font-size: $size;

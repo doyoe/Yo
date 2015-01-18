@@ -65,7 +65,7 @@
 	@if $on-bgcolor == default {
 		$on-bgcolor: map-get($list, on-bgcolor);
 	}
-	.yo-list#{$name}{
+	.yo-list#{$name} {
 		@if $margin != map-get($list, margin) {
 			margin: $margin;
 		}
@@ -87,15 +87,15 @@
 			}
 		}
 		> .label,
-		> .item{
+		> .item {
 			@if $bordercolor != map-get($list, bordercolor) {
 				border-bottom-color: $bordercolor;
 			}
 		}
-		> .label{
+		> .label {
 			@if $label-padding != map-get($list, label-padding) {
 				padding: $label-padding;
-				> .col{
+				> .col {
 					padding: $label-padding;
 				}
 			}
@@ -103,20 +103,20 @@
 				background-color: $label-bgcolor;
 			}
 		}
-		> .item{
+		> .item {
 			@if $item-padding != map-get($list, item-padding) {
 				padding: $item-padding;
-				> .col{
+				> .col {
 					padding: $item-padding;
 				}
 			}
 			&.item-active:active,
-			&.item-light{
+			&.item-light {
 				@if $active-bgcolor != map-get($list, active-bgcolor) {
 					background-color: $active-bgcolor;
 				}
 			}
-			&.item-on{
+			&.item-on {
 				@if $on-bgcolor != map-get($list, on-bgcolor) {
 					background-color: $on-bgcolor;
 				}
@@ -126,6 +126,6 @@
 }
 
 // 调用本文件时载入list基础构造
-.yo-list{
+.yo-list {
 	@include _list;
 }

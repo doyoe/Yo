@@ -18,14 +18,16 @@
  * @param {default | Color} $disabled-sign-color 定义yo-number禁用文本色
  */
 
-@mixin yo-number($name:default,
-			$width:default,
-			$height:default,
-			$bordercolor:default,
-			$color:default,
-			$sign-bgcolor:default,
-			$sign-color:default,
-			$disabled-sign-color:default){
+@mixin yo-number(
+	$name: default,
+	$width: default,
+	$height: default,
+	$bordercolor: default,
+	$color: default,
+	$sign-bgcolor: default,
+	$sign-color: default,
+	$disabled-sign-color: default) {
+	// 区别是否新增实例还是修改本身
 	@if $name == default {
         $name: "";
     } @else {
@@ -53,7 +55,7 @@
 	@if $disabled-sign-color == default {
 		$disabled-sign-color: map-get($number, disabled-sign-color);
 	}
-	.yo-number#{$name}{
+	.yo-number#{$name} {
 		@if $width != map-get($number, width) {
 			width: $width;
 		}
@@ -66,7 +68,7 @@
 		    box-shadow: 1px 1px 1px rgba($bordercolor,.3);
 		}
 	    > .minus,
-	    > .plus{
+	    > .plus {
 	        width: .35rem;
 	        @if $sign-bgcolor != map-get($number, sign-bgcolor) {
 		        background-color: $sign-bgcolor;
@@ -80,7 +82,7 @@
 				}
 		    }
 	    }
-	    > .input{
+	    > .input {
 	    	@if $bordercolor != map-get($number, bordercolor) {
 	    		border-color: $bordercolor;
 		        box-shadow: inset 1px 1px 1px rgba($bordercolor,.2);
@@ -93,6 +95,6 @@
 }
 
 // 调用本文件时载入number基础构造
-.yo-number{
+.yo-number {
 	@include _number;
 }

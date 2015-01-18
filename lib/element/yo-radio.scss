@@ -20,16 +20,18 @@
  * @param {default | Color} $disabled-color 定义radio禁用标记色
  */
 
-@mixin yo-radio($name:default,
-                $size:default,
-                $bordercolor:default,
-                $bgcolor:default,
-                $on-bordercolor:default,
-                $on-bgcolor:default,
-                $on-color:default,
-                $disabled-bordercolor:default,
-                $disabled-bgcolor:default,
-                $disabled-color:default) {
+@mixin yo-radio(
+    $name: default,
+    $size: default,
+    $bordercolor: default,
+    $bgcolor: default,
+    $on-bordercolor: default,
+    $on-bgcolor: default,
+    $on-color: default,
+    $disabled-bordercolor: default,
+    $disabled-bgcolor: default,
+    $disabled-color: default) {
+    // 区别是否新增实例还是修改本身
 	@if $name == default {
         $name: "";
     } @else {
@@ -64,7 +66,7 @@
         $disabled-color: map-get($radio, disabled-color);
     }
 	.yo-radio#{$name} {
-        &[type="radio"]{
+        &[type="radio"] {
             @if $size != map-get($radio, size) {
                 @include square($size);
             }
@@ -74,7 +76,7 @@
             @if $bgcolor != map-get($radio, bgcolor) {
                 background-color: $bgcolor;
             }
-            &:checked{
+            &:checked {
                 @if $on-bordercolor != map-get($radio, on-bordercolor) {
                     border-color: $on-bordercolor;
                 }
@@ -87,7 +89,7 @@
                     }
                 }
             }
-            &:disabled{
+            &:disabled {
                 @if $disabled-bordercolor != map-get($radio, disabled-bordercolor) {
                     border-color: $disabled-bordercolor;
                 }

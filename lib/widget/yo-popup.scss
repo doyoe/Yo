@@ -23,18 +23,18 @@
  */
 
 @mixin yo-popup(
-    $name:default,
-    $width:default,
-    $height:default,
-    $radius:default,
-    $shadow-opacity:default,
-    $bordercolor:default,
-    $hd-height:default,
-    $hd-bgcolor:default,
-    $title-color:default,
-    $title-font-size:default,
-    $bd-padding:default,
-    $arrow-size:default) {
+    $name: default,
+    $width: default,
+    $height: default,
+    $radius: default,
+    $shadow-opacity: default,
+    $bordercolor: default,
+    $hd-height: default,
+    $hd-bgcolor: default,
+    $title-color: default,
+    $title-font-size: default,
+    $bd-padding: default,
+    $arrow-size: default) {
     // 区别是否新增实例还是修改本身
 	@if $name == default {
         $name: "";
@@ -75,7 +75,7 @@
     @if $arrow-size == default {
         $arrow-size: map-get($popup, arrow-size);
     }
-	.yo-popup#{$name}{
+	.yo-popup#{$name} {
 		> .arrow::after{
             @if $arrow-size != map-get($popup, arrow-size) {
                 font-size: $arrow-size * 2;
@@ -89,7 +89,7 @@
                 text-shadow: 0 -1px $bordercolor;
             }
         }
-        .arrow-down::after{
+        .arrow-down::after {
             @if $arrow-size != map-get($popup, arrow-size) {
                 bottom: -$arrow-size + .01rem;
             }
@@ -97,7 +97,7 @@
                 text-shadow: 0 1px $bordercolor;
             }
         }
-        .arrow-right::after{
+        .arrow-right::after {
             @if $arrow-size != map-get($popup, arrow-size) {
                 right: -$arrow-size + .01rem;
             }
@@ -105,7 +105,7 @@
                 text-shadow: 1px 0 $bordercolor;
             }
         }
-        .arrow-left::after{
+        .arrow-left::after {
             @if $arrow-size != map-get($popup, arrow-size) {
                 left: -$arrow-size + .01rem;
             }
@@ -113,7 +113,7 @@
                 text-shadow: -1px 0 $bordercolor;
             }
         }
-        .arrow-extra.arrow::after{
+        .arrow-extra.arrow::after {
             @if $hd-bgcolor != map-get($popup, hd-bgcolor) {
                 color: $hd-bgcolor;
             }
@@ -135,7 +135,7 @@
 	    @if $height != map-get($popup, height) {
 	        height: $height;
 	    }
-        > .hd{
+        > .hd {
         	@if $radius != map-get($popup, radius) {
                 border-radius: $radius $radius 0 0;
             }
@@ -149,7 +149,7 @@
 	        @if $hd-bgcolor != map-get($popup, hd-bgcolor) {
 	            background: $hd-bgcolor;
 	        }
-            .title{
+            .title {
                 @if $title-color != map-get($popup, title-color) and $title-color != map-get($base, color) {
                     color: $title-color;
                 }
@@ -158,12 +158,12 @@
                 }
             }
         }
-        > .bd{
+        > .bd {
         	@if $bd-padding != map-get($popup, bd-padding) {
 	        	padding: $bd-padding;
 	        }
         }
-        > .ft{
+        > .ft {
             @if $bordercolor != map-get($popup, bordercolor) {
                 border-color: $bordercolor;
             }
@@ -172,6 +172,6 @@
 }
 
 // 调用本文件时载入popup基础构造
-.yo-popup{
+.yo-popup {
 	@include _popup;
 }

@@ -627,7 +627,7 @@ html {
   -webkit-flex-direction: column;
   flex-direction: column;
 }
-.yo-search .operate {
+.yo-search > .operate {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -640,18 +640,18 @@ html {
   border-bottom: 1px solid #dddddd;
   background-color: white;
 }
-.yo-search .operate > .action
-> .action > .label,
-.yo-search .operate > .cancel {
+.yo-search > .operate > .action,
+.yo-search > .operate > .action > .label,
+.yo-search > .operate > .cancel {
   -webkit-transition: all 0.2s ease-in;
   -moz-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
 }
-.yo-search .operate > .action,
-.yo-search .operate > .cancel {
+.yo-search > .operate > .action,
+.yo-search > .operate > .cancel {
   display: block;
 }
-.yo-search .operate > .action {
+.yo-search > .operate > .action {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
@@ -663,7 +663,7 @@ html {
   position: relative;
   height: 0.3rem;
 }
-.yo-search .operate > .action > .input {
+.yo-search > .operate > .action > .input {
   -webkit-transform: translatez(0);
   -moz-transform: translatez(0);
   transform: translatez(0);
@@ -679,9 +679,9 @@ html {
   color: #212121;
   font-size: 0.14rem;
 }
-.yo-search .operate > .action > .yo-ico-delete,
-.yo-search .operate > .action > .yo-ico-fresh,
-.yo-search .operate > .action > .yo-ico-stop {
+.yo-search > .operate > .action > .yo-ico-delete,
+.yo-search > .operate > .action > .yo-ico-fresh,
+.yo-search > .operate > .action > .yo-ico-stop {
   display: none;
   position: absolute;
   top: 0;
@@ -690,7 +690,7 @@ html {
   padding: 0 .08rem;
   color: #999999;
 }
-.yo-search .operate > .action > .label {
+.yo-search > .operate > .action > .label {
   position: absolute;
   top: 0;
   left: 50%;
@@ -700,11 +700,11 @@ html {
   color: white;
   word-spacing: -.05rem;
 }
-.yo-search .operate > .action > .label > .yo-ico-search {
+.yo-search > .operate > .action > .label > .yo-ico-search {
   vertical-align: top;
   margin: 0 .08rem 0 .1rem;
 }
-.yo-search .operate > .cancel {
+.yo-search > .operate > .cancel {
   -webkit-transform: translatez(0);
   -moz-transform: translatez(0);
   transform: translatez(0);
@@ -714,29 +714,29 @@ html {
   white-space: nowrap;
   text-align: right;
 }
-.yo-search .operate-on > .action > .label {
+.yo-search > .operate-on > .action > .label {
   left: 0;
   -webkit-transform: translatex(0) translatez(0);
   -moz-transform: translatex(0) translatez(0);
   transform: translatex(0) translatez(0);
 }
-.yo-search .operate-on > .action > .yo-ico-delete {
+.yo-search > .operate-on > .action > .yo-ico-delete {
   display: inline-block;
 }
-.yo-search .operate-on > .cancel {
+.yo-search > .operate-on > .cancel {
   width: .6rem;
   padding-right: .1rem;
 }
-.yo-search .operate-fresh > .action > .input, .yo-search .operate-stop > .action > .input {
+.yo-search > .operate-fresh > .action > .input, .yo-search > .operate-stop > .action > .input {
   text-align: center;
 }
-.yo-search .operate-fresh > .action > .label, .yo-search .operate-stop > .action > .label {
+.yo-search > .operate-fresh > .action > .label, .yo-search > .operate-stop > .action > .label {
   display: none;
 }
-.yo-search .operate-fresh > .action > .yo-ico-fresh {
+.yo-search > .operate-fresh > .action > .yo-ico-fresh {
   display: inline-block;
 }
-.yo-search .operate-stop > .action > .yo-ico-stop {
+.yo-search > .operate-stop > .action > .yo-ico-stop {
   display: inline-block;
 }
 .yo-search > .cont {

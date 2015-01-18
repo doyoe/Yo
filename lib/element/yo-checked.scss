@@ -18,15 +18,17 @@
  * @param {default | Color} $disabled-color 定义checked禁用色
  */
 
-@mixin yo-checked($name:default,
-                $type:default,
-                $size:default,
-                $is-border:default,
-                $bordercolor:default,
-                $bgcolor:default,
-                $on-color:default,
-                $disabled-color:default) {
-	@if $name == default {
+@mixin yo-checked(
+    $name: default,
+    $type: default,
+    $size: default,
+    $is-border: default,
+    $bordercolor: default,
+    $bgcolor: default,
+    $on-color: default,
+    $disabled-color: default) {
+    // 区别是否新增实例还是修改本身
+    @if $name == default {
         $name: "";
     } @else {
         $name: "-#{$name}";
@@ -55,14 +57,14 @@
     }
 	.yo-checked#{$name} {
         &[type="checkbox"],
-        &[type="radio"]{
+        &[type="radio"] {
             @if $size != map-get($checked, size) {
                 @include square($size);
                 font-size: $size;
             }
         }
         @if $is-border {
-            &[type="checkbox"]{
+            &[type="checkbox"] {
                 @if $bordercolor != map-get($checked, bordercolor) {
                     border-color: $bordercolor;
                 }
@@ -72,7 +74,7 @@
             }
         }
         &[type="checkbox"],
-        &[type="radio"]{
+        &[type="radio"] {
             &::after{
                 @if $type != map-get($checked, type) {
                     @if $type == tick {
@@ -82,12 +84,12 @@
                     }
                 }
             }
-            &:checked::after{
+            &:checked::after {
                 @if $on-color != map-get($checked, on-color) {
                     color: $on-color;
                 }
             }
-            &:disabled::after{
+            &:disabled::after {
                 @if $disabled-color != map-get($checked, disabled-color) {
                     color: $disabled-color;
                 }

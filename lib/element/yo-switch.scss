@@ -19,15 +19,17 @@
  * @param {default | Color} $disabled-ball-color 定义switch禁用滑块色
  */
 
-@mixin yo-switch($name:default,
-                $checked-bordercolor:default,
-                $checked-bgcolor:default,
-                $bordercolor:default,
-                $bgcolor:default,
-                $ball-color:default,
-                $disabled-bordercolor:default,
-                $disabled-bgcolor:default,
-                $disabled-ball-color:default) {
+@mixin yo-switch(
+    $name: default,
+    $checked-bordercolor: default,
+    $checked-bgcolor: default,
+    $bordercolor: default,
+    $bgcolor: default,
+    $ball-color: default,
+    $disabled-bordercolor: default,
+    $disabled-bgcolor: default,
+    $disabled-ball-color: default) {
+    // 区别是否新增实例还是修改本身
 	@if $name == default {
         $name: "";
     } @else {
@@ -59,14 +61,14 @@
         $disabled-ball-color: map-get($switch, disabled-ball-color);
     }
 	.yo-switch#{$name} {
-        &[type="checkbox"]{
+        &[type="checkbox"] {
             @if $bordercolor != map-get($switch, bordercolor) {
                 border-color: $bordercolor;
             }
             @if $bgcolor != map-get($switch, bgcolor) {
                 background-color: $bgcolor;
             }
-            &::before{
+            &::before {
                 @if $ball-color != map-get($switch, ball-color) {
                     background-color: $ball-color;
                 }
@@ -76,7 +78,7 @@
             //         background-color: $bordercolor;
             //     }
             // }
-            &:checked{
+            &:checked {
                 @if $checked-bordercolor != map-get($switch, checked-bordercolor) {
                     border-color: $checked-bordercolor;
                 }
@@ -84,9 +86,9 @@
                     background-color: $checked-bgcolor;
                 }
             }
-            &:disabled{
+            &:disabled {
                 &,
-                &:checked{
+                &:checked {
                     @if $disabled-bordercolor != map-get($switch, disabled-bordercolor) {
                         border-color: $disabled-bordercolor;
                     }
@@ -94,7 +96,7 @@
                         background-color: $disabled-bgcolor;
                     }
                 }
-                &::before{
+                &::before {
                     @if $disabled-ball-color != map-get($switch, disabled-ball-color) {
                         background-color: $disabled-ball-color;
                     }

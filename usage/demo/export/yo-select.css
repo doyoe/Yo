@@ -545,12 +545,10 @@ html {
   border: 1px solid #dddddd;
   border-width: 1px 0;
 }
-.yo-select .yo-select-item,
-.yo-select .yo-select-item-list,
-.yo-select .yo-select-item ul {
+.yo-select-item, .yo-select-item-list, .yo-select-item ul {
   height: 100%;
 }
-.yo-select .yo-select-item {
+.yo-select-item {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
@@ -560,7 +558,7 @@ html {
   z-index: 2;
   text-align: center;
 }
-.yo-select .yo-select-item > .mask {
+.yo-select-item > .mask {
   position: absolute;
   z-index: 2;
   top: 0;
@@ -569,17 +567,17 @@ html {
   left: 0;
   content: "\0020";
 }
-.yo-select .yo-select-item-list ul {
+.yo-select-item-list ul {
   position: relative;
 }
-.yo-select .yo-select-item-list li {
+.yo-select-item-list li {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 0.3rem;
 }
-.yo-select .yo-select-item-tag {
+.yo-select-item-tag {
   position: absolute;
   top: 50%;
   right: .1rem;

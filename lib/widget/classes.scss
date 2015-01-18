@@ -241,12 +241,12 @@
         border: 1px solid map-get($select, bordercolor);
         border-width: 1px 0;
     }
-    .yo-select-item,
-    .yo-select-item-list,
-    .yo-select-item ul{
+    &-item,
+    &-item-list,
+    &-item ul{
         height: 100%;
     }
-    .yo-select-item{
+    &-item{
         @include flex();
         position: relative;
         z-index: 2;
@@ -262,7 +262,7 @@
             // background: -webkit-linear-gradient(top,rgba(255,255,255,.6),transparent 40%,transparent 40%,transparent 60%,transparent 60%,rgba(255,255,255,.6));
         }
     }
-    .yo-select-item-list{
+    &-item-list{
         ul{
             position: relative;
         }
@@ -274,7 +274,7 @@
             height: map-get($select, item-height);
         }
     }
-    .yo-select-item-tag{
+    &-item-tag{
         position: absolute;
         top: 50%;
         right: .1rem;
@@ -391,7 +391,7 @@
 @mixin _search{
     @include flexbox();
     @include flex-direction(column);
-    .operate{
+    > .operate{
         @include flexbox();
         position: relative;
         overflow: hidden;
@@ -401,7 +401,7 @@
         padding: map-get($search, op-padding);
         border-bottom: 1px solid map-get($search, bordercolor);
         background-color: map-get($search, op-bgcolor);
-        > .action
+        > .action,
         > .action > .label,
         > .cancel{
             @include transition(all .2s ease-in);
@@ -530,17 +530,16 @@
             display: block;
         }
     }
-    @at-root{
-        &-modal{
-            position: fixed;
+    // 模态搜索
+    &-modal{
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        height: 100%;
+        > .cont{
+            position: relative;
             top: 0;
-            right: 0;
-            left: 0;
-            height: 100%;
-            > .cont{
-                position: relative;
-                top: 0;
-            }
         }
     }
 }

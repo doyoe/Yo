@@ -25,21 +25,23 @@
  * @param {default | Color} $mask-bgcolor 定义yo-search遮罩背景色
  */
 
-@mixin yo-search($name:default,
-			$height:default,
-			$font-size:default,
-			$op-padding:default,
-			$radius:default,
-			$bordercolor:default,
-			$bgcolor:default,
-			$color:default,
-			$on-bordercolor:default,
-			$on-bgcolor:default,
-			$placeholder-color:default,
-			$ico-color:default,
-			$cancel-color:default,
-			$op-bgcolor:default,
-			$mask-bgcolor:default){
+@mixin yo-search(
+	$name: default,
+	$height: default,
+	$font-size: default,
+	$op-padding: default,
+	$radius: default,
+	$bordercolor: default,
+	$bgcolor: default,
+	$color: default,
+	$on-bordercolor: default,
+	$on-bgcolor: default,
+	$placeholder-color: default,
+	$ico-color: default,
+	$cancel-color: default,
+	$op-bgcolor: default,
+	$mask-bgcolor: default) {
+	// 区别是否新增实例还是修改本身
 	@if $name == default {
         $name: "";
     } @else {
@@ -88,18 +90,18 @@
 	@if $mask-bgcolor == default {
 		$mask-bgcolor: map-get($search, mask-bgcolor);
 	}
-	.yo-search#{$name}{
-		.operate{
+	.yo-search#{$name} {
+		.operate {
 			@if $arrow-size != map-get($popup,arrow-size) {
-			font-size: map-get($search, font-size);
-		}
+				font-size: map-get($search, font-size);
+			}
 			line-height: map-get($search, height);
 			padding: map-get($search, op-padding);
 			border-bottom: 1px solid map-get($search, bordercolor);
 			background-color: map-get($search, op-bgcolor);
-			> .action{
+			> .action {
 				height: map-get($search, height);
-				> .input{
+				> .input {
 					border: 1px solid map-get($search, bordercolor);
 					border-radius: map-get($search, radius);
 					background-color: map-get($search, bgcolor);
@@ -108,34 +110,32 @@
 				}
 				> .yo-ico-delete,
 				> .yo-ico-fresh,
-				> .yo-ico-stop{
+				> .yo-ico-stop {
 					color: map-get($search, ico-color);
 				}
-				> .label{
+				> .label {
 					color: map-get($search, placeholder-color);
 				}
 			}
-			> .cancel{
+			> .cancel {
 				color: map-get($search, cancel-color);
 			}
-		}
-		> .cont{
-			background-color: rgba(map-get($search, mask-bgcolor),.9);
-		}
-		@at-root{
 			&-on,
 			&-fresh,
 			&-stop{
-				> .operate > .action > .input{
+				> .action > .input {
 					border-color: map-get($search, on-bordercolor);
 					background-color: map-get($search, on-bgcolor);
 				}
 			}
 		}
+		> .cont {
+			background-color: rgba(map-get($search, mask-bgcolor), .9);
+		}
 	}
 }
 
 // 调用本文件时载入search基础构造
-.yo-search{
+.yo-search {
 	@include _search;
 }

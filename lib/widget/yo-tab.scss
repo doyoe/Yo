@@ -20,16 +20,18 @@
  * @param {default | Color} $$on-color 定义yo-tab激活文本色
  */
 
-@mixin yo-tab($name:default,
-			$is-border:default,
-			$is-item-border:default,
-			$height:default,
-			$bordercolor:default,
-			$bgcolor:default,
-			$color:default,
-			$on-bordercolor:default,
-			$on-bgcolor:default,
-			$on-color:default){
+@mixin yo-tab(
+	$name: default,
+	$is-border: default,
+	$is-item-border: default,
+	$height: default,
+	$bordercolor: default,
+	$bgcolor: default,
+	$color: default,
+	$on-bordercolor: default,
+	$on-bgcolor: default,
+	$on-color: default) {
+	// 区别是否新增实例还是修改本身
 	@if $name == default {
         $name: "";
     } @else {
@@ -37,33 +39,33 @@
     }
 	// 如果值为default，则取config的定义
 	@if $is-border == default {
-		$is-border: map-get($tab,is-border);
+		$is-border: map-get($tab, is-border);
 	}
 	@if $is-item-border == default {
-		$is-item-border: map-get($tab,is-item-border);
+		$is-item-border: map-get($tab, is-item-border);
 	}
 	@if $height == default {
-		$height: map-get($tab,height);
+		$height: map-get($tab, height);
 	}
 	@if $bordercolor == default {
-		$bordercolor: map-get($tab,bordercolor);
+		$bordercolor: map-get($tab, bordercolor);
 	}
 	@if $bgcolor == default {
-		$bgcolor: map-get($tab,bgcolor);
+		$bgcolor: map-get($tab, bgcolor);
 	}
 	@if $color == default {
-		$color: map-get($tab,color);
+		$color: map-get($tab, color);
 	}
 	@if $on-bordercolor == default {
-		$on-bordercolor: map-get($tab,on-bordercolor);
+		$on-bordercolor: map-get($tab, on-bordercolor);
 	}
 	@if $on-bgcolor == default {
-		$on-bgcolor: map-get($tab,on-bgcolor);
+		$on-bgcolor: map-get($tab, on-bgcolor);
 	}
 	@if $on-color == default {
-		$on-color: map-get($tab,on-color);
+		$on-color: map-get($tab, on-color);
 	}
-	.yo-tab#{$name}{
+	.yo-tab#{$name} {
 		@if $height != map-get($tab, height) {
 			height: $height;
 			line-height: $height;
@@ -89,11 +91,11 @@
 		@if $bgcolor != map-get($tab, bgcolor) {
 		    background-color: $bgcolor;
 		}
-	    > .item{
+	    > .item {
 	    	@if $bordercolor != map-get($tab, bordercolor) {
 		        border-top-color: $bordercolor;
 		    }
-	        &:not(:first-child){
+	        &:not(:first-child) {
 	            // 有间隔线时
 	            @if $is-item-border {
 					// 如果config间隔线为false，则重设间隔线
@@ -117,7 +119,7 @@
 		        color: $color;
 		    }
 	        &:active,
-	        &.on{
+	        &.on {
 	        	@if $on-bordercolor != map-get($tab, on-bordercolor) {
 		            border-top-color: $on-bordercolor;
 		        }
@@ -133,6 +135,6 @@
 }
 
 // 调用本文件时载入tab基础构造
-.yo-tab{
+.yo-tab {
 	@include _tab;
 }
