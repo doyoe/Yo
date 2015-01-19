@@ -220,12 +220,6 @@ a {
   vertical-align: middle;
 }
 
-html {
-  -webkit-user-select: text;
-  -moz-user-select: text;
-  user-select: text;
-}
-
 /**
  * Directory: lib/core/variables.scss
  * CSS Variables 定义各种页面沙粒变量
@@ -488,6 +482,9 @@ html {
   width: 100%;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  user-select: text;
   margin: .1rem;
   padding: .1rem;
   border-left: .04rem solid #D7DBE4;
@@ -996,7 +993,7 @@ html {
 }
 
 /**
- * Fragment扩展: yo-btn-normal, yo-btn-light, yo-btn-info
+ * Element扩展: yo-btn-normal, yo-btn-light, yo-btn-info
  * Author: joy.du(飘零雾雨)
  * Time: 2015.1.16
  */

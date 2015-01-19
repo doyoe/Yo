@@ -220,12 +220,6 @@ a {
   vertical-align: middle;
 }
 
-html {
-  -webkit-user-select: text;
-  -moz-user-select: text;
-  user-select: text;
-}
-
 /**
  * Directory: lib/core/variables.scss
  * CSS Variables 定义各种页面沙粒变量
@@ -515,6 +509,9 @@ html {
   width: 100%;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  user-select: text;
   margin: .1rem;
   padding: .1rem;
   border-left: .04rem solid #D7DBE4;

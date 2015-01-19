@@ -61,6 +61,8 @@
 	.code{
 		@include flex();
 		@include overflow();
+		// 开启demo中的选中功能，用以拷贝代码
+		@include user-select(text);
 		margin: .1rem;
 		padding: .1rem;
 		border-left: .04rem solid #D7DBE4;
