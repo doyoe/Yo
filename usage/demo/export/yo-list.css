@@ -94,7 +94,7 @@ html {
 
 body {
   margin: 0;
-  font-size: 0.14rem;
+  font-size: 14px;
   line-height: 1.5;
   font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
 }
@@ -750,7 +750,7 @@ html {
  * Time: 2012.1.1
  ------------------------
  * @method yo-header
- * variables length(6)
+ * variables length(9)
  * @param {default | String} $name 定义yo-header名称
  * @param {default | Length} $height 定义yo-header高度
  * @param {default | Length} $item-width 定义yo-header两侧子项宽度
@@ -809,35 +809,14 @@ html {
  * Author: joy.du(飘零雾雨)
  * Time: 2015.1.16
  */
-.yo-header-light > .title {
-  margin: 0 #dddddd;
-}
-.yo-header-light > .regret,
-.yo-header-light > .affirm {
-  width: #dddddd;
-}
-.yo-header-light > .regret {
-  padding-left: white;
-}
-.yo-header-light > .affirm {
-  padding-right: white;
+.yo-header-light {
+  background-color: white;
 }
 
 .yo-header-positive {
-  border-color: white;
-}
-.yo-header-positive > .title {
-  margin: 0 #145fd7;
-}
-.yo-header-positive > .regret,
-.yo-header-positive > .affirm {
-  width: #145fd7;
-}
-.yo-header-positive > .regret {
-  padding-left: #4a87ee;
-}
-.yo-header-positive > .affirm {
-  padding-right: #4a87ee;
+  border-color: #145fd7;
+  background-color: #4a87ee;
+  color: white;
 }
 
 /**
