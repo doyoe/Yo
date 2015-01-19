@@ -59,7 +59,7 @@ $base: (
     // 只要引用了外部样式，不论里面的内容是什么，body上的rem就会失效
     // 这时在开发者工具里，关闭又开启一次该条属性，则生效，刷新又挂
     // 所以这里注释该条属性，默认字号不能从root相对而来，所以定义成px
-	font-size:            14px,
+	font-size:            .14rem,
 	// font-family
 	// escape('微软雅黑').replace(/\%u/g,'\\').toLowerCase()
 	// 可参考http://alloyteam.github.io/Spirit/modules/Standard/index.html
@@ -345,18 +345,24 @@ $table: (
 ) !default;
 
 
-// Fragment header(5)
+// Fragment header(8)
 $header: (
 	// {Length} 高度
-	height:   .44rem,
+	height:         .44rem,
+	// {Length} 两侧的子项宽度
+	item-width:     .6rem,
+	// {Length} 两侧的子项离边界的间隙
+	item-space:     .15rem,
 	// {Color} 边框色
-	bordercolor:  map-get($base, bordercolor),
+	bordercolor:    map-get($base, bordercolor),
 	// {Color} 背景色
-	bgcolor:  map-get($base, bgcolor),
+	bgcolor:        map-get($base, bgcolor),
 	// {Color} 文本色
-	color:    null,
+	color:          map-get($base, color),
 	// {Length} 文本大小
-	font-size:.16rem
+	font-size:      .16rem,
+	// {Length} 两侧的子项文本大小
+	item-font-size: .14rem
 ) !default;
 
 

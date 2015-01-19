@@ -10,19 +10,25 @@
  * variables length(6)
  * @param {default | String} $name 定义yo-header名称
  * @param {default | Length} $height 定义yo-header高度
+ * @param {default | Length} $item-width 定义yo-header两侧子项宽度
+ * @param {default | Length} $item-space 定义yo-header两侧子项离边界的间隙
  * @param {default | Color} $bgcolor 定义yo-header背景色
  * @param {default | Color} $bordercolor 定义yo-header边框色
  * @param {default | Color} $color 定义yo-header文本色
  * @param {default | Length} $font-size 定义yo-header文本大小
+ * @param {default | Length} $item-font-size 定义yo-header两侧的子项文本大小
  */
 
 @mixin yo-header(
 	$name: default,
 	$height: default,
+	$item-width: default,
+	$item-space: default,
 	$bordercolor: default,
 	$bgcolor: default,
 	$color: default,
-	$font-size: default) {
+	$font-size: default,
+	$item-font-size: default) {
 	// 区别是否新增实例还是修改本身
 	@if $name == default {
         $name: "";
@@ -32,6 +38,12 @@
 	// 如果值为default，则取config的定义
 	@if $height == default {
 		$height: map-get($header, height);
+	}
+	@if $item-width == default {
+		$item-width: map-get($header, item-width);
+	}
+	@if $item-space == default {
+		$item-space: map-get($header, item-space);
 	}
 	@if $bordercolor == default {
 		$bordercolor: map-get($header, bordercolor);
@@ -44,6 +56,9 @@
 	}
 	@if $font-size == default {
 		$font-size: map-get($header, font-size);
+	}
+	@if $item-font-size == default {
+		$item-font-size: map-get($header, item-font-size);
 	}
 	.yo-header#{$name} {
 		@if $height != map-get($header, height) {
@@ -61,6 +76,28 @@
 		}
 		@if $font-size != map-get($header, font-size) {
 			font-size: $font-size;
+		}
+		> .title {
+			@if $item-width != map-get($header, item-width) {
+				margin: 0 $item-width;
+			}
+		}
+		> .regret,
+	    > .affirm {
+	    	@if $item-width != map-get($header, item-width) {
+		        width: $item-width;
+		    }
+			@if $item-font-size != map-get($header, item-font-size) {
+		        font-size: $item-font-size;
+		    }
+	    }
+	    @if $item-space != map-get($header, item-space) {
+		    > .regret {
+			    	padding-left: $item-space;
+		    }
+		    > .affirm {
+			    	padding-right: $item-space;
+		    }
 		}
 	}
 }

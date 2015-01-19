@@ -209,26 +209,39 @@
 	line-height: map-get($header, height);
 	border-bottom: 1px solid map-get($header, bordercolor);
 	background-color: map-get($header, bgcolor);
-	color: map-get($header, color);
-	font-size: map-get($header, font-size);
+	// 如果config预设值不等于base color，则重绘color
+	@if map-get($header, color) != map-get($base, color) {
+		color: map-get($header, color);
+	}
+	// 如果config预设值不等于base font-size，则重绘font-size
+	@if map-get($header, font-size) != map-get($base, font-size) {
+		font-size: map-get($header, font-size);
+	}
 	@include ellipsis;
 	text-align: center;
-	.title {
+	> .title {
 		@include ellipsis;
-		margin: 0 .6rem;
+		margin: 0 map-get($header, item-width);
 	}
-	.regret,
-    .affirm {
+	> .regret,
+    > .affirm {
         position: absolute;
         top: 0;
-        width: .6rem;
-        text-align: center;
+        width: map-get($header, item-width);
+        // 如果config预设值不等于parent font-size，则重绘子项的font-size
+		@if map-get($header, item-font-size) != map-get($header, font-size) {
+	        font-size: map-get($header, item-font-size);
+	    }
         @include link;
     }
-    .regret {
+    > .regret {
     	left: 0;
+    	padding-left: map-get($header, item-space);
+        text-align: left;
     }
-    .affirm {
+    > .affirm {
     	right: 0;
+    	padding-right: map-get($header, item-space);
+    	text-align: right;
     }
 }
