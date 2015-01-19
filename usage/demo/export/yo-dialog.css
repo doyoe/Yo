@@ -819,6 +819,12 @@ html {
   display: flex;
   text-align: center;
 }
+.yo-dialog > .ft .yo-btn {
+  border-radius: 0;
+  border-color: #dddddd;
+  background-color: white;
+  color: #00afc7;
+}
 .yo-dialog > .ft > .yo-btn {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
@@ -826,9 +832,6 @@ html {
   display: block;
   width: 100%;
   border-width: 1px 0 0 0;
-  border-radius: 0;
-  background-color: #fff;
-  color: #00afc7;
 }
 .yo-dialog > .ft > .yo-btn:last-child:not(:only-child), .yo-dialog > .ft > .yo-btn:only-child {
   font-weight: bold;

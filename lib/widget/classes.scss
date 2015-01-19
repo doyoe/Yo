@@ -28,13 +28,13 @@
     height: map-get($dialog, height);
     background: #fff;
     text-align: center;
-    > .hd{
+    > .hd {
         position: relative;
         height: map-get($dialog, hd-height);
         background: map-get($dialog, hd-bgcolor);
         line-height: map-get($dialog, hd-height);
         margin-bottom: -.2rem;
-        .title{
+        .title {
             overflow: hidden;
             height: 100%;
             margin: 0 60px;
@@ -46,14 +46,18 @@
             }
         }
         .regret,
-        .affirm{
+        .affirm {
             position: absolute;
             top: 0;
         }
-        .regret{left: .1rem;}
-        .affirm{right: .1rem;}
+        .regret {
+            left: .1rem;
+        }
+        .affirm {
+            right: .1rem;
+        }
     }
-    > .bd{
+    > .bd {
         @include flex();
         @include overflow();
         padding: map-get($dialog, bd-padding);
@@ -61,24 +65,22 @@
             font-size: map-get($dialog, bd-font-size);
         }
     }
-    > .ft{
+    > .ft {
         @include flexbox();
         text-align: center;
-        > .yo-btn{
+        @include yo-btn(default, map-get($base, bordercolor), #fff, map-get($base, link-color), default, 0);
+        > .yo-btn {
             @include flex();
             border-width: 1px 0 0 0;
-            border-radius: 0;
-            background-color: #fff;
-            color: map-get($base, link-color);
             &:last-child:not(:only-child),
-            &:only-child{
+            &:only-child {
                 font-weight: bold;
             }
-            &:last-child:not(:only-child){
+            &:last-child:not(:only-child) {
                 border-left-width: 1px;
             }
             &:focus,
-            &:active{
+            &:active {
                 background-color: #f9f9f9;
             }
         }
