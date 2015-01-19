@@ -57,7 +57,7 @@
 <div class="m-demo">
     <div class="device">
     <div class="stage">
-        <h2 class="yo-header yo-header-light">Header</h2>
+        <h2 class="yo-header yo-header-normal">Normal Header</h2>
         <ul class="yo-list">
             <li class="item">list item</li>
             <li class="item">list item</li>
@@ -67,19 +67,19 @@
     </div>
     </div>
     <code class="code">
-    <h2>假设你想要轻柔一点的颜色，那么你可以这样扩展：</h2>
+    <h2>假设你想要有点的颜色，那么你可以这样扩展：</h2>
     <p>命名及颜色按照各自团队内部的FE/UI规范即可</p>
     <h3>全局扩展方式：</h3>
-    <xmp>@include yo-header(light,default,#ddd,#fff);</xmp>
+    <xmp>@include yo-header(normal,default,default,default,#ddd,#fafafa);</xmp>
     <h3>使用方法：</h3>
-    <xmp><h2 class="yo-header yo-header-light">Light Header</h2></xmp>
+    <xmp><h2 class="yo-header yo-header-normal">Normal Header</h2></xmp>
     <h3>局部扩展方式：</h3>
     <xmp>.xxx{
-    @include yo-header(light,default,#ddd,#fff);
+    @include yo-header(normal,default,default,default,#ddd,#fafafa);
 }</xmp>
     <h3>使用方法：</h3>
     <xmp><div class="xxx">
-    <h2 class="yo-header yo-header-light">Light Header</h2>
+    <h2 class="yo-header yo-header-normal">Normal Header</h2>
 </div></xmp>
     </code>
 </div>
@@ -100,12 +100,12 @@
     <h2>假设你想要积极一点的颜色，那么你可以这样扩展：</h2>
     <p>命名及颜色按照各自团队内部的FE/UI规范即可</p>
     <h3>全局扩展方式：</h3>
-    <xmp>@include yo-header(positive,default,#145fd7,#4a87ee,#fff);</xmp>
+    <xmp>@include yo-header(positive,default,default,default,#145fd7,#4a87ee,#fff);</xmp>
     <h3>使用方法：</h3>
     <xmp><h2 class="yo-header yo-header-positive">Positive Header</h2></xmp>
     <h3>局部扩展方式：</h3>
     <xmp>.xxx{
-    @include yo-header(positive,default,#145fd7,#4a87ee,#fff);
+    @include yo-header(positive,default,default,default,#145fd7,#4a87ee,#fff);
 }</xmp>
     <h3>使用方法：</h3>
     <xmp><div class="xxx">
