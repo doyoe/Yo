@@ -132,6 +132,7 @@ a, ins, s, u, del {
     text-decoration: none;
 }
 // 1. 禁止长按链接与图片弹出菜单
+// issues: 在iOS8.1下此设置对a仍无效
 a, img {
     -webkit-touch-callout: none;
 }
