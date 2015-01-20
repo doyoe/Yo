@@ -630,26 +630,23 @@ a {
   overflow: hidden;
   min-width: 0.7rem;
   min-height: 0.7rem;
+  background-color: rgba(255, 255, 255, 0.5);
   text-align: center;
 }
 .yo-loading:before, .yo-loading:after {
   position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   content: "\0020";
 }
 .yo-loading:before {
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(255, 255, 255, 0.5);
-}
-.yo-loading:after {
-  top: 50%;
-  left: 50%;
+  z-index: 2;
   width: 0.04em;
   height: 0.04em;
-  margin-top: -.02em;
-  margin-left: -.02em;
+  margin-top: -.1rem;
   background: transparent;
   border-radius: 50%;
   -webkit-animation: loading 1s infinite linear;
@@ -659,8 +656,14 @@ a {
   -moz-transform-origin: center;
   transform-origin: center;
   box-shadow: .35em -.29em, .47em -.03em 0 .01em, .4em .20em 0 .02em, .25em .38em 0 .03em, 0 .44em 0 .04em, -.22em .38em 0 .05em, -.38em .24em 0 .05em, -.42em 0 0 .06em, -.36em -.21em 0 .06em, -.2em -.36em 0 .06em, 0 -.41em 0 .07em;
-  color: #666666;
+  color: #333333;
   font-size: 0.5rem;
+}
+.yo-loading:after {
+  width: 1rem;
+  height: 1rem;
+  border-radius: .1rem;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 .yo-loading > .inner {
   position: absolute;
@@ -669,9 +672,9 @@ a {
   -webkit-transform: translate(-50%, -50%);
   -moz-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  margin-top: 0.4rem;
-  color: #666666;
-  font-size: .14rem;
+  margin-top: 0.32rem;
+  color: #333333;
+  font-size: .12rem;
 }
 @-webkit-keyframes loading {
   from {

@@ -65,25 +65,20 @@
 	overflow: hidden;
 	min-width: map-get($loading, size) + .2rem;
 	min-height: map-get($loading, size) + .2rem;
+	background-color: map-get($loading, bgcolor);
 	text-align: center;
 	&:before,
 	&:after {
 		position: absolute;
+		top: 50%;
+		left: 50%;
+		@include transform(translate(-50%, -50%));
 		content: "\0020";
 	}
 	&:before {
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		background-color: map-get($loading, bgcolor);
-	}
-	&:after {
-		top: 50%;
-		left: 50%;
+		z-index: 2;
 		@include square(.04em);
-		margin-top: -.02em;
-		margin-left: -.02em;
+		margin-top: -.1rem;
 		background: transparent;
 		border-radius: 50%;
 		@include animation(loading 1s infinite linear);
@@ -103,14 +98,19 @@
 		color: map-get($loading, bordercolor);
 		font-size: map-get($loading, size);
 	}
+	&:after {
+		@include square(map-get($loading, size) * 2);
+		border-radius: .1rem;
+		background-color: rgba(0, 0, 0, .5);
+	}
 	> .inner {
 		position: absolute;
 		top: 50%;
 		left: 50%;
 		@include transform(translate(-50%, -50%));
-		margin-top: map-get($loading, size) - .1rem;
+		margin-top: map-get($loading, size) - .18rem;
 		color: map-get($loading, bordercolor);
-		font-size: .14rem;
+		font-size: .12rem;
 	}
 }
 

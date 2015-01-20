@@ -59,7 +59,7 @@
 		}
 		> .inner{
 			@if $size != map-get($loading, size) {
-				margin-top: $size - .1rem;
+				margin-top: $size - .18rem;
 			}
 			@if $bordercolor != map-get($loading, bordercolor) {
 				color: $bordercolor;
