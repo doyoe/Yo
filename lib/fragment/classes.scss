@@ -1,7 +1,7 @@
 @charset "utf-8";
 @import "../core/variables";
 @import "../core/classes";
-
+@import "../core/function";
 /**
  * Directory: lib/fragment/classes.scss
  * fragment的基础构造
@@ -244,4 +244,41 @@
     	padding-right: map-get($header, item-space);
     	text-align: right;
     }
+}
+
+
+// 定义nav的基础构造
+// 使用方法请查看 yo-nav.scss
+@mixin _nav {
+	position: relative;
+	width: map-get($nav,width);
+	height: map-get($nav,height);
+	background: map-get($nav,bgcolor);
+	.item{
+		height: map-get($nav,item-height);
+		background: map-get($nav,item-bgcolor);
+		font-size: map-get($nav,item-font-size);
+		line-height: map-get($nav,item-font-size)*1.5;
+		padding: map-get($nav,item-padding);
+		border-bottom: 1px solid map-get($nav,item-bordercolor);
+		color: map-get($nav,item-color);
+		@include flexbox;
+		&:active{
+			background: map-get($nav,item-active-bgcolor);
+		}
+		.decorate{
+			display: inline-block;
+			width: .2rem;
+			color: map-get($nav,decorate-color);
+			font-size: map-get($nav,decorate-font-size);
+			margin-right: .05rem;
+		}
+		.cont{
+			@include flex(1);
+		}
+		.exec{
+			color: map-get($nav,exec-color);
+			font-size: map-get($nav,exec-font-size);
+		}
+	}
 }

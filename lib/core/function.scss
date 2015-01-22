@@ -1,0 +1,20 @@
+@charset "utf-8";
+
+@function map-deep-get($map, $keys...) {
+    @each $key in $keys {
+        $map: map-get($map, $key);
+    }
+    @return $map;
+}
+
+
+@function set-property($element,$property,$value){
+    @if $property == default {
+        $property: map-get($element, $value);
+        @return $property;
+    }@else{
+        @return $property;
+    }
+}
+
+
