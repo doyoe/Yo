@@ -2,20 +2,12 @@
 @import "../layout/layout";
 @import "../module/m-demo";
 @import "../module/m-code";
-@import "../../../lib/fragment/yo-list";
-@import "../../../lib/element/yo-switch";
+@import "../fragment/yo-header";
+@import "../fragment/yo-list";
+@import "../element/yo-switch";
 
 /**
  * switch演示页面
  * Author: joy.du(飘零雾雨)
  * Time: 2014.11.14
  */
-
-
-@include yo-switch(b,#4a87ee,#4a87ee);
-@include yo-switch(c,#43cee6,#43cee6);
-@include yo-switch(d,#66cc33,#66cc33);
-@include yo-switch(e,#f0b840,#f0b840);
-@include yo-switch(f,#ef4e3a,#ef4e3a);
-@include yo-switch(g,#8a6de9,#8a6de9);
-@include yo-switch(h,#444,#444);

@@ -997,10 +997,16 @@ a {
 }
 
 /**
- * checked演示页面
+ * Element扩展: yo-checked-test
  * Author: joy.du(飘零雾雨)
- * Time: 2014.11.14
+ * Time: 2015.1.16
  */
 .yo-checked-test[type="checkbox"]::after, .yo-checked-test[type="radio"]::after {
   content: "✓";
 }
+
+/**
+ * checked演示页面
+ * Author: joy.du(飘零雾雨)
+ * Time: 2014.11.14
+ */

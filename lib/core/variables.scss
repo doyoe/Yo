@@ -108,14 +108,16 @@ $ico: (
 ) !default;
 
 
-// Element loading(3)
+// Element loading(4)
 $loading: (
 	// {Length} 菊花大小
 	size:        .5rem,
 	// {Color} 菊花颜色
-	bordercolor: #333,
-	// {String} mask颜色
-	bgcolor:     rgba(255, 255, 255, .5)
+	color:       #333,
+	// {Color} mask颜色
+	mask-bgcolor:rgba(0, 0, 0, .1),
+	// {Color} 背景颜色
+	bgcolor:     null
 ) !default;
 
 

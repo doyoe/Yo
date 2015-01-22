@@ -613,10 +613,11 @@ a {
  * Time: 2012.1.1
  -----------------------
  * @method loading
- * variables length(4)
+ * variables length(5)
  * @param {defailt | String} $name 定义名称
  * @param {defailt | Length} $size 定义尺寸
- * @param {defailt | Color} $bordercolor 定义边框色
+ * @param {defailt | Color} $color 定义loading颜色
+ * @param {defailt | Color} $mask-bgcolor 定义mask背景色
  * @param {defailt | Color} $bgcolor 定义背景色
  */
 .yo-loading {
@@ -630,7 +631,8 @@ a {
   overflow: hidden;
   min-width: 0.7rem;
   min-height: 0.7rem;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #333333;
   text-align: center;
 }
 .yo-loading:before, .yo-loading:after {
@@ -642,8 +644,7 @@ a {
   transform: translate(-50%, -50%);
   content: "\0020";
 }
-.yo-loading:before {
-  z-index: 2;
+.yo-loading:after {
   width: 0.04em;
   height: 0.04em;
   margin-top: -.1rem;
@@ -656,14 +657,12 @@ a {
   -moz-transform-origin: center;
   transform-origin: center;
   box-shadow: .35em -.29em, .47em -.03em 0 .01em, .4em .20em 0 .02em, .25em .38em 0 .03em, 0 .44em 0 .04em, -.22em .38em 0 .05em, -.38em .24em 0 .05em, -.42em 0 0 .06em, -.36em -.21em 0 .06em, -.2em -.36em 0 .06em, 0 -.41em 0 .07em;
-  color: #333333;
   font-size: 0.5rem;
 }
-.yo-loading:after {
+.yo-loading:before {
   width: 1rem;
   height: 1rem;
   border-radius: .1rem;
-  background-color: rgba(0, 0, 0, 0.5);
 }
 .yo-loading > .inner {
   position: absolute;
@@ -673,7 +672,6 @@ a {
   -moz-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   margin-top: 0.32rem;
-  color: #333333;
   font-size: .12rem;
 }
 @-webkit-keyframes loading {
@@ -694,6 +692,46 @@ a {
     transform: rotatez(360deg);
   }
 }
+/**
+ * Element扩展: yo-loading
+ * Author: joy.du(飘零雾雨)
+ * Time: 2015.1.16
+ */
+.yo-loading-b:before {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.yo-loading-b:after {
+  color: #333333;
+}
+
+.yo-loading-c {
+  color: #00afc7;
+}
+.yo-loading-c:before {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.yo-loading-c:after {
+  color: #00afc7;
+}
+
+.yo-loading-d {
+  min-width: 0.9rem;
+  min-height: 0.9rem;
+  color: #00afc7;
+}
+.yo-loading-d:before {
+  width: 1.4rem;
+  height: 1.4rem;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.yo-loading-d:after {
+  font-size: 0.7rem;
+  color: #00afc7;
+}
+.yo-loading-d > .inner {
+  margin-top: 0.52rem;
+}
+
 /**
  * loading演示页面
  * Author: joy.du(飘零雾雨)

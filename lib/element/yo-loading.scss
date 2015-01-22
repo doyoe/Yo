@@ -7,17 +7,19 @@
  * Time: 2012.1.1
  -----------------------
  * @method loading
- * variables length(4)
+ * variables length(5)
  * @param {defailt | String} $name 定义名称
  * @param {defailt | Length} $size 定义尺寸
- * @param {defailt | Color} $bordercolor 定义边框色
+ * @param {defailt | Color} $color 定义loading颜色
+ * @param {defailt | Color} $mask-bgcolor 定义mask背景色
  * @param {defailt | Color} $bgcolor 定义背景色
  */
 
 @mixin yo-loading(
 	$name: default,
 	$size: default,
-	$bordercolor: default,
+	$color: default,
+	$mask-bgcolor: default,
 	$bgcolor: default) {
 	// 区别是否新增实例还是修改本身
 	@if $name == default {
@@ -29,8 +31,11 @@
 	@if $size == default {
         $size: map-get($loading, size);
     }
-    @if $bordercolor == default {
-        $bordercolor: map-get($loading, bordercolor);
+    @if $color == default {
+        $color: map-get($loading, color);
+    }
+    @if $mask-bgcolor == default {
+        $mask-bgcolor: map-get($loading, mask-bgcolor);
     }
     @if $bgcolor == default {
         $bgcolor: map-get($loading, bgcolor);
@@ -41,8 +46,17 @@
 			min-width: $size + .2rem;
 			min-height: $size + .2rem;
 		}
+		// 如果$bgcolor不等于config预设值时，则重写遮罩背景色
+		@if $mask-bgcolor != map-get($loading, mask-bgcolor) {
+		    background-color: $mask-bgcolor;
+		}
+		@if $color != map-get($loading, color) {
+			color: $color;
+		}
 		&:before{
-			// 如果$bgcolor不等于config预设值时，则重写遮罩背景色
+			@if $size != map-get($loading, size) {
+				@include square($size * 2);
+			}
 			@if $bgcolor != map-get($loading, bgcolor) {
 			    background-color: $bgcolor;
 			}
@@ -51,18 +65,11 @@
 			// 如果$size不等于config预设值时，则重设尺寸
 			@if $size != map-get($loading,size) {
 				font-size: $size;
-			}
-			// 如果$bordercolor不等于config预设值时，则重设颜色
-			@if $bordercolor != map-get($loading, bordercolor) {
-			    color: $bordercolor;
-			}
+			} color: $color;
 		}
 		> .inner{
 			@if $size != map-get($loading, size) {
 				margin-top: $size - .18rem;
-			}
-			@if $bordercolor != map-get($loading, bordercolor) {
-				color: $bordercolor;
 			}
 		}
 	}

@@ -14,6 +14,7 @@
 <div class="m-demo">
     <div class="device">
     <div class="stage">
+        <h2 class="yo-header">Switch</h2>
     	<ul class="yo-list">
             <li class="item">
             	<div class="mark flex">list item</div>
@@ -66,7 +67,24 @@
         </ul>
     </div>
     </div>
-    <code class="code"><xmp><input type="checkbox" class="yo-switch" /></xmp></code>
+    <code class="code">
+    <xmp><input type="checkbox" class="yo-switch" />
+    </xmp>
+    <h2>假设你想要其他颜色，那么你可以这样扩展：</h2>
+    <p>命名及颜色按照各自团队内部的FE/UI规范即可</p>
+    <h3>全局扩展方式：</h3>
+    <xmp>@include yo-switch(test,#4a87ee,#4a87ee);</xmp>
+    <h3>使用方法：</h3>
+    <xmp><input type="checkbox" class="yo-switch yo-switch-test" /></xmp>
+    <h3>局部扩展方式：</h3>
+    <xmp>.xxx{
+    @include yo-switch(test,#4a87ee,#4a87ee);
+}</xmp>
+    <h3>使用方法：</h3>
+    <xmp><div class="xxx">
+    <input type="checkbox" class="yo-switch yo-switch-test" />
+</div></xmp>
+    </code>
 </div>
 
 
