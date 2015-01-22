@@ -58,6 +58,48 @@
 <div class="m-demo">
     <div class="device">
     <div class="stage">
+        <h2 class="yo-header">扩展对勾Radio checked</h2>
+        <div class="yo-list">
+            <label class="item item-active">
+                <span class="mark flex">CRM</span>
+                <input type="radio" name="project3" class="yo-checked yo-checked-test" checked />
+            </label>
+            <label class="item item-active">
+                <span class="mark flex">PMS</span>
+                <input type="radio" name="project3" class="yo-checked yo-checked-test" />
+            </label>
+            <label class="item item-active">
+                <span class="mark flex">Mobile</span>
+                <input type="radio" name="project3" class="yo-checked yo-checked-test" />
+            </label>
+            <label class="item item-active">
+                <span class="mark flex">Yo</span>
+                <input type="radio" name="project3" class="yo-checked yo-checked-test" />
+            </label>
+        </div>
+    </div>
+    </div>
+    <code class="code">
+    <h2>yo-checked为单选提供了 [圆点（circle） | 对勾（tick）] 2种形态的选中状态：</h2>
+    <p>命名及颜色按照各自团队内部的FE/UI规范即可</p>
+    <h3>全局扩展方式：</h3>
+    <xmp>@include yo-checked(test,tick);</xmp>
+    <h3>使用方法：</h3>
+    <xmp><input type="radio" name="test" class="yo-checked yo-checked-test" /></xmp>
+    <h3>局部扩展方式：</h3>
+    <xmp>.xxx{
+    @include yo-checked(test,tick);
+}</xmp>
+    <h3>使用方法：</h3>
+    <xmp><div class="xxx">
+    <input type="radio" name="test" class="yo-checked yo-checked-test" />
+</div></xmp>
+    </code>
+</div>
+
+<div class="m-demo">
+    <div class="device">
+    <div class="stage">
         <h2 class="yo-header">Checkbox checked</h2>
         <div class="yo-list">
             <label class="item item-active">
@@ -66,7 +108,7 @@
             </label>
             <label class="item item-active">
                 <span class="mark flex">PMS</span>
-                <input type="checkbox" name="project2" class="yo-checked" checked disabled />
+                <input type="checkbox" name="project2" class="yo-checked" />
             </label>
             <label class="item item-active">
                 <span class="mark flex">Mobile</span>
@@ -102,49 +144,7 @@
 <div class="m-demo">
     <div class="device">
     <div class="stage">
-        <div class="yo-list">
-            <label class="item item-active">
-                <span class="mark flex">CRM</span>
-                <input type="radio" name="project3" class="yo-checked yo-checked-test" />
-            </label>
-            <label class="item item-active">
-                <span class="mark flex">PMS</span>
-                <input type="radio" name="project3" class="yo-checked yo-checked-test" checked disabled />
-            </label>
-            <label class="item item-active">
-                <span class="mark flex">Mobile</span>
-                <input type="radio" name="project3" class="yo-checked yo-checked-test" />
-            </label>
-            <label class="item item-active">
-                <span class="mark flex">Yo</span>
-                <input type="radio" name="project3" class="yo-checked yo-checked-test" />
-            </label>
-        </div>
-    </div>
-    </div>
-    <code class="code"><xmp><div class="yo-list">
-    <label class="item item-active">
-        <span class="mark flex">CRM</span>
-        <input type="radio" name="project3" class="yo-checked yo-checked-test" />
-    </label>
-    <label class="item item-active">
-        <span class="mark flex">PMS</span>
-        <input type="radio" name="project3" class="yo-checked yo-checked-test" checked disabled />
-    </label>
-    <label class="item item-active">
-        <span class="mark flex">Mobile</span>
-        <input type="radio" name="project3" class="yo-checked yo-checked-test" />
-    </label>
-    <label class="item item-active">
-        <span class="mark flex">Yo</span>
-        <input type="radio" name="project3" class="yo-checked yo-checked-test" />
-    </label>
-</div></xmp></code>
-</div>
-
-<div class="m-demo">
-    <div class="device">
-    <div class="stage">
+        <h2 class="yo-header">扩展对勾Checkbox checked</h2>
         <div class="yo-list">
             <label class="item item-active">
                 <span class="mark flex">CRM</span>
@@ -152,7 +152,7 @@
             </label>
             <label class="item item-active">
                 <span class="mark flex">PMS</span>
-                <input type="checkbox" name="project4" class="yo-checked yo-checked-test" checked disabled />
+                <input type="checkbox" name="project4" class="yo-checked yo-checked-test" />
             </label>
             <label class="item item-active">
                 <span class="mark flex">Mobile</span>
@@ -165,24 +165,22 @@
         </div>
     </div>
     </div>
-    <code class="code"><xmp><div class="yo-list">
-    <label class="item item-active">
-        <span class="mark flex">CRM</span>
-        <input type="checkbox" name="project5" class="yo-checked yo-checked-test" checked />
-    </label>
-    <label class="item item-active">
-        <span class="mark flex">PMS</span>
-        <input type="checkbox" name="project5" class="yo-checked yo-checked-test" checked disabled />
-    </label>
-    <label class="item item-active">
-        <span class="mark flex">Mobile</span>
-        <input type="checkbox" name="project5" class="yo-checked yo-checked-test" />
-    </label>
-    <label class="item item-active">
-        <span class="mark flex">Yo</span>
-        <input type="checkbox" name="project5" class="yo-checked yo-checked-test" />
-    </label>
-</div></xmp></code>
+    <code class="code">
+    <h2>yo-checked为多选提供了 [圆点（circle） | 对勾（tick）] 2种形态的选中状态：</h2>
+    <p>命名及颜色按照各自团队内部的FE/UI规范即可</p>
+    <h3>全局扩展方式：</h3>
+    <xmp>@include yo-checked(test,tick);</xmp>
+    <h3>使用方法：</h3>
+    <xmp><input type="checkbox" name="test" class="yo-checked yo-checked-test" /></xmp>
+    <h3>局部扩展方式：</h3>
+    <xmp>.xxx{
+    @include yo-checked(test,tick);
+}</xmp>
+    <h3>使用方法：</h3>
+    <xmp><div class="xxx">
+    <input type="checkbox" name="test" class="yo-checked yo-checked-test" />
+</div></xmp>
+    </code>
 </div>
 
 <pre class="m-code"><span class="method">@include yo-checked</span><span class="bracket">(</span>
