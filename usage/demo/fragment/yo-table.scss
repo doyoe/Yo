@@ -1,0 +1,13 @@
+@charset "utf-8";
+@import "../../../lib/fragment/yo-table";
+
+/**
+ * Fragment扩展
+ * Author: joy.du(飘零雾雨)
+ * Time: 2015.1.16
+ */
+
+// 有竖线
+@include yo-table(test,default,true);
+// 有间隔色
+@include yo-table(test2,default,default,default,default,default,default,default,#f9f9f9);

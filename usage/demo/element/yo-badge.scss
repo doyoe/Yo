@@ -1,0 +1,11 @@
+@charset "utf-8";
+@import "../../../lib/element/yo-badge";
+
+/**
+ * Element扩展: yo-badge-normal
+ * Author: joy.du(飘零雾雨)
+ * Time: 2015.1.16
+ */
+
+// 预设常规气泡
+@include yo-badge(normal,gray);
