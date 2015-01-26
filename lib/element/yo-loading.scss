@@ -63,9 +63,9 @@
 		}
 		&:after{
 			// 如果$size不等于config预设值时，则重设尺寸
-			@if $size != map-get($loading,size) {
+			@if $size != map-get($loading, size) {
 				font-size: $size;
-			} color: $color;
+			}
 		}
 		> .inner{
 			@if $size != map-get($loading, size) {

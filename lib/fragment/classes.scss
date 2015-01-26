@@ -101,42 +101,21 @@
 // 定义table的基础构造
 // 使用方法请查看 yo-table.scss
 @mixin _table {
+	width: map-get($table, width);
 	background-color: #fff;
-	&-zone {
-		padding: map-get($table, padding);
-		border: 1px solid map-get($table, bordercolor);
-		table {
-			margin: -1px 0;
-		}
-	}
-	table {
-		width: 100%;
-	}
-	caption {
-		padding: map-get($table, caption-padding);
-		@if map-get($table, is-vertical-border) == false {
-			border-bottom: 1px solid map-get($table, is-vertical-border);
-		}
-	}
 	thead {
-		@if map-get($table,thead-bgcolor) != none {
-			background-color: map-get($table, thead-bgcolor);
-		}
+		background-color: map-get($table, thead-bgcolor);
 		th {
-			@if map-get($table,thead-padding) != 0 {
-				padding: map-get($table, thead-padding);
-			}
+			padding: map-get($table, thead-padding);
 		}
 	}
 	td {
-		@if map-get($table, tbody-padding) != 0 {
-			padding: map-get($table, tbody-padding);
-		}
+		padding: map-get($table, tbody-padding);
 	}
 	th,
 	td {
 		// 判断是够需要垂直边框
-		@if map-get($table, is-vertical-border) == false {
+		@if map-get($table, has-vertical-border) == false {
 			border-width: 0 0 1px 0;
 		} @else {
 			border-width: 1px;
@@ -151,8 +130,11 @@
 		tr:nth-child(even) {
 			background-color: map-get($table, even-bgcolor);
 		}
-		tr:hover {
-			background-color: map-get($table, hover-bgcolor);
+		tr:active {
+			background-color: map-get($table, active-bgcolor);
+		}
+		tr.on{
+			background-color: map-get($table, on-bgcolor);
 		}
 	}
 }

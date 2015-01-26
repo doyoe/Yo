@@ -67,7 +67,7 @@ $base: (
 	// lin-height
 	line-height:          1.5,
 	// 默认文档背景色
-	doc-bgcolor:          #fff,
+	doc-bgcolor:          #fafafa,
 	// 默认边框色
 	bordercolor:          #ddd,
 	// 默认背景颜色
@@ -324,12 +324,10 @@ $tab: (
 
 // Fragment Table(10)
 $table: (
+	// {Length} 表头部内补白
+	width:           100%,
 	// {Boole} 是否需要纵向边框
-	is-vertical-border: false,
-	// {Length} 表格距外观边距离
-	padding:         0 .1rem,
-	// {Length} 表标题内部白
-	caption-padding: .1rem,
+	has-vertical-border: false,
 	// {Length} 表头部内补白
 	thead-padding:   .05rem .1rem,
 	// {Length} 表主体内补白
@@ -342,8 +340,10 @@ $table: (
 	odd-bgcolor:     null,
 	// {Color} 表主体偶数行背景色
 	even-bgcolor:    null,
-	// {Color} 表主体经过行背景色
-	hover-bgcolor:   null
+	// {Color} 表主体激活行背景色
+	active-bgcolor:  null,
+	// {Color} 表主体选中行背景色
+	on-bgcolor:      null
 ) !default;
 
 

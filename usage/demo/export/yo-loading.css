@@ -421,7 +421,6 @@ a {
 }
 .m-demo .device .stage {
   height: 5.68rem;
-  background-color: #fff;
 }
 @media screen and (min-width: 800px) {
   .m-demo .device {
@@ -700,18 +699,12 @@ a {
 .yo-loading-b:before {
   background-color: rgba(0, 0, 0, 0.5);
 }
-.yo-loading-b:after {
-  color: #333333;
-}
 
 .yo-loading-c {
   color: #00afc7;
 }
 .yo-loading-c:before {
   background-color: rgba(0, 0, 0, 0.5);
-}
-.yo-loading-c:after {
-  color: #00afc7;
 }
 
 .yo-loading-d {
@@ -726,7 +719,6 @@ a {
 }
 .yo-loading-d:after {
   font-size: 0.7rem;
-  color: #00afc7;
 }
 .yo-loading-d > .inner {
   margin-top: 0.52rem;

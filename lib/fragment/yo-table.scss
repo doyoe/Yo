@@ -4,37 +4,35 @@
 /**
  * Widget: yo-table
  * Author: joy.du(飘零雾雨)
- * Time: 2012.1.1
+ * Time: 2015.1.25
  -----------------------
  * method yo-table
- * variables length(12)
+ * variables length(11)
  * param {default|String} $name 定义table名称
  * param {default|String} $width 定义table长度
- * param {default|Boole} $is-vertical-border 定义table是否需要纵向边框
- * param {default|Length} $padding 定义table与外边框的距离
- * param {default|Length} $caption-padding 定义table标题内补白
+ * param {default|Boole} $has-vertical-border 定义table是否需要纵向边框
  * param {default|Length} $thead-padding 定义table头部内补白
  * param {default|Length} $tbody-padding 定义table主体内补白
  * param {default|Color} $bordercolor 定义table边框色
- * param {default|none|Color} $thead-bgcolor 定义table头部背景色
- * param {default|none|Color} $odd-bgcolor 定义table奇数行背景色
- * param {default|none|Color} $even-bgcolor 定义table偶数行背景色
- * param {default|none|Color} $hover-bgcolor 定义table经过背景色
+ * param {default|Color} $thead-bgcolor 定义table头部背景色
+ * param {default|Color} $odd-bgcolor 定义table奇数行背景色
+ * param {default|Color} $even-bgcolor 定义table偶数行背景色
+ * param {default|Color} $active-bgcolor 定义table激活背景色
+ * param {default|Color} $on-bgcolor 定义table选中背景色
  */
 
 @mixin yo-table(
 	$name: default,
 	$width: default,
-	$is-vertical-border: default,
-	$padding: default,
-	$caption-padding: default,
+	$has-vertical-border: default,
 	$thead-padding: default,
 	$tbody-padding: default,
 	$bordercolor: default,
 	$thead-bgcolor: default,
 	$odd-bgcolor: default,
 	$even-bgcolor: default,
-	$hover-bgcolor: default) {
+	$active-bgcolor: default,
+	$on-bgcolor: default) {
 	// 区别是否新增实例还是修改本身
 	@if $name == default {
         $name: "";
@@ -42,14 +40,8 @@
         $name: "-#{$name}";
     }
 	// 如果值为default，则取config的定义
-	@if $is-vertical-border == default {
-		$is-vertical-border: map-get($table, is-vertical-border);
-	}
-	@if $padding == default {
-		$padding: map-get($table, padding);
-	}
-	@if $caption-padding == default {
-		$caption-padding: map-get($table, caption-padding);
+	@if $has-vertical-border == default {
+		$has-vertical-border: map-get($table, has-vertical-border);
 	}
 	@if $thead-padding == default {
 		$thead-padding: map-get($table, thead-padding);
@@ -69,38 +61,19 @@
 	@if $even-bgcolor == default {
 		$even-bgcolor: map-get($table, even-bgcolor);
 	}
-	@if $hover-bgcolor == default {
-		$hover-bgcolor: map-get($table, hover-bgcolor);
+	@if $active-bgcolor == default {
+		$active-bgcolor: map-get($table, active-bgcolor);
+	}
+	@if $on-bgcolor == default {
+		$on-bgcolor: map-get($table, on-bgcolor);
 	}
 	.yo-table#{$name} {
-		@if $name == -zone {
-			@if $padding != map-get($table, padding) {
-				padding: $padding;
-			}
-			@if $bordercolor != map-get($table, bordercolor) {
-				border-color: $bordercolor;
-			}
-		}
-		table {
-			@if $width != default {
-				width: $width;
-			}
-		}
-		caption {
-			@if $caption-padding != map-get($table, caption-padding) {
-				padding: $caption-padding;
-			}
-			@if $is-vertical-border == false {
-				@if $bordercolor != map-get($table, bordercolor) {
-					border-bottom: 1px solid $bordercolor;
-				}
-			} @else {
-				border-bottom: 0 ;
-			}
+		@if $width != default {
+			width: $width;
 		}
 		thead {
 			@if $thead-bgcolor != none and $thead-bgcolor != map-get($table, thead-bgcolor) {
-				background: $thead-bgcolor;
+				background-color: $thead-bgcolor;
 			}
 			th {
 				@if $thead-padding != map-get($table, thead-padding) {
@@ -114,12 +87,12 @@
 			}
 		}
 		th,td {
-			@if $is-vertical-border == false {
-				@if $is-vertical-border != map-get($table, is-vertical-border) {
+			@if $has-vertical-border == false {
+				@if $has-vertical-border != map-get($table, has-vertical-border) {
 					border-width: 0 0 1px 0;
 				}
 			} @else {
-				@if $is-vertical-border != map-get($table, is-vertical-border) {
+				@if $has-vertical-border != map-get($table, has-vertical-border) {
 					border-width: 1px;
 				}
 			}
@@ -130,17 +103,22 @@
 		tbody {
 			tr:nth-child(odd) {
 				@if $odd-bgcolor != map-get($table, odd-bgcolor) {
-					background: $odd-bgcolor;
+					background-color: $odd-bgcolor;
 				}
 			}
 			tr:nth-child(even) {
 				@if $even-bgcolor != map-get($table, even-bgcolor) {
-					background: $even-bgcolor;
+					background-color: $even-bgcolor;
 				}
 			}
-			tr:hover {
-				@if $hover-bgcolor != map-get($table, hover-bgcolor) {
-					background: $hover-bgcolor;
+			tr:active {
+				@if $active-bgcolor != map-get($table, active-bgcolor) {
+					background-color: $active-bgcolor;
+				}
+			}
+			tr.on {
+				@if $on-bgcolor != map-get($table, on-bgcolor) {
+					background-color: $on-bgcolor;
 				}
 			}
 		}
