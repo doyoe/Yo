@@ -16,10 +16,25 @@
     <div class="stage">
         <h2 class="yo-header">Switch</h2>
     	<ul class="yo-list">
+            <li class="label">常规：</li>
+            <li class="item">
+                <div class="mark flex">list item</div>
+                <div class="cont">
+                    <input type="checkbox" class="yo-switch" checked />
+                </div>
+            </li>
+            <li class="label">禁用：</li>
+            <li class="item">
+                <div class="mark flex">list item</div>
+                <div class="cont">
+                    <input type="checkbox" class="yo-switch" disabled />
+                </div>
+            </li>
+            <li class="label">扩展：</li>
             <li class="item">
             	<div class="mark flex">list item</div>
                 <div class="cont">
-                	<input type="checkbox" class="yo-switch" />
+                	<input type="checkbox" class="yo-switch yo-switch-a" checked />
                 </div>
             </li>
             <li class="item">
@@ -29,15 +44,15 @@
                 </div>
             </li>
             <li class="item">
-            	<div class="mark flex">list item</div>
+                <div class="mark flex">list item</div>
                 <div class="cont">
-                	<input type="checkbox" class="yo-switch yo-switch-c" checked />
+                    <input type="checkbox" class="yo-switch yo-switch-c" checked />
                 </div>
             </li>
             <li class="item">
                 <div class="mark flex">list item</div>
                 <div class="cont">
-                    <input type="checkbox" class="yo-switch yo-switch-d" checked disabled />
+                    <input type="checkbox" class="yo-switch yo-switch-d" checked />
                 </div>
             </li>
             <li class="item">
@@ -50,18 +65,6 @@
                 <div class="mark flex">list item</div>
                 <div class="cont">
                     <input type="checkbox" class="yo-switch yo-switch-f" checked />
-                </div>
-            </li>
-            <li class="item">
-                <div class="mark flex">list item</div>
-                <div class="cont">
-                    <input type="checkbox" class="yo-switch yo-switch-g" checked />
-                </div>
-            </li>
-            <li class="item">
-                <div class="mark flex">list item</div>
-                <div class="cont">
-                    <input type="checkbox" class="yo-switch yo-switch-h" checked />
                 </div>
             </li>
         </ul>
@@ -94,10 +97,7 @@
     $checked-bgcolor<span class="colon">:</span>default, <mark>//{default | Color} 定义switch激活背景色</mark>
     $bordercolor<span class="colon">:</span>default, <mark>//{default | Color} 定义switch边框色</mark>
     $bgcolor<span class="colon">:</span>default, <mark>//{default | Color} 定义switch背景色</mark>
-    $ball-color<span class="colon">:</span>default, <mark>//{default | Color} 定义switch滑块色</mark>
-    $disabled-bordercolor<span class="colon">:</span>default, <mark>//{default | Color} 定义switch禁用边框色</mark>
-    $disabled-bgcolor<span class="colon">:</span>default, <mark>//{default | Color} 定义switch禁用背景色</mark>
-    $disabled-ball-color<span class="colon">:</span>default <mark>//{default | Color} 定义switch禁用滑块色</mark>
+    $ball-color<span class="colon">:</span>default <mark>//{default | Color} 定义switch滑块色</mark>
 <span class="bracket">)</span>
 </pre>
 

@@ -182,7 +182,7 @@ $badge: (
 ) !default;
 
 
-// Element switch(8)
+// Element switch(5)
 $switch: (
 	// {Color} 激活边框色
 	checked-bordercolor:  #4bd763,
@@ -193,13 +193,7 @@ $switch: (
 	// {Color} 背景色
 	bgcolor:              map-get($base, bgcolor),
 	// {Color} 滑块色
-	ball-color:           #fff,
-	// {Color} 禁用边框色
-	disabled-bordercolor: map-get($base, disabled-bordercolor),
-	// {Color} 禁用背景色
-	disabled-bgcolor:     map-get($base, disabled-bordercolor),
-	// {Color} 禁用滑块色
-	disabled-ball-color:  #efefef
+	ball-color:           #fff
 ) !default;
 
 
@@ -265,6 +259,17 @@ $checkbox: (
 	disabled-bgcolor:     map-get($base, disabled-bgcolor),
 	// {Color} checkbox标记禁用色
 	disabled-color:       map-get($base, disabled-color)
+) !default;
+
+
+// Element range(3)
+$range: (
+	// {Color} 已选择区域的滑轴背景色
+	inner-bgcolor:  #444,
+	// {Color} 未选择区域的滑轴背景色
+	outer-bgcolor:  #ccc,
+	// {Color} 滑块色
+	ball-color:     #fff
 ) !default;
 
 

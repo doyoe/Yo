@@ -612,16 +612,13 @@ a {
  * Time: 2014.11.14
  -----------------------
  * @method yo-switch
- * variables length(9)
+ * variables length(6)
  * @param {default | String} $name 定义switch名称
  * @param {default | Color} $checked-bordercolor 定义switch激活边框色
  * @param {default | Color} $checked-bgcolor 定义switch激活背景色
  * @param {default | Color} $bordercolor 定义switch边框色
  * @param {default | Color} $bgcolor 定义switch背景色
  * @param {default | Color} $ball-color 定义switch滑块色
- * @param {default | Color} $disabled-bordercolor 定义switch禁用边框色
- * @param {default | Color} $disabled-bgcolor 定义switch禁用背景色
- * @param {default | Color} $disabled-ball-color 定义switch禁用滑块色
  */
 .yo-switch[type="checkbox"] {
   -webkit-appearance: none;
@@ -669,12 +666,12 @@ a {
   -moz-transform: translate(100%, 0) translatez(0);
   transform: translate(100%, 0) translatez(0);
 }
-.yo-switch[type="checkbox"]:disabled, .yo-switch[type="checkbox"]:disabled:checked {
-  border-color: #dfdfdf;
-  background-color: #dfdfdf;
+.yo-switch[type="checkbox"]:disabled {
+  opacity: .4;
 }
-.yo-switch[type="checkbox"]:disabled::before {
-  background-color: #efefef;
+.yo-switch[type="checkbox"]:disabled, .yo-switch[type="checkbox"]:disabled:checked {
+  border-color: #bbb;
+  background-color: #bbb;
 }
 
 /**

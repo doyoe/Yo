@@ -1,0 +1,62 @@
+@charset "utf-8";
+@import "classes";
+
+/**
+ * Element: yo-range
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ ------------------------
+ * 定义按钮使用方法
+ * @method yo-range
+ * variables length(4)
+ * @param {default | String} $name 定义range名称
+ * @param {default | Color} $inner-bgcolor 定义range已选择区域滑条色
+ * @param {default | Color} $outer-bgcolor 定义range未选择区域滑条色
+ * @param {default | Color} $ball-color 定义range滑块色
+ */
+
+@mixin yo-range(
+	$name: default,
+	$inner-bgcolor: default,
+	$outer-bgcolor: default,
+	$ball-color: default) {
+	// 区别是否新增实例还是修改本身
+	@if $name == default {
+        $name: "";
+    } @else {
+        $name: "-#{$name}";
+    }
+	// 如果值为default，则取config的定义
+	@if $inner-bgcolor == default {
+        $inner-bgcolor: map-get($range, inner-bgcolor);
+    }
+    @if $outer-bgcolor == default {
+        $outer-bgcolor: map-get($range, outer-bgcolor);
+    }
+    @if $ball-color == default {
+        $ball-color: map-get($range, ball-color);
+    }
+	.yo-range#{$name} {
+		> input[type="range"] {
+			@if $outer-bgcolor != map-get($range, outer-bgcolor) {
+				background-image: -webkit-linear-gradient(to right, $outer-bgcolor 0%, $outer-bgcolor 100%);
+				background-image: linear-gradient(to right, $outer-bgcolor 0%, $outer-bgcolor 100%);
+			}
+			&::-webkit-slider-thumb {
+				@if $ball-color != map-get($range, ball-color) {
+					background-color: $ball-color;
+				}
+				&::before {
+					@if $inner-bgcolor != map-get($range, inner-bgcolor) {
+						background: $inner-bgcolor;
+					}
+				}
+			}
+		}
+	}
+}
+
+// 调用本文件时载入按钮基础构造
+.yo-range {
+	@include _range;
+}

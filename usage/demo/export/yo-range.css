@@ -938,110 +938,108 @@ a {
  * Time: 2012.1.1
  */
 /**
- * widget: yo-switch
+ * Element: yo-range
  * Author: joy.du(飘零雾雨)
- * Time: 2014.11.14
- -----------------------
- * @method yo-switch
- * variables length(6)
- * @param {default | String} $name 定义switch名称
- * @param {default | Color} $checked-bordercolor 定义switch激活边框色
- * @param {default | Color} $checked-bgcolor 定义switch激活背景色
- * @param {default | Color} $bordercolor 定义switch边框色
- * @param {default | Color} $bgcolor 定义switch背景色
- * @param {default | Color} $ball-color 定义switch滑块色
+ * Time: 2012.1.1
+ ------------------------
+ * 定义按钮使用方法
+ * @method yo-range
+ * variables length(4)
+ * @param {default | String} $name 定义range名称
+ * @param {default | Color} $inner-bgcolor 定义range已选择区域滑条色
+ * @param {default | Color} $outer-bgcolor 定义range未选择区域滑条色
+ * @param {default | Color} $ball-color 定义range滑块色
  */
-.yo-switch[type="checkbox"] {
+.yo-range {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  line-height: 1;
+}
+.yo-range > input[type="range"] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  height: .28rem;
+  background-image: -webkit-linear-gradient(to right, #cccccc 0%, #cccccc 100%);
+  background-image: linear-gradient(to right, #cccccc 0%, #cccccc 100%);
+  background-size: 100% .04rem;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.yo-range > input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 0.2rem;
+  height: 0.2rem;
   position: relative;
-  width: .6rem;
-  height: .32rem;
-  margin: 0;
-  cursor: pointer;
-  border: 0.02rem solid #dddddd;
-  border-radius: .16rem;
-  background-color: #fafafa;
-  vertical-align: middle;
-  -webkit-transition: border-color 0.1s ease-out, background-color 0.1s ease-out;
-  -moz-transition: border-color 0.1s ease-out, background-color 0.1s ease-out;
-  transition: border-color 0.1s ease-out, background-color 0.1s ease-out;
-}
-.yo-switch[type="checkbox"]::before {
-  position: absolute;
-  top: 0;
-  left: 0;
-  content: "\0020";
-  width: 0.28rem;
-  height: 0.28rem;
   border-radius: 50%;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5), 1px 1px 5px rgba(0, 0, 0, 0.25);
   background-color: white;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  -webkit-transition: transform 0.1s ease-out;
-  -moz-transition: transform 0.1s ease-out;
-  transition: transform 0.1s ease-out;
-  -webkit-transform: translate(0, 0) translatez(0);
-  -moz-transform: translate(0, 0) translatez(0);
-  transform: translate(0, 0) translatez(0);
 }
-.yo-switch[type="checkbox"]:active, .yo-switch[type="checkbox"]:focus {
-  outline: none;
+.yo-range > input[type="range"]::-webkit-slider-thumb::before {
+  position: absolute;
+  top: 8px;
+  left: -2001px;
+  width: 2001px;
+  height: 4px;
+  background-color: #444444;
+  content: "\0020";
 }
-.yo-switch[type="checkbox"]:checked {
-  border-color: #4bd763;
-  background-color: #4bd763;
-}
-.yo-switch[type="checkbox"]:checked::before {
-  -webkit-transform: translate(100%, 0) translatez(0);
-  -moz-transform: translate(100%, 0) translatez(0);
-  transform: translate(100%, 0) translatez(0);
-}
-.yo-switch[type="checkbox"]:disabled {
+.yo-range > input[type="range"]:disabled {
   opacity: .4;
 }
-.yo-switch[type="checkbox"]:disabled, .yo-switch[type="checkbox"]:disabled:checked {
-  border-color: #bbb;
-  background-color: #bbb;
+.yo-range > input[type="range"]:disabled::-webkit-slider-thumb::before {
+  background-color: #444;
+}
+.yo-range > .yo-ico {
+  font-size: .2rem;
+}
+.yo-range > .yo-ico:first-child {
+  margin-right: .1rem;
+}
+.yo-range > .yo-ico:last-child {
+  margin-left: .1rem;
 }
 
 /**
- * Element扩展: yo-switch
+ * Element扩展: yo-range
  * Author: joy.du(飘零雾雨)
  * Time: 2015.1.16
  */
-.yo-switch-a[type="checkbox"]:checked {
-  border-color: #4a87ee;
-  background-color: #4a87ee;
+.yo-range-a > input[type="range"]::-webkit-slider-thumb::before {
+  background: #4a87ee;
 }
 
-.yo-switch-b[type="checkbox"]:checked {
-  border-color: #43cee6;
-  background-color: #43cee6;
+.yo-range-b > input[type="range"]::-webkit-slider-thumb::before {
+  background: #43cee6;
 }
 
-.yo-switch-c[type="checkbox"]:checked {
-  border-color: #f0b840;
-  background-color: #f0b840;
+.yo-range-c > input[type="range"]::-webkit-slider-thumb::before {
+  background: #f0b840;
 }
 
-.yo-switch-d[type="checkbox"]:checked {
-  border-color: #ef4e3a;
-  background-color: #ef4e3a;
+.yo-range-d > input[type="range"]::-webkit-slider-thumb::before {
+  background: #ef4e3a;
 }
 
-.yo-switch-e[type="checkbox"]:checked {
-  border-color: #8a6de9;
-  background-color: #8a6de9;
+.yo-range-e > input[type="range"]::-webkit-slider-thumb::before {
+  background: #8a6de9;
 }
 
-.yo-switch-f[type="checkbox"]:checked {
-  border-color: #444444;
-  background-color: #444444;
+.yo-range-f > input[type="range"]::-webkit-slider-thumb::before {
+  background: #4bd763;
 }
 
 /**
- * switch演示页面
+ * range演示页面
  * Author: joy.du(飘零雾雨)
  * Time: 2014.11.14
  */
