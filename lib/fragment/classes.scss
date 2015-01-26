@@ -130,7 +130,8 @@
 		tr:nth-child(even) {
 			background-color: map-get($table, even-bgcolor);
 		}
-		tr:active {
+		tr:active,
+		tr.active {
 			background-color: map-get($table, active-bgcolor);
 		}
 		tr.on{
@@ -139,9 +140,9 @@
 	}
 }
 
-// 定义toolbar的基础构造
-// 使用方法请查看 yo-toolbar.scss
-@mixin _toolbar {
+// 定义btnbar的基础构造
+// 使用方法请查看 yo-btnbar.scss
+@mixin _btnbar {
 	display: inline-block;
 	vertical-align: middle;
 	> .yo-btn {
@@ -156,9 +157,9 @@
 				border-bottom-right-radius: 0;
 			}
 			// 如果工具栏定义了圆角，那么不管按钮有没有左侧圆角，都重绘
-			@if map-get($toolbar, radius) != auto and map-get($toolbar, radius) != map-get($btn, radius) {
-				border-top-left-radius: map-get($toolbar, radius);
-				border-bottom-left-radius: map-get($toolbar, radius);
+			@if map-get($btnbar, radius) != auto and map-get($btnbar, radius) != map-get($btn, radius) {
+				border-top-left-radius: map-get($btnbar, radius);
+				border-bottom-left-radius: map-get($btnbar, radius);
 			}
 		}
 		&:last-child {
@@ -168,9 +169,9 @@
 				border-bottom-left-radius: 0;
 			}
 			// 如果工具栏定义了圆角，那么不管按钮有没有右侧圆角，都重绘
-			@if map-get($toolbar, radius) != auto and map-get($toolbar, radius) != map-get($btn, radius) {
-				border-top-right-radius: map-get($toolbar, radius);
-				border-bottom-right-radius: map-get($toolbar, radius);
+			@if map-get($btnbar, radius) != auto and map-get($btnbar, radius) != map-get($btn, radius) {
+				border-top-right-radius: map-get($btnbar, radius);
+				border-bottom-right-radius: map-get($btnbar, radius);
 			}
 		}
 		&:not(:first-child):not(:last-child){

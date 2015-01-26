@@ -111,7 +111,8 @@
 					background-color: $even-bgcolor;
 				}
 			}
-			tr:active {
+			tr:active,
+			tr.active {
 				@if $active-bgcolor != map-get($table, active-bgcolor) {
 					background-color: $active-bgcolor;
 				}

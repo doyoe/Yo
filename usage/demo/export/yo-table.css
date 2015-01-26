@@ -795,18 +795,23 @@ a {
 }
 
 /**
- * table演示页面
+ * Fragment扩展
  * Author: joy.du(飘零雾雨)
- * Time: 2014.4.1
+ * Time: 2015.1.16
  */
-.m-demo .yo-table .c1 {
-  width: .8rem;
-}
-
 .yo-table-test th, .yo-table-test td {
   border-width: 1px;
 }
 
 .yo-table-test2 tbody tr:nth-child(even) {
   background-color: #f9f9f9;
+}
+
+/**
+ * table演示页面
+ * Author: joy.du(飘零雾雨)
+ * Time: 2014.4.1
+ */
+.m-demo .yo-table .c1 {
+  width: .8rem;
 }

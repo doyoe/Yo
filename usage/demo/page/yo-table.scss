@@ -3,7 +3,7 @@
 @import "../module/m-demo";
 @import "../module/m-code";
 @import "../fragment/yo-header";
-@import "../../../lib/fragment/yo-table";
+@import "../fragment/yo-table";
 
 /**
  * table演示页面
@@ -18,6 +18,3 @@
 		}
 	}
 }
-
-@include yo-table(test,default,true);
-@include yo-table(test2,default,default,default,default,default,default,default,#f9f9f9);
