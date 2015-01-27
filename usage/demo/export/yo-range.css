@@ -420,11 +420,11 @@ a {
   }
 }
 .m-demo .device .stage {
+  position: relative;
   height: 5.68rem;
 }
 @media screen and (min-width: 800px) {
   .m-demo .device {
-    position: relative;
     width: 3.66rem;
     height: 7.83rem;
     border: .05rem solid #505559;
@@ -1035,6 +1035,14 @@ a {
   background: #8a6de9;
 }
 
+.yo-range-f > input[type="range"]::-webkit-slider-thumb::before {
+  background: #4bd763;
+}
+
+.yo-range-f > input[type="range"] {
+  background-image: -webkit-linear-gradient(to right, red 0%, red 100%);
+  background-image: linear-gradient(to right, red 0%, red 100%);
+}
 .yo-range-f > input[type="range"]::-webkit-slider-thumb::before {
   background: #4bd763;
 }
