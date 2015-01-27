@@ -50,9 +50,7 @@
 		@if $mask-bgcolor != map-get($loading, mask-bgcolor) {
 		    background-color: $mask-bgcolor;
 		}
-		@if $color != map-get($loading, color) {
-			color: $color;
-		}
+		
 		&:before{
 			@if $size != map-get($loading, size) {
 				@include square($size * 2);
@@ -66,10 +64,16 @@
 			@if $size != map-get($loading, size) {
 				font-size: $size;
 			}
+			@if $color != map-get($loading, color) {
+				color: $color;
+			}
 		}
 		> .inner{
 			@if $size != map-get($loading, size) {
 				margin-top: $size - .18rem;
+			}
+			@if $color != map-get($loading, color) {
+				color: $color;
 			}
 		}
 	}

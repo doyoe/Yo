@@ -66,7 +66,6 @@
 	min-width: map-get($loading, size) + .2rem;
 	min-height: map-get($loading, size) + .2rem;
 	background-color: map-get($loading, mask-bgcolor);
-	color: map-get($loading, color);
 	text-align: center;
 	&:before,
 	&:after {
@@ -96,6 +95,7 @@
 			-.2em -.36em 0 .06em,
 			0 -.41em 0 .07em;
 		font-size: map-get($loading, size);
+		color: map-get($loading, color);
 	}
 	&:before {
 		@include square(map-get($loading, size) * 2);
@@ -109,6 +109,7 @@
 		@include transform(translate(-50%, -50%));
 		margin-top: map-get($loading, size) - .18rem;
 		font-size: .12rem;
+		color: map-get($loading, color);
 	}
 }
 
