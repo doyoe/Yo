@@ -52,57 +52,6 @@
 	}
 }
 
-// 定义区间选择的基础构造
-// 使用方法请查看 yo-range.scss
-
-@mixin _range {
-	@include flexbox;
-	line-height: 1;
-	> input[type="range"] {
-		@include appearance(none);
-		@include flex;
-		overflow: hidden;
-		height: .28rem;
-		background-image: -webkit-linear-gradient(to right, map-get($range, outer-bgcolor) 0%, map-get($range, outer-bgcolor) 100%);
-		background-image: linear-gradient(to right, map-get($range, outer-bgcolor) 0%, map-get($range, outer-bgcolor) 100%);
-		background-size: 100% .04rem;
-		background-repeat: no-repeat;
-		background-position: center;
-		&::-webkit-slider-thumb {
-			@include appearance(none);
-			@include square(.2rem);
-			position: relative;
-			border-radius: 50%;
-			box-shadow: 0 0 2px rgba(0, 0, 0, 0.5), 1px 1px 5px rgba(0, 0, 0, 0.25);
-			background-color: map-get($range, ball-color);
-			&::before {
-				position: absolute;
-				top: 8px;
-				left: -2001px;
-				width: 2001px;
-				height: 4px;
-				background-color: map-get($range, inner-bgcolor);
-				content: "\0020";
-			}
-		}
-		&:disabled {
-			opacity: .4;
-			&::-webkit-slider-thumb::before {
-				background-color: #444;
-			}
-		}
-	}
-	> .yo-ico {
-		font-size: .2rem;
-		&:first-child {
-			margin-right: .1rem;
-		}
-		&:last-child {
-			margin-left: .1rem;
-		}
-	}
-}
-
 // 定义loading的基础构造
 // 使用方法请查看 yo-loading.scss
 @mixin _loading {
@@ -160,6 +109,57 @@
 		@include transform(translate(-50%, -50%));
 		margin-top: map-get($loading, size) - .18rem;
 		font-size: .12rem;
+	}
+}
+
+// 定义区间选择的基础构造
+// 使用方法请查看 yo-range.scss
+@mixin _range {
+	@include flexbox;
+	line-height: 1;
+	> input[type="range"] {
+		@include appearance(none);
+		@include flex;
+		overflow: hidden;
+		height: .28rem;
+		background-image: -webkit-linear-gradient(to right, map-get($range, outer-bgcolor) 0%, map-get($range, outer-bgcolor) 100%);
+		background-image: linear-gradient(to right, map-get($range, outer-bgcolor) 0%, map-get($range, outer-bgcolor) 100%);
+		background-size: 100% .04rem;
+		background-repeat: no-repeat;
+		background-position: center;
+		&::-webkit-slider-thumb {
+			@include appearance(none);
+			@include square(.2rem);
+			position: relative;
+			border: 0;
+			border-radius: 50%;
+			box-shadow: 0 0 2px rgba(0, 0, 0, 0.5), 1px 1px 5px rgba(0, 0, 0, 0.25);
+			background-color: map-get($range, ball-color);
+			&::before {
+				position: absolute;
+				top: 8px;
+				left: -2001px;
+				width: 2000px;
+				height: 4px;
+				background-color: map-get($range, inner-bgcolor);
+				content: "\0020";
+			}
+		}
+		&:disabled {
+			opacity: .4;
+			&::-webkit-slider-thumb::before {
+				background-color: #444;
+			}
+		}
+	}
+	> .yo-ico {
+		font-size: .2rem;
+		&:first-child {
+			margin-right: .1rem;
+		}
+		&:last-child {
+			margin-left: .1rem;
+		}
 	}
 }
 
