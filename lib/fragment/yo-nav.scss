@@ -61,6 +61,14 @@
 		.exec{
 			color: set-property($nav,$exec-color,exec-color);
 		}
+		
+		@include has-property($nav,$width,width){
+			p{
+				min-width: set-property($nav,$width,width);
+	        	min-height: set-property($nav,$width,width);
+			}
+		}
+
 	}
 }
 
@@ -69,3 +77,4 @@
 	@include _nav;
 }
 
+@include yo-nav($name:aaa,$width:20px)

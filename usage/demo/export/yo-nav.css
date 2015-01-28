@@ -93,36 +93,49 @@
 .yo-nav {
   position: relative;
   width: 100%;
-  height: 100%;
-}
-.yo-nav .item {
-  font-size: 0.16rem;
-  line-height: 0.24rem;
-  padding: 0.09rem 0.1rem;
-  border-bottom: 1px solid #ccc;
-  color: #212121;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-}
-.yo-nav .item:active {
-  background: #ddd;
-}
-.yo-nav .item .decorate {
-  display: inline-block;
-  width: .2rem;
-  color: #aaa;
-  font-size: 0.18rem;
-  margin-right: .05rem;
-}
-.yo-nav .item .cont {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  flex: 1;
-  display: block;
-  width: 100%;
-}
-.yo-nav .item .exec {
-  color: #aaa;
-  font-size: 0.18rem;
-}
+  height: 100%; }
+  .yo-nav .item {
+    font-size: 0.16rem;
+    line-height: 0.24rem;
+    padding: 0.09rem 0.1rem;
+    border-bottom: 1px solid #ccc;
+    color: #212121;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex; }
+    .yo-nav .item:active {
+      background: #ddd; }
+    .yo-nav .item .decorate {
+      display: inline-block;
+      width: .2rem;
+      color: #aaa;
+      font-size: 0.18rem;
+      margin-right: .05rem; }
+    .yo-nav .item .cont {
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+      flex: 1;
+      display: block;
+      width: 100%; }
+    .yo-nav .item .exec {
+      color: #aaa;
+      font-size: 0.18rem; }
+
+.yo-nav-aaa {
+  width: 20px;
+  height: 100%; }
+  .yo-nav-aaa .item {
+    font-size: 0.16rem;
+    color: #212121;
+    line-height: 0.16rem;
+    padding: 0.09rem 0.1rem;
+    border-bottom: #ccc; }
+    .yo-nav-aaa .item:active {
+      background: #ddd; }
+  .yo-nav-aaa .decorate {
+    color: #aaa; }
+  .yo-nav-aaa .exec {
+    color: #aaa; }
+  .yo-nav-aaa p {
+    min-width: 20px;
+    min-height: 20px; }

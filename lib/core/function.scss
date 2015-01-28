@@ -18,3 +18,8 @@
 }
 
 
+@mixin has-property($element,$property,$value) {
+    @if $property != map-get($element, $value) {
+        @content;
+    }
+}
