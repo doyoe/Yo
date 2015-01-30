@@ -66,13 +66,13 @@
 		}
 		&-input {
 			// 让输入框占满整个父容器
-			> .input,
+			// > .input,
 			> .yo-input {
 				height: auto;
 				padding: 0;
 				border: 0;
 				// 替换为yo-input后，可删除
-				width: 100%;
+				// width: 100%;
 			}
 		}
 		&-input,
