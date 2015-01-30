@@ -404,3 +404,14 @@
     margin-top: -$height/2;
     margin-left: -$width/2;
 }
+
+// 给需要的属性加厂家前缀
+@mixin add-prefix($property,$value){
+    @if map-get($setting,is-vendor-prefix) {
+        @each $vendor in map-get($setting,vendor-prefix) {
+            #{$vendor}#{$property}: $value;
+        }
+    }
+    #{$property}: $value;
+}
+

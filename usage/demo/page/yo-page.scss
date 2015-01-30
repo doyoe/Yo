@@ -1,0 +1,121 @@
+@charset "utf-8";
+@import "../layout/layout";
+@import "../module/m-demo";
+@import "../module/m-code";
+@import "../page/yo-list";
+
+/**
+ * yo-toolbar演示页面
+ * Author: joy.du(飘零雾雨)
+ * Time: 2014.9.18
+ */
+//背景颜色
+//
+$bgcolor:#0ac2d2 #7bb7fa #60d7a9 #fdc162 #fd6a62 #f68dbb;
+
+.gu-pagebox{
+	position: relative;
+	width:100%;
+	height:100%;
+	overflow:hidden;
+	.gu-page{
+		position: absolute;
+		width:100%;
+		height:100%;
+		top:0;
+		left: 0;
+		overflow: hidden;
+		visibility: hidden;
+		@include add-prefix(transform,translate3d(0, 0, 0));
+		@include add-prefix(backface-visibility,hidden);
+		@include add-prefix(transform-style,preserve-3d);
+		&.current{
+			visibility: visible;
+			z-index: 1;
+		}
+	}
+	@for $i from 1 through length($bgcolor) {
+		.gu-page-#{$i}{
+			background:nth($bgcolor,$i);
+		}
+	}
+	.con{
+		font-family: Lato, Calibri, Arial, sans-serif;
+		z-index: 2;
+		@include alignment(280px,329px);
+		> h1{
+			font-size: 64px;
+			word-wrap: nowrap;
+			word-spacing: nowrap;
+			color: rgba(255,255,255,.6);
+		}
+		>h2{
+			color: rgba(0,0,0,0.2);
+			font-size: 30px;
+			text-transform: uppercase;
+			
+		}	
+		> p{
+			font-size: 36px;
+			text-transform: uppercase;
+			color: rgba(255,255,255,.9);
+		}
+		> .gu-btn{
+			border: none;
+			font-size: 13px;
+			font-weight: 700;
+			text-transform: uppercase;
+			margin: 30px 0 10px;
+			padding: 0px 15px;
+			line-height: 40px;
+			height: 40px;
+			letter-spacing: 1px;
+			width: 70%;
+			cursor: pointer;
+			display: block;
+			font-family: Arial, sans-serif;
+			box-shadow: 0 3px 0 rgba(0,0,0,0.1);
+			user-select: none;
+			background:#fff;
+			color: #aaa;
+			text-align:center; 
+		}
+	}
+	
+}
+
+/* animation delay classes */
+
+.delay100 {
+	-webkit-animation-delay: .1s;
+	animation-delay: .1s;
+}
+.delay180 {
+	-webkit-animation-delay: .180s;
+	animation-delay: .180s;
+}
+.delay200 {
+	-webkit-animation-delay: .2s;
+	animation-delay: .2s;
+}
+.delay300 {
+	-webkit-animation-delay: .3s;
+	animation-delay: .3s;
+}
+.delay400 {
+	-webkit-animation-delay: .4s;
+	animation-delay: .4s;
+}
+.delay500 {
+	-webkit-animation-delay: .5s;
+	animation-delay: .5s;
+}
+.delay700 {
+	-webkit-animation-delay: .7s;
+	animation-delay: .7s;
+}
+.delay1000 {
+	-webkit-animation-delay: 1s;
+	animation-delay: 1s;
+}
+
