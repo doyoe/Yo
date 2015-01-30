@@ -372,6 +372,37 @@ $header: (
 	item-font-size: .14rem
 ) !default;
 
+// Fragment nav(8)
+$nav: (
+	//
+	width:         100%,
+	// {Length} 高度
+	height:         100%,
+	// {Color} 背景色
+	bgcolor: null,
+	//子元素	
+	//{Length} 子元素高度
+	item-height: null,
+	//{Color}子元素背景颜色
+	item-bgcolor: null,
+	//{Color}子元素active时的颜色
+	item-active-bgcolor: #ddd,
+	//{Length} 子元素padding
+	item-padding: .09rem .1rem,
+	//{Color}子元素颜色
+	item-color:map-get($base,color),
+	//{Length} 文字大小
+	item-font-size:    .16rem,
+	//{Color}子元素border-bottom,
+	item-bordercolor:#ccc,
+	//装饰
+	decorate-color:#aaa,
+	decorate-font-size: .18rem,
+	//下部操作
+	exec-color:#aaa,
+	exec-font-size: .18rem
+	
+) !default;
 
 // Widget search(14)
 $search: (

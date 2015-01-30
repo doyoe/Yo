@@ -128,6 +128,7 @@
  * @method transform
  * @param {String} $transform 取值与原生语法一致
  */
+
 @mixin transform($transform...){
     @if map-get($setting,is-vendor-prefix) {
         @each $vendor in map-get($setting,vendor-prefix) {
@@ -136,7 +137,6 @@
     }
     transform: $transform;
 }
-
 /**
  * 定义变换原点
  * @method transform-origin
@@ -170,13 +170,32 @@
  * @method transition
  * @param {String} $transition 取值与原生语法一致
  */
+// @mixin transition($transition...){
+//     @if map-get($setting,is-vendor-prefix) {
+//         @each $vendor in map-get($setting,vendor-prefix) {
+//             #{$vendor}transition: $transition;
+//         }
+//     }
+//     transition: $transition;
+// }
+
+
 @mixin transition($transition...){
+    $vendor-list:();
+    $list:();
     @if map-get($setting,is-vendor-prefix) {
         @each $vendor in map-get($setting,vendor-prefix) {
-            #{$vendor}transition: $transition;
+            @for $i from 1 through length($transition) {
+                $vendor-list:join($vendor-list, #{$vendor}#{nth($transition, $i)},$separator:comma);
+            }
+            #{$vendor}transition:$vendor-list;
+            $vendor-list:();
         }
     }
-    transition: $transition;
+    @for $i from 1 through length($transition) {
+        $list:join($list, #{nth($transition, $i)},$separator:comma);
+    }
+    transition:$list;
 }
 
 // 定义伸缩盒
@@ -385,3 +404,14 @@
     margin-top: -$height/2;
     margin-left: -$width/2;
 }
+
+// 给需要的属性加厂家前缀
+@mixin add-prefix($property,$value){
+    @if map-get($setting,is-vendor-prefix) {
+        @each $vendor in map-get($setting,vendor-prefix) {
+            #{$vendor}#{$property}: $value;
+        }
+    }
+    #{$property}: $value;
+}
+

@@ -1,0 +1,80 @@
+@charset "utf-8";
+@import "classes";
+
+/**
+ * Widget: yo-nav
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ ------------------------
+ * @method yo-nav
+ * variables length(9)
+ * @param {default | String} $name 定义yo-nav名称
+ * @param {default | Length} $height 定义yo-nav高度
+ * @param {default | Length} $item-width 定义yo-nav两侧子项宽度
+ * @param {default | Length} $item-space 定义yo-nav两侧子项离边界的间隙
+ * @param {default | Color} $bgcolor 定义yo-nav背景色
+ * @param {default | Color} $bordercolor 定义yo-nav边框色
+ * @param {default | Color} $color 定义yo-nav文本色
+ * @param {default | Length} $font-size 定义yo-nav文本大小
+ * @param {default | Length} $item-font-size 定义yo-nav两侧的子项文本大小
+ */
+
+@mixin yo-nav(
+	$name: default,
+	$width: default,
+	$height: default,
+	$bgcolor:default,
+	$item-font-size: default, 
+	$item-bgcolor:default,
+	$item-active-bgcolor:default,
+	$item-padding:default,
+	$item-color:default,
+	$item-bordercolor:default,
+	$decorate-color:default,
+	$exec-color:default) {
+	
+	@if $name == default {
+		$name: "";
+	} @else {
+		$name: "-#{$name}";
+	}
+	.yo-nav#{$name} {
+		width: set-property($nav,$width,width);
+		height: set-property($nav,$height,height);
+		background: set-property($nav,$bgcolor,bgcolor);
+		
+		.item{
+			font-size: set-property($nav,$item-font-size,item-font-size);
+			color: set-property($nav,$item-color,item-color);
+			background: set-property($nav,$item-bgcolor,item-bgcolor);
+			line-height: set-property($nav,$item-font-size,item-font-size);
+			padding: set-property($nav,$item-padding,item-padding);
+			border-bottom:set-property($nav,$item-bordercolor,item-bordercolor);
+			
+			&:active{
+				background: set-property($nav,$item-active-bgcolor,item-active-bgcolor);
+			}
+		}
+		.decorate{
+			color: set-property($nav,$decorate-color,decorate-color);
+		}
+		.exec{
+			color: set-property($nav,$exec-color,exec-color);
+		}
+		
+		@include has-property($nav,$width,width){
+			p{
+				min-width: set-property($nav,$width,width);
+	        	min-height: set-property($nav,$width,width);
+			}
+		}
+
+	}
+}
+
+// 调用本文件时载入nav基础构造
+.yo-nav {
+	@include _nav;
+}
+
+@include yo-nav($name:aaa,$width:20px)
