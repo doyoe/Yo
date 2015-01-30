@@ -7,6 +7,22 @@
  * Time: 2012.1.1
  */
 
+/**
+ * 给需要的属性加厂家前缀
+ * @method prefix
+ * @param {String} $appearance 指定属性
+ * @param {String} $value 指定属性值
+ */
+@mixin prefix($property, $value) {
+    // 是否开启厂商前缀支持
+    @if map-get($setting, is-vendor-prefix) {
+        // 遍历输出厂商代码
+        @each $vendor in map-get($setting, vendor-prefix) {
+            #{$vendor}#{$property}: $value;
+        }
+    }
+    #{$property}: $value;
+}
 
 /**
  * 定义响应式方案
@@ -19,7 +35,7 @@
         }
     }
  */
-@mixin responsive($media){
+@mixin responsive($media) {
     @if not map-has-key($media-types, $media) {
         @warn "#{$media} is not a known media type. Using portrait instead.";
         $media: portrait;
@@ -29,14 +45,13 @@
     }
 }
 
-
 /**
  * 定义字体图标
  * @method yofont
  */
-@mixin yofont(){
+@mixin yofont() {
     // 是否开启图标字体
-    @if map-get($ico,is-use) {
+    @if map-get($ico, is-use) {
         @font-face {
             font-family: map-get($ico, font-name);
             // 如果只需要其中的某种字体，其它的几种字体可以使用空文件（不会请求），但必须存在
@@ -63,21 +78,13 @@
     }
 }
 
-
 /**
  * 定义UA默认外观
  * @method appearance
  * @param {String} $appearance 指定UA外观类型
  */
-@mixin appearance($appearance:none){
-    // 是否开启厂商前缀支持
-    @if map-get($setting,is-vendor-prefix) {
-        // 遍历输出厂商代码
-        @each $vendor in map-get($setting,vendor-prefix) {
-            #{$vendor}appearance: $appearance;
-        }
-    }
-    appearance: $appearance;
+@mixin appearance($appearance: none) {
+    @include prefix(appearance, $appearance);
 }
 
 /**
@@ -85,13 +92,8 @@
  * @method user-select
  * @param {String} $user-select 指定是否可以选中
  */
-@mixin user-select($user-select:none){
-    @if map-get($setting,is-vendor-prefix) {
-        @each $vendor in map-get($setting,vendor-prefix) {
-            #{$vendor}user-select: $user-select;
-        }
-    }
-    user-select: $user-select;
+@mixin user-select($user-select: none) {
+    @include prefix(user-select, $user-select);
 }
 
 /**
@@ -100,9 +102,9 @@
  * @param {String} $type 指定渐变的4种类型：linear, repeating-linear, radial, repeating-radial
  * @param {String} $gradient 指定渐变取值，与原生语法一致
  */
-@mixin gradient($type,$gradient...){
-    @if map-get($setting,is-vendor-prefix) {
-        @each $vendor in map-get($setting,vendor-prefix) {
+@mixin gradient($type, $gradient...) {
+    @if map-get($setting, is-vendor-prefix) {
+        @each $vendor in map-get($setting, vendor-prefix) {
             background-image: #{$vendor}#{$type}-gradient($gradient);
         }
     }
@@ -114,13 +116,8 @@
  * @method box-sizing
  * @param {String} $box-sizing 的2个值分别为：content-box(标准盒模型) | border-box(怪异盒模型)
  */
-@mixin box-sizing($box-sizing){
-    @if map-get($setting,is-vendor-prefix) {
-        @each $vendor in map-get($setting,vendor-prefix) {
-            #{$vendor}box-sizing: $box-sizing;
-        }
-    }
-    box-sizing: $box-sizing;
+@mixin box-sizing($box-sizing: border-box) {
+    @include prefix(box-sizing, $box-sizing);
 }
 
 /**
@@ -128,13 +125,8 @@
  * @method transform
  * @param {String} $transform 取值与原生语法一致
  */
-@mixin transform($transform...){
-    @if map-get($setting,is-vendor-prefix) {
-        @each $vendor in map-get($setting,vendor-prefix) {
-            #{$vendor}transform: $transform;
-        }
-    }
-    transform: $transform;
+@mixin transform($transform...) {
+    @include prefix(transform, $transform);
 }
 
 /**
@@ -142,13 +134,8 @@
  * @method transform-origin
  * @param {String} $transform-origin 取值与原生语法一致
  */
-@mixin transform-origin($origin){
-    @if map-get($setting,is-vendor-prefix) {
-        @each $vendor in map-get($setting,vendor-prefix) {
-            #{$vendor}transform-origin: $origin;
-        }
-    }
-    transform-origin: $origin;
+@mixin transform-origin($transform-origin) {
+    @include prefix(transform-origin, $transform-origin);
 }
 
 /**
@@ -156,13 +143,8 @@
  * @method animation
  * @param {String} $animation 取值与原生语法一致
  */
-@mixin animation($animation...){
-    @if map-get($setting,is-vendor-prefix) {
-        @each $vendor in map-get($setting,vendor-prefix) {
-            #{$vendor}animation: $animation;
-        }
-    }
-    animation: $animation;
+@mixin animation($animation...) {
+    @include prefix(animation, $animation);
 }
 
 /**
@@ -170,17 +152,12 @@
  * @method transition
  * @param {String} $transition 取值与原生语法一致
  */
-@mixin transition($transition...){
-    @if map-get($setting,is-vendor-prefix) {
-        @each $vendor in map-get($setting,vendor-prefix) {
-            #{$vendor}transition: $transition;
-        }
-    }
-    transition: $transition;
+@mixin transition($transition...) {
+    @include prefix(transition, $transition);
 }
 
 // 定义伸缩盒
-@mixin flexbox($flexbox:flex){
+@mixin flexbox($flexbox: flex) {
     @if $flexbox == flex {
         display: -webkit-box;
         display: -webkit-flex;
@@ -192,7 +169,7 @@
     }
 }
 // 定义伸缩盒子元素如何分配空间
-@mixin flex($flex:1){
+@mixin flex($flex: 1) {
     -webkit-box-flex: $flex;
     -webkit-flex: $flex;
     flex: $flex;
@@ -202,13 +179,13 @@
     width: 100%;
 }
 // 定义伸缩盒子元素的排版顺序
-@mixin order($order:1){
+@mixin order($order: 1) {
     -webkit-box-ordinal-group: $order;
     -webkit-order: $order;
     order: $order;
 }
 // 定义伸缩盒子元素的流动方向
-@mixin flex-direction($flex-direction:row){
+@mixin flex-direction($flex-direction: row) {
     @if $flex-direction == row {
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
@@ -226,7 +203,7 @@
     flex-direction: $flex-direction;
 }
 // 定义伸缩盒子元素溢出排版
-@mixin flex-wrap($flex-wrap:nowrap){
+@mixin flex-wrap($flex-wrap: nowrap) {
     @if $flex-wrap == nowrap {
         -webkit-box-lines: single;
     } @else {
@@ -236,7 +213,7 @@
     flex-wrap: $flex-wrap;
 }
 // 定义伸缩盒子元素的水平对齐方式
-@mixin justify-content($justify-content:center){
+@mixin justify-content($justify-content: center) {
     @if $justify-content == center {
         -webkit-box-pack: center;
     } @else if $justify-content == flex-start {
@@ -250,7 +227,7 @@
     justify-content: $justify-content;
 }
 // 定义伸缩盒子元素的垂直对齐方式
-@mixin align-items($align-items:center){
+@mixin align-items($align-items: center) {
     @if $align-items == center {
         -webkit-box-align: center;
     } @else if $align-items == flex-start {
@@ -264,13 +241,13 @@
     align-items: $align-items;
 }
 // 定义伸缩盒子元素自身的垂直对齐方式
-@mixin align-self($align-self:center){
+@mixin align-self($align-self: center) {
     -webkit-align-self: $align-self;
     align-self: $align-self;
 }
 
 // 定义滚动条
-@mixin overflow($overflow:auto){
+@mixin overflow($overflow:auto) {
     @if $overflow == auto {
         overflow: auto;
         -webkit-overflow-scrolling: touch;
@@ -280,22 +257,22 @@
 }
 
 // 生成矩形方法
-@mixin rect($width, $height){
+@mixin rect($width, $height) {
     width: $width;
     height: $height;
 }
 // 生成正方形方法
-@mixin square($size){
+@mixin square($size) {
     width: $size;
     height: $size;
 }
 // 生成圆形方法
-@mixin circle($radius:50%){
+@mixin circle($radius:50%) {
     border-radius: $radius;
 }
 
 // 清除浮动方案
-@mixin clearfix(){
+@mixin clearfix() {
     &::after{
         display: block;
         overflow: hidden;
@@ -306,17 +283,17 @@
 }
 
 // 隐藏方案
-@mixin hide(){
+@mixin hide() {
     display: none;
 }
 
 // 显示方案
-@mixin show(){
+@mixin show() {
     display: block;
 }
 
 // 链接处理方式
-@mixin link($color: map-get($base, link-color)){
+@mixin link($color: map-get($base, link-color)) {
     color: $color;
     cursor: pointer;
     &:active{
@@ -325,13 +302,13 @@
 }
 
 // 强制换行方案
-@mixin wrap(){
+@mixin wrap() {
     word-wrap: break-word;
     word-break: break-all;
 }
 
 // 单行文本溢出显示方案
-@mixin ellipsis($ellipsis:yes){
+@mixin ellipsis($ellipsis: yes) {
     overflow: hidden;
     white-space: nowrap;
     @if $ellipsis == yes {
@@ -340,27 +317,27 @@
 }
 
 // 图文替换方案
-@mixin texthide(){
+@mixin texthide() {
     overflow: hidden;
     white-space: nowrap;
     text-indent: 100%;
 }
 
 // 清除间隙方案-容器
-@mixin killspace(){
+@mixin killspace() {
     font-size: 0;
     font-family: arial;
 }
 
 // 清除间隙方案-子级
-@mixin killspace-item(){
+@mixin killspace-item() {
     display: inline-block;
     font-size: map-get($base, font-size);
     font-family: map-get($base, font-family);
 }
 
 // 未知尺寸元素垂直居中解决方案-容器
-@mixin valign(){
+@mixin valign() {
     @include killspace();
     &::after{
         overflow: hidden;
@@ -370,13 +347,13 @@
     }
 }
 // 未知尺寸元素垂直居中解决方案-子级
-@mixin valign-item(){
+@mixin valign-item() {
     @include killspace-item();
     vertical-align: middle;
 }
 
 // 已经尺寸元素垂直居中解决方案
-@mixin alignment($width:200px, $height:200px){
+@mixin alignment($width: 200px, $height: 200px) {
     position: absolute;
     top: 50%;
     left: 50%;
