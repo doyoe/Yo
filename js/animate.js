@@ -14,11 +14,9 @@ var PageTransitions = (function() {
         animEndEventNames = {
             'WebkitAnimation' : 'webkitAnimationEnd',
             'OAnimation' : 'oAnimationEnd',
-            'msAnimation' : 'MSAnimationEnd',
             'animation' : 'animationend'
-        },
+        };
         // animation end event name
-        animEndEventName = animEndEventNames[ Modernizr.prefixed( 'animation' ) ];
     function init() {
 
         $pages.each( function() {
@@ -28,7 +26,7 @@ var PageTransitions = (function() {
 
         $pages.eq( current ).addClass( 'current' );
 
-        $iterate.on( 'click', function() {
+        $iterate.on( 'click', function(e) {
             if( isAnimating ) {
                 return false;
             }
@@ -54,16 +52,16 @@ var PageTransitions = (function() {
 
         var $nextPage = $pages.eq( current ).addClass( 'current' );
 
-        $currPage.addClass( outClass ).on( animEndEventName, function() {
-            $currPage.off( animEndEventName );
+        $currPage.addClass( outClass ).on( "webkitAnimationEnd animationEnd", function() {
+            $currPage.off( "webkitAnimationEnd animationEnd" );
             endCurrPage = true;
             if( endNextPage ) {
                 onEndAnimation( $currPage, $nextPage );
             }
         });
 
-        $nextPage.addClass( inClass ).on( animEndEventName, function() {
-            $nextPage.off( animEndEventName );
+        $nextPage.addClass( inClass ).on( "webkitAnimationEnd animationEnd", function() {            
+            $nextPage.off( "webkitAnimationEnd animationEnd" );
             endNextPage = true;
             if( endCurrPage ) {
                 onEndAnimation( $currPage, $nextPage );
@@ -84,6 +82,12 @@ var PageTransitions = (function() {
         $inpage.attr( 'class', $inpage.data( 'originalClassList' ) + ' current' );
     }
 
+    var TAGNAMES = {
+            'select': 'input', 'change': 'input',
+            'submit': 'form', 'reset': 'form',
+            'error': 'img', 'load': 'img', 'abort': 'img'
+    };
+    
     return { init : init };
 
 })();
