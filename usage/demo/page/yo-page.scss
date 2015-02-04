@@ -60,12 +60,13 @@ $bgcolor:#0ac2d2 #7bb7fa #60d7a9 #fdc162 #fd6a62 #f68dbb;
 			text-transform: uppercase;
 			color: rgba(255,255,255,.9);
 		}
-		> .gu-btn{
+		> .gu-btn,
+		select{
 			border: none;
 			font-size: 13px;
 			font-weight: 700;
 			text-transform: uppercase;
-			margin: 30px 0 10px;
+			margin: 10px 0 10px;
 			padding: 0px 15px;
 			line-height: 40px;
 			height: 40px;
@@ -79,6 +80,10 @@ $bgcolor:#0ac2d2 #7bb7fa #60d7a9 #fdc162 #fd6a62 #f68dbb;
 			background:#fff;
 			color: #aaa;
 			text-align:center; 
+		}
+		select{
+			@include appearance;
+			border-radius:0;
 		}
 	}
 	

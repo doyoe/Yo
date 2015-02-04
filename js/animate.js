@@ -3,7 +3,8 @@ var PageTransitions = (function() {
     var $main = $( '#main' ),
         $pages = $main.children( 'div.gu-page' ),
         $iterate = $( '#iterateEffects' ),
-        $text = $("#text"),
+        $outClass = $('#outClass'),
+        $inClass = $('#inClass'),
         animcursor = 1,
         pagesCount = $pages.length,
         current = 0,
@@ -18,7 +19,6 @@ var PageTransitions = (function() {
         },
         // animation end event name
         animEndEventName = animEndEventNames[ Modernizr.prefixed( 'animation' ) ];
-
     function init() {
 
         $pages.each( function() {
@@ -32,16 +32,12 @@ var PageTransitions = (function() {
             if( isAnimating ) {
                 return false;
             }
-            if( animcursor > 22 ) {
-                animcursor = 1;
-            }
-            nextPage( animcursor );
-            ++animcursor;
+            nextPage($outClass.val(),$inClass.val());
         } );
 
     }
 
-    function nextPage( animation ) {
+    function nextPage( outClass,inClass ) {
         if( isAnimating ) {
             return false;
         }
@@ -56,100 +52,7 @@ var PageTransitions = (function() {
             current = 0;
         }
 
-        var $nextPage = $pages.eq( current ).addClass( 'current' ),
-            outClass = '', inClass = '';
-
-        switch( animation ) {
-
-            case 1:
-                outClass = 'fade-out';
-                inClass = 'fade-in-up';
-                break;
-            case 2:
-                outClass = 'fade-in-right';
-                inClass = 'fade-in-up';
-                break;
-            case 3:
-                outClass = 'fade-in-left';
-                inClass = 'fade-in-up';
-                break;
-            case 4:
-                outClass = 'fade-in-up';
-                inClass = 'fade-in-down';
-                break;
-            case 5:
-                outClass = 'fade-out-down';
-                inClass = 'fade-in-up';
-                break;
-            case 6:
-                outClass = 'fade-out-left';
-                inClass = 'fade-in-up';
-                break;
-            case 7:
-                outClass = 'fade-in-left';
-                inClass = 'elastic-x';
-                break;
-            case 8:
-                outClass = 'elastic-in-down';
-                inClass = 'elastic-in-up';
-                break;
-            case 9:
-                outClass = 'fade-out';
-                inClass = 'flip-in-x';
-                break;
-            case 10:
-                outClass = 'fade-out';
-                inClass = 'flip-in-y';
-                break;
-            case 11:
-                outClass = 'roll-in-left';
-                inClass = 'roll-in-right';
-                break;
-            case 12:
-                outClass = 'fade-out';
-                inClass = 'speed-in-right';
-                break;
-            case 13:
-                outClass = 'fade-out-left';
-                inClass = 'rotate-in-down-right';
-                break;
-            case 14:
-                outClass = 'fade-out';
-                inClass = 'zoom-in-down';
-                break;
-            case 15:
-                outClass = 'fade-out';
-                inClass = 'zoom-in-up';
-                break;
-            case 16:
-                outClass = 'fade-out';
-                inClass = 'flash';
-                break;
-            case 17:
-                outClass = 'fade-out';
-                inClass = 'shake';
-                break;
-            case 18:
-                outClass = 'shake';
-                inClass = 'pulse';
-                break;
-            case 19:
-                outClass = 'fade-out-left';
-                inClass = 'stretch';
-                break;
-            case 20:
-                outClass = 'fade-out-left';
-                inClass = 'extrusion';
-                break;
-            case 21:
-                outClass = 'fade-out-left';
-                inClass = 'swing';
-                break;
-            case 22:
-                outClass = 'fade-out-left';
-                inClass = 'sling';
-                break;
-        }
+        var $nextPage = $pages.eq( current ).addClass( 'current' );
 
         $currPage.addClass( outClass ).on( animEndEventName, function() {
             $currPage.off( animEndEventName );

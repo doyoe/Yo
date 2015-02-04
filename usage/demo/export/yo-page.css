@@ -1470,12 +1470,13 @@ a {
       font-size: 36px;
       text-transform: uppercase;
       color: rgba(255, 255, 255, 0.9); }
-    .gu-pagebox .con > .gu-btn {
+    .gu-pagebox .con > .gu-btn,
+    .gu-pagebox .con select {
       border: none;
       font-size: 13px;
       font-weight: 700;
       text-transform: uppercase;
-      margin: 30px 0 10px;
+      margin: 10px 0 10px;
       padding: 0px 15px;
       line-height: 40px;
       height: 40px;
@@ -1489,6 +1490,11 @@ a {
       background: #fff;
       color: #aaa;
       text-align: center; }
+    .gu-pagebox .con select {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      border-radius: 0; }
 
 /* animation delay classes */
 .delay100 {
