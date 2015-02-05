@@ -25,8 +25,13 @@ var PageTransitions = (function() {
             if(isAnimating) {
                 return false;
             }
+            if( $outClass.val() == '' || $outClass.val() == '' ){
+                return false;
+            }
+            
             nextPage($outClass.val(),$inClass.val());
-        } );
+        });
+
     }
 
     function nextPage(outClass,inClass) {
