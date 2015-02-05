@@ -166,7 +166,7 @@ textarea {
   resize: vertical;
 }
 
-textarea, input, button, a {
+textarea, input, button, select, a {
   outline: 0;
 }
 
@@ -794,5 +794,5 @@ a {
   background-size: .1rem .1rem;
   background-repeat: no-repeat;
   background-position: right .1rem center;
-  background-image: radial-gradient(circle, #0ac2d2, #0ac2d2 50%, white, transparent);
+  background-image: radial-gradient(circle, #0ac2d2, #0ac2d2 50%, transparent, transparent);
 }

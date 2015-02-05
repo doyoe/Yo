@@ -425,33 +425,6 @@ a {
 * Time: 2013.10.17
 */
 /**
- * module: m-code
- * Author: joy.du(飘零雾雨)
- * Time: 2013.10.17
- */
-.m-code {
-  margin: 10px;
-  padding: 10px;
-  border-radius: 5px;
-  background: #272822;
-  color: #51bbe1;
-  font-size: 20px;
-}
-.m-code .method {
-  color: #93de08;
-}
-.m-code .bracket,
-.m-code .colon {
-  padding-right: 5px;
-  color: #fff;
-}
-.m-code mark {
-  background: none;
-  color: #ccc;
-  font-size: 16px;
-}
-
-/**
  * module: m-demo
  * Author: joy.du(飘零雾雨)
  * Time: 2013.10.17
@@ -552,6 +525,33 @@ a {
 }
 
 /**
+ * module: m-code
+ * Author: joy.du(飘零雾雨)
+ * Time: 2013.10.17
+ */
+.m-code {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  background: #272822;
+  color: #51bbe1;
+  font-size: 20px;
+}
+.m-code .method {
+  color: #93de08;
+}
+.m-code .bracket,
+.m-code .colon {
+  padding-right: 5px;
+  color: #fff;
+}
+.m-code mark {
+  background: none;
+  color: #ccc;
+  font-size: 16px;
+}
+
+/**
  * Directory: lib/core/variables.scss
  * CSS Variables 定义各种页面沙粒变量
  * Author: joy.du(飘零雾雨)
@@ -626,195 +626,139 @@ a {
  * @param {String} $transition 取值与原生语法一致
  */
 /**
- * Directory: lib/widget/classes.scss
- * widget的基础构造
+ * Directory: lib/element/classes.scss
+ * element的基础构造
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  */
 /**
- * Fragment: yo-search
+ * Element: yo-btn
  * Author: joy.du(飘零雾雨)
- * Time: 2012.1.1
+ * Edit: 2015.1.19
  ------------------------
- * @method yo-search
- * variables length(15)
- * @param {default | String} $name 定义yo-search名称
- * @param {default | Length} $height 定义yo-search高度
- * @param {default | Length} $font-size 定义yo-search文本大小
- * @param {default | Length} $op-padding 定义yo-search内补白
- * @param {default | Length} $radius 定义yo-search圆角
- * @param {default | Color} $bordercolor 定义yo-search边框色
- * @param {default | Color} $bgcolor 定义yo-search背景色
- * @param {default | Color} $color 定义yo-search文本色
- * @param {default | Color} $on-bordercolor 定义yo-search激活边框色
- * @param {default | Color} $on-bgcolor 定义yo-search激活背景色
- * @param {default | Color} $placeholder-color 定义yo-search占位背景色
- * @param {default | Color} $ico-color 定义yo-search 操作区ico颜色
- * @param {default | Color} $cancel-color 定义yo-search取消按钮颜色
- * @param {default | Color} $op-bgcolor 定义yo-search搜索区域背景色
- * @param {default | Color} $mask-bgcolor 定义yo-search遮罩背景色
+ * 定义按钮使用方法
+ * @method yo-btn
+ * variables length(9)
+ * @param {default | String} $name 定义按钮名称
+ * @param {default | Color} $bordercolor 定义按钮边框色
+ * @param {default | Color} $bgcolor 定义按钮背景色
+ * @param {default | Color} $color 定义按钮文本色
+ * @param {default | Length} $padding 定义按钮横向补白
+ * @param {default | Length} $radius 定义按钮圆角
+ * @param {default | Length} $font-size 定义按钮字号
+ * @param {default | Length} $width 定义按钮宽度
+ * @param {default | Length} $height 定义按钮高度
  */
-.yo-search {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  flex-direction: column;
-}
-.yo-search > .operate {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  position: relative;
+.yo-btn {
+  display: inline-block;
   overflow: hidden;
-  z-index: 2501;
-  font-size: 0.14rem;
-  line-height: 0.3rem;
-  padding: 0.1rem;
-  border-bottom: 1px solid #dddddd;
-  background-color: white;
-}
-.yo-search > .operate > .action,
-.yo-search > .operate > .action > .label,
-.yo-search > .operate > .cancel {
-  -webkit-transition: all 0.2s ease-in;
-  -moz-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
-}
-.yo-search > .operate > .action,
-.yo-search > .operate > .cancel {
-  display: block;
-}
-.yo-search > .operate > .action {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  flex: 1;
-  display: block;
-  width: 100%;
-  -webkit-transform: translatez(0);
-  -moz-transform: translatez(0);
-  transform: translatez(0);
-  position: relative;
-  height: 0.3rem;
-}
-.yo-search > .operate > .action > .input {
-  -webkit-transform: translatez(0);
-  -moz-transform: translatez(0);
-  transform: translatez(0);
-  width: 100%;
-  height: 100%;
-  padding: 0 .3rem;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border: 1px solid #dddddd;
-  border-radius: 0.05rem;
-  background-color: #dddddd;
-  color: #212121;
-  font-size: 0.14rem;
-}
-.yo-search > .operate > .action > .yo-ico-delete,
-.yo-search > .operate > .action > .yo-ico-fresh,
-.yo-search > .operate > .action > .yo-ico-stop {
-  display: none;
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 100%;
-  padding: 0 .08rem;
-  color: #999999;
-}
-.yo-search > .operate > .action > .label {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  -webkit-transform: translatex(-50%) translatez(0);
-  -moz-transform: translatex(-50%) translatez(0);
-  transform: translatex(-50%) translatez(0);
+  padding: 0 1.2em;
+  border: 0.01rem solid #e26704;
+  box-shadow: inset 1px 1px rgba(255, 255, 255, 0.1);
+  border-radius: 0.02rem;
+  background-color: #ff801a;
   color: white;
-  word-spacing: -.05rem;
-}
-.yo-search > .operate > .action > .label > .yo-ico-search {
-  vertical-align: top;
-  margin: 0 .08rem 0 .1rem;
-}
-.yo-search > .operate > .cancel {
-  -webkit-transform: translatez(0);
-  -moz-transform: translatez(0);
-  transform: translatez(0);
-  overflow: hidden;
-  width: 0;
-  color: #00afc7;
-  white-space: nowrap;
-  text-align: right;
-}
-.yo-search > .operate-on > .action > .label {
-  left: 0;
-  -webkit-transform: translatex(0) translatez(0);
-  -moz-transform: translatex(0) translatez(0);
-  transform: translatex(0) translatez(0);
-}
-.yo-search > .operate-on > .action > .yo-ico-delete {
-  display: inline-block;
-}
-.yo-search > .operate-on > .cancel {
-  width: .6rem;
-  padding-right: .1rem;
-}
-.yo-search > .operate-fresh > .action > .input, .yo-search > .operate-stop > .action > .input {
   text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
 }
-.yo-search > .operate-fresh > .action > .label, .yo-search > .operate-stop > .action > .label {
-  display: none;
+.yo-btn:focus, .yo-btn:active {
+  opacity: .8;
 }
-.yo-search > .operate-fresh > .action > .yo-ico-fresh {
-  display: inline-block;
+.yo-btn-s {
+  height: 0.28rem;
+  line-height: 0.28rem;
+  font-size: 0.12rem;
 }
-.yo-search > .operate-stop > .action > .yo-ico-stop {
-  display: inline-block;
+.yo-btn-m {
+  height: 0.36rem;
+  line-height: 0.36rem;
+  font-size: 0.14rem;
 }
-.yo-search > .cont {
-  display: none;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  flex: 1;
+.yo-btn-l {
+  height: 0.44rem;
+  line-height: 0.44rem;
+  font-size: 0.16rem;
+}
+.yo-btn-stacked {
   display: block;
   width: 100%;
-  position: absolute;
-  top: .51rem;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(255, 255, 255, 0.9);
+  clear: both;
 }
-.yo-search > .cont > .recommend,
-.yo-search > .cont > .result {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
+
+.yo-btn-disabled {
+  border-color: #dfdfdf;
+  background-color: #eeeeee;
+  color: #d9d9d9;
+  cursor: not-allowed;
 }
-.yo-search > .cont-on {
-  display: block;
-}
-.yo-search-modal {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  height: 100%;
-}
-.yo-search-modal > .cont {
-  position: relative;
-  top: 0;
+.yo-btn-disabled:focus, .yo-btn-disabled:active {
+  opacity: 1;
 }
 
 /**
- * search演示页面
+ * Page Animation Switch 演示页面
  * Author: joy.du(飘零雾雨)
- * Time: 2014.4.1
+ * Time: 2015.2.5
  */
+.m-demo .device .stage {
+  background-color: #0ac2d2;
+}
+@media screen and (max-width: 799px) {
+  .m-demo .device .stage {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: auto;
+  }
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2.8rem;
+  height: 3.8rem;
+  margin-top: -1.9rem;
+  margin-left: -1.4rem;
+  z-index: 2;
+}
+.content > h1 {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: .64rem;
+}
+.content > h2 {
+  color: rgba(0, 0, 0, 0.2);
+  font-size: .3rem;
+}
+.content > .text {
+  height: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: .36rem;
+  line-height: 1rem;
+}
+.content > select {
+  position: relative;
+  width: 70%;
+  height: .4rem;
+  margin: .1rem 0;
+  padding: 0 .15rem;
+  border: 0;
+  border-radius: .02rem;
+  line-height: .4rem;
+  box-shadow: 0 0.03rem 0 rgba(0, 0, 0, 0.1);
+  background: #fff;
+  color: #aaa;
+  cursor: pointer;
+  font-size: .16rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  text-transform: capitalize;
+  background-size: .1rem .1rem;
+  background-repeat: no-repeat;
+  background-position: right .1rem center;
+  background-image: radial-gradient(circle, #0ac2d2, #0ac2d2 50%, transparent, transparent);
+}
