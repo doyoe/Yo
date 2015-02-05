@@ -44,7 +44,9 @@ $media-types: (
 	// {String} 视网膜屏
     retina:    "screen and (-webkit-min-device-pixel-ratio: 2)",
     // {String} PC
-    pc:        "screen and (min-width: 800px)"
+    pc:        "screen and (min-width: 800px)",
+    // {String} mobile
+    mobile:    "screen and (max-width: 799px)"
 ) !default;
 
 

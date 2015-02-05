@@ -9,14 +9,25 @@
  * Author: joy.du(飘零雾雨)
  * Time: 2015.2.5
  */
+// layout
+@include responsive(mobile) {
+	.m-demo .device .stage {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		height: auto;
+	}
+}
+
+
 //背景颜色
 $bgcolor:#0ac2d2 #7bb7fa #60d7a9 #fdc162 #fd6a62 #f68dbb;
 
 .pages {
-	position: relative;
 	width: 100%;
 	height: 100%;
-	overflow: hidden;
 	.page {
 		position: absolute;
 		width: 100%;
