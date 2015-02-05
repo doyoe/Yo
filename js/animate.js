@@ -25,7 +25,7 @@ var PageTransitions = (function() {
             if(isAnimating) {
                 return false;
             }
-            if( $outClass.val() == '' || $outClass.val() == '' ){
+            if( $outClass.val() == '' || $inClass.val() == '' ){
                 return false;
             }
             
