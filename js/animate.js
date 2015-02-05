@@ -1,8 +1,8 @@
 var PageTransitions = (function() {
 
-    var $main = $( '#main' ),
-        $pages = $main.children( 'div.gu-page' ),
-        $iterate = $( '#iterateEffects' ),
+    var $main = $('#main'),
+        $pages = $main.children('.page'),
+        $iterate = $('#iterateEffects'),
         $outClass = $('#outClass'),
         $inClass = $('#inClass'),
         animcursor = 1,
@@ -10,83 +10,70 @@ var PageTransitions = (function() {
         current = 0,
         isAnimating = false,
         endCurrPage = false,
-        endNextPage = false,
-        animEndEventNames = {
-            'WebkitAnimation' : 'webkitAnimationEnd',
-            'OAnimation' : 'oAnimationEnd',
-            'animation' : 'animationend'
-        };
-        // animation end event name
+        endNextPage = false;
+
     function init() {
 
-        $pages.each( function() {
-            var $page = $( this );
-            $page.data( 'originalClassList', $page.attr( 'class' ) );
-        } );
+        $pages.each(function() {
+            var $page = $(this);
+            $page.data('originalClassList', $page.attr('class'));
+        });
 
-        $pages.eq( current ).addClass( 'current' );
+        $pages.eq(current).addClass('current');
 
-        $iterate.on( 'click', function(e) {
-            if( isAnimating ) {
+        $iterate.on('click', function(e) {
+            if(isAnimating) {
                 return false;
             }
             nextPage($outClass.val(),$inClass.val());
         } );
-
     }
 
-    function nextPage( outClass,inClass ) {
-        if( isAnimating ) {
+    function nextPage(outClass,inClass) {
+        if(isAnimating) {
             return false;
         }
 
         isAnimating = true;
         
-        var $currPage = $pages.eq( current );
+        var $currPage = $pages.eq(current);
 
-        if( current < pagesCount - 1 ) {
+        if(current < pagesCount - 1) {
             ++current;
         } else {
             current = 0;
         }
 
-        var $nextPage = $pages.eq( current ).addClass( 'current' );
+        var $nextPage = $pages.eq(current).addClass('current');
 
-        $currPage.addClass( outClass ).on( "webkitAnimationEnd animationEnd", function() {
-            $currPage.off( "webkitAnimationEnd animationEnd" );
+        $currPage.addClass(outClass).on("webkitAnimationEnd animationEnd", function() {
+            $currPage.off("webkitAnimationEnd animationEnd");
             endCurrPage = true;
-            if( endNextPage ) {
-                onEndAnimation( $currPage, $nextPage );
+            if(endNextPage) {
+                onEndAnimation($currPage, $nextPage);
             }
         });
 
-        $nextPage.addClass( inClass ).on( "webkitAnimationEnd animationEnd", function() {            
-            $nextPage.off( "webkitAnimationEnd animationEnd" );
+        $nextPage.addClass(inClass).on("webkitAnimationEnd animationEnd", function() {            
+            $nextPage.off("webkitAnimationEnd animationEnd");
             endNextPage = true;
-            if( endCurrPage ) {
-                onEndAnimation( $currPage, $nextPage );
+            if(endCurrPage) {
+                onEndAnimation($currPage, $nextPage);
             }
         });
-
     }
 
-    function onEndAnimation( $outpage, $inpage ) {
+    function onEndAnimation($outpage, $inpage) {
         endCurrPage = false;
         endNextPage = false;
-        resetPage( $outpage, $inpage );
+        resetPage($outpage, $inpage);
         isAnimating = false;
     }
 
-    function resetPage( $outpage, $inpage ) {
-        $outpage.attr( 'class', $outpage.data( 'originalClassList' ) );
-        $inpage.attr( 'class', $inpage.data( 'originalClassList' ) + ' current' );
+    function resetPage($outpage, $inpage) {
+        $outpage.attr('class', $outpage.data('originalClassList'));
+        $inpage.attr('class', $inpage.data('originalClassList') + ' current');
     }
-
-    var TAGNAMES = {
-            'select': 'input', 'change': 'input',
-            'submit': 'form', 'reset': 'form',
-            'error': 'img', 'load': 'img', 'abort': 'img'
-    };
     
     return { init : init };
 

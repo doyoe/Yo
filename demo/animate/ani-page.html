@@ -7,32 +7,25 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <meta name="format-detection" content="telephone=no" />
 <link rel="apple-touch-icon-precomposed" href="/qunar-touch.png" />
-<title>page - 页面切换效果</title>
-<link rel="stylesheet" href="../../usage/demo/export/yo-page.css" />
+<title>Yo Page Animation Demo - 页面切换效果</title>
+<link rel="stylesheet" href="../../usage/demo/export/ani-page.css" />
 <link rel="stylesheet" href="../../usage/demo/export/ani.css" />
 </head>
 <body>
 <div class="m-demo">
     <div class="device">
         <div class="stage">
-            <div class="gu-pagebox" id="main">
-                <div class="gu-page ani gu-page-1"></div>
-                <div class="gu-page ani gu-page-2">
-                </div>
-                <div class="gu-page ani gu-page-3">
-                </div>
-                <div class="gu-page ani gu-page-4">
-                </div>
-                <div class="gu-page ani gu-page-5">
-                </div>
-                <div class="gu-page ani gu-page-6">
-                </div>
+            <div class="pages" id="main">
+                <div class="page ani page-1"></div>
+                <div class="page ani page-2"></div>
+                <div class="page ani page-3"></div>
+                <div class="page ani page-4"></div>
+                <div class="page ani page-5"></div>
+                <div class="page ani page-6"></div>
                 <div class="con">
-                    <h1>
-                        Yo
-                    </h1>
+                    <h1>Yo</h1>
                     <h2>Animate</h2>
-                    <p>PAGE TRANSITIONS</p>
+                    <p>Page Switch</p>
                     <select id="outClass">
                         <optgroup label="fade out">
                             <option value="fade-out">fade-out</option>
@@ -161,15 +154,11 @@
                             <option value="hinge">hinge</option>
                         </optgroup>
                     </select>
-                    <span class="gu-btn" id="iterateEffects">Show next page</span>
-                    
+                    <span class="yo-btn yo-btn-switch yo-btn-stacked" id="iterateEffects">Show Next Page</span>
                 </div>
             </div>
         </div>
     </div>
-    <code class="code"><xmp>
-    
-    </xmp></code>
 </div>
 
 <script src="../../js/zepto.min.js"></script>
@@ -177,7 +166,6 @@
 <script>
     $(function(){
         PageTransitions.init();
-
     });
 </script>
 </body>
