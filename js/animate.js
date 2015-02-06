@@ -25,10 +25,9 @@ var PageTransitions = (function() {
             if(isAnimating) {
                 return false;
             }
-            if( $outClass.val() == '' || $inClass.val() == '' ){
-                return false;
+            if( $outClass.val()=='' && $inClass.val() == '' ){
+                return false;    
             }
-            
             nextPage($outClass.val(),$inClass.val());
         });
 
@@ -50,22 +49,28 @@ var PageTransitions = (function() {
         }
 
         var $nextPage = $pages.eq(current).addClass('current');
+        
+        if(outClass != ''){
+            $currPage.addClass(outClass).css('z-index','2').on("webkitAnimationEnd animationEnd", function() {
+                $currPage.off("webkitAnimationEnd animationEnd");
+                $currPage.css('z-index','0');
+                endCurrPage = true;
+                //if(endNextPage) {
+                    onEndAnimation($currPage, $nextPage);
+                //}
+            });
+        }
+        
+        if(inClass != ''){
+            $nextPage.addClass(inClass).on("webkitAnimationEnd animationEnd", function() {            
+                $nextPage.off("webkitAnimationEnd animationEnd");
+                endNextPage = true;
+                //if(endCurrPage) {
+                    onEndAnimation($currPage, $nextPage);
+                //}
+            });
+        }
 
-        $currPage.addClass(outClass).on("webkitAnimationEnd animationEnd", function() {
-            $currPage.off("webkitAnimationEnd animationEnd");
-            endCurrPage = true;
-            if(endNextPage) {
-                onEndAnimation($currPage, $nextPage);
-            }
-        });
-
-        $nextPage.addClass(inClass).on("webkitAnimationEnd animationEnd", function() {            
-            $nextPage.off("webkitAnimationEnd animationEnd");
-            endNextPage = true;
-            if(endCurrPage) {
-                onEndAnimation($currPage, $nextPage);
-            }
-        });
     }
 
     function onEndAnimation($outpage, $inpage) {
