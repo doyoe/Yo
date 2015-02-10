@@ -847,10 +847,18 @@ a {
 .yo-header-normal {
   background-color: #fafafa;
 }
+.yo-header-normal > .regret,
+.yo-header-normal > .affirm {
+  color: default;
+}
 
 .yo-header-positive {
   border-color: #145fd7;
   background-color: #4a87ee;
+  color: white;
+}
+.yo-header-positive > .regret,
+.yo-header-positive > .affirm {
   color: white;
 }
 

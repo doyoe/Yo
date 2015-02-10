@@ -28,6 +28,7 @@
 	$bgcolor: default,
 	$color: default,
 	$font-size: default,
+	$item-color: default,
 	$item-font-size: default) {
 	// 区别是否新增实例还是修改本身
 	@if $name == default {
@@ -86,6 +87,9 @@
 	    > .affirm {
 	    	@if $item-width != map-get($header, item-width) {
 		        width: $item-width;
+		    }
+		    @if $item-color != map-get($header, item-color) {
+		        color: $item-color;
 		    }
 			@if $item-font-size != map-get($header, item-font-size) {
 		        font-size: $item-font-size;
