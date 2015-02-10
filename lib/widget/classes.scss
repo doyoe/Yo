@@ -390,14 +390,14 @@
 
 // 定义search的基础构造
 // 使用方法请查看 yo-search.scss
-@mixin _search{
+@mixin _search {
     @include flexbox();
     @include flex-direction(column);
-    > .operate{
+    > .operate {
         @include flexbox();
         position: relative;
         overflow: hidden;
-        z-index: map-get($z-index, search);
+        // z-index: map-get($z-index, search);
         font-size: map-get($search, font-size);
         line-height: map-get($search, height);
         padding: map-get($search, op-padding);
@@ -405,19 +405,19 @@
         background-color: map-get($search, op-bgcolor);
         > .action,
         > .action > .label,
-        > .cancel{
+        > .cancel {
             @include transition(all .2s ease-in);
         }
         > .action,
-        > .cancel{
+        > .cancel {
             display: block;
         }
-        > .action{
+        > .action {
             @include flex();
             @include transform(translatez(0));
             position: relative;
             height: map-get($search, height);
-            > .input{
+            > .input {
                 @include transform(translatez(0));
                 width: 100%;
                 height: 100%;
@@ -431,7 +431,7 @@
             }
             > .yo-ico-delete,
             > .yo-ico-fresh,
-            > .yo-ico-stop{
+            > .yo-ico-stop {
                 display: none;
                 position: absolute;
                 top: 0;
@@ -440,20 +440,20 @@
                 padding: 0 .08rem;
                 color: map-get($search, ico-color);
             }
-            > .label{
+            > .label {
                 position: absolute;
                 top: 0;
                 left: 50%;
                 @include transform(translatex(-50%) translatez(0));
                 color: map-get($search, placeholder-color);
                 word-spacing: -.05rem;
-                > .yo-ico-search{
+                > .yo-ico-search {
                     vertical-align: top;
                     margin: 0 .08rem 0 .1rem;
                 }
             }
         }
-        > .cancel{
+        > .cancel {
             @include transform(translatez(0));
             overflow: hidden;
             width: 0;
@@ -463,64 +463,64 @@
         }
         &-on,
         &-fresh,
-        &-stop{
-            > .action > .input{
+        &-stop {
+            > .action > .input {
                 border-color: map-get($search, on-bordercolor);
                 background-color: map-get($search, on-bgcolor);
             }
         }
-        &-on{
-            > .action{
-                > .label{
+        &-on {
+            > .action {
+                > .label {
                     left: 0;
                     @include transform(translatex(0) translatez(0));
                 }
-                > .yo-ico-delete{
+                > .yo-ico-delete {
                     display: inline-block;
                 }
             }
-            > .cancel{
+            > .cancel {
                 width: .6rem;
                 padding-right: .1rem;
             }
         }
         &-fresh,
-        &-stop{
-            > .action{
-                > .input{
+        &-stop {
+            > .action {
+                > .input {
                     text-align: center;
                 }
-                > .label{
+                > .label {
                     display: none;
                 }
             }
         }
-        &-fresh{
-            > .action{
-                > .yo-ico-fresh{
+        &-fresh {
+            > .action {
+                > .yo-ico-fresh {
                     display: inline-block;
                 }
             }
         }
-        &-stop{
-            > .action{
-                > .yo-ico-stop{
+        &-stop {
+            > .action {
+                > .yo-ico-stop {
                     display: inline-block;
                 }
             }
         }
     }
-    > .cont{
-        display: none;
+    > .cont {
         @include flex();
+        display: none;
         position: absolute;
-        top: .51rem;
+        top: .95rem;
         right: 0;
         bottom: 0;
         left: 0;
-        background-color: rgba(map-get($search, mask-bgcolor),.9);
+        background-color: rgba(map-get($search, mask-bgcolor), .9);
         > .recommend,
-        > .result{
+        > .result {
             position: absolute;
             top: 0;
             bottom: 0;
@@ -528,20 +528,32 @@
             width: 100%;
             overflow: hidden;
         }
-        &-on{
+        &-on {
             display: block;
         }
     }
     // 模态搜索
-    &-modal{
+    &-modal {
         position: fixed;
+        z-index: map-get($z-index, search);
         top: 0;
         right: 0;
         left: 0;
         height: 100%;
-        > .cont{
+        > .cont {
             position: relative;
             top: 0;
         }
     }
+}
+
+// 定义index的基础构造
+// 使用方法请查看 yo-index.scss
+@mixin _index {
+    width: map-get($index, width);
+    text-transform: uppercase;
+    color: map-get($index, color);
+    font-size: .12rem;
+    line-height: 1.1;
+    text-align: center;
 }

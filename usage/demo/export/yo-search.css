@@ -214,8 +214,8 @@ a {
 
 @font-face {
   font-family: fontawesome-webfont;
-  src: url(http://source.qunarzz.com/fonts/fontawesome/4.2.0/fontawesome-webfont.eot);
-  src: url(http://source.qunarzz.com/fonts/fontawesome/4.2.0/fontawesome-webfont.eot?#iefix) format("embedded-opentype"), url(http://source.qunarzz.com/fonts/fontawesome/4.2.0/fontawesome-webfont.woff) format("woff"), url(http://source.qunarzz.com/fonts/fontawesome/4.2.0/fontawesome-webfont.ttf) format("truetype"), url(http://source.qunarzz.com/fonts/fontawesome/4.2.0/fontawesome-webfont.svg#iconfont) format("svg");
+  src: url(http://source.qunarzz.com/fonts/fontawesome/4.3.0/fontawesome-webfont.eot);
+  src: url(http://source.qunarzz.com/fonts/fontawesome/4.3.0/fontawesome-webfont.eot?#iefix) format("embedded-opentype"), url(http://source.qunarzz.com/fonts/fontawesome/4.3.0/fontawesome-webfont.woff) format("woff"), url(http://source.qunarzz.com/fonts/fontawesome/4.3.0/fontawesome-webfont.ttf) format("truetype"), url(http://source.qunarzz.com/fonts/fontawesome/4.3.0/fontawesome-webfont.svg#iconfont) format("svg");
 }
 .yo-ico {
   font-family: fontawesome-webfont !important;
@@ -626,6 +626,169 @@ a {
  * @param {String} $transition 取值与原生语法一致
  */
 /**
+ * Directory: lib/fragment/classes.scss
+ * fragment的基础构造
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ */
+/**
+ * Widget: yo-header
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ ------------------------
+ * @method yo-header
+ * variables length(9)
+ * @param {default | String} $name 定义yo-header名称
+ * @param {default | Length} $height 定义yo-header高度
+ * @param {default | Length} $item-width 定义yo-header两侧子项宽度
+ * @param {default | Length} $item-space 定义yo-header两侧子项离边界的间隙
+ * @param {default | Color} $bgcolor 定义yo-header背景色
+ * @param {default | Color} $bordercolor 定义yo-header边框色
+ * @param {default | Color} $color 定义yo-header文本色
+ * @param {default | Length} $font-size 定义yo-header文本大小
+ * @param {default | Length} $item-font-size 定义yo-header两侧的子项文本大小
+ */
+.yo-header {
+  position: relative;
+  overflow: hidden;
+  height: 0.44rem;
+  line-height: 0.44rem;
+  border-bottom: 1px solid #dddddd;
+  background-color: white;
+  font-size: 0.16rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+.yo-header > .title {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin: 0 0.6rem;
+}
+.yo-header > .regret,
+.yo-header > .affirm {
+  position: absolute;
+  top: 0;
+  width: 0.6rem;
+  font-size: 0.14rem;
+  color: #00afc7;
+  cursor: pointer;
+}
+.yo-header > .regret:active,
+.yo-header > .affirm:active {
+  opacity: .5;
+}
+.yo-header > .regret {
+  left: 0;
+  padding-left: 0.15rem;
+  text-align: left;
+}
+.yo-header > .affirm {
+  right: 0;
+  padding-right: 0.15rem;
+  text-align: right;
+}
+
+/**
+ * Fragment扩展: yo-header-normal, yo-header-positive
+ * Author: joy.du(飘零雾雨)
+ * Time: 2015.1.16
+ */
+.yo-header-normal {
+  background-color: #fafafa;
+}
+.yo-header-normal > .regret,
+.yo-header-normal > .affirm {
+  color: default;
+}
+
+.yo-header-positive {
+  border-color: #145fd7;
+  background-color: #4a87ee;
+  color: white;
+}
+.yo-header-positive > .regret,
+.yo-header-positive > .affirm {
+  color: white;
+}
+
+/**
+ * Directory: lib/core/variables.scss
+ * CSS Variables 定义各种页面沙粒变量
+ * Author: joy.du(飘零雾雨)
+ * Edit: 2014.12.5
+ */
+/**
+ * Directory: lib/core/classes.scss
+ * Global Classes 约定常规解决方案
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ */
+/**
+ * 给需要的属性加厂家前缀
+ * @method prefix
+ * @param {String} $appearance 指定属性
+ * @param {String} $value 指定属性值
+ */
+/**
+ * 定义响应式方案
+ * @method responsive
+ * @param {String} $media 指定媒体查询条件
+ * 使用方法如下，结合variables中的$media-types：
+    @include responsive(phone) {
+        .foo {
+            background: blue;
+        }
+    }
+ */
+/**
+ * 定义字体图标
+ * @method yofont
+ */
+/**
+ * 定义UA默认外观
+ * @method appearance
+ * @param {String} $appearance 指定UA外观类型
+ */
+/**
+ * 定义是否可以选中元素
+ * @method user-select
+ * @param {String} $user-select 指定是否可以选中
+ */
+/**
+ * 定义渐变色值
+ * @method gradient
+ * @param {String} $type 指定渐变的4种类型：linear, repeating-linear, radial, repeating-radial
+ * @param {String} $gradient 指定渐变取值，与原生语法一致
+ */
+/**
+ * 定义盒模型
+ * @method box-sizing
+ * @param {String} $box-sizing 的2个值分别为：content-box(标准盒模型) | border-box(怪异盒模型)
+ */
+/**
+ * 定义简单变换
+ * @method transform
+ * @param {String} $transform 取值与原生语法一致
+ */
+/**
+ * 定义变换原点
+ * @method transform-origin
+ * @param {String} $transform-origin 取值与原生语法一致
+ */
+/**
+ * 定义动画
+ * @method animation
+ * @param {String} $animation 取值与原生语法一致
+ */
+/**
+ * 定义补间
+ * @method transition
+ * @param {String} $transition 取值与原生语法一致
+ */
+/**
  * Directory: lib/widget/classes.scss
  * widget的基础构造
  * Author: joy.du(飘零雾雨)
@@ -669,7 +832,6 @@ a {
   display: flex;
   position: relative;
   overflow: hidden;
-  z-index: 2501;
   font-size: 0.14rem;
   line-height: 0.3rem;
   padding: 0.1rem;
@@ -776,14 +938,14 @@ a {
   display: inline-block;
 }
 .yo-search > .cont {
-  display: none;
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
   display: block;
   width: 100%;
+  display: none;
   position: absolute;
-  top: .51rem;
+  top: .95rem;
   right: 0;
   bottom: 0;
   left: 0;
@@ -803,6 +965,7 @@ a {
 }
 .yo-search-modal {
   position: fixed;
+  z-index: 2501;
   top: 0;
   right: 0;
   left: 0;

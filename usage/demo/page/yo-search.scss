@@ -2,6 +2,7 @@
 @import "../layout/layout";
 @import "../module/m-code";
 @import "../module/m-demo";
+@import "../fragment/yo-header";
 @import "../../../lib/widget/yo-search";
 
 /**
@@ -10,11 +11,4 @@
  * Time: 2014.4.1
  */
 
-.yo-search{
-	&-on,
-	&-fresh,
-	&-stop{
-		// position: absolute;
-	}
-}
 // @include yo-search(default,.3rem,.14rem,0 .3rem,.05rem,red,#000,blue,default,default,red,red,red);

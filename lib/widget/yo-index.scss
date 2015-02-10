@@ -1,0 +1,46 @@
+@charset "utf-8";
+@import "classes";
+
+/**
+ * Fragment: yo-index
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ ------------------------
+ * @method yo-index
+ * variables length(3)
+ * @param {default | String} $name 定义yo-index名称
+ * @param {default | Length} $width 定义yo-index宽度
+ * @param {default | Color} $color 定义yo-index文本色
+ */
+
+@mixin yo-index(
+	$name: default,
+	$width: default,
+	$color: default) {
+	// 区别是否新增实例还是修改本身
+	@if $name == default {
+        $name: "";
+    } @else {
+        $name: "-#{$name}";
+    }
+	// 如果值为default，则取config的定义
+	@if $width == default {
+		$width: map-get($index, width);
+	}
+	@if $color == default {
+		$color: map-get($index, color);
+	}
+	.yo-index#{$name} {
+		@if $width != map-get($index, width) {
+			width: $width;
+		}
+    	@if $color != map-get($index, color) {
+    		color: $color;
+	    }
+	}
+}
+
+// 调用本文件时载入index基础构造
+.yo-index {
+	@include _index;
+}

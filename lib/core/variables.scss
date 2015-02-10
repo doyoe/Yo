@@ -106,7 +106,7 @@ $ico: (
 	// {String} 使用哪几种图标
 	font-types: eot,
 	// {Url} 图标字体路径
-	font-path:  "http://source.qunarzz.com/fonts/fontawesome/4.2.0/",
+	font-path:  "http://source.qunarzz.com/fonts/fontawesome/4.3.0/",
 ) !default;
 
 
@@ -374,6 +374,14 @@ $header: (
 	item-font-size: .14rem
 ) !default;
 
+
+// Widget index(2)
+$index: (
+	// {Length} 索引宽度
+	width:     .3rem,
+	// {Color} 文本色
+	color:     #555
+) !default;
 
 // Widget search(14)
 $search: (
