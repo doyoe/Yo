@@ -1062,17 +1062,17 @@ a {
   bottom: 0;
   left: 0;
 }
-.yo-group > .sticky,
+.yo-group .yo-list > .label {
+  border-bottom: 0;
+}
+.yo-group .yo-list > .sticky,
 .yo-group > .scroll-index {
   position: absolute;
   right: 0;
 }
-.yo-group > .sticky {
+.yo-group .yo-list > .sticky {
   top: 0;
   left: 0;
-  padding: .03rem .1rem;
-  border-bottom: .01rem solid #ddd;
-  background-color: #fafafa;
 }
 
 /**
