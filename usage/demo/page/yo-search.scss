@@ -2,7 +2,8 @@
 @import "../layout/layout";
 @import "../module/m-code";
 @import "../module/m-demo";
-@import "../fragment/yo-header";
+@import "../../../lib/fragment/yo-header";
+@import "../../../lib/widget/yo-group";
 @import "../../../lib/widget/yo-search";
 
 /**
@@ -10,5 +11,12 @@
  * Author: joy.du(飘零雾雨)
  * Time: 2014.4.1
  */
+
+.yo-group {
+	> .scroll-index {
+		top: 50%;
+		@include transform(translate(0, -50%));
+	}
+}
 
 // @include yo-search(default,.3rem,.14rem,0 .3rem,.05rem,red,#000,blue,default,default,red,red,red);

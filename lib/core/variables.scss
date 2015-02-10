@@ -378,9 +378,15 @@ $header: (
 // Widget index(2)
 $index: (
 	// {Length} 索引宽度
-	width:     .3rem,
+	width:   .3rem,
 	// {Color} 文本色
-	color:     #555
+	color:   #555
+) !default;
+
+// Widget group(1)
+$group: (
+	// {Length} group顶部偏移值
+	top:     .95rem
 ) !default;
 
 // Widget search(14)

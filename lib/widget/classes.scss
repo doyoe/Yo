@@ -557,3 +557,25 @@
     line-height: 1.1;
     text-align: center;
 }
+
+// 定义group的基础构造
+// 使用方法请查看 yo-group.scss
+@mixin _group {
+    position: absolute;
+    top: map-get($group, top);
+    right: 0;
+    bottom: 0;
+    left: 0;
+    > .sticky,
+    > .scroll-index {
+        position: absolute;
+        right: 0;
+    }
+    > .sticky {
+        top: 0;
+        left: 0;
+        padding: .03rem .1rem;
+        border-bottom: .01rem solid #ddd;
+        background-color: #fafafa;
+    }
+}
