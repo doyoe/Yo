@@ -397,7 +397,7 @@
         @include flexbox();
         position: relative;
         overflow: hidden;
-        // z-index: map-get($z-index, search);
+        z-index: map-get($z-index, search);
         font-size: map-get($search, font-size);
         line-height: map-get($search, height);
         padding: map-get($search, op-padding);
@@ -580,5 +580,26 @@
         padding: map-get($list, label-padding);
         background-color: map-get($list, label-bgcolor);
         color: map-get($base, sub-color);
+    }
+}
+
+// 定义slider的基础构造
+// 使用方法请查看 yo-slider.scss
+@mixin _slider {
+    overflow: hidden;
+    > .cont {
+        white-space: nowrap;
+        @include killspace;
+        > .item {
+            @include killspace-item;
+            width: 100%;
+            background-color: #eee;
+            min-height: .1rem;
+            > img {
+                max-width: 100%;
+                max-height: 100%;
+                height: auto;
+            }
+        }
     }
 }
