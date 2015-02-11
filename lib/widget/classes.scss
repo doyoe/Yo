@@ -345,6 +345,7 @@
 // 使用方法请查看 yo-number.scss
 @mixin _number{
     @include flexbox(inline-flex);
+    overflow: hidden;
     width: map-get($number, width);
     height: map-get($number, height);
     line-height: map-get($number, height);
