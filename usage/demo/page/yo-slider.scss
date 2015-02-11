@@ -1,0 +1,19 @@
+@charset "utf-8";
+@import "../layout/layout";
+@import "../module/m-demo";
+@import "../module/m-code";
+@import "../fragment/yo-header";
+@import "../../../lib/widget/yo-slider";
+
+/**
+ * slider演示页面
+ * Author: joy.du(飘零雾雨)
+ * Time: 2015.2.10
+ */
+
+.yo-index {
+	position: absolute;
+	right: 0;
+	top: 50%;
+	@include transform(translate(0, -50%));
+}
