@@ -610,16 +610,16 @@
         }
     }
     > .index {
-        display: inline-block;
-        position: relative;
-        margin-top: -.2rem;
-        vertical-align: top;
+        position: absolute;
+        bottom: .1rem;
+        left: 50%;
+        @include transform(translatex(-50%));
         > li {
             float: left;
             margin: 0 .05rem;
             @include square(.1rem);
             border-radius: 50%;
-            background-color: #ddd;
+            background-color: #aaa;
             &.on {
                 background-color: #fff;
             }

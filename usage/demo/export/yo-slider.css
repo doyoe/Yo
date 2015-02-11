@@ -831,10 +831,12 @@ a {
   height: auto;
 }
 .yo-slider > .index {
-  display: inline-block;
-  position: relative;
-  margin-top: -.2rem;
-  vertical-align: top;
+  position: absolute;
+  bottom: .1rem;
+  left: 50%;
+  -webkit-transform: translatex(-50%);
+  -moz-transform: translatex(-50%);
+  transform: translatex(-50%);
 }
 .yo-slider > .index > li {
   float: left;
@@ -842,7 +844,7 @@ a {
   width: 0.1rem;
   height: 0.1rem;
   border-radius: 50%;
-  background-color: #ddd;
+  background-color: #aaa;
 }
 .yo-slider > .index > li.on {
   background-color: #fff;
