@@ -1073,10 +1073,10 @@ a {
 .yo-group > .sticky,
 .yo-group > .scroll-index {
   position: absolute;
+  top: 0;
   right: 0;
 }
 .yo-group > .sticky {
-  top: 0;
   left: 0;
   padding: 0.03rem 0.1rem;
   background-color: #fafafa;
@@ -1214,10 +1214,6 @@ a {
   -moz-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
 }
-.yo-search > .operate > .action,
-.yo-search > .operate > .cancel {
-  display: block;
-}
 .yo-search > .operate > .action {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
@@ -1272,6 +1268,7 @@ a {
   margin: 0 .08rem 0 .1rem;
 }
 .yo-search > .operate > .cancel {
+  display: block;
   -webkit-transform: translatez(0);
   -moz-transform: translatez(0);
   transform: translatez(0);
