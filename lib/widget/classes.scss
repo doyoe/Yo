@@ -586,8 +586,11 @@
 // 定义slider的基础构造
 // 使用方法请查看 yo-slider.scss
 @mixin _slider {
+    position: relative;
     overflow: hidden;
+    text-align: center;
     > .cont {
+        position: relative;
         white-space: nowrap;
         @include killspace;
         > .item {
@@ -600,6 +603,38 @@
                 max-height: 100%;
                 height: auto;
             }
+        }
+    }
+    > .index {
+        display: inline-block;
+        margin-top: -.2rem;
+        vertical-align: top;
+        > li {
+            float: left;
+            margin: 0 .05rem;
+            @include square(.1rem);
+            border-radius: 50%;
+            background-color: #ddd;
+            &.on {
+                background-color: #fff;
+            }
+        }
+    }
+    > .action{
+        > .yo-ico {
+            position: absolute;
+            top: 50%;
+            @include transform(translatey(-50%));
+            width: .44rem;
+            background-color: #aaa;
+            line-height: .5rem;
+            cursor: pointer;
+        }
+        > .yo-ico-prev {
+            left: 0;
+        }
+        > .yo-ico-next {
+            right: 0;
         }
     }
 }
