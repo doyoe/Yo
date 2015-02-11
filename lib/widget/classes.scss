@@ -623,21 +623,19 @@
             }
         }
     }
-    > .action{
-        > .yo-ico {
-            position: absolute;
-            top: 50%;
-            @include transform(translatey(-50%));
-            width: .44rem;
-            background-color: #aaa;
-            line-height: .5rem;
-            cursor: pointer;
-        }
-        > .yo-ico-prev {
-            left: 0;
-        }
-        > .yo-ico-next {
-            right: 0;
-        }
+    > .yo-ico {
+        position: absolute;
+        top: 50%;
+        @include transform(translatey(-50%));
+        width: .44rem;
+        background-color: #aaa;
+        line-height: .5rem;
+        cursor: pointer;
+    }
+    > .yo-ico-prev {
+        left: 0;
+    }
+    > .yo-ico-next {
+        right: 0;
     }
 }
