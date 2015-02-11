@@ -7,16 +7,18 @@
  * Time: 2012.1.1
  ------------------------
  * @method yo-index
- * variables length(3)
+ * variables length(4)
  * @param {default | String} $name 定义yo-index名称
  * @param {default | Length} $width 定义yo-index宽度
  * @param {default | Color} $color 定义yo-index文本色
+ * @param {default | Length} $font-size 定义yo-index文本字号
  */
 
 @mixin yo-index(
 	$name: default,
 	$width: default,
-	$color: default) {
+	$color: default,
+	$font-size: default) {
 	// 区别是否新增实例还是修改本身
 	@if $name == default {
         $name: "";
@@ -30,12 +32,26 @@
 	@if $color == default {
 		$color: map-get($index, color);
 	}
+	@if $font-size == default {
+		$font-size: map-get($index, font-size);
+	}
 	.yo-index#{$name} {
 		@if $width != map-get($index, width) {
 			width: $width;
 		}
     	@if $color != map-get($index, color) {
     		color: $color;
+	    }
+	    @if $font-size != map-get($index, font-size) {
+    		font-size: $font-size;
+	    }
+	    .ellipsis {
+	    	@if $color != map-get($index, color) {
+		        background-color: $color;
+		    }
+		    @if $font-size != map-get($index, font-size) {
+	    		@include square($font-size / 2);
+		    }
 	    }
 	}
 }

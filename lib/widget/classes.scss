@@ -553,9 +553,15 @@
     width: map-get($index, width);
     text-transform: uppercase;
     color: map-get($index, color);
-    font-size: .12rem;
+    font-size: map-get($index, font-size);
     line-height: 1.1;
     text-align: center;
+    .ellipsis {
+        display: inline-block;
+        @include square(map-get($index, font-size) / 2);
+        border-radius: 50%;
+        background-color: map-get($index, color);
+    }
 }
 
 // 定义group的基础构造
@@ -566,16 +572,16 @@
     right: 0;
     bottom: 0;
     left: 0;
-    .yo-list > .label {
-        border-bottom: 0;
-    }
-    .yo-list > .sticky,
+    > .sticky,
     > .scroll-index {
         position: absolute;
         right: 0;
     }
-    .yo-list > .sticky {
+    > .sticky {
         top: 0;
         left: 0;
+        padding: map-get($list, label-padding);
+        background-color: map-get($list, label-bgcolor);
+        color: map-get($base, sub-color);
     }
 }

@@ -375,12 +375,14 @@ $header: (
 ) !default;
 
 
-// Widget index(2)
+// Widget index(3)
 $index: (
 	// {Length} 索引宽度
-	width:   .3rem,
+	width:    .3rem,
 	// {Color} 文本色
-	color:   #555
+	color:    #555,
+	// {Length} 索引字号
+	font-size:.12rem
 ) !default;
 
 // Widget group(1)

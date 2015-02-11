@@ -986,18 +986,26 @@ a {
  * Time: 2012.1.1
  ------------------------
  * @method yo-index
- * variables length(3)
+ * variables length(4)
  * @param {default | String} $name 定义yo-index名称
  * @param {default | Length} $width 定义yo-index宽度
  * @param {default | Color} $color 定义yo-index文本色
+ * @param {default | Length} $font-size 定义yo-index文本字号
  */
 .yo-index {
   width: 0.3rem;
   text-transform: uppercase;
   color: #555555;
-  font-size: .12rem;
+  font-size: 0.12rem;
   line-height: 1.1;
   text-align: center;
+}
+.yo-index .ellipsis {
+  display: inline-block;
+  width: 0.06rem;
+  height: 0.06rem;
+  border-radius: 50%;
+  background-color: #555555;
 }
 
 /**
