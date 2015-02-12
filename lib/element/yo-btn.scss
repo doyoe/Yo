@@ -21,26 +21,26 @@
  */
 
 @mixin yo-btn(
-	$name: default,
-	$bordercolor: default,
-	$bgcolor: default,
-	$color: default,
-	$padding: default,
-	$radius: default,
-	$font-size: default,
-	$width: default,
-	$height: default) {
-	// 区别是否新增实例还是修改本身
-	@if $name == default {
+    $name: default,
+    $bordercolor: default,
+    $bgcolor: default,
+    $color: default,
+    $padding: default,
+    $radius: default,
+    $font-size: default,
+    $width: default,
+    $height: default) {
+    // 区别是否新增实例还是修改本身
+    @if $name == default {
         $name: "";
     } @else {
         $name: "-#{$name}";
     }
-	// 如果值为default，则取config的定义
+    // 如果值为default，则取config的定义
     @if $bordercolor == default {
         $bordercolor: map-get($btn, bordercolor);
     }
-	@if $bgcolor == default {
+    @if $bgcolor == default {
         $bgcolor: map-get($btn, bgcolor);
     }
     @if $color == default {
@@ -61,81 +61,81 @@
     @if $height == default {
         $height: map-get($btn, height);
     }
-	.yo-btn#{$name} {
-		// 如果$width不等于default，则重绘宽度
-		@if $width != default {
-			width: $width;
-		}
-		// 如果$height不等于default，则重绘高度和行高
-		@if $height != default {
-			height: $height;
-			line-height: $height;
-		}
-		// 如果$padding不等于config设定，则重绘内补白
-		@if $padding != map-get($btn, padding) {
-			padding: $padding;
-		}
-		// 如果$radius不等于config设定，则重绘圆角
-		@if $radius != map-get($btn, radius) {
-		    border-radius: $radius;
-		}
-	    // 如果$bordercolor不等于config设定，则重绘边框色
-		@if $bordercolor != map-get($btn, bordercolor) {
-			border-color: $bordercolor;
-		}
-	    // 如果$bgcolor不等于config设定，则重绘背景色
-		@if $bgcolor != map-get($btn, bgcolor) {
-		    background-color: $bgcolor;
-		}
-		// 如果$color不等于config设定，则重绘文本色
-		@if $color != map-get($btn, color) {
-		    color: $color;
-		}
-		// 如果$font-size不等于config设定，则重绘文本字号
-		@if $font-size != map-get($btn, font-size) {
-		    font-size: $font-size;
-		}
-		// 如果是禁用按钮，则不需要交互状态
-		@if $name == -disabled {
-			cursor: not-allowed;
-			&:focus,
-			&:active {
-				opacity: 1;
-			}
-		}
-	}
+    .yo-btn#{$name} {
+        // 如果$width不等于default，则重绘宽度
+        @if $width != default {
+            width: $width;
+        }
+        // 如果$height不等于default，则重绘高度和行高
+        @if $height != default {
+            height: $height;
+            line-height: $height;
+        }
+        // 如果$padding不等于config设定，则重绘内补白
+        @if $padding != map-get($btn, padding) {
+            padding: $padding;
+        }
+        // 如果$radius不等于config设定，则重绘圆角
+        @if $radius != map-get($btn, radius) {
+            border-radius: $radius;
+        }
+        // 如果$bordercolor不等于config设定，则重绘边框色
+        @if $bordercolor != map-get($btn, bordercolor) {
+            border-color: $bordercolor;
+        }
+        // 如果$bgcolor不等于config设定，则重绘背景色
+        @if $bgcolor != map-get($btn, bgcolor) {
+            background-color: $bgcolor;
+        }
+        // 如果$color不等于config设定，则重绘文本色
+        @if $color != map-get($btn, color) {
+            color: $color;
+        }
+        // 如果$font-size不等于config设定，则重绘文本字号
+        @if $font-size != map-get($btn, font-size) {
+            font-size: $font-size;
+        }
+        // 如果是禁用按钮，则不需要交互状态
+        @if $name == -disabled {
+            cursor: not-allowed;
+            &:focus,
+            &:active {
+                opacity: 1;
+            }
+        }
+    }
 }
 
 // 调用本文件时载入按钮基础构造
 .yo-btn {
-	@include _btn;
-	// 默认载入按钮的三种尺寸:s, m, l
-	&-s {
-		height: map-get($btn, s-height);
-		line-height: map-get($btn, s-height);
-		font-size: map-get($btn, s-font-size);
-	}
-	&-m {
-		height: map-get($btn, m-height);
-		line-height: map-get($btn, m-height);
-		font-size: map-get($btn, m-font-size);
-	}
-	&-l {
-		height: map-get($btn, l-height);
-		line-height: map-get($btn, l-height);
-		font-size: map-get($btn, l-font-size);
-	}
-	// 通栏按钮
-	&-stacked {
-		display: block;
-		width: 100%;
-		clear: both;
-	}
+    @include _btn;
+    // 默认载入按钮的三种尺寸:s, m, l
+    &-s {
+        height: map-get($btn, s-height);
+        line-height: map-get($btn, s-height);
+        font-size: map-get($btn, s-font-size);
+    }
+    &-m {
+        height: map-get($btn, m-height);
+        line-height: map-get($btn, m-height);
+        font-size: map-get($btn, m-font-size);
+    }
+    &-l {
+        height: map-get($btn, l-height);
+        line-height: map-get($btn, l-height);
+        font-size: map-get($btn, l-font-size);
+    }
+    // 通栏按钮
+    &-stacked {
+        display: block;
+        width: 100%;
+        clear: both;
+    }
 }
 
 // 预设禁用按钮
 @include yo-btn(
-	disabled,
-	map-get($btn, disabled-bordercolor),
-	map-get($btn, disabled-bgcolor), map-get($btn, disabled-color)
+    disabled,
+    map-get($btn, disabled-bordercolor),
+    map-get($btn, disabled-bgcolor), map-get($btn, disabled-color)
 );

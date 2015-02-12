@@ -20,7 +20,7 @@
     $item-height: default,
     $bordercolor: default) {
     // 区别是否新增实例还是修改本身
-	@if $name == default {
+    @if $name == default {
         $name: "";
     } @else {
         $name: "-#{$name}";
@@ -35,7 +35,7 @@
     @if $bordercolor == default {
         $bordercolor: map-get($select, bordercolor);
     }
-	.yo-select#{$name} {
+    .yo-select#{$name} {
         @if $item-height != map-get($select, item-height) or $item != map-get($select, item) {
             height: $item-height * $item;
             line-height: $item-height;
@@ -54,10 +54,10 @@
                 line-height: $item-height * $item;
             }
         }
-	}
+    }
 }
 
 // 调用本文件时载入select基础构造
 .yo-select {
-	@include _select;
+    @include _select;
 }

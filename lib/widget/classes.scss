@@ -619,19 +619,22 @@
             margin: 0 .05rem;
             @include square(.1rem);
             border-radius: 50%;
-            background-color: #aaa;
+            background-color: #85c8d1;
             &.on {
-                background-color: #fff;
+                background-color: #09a5c4;
             }
         }
     }
     > .yo-ico {
+        display: none;
         position: absolute;
         top: 50%;
         @include transform(translatey(-50%));
-        width: .44rem;
-        background-color: #aaa;
-        line-height: .5rem;
+        @include square(.44rem);
+        border-radius: 50%;
+        background-color: #09a5c4;
+        color: #fff;
+        line-height: .44rem;
         cursor: pointer;
     }
     > .yo-ico-prev {

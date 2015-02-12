@@ -13,27 +13,27 @@
  */
 
 @mixin yo-stacked(
-	$name: default,
-	$margin: default) {
-	// 区别是否新增实例还是修改本身
-	@if $name == default {
+    $name: default,
+    $margin: default) {
+    // 区别是否新增实例还是修改本身
+    @if $name == default {
         $name: "";
     } @else {
         $name: "-#{$name}";
     }
     // 如果值为default，则取config的定义
-	@if $margin == default {
+    @if $margin == default {
         $margin: map-get($stacked, margin);
     }
-	.yo-stacked#{$name} {
-		// 如果$margin不等于margin，则重绘外边距
-		@if $margin != map-get($stacked, margin) {
-			margin: $margin;
-		}
-	}
+    .yo-stacked#{$name} {
+        // 如果$margin不等于margin，则重绘外边距
+        @if $margin != map-get($stacked, margin) {
+            margin: $margin;
+        }
+    }
 }
 
 // 调用本文件时载入区块基础构造
 .yo-stacked {
-	@include _stacked;
+    @include _stacked;
 }

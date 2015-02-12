@@ -16,19 +16,19 @@
  */
 
 @mixin yo-loading(
-	$name: default,
-	$size: default,
-	$color: default,
-	$mask-bgcolor: default,
-	$bgcolor: default) {
-	// 区别是否新增实例还是修改本身
-	@if $name == default {
+    $name: default,
+    $size: default,
+    $color: default,
+    $mask-bgcolor: default,
+    $bgcolor: default) {
+    // 区别是否新增实例还是修改本身
+    @if $name == default {
         $name: "";
     } @else {
         $name: "-#{$name}";
     }
-	// 如果值为default，则取config的定义
-	@if $size == default {
+    // 如果值为default，则取config的定义
+    @if $size == default {
         $size: map-get($loading, size);
     }
     @if $color == default {
@@ -40,56 +40,56 @@
     @if $bgcolor == default {
         $bgcolor: map-get($loading, bgcolor);
     }
-	.yo-loading#{$name} {
-		// 如果$size不等于config预设值时，则重设容器高度
-		@if $size != map-get($loading, size) {
-			min-width: $size + .2rem;
-			min-height: $size + .2rem;
-		}
-		// 如果$bgcolor不等于config预设值时，则重写遮罩背景色
-		@if $mask-bgcolor != map-get($loading, mask-bgcolor) {
-		    background-color: $mask-bgcolor;
-		}
-		
-		&:before{
-			@if $size != map-get($loading, size) {
-				@include square($size * 2);
-			}
-			@if $bgcolor != map-get($loading, bgcolor) {
-			    background-color: $bgcolor;
-			}
-		}
-		&:after{
-			// 如果$size不等于config预设值时，则重设尺寸
-			@if $size != map-get($loading, size) {
-				font-size: $size;
-			}
-			@if $color != map-get($loading, color) {
-				color: $color;
-			}
-		}
-		> .inner{
-			@if $size != map-get($loading, size) {
-				margin-top: $size - .18rem;
-			}
-			@if $color != map-get($loading, color) {
-				color: $color;
-			}
-		}
-	}
+    .yo-loading#{$name} {
+        // 如果$size不等于config预设值时，则重设容器高度
+        @if $size != map-get($loading, size) {
+            min-width: $size + .2rem;
+            min-height: $size + .2rem;
+        }
+        // 如果$bgcolor不等于config预设值时，则重写遮罩背景色
+        @if $mask-bgcolor != map-get($loading, mask-bgcolor) {
+            background-color: $mask-bgcolor;
+        }
+
+        &:before{
+            @if $size != map-get($loading, size) {
+                @include square($size * 2);
+            }
+            @if $bgcolor != map-get($loading, bgcolor) {
+                background-color: $bgcolor;
+            }
+        }
+        &:after{
+            // 如果$size不等于config预设值时，则重设尺寸
+            @if $size != map-get($loading, size) {
+                font-size: $size;
+            }
+            @if $color != map-get($loading, color) {
+                color: $color;
+            }
+        }
+        > .inner{
+            @if $size != map-get($loading, size) {
+                margin-top: $size - .18rem;
+            }
+            @if $color != map-get($loading, color) {
+                color: $color;
+            }
+        }
+    }
 }
 
 // 调用本文件时载入loading基础构造
 .yo-loading {
-	@include _loading;
-	@at-root{
-		@-webkit-keyframes loading {
-			from{-webkit-transform: rotatez(0);}
-			to{-webkit-transform: rotatez(360deg);}
-		}
-		@keyframes loading {
-			from{transform: rotatez(0);}
-			to{transform: rotatez(360deg);}
-		}
-	}
+    @include _loading;
+    @at-root{
+        @-webkit-keyframes loading {
+            from{-webkit-transform: rotatez(0);}
+            to{-webkit-transform: rotatez(360deg);}
+        }
+        @keyframes loading {
+            from{transform: rotatez(0);}
+            to{transform: rotatez(360deg);}
+        }
+    }
 }

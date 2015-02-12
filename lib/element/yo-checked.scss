@@ -55,7 +55,7 @@
     @if $disabled-color == default {
         $disabled-color: map-get($checked, disabled-color);
     }
-	.yo-checked#{$name} {
+    .yo-checked#{$name} {
         &[type="checkbox"],
         &[type="radio"] {
             @if $size != map-get($checked, size) {
@@ -95,10 +95,10 @@
                 }
             }
         }
-	}
+    }
 }
 
 // 调用本文件时载入checked基础构造
 .yo-checked {
-	@include _checked;
+    @include _checked;
 }

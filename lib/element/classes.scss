@@ -12,156 +12,156 @@
 // 定义按钮的基础构造
 // 使用方法请查看 yo-btn.scss
 @mixin _btn {
-	display: inline-block;
-	overflow: hidden;
-	padding: map-get($btn, padding);
-	border: .01rem solid map-get($btn, bordercolor);
-	// 内阴影，用来描内部的1px白边
-	box-shadow: inset 1px 1px rgba(255, 255, 255, .1);
-	border-radius: map-get($btn, radius);
-	background-color: map-get($btn, bgcolor);
-	color: map-get($btn, color);
-	text-align: center;
-	vertical-align: middle;
-	cursor: pointer;
-	&:focus,
-	&:active {
-		opacity: .8;
-	}
+    display: inline-block;
+    overflow: hidden;
+    padding: map-get($btn, padding);
+    border: .01rem solid map-get($btn, bordercolor);
+    // 内阴影，用来描内部的1px白边
+    box-shadow: inset 1px 1px rgba(255, 255, 255, .1);
+    border-radius: map-get($btn, radius);
+    background-color: map-get($btn, bgcolor);
+    color: map-get($btn, color);
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    &:focus,
+    &:active {
+        opacity: .8;
+    }
 }
 
 // 定义输入框的基础构造
 // 使用方法请查看 yo-input.scss
 @mixin _input {
-	&,
-	&::-webkit-inner-spin-button {
-		@include appearance;
-	}
-	width: map-get($input, width);
-	height: map-get($input, height);
-	padding: map-get($input, padding);
-	border: .01rem solid map-get($input, bordercolor);
-	border-radius: map-get($input, radius);
-	background-color: map-get($input, bgcolor);
-	// 如果input颜色值与base相同，则不设置
-	@if map-get($input, color) != map-get($base, color) {
-		color: map-get($input, color);
-	}
-	&::-webkit-input-placeholder {
-		color: map-get($input, placeholder-color);
-	}
+    &,
+    &::-webkit-inner-spin-button {
+        @include appearance;
+    }
+    width: map-get($input, width);
+    height: map-get($input, height);
+    padding: map-get($input, padding);
+    border: .01rem solid map-get($input, bordercolor);
+    border-radius: map-get($input, radius);
+    background-color: map-get($input, bgcolor);
+    // 如果input颜色值与base相同，则不设置
+    @if map-get($input, color) != map-get($base, color) {
+        color: map-get($input, color);
+    }
+    &::-webkit-input-placeholder {
+        color: map-get($input, placeholder-color);
+    }
 }
 
 // 定义loading的基础构造
 // 使用方法请查看 yo-loading.scss
 @mixin _loading {
-	display: block;
-	position: absolute;
-	z-index: map-get($z-index, loading);
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	overflow: hidden;
-	min-width: map-get($loading, size) + .2rem;
-	min-height: map-get($loading, size) + .2rem;
-	background-color: map-get($loading, mask-bgcolor);
-	text-align: center;
-	&:before,
-	&:after {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		@include transform(translate(-50%, -50%));
-		content: "\0020";
-	}
-	&:after {
-		@include square(.04em);
-		margin-top: -.1rem;
-		background: transparent;
-		border-radius: 50%;
-		@include animation(loading 1s infinite linear);
-		@include transform-origin(center);
-		box-shadow:
-			.35em -.29em,
-			.47em -.03em 0 .01em,
-			.4em .20em 0 .02em,
-			.25em .38em 0 .03em,
-			0 .44em 0 .04em,
-			-.22em .38em 0 .05em,
-			-.38em .24em 0 .05em,
-			-.42em 0 0 .06em,
-			-.36em -.21em 0 .06em,
-			-.2em -.36em 0 .06em,
-			0 -.41em 0 .07em;
-		font-size: map-get($loading, size);
-		color: map-get($loading, color);
-	}
-	&:before {
-		@include square(map-get($loading, size) * 2);
-		border-radius: .1rem;
-		background-color: map-get($loading, bgcolor);
-	}
-	> .inner {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		@include transform(translate(-50%, -50%));
-		margin-top: map-get($loading, size) - .18rem;
-		font-size: .12rem;
-		color: map-get($loading, color);
-	}
+    display: block;
+    position: absolute;
+    z-index: map-get($z-index, loading);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    min-width: map-get($loading, size) + .2rem;
+    min-height: map-get($loading, size) + .2rem;
+    background-color: map-get($loading, mask-bgcolor);
+    text-align: center;
+    &:before,
+    &:after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        @include transform(translate(-50%, -50%));
+        content: "\0020";
+    }
+    &:after {
+        @include square(.04em);
+        margin-top: -.1rem;
+        background: transparent;
+        border-radius: 50%;
+        @include animation(loading 1s infinite linear);
+        @include transform-origin(center);
+        box-shadow:
+            .35em -.29em,
+            .47em -.03em 0 .01em,
+            .4em .20em 0 .02em,
+            .25em .38em 0 .03em,
+            0 .44em 0 .04em,
+            -.22em .38em 0 .05em,
+            -.38em .24em 0 .05em,
+            -.42em 0 0 .06em,
+            -.36em -.21em 0 .06em,
+            -.2em -.36em 0 .06em,
+            0 -.41em 0 .07em;
+        font-size: map-get($loading, size);
+        color: map-get($loading, color);
+    }
+    &:before {
+        @include square(map-get($loading, size) * 2);
+        border-radius: .1rem;
+        background-color: map-get($loading, bgcolor);
+    }
+    > .inner {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        @include transform(translate(-50%, -50%));
+        margin-top: map-get($loading, size) - .18rem;
+        font-size: .12rem;
+        color: map-get($loading, color);
+    }
 }
 
 // 定义区间选择的基础构造
 // 使用方法请查看 yo-range.scss
 @mixin _range {
-	@include flexbox;
-	line-height: 1;
-	> input[type="range"] {
-		@include appearance(none);
-		@include flex;
-		overflow: hidden;
-		height: .28rem;
-		background-image: -webkit-linear-gradient(to right, map-get($range, outer-bgcolor) 0%, map-get($range, outer-bgcolor) 100%);
-		background-image: linear-gradient(to right, map-get($range, outer-bgcolor) 0%, map-get($range, outer-bgcolor) 100%);
-		background-size: 100% .04rem;
-		background-repeat: no-repeat;
-		background-position: center;
-		&::-webkit-slider-thumb {
-			@include appearance(none);
-			@include square(.2rem);
-			position: relative;
-			border: 0;
-			border-radius: 50%;
-			box-shadow: 0 0 2px rgba(0, 0, 0, 0.5), 1px 1px 5px rgba(0, 0, 0, 0.25);
-			background-color: map-get($range, ball-color);
-			&::before {
-				position: absolute;
-				top: 8px;
-				left: -2001px;
-				width: 2000px;
-				height: 4px;
-				background-color: map-get($range, inner-bgcolor);
-				content: "\0020";
-			}
-		}
-		&:disabled {
-			opacity: .4;
-			&::-webkit-slider-thumb::before {
-				background-color: #444;
-			}
-		}
-	}
-	> .yo-ico {
-		font-size: .2rem;
-		&:first-child {
-			margin-right: .1rem;
-		}
-		&:last-child {
-			margin-left: .1rem;
-		}
-	}
+    @include flexbox;
+    line-height: 1;
+    > input[type="range"] {
+        @include appearance(none);
+        @include flex;
+        overflow: hidden;
+        height: .28rem;
+        background-image: -webkit-linear-gradient(to right, map-get($range, outer-bgcolor) 0%, map-get($range, outer-bgcolor) 100%);
+        background-image: linear-gradient(to right, map-get($range, outer-bgcolor) 0%, map-get($range, outer-bgcolor) 100%);
+        background-size: 100% .04rem;
+        background-repeat: no-repeat;
+        background-position: center;
+        &::-webkit-slider-thumb {
+            @include appearance(none);
+            @include square(.2rem);
+            position: relative;
+            border: 0;
+            border-radius: 50%;
+            box-shadow: 0 0 2px rgba(0, 0, 0, .5), 1px 1px 5px rgba(0, 0, 0, .25);
+            background-color: map-get($range, ball-color);
+            &::before {
+                position: absolute;
+                top: 8px;
+                left: -2001px;
+                width: 2000px;
+                height: 4px;
+                background-color: map-get($range, inner-bgcolor);
+                content: "\0020";
+            }
+        }
+        &:disabled {
+            opacity: .4;
+            &::-webkit-slider-thumb::before {
+                background-color: #444;
+            }
+        }
+    }
+    > .yo-ico {
+        font-size: .2rem;
+        &:first-child {
+            margin-right: .1rem;
+        }
+        &:last-child {
+            margin-left: .1rem;
+        }
+    }
 }
 
 // 定义switch的基础构造
@@ -187,7 +187,7 @@
             @include square(.28rem);
             border-radius: 50%;
             background-color: map-get($switch, ball-color);
-            box-shadow: 0 2px 5px rgba(0,0,0,.3);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
             @include transition(transform .1s ease-out);
             @include transform(translate(0, 0) translatez(0));
         }
@@ -203,12 +203,12 @@
             }
         }
         &:disabled {
-        	opacity: .4;
-        	&,
-        	&:checked {
-	            border-color: #bbb;
-	            background-color: #bbb;
-	        }
+            opacity: .4;
+            &,
+            &:checked {
+                border-color: #bbb;
+                background-color: #bbb;
+            }
         }
     }
 }
@@ -216,157 +216,157 @@
 // 定义checked的基础构造
 // 使用方法请查看 yo-checked.scss
 @mixin _checked {
-	@if map-get($checked, is-border) {
-		&[type="checkbox"] {
-			border-radius: .05rem;
-		    border: 1px solid map-get($checked, bordercolor);
-		    box-shadow: inset 0 .01rem .03rem rgba(100, 100, 100, .1);
-		    background-color: map-get($checked, bgcolor);
-		}
-	}
-	// iOS Safari上清除appearance后仍然有边框及背景
-	&[type="radio"] {
-		border: 0 none;
-		background-color: transparent;
-	}
-	&[type="checkbox"],
-	&[type="radio"] {
-	    @include appearance(none);
-	    position: relative;
-	    @include square(map-get($checked, size));
-	    font-size: map-get($checked, size);
-	    cursor: pointer;
-	    vertical-align: middle;
-	    &::after {
-	    	position:absolute;
-		    top: 50%;
-		    left: 50%;
-		    @include transform(translate(-50%, -50%));
-	    	// @include transition(opacity .5s);
-		    @if map-get($checked, type) == tick {
-			    content: "✓";
-			} @else {
-			    content: "●";
-			}
-		    text-shadow: 0 0 .01rem;
-		    font-size: 70%;
-	    	opacity: 0;
-	    	color: #fff;
-	    }
-		&:checked::after {
-			color: map-get($checked, on-color);
-			opacity: 1;
-		}
-		&:disabled::after {
-		    color: map-get($checked, disabled-color);
-		}
-	}
+    @if map-get($checked, is-border) {
+        &[type="checkbox"] {
+            border-radius: .05rem;
+            border: 1px solid map-get($checked, bordercolor);
+            box-shadow: inset 0 .01rem .03rem rgba(100, 100, 100, .1);
+            background-color: map-get($checked, bgcolor);
+        }
+    }
+    // iOS Safari上清除appearance后仍然有边框及背景
+    &[type="radio"] {
+        border: 0 none;
+        background-color: transparent;
+    }
+    &[type="checkbox"],
+    &[type="radio"] {
+        @include appearance(none);
+        position: relative;
+        @include square(map-get($checked, size));
+        font-size: map-get($checked, size);
+        cursor: pointer;
+        vertical-align: middle;
+        &::after {
+            position:absolute;
+            top: 50%;
+            left: 50%;
+            @include transform(translate(-50%, -50%));
+            // @include transition(opacity .5s);
+            @if map-get($checked, type) == tick {
+                content: "✓";
+            } @else {
+                content: "●";
+            }
+            text-shadow: 0 0 .01rem;
+            font-size: 70%;
+            opacity: 0;
+            color: #fff;
+        }
+        &:checked::after {
+            color: map-get($checked, on-color);
+            opacity: 1;
+        }
+        &:disabled::after {
+            color: map-get($checked, disabled-color);
+        }
+    }
 }
 
 // 定义radio的基础构造
 // 使用方法请查看 yo-radio.scss
 @mixin _radio {
-	&[type="radio"] {
-	    @include appearance(none);
-	    position: relative;
-	    @include square(map-get($radio, size));
-	    border-radius: 50%;
-	    border: 1px solid map-get($radio, bordercolor);
-	    box-shadow: inset 0 .01rem .03rem rgba(100, 100, 100, .1);
-	    background-color: map-get($radio, bgcolor);
-	    cursor: pointer;
-	    vertical-align: middle;
-	    &::after {
-	    	position:absolute;
-		    top: 50%;
-		    left: 50%;
-		    @include transform(translate(-50%, -50%));
-	    	// @include transition(opacity .5s);
-			content: "●";
-		    text-shadow: 0 0 .01rem;
-			font-size: 70%;
-	    	opacity: 0;
-	    	color: #fff;
-	    }
-	    &:checked {
-	    	border-color: map-get($radio, on-bordercolor);
-	    	background-color: map-get($radio, on-bgcolor);
-	    	&::after {
-	    		color: map-get($radio, on-color);
-	    		opacity: 1;
-		    }
-	    }
-	    &:active {
-	    	opacity: .5;
-	    }
-		&:disabled {
-			border-color: map-get($radio, disabled-bordercolor);
-			background-color: map-get($radio, disabled-bgcolor);
-			&::after {
-			    color: map-get($radio, disabled-color);
-			}
-		}
-	}
+    &[type="radio"] {
+        @include appearance(none);
+        position: relative;
+        @include square(map-get($radio, size));
+        border-radius: 50%;
+        border: 1px solid map-get($radio, bordercolor);
+        box-shadow: inset 0 .01rem .03rem rgba(100, 100, 100, .1);
+        background-color: map-get($radio, bgcolor);
+        cursor: pointer;
+        vertical-align: middle;
+        &::after {
+            position:absolute;
+            top: 50%;
+            left: 50%;
+            @include transform(translate(-50%, -50%));
+            // @include transition(opacity .5s);
+            content: "●";
+            text-shadow: 0 0 .01rem;
+            font-size: 70%;
+            opacity: 0;
+            color: #fff;
+        }
+        &:checked {
+            border-color: map-get($radio, on-bordercolor);
+            background-color: map-get($radio, on-bgcolor);
+            &::after {
+                color: map-get($radio, on-color);
+                opacity: 1;
+            }
+        }
+        &:active {
+            opacity: .5;
+        }
+        &:disabled {
+            border-color: map-get($radio, disabled-bordercolor);
+            background-color: map-get($radio, disabled-bgcolor);
+            &::after {
+                color: map-get($radio, disabled-color);
+            }
+        }
+    }
 }
 
 // 定义checkbox的基础构造
 // 使用方法请查看 yo-checkbox.scss
 @mixin _checkbox {
-	&[type="checkbox"] {
-	    @include appearance(none);
-	    position: relative;
-	    @include square(map-get($checkbox, size));
-	    font-size: map-get($checkbox, size);
-	    border-radius: .05rem;
-	    border: 1px solid map-get($checkbox, bordercolor);
-	    box-shadow: inset 0 .01rem .03rem rgba(100, 100, 100, .1);
-	    background-color: map-get($checkbox, bgcolor);
-	    cursor: pointer;
-	    vertical-align: middle;
-	    &::after {
-	    	position:absolute;
-		    top: 50%;
-		    left: 50%;
-		    @include transform(translate(-50%, -50%));
-	    	// @include transition(opacity .5s);
-			content: "✓";
-		    text-shadow: 0 0 .01rem;
-			font-size: 70%;
-	    	opacity: 0;
-			color: #fff;
-	    }
-	    &:checked {
-	    	border-color: map-get($checkbox, on-bordercolor);
-	    	background-color: map-get($checkbox, on-bgcolor);
-	    	&::after {
-	    		color: map-get($checkbox, on-color);
-	    		opacity: 1;
-		    }
-	    }
-	    &:active {
-	    	opacity: .5;
-	    }
-		&:disabled {
-			border-color: map-get($checkbox, disabled-bordercolor);
-			background-color: map-get($checkbox, disabled-bgcolor);
-			&::after {
-			    color: map-get($checkbox, disabled-color);
-			}
-		}
-	}
+    &[type="checkbox"] {
+        @include appearance(none);
+        position: relative;
+        @include square(map-get($checkbox, size));
+        font-size: map-get($checkbox, size);
+        border-radius: .05rem;
+        border: 1px solid map-get($checkbox, bordercolor);
+        box-shadow: inset 0 .01rem .03rem rgba(100, 100, 100, .1);
+        background-color: map-get($checkbox, bgcolor);
+        cursor: pointer;
+        vertical-align: middle;
+        &::after {
+            position:absolute;
+            top: 50%;
+            left: 50%;
+            @include transform(translate(-50%, -50%));
+            // @include transition(opacity .5s);
+            content: "✓";
+            text-shadow: 0 0 .01rem;
+            font-size: 70%;
+            opacity: 0;
+            color: #fff;
+        }
+        &:checked {
+            border-color: map-get($checkbox, on-bordercolor);
+            background-color: map-get($checkbox, on-bgcolor);
+            &::after {
+                color: map-get($checkbox, on-color);
+                opacity: 1;
+            }
+        }
+        &:active {
+            opacity: .5;
+        }
+        &:disabled {
+            border-color: map-get($checkbox, disabled-bordercolor);
+            background-color: map-get($checkbox, disabled-bgcolor);
+            &::after {
+                color: map-get($checkbox, disabled-color);
+            }
+        }
+    }
 }
 
 // 定义badge的基础构造
 // 使用方法请查看 yo-badge.scss
 @mixin _badge {
-	display: inline-block;
-	min-width: .22rem;
-	min-height: .22rem;
-	padding: .03rem .06rem;
-	border-radius: .11rem;
-	background-color: map-get($badge,bgcolor);
-	color: map-get($badge,color);
-	font-size: .14rem;
-	line-height: .16rem;
-	text-align: center;
+    display: inline-block;
+    min-width: .22rem;
+    min-height: .22rem;
+    padding: .03rem .06rem;
+    border-radius: .11rem;
+    background-color: map-get($badge,bgcolor);
+    color: map-get($badge,color);
+    font-size: .14rem;
+    line-height: .16rem;
+    text-align: center;
 }

@@ -11,17 +11,17 @@
  */
 
 .m-demo{
-	.yo-tab{
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 100%;
-	}
-	.yo-tab-test{
-		position: static;
-		width: 80%;
-		margin: 50px auto;
-	}
+    .yo-tab{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+    .yo-tab-test{
+        position: static;
+        width: 80%;
+        margin: 50px auto;
+    }
 }
 
 @include yo-tab(test,true,true,.35rem);

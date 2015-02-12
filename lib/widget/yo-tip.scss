@@ -16,47 +16,47 @@
  */
 
 @mixin yo-tip(
-	$name: default,
-	$padding: default,
-	$radius: default,
-	$bgcolor: default,
-	$color: default) {
-	// 区别是否新增实例还是修改本身
-	@if $name == default {
+    $name: default,
+    $padding: default,
+    $radius: default,
+    $bgcolor: default,
+    $color: default) {
+    // 区别是否新增实例还是修改本身
+    @if $name == default {
         $name: "";
     } @else {
         $name: "-#{$name}";
     }
-	// 如果值为default，则取config的定义
-	@if $padding == default {
-		$padding: map-get($tip, padding);
-	}
-	@if $radius == default {
-		$radius: map-get($tip, radius);
-	}
-	@if $bgcolor == default {
-		$bgcolor: map-get($tip, bgcolor);
-	}
-	@if $color == default {
-		$color: map-get($tip,color);
-	}
-	.yo-tip#{$name} {
-		@if $padding != map-get($tip, padding) {
-			padding: $padding;
-		}
-		@if $radius != map-get($tip, radius) {
-	    	border-radius: $radius;
-	    }
-    	@if $bgcolor != map-get($tip, bgcolor) {
-    		background-color: rgba($bgcolor, .5);
-    	}
-    	@if $color != map-get($tip, color) {
-    		color: $color;
-	    }
-	}
+    // 如果值为default，则取config的定义
+    @if $padding == default {
+        $padding: map-get($tip, padding);
+    }
+    @if $radius == default {
+        $radius: map-get($tip, radius);
+    }
+    @if $bgcolor == default {
+        $bgcolor: map-get($tip, bgcolor);
+    }
+    @if $color == default {
+        $color: map-get($tip,color);
+    }
+    .yo-tip#{$name} {
+        @if $padding != map-get($tip, padding) {
+            padding: $padding;
+        }
+        @if $radius != map-get($tip, radius) {
+            border-radius: $radius;
+        }
+        @if $bgcolor != map-get($tip, bgcolor) {
+            background-color: rgba($bgcolor, .5);
+        }
+        @if $color != map-get($tip, color) {
+            color: $color;
+        }
+    }
 }
 
 // 调用本文件时载入tip基础构造
 .yo-tip {
-	@include _tip;
+    @include _tip;
 }

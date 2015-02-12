@@ -21,120 +21,120 @@
  */
 
 @mixin yo-tab(
-	$name: default,
-	$is-border: default,
-	$is-item-border: default,
-	$height: default,
-	$bordercolor: default,
-	$bgcolor: default,
-	$color: default,
-	$on-bordercolor: default,
-	$on-bgcolor: default,
-	$on-color: default) {
-	// 区别是否新增实例还是修改本身
-	@if $name == default {
+    $name: default,
+    $is-border: default,
+    $is-item-border: default,
+    $height: default,
+    $bordercolor: default,
+    $bgcolor: default,
+    $color: default,
+    $on-bordercolor: default,
+    $on-bgcolor: default,
+    $on-color: default) {
+    // 区别是否新增实例还是修改本身
+    @if $name == default {
         $name: "";
     } @else {
         $name: "-#{$name}";
     }
-	// 如果值为default，则取config的定义
-	@if $is-border == default {
-		$is-border: map-get($tab, is-border);
-	}
-	@if $is-item-border == default {
-		$is-item-border: map-get($tab, is-item-border);
-	}
-	@if $height == default {
-		$height: map-get($tab, height);
-	}
-	@if $bordercolor == default {
-		$bordercolor: map-get($tab, bordercolor);
-	}
-	@if $bgcolor == default {
-		$bgcolor: map-get($tab, bgcolor);
-	}
-	@if $color == default {
-		$color: map-get($tab, color);
-	}
-	@if $on-bordercolor == default {
-		$on-bordercolor: map-get($tab, on-bordercolor);
-	}
-	@if $on-bgcolor == default {
-		$on-bgcolor: map-get($tab, on-bgcolor);
-	}
-	@if $on-color == default {
-		$on-color: map-get($tab, on-color);
-	}
-	.yo-tab#{$name} {
-		@if $height != map-get($tab, height) {
-			height: $height;
-			line-height: $height;
-		}
-	    // 有外框时
-	    @if $is-border {
-	    	// 如果config外框为false，则重设边框
-	    	@if not map-get($tab, is-border) {
-		    	border-width: 0 1px 1px 1px;
-		    	border-style: solid;
-			}
-		// 无外框时
-		} @else {
-			// 如果config外框为true，则清除边框
-			@if map-get($tab, is-border) {
-				border-width: 0;
-			}
-		}
-		// 如果边框色与config值不同，则重设边框色
-	    @if $bordercolor != map-get($tab, bordercolor) {
-	        border-color: $bordercolor;
-	    }
-		@if $bgcolor != map-get($tab, bgcolor) {
-		    background-color: $bgcolor;
-		}
-	    > .item {
-	    	@if $bordercolor != map-get($tab, bordercolor) {
-		        border-top-color: $bordercolor;
-		    }
-	        &:not(:first-child) {
-	            // 有间隔线时
-	            @if $is-item-border {
-					// 如果config间隔线为false，则重设间隔线
-	            	@if not map-get($tab, is-item-border) {
-		            	border-left-width: 1px;
-		            	border-left-style: solid;
-			        }
-			    // 无间隔线时
-	            } @else {
-	            	// 如果config间隔线为true，则清除间隔线
-	            	@if map-get($tab, is-item-border) {
-		            	border-left-width: 0;
-		            }
-	            }
-	            // 如果间隔线色与config值不同，则重间隔线色
-				@if $bordercolor != map-get($tab, bordercolor) {
-	                border-left-color: $bordercolor;
-	            }
-	        }
-	        @if $color != map-get($tab, color) {
-		        color: $color;
-		    }
-	        &:active,
-	        &.on {
-	        	@if $on-bordercolor != map-get($tab, on-bordercolor) {
-		            border-top-color: $on-bordercolor;
-		        }
-		        @if $on-bgcolor != map-get($tab, on-bgcolor) {
-	            	background-color: $on-bgcolor;
-				}
-	            @if $on-color != map-get($tab, on-color) {
-	            	color: $on-color;
-	            }
-	        }
-	    }
-	}
+    // 如果值为default，则取config的定义
+    @if $is-border == default {
+        $is-border: map-get($tab, is-border);
+    }
+    @if $is-item-border == default {
+        $is-item-border: map-get($tab, is-item-border);
+    }
+    @if $height == default {
+        $height: map-get($tab, height);
+    }
+    @if $bordercolor == default {
+        $bordercolor: map-get($tab, bordercolor);
+    }
+    @if $bgcolor == default {
+        $bgcolor: map-get($tab, bgcolor);
+    }
+    @if $color == default {
+        $color: map-get($tab, color);
+    }
+    @if $on-bordercolor == default {
+        $on-bordercolor: map-get($tab, on-bordercolor);
+    }
+    @if $on-bgcolor == default {
+        $on-bgcolor: map-get($tab, on-bgcolor);
+    }
+    @if $on-color == default {
+        $on-color: map-get($tab, on-color);
+    }
+    .yo-tab#{$name} {
+        @if $height != map-get($tab, height) {
+            height: $height;
+            line-height: $height;
+        }
+        // 有外框时
+        @if $is-border {
+            // 如果config外框为false，则重设边框
+            @if not map-get($tab, is-border) {
+                border-width: 0 1px 1px 1px;
+                border-style: solid;
+            }
+        // 无外框时
+        } @else {
+            // 如果config外框为true，则清除边框
+            @if map-get($tab, is-border) {
+                border-width: 0;
+            }
+        }
+        // 如果边框色与config值不同，则重设边框色
+        @if $bordercolor != map-get($tab, bordercolor) {
+            border-color: $bordercolor;
+        }
+        @if $bgcolor != map-get($tab, bgcolor) {
+            background-color: $bgcolor;
+        }
+        > .item {
+            @if $bordercolor != map-get($tab, bordercolor) {
+                border-top-color: $bordercolor;
+            }
+            &:not(:first-child) {
+                // 有间隔线时
+                @if $is-item-border {
+                    // 如果config间隔线为false，则重设间隔线
+                    @if not map-get($tab, is-item-border) {
+                        border-left-width: 1px;
+                        border-left-style: solid;
+                    }
+                // 无间隔线时
+                } @else {
+                    // 如果config间隔线为true，则清除间隔线
+                    @if map-get($tab, is-item-border) {
+                        border-left-width: 0;
+                    }
+                }
+                // 如果间隔线色与config值不同，则重间隔线色
+                @if $bordercolor != map-get($tab, bordercolor) {
+                    border-left-color: $bordercolor;
+                }
+            }
+            @if $color != map-get($tab, color) {
+                color: $color;
+            }
+            &:active,
+            &.on {
+                @if $on-bordercolor != map-get($tab, on-bordercolor) {
+                    border-top-color: $on-bordercolor;
+                }
+                @if $on-bgcolor != map-get($tab, on-bgcolor) {
+                    background-color: $on-bgcolor;
+                }
+                @if $on-color != map-get($tab, on-color) {
+                    color: $on-color;
+                }
+            }
+        }
+    }
 }
 
 // 调用本文件时载入tab基础构造
 .yo-tab {
-	@include _tab;
+    @include _tab;
 }

@@ -57,7 +57,7 @@
             // 如果只需要其中的某种字体，其它的几种字体可以使用空文件（不会请求），但必须存在
             // IE9
             src: url(#{map-get($ico,font-path)}#{map-get($ico,font-name)}.eot);
-            src: 
+            src:
                 // IE6-8
                 url(#{map-get($ico,font-path)}#{map-get($ico,font-name)}.eot?#iefix) format("embedded-opentype"),
                 // chrome、firefox
@@ -253,7 +253,7 @@
         -webkit-overflow-scrolling: touch;
     } @else {
         overflow: $overflow;
-    }   
+    }
 }
 
 // 生成矩形方法

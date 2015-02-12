@@ -13,8 +13,8 @@
  */
 
 .yo-group {
-	> .scroll-index {
-		top: 50%;
-		@include transform(translate(0, -50%));
-	}
+    > .scroll-index {
+        top: 50%;
+        @include transform(translate(0, -50%));
+    }
 }

@@ -22,111 +22,111 @@
  */
 
 @mixin yo-table(
-	$name: default,
-	$width: default,
-	$has-vertical-border: default,
-	$thead-padding: default,
-	$tbody-padding: default,
-	$bordercolor: default,
-	$thead-bgcolor: default,
-	$odd-bgcolor: default,
-	$even-bgcolor: default,
-	$active-bgcolor: default,
-	$on-bgcolor: default) {
-	// 区别是否新增实例还是修改本身
-	@if $name == default {
+    $name: default,
+    $width: default,
+    $has-vertical-border: default,
+    $thead-padding: default,
+    $tbody-padding: default,
+    $bordercolor: default,
+    $thead-bgcolor: default,
+    $odd-bgcolor: default,
+    $even-bgcolor: default,
+    $active-bgcolor: default,
+    $on-bgcolor: default) {
+    // 区别是否新增实例还是修改本身
+    @if $name == default {
         $name: "";
     } @else {
         $name: "-#{$name}";
     }
-	// 如果值为default，则取config的定义
-	@if $has-vertical-border == default {
-		$has-vertical-border: map-get($table, has-vertical-border);
-	}
-	@if $thead-padding == default {
-		$thead-padding: map-get($table, thead-padding);
-	}
-	@if $tbody-padding == default {
-		$tbody-padding: map-get($table, tbody-padding);
-	}
-	@if $bordercolor == default {
-		$bordercolor: map-get($table, bordercolor);
-	}
-	@if $thead-bgcolor == default {
-		$thead-bgcolor: map-get($table, thead-bgcolor);
-	}
-	@if $odd-bgcolor == default {
-		$odd-bgcolor: map-get($table, odd-bgcolor);
-	}
-	@if $even-bgcolor == default {
-		$even-bgcolor: map-get($table, even-bgcolor);
-	}
-	@if $active-bgcolor == default {
-		$active-bgcolor: map-get($table, active-bgcolor);
-	}
-	@if $on-bgcolor == default {
-		$on-bgcolor: map-get($table, on-bgcolor);
-	}
-	.yo-table#{$name} {
-		@if $width != default {
-			width: $width;
-		}
-		thead {
-			@if $thead-bgcolor != none and $thead-bgcolor != map-get($table, thead-bgcolor) {
-				background-color: $thead-bgcolor;
-			}
-			th {
-				@if $thead-padding != map-get($table, thead-padding) {
-					padding: $thead-padding;
-				}
-			}
-		}
-		td {
-			@if $tbody-padding != map-get($table, tbody-padding) {
-				padding: $tbody-padding;
-			}
-		}
-		th,td {
-			@if $has-vertical-border == false {
-				@if $has-vertical-border != map-get($table, has-vertical-border) {
-					border-width: 0 0 1px 0;
-				}
-			} @else {
-				@if $has-vertical-border != map-get($table, has-vertical-border) {
-					border-width: 1px;
-				}
-			}
-			@if $bordercolor != map-get($table, bordercolor) {
-				border-color: $bordercolor;
-			}
-		}
-		tbody {
-			tr:nth-child(odd) {
-				@if $odd-bgcolor != map-get($table, odd-bgcolor) {
-					background-color: $odd-bgcolor;
-				}
-			}
-			tr:nth-child(even) {
-				@if $even-bgcolor != map-get($table, even-bgcolor) {
-					background-color: $even-bgcolor;
-				}
-			}
-			tr:active,
-			tr.active {
-				@if $active-bgcolor != map-get($table, active-bgcolor) {
-					background-color: $active-bgcolor;
-				}
-			}
-			tr.on {
-				@if $on-bgcolor != map-get($table, on-bgcolor) {
-					background-color: $on-bgcolor;
-				}
-			}
-		}
-	}
+    // 如果值为default，则取config的定义
+    @if $has-vertical-border == default {
+        $has-vertical-border: map-get($table, has-vertical-border);
+    }
+    @if $thead-padding == default {
+        $thead-padding: map-get($table, thead-padding);
+    }
+    @if $tbody-padding == default {
+        $tbody-padding: map-get($table, tbody-padding);
+    }
+    @if $bordercolor == default {
+        $bordercolor: map-get($table, bordercolor);
+    }
+    @if $thead-bgcolor == default {
+        $thead-bgcolor: map-get($table, thead-bgcolor);
+    }
+    @if $odd-bgcolor == default {
+        $odd-bgcolor: map-get($table, odd-bgcolor);
+    }
+    @if $even-bgcolor == default {
+        $even-bgcolor: map-get($table, even-bgcolor);
+    }
+    @if $active-bgcolor == default {
+        $active-bgcolor: map-get($table, active-bgcolor);
+    }
+    @if $on-bgcolor == default {
+        $on-bgcolor: map-get($table, on-bgcolor);
+    }
+    .yo-table#{$name} {
+        @if $width != default {
+            width: $width;
+        }
+        thead {
+            @if $thead-bgcolor != none and $thead-bgcolor != map-get($table, thead-bgcolor) {
+                background-color: $thead-bgcolor;
+            }
+            th {
+                @if $thead-padding != map-get($table, thead-padding) {
+                    padding: $thead-padding;
+                }
+            }
+        }
+        td {
+            @if $tbody-padding != map-get($table, tbody-padding) {
+                padding: $tbody-padding;
+            }
+        }
+        th,td {
+            @if $has-vertical-border == false {
+                @if $has-vertical-border != map-get($table, has-vertical-border) {
+                    border-width: 0 0 1px 0;
+                }
+            } @else {
+                @if $has-vertical-border != map-get($table, has-vertical-border) {
+                    border-width: 1px;
+                }
+            }
+            @if $bordercolor != map-get($table, bordercolor) {
+                border-color: $bordercolor;
+            }
+        }
+        tbody {
+            tr:nth-child(odd) {
+                @if $odd-bgcolor != map-get($table, odd-bgcolor) {
+                    background-color: $odd-bgcolor;
+                }
+            }
+            tr:nth-child(even) {
+                @if $even-bgcolor != map-get($table, even-bgcolor) {
+                    background-color: $even-bgcolor;
+                }
+            }
+            tr:active,
+            tr.active {
+                @if $active-bgcolor != map-get($table, active-bgcolor) {
+                    background-color: $active-bgcolor;
+                }
+            }
+            tr.on {
+                @if $on-bgcolor != map-get($table, on-bgcolor) {
+                    background-color: $on-bgcolor;
+                }
+            }
+        }
+    }
 }
 
 // 调用本文件时载入table基础构造
 .yo-table {
-	@include _table;
+    @include _table;
 }

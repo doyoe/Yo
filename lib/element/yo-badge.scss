@@ -14,35 +14,35 @@
  */
 
 @mixin yo-badge(
-	$name: default,
-	$bgcolor: default,
-	$color: default) {
-	// 区别是否新增实例还是修改本身
-	@if $name == default {
+    $name: default,
+    $bgcolor: default,
+    $color: default) {
+    // 区别是否新增实例还是修改本身
+    @if $name == default {
         $name: "";
     } @else {
         $name: "-#{$name}";
     }
     // 如果值为default，则取config的定义
-	@if $bgcolor == default {
+    @if $bgcolor == default {
         $bgcolor: map-get($badge, bgcolor);
     }
     @if $color == default {
         $color: map-get($badge, color);
     }
-	.yo-badge#{$name} {
-		// 如果$bgcolor不等于config设定，则重绘背景色
-		@if $bgcolor != map-get($badge, bgcolor) {
-			background-color: $bgcolor;
-		}
-		// 如果$color不等于config设定，则重绘文本色
-		@if $color != map-get($badge, color) {
-		    color: $color;
-		}
-	}
+    .yo-badge#{$name} {
+        // 如果$bgcolor不等于config设定，则重绘背景色
+        @if $bgcolor != map-get($badge, bgcolor) {
+            background-color: $bgcolor;
+        }
+        // 如果$color不等于config设定，则重绘文本色
+        @if $color != map-get($badge, color) {
+            color: $color;
+        }
+    }
 }
 
 // 调用本文件时载入气泡基础构造
 .yo-badge {
-	@include _badge;
+    @include _badge;
 }

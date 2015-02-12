@@ -20,93 +20,93 @@
  */
 
 @mixin yo-header(
-	$name: default,
-	$height: default,
-	$item-width: default,
-	$item-space: default,
-	$bordercolor: default,
-	$bgcolor: default,
-	$color: default,
-	$font-size: default,
-	$item-color: default,
-	$item-font-size: default) {
-	// 区别是否新增实例还是修改本身
-	@if $name == default {
+    $name: default,
+    $height: default,
+    $item-width: default,
+    $item-space: default,
+    $bordercolor: default,
+    $bgcolor: default,
+    $color: default,
+    $font-size: default,
+    $item-color: default,
+    $item-font-size: default) {
+    // 区别是否新增实例还是修改本身
+    @if $name == default {
         $name: "";
     } @else {
         $name: "-#{$name}";
     }
-	// 如果值为default，则取config的定义
-	@if $height == default {
-		$height: map-get($header, height);
-	}
-	@if $item-width == default {
-		$item-width: map-get($header, item-width);
-	}
-	@if $item-space == default {
-		$item-space: map-get($header, item-space);
-	}
-	@if $bordercolor == default {
-		$bordercolor: map-get($header, bordercolor);
-	}
-	@if $bgcolor == default {
-		$bgcolor: map-get($header, bgcolor);
-	}
-	@if $color == default {
-		$color: map-get($header, color);
-	}
-	@if $font-size == default {
-		$font-size: map-get($header, font-size);
-	}
-	@if $item-font-size == default {
-		$item-font-size: map-get($header, item-font-size);
-	}
-	.yo-header#{$name} {
-		@if $height != map-get($header, height) {
-			height: $height;
-			line-height: $height;
-		}
-		@if $bordercolor != map-get($header, bordercolor) {
-			border-color: $bordercolor;
-		}
-		@if $bgcolor != map-get($header, bgcolor) {
-			background-color: $bgcolor;
-		}
-		@if $color != map-get($header, color) {
-			color: $color;
-		}
-		@if $font-size != map-get($header, font-size) {
-			font-size: $font-size;
-		}
-		> .title {
-			@if $item-width != map-get($header, item-width) {
-				margin: 0 $item-width;
-			}
-		}
-		> .regret,
-	    > .affirm {
-	    	@if $item-width != map-get($header, item-width) {
-		        width: $item-width;
-		    }
-		    @if $item-color != map-get($header, item-color) {
-		        color: $item-color;
-		    }
-			@if $item-font-size != map-get($header, item-font-size) {
-		        font-size: $item-font-size;
-		    }
-	    }
-	    @if $item-space != map-get($header, item-space) {
-		    > .regret {
-			    	padding-left: $item-space;
-		    }
-		    > .affirm {
-			    	padding-right: $item-space;
-		    }
-		}
-	}
+    // 如果值为default，则取config的定义
+    @if $height == default {
+        $height: map-get($header, height);
+    }
+    @if $item-width == default {
+        $item-width: map-get($header, item-width);
+    }
+    @if $item-space == default {
+        $item-space: map-get($header, item-space);
+    }
+    @if $bordercolor == default {
+        $bordercolor: map-get($header, bordercolor);
+    }
+    @if $bgcolor == default {
+        $bgcolor: map-get($header, bgcolor);
+    }
+    @if $color == default {
+        $color: map-get($header, color);
+    }
+    @if $font-size == default {
+        $font-size: map-get($header, font-size);
+    }
+    @if $item-font-size == default {
+        $item-font-size: map-get($header, item-font-size);
+    }
+    .yo-header#{$name} {
+        @if $height != map-get($header, height) {
+            height: $height;
+            line-height: $height;
+        }
+        @if $bordercolor != map-get($header, bordercolor) {
+            border-color: $bordercolor;
+        }
+        @if $bgcolor != map-get($header, bgcolor) {
+            background-color: $bgcolor;
+        }
+        @if $color != map-get($header, color) {
+            color: $color;
+        }
+        @if $font-size != map-get($header, font-size) {
+            font-size: $font-size;
+        }
+        > .title {
+            @if $item-width != map-get($header, item-width) {
+                margin: 0 $item-width;
+            }
+        }
+        > .regret,
+        > .affirm {
+            @if $item-width != map-get($header, item-width) {
+                width: $item-width;
+            }
+            @if $item-color != map-get($header, item-color) {
+                color: $item-color;
+            }
+            @if $item-font-size != map-get($header, item-font-size) {
+                font-size: $item-font-size;
+            }
+        }
+        @if $item-space != map-get($header, item-space) {
+            > .regret {
+                    padding-left: $item-space;
+            }
+            > .affirm {
+                    padding-right: $item-space;
+            }
+        }
+    }
 }
 
 // 调用本文件时载入header基础构造
 .yo-header {
-	@include _header;
+    @include _header;
 }

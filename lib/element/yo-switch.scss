@@ -24,7 +24,7 @@
     $bgcolor: default,
     $ball-color: default) {
     // 区别是否新增实例还是修改本身
-	@if $name == default {
+    @if $name == default {
         $name: "";
     } @else {
         $name: "-#{$name}";
@@ -45,7 +45,7 @@
     @if $checked-bgcolor == default {
         $checked-bgcolor: map-get($switch, checked-bgcolor);
     }
-	.yo-switch#{$name} {
+    .yo-switch#{$name} {
         &[type="checkbox"] {
             @if $bordercolor != map-get($switch, bordercolor) {
                 border-color: $bordercolor;
@@ -67,10 +67,10 @@
                 }
             }
         }
-	}
+    }
 }
 
 // 调用本文件时载入switch基础构造
 .yo-switch {
-	@include _switch;
+    @include _switch;
 }

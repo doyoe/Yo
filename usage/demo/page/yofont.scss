@@ -7,28 +7,28 @@
 */
 
 .demo{
-	h1{
-		margin: 20px 30px;
-		border-bottom: 1px solid #aaa;
-		font-size:48px;
-	}
-	ul{
-		overflow: hidden;
-	}
-	li{
-		float: left;
-		overflow: hidden;
-		width: 12.49%;
-		height: 140px;
-		text-align: center;
-	}
-	.yo-ico {
-		font-size: 32px;
-		line-height: 100px;
-		color: #f00;
-		@include transition(font-size .25s ease-out);
-		&:hover{
-			font-size: 100px;
-		}
-	}
+    h1{
+        margin: 20px 30px;
+        border-bottom: 1px solid #aaa;
+        font-size:48px;
+    }
+    ul{
+        overflow: hidden;
+    }
+    li{
+        float: left;
+        overflow: hidden;
+        width: 12.49%;
+        height: 140px;
+        text-align: center;
+    }
+    .yo-ico {
+        font-size: 32px;
+        line-height: 100px;
+        color: #f00;
+        @include transition(font-size .25s ease-out);
+        &:hover{
+            font-size: 100px;
+        }
+    }
 }

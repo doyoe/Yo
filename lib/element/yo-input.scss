@@ -21,23 +21,23 @@
  */
 
 @mixin yo-input(
-	$name: default,
-	$width: default,
-	$height: default,
-	$padding: default,
-	$radius: default,
-	$bordercolor: default,
-	$bgcolor: default,
-	$color: default,
-	$placeholder-color: default) {
-	// 区别是否新增实例还是修改本身
-	@if $name == default {
+    $name: default,
+    $width: default,
+    $height: default,
+    $padding: default,
+    $radius: default,
+    $bordercolor: default,
+    $bgcolor: default,
+    $color: default,
+    $placeholder-color: default) {
+    // 区别是否新增实例还是修改本身
+    @if $name == default {
         $name: "";
     } @else {
         $name: "-#{$name}";
     }
-	// 如果值为default，则取config的定义
-	@if $width == default {
+    // 如果值为default，则取config的定义
+    @if $width == default {
         $width: map-get($input, width);
     }
     @if $height == default {
@@ -61,37 +61,37 @@
     @if $placeholder-color == default {
         $placeholder-color: map-get($input, placeholder-color);
     }
-	.yo-input#{$name} {
-		@if $width != map-get($input, width) {
-			width: $width;
-		}
-		@if $height != map-get($input, height) {
-			height: $height;
-		}
-		@if $padding != map-get($input, padding) {
-			padding: $padding;
-		}
-		@if $radius != map-get($input, radius) {
-			border-radius: $radius;
-		}
-		@if $bordercolor != map-get($input, bordercolor) {
-			border-color: $bordercolor;
-		}
-		@if $bgcolor != map-get($input, bgcolor) {
-			background-color: $bgcolor;
-		}
-		@if $color != map-get($input, color) {
-			color: $color;
-		}
-		&::-webkit-input-placeholder {
-			@if $placeholder-color != map-get($input, placeholder-color) {
-				color: $placeholder-color;
-			}
-		}
-	}
+    .yo-input#{$name} {
+        @if $width != map-get($input, width) {
+            width: $width;
+        }
+        @if $height != map-get($input, height) {
+            height: $height;
+        }
+        @if $padding != map-get($input, padding) {
+            padding: $padding;
+        }
+        @if $radius != map-get($input, radius) {
+            border-radius: $radius;
+        }
+        @if $bordercolor != map-get($input, bordercolor) {
+            border-color: $bordercolor;
+        }
+        @if $bgcolor != map-get($input, bgcolor) {
+            background-color: $bgcolor;
+        }
+        @if $color != map-get($input, color) {
+            color: $color;
+        }
+        &::-webkit-input-placeholder {
+            @if $placeholder-color != map-get($input, placeholder-color) {
+                color: $placeholder-color;
+            }
+        }
+    }
 }
 
 // 调用本文件时载入按钮基础构造
 .yo-input {
-	@include _input;
+    @include _input;
 }

@@ -32,7 +32,7 @@
     $disabled-bgcolor: default,
     $disabled-color: default) {
     // 区别是否新增实例还是修改本身
-	@if $name == default {
+    @if $name == default {
         $name: "";
     } @else {
         $name: "-#{$name}";
@@ -65,7 +65,7 @@
     @if $disabled-color == default {
         $disabled-color: map-get($checkbox, disabled-color);
     }
-	.yo-checkbox#{$name} {
+    .yo-checkbox#{$name} {
         &[type="checkbox"] {
             @if $size != map-get($checkbox, size) {
                 @include square($size);
@@ -104,10 +104,10 @@
                 }
             }
         }
-	}
+    }
 }
 
 // 调用本文件时载入checkbox基础构造
 .yo-checkbox {
-	@include _checkbox;
+    @include _checkbox;
 }

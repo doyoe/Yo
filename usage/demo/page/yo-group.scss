@@ -12,11 +12,11 @@
  */
 
 @include yo-group(
-	$top: .44rem	
+    $top: .44rem
 );
 .yo-group {
-	> .scroll-index {
-		top: 50%;
-		@include transform(translate(0, -50%));
-	}
+    > .scroll-index {
+        top: 50%;
+        @include transform(translate(0, -50%));
+    }
 }

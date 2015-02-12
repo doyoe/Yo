@@ -15,26 +15,26 @@
  */
 
 @mixin yo-group(
-	$name: default,
-	$top: default) {
-	// 区别是否新增实例还是修改本身
-	@if $name == default {
+    $name: default,
+    $top: default) {
+    // 区别是否新增实例还是修改本身
+    @if $name == default {
         $name: "";
     } @else {
         $name: "-#{$name}";
     }
-	// 如果值为default，则取config的定义
-	@if $top == default {
-		$top: map-get($group, top);
-	}
-	.yo-group#{$name} {
-		@if $top != map-get($group, top) {
-			top: $top;
-		}
-	}
+    // 如果值为default，则取config的定义
+    @if $top == default {
+        $top: map-get($group, top);
+    }
+    .yo-group#{$name} {
+        @if $top != map-get($group, top) {
+            top: $top;
+        }
+    }
 }
 
 // 调用本文件时载入group基础构造
 .yo-group {
-	@include _group;
+    @include _group;
 }
