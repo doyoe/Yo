@@ -282,7 +282,7 @@
         left: 0;
         content: "\0020";
         pointer-events: none;
-        background: -webkit-linear-gradient(top, white, transparent 40%, transparent 40%, transparent 60%, transparent 60%, white);
+        // background: -webkit-linear-gradient(top, white, transparent 40%, transparent 40%, transparent 60%, transparent 60%, white);
     }
 }
 
@@ -654,7 +654,6 @@
     }
     > .track {
         display: inline-block;
-        @include appearance(none);
         position: relative;
         width: .6rem;
         height: .32rem;

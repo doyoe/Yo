@@ -29,8 +29,16 @@
                 <span class="yo-badge">99</span>
             </li>
             <li class="item">
-            	<div class="cont flex">list item</div>
+                <div class="cont flex">list item</div>
                 <span class="yo-badge">999</span>
+            </li>
+            <li class="item">
+                <span class="mark">当前类别</span>
+                <div class="cont">
+                    <span class="yo-badge yo-badge-tag">便宜</span>
+                    <span class="yo-badge yo-badge-tag">实惠</span>
+                    <span class="yo-badge yo-badge-tag">好用</span>
+                </div>
             </li>
         </ul>
     </div>
@@ -77,7 +85,8 @@
 <pre class="m-code"><span class="method">@include yo-badge</span><span class="bracket">(</span>
     $name<span class="colon">:</span>default, <mark>//{default | String} yo-badge名称</mark>
     $bgcolor<span class="colon">:</span>default, <mark>//{default | Color} yo-badge背景色</mark>
-    $color<span class="colon">:</span>default <mark>//{default | Color} yo-badge文本色</mark>
+    $color<span class="colon">:</span>default, <mark>//{default | Color} yo-badge文本色</mark>
+    $radius<span class="colon">:</span>default <mark>//{default | Number} yo-badge圆角</mark>
 <span class="bracket">)</span>
 </pre>
 

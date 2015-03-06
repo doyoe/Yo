@@ -2,10 +2,16 @@
 @import "../../../lib/element/yo-badge";
 
 /**
- * Element扩展: yo-badge-normal
+ * Element扩展: yo-badge-tag
  * Author: joy.du(飘零雾雨)
  * Time: 2015.1.16
  */
 
 // 预设常规气泡
-@include yo-badge(normal,gray);
+@include yo-badge(normal, gray);
+// 预设标签气泡
+@include yo-badge(
+    $name: tag,
+    $bgcolor: #aaa,
+    $radius: .05rem
+);

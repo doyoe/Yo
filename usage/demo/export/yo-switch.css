@@ -297,8 +297,8 @@ a {
 
 @font-face {
   font-family: fontawesome-webfont;
-  src: url(http://source.qunarzz.com/fonts/fontawesome/4.3.0/fontawesome-webfont.eot);
-  src: url(http://source.qunarzz.com/fonts/fontawesome/4.3.0/fontawesome-webfont.eot?#iefix) format("embedded-opentype"), url(http://source.qunarzz.com/fonts/fontawesome/4.3.0/fontawesome-webfont.woff) format("woff"), url(http://source.qunarzz.com/fonts/fontawesome/4.3.0/fontawesome-webfont.ttf) format("truetype"), url(http://source.qunarzz.com/fonts/fontawesome/4.3.0/fontawesome-webfont.svg#iconfont) format("svg");
+  src: url("http://source.qunarzz.com/fonts/fontawesome/4.3.0/fontawesome-webfont.eot");
+  src: url("http://source.qunarzz.com/fonts/fontawesome/4.3.0/fontawesome-webfont.eot?#iefix") format("embedded-opentype"), url("http://source.qunarzz.com/fonts/fontawesome/4.3.0/fontawesome-webfont.woff") format("woff"), url("http://source.qunarzz.com/fonts/fontawesome/4.3.0/fontawesome-webfont.ttf") format("truetype"), url("http://source.qunarzz.com/fonts/fontawesome/4.3.0/fontawesome-webfont.svg#iconfont") format("svg");
 }
 .yo-ico {
   font-family: fontawesome-webfont !important;
@@ -1097,9 +1097,6 @@ a {
 }
 .yo-switch > .track {
   display: inline-block;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
   position: relative;
   width: .6rem;
   height: .32rem;

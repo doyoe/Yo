@@ -297,8 +297,8 @@ a {
 
 @font-face {
   font-family: fontawesome-webfont;
-  src: url(http://source.qunarzz.com/fonts/fontawesome/4.3.0/fontawesome-webfont.eot);
-  src: url(http://source.qunarzz.com/fonts/fontawesome/4.3.0/fontawesome-webfont.eot?#iefix) format("embedded-opentype"), url(http://source.qunarzz.com/fonts/fontawesome/4.3.0/fontawesome-webfont.woff) format("woff"), url(http://source.qunarzz.com/fonts/fontawesome/4.3.0/fontawesome-webfont.ttf) format("truetype"), url(http://source.qunarzz.com/fonts/fontawesome/4.3.0/fontawesome-webfont.svg#iconfont) format("svg");
+  src: url("http://source.qunarzz.com/fonts/fontawesome/4.3.0/fontawesome-webfont.eot");
+  src: url("http://source.qunarzz.com/fonts/fontawesome/4.3.0/fontawesome-webfont.eot?#iefix") format("embedded-opentype"), url("http://source.qunarzz.com/fonts/fontawesome/4.3.0/fontawesome-webfont.woff") format("woff"), url("http://source.qunarzz.com/fonts/fontawesome/4.3.0/fontawesome-webfont.ttf") format("truetype"), url("http://source.qunarzz.com/fonts/fontawesome/4.3.0/fontawesome-webfont.svg#iconfont") format("svg");
 }
 .yo-ico {
   font-family: fontawesome-webfont !important;
@@ -1108,7 +1108,7 @@ a {
   width: 100%;
   overflow: hidden;
   height: .28rem;
-  background-image: -webkit-linear-gradient(to right, #cccccc 0%, #cccccc 100%);
+  background-image: -webkit-linear-gradient(right, #cccccc 0%, #cccccc 100%);
   background-image: linear-gradient(to right, #cccccc 0%, #cccccc 100%);
   background-size: 100% .04rem;
   background-repeat: no-repeat;

@@ -123,7 +123,7 @@
         @include flex;
         overflow: hidden;
         height: .28rem;
-        background-image: -webkit-linear-gradient(to right, map-get($range, outer-bgcolor) 0%, map-get($range, outer-bgcolor) 100%);
+        background-image: -webkit-linear-gradient(right, map-get($range, outer-bgcolor) 0%, map-get($range, outer-bgcolor) 100%);
         background-image: linear-gradient(to right, map-get($range, outer-bgcolor) 0%, map-get($range, outer-bgcolor) 100%);
         background-size: 100% .04rem;
         background-repeat: no-repeat;
@@ -314,9 +314,9 @@
     min-width: .22rem;
     min-height: .22rem;
     padding: .03rem .06rem;
-    border-radius: .11rem;
-    background-color: map-get($badge,bgcolor);
-    color: map-get($badge,color);
+    border-radius: map-get($badge, radius);
+    background-color: map-get($badge, bgcolor);
+    color: map-get($badge, color);
     font-size: .14rem;
     line-height: .16rem;
     text-align: center;

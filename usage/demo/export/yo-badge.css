@@ -297,8 +297,8 @@ a {
 
 @font-face {
   font-family: fontawesome-webfont;
-  src: url(http://source.qunarzz.com/fonts/fontawesome/4.3.0/fontawesome-webfont.eot);
-  src: url(http://source.qunarzz.com/fonts/fontawesome/4.3.0/fontawesome-webfont.eot?#iefix) format("embedded-opentype"), url(http://source.qunarzz.com/fonts/fontawesome/4.3.0/fontawesome-webfont.woff) format("woff"), url(http://source.qunarzz.com/fonts/fontawesome/4.3.0/fontawesome-webfont.ttf) format("truetype"), url(http://source.qunarzz.com/fonts/fontawesome/4.3.0/fontawesome-webfont.svg#iconfont) format("svg");
+  src: url("http://source.qunarzz.com/fonts/fontawesome/4.3.0/fontawesome-webfont.eot");
+  src: url("http://source.qunarzz.com/fonts/fontawesome/4.3.0/fontawesome-webfont.eot?#iefix") format("embedded-opentype"), url("http://source.qunarzz.com/fonts/fontawesome/4.3.0/fontawesome-webfont.woff") format("woff"), url("http://source.qunarzz.com/fonts/fontawesome/4.3.0/fontawesome-webfont.ttf") format("truetype"), url("http://source.qunarzz.com/fonts/fontawesome/4.3.0/fontawesome-webfont.svg#iconfont") format("svg");
 }
 .yo-ico {
   font-family: fontawesome-webfont !important;
@@ -1088,13 +1088,14 @@ a {
  * @param {defailt | String} $name 定义名称
  * @param {defailt | Color} $bgcolor 定义背景色
  * @param {defailt | Color} $color 定义文本色
+ * @param {defailt | Number} $radius 定义圆角
  */
 .yo-badge {
   display: inline-block;
   min-width: .22rem;
   min-height: .22rem;
   padding: .03rem .06rem;
-  border-radius: .11rem;
+  border-radius: 0.11rem;
   background-color: red;
   color: white;
   font-size: .14rem;
@@ -1103,12 +1104,17 @@ a {
 }
 
 /**
- * Element扩展: yo-badge-normal
+ * Element扩展: yo-badge-tag
  * Author: joy.du(飘零雾雨)
  * Time: 2015.1.16
  */
 .yo-badge-normal {
   background-color: gray;
+}
+
+.yo-badge-tag {
+  background-color: #aaaaaa;
+  border-radius: 0.05rem;
 }
 
 /**
