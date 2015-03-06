@@ -659,15 +659,6 @@ a {
   z-index: 2;
   text-align: center;
 }
-.yo-select-item > .mask {
-  position: absolute;
-  z-index: 2;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  content: "\0020";
-}
 .yo-select-item-list ul {
   position: relative;
 }
@@ -683,6 +674,17 @@ a {
   top: 50%;
   right: .1rem;
   margin-top: -0.15rem;
+}
+.yo-select > .mask {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: "\0020";
+  pointer-events: none;
+  background: -webkit-linear-gradient(top, white, transparent 40%, transparent 40%, transparent 60%, transparent 60%, white);
 }
 
 /**

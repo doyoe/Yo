@@ -7,13 +7,13 @@
     position: absolute
     left: 0
     right: 0
-    height: 40px
+    height: 50px
   &:before
     top: 0
-    background: linear-gradient(rgba(0, 0, 0, 0.2), transparent)
+    background: #fff
   &:after
     bottom: 0
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.2))
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.1))
 
 #header-outer
   height: 100%
@@ -22,6 +22,7 @@
 #header-inner
   position: relative
   overflow: hidden
+  height: 50px
 
 #banner
   position: absolute
@@ -29,7 +30,7 @@
   left: 0
   width: 100%
   height: 100%
-  background: url(banner-url) center #000
+  background: #0e90d2
   background-size: cover
   z-index: -1
 
@@ -44,13 +45,12 @@
 $logo-text
   text-decoration: none
   color: #fff
-  font-weight: 300
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3)
 
 #logo
   @extend $logo-text
   font-size: logo-size
-  line-height: logo-size
+  line-height: 140px
   letter-spacing: 2px
 
 #subtitle
@@ -68,13 +68,13 @@ $logo-text
 
 $nav-link
   float: left
-  color: #fff
+  color: #000
   opacity: 0.6
   text-decoration: none
-  text-shadow: 0 1px rgba(0, 0, 0, 0.2)
   transition: opacity 0.2s
   display: block
-  padding: 20px 15px
+  padding: 0 15px;
+  line-height: 50px;
   &:hover
     opacity: 1
 
@@ -85,16 +85,31 @@ $nav-link
   font-size: font-size
   width: font-size
   height: font-size
-  padding: 20px 15px
   position: relative
   cursor: pointer
 
+.nav-icon + .main-nav-link
+  margin-top: -2px
+  font-size: 20px
+  &:hover
+    background-color: transparent
+    opacity: 1
+
 .main-nav-link
   @extend $nav-link
-  font-weight: 300
+  font-weight: 700
   letter-spacing: 1px
+  &:hover
+    background-color: #f9f9f9
+    opacity: 1
   @media mq-mobile
     display: none
+
+.getting-started .main-nav-link[href="/getting-started"],
+.documentation .main-nav-link[href="/documentation"],
+.demo .main-nav-link[href="/demo"]
+  background-color: #f9f9f9
+  opacity: 1
 
 #main-nav-toggle
   display: none
@@ -106,6 +121,7 @@ $nav-link
 #sub-nav
   float: right
   margin-right: -15px
+  padding-right: 5px
 
 #nav-rss-link
   &:before
@@ -117,7 +133,7 @@ $nav-link
 
 #search-form-wrap
   position: absolute
-  top: 15px
+  top: 13px
   width: 150px
   height: 30px
   right: -150px
@@ -125,9 +141,8 @@ $nav-link
   transition: 0.2s ease-out
   &.on
     opacity: 1
-    right: 0
+    right: 4px
   @media mq-mobile
-    width: 100%
     right: -100%
 
 .search-form
@@ -138,7 +153,7 @@ $nav-link
   background: #fff
   padding: 5px 15px
   border-radius: 15px
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3)
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3)
 
 .search-form-input
   border: none

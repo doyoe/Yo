@@ -1073,46 +1073,115 @@ a {
  * @param {String} $transition 取值与原生语法一致
  */
 /**
- * Directory: lib/element/classes.scss
- * element的基础构造
+ * Directory: lib/widget/classes.scss
+ * widget的基础构造
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  */
 /**
- * Element: yo-badge
+ * widget: yo-switch2
  * Author: joy.du(飘零雾雨)
- * edit: 2015.1.19
+ * Time: 2014.11.14
  -----------------------
- * @method badge
- * variables length(3)
- * @param {defailt | String} $name 定义名称
- * @param {defailt | Color} $bgcolor 定义背景色
- * @param {defailt | Color} $color 定义文本色
+ * @method yo-switch
+ * variables length(6)
+ * @param {default | String} $name 定义switch名称
+ * @param {default | Color} $checked-bordercolor 定义switch激活边框色
+ * @param {default | Color} $checked-bgcolor 定义switch激活背景色
+ * @param {default | Color} $bordercolor 定义switch边框色
+ * @param {default | Color} $bgcolor 定义switch背景色
+ * @param {default | Color} $ball-color 定义switch滑块色
  */
-.yo-badge {
+.yo-switch2 > input {
+  display: none;
+}
+.yo-switch2 > .track {
   display: inline-block;
-  min-width: .22rem;
-  min-height: .22rem;
-  padding: .03rem .06rem;
-  border-radius: .11rem;
-  background-color: red;
-  color: white;
-  font-size: .14rem;
-  line-height: .16rem;
-  text-align: center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;
+  width: .6rem;
+  height: .32rem;
+  margin: 0;
+  cursor: pointer;
+  border: 0.02rem solid #dddddd;
+  border-radius: .16rem;
+  background-color: #fafafa;
+  vertical-align: middle;
+  -webkit-transition: border-color 0.1s ease-out, background-color 0.1s ease-out;
+  -moz-transition: border-color 0.1s ease-out, background-color 0.1s ease-out;
+  transition: border-color 0.1s ease-out, background-color 0.1s ease-out;
+}
+.yo-switch2 > .track > .handle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "\0020";
+  width: 0.28rem;
+  height: 0.28rem;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  -webkit-transition: transform 0.1s ease-out;
+  -moz-transition: transform 0.1s ease-out;
+  transition: transform 0.1s ease-out;
+  -webkit-transform: translate(0, 0) translatez(0);
+  -moz-transform: translate(0, 0) translatez(0);
+  transform: translate(0, 0) translatez(0);
+}
+.yo-switch2 > input:checked + .track {
+  border-color: #4bd763;
+  background-color: #4bd763;
+}
+.yo-switch2 > input:checked + .track > .handle {
+  -webkit-transform: translate(100%, 0) translatez(0);
+  -moz-transform: translate(100%, 0) translatez(0);
+  transform: translate(100%, 0) translatez(0);
+}
+.yo-switch2 > input:disabled + .track {
+  opacity: .4;
+  border-color: #bbb;
+  background-color: #bbb;
 }
 
 /**
- * Element扩展: yo-badge-normal
+ * Element扩展: yo-switch
  * Author: joy.du(飘零雾雨)
  * Time: 2015.1.16
  */
-.yo-badge-normal {
-  background-color: gray;
+.yo-switch2-a > input:checked + .track {
+  border-color: #4a87ee;
+  background-color: #4a87ee;
+}
+
+.yo-switch2-b > input:checked + .track {
+  border-color: #43cee6;
+  background-color: #43cee6;
+}
+
+.yo-switch2-c > input:checked + .track {
+  border-color: #f0b840;
+  background-color: #f0b840;
+}
+
+.yo-switch2-d > input:checked + .track {
+  border-color: #ef4e3a;
+  background-color: #ef4e3a;
+}
+
+.yo-switch2-e > input:checked + .track {
+  border-color: #8a6de9;
+  background-color: #8a6de9;
+}
+
+.yo-switch2-f > input:checked + .track {
+  border-color: #444444;
+  background-color: #444444;
 }
 
 /**
- * badge演示页面
+ * switch演示页面
  * Author: joy.du(飘零雾雨)
- * Time: 2014.4.1
+ * Time: 2014.11.14
  */

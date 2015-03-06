@@ -46,25 +46,25 @@
         $checked-bgcolor: map-get($switch, checked-bgcolor);
     }
     .yo-switch#{$name} {
-        &[type="checkbox"] {
+        > .track {
             @if $bordercolor != map-get($switch, bordercolor) {
                 border-color: $bordercolor;
             }
             @if $bgcolor != map-get($switch, bgcolor) {
                 background-color: $bgcolor;
             }
-            &::before {
+            > .handle {
                 @if $ball-color != map-get($switch, ball-color) {
                     background-color: $ball-color;
                 }
             }
-            &:checked {
-                @if $checked-bordercolor != map-get($switch, checked-bordercolor) {
-                    border-color: $checked-bordercolor;
-                }
-                @if $checked-bgcolor != map-get($switch, checked-bgcolor) {
-                    background-color: $checked-bgcolor;
-                }
+        }
+        > input:checked + .track {
+            @if $checked-bordercolor != map-get($switch, checked-bordercolor) {
+                border-color: $checked-bordercolor;
+            }
+            @if $checked-bgcolor != map-get($switch, checked-bgcolor) {
+                background-color: $checked-bgcolor;
             }
         }
     }

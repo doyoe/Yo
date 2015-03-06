@@ -521,8 +521,24 @@ a {
   }
 }
 .m-demo .device .stage {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column;
   position: relative;
   height: 5.68rem;
+}
+.m-demo .device .stage > .yo-list {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  display: block;
+  width: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 @media screen and (min-width: 800px) {
   .m-demo .device {
@@ -708,8 +724,8 @@ a {
  * @param {String} $transition 取值与原生语法一致
  */
 /**
- * Directory: lib/element/classes.scss
- * element的基础构造
+ * Directory: lib/widget/classes.scss
+ * widget的基础构造
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  */
@@ -727,7 +743,11 @@ a {
  * @param {default | Color} $bgcolor 定义switch背景色
  * @param {default | Color} $ball-color 定义switch滑块色
  */
-.yo-switch[type="checkbox"] {
+.yo-switch > input {
+  display: none;
+}
+.yo-switch > .track {
+  display: inline-block;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -744,7 +764,7 @@ a {
   -moz-transition: border-color 0.1s ease-out, background-color 0.1s ease-out;
   transition: border-color 0.1s ease-out, background-color 0.1s ease-out;
 }
-.yo-switch[type="checkbox"]::before {
+.yo-switch > .track > .handle {
   position: absolute;
   top: 0;
   left: 0;
@@ -761,22 +781,17 @@ a {
   -moz-transform: translate(0, 0) translatez(0);
   transform: translate(0, 0) translatez(0);
 }
-.yo-switch[type="checkbox"]:active, .yo-switch[type="checkbox"]:focus {
-  outline: none;
-}
-.yo-switch[type="checkbox"]:checked {
+.yo-switch > input:checked + .track {
   border-color: #4bd763;
   background-color: #4bd763;
 }
-.yo-switch[type="checkbox"]:checked::before {
+.yo-switch > input:checked + .track > .handle {
   -webkit-transform: translate(100%, 0) translatez(0);
   -moz-transform: translate(100%, 0) translatez(0);
   transform: translate(100%, 0) translatez(0);
 }
-.yo-switch[type="checkbox"]:disabled {
+.yo-switch > input:disabled + .track {
   opacity: .4;
-}
-.yo-switch[type="checkbox"]:disabled, .yo-switch[type="checkbox"]:disabled:checked {
   border-color: #bbb;
   background-color: #bbb;
 }

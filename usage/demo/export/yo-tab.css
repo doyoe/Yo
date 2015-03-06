@@ -521,8 +521,24 @@ a {
   }
 }
 .m-demo .device .stage {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column;
   position: relative;
   height: 5.68rem;
+}
+.m-demo .device .stage > .yo-list {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  display: block;
+  width: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 @media screen and (min-width: 800px) {
   .m-demo .device {
