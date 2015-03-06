@@ -759,12 +759,12 @@ a {
   flex-direction: column;
   position: absolute;
   z-index: 2001;
-  min-width: 2.8rem;
-  min-height: 1rem;
-  height: 3rem;
   border-radius: 0.03rem;
   box-shadow: 0 0 5px rgba(221, 221, 221, 0.5);
   border: 1px solid #dddddd;
+  min-width: 2.8rem;
+  min-height: 1rem;
+  height: 3rem;
   background: #fff;
 }
 .yo-popup > .arrow::after {
@@ -813,7 +813,6 @@ a {
   z-index: 2;
 }
 .yo-popup > .hd {
-  border-radius: 0.03rem 0.03rem 0 0;
   height: 0.5rem;
   border-bottom: 1px solid #dddddd;
   background: #eeeeee;
