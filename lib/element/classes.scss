@@ -317,7 +317,7 @@
     border-radius: map-get($badge, radius);
     background-color: map-get($badge, bgcolor);
     color: map-get($badge, color);
-    font-size: .14rem;
+    font-size: map-get($badge, font-size);
     line-height: .16rem;
     text-align: center;
 }

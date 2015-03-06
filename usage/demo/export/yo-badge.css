@@ -1084,11 +1084,12 @@ a {
  * edit: 2015.1.19
  -----------------------
  * @method badge
- * variables length(3)
+ * variables length(5)
  * @param {defailt | String} $name 定义名称
  * @param {defailt | Color} $bgcolor 定义背景色
  * @param {defailt | Color} $color 定义文本色
  * @param {defailt | Number} $radius 定义圆角
+ * @param {defailt | Length} $font-size 定义字号
  */
 .yo-badge {
   display: inline-block;
@@ -1098,13 +1099,13 @@ a {
   border-radius: 0.11rem;
   background-color: red;
   color: white;
-  font-size: .14rem;
+  font-size: 0.14rem;
   line-height: .16rem;
   text-align: center;
 }
 
 /**
- * Element扩展: yo-badge-tag
+ * Element扩展: yo-badge
  * Author: joy.du(飘零雾雨)
  * Time: 2015.1.16
  */
@@ -1115,6 +1116,7 @@ a {
 .yo-badge-tag {
   background-color: #aaaaaa;
   border-radius: 0.05rem;
+  font-size: 0.12rem;
 }
 
 /**
