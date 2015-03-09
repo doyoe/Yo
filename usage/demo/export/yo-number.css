@@ -400,6 +400,11 @@ a {
  * @param {Length} $hd-gap 定义主体到viewport顶部的距离
  * @param {Length} $ft-gap 定义主体到viewport底部的距离
  */
+html, body {
+  overflow: hidden;
+  height: 100%;
+}
+
 /**
  * Directory: lib/core/variables.scss
  * CSS Variables 定义各种页面沙粒变量
@@ -521,24 +526,8 @@ a {
   }
 }
 .m-demo .device .stage {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  flex-direction: column;
   position: relative;
   height: 5.68rem;
-}
-.m-demo .device .stage > .yo-list {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  flex: 1;
-  display: block;
-  width: 100%;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
 }
 @media screen and (min-width: 800px) {
   .m-demo .device {
@@ -572,10 +561,26 @@ a {
     border-radius: 50%;
   }
   .m-demo .device .stage {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    flex-direction: column;
     top: .99rem;
     left: .18rem;
     width: 3.20rem;
     background-color: #fff;
+  }
+  .m-demo .device .stage .wrap {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    display: block;
+    width: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
   }
   .m-demo .device .stage, .m-demo .device .stage::before {
     position: absolute;
@@ -978,3 +983,7 @@ a {
  * Author: joy.du(飘零雾雨)
  * Time: 2014.4.1
  */
+html, body {
+  overflow: visible;
+  height: auto;
+}

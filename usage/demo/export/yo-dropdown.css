@@ -400,6 +400,11 @@ a {
  * @param {Length} $hd-gap 定义主体到viewport顶部的距离
  * @param {Length} $ft-gap 定义主体到viewport底部的距离
  */
+html, body {
+  overflow: hidden;
+  height: 100%;
+}
+
 /**
  * Directory: lib/core/variables.scss
  * CSS Variables 定义各种页面沙粒变量
@@ -631,6 +636,11 @@ a {
  * Author: joy.du(飘零雾雨)
  * Time: 2014.4.1
  */
+html, body {
+  overflow: visible;
+  height: auto;
+}
+
 .m-case {
   padding: .3rem;
 }

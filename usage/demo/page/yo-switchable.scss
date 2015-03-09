@@ -3,10 +3,12 @@
 @import "../module/m-demo";
 @import "../module/m-code";
 @import "../fragment/yo-header";
-@import "../../../lib/widget/yo-slider";
+@import "../../../lib/widget/yo-switchable";
 
 /**
  * slider演示页面
  * Author: joy.du(飘零雾雨)
  * Time: 2015.2.10
  */
+
+@include doc(default, true);

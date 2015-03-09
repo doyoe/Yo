@@ -40,6 +40,10 @@
 
 v1.0.0
 
+* 新增 widget yo-switch，并移除 element yo-switch；
+* 新增 widget yo-switchable
+* 修订 widget yo-select背景色问题
+
 <a name="author"></a>
 ## 作者
 

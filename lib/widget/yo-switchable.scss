@@ -1,0 +1,62 @@
+@charset "utf-8";
+@import "classes";
+
+/**
+ * Widget: yo-switch
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ ------------------------
+ * @method yo-switch
+ * variables length(4)
+ * @param {default | String} $name 定义yo-switch名称
+ * @param {default | Length} $width 定义yo-switch宽度
+ * @param {default | Color} $color 定义yo-switch文本色
+ * @param {default | Length} $font-size 定义yo-switch文本字号
+ */
+
+@mixin yo-switch(
+    $name: default,
+    $width: default,
+    $color: default,
+    $font-size: default) {
+    // 区别是否新增实例还是修改本身
+    @if $name == default {
+        $name: "";
+    } @else {
+        $name: "-#{$name}";
+    }
+    // 如果值为default，则取config的定义
+    @if $width == default {
+        $width: map-get($switch, width);
+    }
+    @if $color == default {
+        $color: map-get($switch, color);
+    }
+    @if $font-size == default {
+        $font-size: map-get($switch, font-size);
+    }
+    .yo-switchable#{$name} {
+        @if $width != map-get($switch, width) {
+            width: $width;
+        }
+        @if $color != map-get($switch, color) {
+            color: $color;
+        }
+        @if $font-size != map-get($switch, font-size) {
+            font-size: $font-size;
+        }
+        .ellipsis {
+            @if $color != map-get($switch, color) {
+                background-color: $color;
+            }
+            @if $font-size != map-get($switch, font-size) {
+                @include square($font-size / 2);
+            }
+        }
+    }
+}
+
+// 调用本文件时载入switchable基础构造
+.yo-switchable {
+    @include _switchable;
+}

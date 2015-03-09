@@ -400,6 +400,11 @@ a {
  * @param {Length} $hd-gap 定义主体到viewport顶部的距离
  * @param {Length} $ft-gap 定义主体到viewport底部的距离
  */
+html, body {
+  overflow: hidden;
+  height: 100%;
+}
+
 /**
  * Directory: lib/core/variables.scss
  * CSS Variables 定义各种页面沙粒变量
@@ -507,148 +512,6 @@ a {
 * Author: joy.du(飘零雾雨)
 * Time: 2013.10.17
 */
-/**
- * module: m-demo
- * Author: joy.du(飘零雾雨)
- * Time: 2013.10.17
- */
-@media screen and (min-width: 800px) {
-  .m-demo {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    margin: .1rem;
-  }
-}
-.m-demo .device .stage {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  flex-direction: column;
-  position: relative;
-  height: 5.68rem;
-}
-.m-demo .device .stage > .yo-list {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  flex: 1;
-  display: block;
-  width: 100%;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-}
-@media screen and (min-width: 800px) {
-  .m-demo .device {
-    position: relative;
-    width: 3.66rem;
-    height: 7.83rem;
-    border: .05rem solid #505559;
-    border-radius: .55rem;
-    background-color: #313538;
-  }
-  .m-demo .device::before, .m-demo .device::after {
-    position: absolute;
-    left: 50%;
-    -webkit-transform: translate(-50%);
-    -moz-transform: translate(-50%);
-    transform: translate(-50%);
-    content: "\0020";
-  }
-  .m-demo .device::before {
-    top: .58rem;
-    width: .68rem;
-    height: .08rem;
-    border-radius: 4px;
-    background-color: #3e4243;
-  }
-  .m-demo .device::after {
-    bottom: .18rem;
-    width: 0.65rem;
-    height: 0.65rem;
-    border: .05rem solid #3e4243;
-    border-radius: 50%;
-  }
-  .m-demo .device .stage {
-    top: .99rem;
-    left: .18rem;
-    width: 3.20rem;
-    background-color: #fff;
-  }
-  .m-demo .device .stage, .m-demo .device .stage::before {
-    position: absolute;
-  }
-  .m-demo .device .stage::before {
-    top: -.68rem;
-    left: 50%;
-    -webkit-transform: translate(-50%);
-    -moz-transform: translate(-50%);
-    transform: translate(-50%);
-    width: 0.1rem;
-    height: 0.1rem;
-    border-radius: 50%;
-    background-color: #3e4243;
-    box-shadow: -.5rem .26rem #3e4243;
-    content: "\0020";
-  }
-}
-.m-demo .code {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  flex: 1;
-  display: block;
-  width: 100%;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-  -webkit-user-select: text;
-  -moz-user-select: text;
-  user-select: text;
-  margin: .1rem 0;
-  border-width: .04rem 0 .04rem 0;
-  border-style: solid;
-  border-color: #D7DBE4;
-  padding: .1rem;
-  background-color: #F0F3F8;
-}
-@media screen and (min-width: 800px) {
-  .m-demo .code {
-    margin: .1rem;
-    border-width: 0 0 0 .04rem;
-  }
-}
-.m-demo .code h3 {
-  margin-top: .1rem;
-}
-
-/**
- * module: m-code
- * Author: joy.du(飘零雾雨)
- * Time: 2013.10.17
- */
-.m-code {
-  margin: 10px;
-  padding: 10px;
-  border-radius: 5px;
-  background: #272822;
-  color: #51bbe1;
-  font-size: 20px;
-}
-.m-code .method {
-  color: #93de08;
-}
-.m-code .bracket,
-.m-code .colon {
-  padding-right: 5px;
-  color: #fff;
-}
-.m-code mark {
-  background: none;
-  color: #ccc;
-  font-size: 16px;
-}
-
 /**
  * Directory: lib/core/variables.scss
  * CSS Variables 定义各种页面沙粒变量
@@ -1003,3 +866,26 @@ a {
  * Author: joy.du(飘零雾雨)
  * Time: 2014.4.1
  */
+.yo-list {
+  margin: 0.15rem 0;
+}
+
+.m-demo {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+}
+.m-demo > .stage {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  display: block;
+  width: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}

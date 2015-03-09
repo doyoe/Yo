@@ -11,14 +11,8 @@
     }
     .device {
         .stage {
-            @include flexbox();
-            @include flex-direction(column);
             position: relative;
             height: 5.68rem;
-            > .yo-list {
-                @include flex;
-                @include overflow;
-            }
         }
         @include responsive(pc) {
             position: relative;
@@ -48,10 +42,16 @@
                 border-radius: 50%;
             }
             .stage {
+                @include flexbox;
+                @include flex-direction(column);
                 top: .99rem;
                 left: .18rem;
                 width: 3.20rem;
                 background-color: #fff;
+                .wrap {
+                    @include flex;
+                    @include overflow;
+                }
                 &,
                 &::before {
                     position: absolute;

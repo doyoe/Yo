@@ -11,9 +11,9 @@
 
 // 定义文档布局的基础构造
 // 使用方法请查看 doc.scss
-@mixin _doc($is-scroll:true){
-    @if $is-scroll {
-        html,body{
+@mixin _doc {
+    @if map-get($doc, is-scroll) == false {
+        html,body {
             overflow: hidden;
             height: 100%;
         }

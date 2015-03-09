@@ -11,11 +11,11 @@
  * Author: joy.du(飘零雾雨)
  * Time: 2014.4.1
  */
-
- .m-demo{
-     .stage{
-         .yo-btn:not(:last-child){
-             margin-right: .1rem;
-         }
+@include doc(default, true);
+.m-demo{
+ .stage{
+     .yo-btn:not(:last-child){
+         margin-right: .1rem;
      }
  }
+}

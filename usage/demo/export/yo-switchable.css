@@ -400,6 +400,11 @@ a {
  * @param {Length} $hd-gap 定义主体到viewport顶部的距离
  * @param {Length} $ft-gap 定义主体到viewport底部的距离
  */
+html, body {
+  overflow: hidden;
+  height: 100%;
+}
+
 /**
  * Directory: lib/core/variables.scss
  * CSS Variables 定义各种页面沙粒变量
@@ -521,24 +526,8 @@ a {
   }
 }
 .m-demo .device .stage {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  flex-direction: column;
   position: relative;
   height: 5.68rem;
-}
-.m-demo .device .stage > .yo-list {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  flex: 1;
-  display: block;
-  width: 100%;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
 }
 @media screen and (min-width: 800px) {
   .m-demo .device {
@@ -572,10 +561,26 @@ a {
     border-radius: 50%;
   }
   .m-demo .device .stage {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    flex-direction: column;
     top: .99rem;
     left: .18rem;
     width: 3.20rem;
     background-color: #fff;
+  }
+  .m-demo .device .stage .wrap {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    display: block;
+    width: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
   }
   .m-demo .device .stage, .m-demo .device .stage::before {
     position: absolute;
@@ -893,29 +898,29 @@ a {
  * Time: 2012.1.1
  */
 /**
- * Widget: yo-slider
+ * Widget: yo-switch
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  ------------------------
- * @method yo-slider
+ * @method yo-switch
  * variables length(4)
- * @param {default | String} $name 定义yo-slider名称
- * @param {default | Length} $width 定义yo-slider宽度
- * @param {default | Color} $color 定义yo-slider文本色
- * @param {default | Length} $font-size 定义yo-slider文本字号
+ * @param {default | String} $name 定义yo-switch名称
+ * @param {default | Length} $width 定义yo-switch宽度
+ * @param {default | Color} $color 定义yo-switch文本色
+ * @param {default | Length} $font-size 定义yo-switch文本字号
  */
-.yo-slider {
+.yo-switchable {
   position: relative;
   overflow: hidden;
   text-align: center;
 }
-.yo-slider > .cont {
+.yo-switchable > .cont {
   position: relative;
   white-space: nowrap;
   font-size: 0;
   font-family: arial;
 }
-.yo-slider > .cont > .item {
+.yo-switchable > .cont > .item {
   display: inline-block;
   font-size: 14px;
   font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
@@ -923,12 +928,12 @@ a {
   background-color: #eee;
   min-height: .1rem;
 }
-.yo-slider > .cont > .item .img {
+.yo-switchable > .cont > .item .img {
   max-width: 100%;
   max-height: 100%;
   height: auto;
 }
-.yo-slider > .index {
+.yo-switchable > .index {
   position: absolute;
   bottom: .1rem;
   left: 50%;
@@ -936,7 +941,7 @@ a {
   -moz-transform: translatex(-50%);
   transform: translatex(-50%);
 }
-.yo-slider > .index > li {
+.yo-switchable > .index > li {
   float: left;
   margin: 0 .05rem;
   width: 0.1rem;
@@ -944,10 +949,10 @@ a {
   border-radius: 50%;
   background-color: #85c8d1;
 }
-.yo-slider > .index > li.on {
+.yo-switchable > .index > li.on {
   background-color: #09a5c4;
 }
-.yo-slider > .yo-ico {
+.yo-switchable > .yo-ico {
   position: absolute;
   top: 50%;
   -webkit-transform: translatey(-50%);
@@ -961,10 +966,10 @@ a {
   line-height: .44rem;
   cursor: pointer;
 }
-.yo-slider > .yo-ico-prev {
+.yo-switchable > .yo-ico-prev {
   left: 0;
 }
-.yo-slider > .yo-ico-next {
+.yo-switchable > .yo-ico-next {
   right: 0;
 }
 
@@ -973,3 +978,7 @@ a {
  * Author: joy.du(飘零雾雨)
  * Time: 2015.2.10
  */
+html, body {
+  overflow: visible;
+  height: auto;
+}
