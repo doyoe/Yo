@@ -260,6 +260,9 @@
             left: 0;
             width: 100%;
             height: map-get($select, item-height);
+            &.disabled {
+                opacity: .4;
+            }
         }
     }
     &-item-tag {

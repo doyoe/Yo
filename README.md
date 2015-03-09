@@ -41,7 +41,11 @@
 ## 版本
 
 <a name="now-version"></a>
-### 当前版本：v1.0.0
+### 开发版本：v1.1.0
+
+* add yo-loadtip
+
+### 稳定版本：v1.0.0
 
 * 新增 widget yo-switch，并移除 element yo-switch；
 * 新增 widget yo-switchable

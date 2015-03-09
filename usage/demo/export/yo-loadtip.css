@@ -513,6 +513,121 @@ html, body {
 * Time: 2013.10.17
 */
 /**
+ * module: m-demo
+ * Author: joy.du(飘零雾雨)
+ * Time: 2013.10.17
+ */
+@media screen and (min-width: 800px) {
+  .m-demo {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    margin: .1rem;
+  }
+}
+.m-demo .device .stage {
+  position: relative;
+  height: 5.68rem;
+}
+@media screen and (min-width: 800px) {
+  .m-demo .device {
+    position: relative;
+    width: 3.66rem;
+    height: 7.83rem;
+    border: .05rem solid #505559;
+    border-radius: .55rem;
+    background-color: #313538;
+  }
+  .m-demo .device::before, .m-demo .device::after {
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translate(-50%);
+    -moz-transform: translate(-50%);
+    transform: translate(-50%);
+    content: "\0020";
+  }
+  .m-demo .device::before {
+    top: .58rem;
+    width: .68rem;
+    height: .08rem;
+    border-radius: 4px;
+    background-color: #3e4243;
+  }
+  .m-demo .device::after {
+    bottom: .18rem;
+    width: 0.65rem;
+    height: 0.65rem;
+    border: .05rem solid #3e4243;
+    border-radius: 50%;
+  }
+  .m-demo .device .stage {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    top: .99rem;
+    left: .18rem;
+    width: 3.20rem;
+    background-color: #fff;
+  }
+  .m-demo .device .stage .wrap {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    display: block;
+    width: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .m-demo .device .stage, .m-demo .device .stage::before {
+    position: absolute;
+  }
+  .m-demo .device .stage::before {
+    top: -.68rem;
+    left: 50%;
+    -webkit-transform: translate(-50%);
+    -moz-transform: translate(-50%);
+    transform: translate(-50%);
+    width: 0.1rem;
+    height: 0.1rem;
+    border-radius: 50%;
+    background-color: #3e4243;
+    box-shadow: -.5rem .26rem #3e4243;
+    content: "\0020";
+  }
+}
+.m-demo .code {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  display: block;
+  width: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  user-select: text;
+  margin: .1rem 0;
+  border-width: .04rem 0 .04rem 0;
+  border-style: solid;
+  border-color: #D7DBE4;
+  padding: .1rem;
+  background-color: #F0F3F8;
+}
+@media screen and (min-width: 800px) {
+  .m-demo .code {
+    margin: .1rem;
+    border-width: 0 0 0 .04rem;
+  }
+}
+.m-demo .code h3 {
+  margin-top: .1rem;
+}
+
+/**
  * module: m-code
  * Author: joy.du(飘零雾雨)
  * Time: 2013.10.17
@@ -614,90 +729,428 @@ html, body {
  * @param {String} $transition 取值与原生语法一致
  */
 /**
- * Directory: lib/widget/classes.scss
- * widget的基础构造
+ * Directory: lib/fragment/classes.scss
+ * fragment的基础构造
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  */
 /**
- * Widget: yo-select
+ * Widget: yo-header
  * Author: joy.du(飘零雾雨)
- * Time: 2014.11.13
- -----------------------
- * @method yo-select
- * variables length(4)
- * @param {default | String} $name 定义select名称
- * @param {default | Length} $width 定义select显示的子项个数
- * @param {default | Length} $height 定义select子项高度
- * @param {default | Color} $bordercolor 定义select边框色
+ * Time: 2012.1.1
+ ------------------------
+ * @method yo-header
+ * variables length(9)
+ * @param {default | String} $name 定义yo-header名称
+ * @param {default | Length} $height 定义yo-header高度
+ * @param {default | Length} $item-width 定义yo-header两侧子项宽度
+ * @param {default | Length} $item-space 定义yo-header两侧子项离边界的间隙
+ * @param {default | Color} $bgcolor 定义yo-header背景色
+ * @param {default | Color} $bordercolor 定义yo-header边框色
+ * @param {default | Color} $color 定义yo-header文本色
+ * @param {default | Length} $font-size 定义yo-header文本大小
+ * @param {default | Length} $item-font-size 定义yo-header两侧的子项文本大小
  */
-.yo-select {
+.yo-header {
+  position: relative;
+  overflow: hidden;
+  height: 0.44rem;
+  line-height: 0.44rem;
+  border-bottom: 1px solid #dddddd;
+  background-color: white;
+  font-size: 0.16rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+.yo-header > .title {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin: 0 0.6rem;
+}
+.yo-header > .regret,
+.yo-header > .affirm {
+  position: absolute;
+  top: 0;
+  width: 0.6rem;
+  font-size: 0.14rem;
+  color: #00afc7;
+  cursor: pointer;
+}
+.yo-header > .regret:active,
+.yo-header > .affirm:active {
+  opacity: .5;
+}
+.yo-header > .regret {
+  left: 0;
+  padding-left: 0.15rem;
+  text-align: left;
+}
+.yo-header > .affirm {
+  right: 0;
+  padding-right: 0.15rem;
+  text-align: right;
+}
+
+/**
+ * Fragment扩展: yo-header-normal, yo-header-positive
+ * Author: joy.du(飘零雾雨)
+ * Time: 2015.1.16
+ */
+.yo-header-normal {
+  background-color: #fafafa;
+}
+.yo-header-normal > .regret,
+.yo-header-normal > .affirm {
+  color: default;
+}
+
+.yo-header-positive {
+  border-color: #145fd7;
+  background-color: #4a87ee;
+  color: white;
+}
+.yo-header-positive > .regret,
+.yo-header-positive > .affirm {
+  color: white;
+}
+
+/**
+ * Directory: lib/core/variables.scss
+ * CSS Variables 定义各种页面沙粒变量
+ * Author: joy.du(飘零雾雨)
+ * Edit: 2014.12.5
+ */
+/**
+ * Directory: lib/core/classes.scss
+ * Global Classes 约定常规解决方案
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ */
+/**
+ * 给需要的属性加厂家前缀
+ * @method prefix
+ * @param {String} $appearance 指定属性
+ * @param {String} $value 指定属性值
+ */
+/**
+ * 定义响应式方案
+ * @method responsive
+ * @param {String} $media 指定媒体查询条件
+ * 使用方法如下，结合variables中的$media-types：
+    @include responsive(phone) {
+        .foo {
+            background: blue;
+        }
+    }
+ */
+/**
+ * 定义字体图标
+ * @method yofont
+ */
+/**
+ * 定义UA默认外观
+ * @method appearance
+ * @param {String} $appearance 指定UA外观类型
+ */
+/**
+ * 定义是否可以选中元素
+ * @method user-select
+ * @param {String} $user-select 指定是否可以选中
+ */
+/**
+ * 定义渐变色值
+ * @method gradient
+ * @param {String} $type 指定渐变的4种类型：linear, repeating-linear, radial, repeating-radial
+ * @param {String} $gradient 指定渐变取值，与原生语法一致
+ */
+/**
+ * 定义盒模型
+ * @method box-sizing
+ * @param {String} $box-sizing 的2个值分别为：content-box(标准盒模型) | border-box(怪异盒模型)
+ */
+/**
+ * 定义简单变换
+ * @method transform
+ * @param {String} $transform 取值与原生语法一致
+ */
+/**
+ * 定义变换原点
+ * @method transform-origin
+ * @param {String} $transform-origin 取值与原生语法一致
+ */
+/**
+ * 定义动画
+ * @method animation
+ * @param {String} $animation 取值与原生语法一致
+ */
+/**
+ * 定义补间
+ * @method transition
+ * @param {String} $transition 取值与原生语法一致
+ */
+/**
+ * Directory: lib/fragment/classes.scss
+ * fragment的基础构造
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ */
+/**
+ * Fragment: yo-list
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ ------------------------
+ * @method yo-list
+ * variables length(10)
+ * @param {default|String} $name 定义list名称
+ * @param {default|Length} $margin 定义list外边距
+ * @param {default|Boole} $is-outline 定义list是否需要轮廓（即外边框）
+ * @param {default|Length} $radius 定义list圆角
+ * @param {default|Color} $bordercolor 定义list边框色
+ * @param {default|Length} $item-padding 定义list项的内补白
+ * @param {default|Length} $label-padding 定义list分组标题内补白
+ * @param {default|Color} $label-bgcolor 定义list分组标题背景色
+ * @param {default|Color} $active-bgcolor 定义list点击反馈背景色
+ * @param {default|Color} $on-bgcolor 定义list选中背景色
+ */
+.yo-list {
+  overflow: hidden;
+  background-color: #fff;
+  color: #dddddd;
+}
+.yo-list > .label,
+.yo-list > .item {
+  border-bottom: 0.01rem solid #dddddd;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
-  position: relative;
-  overflow: hidden;
-  height: 1.5rem;
-  line-height: 0.3rem;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
 }
-.yo-select::before {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  height: 0.3rem;
-  margin-top: -0.15rem;
-  content: "\0020";
-  border: 1px solid #dddddd;
-  border-width: 1px 0;
+.yo-list > .label > .mark:not(:last-child),
+.yo-list > .label > .yo-ico:not(:last-child),
+.yo-list > .item > .mark:not(:last-child),
+.yo-list > .item > .yo-ico:not(:last-child) {
+  margin-right: .1rem;
 }
-.yo-select-item, .yo-select-item-list, .yo-select-item ul {
-  height: 100%;
-}
-.yo-select-item {
+.yo-list > .label > .flex,
+.yo-list > .item > .flex {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
   display: block;
   width: 100%;
-  position: relative;
-  z-index: 2;
-  text-align: center;
 }
-.yo-select-item-list ul {
-  position: relative;
+.yo-list > .label > .mark,
+.yo-list > .label > .yo-ico,
+.yo-list > .label > .col,
+.yo-list > .label > .flex,
+.yo-list > .item > .mark,
+.yo-list > .item > .yo-ico,
+.yo-list > .item > .col,
+.yo-list > .item > .flex {
+  display: block;
 }
-.yo-select-item-list li {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 0.3rem;
+.yo-list > .label.tr,
+.yo-list > .item.tr {
+  padding: 0;
 }
-.yo-select-item-list li.disabled {
-  opacity: .4;
+.yo-list > .label {
+  padding: 0.03rem 0.1rem;
+  background-color: #fafafa;
+  color: #9e9e9e;
 }
-.yo-select-item-tag {
-  position: absolute;
-  top: 50%;
-  right: .1rem;
-  margin-top: -0.15rem;
+.yo-list > .label > .col {
+  padding: 0.03rem 0.1rem;
 }
-.yo-select > .mask {
-  position: absolute;
-  z-index: 3;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  content: "\0020";
-  pointer-events: none;
+.yo-list > .item {
+  padding: 0.11rem;
+  color: #212121;
+}
+.yo-list > .item-stacked {
+  display: block;
+}
+.yo-list > .item-stacked > .mark {
+  padding-bottom: 5px;
+}
+.yo-list > .item-input > .yo-input {
+  height: auto;
+  padding: 0;
+  border: 0;
+}
+.yo-list > .item-input, .yo-list > .item-active, .yo-list > .item-on, .yo-list > .item-light {
+  cursor: pointer;
+}
+.yo-list > .item.item-active:active, .yo-list > .item.item-light {
+  background-color: #f8f8f8;
+}
+.yo-list > .item > .col {
+  padding: 0.11rem;
 }
 
 /**
- * select演示页面
+ * Fragment扩展: 嵌入式的 yo-list
  * Author: joy.du(飘零雾雨)
- * Time: 2014.11.13
+ * Time: 2015.1.16
+ */
+.yo-list-inset {
+  margin: 0.2rem 0.1rem;
+  border-radius: 0.02rem;
+  border-width: .01rem .01rem 0 .01rem;
+  border-style: solid;
+}
+
+/**
+ * Directory: lib/core/variables.scss
+ * CSS Variables 定义各种页面沙粒变量
+ * Author: joy.du(飘零雾雨)
+ * Edit: 2014.12.5
+ */
+/**
+ * Directory: lib/core/classes.scss
+ * Global Classes 约定常规解决方案
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ */
+/**
+ * 给需要的属性加厂家前缀
+ * @method prefix
+ * @param {String} $appearance 指定属性
+ * @param {String} $value 指定属性值
+ */
+/**
+ * 定义响应式方案
+ * @method responsive
+ * @param {String} $media 指定媒体查询条件
+ * 使用方法如下，结合variables中的$media-types：
+    @include responsive(phone) {
+        .foo {
+            background: blue;
+        }
+    }
+ */
+/**
+ * 定义字体图标
+ * @method yofont
+ */
+/**
+ * 定义UA默认外观
+ * @method appearance
+ * @param {String} $appearance 指定UA外观类型
+ */
+/**
+ * 定义是否可以选中元素
+ * @method user-select
+ * @param {String} $user-select 指定是否可以选中
+ */
+/**
+ * 定义渐变色值
+ * @method gradient
+ * @param {String} $type 指定渐变的4种类型：linear, repeating-linear, radial, repeating-radial
+ * @param {String} $gradient 指定渐变取值，与原生语法一致
+ */
+/**
+ * 定义盒模型
+ * @method box-sizing
+ * @param {String} $box-sizing 的2个值分别为：content-box(标准盒模型) | border-box(怪异盒模型)
+ */
+/**
+ * 定义简单变换
+ * @method transform
+ * @param {String} $transform 取值与原生语法一致
+ */
+/**
+ * 定义变换原点
+ * @method transform-origin
+ * @param {String} $transform-origin 取值与原生语法一致
+ */
+/**
+ * 定义动画
+ * @method animation
+ * @param {String} $animation 取值与原生语法一致
+ */
+/**
+ * 定义补间
+ * @method transition
+ * @param {String} $transition 取值与原生语法一致
+ */
+/**
+ * Directory: lib/element/classes.scss
+ * element的基础构造
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ */
+/**
+ * Element: yo-loadtip
+ * Author: joy.du(飘零雾雨)
+ * edit: 2015.3.9
+ -----------------------
+ * @method loadtip
+ * variables length(4)
+ * @param {defailt | String} $name 定义名称
+ * @param {defailt | Color} $color 定义文本色
+ * @param {defailt | Number} $font-size 定义字号
+ * @param {defailt | Length} $ico-color 定义ico颜色
+ */
+.yo-loadtip {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  color: #666666;
+  font-size: 0.14rem;
+}
+.yo-loadtip > .yo-ico {
+  display: block;
+  color: #00afc7;
+}
+.yo-loadtip > .yo-ico-loading {
+  -webkit-animation: loadtip 1s infinite linear;
+  -moz-animation: loadtip 1s infinite linear;
+  animation: loadtip 1s infinite linear;
+  -webkit-transform-origin: center;
+  -moz-transform-origin: center;
+  transform-origin: center;
+}
+.yo-loadtip > .text {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  display: block;
+  width: 100%;
+  margin-left: .1rem;
+}
+.yo-loadtip > .text > .time {
+  display: block;
+  font-size: .12rem;
+}
+@-webkit-keyframes loadtip {
+  from {
+    -webkit-transform: rotatez(0);
+  }
+
+  to {
+    -webkit-transform: rotatez(360deg);
+  }
+}
+@keyframes loadtip {
+  from {
+    transform: rotatez(0);
+  }
+
+  to {
+    transform: rotatez(360deg);
+  }
+}
+/**
+ * loadtip演示页面
+ * Author: joy.du(飘零雾雨)
+ * Time: 2015.3.9
  */
 html, body {
   overflow: visible;

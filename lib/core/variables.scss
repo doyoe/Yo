@@ -175,20 +175,6 @@ $badge: (
     font-size: .14rem
 ) !default;
 
-// Element switch(5)
-$switch: (
-    // {Color} 激活边框色
-    checked-bordercolor: #4bd763,
-    // {Color} 激活背景色
-    checked-bgcolor:     #4bd763,
-    // {Color} 边框色
-    bordercolor:         map-get($base, bordercolor),
-    // {Color} 背景色
-    bgcolor:             map-get($base, bgcolor),
-    // {Color} 滑块色
-    ball-color:          #fff
-) !default;
-
 // Element checked(7)
 $checked: (
     // {String} 选中标记类型: [circle | tick]
@@ -259,6 +245,16 @@ $range: (
     outer-bgcolor: #ccc,
     // {Color} 滑块色
     ball-color:    #fff
+) !default;
+
+// Element loadtip(3)
+$loadtip: (
+    // {Color} 文本色
+    color: #666,
+    // {Length} 字号
+    font-size: .14rem,
+    // {Color} ico色
+    ico-color: map-get($base, link-color)
 ) !default;
 
 // Fragment btnbar(1)
@@ -354,6 +350,20 @@ $header: (
     font-size:      .16rem,
     // {Length} 两侧的子项文本大小
     item-font-size: .14rem
+) !default;
+
+// Widget switch(5)
+$switch: (
+    // {Color} 激活边框色
+    checked-bordercolor: #4bd763,
+    // {Color} 激活背景色
+    checked-bgcolor:     #4bd763,
+    // {Color} 边框色
+    bordercolor:         map-get($base, bordercolor),
+    // {Color} 背景色
+    bgcolor:             map-get($base, bgcolor),
+    // {Color} 滑块色
+    ball-color:          #fff
 ) !default;
 
 // Widget index(3)
@@ -497,7 +507,7 @@ $number: (
 ) !default;
 
 // Widget UI switchable()
-$switchable: (
+$slider: (
     // {Length} 宽度
 ) !default;
 
