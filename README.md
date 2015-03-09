@@ -11,6 +11,10 @@
 * [问题和特性反馈](#bugs-and-feature-requests)
 * [文档](#documentation)
 * [版本](#version)
+
+    * [当前版本](#now-version)
+    * [版本号说明](#version-intro)
+
 * [作者](#author)
 * [版权和许可](#copyright-and-license)
 
@@ -38,11 +42,21 @@
 <a name="version"></a>
 ## 版本
 
-v1.0.0
+<a name="now-version"></a>
+### 当前版本：v1.0.0
 
 * 新增 widget yo-switch，并移除 element yo-switch；
 * 新增 widget yo-switchable
 * 修订 widget yo-select背景色问题
+
+<a name="version-intro"></a>
+### 版本号说明
+
+Yo 遵循 [Semantic Versioning](http://semver.org/lang/zh-CN/) 规范，版本采用 `主版本号.次版本号.修订号` 的格式，规则如下：
+
+* 主版本号：做了不兼容的API修改，比如大规模重构，设计模式变更，语法变更等；
+* 次版本号：做了向下兼容的功能性新增；
+* 修订号：做了向下兼容的问题修正、细节调整等。
 
 <a name="author"></a>
 ## 作者
