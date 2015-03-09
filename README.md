@@ -11,10 +11,8 @@
 * [问题和特性反馈](#bugs-and-feature-requests)
 * [文档](#documentation)
 * [版本](#version)
-
     * [当前版本](#now-version)
     * [版本号说明](#version-intro)
-
 * [作者](#author)
 * [版权和许可](#copyright-and-license)
 
