@@ -11,7 +11,9 @@
 * [问题和特性反馈](#bugs-and-feature-requests)
 * [文档](#documentation)
 * [版本](#version)
+    * [开发版本](#dev-version)
     * [当前版本](#now-version)
+    * [历史版本](#old-version)
     * [版本号说明](#version-intro)
 * [作者](#author)
 * [版权和许可](#copyright-and-license)
@@ -40,8 +42,13 @@
 <a name="version"></a>
 ## 版本
 
+<a name="dev-version"></a>
+### 当前版本：v1.2.0
+
+
+
 <a name="now-version"></a>
-### 开发版本：v1.1.0
+### 当前版本：v1.1.0
 
 * add yo-loadtip
 * update: add disabled status for yo-select
@@ -49,7 +56,10 @@
 * update: add border for yo-badge
 * update: add width 100% for yo-switchable wrap
 
-### 稳定版本：v1.0.0
+<a name="old-version"></a>
+### 历史版本
+
+####：v1.0.0
 
 * 新增 widget yo-switch，并移除 element yo-switch；
 * 新增 widget yo-switchable
