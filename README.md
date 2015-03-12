@@ -59,7 +59,7 @@
 <a name="old-version"></a>
 ### 历史版本
 
-####：v1.0.0
+#### v1.0.0
 
 * 新增 widget yo-switch，并移除 element yo-switch；
 * 新增 widget yo-switchable
