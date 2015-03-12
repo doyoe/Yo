@@ -311,14 +311,19 @@
 // 使用方法请查看 yo-badge.scss
 @mixin _badge {
     display: inline-block;
-    min-width: .22rem;
-    min-height: .22rem;
-    padding: .03rem .06rem;
+    min-width: .2rem;
+    min-height: .2rem;
+    padding: .02rem .03rem;
+    border: .01rem solid map-get($badge, bordercolor);
     border-radius: map-get($badge, radius);
     background-color: map-get($badge, bgcolor);
     color: map-get($badge, color);
     font-size: map-get($badge, font-size);
-    line-height: .16rem;
+    @if map-get($badge, font-size) < .14rem {
+        line-height: .14rem;
+    } @else {
+        line-height: map-get($badge, font-size);
+    }
     text-align: center;
 }
 

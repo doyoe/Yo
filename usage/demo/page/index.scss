@@ -1,10 +1,24 @@
 @charset "utf-8";
 @import "../layout/layout";
-@import "../module/m-head";
-@import "../module/m-desc";
+@import "../fragment/yo-list";
+@import "../fragment/yo-header";
 
 /**
- * Yo框架demo首页
+ * list演示页面
  * Author: joy.du(飘零雾雨)
- * Time: 2014.9.18
+ * Time: 2014.4.1
  */
+@include doc(default, false);
+@include yo-list(
+    $name: default,
+    $margin: .15rem 0
+);
+.m-demo {
+    @include flexbox;
+    @include flex-direction(column);
+    height: 100%;
+    > .stage {
+        @include flex;
+        @include overflow;
+    }
+}

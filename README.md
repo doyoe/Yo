@@ -44,6 +44,10 @@
 ### 开发版本：v1.1.0
 
 * add yo-loadtip
+* update: add disabled status for yo-select
+* add demo index page
+* update: add border for yo-badge
+* update: add width 100% for yo-switchable wrap
 
 ### 稳定版本：v1.0.0
 

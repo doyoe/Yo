@@ -7,8 +7,9 @@
  * edit: 2015.1.19
  -----------------------
  * @method badge
- * variables length(5)
+ * variables length(6)
  * @param {defailt | String} $name 定义名称
+ * @param {defailt | Color} $bordercolor 定义边框色
  * @param {defailt | Color} $bgcolor 定义背景色
  * @param {defailt | Color} $color 定义文本色
  * @param {defailt | Number} $radius 定义圆角
@@ -17,6 +18,7 @@
 
 @mixin yo-badge(
     $name: default,
+    $bordercolor: default,
     $bgcolor: default,
     $color: default,
     $radius: default,
@@ -28,6 +30,9 @@
         $name: "-#{$name}";
     }
     // 如果值为default，则取config的定义
+    @if $bordercolor == default {
+        $bordercolor: map-get($badge, bordercolor);
+    }
     @if $bgcolor == default {
         $bgcolor: map-get($badge, bgcolor);
     }
@@ -42,6 +47,10 @@
     }
 
     .yo-badge#{$name} {
+        // 如果$bordercolor不等于config设定，则重绘边框色
+        @if $bordercolor != map-get($badge, bordercolor) {
+            border-color: $bordercolor;
+        }
         // 如果$bgcolor不等于config设定，则重绘背景色
         @if $bgcolor != map-get($badge, bgcolor) {
             background-color: $bgcolor;
@@ -57,6 +66,11 @@
         // 如果$font-size不等于config设定，则重绘字号
         @if $font-size != map-get($badge, font-size) {
             font-size: $font-size;
+            @if $font-size < .14rem {
+                line-height: .14rem;
+            } @else {
+                line-height: $font-size;
+            }
         }
     }
 }

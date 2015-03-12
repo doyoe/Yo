@@ -1089,8 +1089,9 @@ html, body {
  * edit: 2015.1.19
  -----------------------
  * @method badge
- * variables length(5)
+ * variables length(6)
  * @param {defailt | String} $name 定义名称
+ * @param {defailt | Color} $bordercolor 定义边框色
  * @param {defailt | Color} $bgcolor 定义背景色
  * @param {defailt | Color} $color 定义文本色
  * @param {defailt | Number} $radius 定义圆角
@@ -1098,14 +1099,15 @@ html, body {
  */
 .yo-badge {
   display: inline-block;
-  min-width: .22rem;
-  min-height: .22rem;
-  padding: .03rem .06rem;
-  border-radius: 0.11rem;
+  min-width: .2rem;
+  min-height: .2rem;
+  padding: .02rem .03rem;
+  border: 0.01rem solid red;
+  border-radius: 0.1rem;
   background-color: red;
   color: white;
   font-size: 0.14rem;
-  line-height: .16rem;
+  line-height: 0.14rem;
   text-align: center;
 }
 
@@ -1115,13 +1117,31 @@ html, body {
  * Time: 2015.1.16
  */
 .yo-badge-normal {
+  border-color: gray;
   background-color: gray;
 }
 
+.yo-badge-hollow {
+  border-color: #666666;
+  background-color: white;
+  color: #666666;
+}
+
+.yo-badge-ident {
+  border-color: #666666;
+  background-color: white;
+  color: #666666;
+  border-radius: 0.05rem;
+  font-size: 0.12rem;
+  line-height: .14rem;
+}
+
 .yo-badge-tag {
+  border-color: #aaaaaa;
   background-color: #aaaaaa;
   border-radius: 0.05rem;
   font-size: 0.12rem;
+  line-height: .14rem;
 }
 
 /**

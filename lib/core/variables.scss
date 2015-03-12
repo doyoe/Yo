@@ -163,16 +163,18 @@ $btn: (
     disabled-color:       map-get($base, disabled-color)
 ) !default;
 
-// Element UI badge(4)
+// Element UI badge(5)
 $badge: (
+    // {Color} 边框色
+    bordercolor: #f00,
     // {Color} 背景色
-    bgcolor:   #f00,
+    bgcolor:     #f00,
     // {Color} 文本色
-    color:     #fff,
+    color:       #fff,
     // {Number} 圆角
-    radius:    .11rem,
+    radius:      .1rem,
     // {Length} 字号
-    font-size: .14rem
+    font-size:   .14rem
 ) !default;
 
 // Element checked(7)

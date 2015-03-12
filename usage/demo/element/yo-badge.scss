@@ -8,11 +8,30 @@
  */
 
 // 预设常规气泡(位置参数示例)
-@include yo-badge(normal, gray);
+@include yo-badge(normal, gray, gray);
+
+// 预设镂空气泡(关键字参数示例)
+@include yo-badge(
+    $name: hollow,
+    $bordercolor: #666,
+    $bgcolor: white,
+    $color: #666
+);
+
+// 预设标识气泡(关键字参数示例)
+@include yo-badge(
+    $name: ident,
+    $bordercolor: #666,
+    $bgcolor: white,
+    $color: #666,
+    $radius: .05rem,
+    $font-size: .12rem
+);
 
 // 预设标签气泡(关键字参数示例)
 @include yo-badge(
     $name: tag,
+    $bordercolor: #aaa,
     $bgcolor: #aaa,
     $radius: .05rem,
     $font-size: .12rem
