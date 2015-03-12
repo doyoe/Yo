@@ -77,14 +77,7 @@ Yo 遵循 [Semantic Versioning](http://semver.org/lang/zh-CN/) 规范，版本�
 <a name="author"></a>
 ## 作者
 
-### 杜瑶
-
-* [http://www.doyoe.com](http://www.doyoe.com)
-* [http://css.doyoe.com](http://css.doyoe.com)
-* [http://demo.doyoe.com](http://demo.doyoe.com)
-* [http://blog.doyoe.com](http://blog.doyoe.com)
-* [http://weibo.com/doyoe](http://weibo.com/doyoe)
-* [https://github.com/doyoe](https://github.com/doyoe)
+My name is Du Yao, working in Beijing [Qunar.com](http://www.qunar.com) now, is active in [Github](https://github.com/doyoe) and [Weibo](http://weibo.com/doyoe). Thus, you can find some information about me on my [Website](http://www.doyoe.com). Of course, you can visit my [blog](http://blog.doyoe.com) and use my tool sites, including [CSS-handbook](http://css.doyoe.com) and [Web front-end laboratories](http://demo.doyoe.com).
 
 <a name="copyright-and-license"></a>
 ## 版权和许可
