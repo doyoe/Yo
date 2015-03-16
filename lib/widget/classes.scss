@@ -676,8 +676,8 @@
             border-radius: 50%;
             background-color: map-get($switch, ball-color);
             box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
-            // @include transition(transform .1s ease-out);
-            // @include transform(translate(0, 0) translatez(0));
+            @include transition(transform .1s ease-out);
+            @include transform(translate(0, 0) translatez(0));
         }
     }
     > input:checked + .track {
