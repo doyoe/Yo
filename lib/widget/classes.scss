@@ -669,7 +669,7 @@
             left: 0;
             content: "\0020";
             @include square(.28rem);
-            border-radius: 50%;
+            border-radius: .14rem;
             background-color: map-get($switch, ball-color);
             box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
             @include transition(transform .1s ease-out);
@@ -687,5 +687,24 @@
         opacity: .4;
         border-color: #bbb;
         background-color: #bbb;
+    }
+}
+
+// 定义panel的基础构造
+// 使用方法请查看 yo-panel.scss
+@mixin _panel {
+    position: relative;
+    > .front {
+        position: relative;
+        z-index: 2;
+        background-color: rgba(0, 0, 0, 0);
+    }
+    > .action {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 1rem;
+        height: 100%;
+        background: #eee;
     }
 }

@@ -1978,12 +1978,15 @@ a {
  */
 .yo-list {
   overflow: hidden;
-  background-color: #fff;
   color: #dddddd;
 }
 .yo-list > .label,
 .yo-list > .item {
   border-bottom: 0.01rem solid #dddddd;
+}
+.yo-list > .label,
+.yo-list > .item,
+.yo-list > .yo-panel > .front {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -1994,11 +1997,14 @@ a {
 .yo-list > .label > .mark:not(:last-child),
 .yo-list > .label > .yo-ico:not(:last-child),
 .yo-list > .item > .mark:not(:last-child),
-.yo-list > .item > .yo-ico:not(:last-child) {
+.yo-list > .item > .yo-ico:not(:last-child),
+.yo-list > .yo-panel > .front > .mark:not(:last-child),
+.yo-list > .yo-panel > .front > .yo-ico:not(:last-child) {
   margin-right: .1rem;
 }
 .yo-list > .label > .flex,
-.yo-list > .item > .flex {
+.yo-list > .item > .flex,
+.yo-list > .yo-panel > .front > .flex {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
@@ -2012,11 +2018,16 @@ a {
 .yo-list > .item > .mark,
 .yo-list > .item > .yo-ico,
 .yo-list > .item > .col,
-.yo-list > .item > .flex {
+.yo-list > .item > .flex,
+.yo-list > .yo-panel > .front > .mark,
+.yo-list > .yo-panel > .front > .yo-ico,
+.yo-list > .yo-panel > .front > .col,
+.yo-list > .yo-panel > .front > .flex {
   display: block;
 }
 .yo-list > .label.tr,
-.yo-list > .item.tr {
+.yo-list > .item.tr,
+.yo-list > .yo-panel > .front.tr {
   padding: 0;
 }
 .yo-list > .label {
@@ -2027,8 +2038,12 @@ a {
 .yo-list > .label > .col {
   padding: 0.03rem 0.1rem;
 }
-.yo-list > .item {
+.yo-list > .item,
+.yo-list > .yo-panel > .front {
   padding: 0.11rem;
+}
+.yo-list > .item {
+  background-color: #fff;
   color: #212121;
 }
 .yo-list > .item-stacked {
@@ -2050,6 +2065,10 @@ a {
 }
 .yo-list > .item > .col {
   padding: 0.11rem;
+}
+.yo-list > .yo-panel {
+  display: block;
+  padding: 0;
 }
 
 /**
@@ -3901,12 +3920,15 @@ a {
  */
 .yo-list {
   overflow: hidden;
-  background-color: #fff;
   color: #dddddd;
 }
 .yo-list > .label,
 .yo-list > .item {
   border-bottom: 0.01rem solid #dddddd;
+}
+.yo-list > .label,
+.yo-list > .item,
+.yo-list > .yo-panel > .front {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -3917,11 +3939,14 @@ a {
 .yo-list > .label > .mark:not(:last-child),
 .yo-list > .label > .yo-ico:not(:last-child),
 .yo-list > .item > .mark:not(:last-child),
-.yo-list > .item > .yo-ico:not(:last-child) {
+.yo-list > .item > .yo-ico:not(:last-child),
+.yo-list > .yo-panel > .front > .mark:not(:last-child),
+.yo-list > .yo-panel > .front > .yo-ico:not(:last-child) {
   margin-right: .1rem;
 }
 .yo-list > .label > .flex,
-.yo-list > .item > .flex {
+.yo-list > .item > .flex,
+.yo-list > .yo-panel > .front > .flex {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
@@ -3935,11 +3960,16 @@ a {
 .yo-list > .item > .mark,
 .yo-list > .item > .yo-ico,
 .yo-list > .item > .col,
-.yo-list > .item > .flex {
+.yo-list > .item > .flex,
+.yo-list > .yo-panel > .front > .mark,
+.yo-list > .yo-panel > .front > .yo-ico,
+.yo-list > .yo-panel > .front > .col,
+.yo-list > .yo-panel > .front > .flex {
   display: block;
 }
 .yo-list > .label.tr,
-.yo-list > .item.tr {
+.yo-list > .item.tr,
+.yo-list > .yo-panel > .front.tr {
   padding: 0;
 }
 .yo-list > .label {
@@ -3950,8 +3980,12 @@ a {
 .yo-list > .label > .col {
   padding: 0.03rem 0.1rem;
 }
-.yo-list > .item {
+.yo-list > .item,
+.yo-list > .yo-panel > .front {
   padding: 0.11rem;
+}
+.yo-list > .item {
+  background-color: #fff;
   color: #212121;
 }
 .yo-list > .item-stacked {
@@ -3973,6 +4007,10 @@ a {
 }
 .yo-list > .item > .col {
   padding: 0.11rem;
+}
+.yo-list > .yo-panel {
+  display: block;
+  padding: 0;
 }
 
 /**
@@ -4653,7 +4691,7 @@ a {
   content: "\0020";
   width: 0.28rem;
   height: 0.28rem;
-  border-radius: 50%;
+  border-radius: .14rem;
   background-color: white;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   -webkit-transition: transform 0.1s ease-out;

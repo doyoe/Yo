@@ -15,7 +15,6 @@
     overflow: hidden;
     margin: map-get($list, margin);
     border-radius: map-get($list, radius);
-    background-color: #fff;
     color: map-get($list, bordercolor);
     // 如果config变量$is-outline为true，则列表需要轮廓
     @if map-get($list, is-outline) {
@@ -25,6 +24,10 @@
     > .label,
     > .item {
         border-bottom: .01rem solid map-get($list, bordercolor);
+    }
+    > .label,
+    > .item,
+    > .yo-panel > .front {
         @include flexbox;
         @include align-items;
         > .mark:not(:last-child),
@@ -55,8 +58,12 @@
             padding: map-get($list, label-padding);
         }
     }
-    > .item {
+    > .item,
+    > .yo-panel > .front {
         padding: map-get($list, item-padding);
+    }
+    > .item {
+        background-color: #fff;
         color: map-get($base, color);
         &-stacked {
             display: block;
@@ -95,6 +102,10 @@
         > .col {
             padding: map-get($list, item-padding);
         }
+    }
+    > .yo-panel {
+        display: block;
+        padding: 0;
     }
 }
 

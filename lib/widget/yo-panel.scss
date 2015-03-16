@@ -1,0 +1,62 @@
+@charset "utf-8";
+@import "classes";
+
+/**
+ * Widget: yo-panel
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ ------------------------
+ * @method yo-panel
+ * variables length(5)
+ * @param {default | String} $name 定义yo-panel名称
+ * @param {default | Length} $padding 定义yo-panel内补白
+ * @param {default | Length} $radius 定义yo-panel圆角
+ * @param {default | Color} $bgcolor 定义yo-panel背景色
+ * @param {default | Color} $color 定义yo-panel文本色
+ */
+
+@mixin yo-panel(
+    $name: default,
+    $padding: default,
+    $radius: default,
+    $bgcolor: default,
+    $color: default) {
+    // 区别是否新增实例还是修改本身
+    @if $name == default {
+        $name: "";
+    } @else {
+        $name: "-#{$name}";
+    }
+    // 如果值为default，则取config的定义
+    @if $padding == default {
+        $padding: map-get($panel, padding);
+    }
+    @if $radius == default {
+        $radius: map-get($panel, radius);
+    }
+    @if $bgcolor == default {
+        $bgcolor: map-get($panel, bgcolor);
+    }
+    @if $color == default {
+        $color: map-get($panel,color);
+    }
+    .yo-panel#{$name} {
+        @if $padding != map-get($panel, padding) {
+            padding: $padding;
+        }
+        @if $radius != map-get($panel, radius) {
+            border-radius: $radius;
+        }
+        @if $bgcolor != map-get($panel, bgcolor) {
+            background-color: rgba($bgcolor, .5);
+        }
+        @if $color != map-get($panel, color) {
+            color: $color;
+        }
+    }
+}
+
+// 调用本文件时载入panel基础构造
+.yo-panel {
+    @include _panel;
+}

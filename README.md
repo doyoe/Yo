@@ -45,6 +45,7 @@
 <a name="dev-version"></a>
 ### 开发中版本：v1.2.0
 
+* add yo-panel
 
 
 <a name="now-version"></a>
