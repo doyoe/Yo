@@ -4666,9 +4666,7 @@ a {
  * @param {default | Color} $bgcolor 定义switch背景色
  * @param {default | Color} $ball-color 定义switch滑块色
  */
-.yo-switch,
-.yo-switch > .track,
-.yo-switch > .track > .handle {
+.yo-switch {
   display: inline-block;
   vertical-align: middle;
 }
@@ -4688,11 +4686,13 @@ a {
   transition: border-color 0.1s ease-out, background-color 0.1s ease-out;
 }
 .yo-switch > .track > .handle {
+  display: block;
   content: "\0020";
   width: 0.28rem;
   height: 0.28rem;
   border-radius: 50%;
   background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   -webkit-transition: transform 0.1s ease-out;
   -moz-transition: transform 0.1s ease-out;
   transition: transform 0.1s ease-out;

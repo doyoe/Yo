@@ -648,12 +648,8 @@
 // 定义switch的基础构造
 // 使用方法请查看 yo-switch.scss
 @mixin _switch {
-    &,
-    > .track,
-    > .track > .handle {
-        display: inline-block;
-        vertical-align: middle;
-    }
+    display: inline-block;
+    vertical-align: middle;
     > input {
         display: none;
     }
@@ -674,11 +670,12 @@
             // top: 0;
             // left: 0;
             // overflow: hidden;
+            display: block;
             content: "\0020";
             @include square(.28rem);
             border-radius: 50%;
             background-color: map-get($switch, ball-color);
-            // box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
             @include transition(transform .1s ease-out);
             @include transform(translate(0, 0) translatez(0));
         }
