@@ -1138,10 +1138,11 @@ html, body {
   position: absolute;
   top: 0;
   left: 0;
+  overflow: hidden;
   content: "\0020";
   width: 0.28rem;
   height: 0.28rem;
-  border-radius: .14rem;
+  border-radius: 50%;
   background-color: white;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   -webkit-transition: transform 0.1s ease-out;

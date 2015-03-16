@@ -667,9 +667,10 @@
             position: absolute;
             top: 0;
             left: 0;
+            overflow: hidden;
             content: "\0020";
             @include square(.28rem);
-            border-radius: .14rem;
+            border-radius: 50%;
             background-color: map-get($switch, ball-color);
             box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
             @include transition(transform .1s ease-out);

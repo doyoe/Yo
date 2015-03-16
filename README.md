@@ -46,6 +46,7 @@
 ### 开发中版本：v1.2.0
 
 * add yo-panel
+* fixed: fixed yo-switch handle bug on samsung s4
 
 
 <a name="now-version"></a>
