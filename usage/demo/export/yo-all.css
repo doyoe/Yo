@@ -4666,14 +4666,12 @@ a {
  * @param {default | Color} $bgcolor 定义switch背景色
  * @param {default | Color} $ball-color 定义switch滑块色
  */
-.yo-switch {
-  display: inline-block;
-  vertical-align: middle;
-}
 .yo-switch > input {
   display: none;
 }
 .yo-switch > .track {
+  display: inline-block;
+  position: relative;
   width: .6rem;
   height: .32rem;
   margin: 0;
@@ -4681,12 +4679,15 @@ a {
   border: 0.02rem solid #dddddd;
   border-radius: .16rem;
   background-color: #fafafa;
+  vertical-align: middle;
   -webkit-transition: border-color 0.1s ease-out, background-color 0.1s ease-out;
   -moz-transition: border-color 0.1s ease-out, background-color 0.1s ease-out;
   transition: border-color 0.1s ease-out, background-color 0.1s ease-out;
 }
 .yo-switch > .track > .handle {
-  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 0.28rem;
   height: 0.28rem;
   border-radius: 50%;
@@ -4695,8 +4696,7 @@ a {
   -webkit-transition: transform 0.1s ease-out;
   -moz-transition: transform 0.1s ease-out;
   transition: transform 0.1s ease-out;
-  -webkit-transform: translate(0, 0) translatez(0);
-  -moz-transform: translate(0, 0) translatez(0);
+  -webkit-transform: translate(0, 0);
   transform: translate(0, 0) translatez(0);
 }
 .yo-switch > input:checked + .track {
@@ -4704,8 +4704,7 @@ a {
   background-color: #4bd763;
 }
 .yo-switch > input:checked + .track > .handle {
-  -webkit-transform: translate(100%, 0) translatez(0);
-  -moz-transform: translate(100%, 0) translatez(0);
+  -webkit-transform: translate(100%, 0);
   transform: translate(100%, 0) translatez(0);
 }
 .yo-switch > input:disabled + .track {

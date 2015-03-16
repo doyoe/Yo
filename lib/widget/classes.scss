@@ -648,15 +648,12 @@
 // 定义switch的基础构造
 // 使用方法请查看 yo-switch.scss
 @mixin _switch {
-    display: inline-block;
-    vertical-align: middle;
     > input {
         display: none;
     }
     > .track {
-        // display: inline-block;
-        // position: relative;
-        // overflow: hidden;
+        display: inline-block;
+        position: relative;
         width: .6rem;
         height: .32rem;
         margin: 0;
@@ -664,27 +661,27 @@
         border: .02rem solid map-get($switch, bordercolor);
         border-radius: .16rem;
         background-color: map-get($switch, bgcolor);
+        vertical-align: middle;
         @include transition(border-color .1s ease-out, background-color .1s ease-out);
         > .handle {
-            // position: absolute;
-            // top: 0;
-            // left: 0;
-            // overflow: hidden;
-            display: block;
-            // content: "\0020";
+            position: absolute;
+            top: 0;
+            left: 0;
             @include square(.28rem);
             border-radius: 50%;
             background-color: map-get($switch, ball-color);
             box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
             @include transition(transform .1s ease-out);
-            @include transform(translate(0, 0) translatez(0));
+            -webkit-transform: translate(0, 0); // samsung s4 4.4.2 如果写了Z或者3D，元素的边框及背景色无法被圆角化
+            transform: translate(0, 0) translatez(0);
         }
     }
     > input:checked + .track {
         border-color: map-get($switch, checked-bordercolor);
         background-color: map-get($switch, checked-bgcolor);
         > .handle {
-            @include transform(translate(100%, 0) translatez(0));
+            -webkit-transform: translate(100%, 0);
+            transform: translate(100%, 0) translatez(0);
         }
     }
     > input:disabled + .track {
