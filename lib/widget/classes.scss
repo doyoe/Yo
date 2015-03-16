@@ -671,7 +671,7 @@
             // left: 0;
             // overflow: hidden;
             display: block;
-            content: "\0020";
+            // content: "\0020";
             @include square(.28rem);
             border-radius: 50%;
             background-color: map-get($switch, ball-color);
