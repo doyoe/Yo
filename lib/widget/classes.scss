@@ -648,14 +648,19 @@
 // 定义switch的基础构造
 // 使用方法请查看 yo-switch.scss
 @mixin _switch {
-    display: inline-block;
+    &,
+    > .track,
+    > .track > .handle {
+        display: inline-block;
+        vertical-align: middle;
+    }
     > input {
         display: none;
     }
     > .track {
-        display: inline-block;
-        position: relative;
-        overflow: hidden;
+        // display: inline-block;
+        // position: relative;
+        // overflow: hidden;
         width: .6rem;
         height: .32rem;
         margin: 0;
@@ -663,13 +668,12 @@
         border: .02rem solid map-get($switch, bordercolor);
         border-radius: .16rem;
         background-color: map-get($switch, bgcolor);
-        vertical-align: middle;
         @include transition(border-color .1s ease-out, background-color .1s ease-out);
         > .handle {
-            position: absolute;
-            top: 0;
-            left: 0;
-            overflow: hidden;
+            // position: absolute;
+            // top: 0;
+            // left: 0;
+            // overflow: hidden;
             content: "\0020";
             @include square(.28rem);
             border-radius: 50%;

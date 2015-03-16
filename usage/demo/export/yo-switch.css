@@ -1116,16 +1116,16 @@ html, body {
  * @param {default | Color} $bgcolor 定义switch背景色
  * @param {default | Color} $ball-color 定义switch滑块色
  */
-.yo-switch {
+.yo-switch,
+.yo-switch > .track,
+.yo-switch > .track > .handle {
   display: inline-block;
+  vertical-align: middle;
 }
 .yo-switch > input {
   display: none;
 }
 .yo-switch > .track {
-  display: inline-block;
-  position: relative;
-  overflow: hidden;
   width: .6rem;
   height: .32rem;
   margin: 0;
@@ -1133,21 +1133,16 @@ html, body {
   border: 0.02rem solid #dddddd;
   border-radius: .16rem;
   background-color: #fafafa;
-  vertical-align: middle;
   -webkit-transition: border-color 0.1s ease-out, background-color 0.1s ease-out;
   -moz-transition: border-color 0.1s ease-out, background-color 0.1s ease-out;
   transition: border-color 0.1s ease-out, background-color 0.1s ease-out;
 }
 .yo-switch > .track > .handle {
-  position: absolute;
-  top: 0;
-  left: 0;
-  overflow: hidden;
   content: "\0020";
   width: 0.28rem;
   height: 0.28rem;
   border-radius: 50%;
-  background-color: red;
+  background-color: white;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   -webkit-transition: transform 0.1s ease-out;
   -moz-transition: transform 0.1s ease-out;
