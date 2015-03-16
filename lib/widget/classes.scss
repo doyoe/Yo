@@ -648,6 +648,7 @@
 // 定义switch的基础构造
 // 使用方法请查看 yo-switch.scss
 @mixin _switch {
+    display: inline-block;
     > input {
         display: none;
     }
