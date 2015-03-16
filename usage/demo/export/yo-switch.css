@@ -1142,12 +1142,6 @@ html, body {
   border-radius: 50%;
   background-color: white;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  -webkit-transition: transform 0.1s ease-out;
-  -moz-transition: transform 0.1s ease-out;
-  transition: transform 0.1s ease-out;
-  -webkit-transform: translate(0, 0) translatez(0);
-  -moz-transform: translate(0, 0) translatez(0);
-  transform: translate(0, 0) translatez(0);
 }
 .yo-switch > input:checked + .track {
   border-color: #4bd763;
