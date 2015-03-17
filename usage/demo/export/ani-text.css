@@ -84,7 +84,6 @@
 ::before,
 ::after {
   -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
 }
@@ -94,7 +93,6 @@ html {
   color: #212121;
   font-size: 100px;
   -webkit-user-select: none;
-  -moz-user-select: none;
   user-select: none;
 }
 
@@ -261,7 +259,6 @@ input[type="submit"],
 input[type="reset"],
 input[type="file"]::-webkit-file-upload-button {
   -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
 }
 
@@ -542,7 +539,6 @@ html, body {
     position: absolute;
     left: 50%;
     -webkit-transform: translate(-50%);
-    -moz-transform: translate(-50%);
     transform: translate(-50%);
     content: "\0020";
   }
@@ -589,7 +585,6 @@ html, body {
     top: -.68rem;
     left: 50%;
     -webkit-transform: translate(-50%);
-    -moz-transform: translate(-50%);
     transform: translate(-50%);
     width: 0.1rem;
     height: 0.1rem;
@@ -608,7 +603,6 @@ html, body {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   -webkit-user-select: text;
-  -moz-user-select: text;
   user-select: text;
   margin: .1rem 0;
   border-width: .04rem 0 .04rem 0;
@@ -857,7 +851,6 @@ html, body {
   cursor: pointer;
   font-size: .16rem;
   -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
   text-transform: capitalize;
   background-size: .1rem .1rem;

@@ -84,7 +84,6 @@
 ::before,
 ::after {
   -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
 }
@@ -94,7 +93,6 @@ html {
   color: #212121;
   font-size: 100px;
   -webkit-user-select: none;
-  -moz-user-select: none;
   user-select: none;
 }
 
@@ -261,7 +259,6 @@ input[type="submit"],
 input[type="reset"],
 input[type="file"]::-webkit-file-upload-button {
   -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
 }
 
@@ -542,7 +539,6 @@ html, body {
   line-height: 100px;
   color: #f00;
   -webkit-transition: font-size 0.25s ease-out;
-  -moz-transition: font-size 0.25s ease-out;
   transition: font-size 0.25s ease-out;
 }
 .demo .yo-ico:hover {

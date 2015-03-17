@@ -84,7 +84,6 @@
 ::before,
 ::after {
   -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
 }
@@ -94,7 +93,6 @@ html {
   color: #212121;
   font-size: 100px;
   -webkit-user-select: none;
-  -moz-user-select: none;
   user-select: none;
 }
 
@@ -261,7 +259,6 @@ input[type="submit"],
 input[type="reset"],
 input[type="file"]::-webkit-file-upload-button {
   -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
 }
 
@@ -569,7 +566,6 @@ html, body {
     position: absolute;
     left: 50%;
     -webkit-transform: translate(-50%);
-    -moz-transform: translate(-50%);
     transform: translate(-50%);
     content: "\0020";
   }
@@ -616,7 +612,6 @@ html, body {
     top: -.68rem;
     left: 50%;
     -webkit-transform: translate(-50%);
-    -moz-transform: translate(-50%);
     transform: translate(-50%);
     width: 0.1rem;
     height: 0.1rem;
@@ -635,7 +630,6 @@ html, body {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   -webkit-user-select: text;
-  -moz-user-select: text;
   user-select: text;
   margin: .1rem 0;
   border-width: .04rem 0 .04rem 0;
@@ -1191,6 +1185,7 @@ html, body {
   right: 0;
   bottom: 0;
   left: 0;
+  overflow: hidden;
 }
 .yo-group > .sticky,
 .yo-group > .scroll-index {
@@ -1334,7 +1329,6 @@ html, body {
 .yo-search > .operate > .action > .label,
 .yo-search > .operate > .cancel {
   -webkit-transition: all 0.2s ease-in;
-  -moz-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
 }
 .yo-search > .operate > .action {
@@ -1344,20 +1338,17 @@ html, body {
   display: block;
   width: 100%;
   -webkit-transform: translatez(0);
-  -moz-transform: translatez(0);
   transform: translatez(0);
   position: relative;
   height: 0.3rem;
 }
 .yo-search > .operate > .action > .input {
   -webkit-transform: translatez(0);
-  -moz-transform: translatez(0);
   transform: translatez(0);
   width: 100%;
   height: 100%;
   padding: 0 .3rem;
   -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
   border: 1px solid #dddddd;
   border-radius: 0.05rem;
@@ -1381,7 +1372,6 @@ html, body {
   top: 0;
   left: 50%;
   -webkit-transform: translatex(-50%) translatez(0);
-  -moz-transform: translatex(-50%) translatez(0);
   transform: translatex(-50%) translatez(0);
   color: white;
   word-spacing: -.05rem;
@@ -1393,7 +1383,6 @@ html, body {
 .yo-search > .operate > .cancel {
   display: block;
   -webkit-transform: translatez(0);
-  -moz-transform: translatez(0);
   transform: translatez(0);
   overflow: hidden;
   width: 0;
@@ -1404,7 +1393,6 @@ html, body {
 .yo-search > .operate-on > .action > .label {
   left: 0;
   -webkit-transform: translatex(0) translatez(0);
-  -moz-transform: translatex(0) translatez(0);
   transform: translatex(0) translatez(0);
 }
 .yo-search > .operate-on > .action > .yo-ico-delete {
@@ -1482,6 +1470,5 @@ html, body {
 .yo-group > .scroll-index {
   top: 50%;
   -webkit-transform: translate(0, -50%);
-  -moz-transform: translate(0, -50%);
   transform: translate(0, -50%);
 }

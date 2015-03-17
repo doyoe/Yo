@@ -45,6 +45,9 @@
 <a name="dev-version"></a>
 ### 开发中版本：v1.2.0
 
+* fixed: yo-group滚动时顶部溢出
+* fixed: yo-switchable在小米4上，当使用translatez/translate3d偏移时，会覆盖在其它层级比自身高的元素之上
+* add yo-rating
 * add yo-panel
 * fixed: fixed yo-switch handle bug on samsung s4
 

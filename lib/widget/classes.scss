@@ -573,6 +573,7 @@
     right: 0;
     bottom: 0;
     left: 0;
+    overflow: hidden;
     > .sticky,
     > .scroll-index {
         position: absolute;
@@ -614,7 +615,7 @@
         position: absolute;
         bottom: .1rem;
         left: 50%;
-        @include transform(translatex(-50%));
+        @include transform(translate(-50%, 0) translatez(0));
         > li {
             float: left;
             margin: 0 .05rem;
@@ -629,7 +630,7 @@
     > .yo-ico {
         position: absolute;
         top: 50%;
-        @include transform(translatey(-50%));
+        @include transform(translate(0, -50%) translatez(0));
         @include square(.44rem);
         border-radius: 50%;
         background-color: #09a5c4;
