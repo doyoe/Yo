@@ -519,6 +519,14 @@ $mask: (
     bgcolor: #fff
 ) !default;
 
+// Widget UI panel(1)
+$panel: (
+    // {} action 宽度
+    action-width: 1rem,
+    // {Color} action 背景色
+    action-bgcolor: #eee
+) !default;
+
 // z-index
 $z-index: (
     // {Number} 下拉菜单层级范围50-100

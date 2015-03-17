@@ -648,6 +648,7 @@
 // 定义switch的基础构造
 // 使用方法请查看 yo-switch.scss
 @mixin _switch {
+    display: inline-block;
     > input {
         display: none;
     }
@@ -695,17 +696,19 @@
 // 使用方法请查看 yo-panel.scss
 @mixin _panel {
     position: relative;
+    overflow: hidden;
     > .front {
         position: relative;
         z-index: 2;
-        background-color: rgba(0, 0, 0, 0);
+        background-color: #fff;
     }
     > .action {
         position: absolute;
         top: 0;
         right: 0;
-        width: 1rem;
+        overflow: hidden;
+        width: map-get($panel, action-width);
         height: 100%;
-        background: #eee;
+        background-color: map-get($panel, action-bgcolor);
     }
 }

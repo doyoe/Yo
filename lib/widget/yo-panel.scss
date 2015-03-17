@@ -9,18 +9,14 @@
  * @method yo-panel
  * variables length(5)
  * @param {default | String} $name 定义yo-panel名称
- * @param {default | Length} $padding 定义yo-panel内补白
- * @param {default | Length} $radius 定义yo-panel圆角
- * @param {default | Color} $bgcolor 定义yo-panel背景色
- * @param {default | Color} $color 定义yo-panel文本色
+ * @param {default | Length} $action-width 定义action宽度
+ * @param {default | Color} $action-bgcolor 定义action背景色
  */
 
 @mixin yo-panel(
     $name: default,
-    $padding: default,
-    $radius: default,
-    $bgcolor: default,
-    $color: default) {
+    $action-width: default,
+    $action-bgcolor: default) {
     // 区别是否新增实例还是修改本身
     @if $name == default {
         $name: "";
@@ -28,30 +24,20 @@
         $name: "-#{$name}";
     }
     // 如果值为default，则取config的定义
-    @if $padding == default {
-        $padding: map-get($panel, padding);
+    @if $action-width == default {
+        $action-width: map-get($panel, action-width);
     }
-    @if $radius == default {
-        $radius: map-get($panel, radius);
-    }
-    @if $bgcolor == default {
-        $bgcolor: map-get($panel, bgcolor);
-    }
-    @if $color == default {
-        $color: map-get($panel,color);
+    @if $action-bgcolor == default {
+        $action-bgcolor: map-get($panel, action-bgcolor);
     }
     .yo-panel#{$name} {
-        @if $padding != map-get($panel, padding) {
-            padding: $padding;
-        }
-        @if $radius != map-get($panel, radius) {
-            border-radius: $radius;
-        }
-        @if $bgcolor != map-get($panel, bgcolor) {
-            background-color: rgba($bgcolor, .5);
-        }
-        @if $color != map-get($panel, color) {
-            color: $color;
+        > .action {
+            @if $action-width != map-get($panel, action-width) {
+                width: $action-width;
+            }
+            @if $action-bgcolor != map-get($panel, action-bgcolor) {
+                background-color: $action-bgcolor;
+            }
         }
     }
 }

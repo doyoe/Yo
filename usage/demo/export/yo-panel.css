@@ -1110,26 +1110,26 @@ html, body {
  * @method yo-panel
  * variables length(5)
  * @param {default | String} $name 定义yo-panel名称
- * @param {default | Length} $padding 定义yo-panel内补白
- * @param {default | Length} $radius 定义yo-panel圆角
- * @param {default | Color} $bgcolor 定义yo-panel背景色
- * @param {default | Color} $color 定义yo-panel文本色
+ * @param {default | Length} $action-width 定义action宽度
+ * @param {default | Color} $action-bgcolor 定义action背景色
  */
 .yo-panel {
   position: relative;
+  overflow: hidden;
 }
 .yo-panel > .front {
   position: relative;
   z-index: 2;
-  background-color: transparent;
+  background-color: #fff;
 }
 .yo-panel > .action {
   position: absolute;
   top: 0;
   right: 0;
+  overflow: hidden;
   width: 1rem;
   height: 100%;
-  background: #eee;
+  background-color: #eeeeee;
 }
 
 /**

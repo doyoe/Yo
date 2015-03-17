@@ -4666,6 +4666,9 @@ a {
  * @param {default | Color} $bgcolor 定义switch背景色
  * @param {default | Color} $ball-color 定义switch滑块色
  */
+.yo-switch {
+  display: inline-block;
+}
 .yo-switch > input {
   display: none;
 }
