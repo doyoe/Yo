@@ -45,6 +45,7 @@
 <a name="dev-version"></a>
 ### 开发中版本：v1.2.0
 
+* update: yo-header 两侧文本色参数
 * update: yo-group 无数据状态
 * update: yo-tab 增加对ico大小，文本大小的参数配置，并删除默认的横向文本大小设定
 * update: yo-ico 删除 .eot 及 .svg 字体

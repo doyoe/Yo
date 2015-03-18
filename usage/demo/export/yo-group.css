@@ -1150,15 +1150,16 @@ html, body {
  * Time: 2012.1.1
  ------------------------
  * @method yo-header
- * variables length(9)
+ * variables length(10)
  * @param {default | String} $name 定义yo-header名称
  * @param {default | Length} $height 定义yo-header高度
  * @param {default | Length} $item-width 定义yo-header两侧子项宽度
  * @param {default | Length} $item-space 定义yo-header两侧子项离边界的间隙
- * @param {default | Color} $bgcolor 定义yo-header背景色
  * @param {default | Color} $bordercolor 定义yo-header边框色
+ * @param {default | Color} $bgcolor 定义yo-header背景色
  * @param {default | Color} $color 定义yo-header文本色
  * @param {default | Length} $font-size 定义yo-header文本大小
+ * @param {default | Color} $item-color 定义yo-header两侧的子项文本色
  * @param {default | Length} $item-font-size 定义yo-header两侧的子项文本大小
  */
 .yo-header {

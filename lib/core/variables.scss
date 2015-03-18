@@ -342,7 +342,7 @@ $table: (
     on-bgcolor:          null
 ) !default;
 
-// Fragment header(8)
+// Fragment header(9)
 $header: (
     // {Length} 高度
     height:         .44rem,
@@ -358,6 +358,8 @@ $header: (
     color:          map-get($base, color),
     // {Length} 文本大小
     font-size:      .16rem,
+    // {Color} 文本色
+    item-color:     map-get($base, color),
     // {Length} 两侧的子项文本大小
     item-font-size: .14rem
 ) !default;
