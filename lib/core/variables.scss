@@ -288,7 +288,7 @@ $list: (
     on-bgcolor:     null
 ) !default;
 
-// Fragment tab(9)
+// Fragment tab(13)
 $tab: (
     // {Length} tab高度
     height:         .49rem,
@@ -307,7 +307,15 @@ $tab: (
     // {Color} tab激活背景色
     on-bgcolor:     #fff,
     // {Color} tab激活文本色
-    on-color:       #000
+    on-color:       #000,
+    // {Length} 文本大小
+    font-size:      null,
+    // {Length} 水平ico大小
+    x-ico-size:     .24rem,
+    // {Length} 垂直ico大小
+    y-ico-size:     .2rem,
+    // {Length} only ico大小
+    only-ico-size:  .32rem
 ) !default;
 
 // Fragment Table(10)

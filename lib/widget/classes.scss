@@ -286,7 +286,7 @@
 
 // 定义tab的基础构造
 // 使用方法请查看 yo-tab.scss
-@mixin _tab{
+@mixin _tab {
     @include flexbox();
     height: map-get($tab, height);
     // 是否有外边框
@@ -296,12 +296,13 @@
     }
     border-color: map-get($tab, bordercolor);
     background-color: map-get($tab, bgcolor);
+    font-size: map-get($tab, font-size);
     text-align: center;
     line-height: map-get($tab, height);
     > .item{
         @include flex();
         border-top: 1px solid map-get($tab, bordercolor);
-        &:not(:first-child){
+        &:not(:first-child) {
             // 是否有间隔线
             @if map-get($tab, is-item-border) {
                 border-left-width: 1px;
@@ -311,31 +312,27 @@
         }
         color: map-get($tab, color);
         &:active,
-        &.on{
+        &.on {
             border-top-color: map-get($tab, on-bordercolor);
             background-color: map-get($tab, on-bgcolor);
             color: map-get($tab, on-color);
         }
-        &-top-ico,
-        &-left-ico{
-            font-size: .12rem;
-        }
-        &-top-ico{
-            padding-top: .08rem;
+        &-top-ico {
+            padding-top: .05rem;
             line-height: .2rem;
-            .yo-ico{
+            .yo-ico {
                 display: block;
-                font-size: .28rem;
+                font-size: map-get($tab, y-ico-size);
             }
         }
-        &-left-ico{
-            .yo-ico{
-                font-size: .24rem;
+        &-left-ico {
+            .yo-ico {
+                font-size: map-get($tab, x-ico-size);
             }
         }
-        &-only-ico{
-            .yo-ico{
-                font-size: .32rem;
+        &-only-ico {
+            .yo-ico {
+                font-size: map-get($tab, only-ico-size);
             }
         }
     }
@@ -585,6 +582,11 @@
         padding: map-get($list, label-padding);
         background-color: map-get($list, label-bgcolor);
         color: map-get($base, sub-color);
+    }
+    .no-data {
+        height: 100%;
+        padding-top: 1rem;
+        text-align: center;
     }
 }
 

@@ -7,7 +7,7 @@
  * Time: 2012.1.1
  ------------------------
  * @method yo-tab
- * variables length(10)
+ * variables length(14)
  * @param {default | String} $name 定义yo-tab名称
  * @param {default | Boole} $is-border 定义yo-tab是否有边框
  * @param {default | Boole} $is-item-border 定义yo-tab是否有间隔线
@@ -17,7 +17,11 @@
  * @param {default | Color} $color 定义yo-tab文本色
  * @param {default | Color} $on-bordercolor 定义yo-tab激活边框色
  * @param {default | Color} $on-bgcolor 定义yo-tab激活背景色
- * @param {default | Color} $$on-color 定义yo-tab激活文本色
+ * @param {default | Color} $on-color 定义yo-tab激活文本色
+ * @param {default | Color} $font-size 定义yo-tab文本字号
+ * @param {default | Color} $x-ico-size 定义yo-tab水平ico大小
+ * @param {default | Color} $y-ico-size 定义yo-tab垂直ico大小
+ * @param {default | Color} $only-ico-size 定义yo-tab仅有ico大小
  */
 
 @mixin yo-tab(
@@ -30,7 +34,11 @@
     $color: default,
     $on-bordercolor: default,
     $on-bgcolor: default,
-    $on-color: default) {
+    $on-color: default,
+    $font-size: default,
+    $x-ico-size: default,
+    $y-ico-size: default,
+    $only-ico-size: default) {
     // 区别是否新增实例还是修改本身
     @if $name == default {
         $name: "";
@@ -65,6 +73,18 @@
     @if $on-color == default {
         $on-color: map-get($tab, on-color);
     }
+    @if $font-size == default {
+        $font-size: map-get($tab, font-size);
+    }
+    @if $x-ico-size == default {
+        $x-ico-size: map-get($tab, x-ico-size);
+    }
+    @if $y-ico-size == default {
+        $y-ico-size: map-get($tab, y-ico-size);
+    }
+    @if $only-ico-size == default {
+        $only-ico-size: map-get($tab, only-ico-size);
+    }
     .yo-tab#{$name} {
         @if $height != map-get($tab, height) {
             height: $height;
@@ -90,6 +110,9 @@
         }
         @if $bgcolor != map-get($tab, bgcolor) {
             background-color: $bgcolor;
+        }
+        @if $font-size != map-get($tab, font-size) and map-get($tab, font-size) != map-get($base, font-size) {
+            font-size: $font-size;
         }
         > .item {
             @if $bordercolor != map-get($tab, bordercolor) {
@@ -128,6 +151,27 @@
                 }
                 @if $on-color != map-get($tab, on-color) {
                     color: $on-color;
+                }
+            }
+            &-top-ico {
+                .yo-ico {
+                    @if $y-ico-size != map-get($tab, y-ico-size) {
+                        font-size: $y-ico-size;
+                    }
+                }
+            }
+            &-left-ico {
+                .yo-ico {
+                    @if $x-ico-size != map-get($tab, x-ico-size) {
+                        font-size: $x-ico-size;
+                    }
+                }
+            }
+            &-only-ico {
+                .yo-ico {
+                    @if $only-ico-size != map-get($tab, only-ico-size) {
+                        font-size: $only-ico-size;
+                    }
                 }
             }
         }

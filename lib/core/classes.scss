@@ -55,17 +55,17 @@
         @font-face {
             font-family: map-get($ico, font-name);
             // 如果只需要其中的某种字体，其它的几种字体可以使用空文件（不会请求），但必须存在
-            // IE9
-            src: url("#{map-get($ico,font-path)}#{map-get($ico,font-name)}.eot");
+            // IE9 - 不考虑IE9
+            // src: url("#{map-get($ico,font-path)}#{map-get($ico,font-name)}.eot");
             src:
-                // IE6-8
-                url("#{map-get($ico,font-path)}#{map-get($ico,font-name)}.eot?#iefix") format("embedded-opentype"),
+                // IE6-8 - 不考虑
+                // url("#{map-get($ico,font-path)}#{map-get($ico,font-name)}.eot?#iefix") format("embedded-opentype"),
                 // chrome、firefox
                 url("#{map-get($ico,font-path)}#{map-get($ico,font-name)}.woff") format("woff"),
                 // chrome、firefox、opera、Safari, Android, iOS 4.2+
-                url("#{map-get($ico,font-path)}#{map-get($ico,font-name)}.ttf") format("truetype"),
-                // iOS 4.1-
-                url("#{map-get($ico,font-path)}#{map-get($ico,font-name)}.svg#iconfont") format("svg");
+                url("#{map-get($ico,font-path)}#{map-get($ico,font-name)}.ttf") format("truetype");
+                // iOS 4.1- - 不考虑
+                // url("#{map-get($ico,font-path)}#{map-get($ico,font-name)}.svg#iconfont") format("svg");
         }
         .yo-ico {
             font-family: map-get($ico, font-name) !important;

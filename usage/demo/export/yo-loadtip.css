@@ -294,8 +294,7 @@ a {
 
 @font-face {
   font-family: fontawesome-webfont;
-  src: url("http://source.qunarzz.com/fonts/fontawesome/4.3.0/fontawesome-webfont.eot");
-  src: url("http://source.qunarzz.com/fonts/fontawesome/4.3.0/fontawesome-webfont.eot?#iefix") format("embedded-opentype"), url("http://source.qunarzz.com/fonts/fontawesome/4.3.0/fontawesome-webfont.woff") format("woff"), url("http://source.qunarzz.com/fonts/fontawesome/4.3.0/fontawesome-webfont.ttf") format("truetype"), url("http://source.qunarzz.com/fonts/fontawesome/4.3.0/fontawesome-webfont.svg#iconfont") format("svg");
+  src: url("http://source.qunarzz.com/fonts/fontawesome/4.3.0/fontawesome-webfont.woff") format("woff"), url("http://source.qunarzz.com/fonts/fontawesome/4.3.0/fontawesome-webfont.ttf") format("truetype");
 }
 .yo-ico {
   font-family: fontawesome-webfont !important;
@@ -1120,13 +1119,21 @@ html, body {
 }
 .yo-loadtip > .yo-ico {
   display: block;
+  -webkit-transform-origin: center;
+  transform-origin: center;
   color: #00afc7;
+}
+.yo-loadtip > .yo-ico-up, .yo-loadtip > .yo-ico-down {
+  -webkit-transition: -webkit-transform .5s;
+  transition: transform .5s;
+}
+.yo-loadtip > .yo-ico-up {
+  -webkit-transform: rotatez(180deg);
+  transform: rotatez(180deg);
 }
 .yo-loadtip > .yo-ico-loading {
   -webkit-animation: loadtip 1s infinite linear;
   animation: loadtip 1s infinite linear;
-  -webkit-transform-origin: center;
-  transform-origin: center;
 }
 .yo-loadtip > .text {
   -webkit-box-flex: 1;

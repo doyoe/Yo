@@ -336,11 +336,19 @@
     font-size: map-get($loadtip, font-size);
     > .yo-ico {
         display: block;
+        @include transform-origin(center);
         color: map-get($loadtip, ico-color);
+        &-up,
+        &-down {
+            -webkit-transition: -webkit-transform .5s;
+            transition: transform .5s;
+        }
+        &-up {
+            @include transform(rotatez(180deg));
+        }
     }
     > .yo-ico-loading {
         @include animation(loadtip 1s infinite linear);
-        @include transform-origin(center);
     }
     > .text {
         @include flex;
