@@ -78,11 +78,13 @@
         // 如果$is-outline为true，则重绘轮廓
         @if $is-outline {
             @if $is-outline != map-get($list, is-outline) {
-                border-width: .01rem .01rem 0 .01rem;
+                overflow: hidden;
+                border-width: .01rem;
                 border-style: solid;
             }
         } @else {
             @if $is-outline != map-get($list, is-outline) {
+                overflow: visible;
                 border: 0;
             }
         }

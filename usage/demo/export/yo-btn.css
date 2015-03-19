@@ -746,7 +746,6 @@ html, body {
  * @param {default|Color} $on-bgcolor 定义list选中背景色
  */
 .yo-list {
-  overflow: hidden;
   color: #dddddd;
 }
 .yo-list > .label,
@@ -803,6 +802,7 @@ html, body {
   padding: 0.03rem 0.1rem;
   background-color: #fafafa;
   color: #9e9e9e;
+  font-weight: normal;
 }
 .yo-list > .label > .col {
   padding: 0.03rem 0.1rem;
@@ -814,6 +814,9 @@ html, body {
 .yo-list > .item {
   background-color: #fff;
   color: #212121;
+}
+.yo-list > .item:last-child {
+  margin-bottom: -1px;
 }
 .yo-list > .item-stacked {
   display: block;
@@ -848,7 +851,8 @@ html, body {
 .yo-list-inset {
   margin: 0.2rem 0.1rem;
   border-radius: 0.02rem;
-  border-width: .01rem .01rem 0 .01rem;
+  overflow: hidden;
+  border-width: .01rem;
   border-style: solid;
 }
 

@@ -1963,7 +1963,6 @@ a {
  * @param {default|Color} $on-bgcolor 定义list选中背景色
  */
 .yo-list {
-  overflow: hidden;
   color: #dddddd;
 }
 .yo-list > .label,
@@ -2020,6 +2019,7 @@ a {
   padding: 0.03rem 0.1rem;
   background-color: #fafafa;
   color: #9e9e9e;
+  font-weight: normal;
 }
 .yo-list > .label > .col {
   padding: 0.03rem 0.1rem;
@@ -2031,6 +2031,9 @@ a {
 .yo-list > .item {
   background-color: #fff;
   color: #212121;
+}
+.yo-list > .item:last-child {
+  margin-bottom: -1px;
 }
 .yo-list > .item-stacked {
   display: block;
@@ -3397,7 +3400,7 @@ a {
   color: black;
 }
 .yo-tab > .item-top-ico {
-  padding-top: .05rem;
+  padding-top: .04rem;
   line-height: .2rem;
 }
 .yo-tab > .item-top-ico .yo-ico {
@@ -3903,7 +3906,6 @@ a {
  * @param {default|Color} $on-bgcolor 定义list选中背景色
  */
 .yo-list {
-  overflow: hidden;
   color: #dddddd;
 }
 .yo-list > .label,
@@ -3960,6 +3962,7 @@ a {
   padding: 0.03rem 0.1rem;
   background-color: #fafafa;
   color: #9e9e9e;
+  font-weight: normal;
 }
 .yo-list > .label > .col {
   padding: 0.03rem 0.1rem;
@@ -3971,6 +3974,9 @@ a {
 .yo-list > .item {
   background-color: #fff;
   color: #212121;
+}
+.yo-list > .item:last-child {
+  margin-bottom: -1px;
 }
 .yo-list > .item-stacked {
   display: block;
