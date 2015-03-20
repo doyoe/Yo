@@ -16,27 +16,38 @@
     <div class="device">
     <div class="stage">
         <h2 class="yo-header">Rating</h2>
-        <div class="yo-rating">
-            <span class="item"></span>
-            <span class="item item-on"></span>
-            <span class="item"></span>
-            <span class="item"></span>
-            <span class="item"></span>
+        <div class="yo-list">
+            <li class="item">
+                <div class="flex">打分：</div>
+                <div class="yo-rating">
+                    <h3 class="index" style="width:60%;">当前评分：3分</h3>
+                    <span class="item">1分</span>
+                    <span class="item">2分</span>
+                    <span class="item">3分</span>
+                    <span class="item">4分</span>
+                    <span class="item">5分</span>
+                </div>
+            </li>
         </div>
     </div>
     </div>
-    <code class="code"><xmp><h2 class="yo-header">Panel</h2>
-<div class="yo-panel">
-    <div class="front">这是默认的panel内容</div>
-    <div class="action">查看详情</div>
+    <code class="code"><xmp><h2 class="yo-header">rating</h2>
+<div class="yo-rating">
+    <h3 class="index" style="width:60%;">当前评分：3分</h3>
+    <span class="item">1分</span>
+    <span class="item">2分</span>
+    <span class="item">3分</span>
+    <span class="item">4分</span>
+    <span class="item">5分</span>
 </div></xmp></code>
 </div>
 
 
-<pre class="m-code"><span class="method">@include yo-panel</span><span class="bracket">(</span>
-    $name<span class="colon">:</span>default, <mark>//{default|String} yo-panel名称</mark>
-    $action-width<span class="colon">:</span>default, <mark>//{default|Length} action宽度</mark>
-    $action-bgcolor<span class="colon">:</span>default <mark>//{default|Color} action背景色</mark>
+<pre class="m-code"><span class="method">@include yo-rating</span><span class="bracket">(</span>
+    $name<span class="colon">:</span>default, <mark>//{default|String} yo-rating名称</mark>
+    $item-width<span class="colon">:</span>default, <mark>//{default|Length} 单项宽度</mark>
+    $item-height<span class="colon">:</span>default, <mark>//{default|Length} 单项高度</mark>
+    $url<span class="colon">:</span>default <mark>//{default|String} 图片URL</mark>
 <span class="bracket">)</span>
 </pre>
 

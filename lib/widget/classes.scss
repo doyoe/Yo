@@ -721,40 +721,59 @@
 @mixin _rating {
     display: inline-block;
     position: relative;
-    width: 1rem;
-    height: .2rem;
-    background-color: #eee;
-    > :nth-child(1) {
-        z-index: 5;
-        width: .2rem;
+    width: map-get($rating, item-width) * 5;
+    height: map-get($rating, item-height);
+    overflow: hidden;
+    &,
+    > .index,
+    > .item {
+        background: url(map-get($rating, url)) repeat-x;
     }
-    > :nth-child(2) {
-        z-index: 4;
-        width: .4rem;
-    }
-    > :nth-child(3) {
-        z-index: 3;
-        width: .6rem;
-    }
-    > :nth-child(4) {
-        z-index: 2;
-        width: .8rem;
-    }
-    > :nth-child(5) {
-        z-index: 1;
-        width: 1rem;
-    }
+    > .index,
     > .item {
         position: absolute;
         top: 0;
         left: 0;
         height: 100%;
+        line-height: 10;
+    }
+    > .index {
+        background-position: 0 -#{map-get($rating, item-height)};
+    }
+    > .item {
+        z-index: 3;
+        width: 20%;
+        // 默认情况下不显示
+        background-position: 0 100px;
         cursor: pointer;
-        &-on {
-            background-color: red;
+        &:nth-of-type(2) {
+            left: 20%;
+            &:hover {
+                width: 40%;
+            }
+        }
+        &:nth-of-type(3) {
+            left: 40%;
+            &:hover {
+                width: 60%;
+            }
+        }
+        &:nth-of-type(4) {
+            left: 60%;
+            &:hover {
+                width: 80%;
+            }
+        }
+        &:nth-of-type(5) {
+            left: 80%;
+            &:hover {
+                width: 100%;
+            }
         }
         &:hover {
-            background-color: blue;
+            z-index: 2;
+            left: 0 !important;
+            background-position: 0 -#{map-get($rating, item-height)};
         }
     }
 }

@@ -754,12 +754,14 @@ html, body {
   border-bottom: 1px solid #ddd;
   background-color: #fff;
   font-size: 0.16rem;
+  display: block;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   text-align: center;
 }
 .yo-header > .title {
+  display: block;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -1111,50 +1113,67 @@ html, body {
  * @method yo-rating
  * variables length(5)
  * @param {default | String} $name 定义yo-rating名称
- * @param {default | Length} $padding 定义yo-rating内补白
- * @param {default | Length} $radius 定义yo-rating圆角
- * @param {default | Color} $bgcolor 定义yo-rating背景色
- * @param {default | Color} $color 定义yo-rating文本色
+ * @param {default | Length} $item-width 定义yo-rating 单项宽度
+ * @param {default | Length} $item-height 定义yo-rating 单项高度
+ * @param {default | Color} $url 定义yo-rating 图片url
  */
 .yo-rating {
   display: inline-block;
   position: relative;
-  width: 1rem;
-  height: .2rem;
-  background-color: #eee;
+  width: 1.5rem;
+  height: 0.3rem;
+  overflow: hidden;
 }
-.yo-rating > :nth-child(1) {
-  z-index: 5;
-  width: .2rem;
+.yo-rating,
+.yo-rating > .index,
+.yo-rating > .item {
+  background: url("../../../bgimg/star.png") repeat-x;
 }
-.yo-rating > :nth-child(2) {
-  z-index: 4;
-  width: .4rem;
-}
-.yo-rating > :nth-child(3) {
-  z-index: 3;
-  width: .6rem;
-}
-.yo-rating > :nth-child(4) {
-  z-index: 2;
-  width: .8rem;
-}
-.yo-rating > :nth-child(5) {
-  z-index: 1;
-  width: 1rem;
-}
+.yo-rating > .index,
 .yo-rating > .item {
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
+  line-height: 10;
+}
+.yo-rating > .index {
+  background-position: 0 -0.3rem;
+}
+.yo-rating > .item {
+  z-index: 3;
+  width: 20%;
+  background-position: 0 100px;
   cursor: pointer;
 }
-.yo-rating > .item-on {
-  background-color: red;
+.yo-rating > .item:nth-of-type(2) {
+  left: 20%;
+}
+.yo-rating > .item:nth-of-type(2):hover {
+  width: 40%;
+}
+.yo-rating > .item:nth-of-type(3) {
+  left: 40%;
+}
+.yo-rating > .item:nth-of-type(3):hover {
+  width: 60%;
+}
+.yo-rating > .item:nth-of-type(4) {
+  left: 60%;
+}
+.yo-rating > .item:nth-of-type(4):hover {
+  width: 80%;
+}
+.yo-rating > .item:nth-of-type(5) {
+  left: 80%;
+}
+.yo-rating > .item:nth-of-type(5):hover {
+  width: 100%;
 }
 .yo-rating > .item:hover {
-  background-color: blue;
+  z-index: 2;
+  left: 0 !important;
+  background-position: 0 -0.3rem;
 }
 
 /**

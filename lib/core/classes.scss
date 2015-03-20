@@ -309,6 +309,7 @@
 
 // 单行文本溢出显示方案
 @mixin ellipsis($ellipsis: yes) {
+    display: block;
     overflow: hidden;
     white-space: nowrap;
     @if $ellipsis == yes {

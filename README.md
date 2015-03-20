@@ -45,6 +45,8 @@
 <a name="dev-version"></a>
 ### 开发中版本：v1.3.0
 
+* update: yo-rating外观
+
 <a name="now-version"></a>
 ### 当前版本：v1.2.0
 

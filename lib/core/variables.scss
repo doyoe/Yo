@@ -15,7 +15,7 @@ $setting: (
     // 厂商前缀
     vendor-prefix:    -webkit-,
     // 背景图片服务器
-    bgimg-domain:     "../../bgimg/"
+    bgimg-domain:     "../../../bgimg/"
 ) !default;
 
 //  Layout Document
@@ -543,10 +543,20 @@ $mask: (
 
 // Widget UI panel(1)
 $panel: (
-    // {} action 宽度
+    // {Length} action 宽度
     action-width: 1rem,
     // {Color} action 背景色
     action-bgcolor: #eee
+) !default;
+
+// Widget UI rating(1)
+$rating: (
+    // {Length} 单项宽度
+    item-width:  .3rem,
+    // {Length} 单项高度
+    item-height: .3rem,
+    // {String} 图片URL
+    url:    "#{map-get($setting, bgimg-domain)}star.png"
 ) !default;
 
 // z-index

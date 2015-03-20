@@ -9,18 +9,16 @@
  * @method yo-rating
  * variables length(5)
  * @param {default | String} $name 定义yo-rating名称
- * @param {default | Length} $padding 定义yo-rating内补白
- * @param {default | Length} $radius 定义yo-rating圆角
- * @param {default | Color} $bgcolor 定义yo-rating背景色
- * @param {default | Color} $color 定义yo-rating文本色
+ * @param {default | Length} $item-width 定义yo-rating 单项宽度
+ * @param {default | Length} $item-height 定义yo-rating 单项高度
+ * @param {default | Color} $url 定义yo-rating 图片url
  */
 
 @mixin yo-rating(
     $name: default,
-    $padding: default,
-    $radius: default,
-    $bgcolor: default,
-    $color: default) {
+    $item-width: default,
+    $item-height: default,
+    $url: default) {
     // 区别是否新增实例还是修改本身
     @if $name == default {
         $name: "";
@@ -28,30 +26,40 @@
         $name: "-#{$name}";
     }
     // 如果值为default，则取config的定义
-    @if $padding == default {
-        $padding: map-get($rating, padding);
+    @if $item-width == default {
+        $item-width: map-get($rating, item-width);
     }
-    @if $radius == default {
-        $radius: map-get($rating, radius);
+    @if $item-height == default {
+        $item-height: map-get($rating, item-height);
     }
-    @if $bgcolor == default {
-        $bgcolor: map-get($rating, bgcolor);
-    }
-    @if $color == default {
-        $color: map-get($rating,color);
+    @if $url == default {
+        $url: map-get($rating, url);
     }
     .yo-rating#{$name} {
-        @if $padding != map-get($rating, padding) {
-            padding: $padding;
+        @if $item-width != map-get($rating, item-width) {
+            width: $item-width * 5;
         }
-        @if $radius != map-get($rating, radius) {
-            border-radius: $radius;
+        @if $item-height != map-get($rating, item-height) {
+            height: $height;
         }
-        @if $bgcolor != map-get($rating, bgcolor) {
-            background-color: rgba($bgcolor, .5);
+        &,
+        > .index,
+        > .item {
+            @if $url != map-get($rating, url) {
+                background-image: url($url);
+            }
         }
-        @if $color != map-get($rating, color) {
-            color: $color;
+        > .index {
+            @if $item-height != map-get($rating, item-height) {
+                background-position: 0 -#{$item-height};
+            }
+        }
+        > .item {
+            &:hover {
+                @if $item-height != map-get($rating, item-height) {
+                    background-position: 0 -#{$item-height};
+                }
+            }
         }
     }
 }
