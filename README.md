@@ -43,7 +43,10 @@
 ## 版本
 
 <a name="dev-version"></a>
-### 开发中版本：v1.2.0
+### 开发中版本：v1.3.0
+
+<a name="now-version"></a>
+### 当前版本：v1.2.0
 
 * update: yo-checkbox 增加圆角参数；
 * update: yo-list 增加label和item的颜色参数，字号参数；为item设定最小高度；
@@ -59,17 +62,16 @@
 * fixed: fixed yo-switch handle bug on samsung s4；
 
 
-<a name="now-version"></a>
-### 当前版本：v1.1.0
+<a name="old-version"></a>
+### 历史版本
+
+### v1.1.0
 
 * add yo-loadtip
 * update: add disabled status for yo-select
 * add demo index page
 * update: add border for yo-badge
 * update: add width 100% for yo-switchable wrap
-
-<a name="old-version"></a>
-### 历史版本
 
 #### v1.0.0
 
