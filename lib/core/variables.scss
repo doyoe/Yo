@@ -280,8 +280,8 @@ $list: (
     radius:            null,
     // {Color} 列表边框色
     bordercolor:       #ccc,
-    // {Length} 列表项内补白，只建议定义左右两侧的间隙，因为列表项有最小高度.44rem
-    item-padding:      0 .11rem,
+    // {Length} 列表项内补白，列表项有最小高度.44rem
+    item-padding:      .11rem,
     // {Length} 列表组头内补白
     label-padding:     .03rem .1rem,
     // {Color} 列表组头背景色

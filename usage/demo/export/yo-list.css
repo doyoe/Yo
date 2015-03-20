@@ -974,7 +974,7 @@ html, body {
 }
 .yo-list > .item,
 .yo-list > .yo-panel > .front {
-  padding: 0 0.11rem;
+  padding: 0.11rem;
 }
 .yo-list > .item {
   min-height: .44rem;
@@ -1004,7 +1004,7 @@ html, body {
   background-color: #f8f8f8;
 }
 .yo-list > .item > .col {
-  padding: 0 0.11rem;
+  padding: 0.11rem;
 }
 .yo-list > .yo-panel {
   display: block;
@@ -1021,6 +1021,183 @@ html, body {
   border-radius: 0.02rem;
   overflow: hidden;
   border: .01rem solid;
+}
+
+/**
+ * Directory: lib/core/variables.scss
+ * CSS Variables 定义各种页面沙粒变量
+ * Author: joy.du(飘零雾雨)
+ * Edit: 2014.12.5
+ */
+/**
+ * Directory: lib/core/classes.scss
+ * Global Classes 约定常规解决方案
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ */
+/**
+ * 给需要的属性加厂家前缀
+ * @method prefix
+ * @param {String} $appearance 指定属性
+ * @param {String} $value 指定属性值
+ */
+/**
+ * 定义响应式方案
+ * @method responsive
+ * @param {String} $media 指定媒体查询条件
+ * 使用方法如下，结合variables中的$media-types：
+    @include responsive(phone) {
+        .foo {
+            background: blue;
+        }
+    }
+ */
+/**
+ * 定义字体图标
+ * @method yofont
+ */
+/**
+ * 定义UA默认外观
+ * @method appearance
+ * @param {String} $appearance 指定UA外观类型
+ */
+/**
+ * 定义是否可以选中元素
+ * @method user-select
+ * @param {String} $user-select 指定是否可以选中
+ */
+/**
+ * 定义渐变色值
+ * @method gradient
+ * @param {String} $type 指定渐变的4种类型：linear, repeating-linear, radial, repeating-radial
+ * @param {String} $gradient 指定渐变取值，与原生语法一致
+ */
+/**
+ * 定义盒模型
+ * @method box-sizing
+ * @param {String} $box-sizing 的2个值分别为：content-box(标准盒模型) | border-box(怪异盒模型)
+ */
+/**
+ * 定义简单变换
+ * @method transform
+ * @param {String} $transform 取值与原生语法一致
+ */
+/**
+ * 定义变换原点
+ * @method transform-origin
+ * @param {String} $transform-origin 取值与原生语法一致
+ */
+/**
+ * 定义动画
+ * @method animation
+ * @param {String} $animation 取值与原生语法一致
+ */
+/**
+ * 定义补间
+ * @method transition
+ * @param {String} $transition 取值与原生语法一致
+ */
+/**
+ * Directory: lib/widget/classes.scss
+ * widget的基础构造
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ */
+/**
+ * widget: yo-switch
+ * Author: joy.du(飘零雾雨)
+ * Time: 2014.11.14
+ -----------------------
+ * @method yo-switch
+ * variables length(6)
+ * @param {default | String} $name 定义switch名称
+ * @param {default | Color} $checked-bordercolor 定义switch激活边框色
+ * @param {default | Color} $checked-bgcolor 定义switch激活背景色
+ * @param {default | Color} $bordercolor 定义switch边框色
+ * @param {default | Color} $bgcolor 定义switch背景色
+ * @param {default | Color} $ball-color 定义switch滑块色
+ */
+.yo-switch {
+  display: inline-block;
+}
+.yo-switch > input {
+  display: none;
+}
+.yo-switch > .track {
+  display: inline-block;
+  position: relative;
+  width: .6rem;
+  height: .32rem;
+  margin: 0;
+  cursor: pointer;
+  border: 0.02rem solid #ddd;
+  border-radius: .16rem;
+  background-color: #fafafa;
+  vertical-align: middle;
+  -webkit-transition: border-color 0.1s ease-out, background-color 0.1s ease-out;
+  transition: border-color 0.1s ease-out, background-color 0.1s ease-out;
+}
+.yo-switch > .track > .handle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0.28rem;
+  height: 0.28rem;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  -webkit-transition: transform 0.1s ease-out;
+  transition: transform 0.1s ease-out;
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0) translatez(0);
+}
+.yo-switch > input:checked + .track {
+  border-color: #4bd763;
+  background-color: #4bd763;
+}
+.yo-switch > input:checked + .track > .handle {
+  -webkit-transform: translate(100%, 0);
+  transform: translate(100%, 0) translatez(0);
+}
+.yo-switch > input:disabled + .track {
+  opacity: .4;
+  border-color: #bbb;
+  background-color: #bbb;
+}
+
+/**
+ * Element扩展: yo-switch
+ * Author: joy.du(飘零雾雨)
+ * Time: 2015.1.16
+ */
+.yo-switch-a > input:checked + .track {
+  border-color: #4a87ee;
+  background-color: #4a87ee;
+}
+
+.yo-switch-b > input:checked + .track {
+  border-color: #43cee6;
+  background-color: #43cee6;
+}
+
+.yo-switch-c > input:checked + .track {
+  border-color: #f0b840;
+  background-color: #f0b840;
+}
+
+.yo-switch-d > input:checked + .track {
+  border-color: #ef4e3a;
+  background-color: #ef4e3a;
+}
+
+.yo-switch-e > input:checked + .track {
+  border-color: #8a6de9;
+  background-color: #8a6de9;
+}
+
+.yo-switch-f > input:checked + .track {
+  border-color: #444;
+  background-color: #444;
 }
 
 /**
