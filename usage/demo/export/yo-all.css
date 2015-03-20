@@ -105,7 +105,7 @@ body {
   margin: 0;
   font-size: 14px;
   line-height: 1.5;
-  font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+  font-family: Helvetica Neue, Helvetica, STHeiTi, sans-serif;
 }
 
 ul,
@@ -416,7 +416,7 @@ a {
   box-shadow: inset 1px 1px rgba(255, 255, 255, 0.1);
   border-radius: 0.02rem;
   background-color: #ff801a;
-  color: white;
+  color: #fff;
   text-align: center;
   vertical-align: middle;
   cursor: pointer;
@@ -447,7 +447,7 @@ a {
 
 .yo-btn-disabled {
   border-color: #dfdfdf;
-  background-color: #eeeeee;
+  background-color: #eee;
   color: #d9d9d9;
   cursor: not-allowed;
 }
@@ -557,7 +557,7 @@ a {
   width: 100%;
   height: 0.44rem;
   padding: 0.1rem;
-  border: 0.01rem solid #dddddd;
+  border: 0.01rem solid #ddd;
   border-radius: 0.02rem;
   background-color: transparent;
 }
@@ -566,7 +566,7 @@ a {
   appearance: none;
 }
 .yo-input::-webkit-input-placeholder {
-  color: #bbbbbb;
+  color: #bbb;
 }
 
 /**
@@ -668,10 +668,10 @@ a {
   min-width: .2rem;
   min-height: .2rem;
   padding: .02rem .03rem;
-  border: 0.01rem solid red;
+  border: 0.01rem solid #f00;
   border-radius: 0.1rem;
-  background-color: red;
-  color: white;
+  background-color: #f00;
+  color: #fff;
   font-size: 0.14rem;
   line-height: 0.14rem;
   text-align: center;
@@ -763,8 +763,9 @@ a {
  * Time: 2014.11.14
  -----------------------
  * @method yo-checkbox
- * variables length(10)
+ * variables length(11)
  * @param {default | String} $name 定义checkbox名称
+ * @param {default | String} $type 定义checkbox类型
  * @param {default | Length} $size 定义checkbox大小
  * @param {default | Color} $bordercolor 定义checkbox边框色
  * @param {default | Color} $bgcolor 定义checkbox背景色
@@ -774,6 +775,7 @@ a {
  * @param {default | Color} $disabled-bordercolor 定义checkbox禁用边框色
  * @param {default | Color} $disabled-bgcolor 定义checkbox禁用背景色
  * @param {default | Color} $disabled-color 定义checkbox禁用标记色
+ * @param {default | Length} $radius 定义checkbox圆角
  */
 .yo-checkbox[type="checkbox"] {
   -webkit-appearance: none;
@@ -782,10 +784,10 @@ a {
   width: 0.2rem;
   height: 0.2rem;
   font-size: 0.2rem;
-  border-radius: .05rem;
-  border: 1px solid #dddddd;
+  border-radius: 0.05rem;
+  border: 1px solid #ddd;
   box-shadow: inset 0 0.01rem 0.03rem rgba(100, 100, 100, 0.1);
-  background-color: white;
+  background-color: #fff;
   cursor: pointer;
   vertical-align: middle;
 }
@@ -806,15 +808,12 @@ a {
   background-color: #2b94ff;
 }
 .yo-checkbox[type="checkbox"]:checked::after {
-  color: white;
+  color: #fff;
   opacity: 1;
-}
-.yo-checkbox[type="checkbox"]:active {
-  opacity: .5;
 }
 .yo-checkbox[type="checkbox"]:disabled {
   border-color: #dfdfdf;
-  background-color: #eeeeee;
+  background-color: #eee;
 }
 .yo-checkbox[type="checkbox"]:disabled::after {
   color: #d9d9d9;
@@ -947,7 +946,7 @@ a {
   transform-origin: center;
   box-shadow: .35em -.29em, .47em -.03em 0 .01em, .4em .20em 0 .02em, .25em .38em 0 .03em, 0 .44em 0 .04em, -.22em .38em 0 .05em, -.38em .24em 0 .05em, -.42em 0 0 .06em, -.36em -.21em 0 .06em, -.2em -.36em 0 .06em, 0 -.41em 0 .07em;
   font-size: 0.5rem;
-  color: #333333;
+  color: #333;
 }
 .yo-loading:before {
   width: 1rem;
@@ -962,13 +961,12 @@ a {
   transform: translate(-50%, -50%);
   margin-top: 0.32rem;
   font-size: .12rem;
-  color: #333333;
+  color: #333;
 }
 @-webkit-keyframes loading {
   from {
     -webkit-transform: rotatez(0);
   }
-
   to {
     -webkit-transform: rotatez(360deg);
   }
@@ -977,7 +975,6 @@ a {
   from {
     transform: rotatez(0);
   }
-
   to {
     transform: rotatez(360deg);
   }
@@ -1080,9 +1077,9 @@ a {
  */
 .yo-checked[type="checkbox"] {
   border-radius: .05rem;
-  border: 1px solid #dddddd;
+  border: 1px solid #ddd;
   box-shadow: inset 0 0.01rem 0.03rem rgba(100, 100, 100, 0.1);
-  background-color: white;
+  background-color: #fff;
 }
 .yo-checked[type="radio"] {
   border: 0 none;
@@ -1227,8 +1224,8 @@ a {
   width: 100%;
   overflow: hidden;
   height: .28rem;
-  background-image: -webkit-linear-gradient(right, #cccccc 0%, #cccccc 100%);
-  background-image: linear-gradient(to right, #cccccc 0%, #cccccc 100%);
+  background-image: -webkit-linear-gradient(right, #ccc 0%, #ccc 100%);
+  background-image: linear-gradient(to right, #ccc 0%, #ccc 100%);
   background-size: 100% .04rem;
   background-repeat: no-repeat;
   background-position: center;
@@ -1242,7 +1239,7 @@ a {
   border: 0;
   border-radius: 50%;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.5), 1px 1px 5px rgba(0, 0, 0, 0.25);
-  background-color: white;
+  background-color: #fff;
 }
 .yo-range > input[type="range"]::-webkit-slider-thumb::before {
   position: absolute;
@@ -1250,7 +1247,7 @@ a {
   left: -2001px;
   width: 2000px;
   height: 4px;
-  background-color: #444444;
+  background-color: #444;
   content: "\0020";
 }
 .yo-range > input[type="range"]:disabled {
@@ -1374,9 +1371,9 @@ a {
   width: 0.2rem;
   height: 0.2rem;
   border-radius: 50%;
-  border: 1px solid #dddddd;
+  border: 1px solid #ddd;
   box-shadow: inset 0 0.01rem 0.03rem rgba(100, 100, 100, 0.1);
-  background-color: white;
+  background-color: #fff;
   cursor: pointer;
   vertical-align: middle;
 }
@@ -1397,15 +1394,12 @@ a {
   background-color: #2b94ff;
 }
 .yo-radio[type="radio"]:checked::after {
-  color: white;
+  color: #fff;
   opacity: 1;
-}
-.yo-radio[type="radio"]:active {
-  opacity: .5;
 }
 .yo-radio[type="radio"]:disabled {
   border-color: #dfdfdf;
-  background-color: #eeeeee;
+  background-color: #eee;
 }
 .yo-radio[type="radio"]:disabled::after {
   color: #d9d9d9;
@@ -1538,7 +1532,7 @@ a {
   transform-origin: center;
   box-shadow: .35em -.29em, .47em -.03em 0 .01em, .4em .20em 0 .02em, .25em .38em 0 .03em, 0 .44em 0 .04em, -.22em .38em 0 .05em, -.38em .24em 0 .05em, -.42em 0 0 .06em, -.36em -.21em 0 .06em, -.2em -.36em 0 .06em, 0 -.41em 0 .07em;
   font-size: 0.5rem;
-  color: #333333;
+  color: #333;
 }
 .yo-loading:before {
   width: 1rem;
@@ -1553,13 +1547,12 @@ a {
   transform: translate(-50%, -50%);
   margin-top: 0.32rem;
   font-size: .12rem;
-  color: #333333;
+  color: #333;
 }
 @-webkit-keyframes loading {
   from {
     -webkit-transform: rotatez(0);
   }
-
   to {
     -webkit-transform: rotatez(360deg);
   }
@@ -1568,7 +1561,6 @@ a {
   from {
     transform: rotatez(0);
   }
-
   to {
     transform: rotatez(360deg);
   }
@@ -1672,7 +1664,7 @@ a {
   -webkit-box-align: center;
   -webkit-align-items: center;
   align-items: center;
-  color: #666666;
+  color: #666;
   font-size: 0.14rem;
 }
 .yo-loadtip > .yo-ico {
@@ -1709,7 +1701,6 @@ a {
   from {
     -webkit-transform: rotatez(0);
   }
-
   to {
     -webkit-transform: rotatez(360deg);
   }
@@ -1718,7 +1709,6 @@ a {
   from {
     transform: rotatez(0);
   }
-
   to {
     transform: rotatez(360deg);
   }
@@ -1826,8 +1816,8 @@ a {
   overflow: hidden;
   height: 0.44rem;
   line-height: 0.44rem;
-  border-bottom: 1px solid #dddddd;
-  background-color: white;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
   font-size: 0.16rem;
   overflow: hidden;
   white-space: nowrap;
@@ -1950,7 +1940,7 @@ a {
  * Time: 2012.1.1
  ------------------------
  * @method yo-list
- * variables length(10)
+ * variables length(14)
  * @param {default|String} $name 定义list名称
  * @param {default|Length} $margin 定义list外边距
  * @param {default|Boole} $is-outline 定义list是否需要轮廓（即外边框）
@@ -1961,13 +1951,13 @@ a {
  * @param {default|Color} $label-bgcolor 定义list分组标题背景色
  * @param {default|Color} $active-bgcolor 定义list点击反馈背景色
  * @param {default|Color} $on-bgcolor 定义list选中背景色
+ * @param {default|Color} $item-bordercolor 定义list子项边框色
+ * @param {default|Color} $label-bordercolor 定义list子项组头边框色
+ * @param {default|Length} $item-font-size 定义list项字号
+ * @param {default|Length} $label-font-size 定义list列表组头字号
  */
 .yo-list {
-  color: #dddddd;
-}
-.yo-list > .label,
-.yo-list > .item {
-  border-bottom: 0.01rem solid #dddddd;
+  margin: -0.01rem -0.01rem 0.15rem -0.01rem;
 }
 .yo-list > .label,
 .yo-list > .item,
@@ -2016,9 +2006,13 @@ a {
   padding: 0;
 }
 .yo-list > .label {
+  margin-top: -1px;
   padding: 0.03rem 0.1rem;
+  border: 1px solid #ddd;
+  border-width: 1px 0;
   background-color: #fafafa;
   color: #9e9e9e;
+  font-size: 0.13rem;
   font-weight: normal;
 }
 .yo-list > .label > .col {
@@ -2026,11 +2020,14 @@ a {
 }
 .yo-list > .item,
 .yo-list > .yo-panel > .front {
-  padding: 0.11rem;
+  padding: 0 0.11rem;
 }
 .yo-list > .item {
+  min-height: .44rem;
+  border-bottom: 0.01rem solid #ddd;
   background-color: #fff;
   color: #212121;
+  font-size: 0.14rem;
 }
 .yo-list > .item:last-child {
   margin-bottom: -1px;
@@ -2053,7 +2050,7 @@ a {
   background-color: #f8f8f8;
 }
 .yo-list > .item > .col {
-  padding: 0.11rem;
+  padding: 0 0.11rem;
 }
 .yo-list > .yo-panel {
   display: block;
@@ -2164,7 +2161,7 @@ a {
   background-color: #fff;
 }
 .yo-table thead {
-  background-color: #eeeeee;
+  background-color: #eee;
 }
 .yo-table thead th {
   padding: 0.05rem 0.1rem;
@@ -2176,7 +2173,7 @@ a {
 .yo-table td {
   border-width: 0 0 1px 0;
   border-style: solid;
-  border-color: #dddddd;
+  border-color: #ddd;
 }
 
 /**
@@ -2365,7 +2362,7 @@ a {
   box-shadow: inset 1px 1px rgba(255, 255, 255, 0.1);
   border-radius: 0.02rem;
   background-color: #ff801a;
-  color: white;
+  color: #fff;
   text-align: center;
   vertical-align: middle;
   cursor: pointer;
@@ -2396,7 +2393,7 @@ a {
 
 .yo-btn-disabled {
   border-color: #dfdfdf;
-  background-color: #eeeeee;
+  background-color: #eee;
   color: #d9d9d9;
   cursor: not-allowed;
 }
@@ -2622,7 +2619,7 @@ a {
   box-shadow: inset 1px 1px rgba(255, 255, 255, 0.1);
   border-radius: 0.02rem;
   background-color: #ff801a;
-  color: white;
+  color: #fff;
   text-align: center;
   vertical-align: middle;
   cursor: pointer;
@@ -2653,7 +2650,7 @@ a {
 
 .yo-btn-disabled {
   border-color: #dfdfdf;
-  background-color: #eeeeee;
+  background-color: #eee;
   color: #d9d9d9;
   cursor: not-allowed;
 }
@@ -2694,7 +2691,7 @@ a {
   overflow: hidden;
   border-radius: 0.05rem;
   box-shadow: 0 0 5px rgba(221, 221, 221, 0.5);
-  border: 1px solid #dddddd;
+  border: 1px solid #ddd;
   min-width: 2.8rem;
   max-width: 90%;
   height: 3rem;
@@ -2744,8 +2741,8 @@ a {
 }
 .yo-dialog > .ft .yo-btn {
   border-radius: 0;
-  border-color: #dddddd;
-  background-color: white;
+  border-color: #ddd;
+  background-color: #fff;
   color: #00afc7;
 }
 .yo-dialog > .ft > .yo-btn {
@@ -2878,7 +2875,7 @@ a {
   z-index: 2001;
   border-radius: 0.03rem;
   box-shadow: 0 0 5px rgba(221, 221, 221, 0.5);
-  border: 1px solid #dddddd;
+  border: 1px solid #ddd;
   min-width: 2.8rem;
   min-height: 1rem;
   height: 3rem;
@@ -2899,11 +2896,11 @@ a {
 }
 .yo-popup .arrow-top::after {
   top: -0.11rem;
-  text-shadow: 0 -1px #dddddd;
+  text-shadow: 0 -1px #ddd;
 }
 .yo-popup .arrow-down::after {
   bottom: -0.11rem;
-  text-shadow: 0 1px #dddddd;
+  text-shadow: 0 1px #ddd;
 }
 .yo-popup .arrow-right::after,
 .yo-popup .arrow-left::after {
@@ -2913,14 +2910,14 @@ a {
 }
 .yo-popup .arrow-right::after {
   right: -0.11rem;
-  text-shadow: 1px 0 #dddddd;
+  text-shadow: 1px 0 #ddd;
 }
 .yo-popup .arrow-left::after {
   left: -0.11rem;
-  text-shadow: -1px 0 #dddddd;
+  text-shadow: -1px 0 #ddd;
 }
 .yo-popup .arrow-extra.arrow::after {
-  color: #eeeeee;
+  color: #eee;
 }
 .yo-popup > .hd,
 .yo-popup > .bd {
@@ -2929,8 +2926,8 @@ a {
 }
 .yo-popup > .hd {
   height: 0.5rem;
-  border-bottom: 1px solid #dddddd;
-  background: #eeeeee;
+  border-bottom: 1px solid #ddd;
+  background: #eee;
   line-height: 0.5rem;
   text-align: center;
 }
@@ -2963,7 +2960,7 @@ a {
 }
 .yo-popup > .ft {
   padding: .1rem 0;
-  border-top: 1px solid #dddddd;
+  border-top: 1px solid #ddd;
   text-align: center;
 }
 
@@ -3071,7 +3068,7 @@ a {
   width: 1.2rem;
   height: 0.36rem;
   line-height: 0.36rem;
-  border: 1px solid #dddddd;
+  border: 1px solid #ddd;
   border-radius: 0;
   box-shadow: 1px 1px 1px rgba(221, 221, 221, 0.3);
   background-color: #fff;
@@ -3088,7 +3085,7 @@ a {
   display: block;
   width: .35rem;
   background-color: #fafafa;
-  color: #999999;
+  color: #999;
   font-size: 30px;
   font-family: arial;
   cursor: pointer;
@@ -3104,7 +3101,7 @@ a {
   flex: 1;
   display: block;
   width: 100%;
-  border: 1px solid #dddddd;
+  border: 1px solid #ddd;
   border-width: 0 1px;
   box-shadow: inset 1px 1px 1px rgba(221, 221, 221, 0.1);
   border-radius: 0;
@@ -3225,7 +3222,7 @@ a {
   height: 0.3rem;
   margin-top: -0.15rem;
   content: "\0020";
-  border: 1px solid #dddddd;
+  border: 1px solid #ddd;
   border-width: 1px 0;
 }
 .yo-select-item, .yo-select-item-list, .yo-select-item ul {
@@ -3378,7 +3375,7 @@ a {
   display: -webkit-flex;
   display: flex;
   height: 0.49rem;
-  border-color: #dddddd;
+  border-color: #ddd;
   background-color: #fafafa;
   text-align: center;
   line-height: 0.49rem;
@@ -3389,15 +3386,15 @@ a {
   flex: 1;
   display: block;
   width: 100%;
-  border-top: 1px solid #dddddd;
+  border-top: 1px solid #ddd;
   color: #212121;
 }
 .yo-tab > .item:not(:first-child) {
-  border-left-color: #dddddd;
+  border-left-color: #ddd;
 }
 .yo-tab > .item:active, .yo-tab > .item.on {
-  background-color: white;
-  color: black;
+  background-color: #fff;
+  color: #000;
 }
 .yo-tab > .item-top-ico {
   padding-top: .04rem;
@@ -3515,7 +3512,7 @@ a {
   padding: 0.06rem 0.15rem;
   border-radius: 0.05rem;
   background-color: rgba(0, 0, 0, 0.5);
-  color: white;
+  color: #fff;
   text-align: center;
 }
 
@@ -3714,7 +3711,7 @@ a {
 .yo-index {
   width: 0.3rem;
   text-transform: uppercase;
-  color: #555555;
+  color: #555;
   font-size: 0.12rem;
   line-height: 1.1;
   text-align: center;
@@ -3724,7 +3721,7 @@ a {
   width: 0.06rem;
   height: 0.06rem;
   border-radius: 50%;
-  background-color: #555555;
+  background-color: #555;
 }
 
 /**
@@ -3893,7 +3890,7 @@ a {
  * Time: 2012.1.1
  ------------------------
  * @method yo-list
- * variables length(10)
+ * variables length(14)
  * @param {default|String} $name 定义list名称
  * @param {default|Length} $margin 定义list外边距
  * @param {default|Boole} $is-outline 定义list是否需要轮廓（即外边框）
@@ -3904,13 +3901,13 @@ a {
  * @param {default|Color} $label-bgcolor 定义list分组标题背景色
  * @param {default|Color} $active-bgcolor 定义list点击反馈背景色
  * @param {default|Color} $on-bgcolor 定义list选中背景色
+ * @param {default|Color} $item-bordercolor 定义list子项边框色
+ * @param {default|Color} $label-bordercolor 定义list子项组头边框色
+ * @param {default|Length} $item-font-size 定义list项字号
+ * @param {default|Length} $label-font-size 定义list列表组头字号
  */
 .yo-list {
-  color: #dddddd;
-}
-.yo-list > .label,
-.yo-list > .item {
-  border-bottom: 0.01rem solid #dddddd;
+  margin: -0.01rem -0.01rem 0.15rem -0.01rem;
 }
 .yo-list > .label,
 .yo-list > .item,
@@ -3959,9 +3956,13 @@ a {
   padding: 0;
 }
 .yo-list > .label {
+  margin-top: -1px;
   padding: 0.03rem 0.1rem;
+  border: 1px solid #ddd;
+  border-width: 1px 0;
   background-color: #fafafa;
   color: #9e9e9e;
+  font-size: 0.13rem;
   font-weight: normal;
 }
 .yo-list > .label > .col {
@@ -3969,11 +3970,14 @@ a {
 }
 .yo-list > .item,
 .yo-list > .yo-panel > .front {
-  padding: 0.11rem;
+  padding: 0 0.11rem;
 }
 .yo-list > .item {
+  min-height: .44rem;
+  border-bottom: 0.01rem solid #ddd;
   background-color: #fff;
   color: #212121;
+  font-size: 0.14rem;
 }
 .yo-list > .item:last-child {
   margin-bottom: -1px;
@@ -3996,7 +4000,7 @@ a {
   background-color: #f8f8f8;
 }
 .yo-list > .item > .col {
-  padding: 0.11rem;
+  padding: 0 0.11rem;
 }
 .yo-list > .yo-panel {
   display: block;
@@ -4098,7 +4102,7 @@ a {
 .yo-index {
   width: 0.3rem;
   text-transform: uppercase;
-  color: #555555;
+  color: #555;
   font-size: 0.12rem;
   line-height: 1.1;
   text-align: center;
@@ -4108,7 +4112,7 @@ a {
   width: 0.06rem;
   height: 0.06rem;
   border-radius: 50%;
-  background-color: #555555;
+  background-color: #555;
 }
 
 /**
@@ -4269,8 +4273,8 @@ a {
   font-size: 0.14rem;
   line-height: 0.3rem;
   padding: 0.1rem;
-  border-bottom: 1px solid #dddddd;
-  background-color: white;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
 }
 .yo-search > .operate > .action,
 .yo-search > .operate > .action > .label,
@@ -4297,9 +4301,9 @@ a {
   padding: 0 .3rem;
   -webkit-appearance: none;
   appearance: none;
-  border: 1px solid #dddddd;
+  border: 1px solid #ddd;
   border-radius: 0.05rem;
-  background-color: #dddddd;
+  background-color: #ddd;
   color: #212121;
   font-size: 0.14rem;
 }
@@ -4312,7 +4316,7 @@ a {
   right: 0;
   height: 100%;
   padding: 0 .08rem;
-  color: #999999;
+  color: #999;
 }
 .yo-search > .operate > .action > .label {
   position: absolute;
@@ -4320,7 +4324,7 @@ a {
   left: 50%;
   -webkit-transform: translatex(-50%) translatez(0);
   transform: translatex(-50%) translatez(0);
-  color: white;
+  color: #fff;
   word-spacing: -.05rem;
 }
 .yo-search > .operate > .action > .label > .yo-ico-search {
@@ -4511,7 +4515,7 @@ a {
 .yo-switchable > .cont > .item {
   display: inline-block;
   font-size: 14px;
-  font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+  font-family: Helvetica Neue, Helvetica, STHeiTi, sans-serif;
   width: 100%;
   background-color: #eee;
   min-height: .1rem;
@@ -4666,7 +4670,7 @@ a {
   height: .32rem;
   margin: 0;
   cursor: pointer;
-  border: 0.02rem solid #dddddd;
+  border: 0.02rem solid #ddd;
   border-radius: .16rem;
   background-color: #fafafa;
   vertical-align: middle;
@@ -4680,7 +4684,7 @@ a {
   width: 0.28rem;
   height: 0.28rem;
   border-radius: 50%;
-  background-color: white;
+  background-color: #fff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   -webkit-transition: transform 0.1s ease-out;
   transition: transform 0.1s ease-out;

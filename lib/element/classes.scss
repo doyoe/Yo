@@ -247,9 +247,6 @@
                 opacity: 1;
             }
         }
-        &:active {
-            opacity: .5;
-        }
         &:disabled {
             border-color: map-get($radio, disabled-bordercolor);
             background-color: map-get($radio, disabled-bgcolor);
@@ -268,7 +265,7 @@
         position: relative;
         @include square(map-get($checkbox, size));
         font-size: map-get($checkbox, size);
-        border-radius: .05rem;
+        border-radius: map-get($checkbox, radius);
         border: 1px solid map-get($checkbox, bordercolor);
         box-shadow: inset 0 .01rem .03rem rgba(100, 100, 100, .1);
         background-color: map-get($checkbox, bgcolor);
@@ -280,7 +277,11 @@
             left: 50%;
             @include transform(translate(-50%, -50%));
             // @include transition(opacity .5s);
-            content: "✓";
+            @if map-get($checkbox, type) != circle {
+                content: "✓";
+            } @else {
+                content: "●";
+            }
             text-shadow: 0 0 .01rem;
             font-size: 70%;
             opacity: 0;
@@ -293,9 +294,6 @@
                 color: map-get($checkbox, on-color);
                 opacity: 1;
             }
-        }
-        &:active {
-            opacity: .5;
         }
         &:disabled {
             border-color: map-get($checkbox, disabled-bordercolor);

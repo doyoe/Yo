@@ -100,7 +100,7 @@ body {
   margin: 0;
   font-size: 14px;
   line-height: 1.5;
-  font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+  font-family: Helvetica Neue, Helvetica, STHeiTi, sans-serif;
 }
 
 ul,
@@ -565,6 +565,7 @@ html, body {
     flex-direction: column;
     top: .99rem;
     left: .18rem;
+    overflow: hidden;
     width: 3.20rem;
     background-color: #fff;
   }
@@ -750,8 +751,8 @@ html, body {
   overflow: hidden;
   height: 0.44rem;
   line-height: 0.44rem;
-  border-bottom: 1px solid #dddddd;
-  background-color: white;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
   font-size: 0.16rem;
   overflow: hidden;
   white-space: nowrap;
@@ -800,11 +801,11 @@ html, body {
 .yo-header-positive {
   border-color: #145fd7;
   background-color: #4a87ee;
-  color: white;
+  color: #fff;
 }
 .yo-header-positive > .regret,
 .yo-header-positive > .affirm {
-  color: white;
+  color: #fff;
 }
 
 /**
@@ -911,7 +912,7 @@ html, body {
   background-color: #fff;
 }
 .yo-table thead {
-  background-color: #eeeeee;
+  background-color: #eee;
 }
 .yo-table thead th {
   padding: 0.05rem 0.1rem;
@@ -923,7 +924,7 @@ html, body {
 .yo-table td {
   border-width: 0 0 1px 0;
   border-style: solid;
-  border-color: #dddddd;
+  border-color: #ddd;
 }
 
 /**

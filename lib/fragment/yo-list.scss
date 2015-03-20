@@ -7,7 +7,7 @@
  * Time: 2012.1.1
  ------------------------
  * @method yo-list
- * variables length(10)
+ * variables length(14)
  * @param {default|String} $name 定义list名称
  * @param {default|Length} $margin 定义list外边距
  * @param {default|Boole} $is-outline 定义list是否需要轮廓（即外边框）
@@ -18,6 +18,10 @@
  * @param {default|Color} $label-bgcolor 定义list分组标题背景色
  * @param {default|Color} $active-bgcolor 定义list点击反馈背景色
  * @param {default|Color} $on-bgcolor 定义list选中背景色
+ * @param {default|Color} $item-bordercolor 定义list子项边框色
+ * @param {default|Color} $label-bordercolor 定义list子项组头边框色
+ * @param {default|Length} $item-font-size 定义list项字号
+ * @param {default|Length} $label-font-size 定义list列表组头字号
  */
 
 @mixin yo-list(
@@ -30,7 +34,11 @@
     $label-padding: default,
     $label-bgcolor: default,
     $active-bgcolor: default,
-    $on-bgcolor: default) {
+    $on-bgcolor: default,
+    $item-bordercolor: default,
+    $label-bordercolor: default,
+    $item-font-size: default,
+    $label-font-size: default) {
     // 区别是否新增实例还是修改本身
     @if $name == default {
         $name: "";
@@ -65,6 +73,18 @@
     @if $on-bgcolor == default {
         $on-bgcolor: map-get($list, on-bgcolor);
     }
+    @if $item-bordercolor == default {
+        $item-bordercolor: map-get($list, item-bordercolor);
+    }
+    @if $label-bordercolor == default {
+        $label-bordercolor: map-get($list, label-bordercolor);
+    }
+    @if $label-font-size == default {
+        $label-font-size: map-get($list, label-font-size);
+    }
+    @if $item-font-size == default {
+        $item-font-size: map-get($list, item-font-size);
+    }
     .yo-list#{$name} {
         @if $margin != map-get($list, margin) {
             margin: $margin;
@@ -72,26 +92,19 @@
         @if $radius != map-get($list, radius) {
             border-radius: $radius;
         }
-        @if $bordercolor != map-get($list, bordercolor) {
-            color: $bordercolor;
-        }
         // 如果$is-outline为true，则重绘轮廓
         @if $is-outline {
             @if $is-outline != map-get($list, is-outline) {
                 overflow: hidden;
-                border-width: .01rem;
-                border-style: solid;
+                border: .01rem solid;
+            }
+            @if $bordercolor != map-get($list, bordercolor) {
+                border-color: $bordercolor;
             }
         } @else {
             @if $is-outline != map-get($list, is-outline) {
                 overflow: visible;
                 border: 0;
-            }
-        }
-        > .label,
-        > .item {
-            @if $bordercolor != map-get($list, bordercolor) {
-                border-bottom-color: $bordercolor;
             }
         }
         > .label {
@@ -101,8 +114,14 @@
                     padding: $label-padding;
                 }
             }
+            @if $label-bordercolor != map-get($list, label-bordercolor) {
+                border-color: $label-bordercolor;
+            }
             @if $label-bgcolor != map-get($list, label-bgcolor) {
                 background-color: $label-bgcolor;
+            }
+            @if $label-font-size != map-get($list, label-font-size) {
+                font-size: $label-font-size;
             }
         }
         > .item {
@@ -111,6 +130,12 @@
                 > .col {
                     padding: $item-padding;
                 }
+            }
+            @if $item-bordercolor != map-get($list, item-bordercolor) {
+                border-color: $item-bordercolor;
+            }
+            @if $item-font-size != map-get($list, item-font-size) {
+                font-size: $item-font-size;
             }
             &.item-active:active,
             &.item-light {

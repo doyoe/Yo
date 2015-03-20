@@ -217,8 +217,10 @@ $radio: (
     disabled-color:       map-get($base, disabled-color)
 ) !default;
 
-// Element checkbox(9)
+// Element checkbox(11)
 $checkbox: (
+    // {String} 选中标记类型: [circle | tick]
+    type:                 tick,
     // {Length} checkbox尺寸
     size:                 .2rem,
     // {Color} checkbox边框色
@@ -236,7 +238,9 @@ $checkbox: (
     // {Color} checkbox禁用背景色
     disabled-bgcolor:     map-get($base, disabled-bgcolor),
     // {Color} checkbox标记禁用色
-    disabled-color:       map-get($base, disabled-color)
+    disabled-color:       map-get($base, disabled-color),
+    // {Length} checkbox圆角
+    radius:               .05rem
 ) !default;
 
 // Element range(3)
@@ -266,26 +270,34 @@ $btnbar: (
     radius: auto
 ) !default;
 
-// Fragment list(9)
+// Fragment list(13)
 $list: (
     // {Length} 列表外边距
-    margin:         null,
+    margin:            -.01rem -.01rem .15rem -.01rem,
     // {Boole} 列表是否有外边框
-    is-outline:     false,
+    is-outline:        false,
     // {Length} 列表圆角
-    radius:         null,
+    radius:            null,
     // {Color} 列表边框色
-    bordercolor:    map-get($base, bordercolor),
-    // {Length} 列表项内补白，只能一个数字
-    item-padding:   .11rem,
-    // {Length} 列表组头内补白，可以同时设定4个方位
-    label-padding:  .03rem .1rem,
+    bordercolor:       #ccc,
+    // {Length} 列表项内补白，只建议定义左右两侧的间隙，因为列表项有最小高度.44rem
+    item-padding:      0 .11rem,
+    // {Length} 列表组头内补白
+    label-padding:     .03rem .1rem,
     // {Color} 列表组头背景色
-    label-bgcolor:  map-get($base, bgcolor),
+    label-bgcolor:     map-get($base, bgcolor),
     // {Color} 点击反馈背景色
-    active-bgcolor: #f8f8f8,
+    active-bgcolor:    #f8f8f8,
     // {Color} 选中背景色
-    on-bgcolor:     null
+    on-bgcolor:        null,
+    // {Color} 列表项边框色
+    item-bordercolor:  map-get($base, bordercolor),
+    // {Color} 列表项组名边框色
+    label-bordercolor: map-get($base, bordercolor),
+    // {Length} 列表项字号
+    item-font-size:    .14rem,
+    // {Length} 列表组头字号
+    label-font-size:   .13rem
 ) !default;
 
 // Fragment tab(13)

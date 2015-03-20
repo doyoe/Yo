@@ -14,16 +14,10 @@
 @mixin _list {
     margin: map-get($list, margin);
     border-radius: map-get($list, radius);
-    color: map-get($list, bordercolor);
     // 如果config变量$is-outline为true，则列表需要轮廓
     @if map-get($list, is-outline) {
         overflow: hidden;
-        border-width: .01rem;
-        border-style: solid;
-    }
-    > .label,
-    > .item {
-        border-bottom: .01rem solid map-get($list, bordercolor);
+        border: .01rem solid map-get($list, bordercolor);
     }
     > .label,
     > .item,
@@ -50,9 +44,13 @@
         }
     }
     > .label {
+        margin-top: -1px;
         padding: map-get($list, label-padding);
+        border: 1px solid map-get($list, label-bordercolor);
+        border-width: 1px 0;
         background-color: map-get($list, label-bgcolor);
         color: map-get($base, sub-color);
+        font-size: map-get($list, label-font-size);
         font-weight: normal;
         // 定义单元格的padding
         > .col {
@@ -64,8 +62,11 @@
         padding: map-get($list, item-padding);
     }
     > .item {
+        min-height: .44rem;
+        border-bottom: .01rem solid map-get($list, item-bordercolor);
         background-color: #fff;
         color: map-get($base, color);
+        font-size: map-get($list, item-font-size);
         &:last-child {
             margin-bottom: -1px;
         }
@@ -77,13 +78,10 @@
         }
         &-input {
             // 让输入框占满整个父容器
-            // > .input,
             > .yo-input {
                 height: auto;
                 padding: 0;
                 border: 0;
-                // 替换为yo-input后，可删除
-                // width: 100%;
             }
         }
         &-input,

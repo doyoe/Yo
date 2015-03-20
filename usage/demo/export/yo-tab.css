@@ -100,7 +100,7 @@ body {
   margin: 0;
   font-size: 14px;
   line-height: 1.5;
-  font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+  font-family: Helvetica Neue, Helvetica, STHeiTi, sans-serif;
 }
 
 ul,
@@ -565,6 +565,7 @@ html, body {
     flex-direction: column;
     top: .99rem;
     left: .18rem;
+    overflow: hidden;
     width: 3.20rem;
     background-color: #fff;
   }
@@ -754,7 +755,7 @@ html, body {
   display: -webkit-flex;
   display: flex;
   height: 0.49rem;
-  border-color: #dddddd;
+  border-color: #ddd;
   background-color: #fafafa;
   text-align: center;
   line-height: 0.49rem;
@@ -765,15 +766,15 @@ html, body {
   flex: 1;
   display: block;
   width: 100%;
-  border-top: 1px solid #dddddd;
+  border-top: 1px solid #ddd;
   color: #212121;
 }
 .yo-tab > .item:not(:first-child) {
-  border-left-color: #dddddd;
+  border-left-color: #ddd;
 }
 .yo-tab > .item:active, .yo-tab > .item.on {
-  background-color: white;
-  color: black;
+  background-color: #fff;
+  color: #000;
 }
 .yo-tab > .item-top-ico {
   padding-top: .04rem;
@@ -826,15 +827,15 @@ html, body {
 .yo-tab-only-ico {
   height: 1rem;
   line-height: 1rem;
-  border-color: black;
-  background-color: #999999;
+  border-color: #000;
+  background-color: #999;
 }
 .yo-tab-only-ico > .item {
-  border-top-color: black;
-  color: white;
+  border-top-color: #000;
+  color: #fff;
 }
 .yo-tab-only-ico > .item:not(:first-child) {
   border-left-width: 1px;
   border-left-style: solid;
-  border-left-color: black;
+  border-left-color: #000;
 }

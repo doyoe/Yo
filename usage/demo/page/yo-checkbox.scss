@@ -4,7 +4,7 @@
 @import "../module/m-code";
 @import "../fragment/yo-header";
 @import "../fragment/yo-list";
-@import "../../../lib/element/yo-checkbox";
+@import "../element/yo-checkbox";
 
 /**
  * checkbox演示页面
@@ -13,4 +13,3 @@
  */
 
 @include doc(default, true);
-// @include yo-checkbox(default,.3rem);

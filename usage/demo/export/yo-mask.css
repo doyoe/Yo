@@ -100,7 +100,7 @@ body {
   margin: 0;
   font-size: 14px;
   line-height: 1.5;
-  font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+  font-family: Helvetica Neue, Helvetica, STHeiTi, sans-serif;
 }
 
 ul,
@@ -592,6 +592,7 @@ html, body {
     flex-direction: column;
     top: .99rem;
     left: .18rem;
+    overflow: hidden;
     width: 3.20rem;
     background-color: #fff;
   }

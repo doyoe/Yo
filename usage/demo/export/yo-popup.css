@@ -100,7 +100,7 @@ body {
   margin: 0;
   font-size: 14px;
   line-height: 1.5;
-  font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+  font-family: Helvetica Neue, Helvetica, STHeiTi, sans-serif;
 }
 
 ul,
@@ -592,6 +592,7 @@ html, body {
     flex-direction: column;
     top: .99rem;
     left: .18rem;
+    overflow: hidden;
     width: 3.20rem;
     background-color: #fff;
   }
@@ -759,7 +760,7 @@ html, body {
   z-index: 2001;
   border-radius: 0.03rem;
   box-shadow: 0 0 5px rgba(221, 221, 221, 0.5);
-  border: 1px solid #dddddd;
+  border: 1px solid #ddd;
   min-width: 2.8rem;
   min-height: 1rem;
   height: 3rem;
@@ -780,11 +781,11 @@ html, body {
 }
 .yo-popup .arrow-top::after {
   top: -0.11rem;
-  text-shadow: 0 -1px #dddddd;
+  text-shadow: 0 -1px #ddd;
 }
 .yo-popup .arrow-down::after {
   bottom: -0.11rem;
-  text-shadow: 0 1px #dddddd;
+  text-shadow: 0 1px #ddd;
 }
 .yo-popup .arrow-right::after,
 .yo-popup .arrow-left::after {
@@ -794,14 +795,14 @@ html, body {
 }
 .yo-popup .arrow-right::after {
   right: -0.11rem;
-  text-shadow: 1px 0 #dddddd;
+  text-shadow: 1px 0 #ddd;
 }
 .yo-popup .arrow-left::after {
   left: -0.11rem;
-  text-shadow: -1px 0 #dddddd;
+  text-shadow: -1px 0 #ddd;
 }
 .yo-popup .arrow-extra.arrow::after {
-  color: #eeeeee;
+  color: #eee;
 }
 .yo-popup > .hd,
 .yo-popup > .bd {
@@ -810,8 +811,8 @@ html, body {
 }
 .yo-popup > .hd {
   height: 0.5rem;
-  border-bottom: 1px solid #dddddd;
-  background: #eeeeee;
+  border-bottom: 1px solid #ddd;
+  background: #eee;
   line-height: 0.5rem;
   text-align: center;
 }
@@ -844,7 +845,7 @@ html, body {
 }
 .yo-popup > .ft {
   padding: .1rem 0;
-  border-top: 1px solid #dddddd;
+  border-top: 1px solid #ddd;
   text-align: center;
 }
 

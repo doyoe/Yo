@@ -100,7 +100,7 @@ body {
   margin: 0;
   font-size: 14px;
   line-height: 1.5;
-  font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+  font-family: Helvetica Neue, Helvetica, STHeiTi, sans-serif;
 }
 
 ul,
@@ -565,6 +565,7 @@ html, body {
     flex-direction: column;
     top: .99rem;
     left: .18rem;
+    overflow: hidden;
     width: 3.20rem;
     background-color: #fff;
   }
@@ -750,8 +751,8 @@ html, body {
   overflow: hidden;
   height: 0.44rem;
   line-height: 0.44rem;
-  border-bottom: 1px solid #dddddd;
-  background-color: white;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
   font-size: 0.16rem;
   overflow: hidden;
   white-space: nowrap;
@@ -800,11 +801,11 @@ html, body {
 .yo-header-positive {
   border-color: #145fd7;
   background-color: #4a87ee;
-  color: white;
+  color: #fff;
 }
 .yo-header-positive > .regret,
 .yo-header-positive > .affirm {
-  color: white;
+  color: #fff;
 }
 
 /**
@@ -893,7 +894,7 @@ html, body {
  * Time: 2012.1.1
  ------------------------
  * @method yo-list
- * variables length(10)
+ * variables length(14)
  * @param {default|String} $name 定义list名称
  * @param {default|Length} $margin 定义list外边距
  * @param {default|Boole} $is-outline 定义list是否需要轮廓（即外边框）
@@ -904,13 +905,13 @@ html, body {
  * @param {default|Color} $label-bgcolor 定义list分组标题背景色
  * @param {default|Color} $active-bgcolor 定义list点击反馈背景色
  * @param {default|Color} $on-bgcolor 定义list选中背景色
+ * @param {default|Color} $item-bordercolor 定义list子项边框色
+ * @param {default|Color} $label-bordercolor 定义list子项组头边框色
+ * @param {default|Length} $item-font-size 定义list项字号
+ * @param {default|Length} $label-font-size 定义list列表组头字号
  */
 .yo-list {
-  color: #dddddd;
-}
-.yo-list > .label,
-.yo-list > .item {
-  border-bottom: 0.01rem solid #dddddd;
+  margin: -0.01rem -0.01rem 0.15rem -0.01rem;
 }
 .yo-list > .label,
 .yo-list > .item,
@@ -959,9 +960,13 @@ html, body {
   padding: 0;
 }
 .yo-list > .label {
+  margin-top: -1px;
   padding: 0.03rem 0.1rem;
+  border: 1px solid #ddd;
+  border-width: 1px 0;
   background-color: #fafafa;
   color: #9e9e9e;
+  font-size: 0.13rem;
   font-weight: normal;
 }
 .yo-list > .label > .col {
@@ -969,11 +974,14 @@ html, body {
 }
 .yo-list > .item,
 .yo-list > .yo-panel > .front {
-  padding: 0.11rem;
+  padding: 0 0.11rem;
 }
 .yo-list > .item {
+  min-height: .44rem;
+  border-bottom: 0.01rem solid #ddd;
   background-color: #fff;
   color: #212121;
+  font-size: 0.14rem;
 }
 .yo-list > .item:last-child {
   margin-bottom: -1px;
@@ -996,7 +1004,7 @@ html, body {
   background-color: #f8f8f8;
 }
 .yo-list > .item > .col {
-  padding: 0.11rem;
+  padding: 0 0.11rem;
 }
 .yo-list > .yo-panel {
   display: block;
@@ -1012,8 +1020,7 @@ html, body {
   margin: 0.2rem 0.1rem;
   border-radius: 0.02rem;
   overflow: hidden;
-  border-width: .01rem;
-  border-style: solid;
+  border: .01rem solid;
 }
 
 /**
@@ -1121,9 +1128,9 @@ html, body {
   width: 0.2rem;
   height: 0.2rem;
   border-radius: 50%;
-  border: 1px solid #dddddd;
+  border: 1px solid #ddd;
   box-shadow: inset 0 0.01rem 0.03rem rgba(100, 100, 100, 0.1);
-  background-color: white;
+  background-color: #fff;
   cursor: pointer;
   vertical-align: middle;
 }
@@ -1144,15 +1151,12 @@ html, body {
   background-color: #2b94ff;
 }
 .yo-radio[type="radio"]:checked::after {
-  color: white;
+  color: #fff;
   opacity: 1;
-}
-.yo-radio[type="radio"]:active {
-  opacity: .5;
 }
 .yo-radio[type="radio"]:disabled {
   border-color: #dfdfdf;
-  background-color: #eeeeee;
+  background-color: #eee;
 }
 .yo-radio[type="radio"]:disabled::after {
   color: #d9d9d9;

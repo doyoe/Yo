@@ -100,7 +100,7 @@ body {
   margin: 0;
   font-size: 14px;
   line-height: 1.5;
-  font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+  font-family: Helvetica Neue, Helvetica, STHeiTi, sans-serif;
 }
 
 ul,
@@ -592,6 +592,7 @@ html, body {
     flex-direction: column;
     top: .99rem;
     left: .18rem;
+    overflow: hidden;
     width: 3.20rem;
     background-color: #fff;
   }
@@ -833,7 +834,7 @@ html, body {
   box-shadow: inset 1px 1px rgba(255, 255, 255, 0.1);
   border-radius: 0.02rem;
   background-color: #ff801a;
-  color: white;
+  color: #fff;
   text-align: center;
   vertical-align: middle;
   cursor: pointer;
@@ -864,7 +865,7 @@ html, body {
 
 .yo-btn-disabled {
   border-color: #dfdfdf;
-  background-color: #eeeeee;
+  background-color: #eee;
   color: #d9d9d9;
   cursor: not-allowed;
 }
@@ -905,7 +906,7 @@ html, body {
   overflow: hidden;
   border-radius: 0.05rem;
   box-shadow: 0 0 5px rgba(221, 221, 221, 0.5);
-  border: 1px solid #dddddd;
+  border: 1px solid #ddd;
   min-width: 2.8rem;
   max-width: 90%;
   height: 3rem;
@@ -955,8 +956,8 @@ html, body {
 }
 .yo-dialog > .ft .yo-btn {
   border-radius: 0;
-  border-color: #dddddd;
-  background-color: white;
+  border-color: #ddd;
+  background-color: #fff;
   color: #00afc7;
 }
 .yo-dialog > .ft > .yo-btn {
