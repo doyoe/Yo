@@ -913,7 +913,7 @@ html, body {
  * @param {default|Length} $label-font-size 定义list列表组头字号
  */
 .yo-list {
-  margin: -0.01rem -0.01rem 0.15rem -0.01rem;
+  margin: -0.01rem -0.01rem 0 -0.01rem;
 }
 .yo-list > .label,
 .yo-list > .item,
@@ -1275,9 +1275,9 @@ html, body {
 }
 
 .yo-btn-disabled {
-  border-color: #dfdfdf;
-  background-color: #eee;
-  color: #d9d9d9;
+  border-color: #bbb;
+  background-color: #ccc;
+  color: #f9f9f9;
   cursor: not-allowed;
 }
 .yo-btn-disabled:focus, .yo-btn-disabled:active {

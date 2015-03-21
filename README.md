@@ -45,7 +45,16 @@
 <a name="dev-version"></a>
 ### 开发中版本：v1.3.0
 
-* update: yo-rating外观
+* update: yo-checked
+
+    * 删除 `is-border` 参数，不再使用该参数来设定是否有边框，利用原有 `bordercolor` 参数，当值为 `transparent` 时，则无边框；
+    * 删除 `disabled-color` 参数，Yo所有元素的禁用色都改为继承 `$base` map；
+    * 增加 `radius` 参数用于设置圆角；
+    * 增加 `on-bordercolor` 参数用于设置激活边框色；
+    * 增加 `on-bgcolor` 参数用于设置激活背景色；
+* update: yo-rating 外观
+
+    * 增加 `url` 参数用于改变 yo-rating 的外观；
 
 <a name="now-version"></a>
 ### 当前版本：v1.2.0

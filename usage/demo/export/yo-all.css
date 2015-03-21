@@ -446,9 +446,9 @@ a {
 }
 
 .yo-btn-disabled {
-  border-color: #dfdfdf;
-  background-color: #eee;
-  color: #d9d9d9;
+  border-color: #bbb;
+  background-color: #ccc;
+  color: #f9f9f9;
   cursor: not-allowed;
 }
 .yo-btn-disabled:focus, .yo-btn-disabled:active {
@@ -812,11 +812,11 @@ a {
   opacity: 1;
 }
 .yo-checkbox[type="checkbox"]:disabled {
-  border-color: #dfdfdf;
-  background-color: #eee;
+  border-color: #bbb;
+  background-color: #ccc;
 }
 .yo-checkbox[type="checkbox"]:disabled::after {
-  color: #d9d9d9;
+  color: #f9f9f9;
 }
 
 /**
@@ -1062,57 +1062,54 @@ a {
 /**
  * element: yo-checked
  * Author: joy.du(飘零雾雨)
- * Time: 2014.11.14
+ * Edit: 2015.3.21
  -----------------------
  * @method yo-checked
- * variables length(8)
+ * variables length(9)
  * @param {default | String} $name 定义checked名称
  * @param {default | String} $type 定义checked类型，可选值：[circle | tick]
  * @param {default | Length} $size 定义checked大小
- * @param {default | Boolen} $is-border 定义checked是否需要边框
  * @param {default | Color} $bordercolor 定义checked边框色
  * @param {default | Color} $bgcolor 定义checked背景色
+ * @param {default | Color} $on-bordercolor 定义checked激活边框色
+ * @param {default | Color} $on-bgcolor 定义checked激活背景色
  * @param {default | Color} $on-color 定义checked激活标记色
- * @param {default | Color} $disabled-color 定义checked禁用色
+ * @param {default | Length} $radius 定义checked圆角
  */
-.yo-checked[type="checkbox"] {
-  border-radius: .05rem;
-  border: 1px solid #ddd;
-  box-shadow: inset 0 0.01rem 0.03rem rgba(100, 100, 100, 0.1);
-  background-color: #fff;
-}
-.yo-checked[type="radio"] {
-  border: 0 none;
-  background-color: transparent;
-}
-.yo-checked[type="checkbox"], .yo-checked[type="radio"] {
+.yo-checked {
   -webkit-appearance: none;
   appearance: none;
   position: relative;
   width: 0.2rem;
   height: 0.2rem;
+  border-radius: 0.05rem;
+  border: .01rem solid;
+  color: transparent;
   font-size: 0.2rem;
   cursor: pointer;
   vertical-align: middle;
 }
-.yo-checked[type="checkbox"]::after, .yo-checked[type="radio"]::after {
+.yo-checked::after {
   position: absolute;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   content: "●";
-  text-shadow: 0 0 .01rem;
-  font-size: 70%;
+  font-size: 68%;
   opacity: 0;
-  color: #fff;
 }
-.yo-checked[type="checkbox"]:checked::after, .yo-checked[type="radio"]:checked::after {
+.yo-checked:checked::after {
   color: #2b94ff;
   opacity: 1;
 }
-.yo-checked[type="checkbox"]:disabled::after, .yo-checked[type="radio"]:disabled::after {
-  color: #d9d9d9;
+.yo-checked:disabled {
+  opacity: .4;
+  border-color: #bbb !important;
+  background-color: #ccc !important;
+}
+.yo-checked:disabled::after {
+  color: #f9f9f9 !important;
 }
 
 /**
@@ -1384,10 +1381,8 @@ a {
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   content: "●";
-  text-shadow: 0 0 .01rem;
-  font-size: 70%;
+  font-size: 68%;
   opacity: 0;
-  color: #fff;
 }
 .yo-radio[type="radio"]:checked {
   border-color: #2b94ff;
@@ -1398,11 +1393,11 @@ a {
   opacity: 1;
 }
 .yo-radio[type="radio"]:disabled {
-  border-color: #dfdfdf;
-  background-color: #eee;
+  border-color: #bbb;
+  background-color: #ccc;
 }
 .yo-radio[type="radio"]:disabled::after {
-  color: #d9d9d9;
+  color: #f9f9f9;
 }
 
 /**
@@ -1959,7 +1954,7 @@ a {
  * @param {default|Length} $label-font-size 定义list列表组头字号
  */
 .yo-list {
-  margin: -0.01rem -0.01rem 0.15rem -0.01rem;
+  margin: -0.01rem -0.01rem 0 -0.01rem;
 }
 .yo-list > .label,
 .yo-list > .item,
@@ -2394,9 +2389,9 @@ a {
 }
 
 .yo-btn-disabled {
-  border-color: #dfdfdf;
-  background-color: #eee;
-  color: #d9d9d9;
+  border-color: #bbb;
+  background-color: #ccc;
+  color: #f9f9f9;
   cursor: not-allowed;
 }
 .yo-btn-disabled:focus, .yo-btn-disabled:active {
@@ -2651,9 +2646,9 @@ a {
 }
 
 .yo-btn-disabled {
-  border-color: #dfdfdf;
-  background-color: #eee;
-  color: #d9d9d9;
+  border-color: #bbb;
+  background-color: #ccc;
+  color: #f9f9f9;
   cursor: not-allowed;
 }
 .yo-btn-disabled:focus, .yo-btn-disabled:active {
@@ -3094,7 +3089,7 @@ a {
 }
 .yo-number > .minus.disabled,
 .yo-number > .plus.disabled {
-  color: #d9d9d9;
+  color: #f9f9f9;
   cursor: not-allowed;
 }
 .yo-number > .input {
@@ -3909,7 +3904,7 @@ a {
  * @param {default|Length} $label-font-size 定义list列表组头字号
  */
 .yo-list {
-  margin: -0.01rem -0.01rem 0.15rem -0.01rem;
+  margin: -0.01rem -0.01rem 0 -0.01rem;
 }
 .yo-list > .label,
 .yo-list > .item,

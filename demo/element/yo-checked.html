@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-<meta name="format-detection" content="telephone=no" />
+<meta name="format-detection" content="telephone=no,email=no" />
 <link rel="apple-touch-icon-precomposed" href="/qunar-touch.png" />
-<title>checked - 列表单选和多选</title>
+<title>yo-checked - 单选和多选</title>
 <link rel="stylesheet" href="../../usage/demo/export/yo-checked.css" />
 </head>
 <body>
@@ -15,183 +15,258 @@
     <div class="device">
     <div class="stage">
         <h2 class="yo-header">Radio checked</h2>
-        <div class="yo-list">
-            <label class="item item-active">
-                <span class="mark flex">CRM</span>
-                <input type="radio" name="project" class="yo-checked" checked />
-            </label>
-            <label class="item item-active">
-                <span class="mark flex">PMS</span>
-                <input type="radio" name="project" class="yo-checked" />
-            </label>
-            <label class="item item-active">
-                <span class="mark flex">Mobile</span>
-                <input type="radio" name="project" class="yo-checked" />
-            </label>
-            <label class="item item-active">
-                <span class="mark flex">Yo</span>
-                <input type="radio" name="project" class="yo-checked" />
-            </label>
+        <div class="wrap">
+            <div class="yo-list">
+                <h3 class="label">默认</h3>
+                <label class="item item-active">
+                    <span class="mark flex">Yo</span>
+                    <input type="radio" name="project" class="yo-checked" checked />
+                </label>
+                <label class="item item-active">
+                    <span class="mark flex">Mobile</span>
+                    <input type="radio" name="project" class="yo-checked" />
+                </label>
+                <h3 class="label">扩展边框</h3>
+                <label class="item item-active">
+                    <span class="mark flex">Yo</span>
+                    <input type="radio" name="project2" class="yo-checked yo-checked-a" checked />
+                </label>
+                <label class="item item-active">
+                    <span class="mark flex">Mobile</span>
+                    <input type="radio" name="project2" class="yo-checked yo-checked-a" />
+                </label>
+                <h3 class="label">扩展背景</h3>
+                <label class="item item-active">
+                    <span class="mark flex">Yo</span>
+                    <input type="radio" name="project3" class="yo-checked yo-checked-b" checked />
+                </label>
+                <label class="item item-active">
+                    <span class="mark flex">Mobile</span>
+                    <input type="radio" name="project3" class="yo-checked yo-checked-b" />
+                </label>
+                <h3 class="label">扩展圆角</h3>
+                <label class="item item-active">
+                    <span class="mark flex">Yo</span>
+                    <input type="radio" name="project4" class="yo-checked yo-checked-c" checked />
+                </label>
+                <label class="item item-active">
+                    <span class="mark flex">Mobile</span>
+                    <input type="radio" name="project4" class="yo-checked yo-checked-c" />
+                </label>
+                <h3 class="label">对勾</h3>
+                <label class="item item-active">
+                    <span class="mark flex">Mobile</span>
+                    <input type="radio" name="project5" class="yo-checked yo-checked-d" checked />
+                </label>
+                <label class="item item-active">
+                    <span class="mark flex">Yo</span>
+                    <input type="radio" name="project5" class="yo-checked yo-checked-d" />
+                </label>
+                <h3 class="label">扩展边框</h3>
+                <label class="item item-active">
+                    <span class="mark flex">Yo</span>
+                    <input type="radio" name="project6" class="yo-checked yo-checked-e" checked />
+                </label>
+                <label class="item item-active">
+                    <span class="mark flex">Mobile</span>
+                    <input type="radio" name="project6" class="yo-checked yo-checked-e" />
+                </label>
+                <h3 class="label">扩展背景</h3>
+                <label class="item item-active">
+                    <span class="mark flex">Yo</span>
+                    <input type="radio" name="project7" class="yo-checked yo-checked-f" checked />
+                </label>
+                <label class="item item-active">
+                    <span class="mark flex">Mobile</span>
+                    <input type="radio" name="project7" class="yo-checked yo-checked-f" />
+                </label>
+                <h3 class="label">扩展圆角</h3>
+                <label class="item item-active">
+                    <span class="mark flex">Yo</span>
+                    <input type="radio" name="project8" class="yo-checked yo-checked-g" checked />
+                </label>
+                <label class="item item-active">
+                    <span class="mark flex">Mobile</span>
+                    <input type="radio" name="project8" class="yo-checked yo-checked-g" />
+                </label>
+            </div>
         </div>
     </div>
     </div>
-    <code class="code"><xmp><div class="yo-list">
+    <code class="code">
+
+    <xmp><div class="yo-list">
     <label class="item item-active">
-        <span class="mark flex">CRM</span>
+        <span class="mark flex">Yo</span>
         <input type="radio" name="project" class="yo-checked" checked />
-    </label>
-    <label class="item item-active">
-        <span class="mark flex">PMS</span>
-        <input type="radio" name="project" class="yo-checked" />
     </label>
     <label class="item item-active">
         <span class="mark flex">Mobile</span>
         <input type="radio" name="project" class="yo-checked" />
     </label>
-    <label class="item item-active">
-        <span class="mark flex">Yo</span>
-        <input type="radio" name="project" class="yo-checked" />
-    </label>
-</div></xmp></code>
-</div>
+</div></xmp>
 
-<div class="m-demo">
-    <div class="device">
-    <div class="stage">
-        <h2 class="yo-header">扩展对勾Radio checked</h2>
-        <div class="yo-list">
-            <label class="item item-active">
-                <span class="mark flex">CRM</span>
-                <input type="radio" name="project3" class="yo-checked yo-checked-test" checked />
-            </label>
-            <label class="item item-active">
-                <span class="mark flex">PMS</span>
-                <input type="radio" name="project3" class="yo-checked yo-checked-test" />
-            </label>
-            <label class="item item-active">
-                <span class="mark flex">Mobile</span>
-                <input type="radio" name="project3" class="yo-checked yo-checked-test" />
-            </label>
-            <label class="item item-active">
-                <span class="mark flex">Yo</span>
-                <input type="radio" name="project3" class="yo-checked yo-checked-test" />
-            </label>
-        </div>
-    </div>
-    </div>
-    <code class="code">
-    <h2>yo-checked为单选提供了 [圆点（circle） | 对勾（tick）] 2种形态的选中状态：</h2>
+    <h2>假设你想要其他颜色，那么你可以这样扩展：</h2>
     <p>命名及颜色按照各自团队内部的FE/UI规范即可</p>
+
     <h3>全局扩展方式：</h3>
-    <xmp>@include yo-checked(test,tick);</xmp>
+    <xmp>@include yo-checked(
+    $name: test,
+    $bordercolor: #4a87ee,
+    $radius: 50%
+);</xmp>
     <h3>使用方法：</h3>
-    <xmp><input type="radio" name="test" class="yo-checked yo-checked-test" /></xmp>
+    <xmp><input type="radio" name="project" class="yo-checked yo-checked-test" /></xmp>
+
     <h3>局部扩展方式：</h3>
-    <xmp>.xxx{
-    @include yo-checked(test,tick);
+    <xmp>.xxx {
+    @include yo-checked(
+        $name: test,
+        $bordercolor: #4a87ee,
+        $radius: 50%
+    );
 }</xmp>
     <h3>使用方法：</h3>
     <xmp><div class="xxx">
-    <input type="radio" name="test" class="yo-checked yo-checked-test" />
+    <input type="radio" name="project" class="yo-checked yo-checked-test" />
 </div></xmp>
     </code>
 </div>
+
 
 <div class="m-demo">
     <div class="device">
     <div class="stage">
         <h2 class="yo-header">Checkbox checked</h2>
-        <div class="yo-list">
-            <label class="item item-active">
-                <span class="mark flex">CRM</span>
-                <input type="checkbox" name="project2" class="yo-checked" checked />
-            </label>
-            <label class="item item-active">
-                <span class="mark flex">PMS</span>
-                <input type="checkbox" name="project2" class="yo-checked" />
-            </label>
-            <label class="item item-active">
-                <span class="mark flex">Mobile</span>
-                <input type="checkbox" name="project2" class="yo-checked" />
-            </label>
-            <label class="item item-active">
-                <span class="mark flex">Yo</span>
-                <input type="checkbox" name="project2" class="yo-checked" />
-            </label>
-        </div>
-    </div>
-    </div>
-    <code class="code"><xmp><div class="yo-list">
-    <label class="item item-active">
-        <span class="mark flex">CRM</span>
-        <input type="checkbox" name="project2" class="yo-checked" />
-    </label>
-    <label class="item item-active">
-        <span class="mark flex">PMS</span>
-        <input type="checkbox" name="project2" class="yo-checked" checked disabled />
-    </label>
-    <label class="item item-active">
-        <span class="mark flex">Mobile</span>
-        <input type="checkbox" name="project2" class="yo-checked" />
-    </label>
-    <label class="item item-active">
-        <span class="mark flex">Yo</span>
-        <input type="checkbox" name="project2" class="yo-checked" />
-    </label>
-</div></xmp></code>
-</div>
-
-<div class="m-demo">
-    <div class="device">
-    <div class="stage">
-        <h2 class="yo-header">扩展对勾Checkbox checked</h2>
-        <div class="yo-list">
-            <label class="item item-active">
-                <span class="mark flex">CRM</span>
-                <input type="checkbox" name="project4" class="yo-checked yo-checked-test" checked />
-            </label>
-            <label class="item item-active">
-                <span class="mark flex">PMS</span>
-                <input type="checkbox" name="project4" class="yo-checked yo-checked-test" />
-            </label>
-            <label class="item item-active">
-                <span class="mark flex">Mobile</span>
-                <input type="checkbox" name="project4" class="yo-checked yo-checked-test" />
-            </label>
-            <label class="item item-active">
-                <span class="mark flex">Yo</span>
-                <input type="checkbox" name="project4" class="yo-checked yo-checked-test" />
-            </label>
+        <div class="wrap">
+            <div class="yo-list">
+                <h3 class="label">默认</h3>
+                <label class="item item-active">
+                    <span class="mark flex">Yo</span>
+                    <input type="checkbox" name="project9" class="yo-checked" checked />
+                </label>
+                <label class="item item-active">
+                    <span class="mark flex">Mobile</span>
+                    <input type="checkbox" name="project9" class="yo-checked" />
+                </label>
+                <h3 class="label">扩展边框</h3>
+                <label class="item item-active">
+                    <span class="mark flex">Yo</span>
+                    <input type="checkbox" name="project10" class="yo-checked yo-checked-a" checked />
+                </label>
+                <label class="item item-active">
+                    <span class="mark flex">Mobile</span>
+                    <input type="checkbox" name="project10" class="yo-checked yo-checked-a" />
+                </label>
+                <h3 class="label">扩展背景</h3>
+                <label class="item item-active">
+                    <span class="mark flex">Yo</span>
+                    <input type="checkbox" name="project11" class="yo-checked yo-checked-b" checked />
+                </label>
+                <label class="item item-active">
+                    <span class="mark flex">Mobile</span>
+                    <input type="checkbox" name="project11" class="yo-checked yo-checked-b" />
+                </label>
+                <h3 class="label">扩展圆角</h3>
+                <label class="item item-active">
+                    <span class="mark flex">Yo</span>
+                    <input type="checkbox" name="project12" class="yo-checked yo-checked-c" checked />
+                </label>
+                <label class="item item-active">
+                    <span class="mark flex">Mobile</span>
+                    <input type="checkbox" name="project12" class="yo-checked yo-checked-c" />
+                </label>
+                <h3 class="label">对勾</h3>
+                <label class="item item-active">
+                    <span class="mark flex">Mobile</span>
+                    <input type="checkbox" name="project13" class="yo-checked yo-checked-d" checked />
+                </label>
+                <label class="item item-active">
+                    <span class="mark flex">Yo</span>
+                    <input type="checkbox" name="project13" class="yo-checked yo-checked-d" />
+                </label>
+                <h3 class="label">扩展边框</h3>
+                <label class="item item-active">
+                    <span class="mark flex">Yo</span>
+                    <input type="checkbox" name="project14" class="yo-checked yo-checked-e" checked />
+                </label>
+                <label class="item item-active">
+                    <span class="mark flex">Mobile</span>
+                    <input type="checkbox" name="project14" class="yo-checked yo-checked-e" />
+                </label>
+                <h3 class="label">扩展背景</h3>
+                <label class="item item-active">
+                    <span class="mark flex">Yo</span>
+                    <input type="checkbox" name="project15" class="yo-checked yo-checked-f" checked />
+                </label>
+                <label class="item item-active">
+                    <span class="mark flex">Mobile</span>
+                    <input type="checkbox" name="project15" class="yo-checked yo-checked-f" />
+                </label>
+                <h3 class="label">扩展圆角</h3>
+                <label class="item item-active">
+                    <span class="mark flex">Yo</span>
+                    <input type="checkbox" name="project16" class="yo-checked yo-checked-g" checked />
+                </label>
+                <label class="item item-active">
+                    <span class="mark flex">Mobile</span>
+                    <input type="checkbox" name="project16" class="yo-checked yo-checked-g" />
+                </label>
+            </div>
         </div>
     </div>
     </div>
     <code class="code">
-    <h2>yo-checked为多选提供了 [圆点（circle） | 对勾（tick）] 2种形态的选中状态：</h2>
+
+    <xmp><div class="yo-list">
+    <label class="item item-active">
+        <span class="mark flex">Yo</span>
+        <input type="checkbox" name="project" class="yo-checked" checked />
+    </label>
+    <label class="item item-active">
+        <span class="mark flex">Mobile</span>
+        <input type="checkbox" name="project" class="yo-checked" />
+    </label>
+</div></xmp>
+
+    <h2>假设你想要其他颜色，那么你可以这样扩展：</h2>
     <p>命名及颜色按照各自团队内部的FE/UI规范即可</p>
+
     <h3>全局扩展方式：</h3>
-    <xmp>@include yo-checked(test,tick);</xmp>
+    <xmp>@include yo-checked(
+    $name: test,
+    $bordercolor: #4a87ee,
+    $radius: 50%
+);</xmp>
     <h3>使用方法：</h3>
-    <xmp><input type="checkbox" name="test" class="yo-checked yo-checked-test" /></xmp>
+    <xmp><input type="checkbox" name="project" class="yo-checked yo-checked-test" /></xmp>
+
     <h3>局部扩展方式：</h3>
-    <xmp>.xxx{
-    @include yo-checked(test,tick);
+    <xmp>.xxx {
+    @include yo-checked(
+        $name: test,
+        $bordercolor: #4a87ee,
+        $radius: 50%
+    );
 }</xmp>
     <h3>使用方法：</h3>
     <xmp><div class="xxx">
-    <input type="checkbox" name="test" class="yo-checked yo-checked-test" />
+    <input type="checkbox" name="project" class="yo-checked yo-checked-test" />
 </div></xmp>
     </code>
 </div>
 
+
 <pre class="m-code"><span class="method">@include yo-checked</span><span class="bracket">(</span>
-    $name<span class="colon">:</span>default, <mark>//{default | String} checked名称</mark>
-    $type<span class="colon">:</span>default, <mark>//{default | String} 定义checked标记类型，可选值：[circle | tick]</mark>
-    $size<span class="colon">:</span>default, <mark>//{default | Length} 定义checked标记大小</mark>
-    $is-border<span class="colon">:</span>default, <mark>//{default | Boolen} 定义checked是否需要边框（即初始默认状态）</mark>
-    $bordercolor<span class="colon">:</span>default, <mark>//{default | Color} 定义checked边框色</mark>
-    $bgcolor<span class="colon">:</span>default, <mark>//{default | Color} 定义checked背景色</mark>
-    $on-color<span class="colon">:</span>default, <mark>//{default | Color} 定义checked激活标记色</mark>
-    $disabled-color<span class="colon">:</span>default <mark>//{default | Color} 定义checked禁用标记色</mark>
+    $name<span class="colon">:</span>default, <mark>//{default | String} 定义名称</mark>
+    $type<span class="colon">:</span>default, <mark>//{default | String} 定义标记类型，可选值：[circle | tick]</mark>
+    $size<span class="colon">:</span>default, <mark>//{default | Length} 定义标记大小</mark>
+    $bordercolor<span class="colon">:</span>default, <mark>//{default | Color} 定义边框色</mark>
+    $bgcolor<span class="colon">:</span>default, <mark>//{default | Color} 定义背景色</mark>
+    $on-bordercolor<span class="colon">:</span>default, <mark>//{default | Color} 定义激活时边框色</mark>
+    $on-bgcolor<span class="colon">:</span>default, <mark>//{default | Color} 定义激活时背景色</mark>
+    $on-color<span class="colon">:</span>default, <mark>//{default | Color} 定义激活时标记色</mark>
+    $radius<span class="colon">:</span>default <mark>//{default | Length} 定义圆角大小</mark>
 <span class="bracket">)</span>
 </pre>
 

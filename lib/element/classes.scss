@@ -166,50 +166,93 @@
 
 // 定义checked的基础构造
 // 使用方法请查看 yo-checked.scss
+// @mixin _checked {
+//     @if map-get($checked, is-border) {
+//         &[type="checkbox"] {
+//             border-radius: .05rem;
+//             border: 1px solid map-get($checked, bordercolor);
+//             box-shadow: inset 0 .01rem .03rem rgba(100, 100, 100, .1);
+//             background-color: map-get($checked, bgcolor);
+//         }
+//     }
+//     // iOS Safari上清除appearance后仍然有边框及背景
+//     &[type="radio"] {
+//         border: 0 none;
+//         background-color: transparent;
+//     }
+//     &[type="checkbox"],
+//     &[type="radio"] {
+//         @include appearance(none);
+//         position: relative;
+//         @include square(map-get($checked, size));
+//         font-size: map-get($checked, size);
+//         cursor: pointer;
+//         vertical-align: middle;
+//         &::after {
+//             position:absolute;
+//             top: 50%;
+//             left: 50%;
+//             @include transform(translate(-50%, -50%));
+//             // @include transition(opacity .5s);
+//             @if map-get($checked, type) == tick {
+//                 content: "✓";
+//             } @else {
+//                 content: "●";
+//             }
+//             text-shadow: 0 0 .01rem;
+//             font-size: 70%;
+//             opacity: 0;
+//             color: #fff;
+//         }
+//         &:checked::after {
+//             color: map-get($checked, on-color);
+//             opacity: 1;
+//         }
+//         &:disabled::after {
+//             color: map-get($checked, disabled-color);
+//         }
+//     }
+// }
 @mixin _checked {
-    @if map-get($checked, is-border) {
-        &[type="checkbox"] {
-            border-radius: .05rem;
-            border: 1px solid map-get($checked, bordercolor);
-            box-shadow: inset 0 .01rem .03rem rgba(100, 100, 100, .1);
-            background-color: map-get($checked, bgcolor);
+    @include appearance(none);
+    position: relative;
+    @include square(map-get($checked, size));
+    border-radius: map-get($checked, radius);
+    background-color: map-get($checked, bgcolor);
+    // 将 color 设置为 transparent，这时如果不需要边框，就可以将 $bordercolor 设置为 null 了，边框色为 color 设置
+    border: .01rem solid;
+    border-color: map-get($checked, bordercolor);
+    color: transparent;
+    font-size: map-get($checked, size);
+    cursor: pointer;
+    vertical-align: middle;
+    &::after {
+        position:absolute;
+        top: 50%;
+        left: 50%;
+        @include transform(translate(-50%, -50%));
+        @if map-get($checked, type) == tick {
+            content: "✓";
+        } @else {
+            content: "●";
         }
+        font-size: 68%;
+        opacity: 0;
     }
-    // iOS Safari上清除appearance后仍然有边框及背景
-    &[type="radio"] {
-        border: 0 none;
-        background-color: transparent;
-    }
-    &[type="checkbox"],
-    &[type="radio"] {
-        @include appearance(none);
-        position: relative;
-        @include square(map-get($checked, size));
-        font-size: map-get($checked, size);
-        cursor: pointer;
-        vertical-align: middle;
+    &:checked {
+        border-color: map-get($checked, on-bordercolor);
+        background-color: map-get($checked, on-bgcolor);
         &::after {
-            position:absolute;
-            top: 50%;
-            left: 50%;
-            @include transform(translate(-50%, -50%));
-            // @include transition(opacity .5s);
-            @if map-get($checked, type) == tick {
-                content: "✓";
-            } @else {
-                content: "●";
-            }
-            text-shadow: 0 0 .01rem;
-            font-size: 70%;
-            opacity: 0;
-            color: #fff;
-        }
-        &:checked::after {
             color: map-get($checked, on-color);
             opacity: 1;
         }
-        &:disabled::after {
-            color: map-get($checked, disabled-color);
+    }
+    &:disabled {
+        opacity: .4;
+        border-color: map-get($base, disabled-bordercolor) !important;
+        background-color: map-get($base, disabled-bgcolor) !important;
+        &::after {
+            color: map-get($base, disabled-color) !important;
         }
     }
 }
@@ -232,12 +275,9 @@
             top: 50%;
             left: 50%;
             @include transform(translate(-50%, -50%));
-            // @include transition(opacity .5s);
             content: "●";
-            text-shadow: 0 0 .01rem;
-            font-size: 70%;
+            font-size: 68%;
             opacity: 0;
-            color: #fff;
         }
         &:checked {
             border-color: map-get($radio, on-bordercolor);

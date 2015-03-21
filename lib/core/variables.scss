@@ -73,11 +73,11 @@ $base: (
     // 默认次级文本颜色
     sub-color:            #9e9e9e,
     // 默认边框色
-    disabled-bordercolor: #dfdfdf,
+    disabled-bordercolor: #bbb,
     // 默认文档颜色
-    disabled-bgcolor:     #eee,
+    disabled-bgcolor:     #ccc,
     // 默认禁用文本颜色
-    disabled-color:       #d9d9d9,
+    disabled-color:       #f9f9f9,
     // 高亮色
     light-color:          #FE0053,
     // 价格颜色
@@ -177,22 +177,24 @@ $badge: (
     font-size:   .14rem
 ) !default;
 
-// Element checked(7)
+// Element checked(8)
 $checked: (
     // {String} 选中标记类型: [circle | tick]
     type:           circle,
     // {Length} 标签大小
     size:           .2rem,
-    // {Boole} 是否需要边框
-    is-border:      true,
-    // {Color} 边框色
-    bordercolor:    map-get($base, bordercolor),
-    // {Color} 背景色
-    bgcolor:        #fff,
-    // {Color} 标记颜色
+    // {Color} 边框色，如不需要边框，取值null
+    bordercolor:    null,
+    // {Color} 背景色，如不需要背景，取值null
+    bgcolor:        null,
+    // {Color} 激活边框色，如不需要，取值null
+    on-bordercolor: null,
+    // {Color} 激活背景色，如不需要，取值null
+    on-bgcolor:     null,
+    // {Color} 激活标记颜色
     on-color:       #2b94ff,
-    // {Color} 标记禁用色
-    disabled-color: map-get($base, disabled-color)
+    // {Length} checkbox圆角 new
+    radius:         .05rem
 ) !default;
 
 // Element radio(9)
@@ -273,7 +275,7 @@ $btnbar: (
 // Fragment list(13)
 $list: (
     // {Length} 列表外边距
-    margin:            -.01rem -.01rem .15rem -.01rem,
+    margin:            -.01rem -.01rem 0 -.01rem,
     // {Boole} 列表是否有外边框
     is-outline:        false,
     // {Length} 列表圆角

@@ -4,29 +4,31 @@
 /**
  * element: yo-checked
  * Author: joy.du(飘零雾雨)
- * Time: 2014.11.14
+ * Edit: 2015.3.21
  -----------------------
  * @method yo-checked
- * variables length(8)
+ * variables length(9)
  * @param {default | String} $name 定义checked名称
  * @param {default | String} $type 定义checked类型，可选值：[circle | tick]
  * @param {default | Length} $size 定义checked大小
- * @param {default | Boolen} $is-border 定义checked是否需要边框
  * @param {default | Color} $bordercolor 定义checked边框色
  * @param {default | Color} $bgcolor 定义checked背景色
+ * @param {default | Color} $on-bordercolor 定义checked激活边框色
+ * @param {default | Color} $on-bgcolor 定义checked激活背景色
  * @param {default | Color} $on-color 定义checked激活标记色
- * @param {default | Color} $disabled-color 定义checked禁用色
+ * @param {default | Length} $radius 定义checked圆角
  */
 
 @mixin yo-checked(
     $name: default,
     $type: default,
     $size: default,
-    $is-border: default,
     $bordercolor: default,
     $bgcolor: default,
+    $on-bordercolor: default,
+    $on-bgcolor: default,
     $on-color: default,
-    $disabled-color: default) {
+    $radius: default) {
     // 区别是否新增实例还是修改本身
     @if $name == default {
         $name: "";
@@ -40,58 +42,57 @@
     @if $size == default {
         $size: map-get($checked, size);
     }
-    @if $is-border == default {
-        $is-border: map-get($checked, is-border);
-    }
     @if $bordercolor == default {
         $bordercolor: map-get($checked, bordercolor);
     }
     @if $bgcolor == default {
         $bgcolor: map-get($checked, bgcolor);
     }
+    @if $on-bordercolor == default {
+        $on-bordercolor: map-get($checked, on-bordercolor);
+    }
+    @if $on-bgcolor == default {
+        $on-bgcolor: map-get($checked, on-bgcolor);
+    }
     @if $on-color == default {
         $on-color: map-get($checked, on-color);
     }
-    @if $disabled-color == default {
-        $disabled-color: map-get($checked, disabled-color);
+    @if $radius == default {
+        $radius: map-get($checked, radius);
     }
     .yo-checked#{$name} {
-        &[type="checkbox"],
-        &[type="radio"] {
-            @if $size != map-get($checked, size) {
-                @include square($size);
-                font-size: $size;
+        @if $size != map-get($checked, size) {
+            @include square($size);
+            font-size: $size;
+        }
+        @if $radius != map-get($checked, radius) {
+            border-radius: $radius;
+        }
+        @if $bordercolor != map-get($checked, bordercolor) {
+            border-color: $bordercolor;
+        }
+        @if $bgcolor != map-get($checked, bgcolor) {
+            background-color: $bgcolor;
+        }
+        &::after{
+            @if $type != map-get($checked, type) {
+                @if $type == tick {
+                    content: "✓";
+                } @else {
+                    content: "●";
+                }
             }
         }
-        @if $is-border {
-            &[type="checkbox"] {
-                @if $bordercolor != map-get($checked, bordercolor) {
-                    border-color: $bordercolor;
-                }
-                @if $bgcolor != map-get($checked, bgcolor) {
-                    background-color: $bgcolor;
-                }
+        &:checked {
+            @if $on-bordercolor != map-get($checked, on-bordercolor) {
+                border-color: $on-bordercolor;
             }
-        }
-        &[type="checkbox"],
-        &[type="radio"] {
-            &::after{
-                @if $type != map-get($checked, type) {
-                    @if $type == tick {
-                        content: "✓";
-                    } @else {
-                        content: "●";
-                    }
-                }
+            @if $on-bgcolor != map-get($checked, on-bgcolor) {
+                background-color: $on-bgcolor;
             }
-            &:checked::after {
+            &::after {
                 @if $on-color != map-get($checked, on-color) {
                     color: $on-color;
-                }
-            }
-            &:disabled::after {
-                @if $disabled-color != map-get($checked, disabled-color) {
-                    color: $disabled-color;
                 }
             }
         }

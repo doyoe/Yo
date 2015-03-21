@@ -913,7 +913,7 @@ html, body {
  * @param {default|Length} $label-font-size 定义list列表组头字号
  */
 .yo-list {
-  margin: -0.01rem -0.01rem 0.15rem -0.01rem;
+  margin: -0.01rem -0.01rem 0 -0.01rem;
 }
 .yo-list > .label,
 .yo-list > .item,
@@ -1143,10 +1143,8 @@ html, body {
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   content: "●";
-  text-shadow: 0 0 .01rem;
-  font-size: 70%;
+  font-size: 68%;
   opacity: 0;
-  color: #fff;
 }
 .yo-radio[type="radio"]:checked {
   border-color: #2b94ff;
@@ -1157,11 +1155,11 @@ html, body {
   opacity: 1;
 }
 .yo-radio[type="radio"]:disabled {
-  border-color: #dfdfdf;
-  background-color: #eee;
+  border-color: #bbb;
+  background-color: #ccc;
 }
 .yo-radio[type="radio"]:disabled::after {
-  color: #d9d9d9;
+  color: #f9f9f9;
 }
 
 /**
