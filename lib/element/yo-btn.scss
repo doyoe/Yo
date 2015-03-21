@@ -98,9 +98,10 @@
         // 如果是禁用按钮，则不需要交互状态
         @if $name == -disabled {
             cursor: not-allowed;
+            &,
             &:focus,
             &:active {
-                opacity: 1;
+                opacity: .4;
             }
         }
     }
@@ -135,7 +136,8 @@
 
 // 预设禁用按钮
 @include yo-btn(
-    disabled,
-    map-get($btn, disabled-bordercolor),
-    map-get($btn, disabled-bgcolor), map-get($btn, disabled-color)
+    $name: disabled,
+    $bordercolor: map-get($base, disabled-bordercolor),
+    $bgcolor: map-get($base, disabled-bgcolor),
+    $color: map-get($base, disabled-color)
 );

@@ -143,9 +143,8 @@
 </label></xmp>
     <h2>假设你想要其他颜色，那么你可以这样扩展：</h2>
     <p>命名及颜色按照各自团队内部的FE/UI规范即可</p>
-    <h3>全局扩展方式（位置参数）：</h3>
-    <xmp>@include yo-switch(test,#4a87ee,#4a87ee);</xmp>
-    <h3>全局扩展方式（关键字参数）：</h3>
+
+    <h3>全局扩展方式：</h3>
     <xmp>@include yo-switch(
     $name: test,
     $checked-bordercolor: #4a87ee,
@@ -158,11 +157,8 @@
         <span class="handle"></span>
     </div>
 </label></xmp>
-    <h3>局部扩展方式（位置参数）：</h3>
-    <xmp>.xxx{
-    @include yo-switch(test,#4a87ee,#4a87ee);
-}</xmp>
-    <h3>全局扩展方式（关键字参数）：</h3>
+
+    <h3>局部扩展方式（关键字参数）：</h3>
     <xmp>.xxx{
     @include yo-switch(
         $name: test,

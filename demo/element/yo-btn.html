@@ -121,13 +121,25 @@
     <code class="code">
     <h2>假设你想要轻柔一点的颜色，那么你可以这样扩展：</h2>
     <p>命名及颜色按照各自团队内部的FE/UI规范即可</p>
+
     <h3>全局扩展方式：</h3>
-    <xmp>@include yo-btn(light,#ddd,#fff,map-get($base, color));</xmp>
+    <xmp>@include yo-btn(
+    $name: light,
+    $bordercolor: #ddd,
+    $bgcolor: #fff,
+    $color: map-get($base, color)
+);</xmp>
+
     <h3>使用方法：</h3>
     <xmp><button class="yo-btn yo-btn-light">Button</button></xmp>
     <h3>局部扩展方式：</h3>
-    <xmp>.xxx{
-    @include yo-btn(light,#ddd,#fff,map-get($base, color));
+    <xmp>.xxx {
+    @include yo-btn(
+        $name: light,
+        $bordercolor: #ddd,
+        $bgcolor: #fff,
+        $color: map-get($base, color)
+    );
 }</xmp>
     <h3>使用方法：</h3>
     <xmp><div class="xxx">
@@ -163,12 +175,22 @@
     <h2>假设你想要浅一点的颜色，那么你可以这样扩展：</h2>
     <p>命名及颜色按照各自团队内部的FE/UI规范即可</p>
     <h3>全局扩展方式：</h3>
-    <xmp>@include yo-btn(normal,#ddd,#eee,#212121);</xmp>
+    <xmp>@include yo-btn(
+    $name: normal,
+    $bordercolor: #ddd,
+    $bgcolor: #eee,
+    $color: #212121
+);</xmp>
     <h3>使用方法：</h3>
     <xmp><button class="yo-btn yo-btn-normal">Button</button></xmp>
     <h3>局部扩展方式：</h3>
     <xmp>.xxx{
-    @include yo-btn(normal,#ddd,#eee,#212121);
+    @include yo-btn(
+        $name: normal,
+        $bordercolor: #ddd,
+        $bgcolor: #eee,
+        $color: #212121
+    );
 }</xmp>
     <h3>使用方法：</h3>
     <xmp><div class="xxx">
@@ -203,13 +225,23 @@
     <code class="code">
     <h2>假设你想要素雅点的颜色，那么你可以这样扩展：</h2>
     <p>命名及颜色按照各自团队内部的FE/UI规范即可</p>
+
     <h3>全局扩展方式：</h3>
-    <xmp>@include yo-btn(info,#0456e2,#4a87ee);</xmp>
+    <xmp>@include yo-btn(
+    $name: info,
+    $bordercolor: #0456e2,
+    $bgcolor: #4a87ee
+);</xmp>
     <h3>使用方法：</h3>
     <xmp><button class="yo-btn yo-btn-info">Button</button></xmp>
+
     <h3>局部扩展方式：</h3>
     <xmp>.xxx{
-    @include yo-btn(info,#0456e2,#4a87ee);
+    @include yo-btn(
+        $name: info,
+        $bordercolor: #0456e2,
+        $bgcolor: #4a87ee
+    );
 }</xmp>
     <h3>使用方法：</h3>
     <xmp><div class="xxx">

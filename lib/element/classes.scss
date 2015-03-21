@@ -164,55 +164,6 @@
     }
 }
 
-// 定义checked的基础构造
-// 使用方法请查看 yo-checked.scss
-// @mixin _checked {
-//     @if map-get($checked, is-border) {
-//         &[type="checkbox"] {
-//             border-radius: .05rem;
-//             border: 1px solid map-get($checked, bordercolor);
-//             box-shadow: inset 0 .01rem .03rem rgba(100, 100, 100, .1);
-//             background-color: map-get($checked, bgcolor);
-//         }
-//     }
-//     // iOS Safari上清除appearance后仍然有边框及背景
-//     &[type="radio"] {
-//         border: 0 none;
-//         background-color: transparent;
-//     }
-//     &[type="checkbox"],
-//     &[type="radio"] {
-//         @include appearance(none);
-//         position: relative;
-//         @include square(map-get($checked, size));
-//         font-size: map-get($checked, size);
-//         cursor: pointer;
-//         vertical-align: middle;
-//         &::after {
-//             position:absolute;
-//             top: 50%;
-//             left: 50%;
-//             @include transform(translate(-50%, -50%));
-//             // @include transition(opacity .5s);
-//             @if map-get($checked, type) == tick {
-//                 content: "✓";
-//             } @else {
-//                 content: "●";
-//             }
-//             text-shadow: 0 0 .01rem;
-//             font-size: 70%;
-//             opacity: 0;
-//             color: #fff;
-//         }
-//         &:checked::after {
-//             color: map-get($checked, on-color);
-//             opacity: 1;
-//         }
-//         &:disabled::after {
-//             color: map-get($checked, disabled-color);
-//         }
-//     }
-// }
 @mixin _checked {
     @include appearance(none);
     position: relative;
