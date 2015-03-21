@@ -1111,64 +1111,61 @@ html, body {
  * Time: 2014.11.14
  -----------------------
  * @method yo-checkbox
- * variables length(11)
- * @param {default | String} $name 定义checkbox名称
- * @param {default | String} $type 定义checkbox类型
- * @param {default | Length} $size 定义checkbox大小
- * @param {default | Color} $bordercolor 定义checkbox边框色
- * @param {default | Color} $bgcolor 定义checkbox背景色
- * @param {default | Color} $on-bordercolor 定义checkbox选中边框色
- * @param {default | Color} $on-bgcolor 定义checkbox选中背景色
- * @param {default | Color} $on-color 定义checkbox选中标记色
- * @param {default | Color} $disabled-bordercolor 定义checkbox禁用边框色
- * @param {default | Color} $disabled-bgcolor 定义checkbox禁用背景色
- * @param {default | Color} $disabled-color 定义checkbox禁用标记色
- * @param {default | Length} $radius 定义checkbox圆角
+ * variables length(9)
+ * @param {default | String} $name 扩展的名称
+ * @param {default | String} $type 类型，可选值：[circle | tick]
+ * @param {default | Length} $size 元件大小
+ * @param {default | Color} $bordercolor 边框色
+ * @param {default | Color} $bgcolor 背景色
+ * @param {default | Color} $on-bordercolor 激活时边框色
+ * @param {default | Color} $on-bgcolor 激活时背景色
+ * @param {default | Color} $on-color 激活时标记色
+ * @param {default | Length} $radius 圆角半径
  */
-.yo-checkbox[type="checkbox"] {
+.yo-checkbox {
   -webkit-appearance: none;
   appearance: none;
   position: relative;
   width: 0.2rem;
   height: 0.2rem;
-  font-size: 0.2rem;
   border-radius: 0.05rem;
-  border: 1px solid #ddd;
-  box-shadow: inset 0 0.01rem 0.03rem rgba(100, 100, 100, 0.1);
   background-color: #fff;
+  border: .01rem solid;
+  border-color: #ddd;
+  color: transparent;
+  font-size: 0.2rem;
   cursor: pointer;
   vertical-align: middle;
 }
-.yo-checkbox[type="checkbox"]::after {
+.yo-checkbox::after {
   position: absolute;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   content: "✓";
-  text-shadow: 0 0 .01rem;
-  font-size: 70%;
+  font-size: 68%;
   opacity: 0;
-  color: #fff;
 }
-.yo-checkbox[type="checkbox"]:checked {
+.yo-checkbox:checked {
   border-color: #2b94ff;
   background-color: #2b94ff;
 }
-.yo-checkbox[type="checkbox"]:checked::after {
+.yo-checkbox:checked::after {
   color: #fff;
   opacity: 1;
 }
-.yo-checkbox[type="checkbox"]:disabled {
-  border-color: #bbb;
-  background-color: #ccc;
+.yo-checkbox:disabled {
+  opacity: .4;
+  border-color: #bbb !important;
+  background-color: #ccc !important;
 }
-.yo-checkbox[type="checkbox"]:disabled::after {
-  color: #f9f9f9;
+.yo-checkbox:disabled::after {
+  color: #f9f9f9 !important;
 }
 
 /**
- * Element扩展: yo-checkbox
+ * yo-checkbox扩展
  * Author: joy.du(飘零雾雨)
  * Time: 2015.1.16
  */

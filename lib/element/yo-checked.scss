@@ -8,15 +8,15 @@
  -----------------------
  * @method yo-checked
  * variables length(9)
- * @param {default | String} $name 定义checked名称
- * @param {default | String} $type 定义checked类型，可选值：[circle | tick]
- * @param {default | Length} $size 定义checked大小
- * @param {default | Color} $bordercolor 定义checked边框色
- * @param {default | Color} $bgcolor 定义checked背景色
- * @param {default | Color} $on-bordercolor 定义checked激活边框色
- * @param {default | Color} $on-bgcolor 定义checked激活背景色
- * @param {default | Color} $on-color 定义checked激活标记色
- * @param {default | Length} $radius 定义checked圆角
+ * @param {default | String} $name 扩展的名称
+ * @param {default | String} $type 类型，可选值：[circle | tick]
+ * @param {default | Length} $size 元件大小
+ * @param {default | Color} $bordercolor 边框色
+ * @param {default | Color} $bgcolor 背景色
+ * @param {default | Color} $on-bordercolor 激活时边框色
+ * @param {default | Color} $on-bgcolor 激活时背景色
+ * @param {default | Color} $on-color 激活时标记色
+ * @param {default | Length} $radius 圆角半径
  */
 
 @mixin yo-checked(

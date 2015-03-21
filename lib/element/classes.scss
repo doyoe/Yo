@@ -260,39 +260,45 @@
 // 定义radio的基础构造
 // 使用方法请查看 yo-radio.scss
 @mixin _radio {
-    &[type="radio"] {
-        @include appearance(none);
-        position: relative;
-        @include square(map-get($radio, size));
-        border-radius: 50%;
-        border: 1px solid map-get($radio, bordercolor);
-        box-shadow: inset 0 .01rem .03rem rgba(100, 100, 100, .1);
-        background-color: map-get($radio, bgcolor);
-        cursor: pointer;
-        vertical-align: middle;
-        &::after {
-            position:absolute;
-            top: 50%;
-            left: 50%;
-            @include transform(translate(-50%, -50%));
+    @include appearance(none);
+    position: relative;
+    @include square(map-get($radio, size));
+    border-radius: map-get($radio, radius);
+    background-color: map-get($radio, bgcolor);
+    // 将 color 设置为 transparent，这时如果不需要边框，就可以将 $bordercolor 设置为 null 了，边框色为 color 设置
+    border: .01rem solid;
+    border-color: map-get($radio, bordercolor);
+    color: transparent;
+    font-size: map-get($radio, size);
+    cursor: pointer;
+    vertical-align: middle;
+    &::after {
+        position:absolute;
+        top: 50%;
+        left: 50%;
+        @include transform(translate(-50%, -50%));
+        @if map-get($radio, type) == tick {
+            content: "✓";
+        } @else {
             content: "●";
-            font-size: 68%;
-            opacity: 0;
         }
-        &:checked {
-            border-color: map-get($radio, on-bordercolor);
-            background-color: map-get($radio, on-bgcolor);
-            &::after {
-                color: map-get($radio, on-color);
-                opacity: 1;
-            }
+        font-size: 68%;
+        opacity: 0;
+    }
+    &:checked {
+        border-color: map-get($radio, on-bordercolor);
+        background-color: map-get($radio, on-bgcolor);
+        &::after {
+            color: map-get($radio, on-color);
+            opacity: 1;
         }
-        &:disabled {
-            border-color: map-get($radio, disabled-bordercolor);
-            background-color: map-get($radio, disabled-bgcolor);
-            &::after {
-                color: map-get($radio, disabled-color);
-            }
+    }
+    &:disabled {
+        opacity: .4;
+        border-color: map-get($base, disabled-bordercolor) !important;
+        background-color: map-get($base, disabled-bgcolor) !important;
+        &::after {
+            color: map-get($base, disabled-color) !important;
         }
     }
 }
@@ -300,47 +306,45 @@
 // 定义checkbox的基础构造
 // 使用方法请查看 yo-checkbox.scss
 @mixin _checkbox {
-    &[type="checkbox"] {
-        @include appearance(none);
-        position: relative;
-        @include square(map-get($checkbox, size));
-        font-size: map-get($checkbox, size);
-        border-radius: map-get($checkbox, radius);
-        border: 1px solid map-get($checkbox, bordercolor);
-        box-shadow: inset 0 .01rem .03rem rgba(100, 100, 100, .1);
-        background-color: map-get($checkbox, bgcolor);
-        cursor: pointer;
-        vertical-align: middle;
+    @include appearance(none);
+    position: relative;
+    @include square(map-get($checkbox, size));
+    border-radius: map-get($checkbox, radius);
+    background-color: map-get($checkbox, bgcolor);
+    // 将 color 设置为 transparent，这时如果不需要边框，就可以将 $bordercolor 设置为 null 了，边框色为 color 设置
+    border: .01rem solid;
+    border-color: map-get($checkbox, bordercolor);
+    color: transparent;
+    font-size: map-get($checkbox, size);
+    cursor: pointer;
+    vertical-align: middle;
+    &::after {
+        position:absolute;
+        top: 50%;
+        left: 50%;
+        @include transform(translate(-50%, -50%));
+        @if map-get($checkbox, type) == tick {
+            content: "✓";
+        } @else {
+            content: "●";
+        }
+        font-size: 68%;
+        opacity: 0;
+    }
+    &:checked {
+        border-color: map-get($checkbox, on-bordercolor);
+        background-color: map-get($checkbox, on-bgcolor);
         &::after {
-            position:absolute;
-            top: 50%;
-            left: 50%;
-            @include transform(translate(-50%, -50%));
-            // @include transition(opacity .5s);
-            @if map-get($checkbox, type) != circle {
-                content: "✓";
-            } @else {
-                content: "●";
-            }
-            text-shadow: 0 0 .01rem;
-            font-size: 70%;
-            opacity: 0;
-            color: #fff;
+            color: map-get($checkbox, on-color);
+            opacity: 1;
         }
-        &:checked {
-            border-color: map-get($checkbox, on-bordercolor);
-            background-color: map-get($checkbox, on-bgcolor);
-            &::after {
-                color: map-get($checkbox, on-color);
-                opacity: 1;
-            }
-        }
-        &:disabled {
-            border-color: map-get($checkbox, disabled-bordercolor);
-            background-color: map-get($checkbox, disabled-bgcolor);
-            &::after {
-                color: map-get($checkbox, disabled-color);
-            }
+    }
+    &:disabled {
+        opacity: .4;
+        border-color: map-get($base, disabled-bordercolor) !important;
+        background-color: map-get($base, disabled-bgcolor) !important;
+        &::after {
+            color: map-get($base, disabled-color) !important;
         }
     }
 }

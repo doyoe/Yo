@@ -45,6 +45,7 @@
 <a name="dev-version"></a>
 ### 开发中版本：v1.3.0
 
+* update: 建议 checkbox 及 radio 都使用 yo-checked，后续考虑将 yo-checkbox 及 yo-radio 删除，尽量不要使用，之前使用过最好及时替换；
 * update: yo-checked
 
     * 删除 `is-border` 参数，不再使用该参数来设定是否有边框，利用原有 `bordercolor` 参数，当值为 `transparent` 时，则无边框；

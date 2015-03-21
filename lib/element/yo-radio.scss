@@ -4,33 +4,31 @@
 /**
  * element: yo-radio
  * Author: joy.du(飘零雾雨)
- * Time: 2014.11.14
+ * Edit: 2015.3.21
  -----------------------
  * @method yo-radio
- * variables length(10)
- * @param {default | String} $name 定义radio名称
- * @param {default | Length} $size 定义radio大小
- * @param {default | Color} $bordercolor 定义radio边框色
- * @param {default | Color} $bgcolor 定义radio背景色
- * @param {default | Color} $on-bordercolor 定义radio选中边框色
- * @param {default | Color} $on-bgcolor 定义radio选中背景色
- * @param {default | Color} $on-color 定义radio选中标记色
- * @param {default | Color} $disabled-bordercolor 定义radio禁用边框色
- * @param {default | Color} $disabled-bgcolor 定义radio禁用背景色
- * @param {default | Color} $disabled-color 定义radio禁用标记色
+ * variables length(9)
+ * @param {default | String} $name 扩展的名称
+ * @param {default | String} $type 类型，可选值：[circle | tick]
+ * @param {default | Length} $size 元件大小
+ * @param {default | Color} $bordercolor 边框色
+ * @param {default | Color} $bgcolor 背景色
+ * @param {default | Color} $on-bordercolor 激活时边框色
+ * @param {default | Color} $on-bgcolor 激活时背景色
+ * @param {default | Color} $on-color 激活时标记色
+ * @param {default | Length} $radius 圆角半径
  */
 
 @mixin yo-radio(
     $name: default,
+    $type: default,
     $size: default,
     $bordercolor: default,
     $bgcolor: default,
     $on-bordercolor: default,
     $on-bgcolor: default,
     $on-color: default,
-    $disabled-bordercolor: default,
-    $disabled-bgcolor: default,
-    $disabled-color: default) {
+    $radius: default) {
     // 区别是否新增实例还是修改本身
     @if $name == default {
         $name: "";
@@ -38,6 +36,9 @@
         $name: "-#{$name}";
     }
     // 如果值为default，则取config的定义
+    @if $type == default {
+        $type: map-get($radio, type);
+    }
     @if $size == default {
         $size: map-get($radio, size);
     }
@@ -56,50 +57,42 @@
     @if $on-color == default {
         $on-color: map-get($radio, on-color);
     }
-    @if $disabled-bordercolor == default {
-        $disabled-bordercolor: map-get($radio, disabled-bordercolor);
-    }
-    @if $disabled-bgcolor == default {
-        $disabled-bgcolor: map-get($radio, disabled-bgcolor);
-    }
-    @if $disabled-color == default {
-        $disabled-color: map-get($radio, disabled-color);
+    @if $radius == default {
+        $radius: map-get($radio, radius);
     }
     .yo-radio#{$name} {
-        &[type="radio"] {
-            @if $size != map-get($radio, size) {
-                @include square($size);
-            }
-            @if $bordercolor != map-get($radio, bordercolor) {
-                border-color: $bordercolor;
-            }
-            @if $bgcolor != map-get($radio, bgcolor) {
-                background-color: $bgcolor;
-            }
-            &:checked {
-                @if $on-bordercolor != map-get($radio, on-bordercolor) {
-                    border-color: $on-bordercolor;
-                }
-                @if $on-bgcolor != map-get($radio, on-bgcolor) {
-                    background-color: $on-bgcolor;
-                }
-                &::after{
-                    @if $on-color != map-get($radio, on-color) {
-                        color: $on-color;
-                    }
+        @if $size != map-get($radio, size) {
+            @include square($size);
+            font-size: $size;
+        }
+        @if $radius != map-get($checked, radius) {
+            border-radius: $radius;
+        }
+        @if $bordercolor != map-get($radio, bordercolor) {
+            border-color: $bordercolor;
+        }
+        @if $bgcolor != map-get($radio, bgcolor) {
+            background-color: $bgcolor;
+        }
+        &::after{
+            @if $type != map-get($checked, type) {
+                @if $type == tick {
+                    content: "✓";
+                } @else {
+                    content: "●";
                 }
             }
-            &:disabled {
-                @if $disabled-bordercolor != map-get($radio, disabled-bordercolor) {
-                    border-color: $disabled-bordercolor;
-                }
-                @if $disabled-bgcolor != map-get($radio, disabled-bgcolor) {
-                    background-color: $disabled-bgcolor;
-                }
-                &::after{
-                    @if $disabled-color != map-get($radio, disabled-color) {
-                        color: $disabled-color;
-                    }
+        }
+        &:checked {
+            @if $on-bordercolor != map-get($radio, on-bordercolor) {
+                border-color: $on-bordercolor;
+            }
+            @if $on-bgcolor != map-get($radio, on-bgcolor) {
+                background-color: $on-bgcolor;
+            }
+            &::after {
+                @if $on-color != map-get($radio, on-color) {
+                    color: $on-color;
                 }
             }
         }

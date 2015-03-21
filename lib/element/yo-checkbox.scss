@@ -7,19 +7,16 @@
  * Time: 2014.11.14
  -----------------------
  * @method yo-checkbox
- * variables length(11)
- * @param {default | String} $name 定义checkbox名称
- * @param {default | String} $type 定义checkbox类型
- * @param {default | Length} $size 定义checkbox大小
- * @param {default | Color} $bordercolor 定义checkbox边框色
- * @param {default | Color} $bgcolor 定义checkbox背景色
- * @param {default | Color} $on-bordercolor 定义checkbox选中边框色
- * @param {default | Color} $on-bgcolor 定义checkbox选中背景色
- * @param {default | Color} $on-color 定义checkbox选中标记色
- * @param {default | Color} $disabled-bordercolor 定义checkbox禁用边框色
- * @param {default | Color} $disabled-bgcolor 定义checkbox禁用背景色
- * @param {default | Color} $disabled-color 定义checkbox禁用标记色
- * @param {default | Length} $radius 定义checkbox圆角
+ * variables length(9)
+ * @param {default | String} $name 扩展的名称
+ * @param {default | String} $type 类型，可选值：[circle | tick]
+ * @param {default | Length} $size 元件大小
+ * @param {default | Color} $bordercolor 边框色
+ * @param {default | Color} $bgcolor 背景色
+ * @param {default | Color} $on-bordercolor 激活时边框色
+ * @param {default | Color} $on-bgcolor 激活时背景色
+ * @param {default | Color} $on-color 激活时标记色
+ * @param {default | Length} $radius 圆角半径
  */
 
 @mixin yo-checkbox(
@@ -31,9 +28,6 @@
     $on-bordercolor: default,
     $on-bgcolor: default,
     $on-color: default,
-    $disabled-bordercolor: default,
-    $disabled-bgcolor: default,
-    $disabled-color: default,
     $radius: default) {
     // 区别是否新增实例还是修改本身
     @if $name == default {
@@ -63,66 +57,42 @@
     @if $on-color == default {
         $on-color: map-get($checkbox, on-color);
     }
-    @if $disabled-bordercolor == default {
-        $disabled-bordercolor: map-get($checkbox, disabled-bordercolor);
-    }
-    @if $disabled-bgcolor == default {
-        $disabled-bgcolor: map-get($checkbox, disabled-bgcolor);
-    }
-    @if $disabled-color == default {
-        $disabled-color: map-get($checkbox, disabled-color);
-    }
     @if $radius == default {
         $radius: map-get($checkbox, radius);
     }
     .yo-checkbox#{$name} {
-        &[type="checkbox"] {
-            @if $size != map-get($checkbox, size) {
-                @include square($size);
-                font-size: $size;
+        @if $size != map-get($checkbox, size) {
+            @include square($size);
+            font-size: $size;
+        }
+        @if $radius != map-get($checkbox, radius) {
+            border-radius: $radius;
+        }
+        @if $bordercolor != map-get($checkbox, bordercolor) {
+            border-color: $bordercolor;
+        }
+        @if $bgcolor != map-get($checkbox, bgcolor) {
+            background-color: $bgcolor;
+        }
+        &::after {
+            @if $type != map-get($checkbox, type) {
+                @if $type == tick {
+                    content: "✓";
+                } @else {
+                    content: "●";
+                }
             }
-            @if $bordercolor != map-get($checkbox, bordercolor) {
-                border-color: $bordercolor;
+        }
+        &:checked {
+            @if $on-bordercolor != map-get($checkbox, on-bordercolor) {
+                border-color: $on-bordercolor;
             }
-            @if $radius != map-get($checkbox, radius) {
-                border-radius: $radius;
-            }
-            @if $bgcolor != map-get($checkbox, bgcolor) {
-                background-color: $bgcolor;
+            @if $on-bgcolor != map-get($checkbox, on-bgcolor) {
+                background-color: $on-bgcolor;
             }
             &::after{
-                @if $type != map-get($checkbox, type) {
-                    @if $type == tick {
-                        content: "✓";
-                    } @else {
-                        content: "●";
-                    }
-                }
-            }
-            &:checked{
-                @if $on-bordercolor != map-get($checkbox, on-bordercolor) {
-                    border-color: $on-bordercolor;
-                }
-                @if $on-bgcolor != map-get($checkbox, on-bgcolor) {
-                    background-color: $on-bgcolor;
-                }
-                &::after{
-                    @if $on-color != map-get($checkbox, on-color) {
-                        color: $on-color;
-                    }
-                }
-            }
-            &:disabled{
-                @if $disabled-bordercolor != map-get($checkbox, disabled-bordercolor) {
-                    border-color: $disabled-bordercolor;
-                }
-                @if $disabled-bgcolor != map-get($checkbox, disabled-bgcolor) {
-                    background-color: $disabled-bgcolor;
-                }
-                &::after{
-                    @if $disabled-color != map-get($checkbox, disabled-color) {
-                        color: $disabled-color;
-                    }
+                @if $on-color != map-get($checkbox, on-color) {
+                    color: $on-color;
                 }
             }
         }
