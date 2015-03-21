@@ -1,6 +1,6 @@
 # Yo
 
-移动前端CSS Framework
+一个基于 `Sass` 开发的 `CSS Framework`，Mobile First 的设计理念使得 Yo 的体积超轻量，同时又能延伸到支持PC端。
 
 
 
