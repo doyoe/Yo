@@ -96,7 +96,7 @@
         @if $is-outline {
             @if $is-outline != map-get($list, is-outline) {
                 overflow: hidden;
-                border: .01rem solid;
+                border: .01rem solid map-get($list, bordercolor);
             }
             @if $bordercolor != map-get($list, bordercolor) {
                 border-color: $bordercolor;

@@ -2,15 +2,19 @@
 @import "../../../lib/element/yo-badge";
 
 /**
- * Element扩展: yo-badge
+ * yo-badge扩展
  * Author: joy.du(飘零雾雨)
  * Time: 2015.1.16
  */
 
-// 预设常规气泡(位置参数示例)
-@include yo-badge(normal, gray, gray);
+// 预设常规气泡
+@include yo-badge(
+    $name: normal,
+    $bordercolor: gray,
+    $bgcolor: gray
+);
 
-// 预设镂空气泡(关键字参数示例)
+// 预设镂空气泡
 @include yo-badge(
     $name: hollow,
     $bordercolor: #666,
@@ -18,7 +22,7 @@
     $color: #666
 );
 
-// 预设标识气泡(关键字参数示例)
+// 预设标识气泡
 @include yo-badge(
     $name: ident,
     $bordercolor: #666,
@@ -28,7 +32,7 @@
     $font-size: .12rem
 );
 
-// 预设标签气泡(关键字参数示例)
+// 预设标签气泡
 @include yo-badge(
     $name: tag,
     $bordercolor: #aaa,

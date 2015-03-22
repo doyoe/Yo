@@ -2,9 +2,14 @@
 @import "../../../lib/fragment/yo-list";
 
 /**
- * Fragment扩展: 嵌入式的 yo-list
+ * yo-list扩展
  * Author: joy.du(飘零雾雨)
  * Time: 2015.1.16
  */
 
-@include yo-list(inset, .2rem .1rem, true, .02rem);
+@include yo-list(
+    $name: inset,
+    $margin: .2rem .1rem 0 .1rem,
+    $is-outline: true,
+    $radius: .02rem
+);
