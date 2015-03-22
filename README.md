@@ -73,7 +73,7 @@
 <a name="history-version"></a>
 ### History
 
-查看 [版本变更记录](changelog.md)
+For more information on History Version, Please visit [changelog](changelog.md)
 
 <a name="version-number-description"></a>
 ### Number Description
