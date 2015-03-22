@@ -10,13 +10,13 @@
 * [浏览器支持](#browser-support)
 * [问题和特性反馈](#bugs-and-feature-requests)
 * [文档](#documentation)
-* [版本](#version)
+* [Versioning](#version)
     * [开发版本](#dev-version)
     * [当前版本](#now-version)
     * [历史版本](#old-version)
     * [版本号说明](#version-intro)
-* [作者](#author)
-* [版权和许可](#copyright-and-license)
+* [Author](#author)
+* [Copyright and License](#copyright-and-license)
 
 
 <a name="quick-start"></a>
@@ -40,10 +40,10 @@
 待发布...
 
 <a name="version"></a>
-## 版本
+## Versioning
 
 <a name="dev-version"></a>
-### 开发中版本：v1.3.0
+### 开发版本：v1.3.0
 
 * update: 建议 checkbox 及 radio 都使用 yo-checked，后续考虑将 yo-checkbox 及 yo-radio 删除，尽量不要使用，之前使用过最好及时替换；
 * update: yo-checked
@@ -89,11 +89,11 @@ Yo 遵循 [Semantic Versioning](http://semver.org/lang/zh-CN/) 规范，版本�
 * 修订号：做了向下兼容的问题修正、细节调整等。
 
 <a name="author"></a>
-## 作者
+## Author
 
 My name is Du Yao, working in Beijing [Qunar.com](http://www.qunar.com) now, is active in [Github](https://github.com/doyoe) and [Weibo](http://weibo.com/doyoe). Thus, you can find some information about me on my [Website](http://www.doyoe.com). Of course, you can visit my [blog](http://blog.doyoe.com) and use my tool sites, including [CSS-handbook](http://css.doyoe.com) and [Web front-end laboratories](http://demo.doyoe.com).
 
 <a name="copyright-and-license"></a>
-## 版权和许可
+## Copyright and License
 
 Code and documentation copyright 2014-2015 [doyoe.com](http://www.doyoe.com). Code released under [the MIT license](http://opensource.org/licenses/MIT). Docs released under [Creative Commons](http://creativecommons.org/licenses/by/4.0/).
