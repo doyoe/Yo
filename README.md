@@ -2,8 +2,6 @@
 
 一个基于 `Sass` 开发的 `CSS Framework`，Mobile First 的设计理念使得 Yo 的体积超轻量，同时又能延伸到支持PC端。
 
-
-
 ## 目录
 
 * [快速开始](#quick-start)
@@ -11,10 +9,10 @@
 * [问题和特性反馈](#bugs-and-feature-requests)
 * [文档](#documentation)
 * [Versioning](#version)
-    * [开发版本](#dev-version)
-    * [当前版本](#now-version)
-    * [历史版本](#old-version)
-    * [版本号说明](#version-intro)
+    - [开发版本](#dev-version)
+    - [当前版本](#now-version)
+    - [历史版本](#old-version)
+    - [版本号说明](#version-intro)
 * [Author](#author)
 * [Copyright and License](#copyright-and-license)
 
@@ -47,15 +45,13 @@
 
 * update: 建议 checkbox 及 radio 都使用 yo-checked，后续考虑将 yo-checkbox 及 yo-radio 删除，尽量不要使用，之前使用过最好及时替换；
 * update: yo-checked
-
-    * 删除 `is-border` 参数，不再使用该参数来设定是否有边框，利用原有 `bordercolor` 参数，当值为 `transparent` 时，则无边框；
-    * 删除 `disabled-color` 参数，Yo所有元素的禁用色都改为继承 `$base` map；
-    * 增加 `radius` 参数用于设置圆角；
-    * 增加 `on-bordercolor` 参数用于设置激活边框色；
-    * 增加 `on-bgcolor` 参数用于设置激活背景色；
+    - 删除 `is-border` 参数，不再使用该参数来设定是否有边框，利用原有 `bordercolor` 参数，当值为 `transparent` 时，则无边框；
+    - 删除 `disabled-color` 参数，Yo所有元素的禁用色都改为继承 `$base` map；
+    - 增加 `radius` 参数用于设置圆角；
+    - 增加 `on-bordercolor` 参数用于设置激活边框色；
+    - 增加 `on-bgcolor` 参数用于设置激活背景色；
 * update: yo-rating 外观
-
-    * 增加 `url` 参数用于改变 yo-rating 的外观；
+    - 增加 `url` 参数用于改变 yo-rating 的外观；
 
 <a name="now-version"></a>
 ### 当前版本：v1.2.0
