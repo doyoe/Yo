@@ -3,7 +3,7 @@
 历史更新版本
 
 <a name="v1-2-0"></a>
-## v1.2.0
+## v1.2.0 (2015.3.20)
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v1.2.0)
 
@@ -21,7 +21,7 @@
 * fixed: fixed yo-switch handle bug on samsung s4；
 
 <a name="v1-1-0"></a>
-## v1.1.0
+## v1.1.0 (2015.3.12)
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v1.1.0)
 
@@ -32,7 +32,7 @@
 * update: add width 100% for yo-switchable wrap
 
 <a name="v1-0-0"></a>
-## v1.0.0
+## v1.0.0 (2015.3.9)
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v1.0.0)
 
