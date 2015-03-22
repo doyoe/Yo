@@ -8,11 +8,11 @@
 * [浏览器支持](#browser-support)
 * [问题和特性反馈](#bugs-and-feature-requests)
 * [文档](#documentation)
-* [Versioning](#version)
-    - [开发版本](#dev-version)
-    - [当前版本](#now-version)
-    - [历史版本](#old-version)
-    - [版本号说明](#version-intro)
+* [Versioning](#versioning)
+    - [Developing](#developing-version)
+    - [Lastest](#lastest-version)
+    - [History](#history-version)
+    - [Number Description](#version-number-description)
 * [Author](#author)
 * [Copyright and License](#copyright-and-license)
 
@@ -40,8 +40,8 @@
 <a name="version"></a>
 ## Versioning
 
-<a name="dev-version"></a>
-### 开发版本：v1.3.0
+<a name="developing-version"></a>
+### Developing: v1.3.0
 
 * update: 建议 checkbox 及 radio 都使用 yo-checked，后续考虑将 yo-checkbox 及 yo-radio 删除，尽量不要使用，之前使用过最好及时替换；
 * update: yo-checked
@@ -53,8 +53,8 @@
 * update: yo-rating 外观
     - 增加 `url` 参数用于改变 yo-rating 的外观；
 
-<a name="now-version"></a>
-### 当前版本：v1.2.0
+<a name="lastest-version"></a>
+### Lastest: v1.2.0
 
 * update: yo-checkbox 增加圆角参数；
 * update: yo-list 增加label和item的颜色参数，字号参数；为item设定最小高度；
@@ -70,13 +70,13 @@
 * fixed: fixed yo-switch handle bug on samsung s4；
 
 
-<a name="old-version"></a>
-### 历史版本
+<a name="history-version"></a>
+### History
 
 查看 [版本变更记录](changelog.md)
 
-<a name="version-intro"></a>
-### 版本号说明
+<a name="version-number-description"></a>
+### Number Description
 
 Yo 遵循 [Semantic Versioning](http://semver.org/lang/zh-CN/) 规范，版本采用 `主版本号.次版本号.修订号` 的格式，规则如下：
 
