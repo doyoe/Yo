@@ -72,7 +72,10 @@
     <h2>假设你想要其他颜色，那么你可以这样扩展：</h2>
     <p>命名及颜色按照各自团队内部的FE/UI规范即可</p>
     <h3>全局扩展方式：</h3>
-    <xmp>@include yo-range(test,#4a87ee);</xmp>
+    <xmp>@include yo-range(
+    $name: test,
+    $inner-bgcolor: #4a87ee
+);</xmp>
     <h3>使用方法：</h3>
     <xmp><div class="yo-range yo-range-test">
     <i class="yo-ico">&#xf027;</i>
@@ -80,8 +83,11 @@
     <i class="yo-ico">&#xf028;</i>
 </div></xmp>
     <h3>局部扩展方式：</h3>
-    <xmp>.xxx{
-    @include yo-range(test,#4a87ee);
+    <xmp>.xxx {
+    @include yo-range(
+        $name: test,
+        $inner-bgcolor: #4a87ee
+    );
 }</xmp>
     <h3>使用方法：</h3>
     <xmp><div class="xxx">
