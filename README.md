@@ -66,11 +66,19 @@ For more information on History Version, Please visit [changelog](changelog.md).
 <a name="version-number-description"></a>
 ### Number Description
 
-Yo 遵循 [Semantic Versioning](http://semver.org/lang/zh-CN/) 规范，版本采用 `主版本号.次版本号.修订号` 的格式，规则如下：
+For transparency and insight into `Yo`'s release cycle, and for striving to maintain backward compatibility, Bootstrap will be maintained under the Semantic Versioning guidelines as much as possible.
 
-* 主版本号：做了不兼容的API修改，比如大规模重构，设计模式变更，语法变更等；
-* 次版本号：做了向下兼容的功能性新增；
-* 修订号：做了向下兼容的问题修正、细节调整等。
+Releases will be numbered with the following format:
+
+`<major>.<minor>.<patch>`
+
+And constructed with the following guidelines:
+
+* Breaking backward compatibility bumps the major (and resets the minor and patch)
+* New additions without breaking backward compatibility bumps the minor (and resets the patch)
+* Bug fixes and misc changes bumps the patch
+
+For more information on SemVer, please visit [semver.org](http://semver.org/).
 
 <a name="author"></a>
 ## Author
