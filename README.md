@@ -77,19 +77,7 @@
 <a name="old-version"></a>
 ### 历史版本
 
-### v1.1.0
-
-* add yo-loadtip
-* update: add disabled status for yo-select
-* add demo index page
-* update: add border for yo-badge
-* update: add width 100% for yo-switchable wrap
-
-#### v1.0.0
-
-* 新增 widget yo-switch，并移除 element yo-switch；
-* 新增 widget yo-switchable
-* 修订 widget yo-select背景色问题
+查看 [版本变更记录](changelog.md)
 
 <a name="version-intro"></a>
 ### 版本号说明
