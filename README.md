@@ -66,7 +66,7 @@ For more information on History Version, Please visit [changelog](changelog.md).
 <a name="version-number-description"></a>
 ### Number Description
 
-For transparency and insight into `Yo`'s release cycle, and for striving to maintain backward compatibility, Bootstrap will be maintained under the Semantic Versioning guidelines as much as possible.
+For transparency and insight into our release cycle, and for striving to maintain backward compatibility, Yo will be maintained under the Semantic Versioning guidelines as much as possible.
 
 Releases will be numbered with the following format:
 
