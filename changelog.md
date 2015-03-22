@@ -1,6 +1,6 @@
 # Yo Changelog
 
-历史更新版本及发布时间
+History Version and release time.
 
 <a name="v1-2-0"></a>
 ## v1.2.0 (2015.3.20)

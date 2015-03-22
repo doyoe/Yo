@@ -2,38 +2,26 @@
 
 一个基于 `Sass` 开发的 `CSS Framework`，Mobile First 的设计理念使得 Yo 的体积超轻量，同时又能延伸到支持PC端。
 
-## 目录
-
-* [快速开始](#quick-start)
-* [浏览器支持](#browser-support)
-* [问题和特性反馈](#bugs-and-feature-requests)
-* [文档](#documentation)
-* [Versioning](#versioning)
-    - [Developing](#developing-version)
-    - [Lastest](#lastest-version)
-    - [History](#history-version)
-    - [Number Description](#version-number-description)
-* [Author](#author)
-* [Copyright and License](#copyright-and-license)
-
 
 <a name="quick-start"></a>
-## 快速开始
+## Quick start
+
+待完善...
 
 <a name="browser-support"></a>
-## 浏览器支持
+## Browser support
 
 * iOS6.x, iOS7.x, iOS8.x
 * Android4.x, Android5.x
 * Latest Stable: Chrome, Safari
 
 <a name="bugs-and-feature-requests"></a>
-## 问题和特性反馈
+## Bugs and feature requests
 
 如果你或者你所在的公司正在使用 Yo，过程中发现了任何问题，或者有任何帮助 Yo 更完善的想法和建议，都可以直接给我提[Issues](https://github.com/doyoe/Yo/issues/new)和[Pull Requests](https://github.com/doyoe/Yo/pulls)。
 
 <a name="documentation"></a>
-## 文档
+## Documentation
 
 待发布...
 
@@ -73,7 +61,7 @@
 <a name="history-version"></a>
 ### History
 
-For more information on History Version, Please visit [changelog](changelog.md)
+For more information on History Version, Please visit [changelog](changelog.md).
 
 <a name="version-number-description"></a>
 ### Number Description
