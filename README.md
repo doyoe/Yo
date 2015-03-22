@@ -3,32 +3,29 @@
 一个基于 `Sass` 开发的 `CSS Framework`，Mobile First 的设计理念使得 Yo 的体积超轻量，同时又能延伸到支持PC端。
 
 
-<a name="quick-start"></a>
 ## Quick start
 
 待完善...
 
-<a name="browser-support"></a>
+
 ## Browser support
 
 * iOS6.x, iOS7.x, iOS8.x
 * Android4.x, Android5.x
 * Latest Stable: Chrome, Safari
 
-<a name="bugs-and-feature-requests"></a>
+
 ## Bugs and feature requests
 
 如果你或者你所在的公司正在使用 Yo，过程中发现了任何问题，或者有任何帮助 Yo 更完善的想法和建议，都可以直接给我提[Issues](https://github.com/doyoe/Yo/issues/new)和[Pull Requests](https://github.com/doyoe/Yo/pulls)。
 
-<a name="documentation"></a>
+
 ## Documentation
 
 待发布...
 
-<a name="version"></a>
 ## Versioning
 
-<a name="developing-version"></a>
 ### Developing: v1.3.0
 
 * update: 建议 checkbox 及 radio 都使用 yo-checked，后续考虑将 yo-checkbox 及 yo-radio 删除，尽量不要使用，之前使用过最好及时替换；
@@ -41,7 +38,7 @@
 * update: yo-rating 外观
     - 增加 `url` 参数用于改变 yo-rating 的外观；
 
-<a name="lastest-version"></a>
+
 ### Lastest: v1.2.0
 
 * update: yo-checkbox 增加圆角参数；
@@ -58,13 +55,12 @@
 * fixed: fixed yo-switch handle bug on samsung s4；
 
 
-<a name="history-version"></a>
 ### History
 
 For more information on History Version, Please visit [changelog](changelog.md).
 
-<a name="version-number-description"></a>
-### Number Description
+
+### Version Number Description
 
 For transparency and insight into our release cycle, and for striving to maintain backward compatibility, Yo will be maintained under the Semantic Versioning guidelines as much as possible.
 
@@ -80,12 +76,12 @@ And constructed with the following guidelines:
 
 For more information on SemVer, please visit [semver.org](http://semver.org/).
 
-<a name="author"></a>
+
 ## Author
 
 My name is Du Yao, working in Beijing [Qunar.com](http://www.qunar.com) now, is active in [Github](https://github.com/doyoe) and [Weibo](http://weibo.com/doyoe). Thus, you can find some information about me on my [Website](http://www.doyoe.com). Of course, you can visit my [blog](http://blog.doyoe.com) and use my tool sites, including [CSS-handbook](http://css.doyoe.com) and [Web front-end laboratories](http://demo.doyoe.com).
 
-<a name="copyright-and-license"></a>
+
 ## Copyright and License
 
 Code and documentation copyright 2014-2015 [doyoe.com](http://www.doyoe.com). Code released under [the MIT license](http://opensource.org/licenses/MIT). Docs released under [Creative Commons](http://creativecommons.org/licenses/by/4.0/).
