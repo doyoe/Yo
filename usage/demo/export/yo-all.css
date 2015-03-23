@@ -1668,12 +1668,16 @@ a {
   color: #00afc7;
 }
 .yo-loadtip > .yo-ico-up, .yo-loadtip > .yo-ico-down {
-  -webkit-transition: -webkit-transform .5s;
-  transition: transform .5s;
+  -webkit-transition: -webkit-transform .3s;
+  transition: transform .3s;
 }
 .yo-loadtip > .yo-ico-up {
   -webkit-transform: rotatez(180deg);
   transform: rotatez(180deg);
+}
+.yo-loadtip > .yo-ico-down {
+  -webkit-transform: rotatez(-180deg);
+  transform: rotatez(-180deg);
 }
 .yo-loadtip > .yo-ico-loading {
   -webkit-animation: loadtip 1s infinite linear;

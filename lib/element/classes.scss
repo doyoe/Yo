@@ -333,11 +333,14 @@
         color: map-get($loadtip, ico-color);
         &-up,
         &-down {
-            -webkit-transition: -webkit-transform .5s;
-            transition: transform .5s;
+            -webkit-transition: -webkit-transform .3s;
+            transition: transform .3s;
         }
         &-up {
             @include transform(rotatez(180deg));
+        }
+        &-down {
+            @include transform(rotatez(-180deg));
         }
     }
     > .yo-ico-loading {
