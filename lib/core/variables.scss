@@ -553,6 +553,14 @@ $rating: (
     url:    "#{map-get($setting, bgimg-domain)}star.png"
 ) !default;
 
+// Widget UI dblist(1)
+$dblist: (
+    // {Length} 导航panel宽度
+    aside-width: null,
+    // {Length} 导航panel顺序，从0开始
+    aside-order: null
+) !default;
+
 // z-index
 $z-index: (
     // {Number} 下拉菜单层级范围50-100

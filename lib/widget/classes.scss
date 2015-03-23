@@ -777,3 +777,19 @@
         }
     }
 }
+
+// 定义dblist的基础构造
+// 使用方法请查看 yo-dblist.scss
+@mixin _dblist {
+    @include flexbox;
+    height: 100%;
+    > .item {
+        &:first-child {
+            width: map-get($dblist, aside-width);
+            @include order(map-get($dblist, aside-order));
+        }
+        &:not(:first-child) {
+            @include flex;
+        }
+    }
+}
