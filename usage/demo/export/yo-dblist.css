@@ -6,6 +6,12 @@
  * Edit: 2014.12.5
  */
 /**
+ * Directory: lib/core/variables.scss
+ * CSS Variables 定义各种页面沙粒变量
+ * Author: joy.du(飘零雾雨)
+ * Edit: 2014.12.5
+ */
+/**
  * Directory: lib/core/classes.scss
  * Global Classes 约定常规解决方案
  * Author: joy.du(飘零雾雨)
@@ -1121,6 +1127,10 @@ html, body {
   display: -webkit-flex;
   display: flex;
   height: 100%;
+}
+.yo-dblist > .item {
+  position: relative;
+  min-width: .1rem;
 }
 .yo-dblist > .item:not(:first-child) {
   -webkit-box-flex: 1;

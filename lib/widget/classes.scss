@@ -784,6 +784,8 @@
     @include flexbox;
     height: 100%;
     > .item {
+        position: relative;
+        min-width: .1rem;
         &:first-child {
             width: map-get($dblist, aside-width);
             @include order(map-get($dblist, aside-order));

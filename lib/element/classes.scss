@@ -331,16 +331,11 @@
         display: block;
         @include transform-origin(center);
         color: map-get($loadtip, ico-color);
-        &-up,
-        &-down {
-            -webkit-transition: -webkit-transform .3s;
-            transition: transform .3s;
-        }
-        &-up {
+        -webkit-transition: -webkit-transform .3s;
+        transition: transform .3s;
+        @include transform(rotatez(0deg));
+        &-flip {
             @include transform(rotatez(180deg));
-        }
-        &-down {
-            @include transform(rotatez(-180deg));
         }
     }
     > .yo-ico-loading {

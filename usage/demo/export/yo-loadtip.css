@@ -6,6 +6,12 @@
  * Edit: 2014.12.5
  */
 /**
+ * Directory: lib/core/variables.scss
+ * CSS Variables 定义各种页面沙粒变量
+ * Author: joy.du(飘零雾雨)
+ * Edit: 2014.12.5
+ */
+/**
  * Directory: lib/core/classes.scss
  * Global Classes 约定常规解决方案
  * Author: joy.du(飘零雾雨)
@@ -1132,18 +1138,14 @@ html, body {
   -webkit-transform-origin: center;
   transform-origin: center;
   color: #00afc7;
-}
-.yo-loadtip > .yo-ico-up, .yo-loadtip > .yo-ico-down {
   -webkit-transition: -webkit-transform .3s;
   transition: transform .3s;
+  -webkit-transform: rotatez(0deg);
+  transform: rotatez(0deg);
 }
-.yo-loadtip > .yo-ico-up {
+.yo-loadtip > .yo-ico-flip {
   -webkit-transform: rotatez(180deg);
   transform: rotatez(180deg);
-}
-.yo-loadtip > .yo-ico-down {
-  -webkit-transform: rotatez(-180deg);
-  transform: rotatez(-180deg);
 }
 .yo-loadtip > .yo-ico-loading {
   -webkit-animation: loadtip 1s infinite linear;
