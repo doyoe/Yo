@@ -169,7 +169,7 @@
     position: relative;
     @include square(map-get($checked, size));
     border-radius: map-get($checked, radius);
-    background-color: map-get($checked, bgcolor);
+    background-color: transparent;
     // 将 color 设置为 transparent，这时如果不需要边框，就可以将 $bordercolor 设置为 null 了，边框色为 color 设置
     border: .01rem solid;
     border-color: map-get($checked, bordercolor);
