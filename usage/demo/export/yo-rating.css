@@ -6,12 +6,6 @@
  * Edit: 2014.12.5
  */
 /**
- * Directory: lib/core/variables.scss
- * CSS Variables 定义各种页面沙粒变量
- * Author: joy.du(飘零雾雨)
- * Edit: 2014.12.5
- */
-/**
  * Directory: lib/core/classes.scss
  * Global Classes 约定常规解决方案
  * Author: joy.du(飘零雾雨)
@@ -1126,14 +1120,15 @@ html, body {
 .yo-rating {
   display: inline-block;
   position: relative;
-  width: 1.5rem;
-  height: 0.3rem;
+  width: 1rem;
+  height: 0.2rem;
   overflow: hidden;
 }
 .yo-rating,
 .yo-rating > .index,
 .yo-rating > .item {
-  background: url("../../../bgimg/star.png") repeat-x;
+  background: url(../../../bgimg/star.png) repeat-x;
+  background-size: auto 0.4rem;
 }
 .yo-rating > .index,
 .yo-rating > .item {
@@ -1144,7 +1139,7 @@ html, body {
   line-height: 10;
 }
 .yo-rating > .index {
-  background-position: 0 -0.3rem;
+  background-position: 0 -0.2rem;
 }
 .yo-rating > .item {
   z-index: 3;
@@ -1179,7 +1174,18 @@ html, body {
 .yo-rating > .item:hover {
   z-index: 2;
   left: 0 !important;
-  background-position: 0 -0.3rem;
+  background-position: 0 -0.2rem;
+}
+
+/**
+ * yo-rating扩展
+ * Author: joy.du(飘零雾雨)
+ * Time: 2015.1.16
+ */
+.yo-rating-test,
+.yo-rating-test > .index,
+.yo-rating-test > .item {
+  background-image: url(../../../bgimg/star2.png);
 }
 
 /**

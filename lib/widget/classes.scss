@@ -727,7 +727,10 @@
     &,
     > .index,
     > .item {
-        background: url(map-get($rating, url)) repeat-x;
+        background: url(#{map-get($setting, bgimg-domain)}#{map-get($rating, url)}) repeat-x;
+        @if map-get($rating, item-height) != null {
+            background-size: auto map-get($rating, item-height) * 2;
+        }
     }
     > .index,
     > .item {
@@ -782,6 +785,7 @@
 // 使用方法请查看 yo-dblist.scss
 @mixin _dblist {
     @include flexbox;
+    min-height: 2rem;
     height: 100%;
     > .item {
         position: relative;

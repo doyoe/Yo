@@ -28,6 +28,7 @@
 
 ### Developing: v1.3.0
 
+* add: 新增分值元素 yo-score
 * add: 新增双list yo-dblist
 * update: 建议 checkbox 及 radio 都使用 yo-checked，后续考虑将 yo-checkbox 及 yo-radio 删除，尽量不要使用，之前使用过最好及时替换；
 * update: yo-checked

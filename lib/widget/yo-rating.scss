@@ -40,13 +40,16 @@
             width: $item-width * 5;
         }
         @if $item-height != map-get($rating, item-height) {
-            height: $height;
+            height: $item-height;
         }
         &,
         > .index,
         > .item {
             @if $url != map-get($rating, url) {
-                background-image: url($url);
+                background-image: url(#{map-get($setting, bgimg-domain)}#{$url});
+            }
+            @if $item-height != map-get($rating, item-height) {
+                background-size: auto $item-height * 2;
             }
         }
         > .index {

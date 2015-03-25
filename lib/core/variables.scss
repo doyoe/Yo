@@ -257,6 +257,16 @@ $loadtip: (
     ico-color: map-get($base, link-color)
 ) !default;
 
+// Widget UI rating(3)
+$score: (
+    // {Length} 单项宽度
+    item-width:  .16rem,
+    // {Length} 单项高度
+    item-height: .16rem,
+    // {String} 图片URL
+    url:    "star.png"
+) !default;
+
 // Fragment btnbar(1)
 $btnbar: (
     // {auto | Length} 工具栏圆角
@@ -543,14 +553,14 @@ $panel: (
     action-bgcolor: #eee
 ) !default;
 
-// Widget UI rating(1)
+// Widget UI rating(3)
 $rating: (
     // {Length} 单项宽度
-    item-width:  .3rem,
+    item-width:  .2rem,
     // {Length} 单项高度
-    item-height: .3rem,
+    item-height: .2rem,
     // {String} 图片URL
-    url:    "#{map-get($setting, bgimg-domain)}star.png"
+    url:    "star.png"
 ) !default;
 
 // Widget UI dblist(1)
