@@ -312,7 +312,8 @@
         }
         color: map-get($tab, color);
         &:active,
-        &.on {
+        &.on,
+        &-on {
             background-color: map-get($tab, on-bgcolor);
             color: map-get($tab, on-color);
         }

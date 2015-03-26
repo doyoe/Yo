@@ -977,16 +977,19 @@ html, body {
  ------------------------
  * 定义按钮使用方法
  * @method yo-btn
- * variables length(9)
- * @param {default | String} $name 定义按钮名称
- * @param {default | Color} $bordercolor 定义按钮边框色
- * @param {default | Color} $bgcolor 定义按钮背景色
- * @param {default | Color} $color 定义按钮文本色
- * @param {default | Length} $padding 定义按钮横向补白
- * @param {default | Length} $radius 定义按钮圆角
- * @param {default | Length} $font-size 定义按钮字号
- * @param {default | Length} $width 定义按钮宽度
- * @param {default | Length} $height 定义按钮高度
+ * variables length(12)
+ * @param {default | String} $name 扩展的名称
+ * @param {default | Color} $bordercolor 边框色
+ * @param {default | Color} $bgcolor 背景色
+ * @param {default | Color} $color 文本色
+ * @param {default | Color} $on-bordercolor 激活时边框色
+ * @param {default | Color} $on-bgcolor 激活时背景色
+ * @param {default | Color} $on-color 激活时文本色
+ * @param {default | Length} $padding 横向补白
+ * @param {default | Length} $radius 圆角半径
+ * @param {default | Length} $font-size 字号
+ * @param {default | Length} $width 宽度
+ * @param {default | Length} $height 高度
  */
 .yo-btn {
   display: inline-block;
@@ -1001,8 +1004,10 @@ html, body {
   vertical-align: middle;
   cursor: pointer;
 }
-.yo-btn:focus, .yo-btn:active {
-  opacity: .8;
+.yo-btn:active {
+  border-color: #000;
+  background-color: #eee;
+  color: #000;
 }
 .yo-btn-s {
   height: 0.28rem;

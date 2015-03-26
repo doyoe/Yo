@@ -128,7 +128,8 @@
                 color: $color;
             }
             &:active,
-            &.on {
+            &.on,
+            &-on {
                 @if $on-bgcolor != map-get($tab, on-bgcolor) {
                     background-color: $on-bgcolor;
                 }
