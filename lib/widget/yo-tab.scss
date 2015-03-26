@@ -4,31 +4,32 @@
 /**
  * Widget: yo-tab
  * Author: joy.du(飘零雾雨)
- * Time: 2012.1.1
+ * Edit: 2015.3.26
  ------------------------
  * @method yo-tab
- * variables length(14)
- * @param {default | String} $name 定义yo-tab名称
- * @param {default | Boole} $is-border 定义yo-tab是否有边框
- * @param {default | Boole} $is-item-border 定义yo-tab是否有间隔线
- * @param {default | Length} $height 定义yo-tab高度
- * @param {default | Color} $bordercolor 定义yo-tab边框色
- * @param {default | Color} $bgcolor 定义yo-tab背景色
- * @param {default | Color} $color 定义yo-tab文本色
- * @param {default | Color} $on-bordercolor 定义yo-tab激活边框色
- * @param {default | Color} $on-bgcolor 定义yo-tab激活背景色
- * @param {default | Color} $on-color 定义yo-tab激活文本色
- * @param {default | Color} $font-size 定义yo-tab文本字号
- * @param {default | Color} $x-ico-size 定义yo-tab水平ico大小
- * @param {default | Color} $y-ico-size 定义yo-tab垂直ico大小
- * @param {default | Color} $only-ico-size 定义yo-tab仅有ico大小
+ * variables length(15)
+ * @param {default | String} $name 扩展的名称
+ * @param {default | Length} $height 组件高度
+ * @param {default | Length} $radius 圆角半径
+ * @param {default | Length} $border-width 边框厚度
+ * @param {default | Color} $bordercolor 边框色
+ * @param {default | Color} $bgcolor 背景色
+ * @param {default | Color} $color 文本色
+ * @param {default | Color} $on-bgcolor 激活时背景色
+ * @param {default | Color} $on-color 激活时文本色
+ * @param {default | Color} $font-size 文本字号
+ * @param {default | Color} $x-ico-size 子项内容为水平ico时，ico的大小
+ * @param {default | Color} $y-ico-size 子项内容为垂直ico时，ico的大小
+ * @param {default | Color} $only-ico-size 子项内容仅有ico时，ico的大小
+ * @param {default | Length} $item-border-height 子项的间隔线高度
+ * @param {default | Color} $item-bordercolor 子项的间隔线颜色
  */
 
 @mixin yo-tab(
     $name: default,
-    $is-border: default,
-    $is-item-border: default,
     $height: default,
+    $radius: default,
+    $border-width: default,
     $bordercolor: default,
     $bgcolor: default,
     $color: default,
@@ -38,7 +39,9 @@
     $font-size: default,
     $x-ico-size: default,
     $y-ico-size: default,
-    $only-ico-size: default) {
+    $only-ico-size: default,
+    $item-border-height: default,
+    $item-bordercolor: default) {
     // 区别是否新增实例还是修改本身
     @if $name == default {
         $name: "";
@@ -46,14 +49,14 @@
         $name: "-#{$name}";
     }
     // 如果值为default，则取config的定义
-    @if $is-border == default {
-        $is-border: map-get($tab, is-border);
-    }
-    @if $is-item-border == default {
-        $is-item-border: map-get($tab, is-item-border);
-    }
     @if $height == default {
         $height: map-get($tab, height);
+    }
+    @if $radius == default {
+        $radius: map-get($tab, radius);
+    }
+    @if $border-width == default {
+        $border-width: map-get($tab, border-width);
     }
     @if $bordercolor == default {
         $bordercolor: map-get($tab, bordercolor);
@@ -85,26 +88,24 @@
     @if $only-ico-size == default {
         $only-ico-size: map-get($tab, only-ico-size);
     }
+    @if $item-border-height == default {
+        $item-border-height: map-get($tab, item-border-height);
+    }
+    @if $item-bordercolor == default {
+        $item-bordercolor: map-get($tab, item-bordercolor);
+    }
     .yo-tab#{$name} {
         @if $height != map-get($tab, height) {
             height: $height;
             line-height: $height;
         }
-        // 有外框时
-        @if $is-border {
-            // 如果config外框为false，则重设边框
-            @if not map-get($tab, is-border) {
-                border-width: 0 1px 1px 1px;
-                border-style: solid;
-            }
-        // 无外框时
-        } @else {
-            // 如果config外框为true，则清除边框
-            @if map-get($tab, is-border) {
-                border-width: 0;
-            }
-        }
         // 如果边框色与config值不同，则重设边框色
+        @if $radius != map-get($tab, radius) {
+            border-radius: $radius;
+        }
+        @if $border-width != map-get($tab, border-width) {
+            border-width: $border-width;
+        }
         @if $bordercolor != map-get($tab, bordercolor) {
             border-color: $bordercolor;
         }
@@ -115,27 +116,12 @@
             font-size: $font-size;
         }
         > .item {
-            @if $bordercolor != map-get($tab, bordercolor) {
-                border-top-color: $bordercolor;
-            }
-            &:not(:first-child) {
-                // 有间隔线时
-                @if $is-item-border {
-                    // 如果config间隔线为false，则重设间隔线
-                    @if not map-get($tab, is-item-border) {
-                        border-left-width: 1px;
-                        border-left-style: solid;
-                    }
-                // 无间隔线时
-                } @else {
-                    // 如果config间隔线为true，则清除间隔线
-                    @if map-get($tab, is-item-border) {
-                        border-left-width: 0;
-                    }
+            &:not(:last-child)::after {
+                @if $item-border-height != map-get($tab, item-border-height) {
+                    height: $item-border-height;
                 }
-                // 如果间隔线色与config值不同，则重间隔线色
-                @if $bordercolor != map-get($tab, bordercolor) {
-                    border-left-color: $bordercolor;
+                @if $item-bordercolor != map-get($tab, item-bordercolor) {
+                    background-color: $item-bordercolor;
                 }
             }
             @if $color != map-get($tab, color) {
@@ -143,9 +129,6 @@
             }
             &:active,
             &.on {
-                @if $on-bordercolor != map-get($tab, on-bordercolor) {
-                    border-top-color: $on-bordercolor;
-                }
                 @if $on-bgcolor != map-get($tab, on-bgcolor) {
                     background-color: $on-bgcolor;
                 }

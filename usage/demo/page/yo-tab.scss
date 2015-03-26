@@ -2,7 +2,7 @@
 @import "../layout/layout";
 @import "../module/m-demo";
 @import "../module/m-code";
-@import "../../../lib/widget/yo-tab";
+@import "../widget/yo-tab";
 
 /**
  * g-tab演示页面
@@ -12,20 +12,20 @@
 
 @include doc(default, true);
 
-.m-demo{
-    .yo-tab{
+.m-demo {
+    .yo-tab {
         position: absolute;
         bottom: 0;
         left: 0;
         width: 100%;
     }
-    .yo-tab-test{
+    .yo-tab-test {
         position: static;
         width: 80%;
         margin: 50px auto;
     }
+    .yo-tab-test2 {
+        top: 0;
+        bottom: auto;
+    }
 }
-
-@include yo-tab(test,true,true,.35rem);
-@include yo-tab(only-ico,false,true,1rem,#000,#999,#fff);
-

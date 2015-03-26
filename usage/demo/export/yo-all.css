@@ -3348,30 +3348,33 @@ a {
 /**
  * Widget: yo-tab
  * Author: joy.du(飘零雾雨)
- * Time: 2012.1.1
+ * Edit: 2015.3.26
  ------------------------
  * @method yo-tab
- * variables length(14)
- * @param {default | String} $name 定义yo-tab名称
- * @param {default | Boole} $is-border 定义yo-tab是否有边框
- * @param {default | Boole} $is-item-border 定义yo-tab是否有间隔线
- * @param {default | Length} $height 定义yo-tab高度
- * @param {default | Color} $bordercolor 定义yo-tab边框色
- * @param {default | Color} $bgcolor 定义yo-tab背景色
- * @param {default | Color} $color 定义yo-tab文本色
- * @param {default | Color} $on-bordercolor 定义yo-tab激活边框色
- * @param {default | Color} $on-bgcolor 定义yo-tab激活背景色
- * @param {default | Color} $on-color 定义yo-tab激活文本色
- * @param {default | Color} $font-size 定义yo-tab文本字号
- * @param {default | Color} $x-ico-size 定义yo-tab水平ico大小
- * @param {default | Color} $y-ico-size 定义yo-tab垂直ico大小
- * @param {default | Color} $only-ico-size 定义yo-tab仅有ico大小
+ * variables length(15)
+ * @param {default | String} $name 扩展的名称
+ * @param {default | Length} $height 组件高度
+ * @param {default | Length} $radius 圆角半径
+ * @param {default | Length} $border-width 边框厚度
+ * @param {default | Color} $bordercolor 边框色
+ * @param {default | Color} $bgcolor 背景色
+ * @param {default | Color} $color 文本色
+ * @param {default | Color} $on-bgcolor 激活时背景色
+ * @param {default | Color} $on-color 激活时文本色
+ * @param {default | Color} $font-size 文本字号
+ * @param {default | Color} $x-ico-size 子项内容为水平ico时，ico的大小
+ * @param {default | Color} $y-ico-size 子项内容为垂直ico时，ico的大小
+ * @param {default | Color} $only-ico-size 子项内容仅有ico时，ico的大小
+ * @param {default | Length} $item-border-height 子项的间隔线高度
+ * @param {default | Color} $item-bordercolor 子项的间隔线颜色
  */
 .yo-tab {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
   height: 0.49rem;
+  border-width: 0.01rem 0 0 0;
+  border-style: solid;
   border-color: #ddd;
   background-color: #fafafa;
   text-align: center;
@@ -3383,11 +3386,19 @@ a {
   flex: 1;
   display: block;
   width: 100%;
-  border-top: 1px solid #ddd;
+  position: relative;
   color: #212121;
 }
-.yo-tab > .item:not(:first-child) {
-  border-left-color: #ddd;
+.yo-tab > .item:not(:last-child)::after {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  -webkit-transform: translatey(-50%);
+  transform: translatey(-50%);
+  width: .01rem;
+  height: 100%;
+  background-color: transparent;
+  content: "\0020";
 }
 .yo-tab > .item:active, .yo-tab > .item.on {
   background-color: #fff;

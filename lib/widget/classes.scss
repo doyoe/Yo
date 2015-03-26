@@ -289,11 +289,9 @@
 @mixin _tab {
     @include flexbox();
     height: map-get($tab, height);
-    // 是否有外边框
-    @if map-get($tab, is-border) {
-        border-width: 0 1px 1px 1px;
-        border-style: solid;
-    }
+    border-radius: map-get($tab, radius);
+    border-width: map-get($tab, border-width);
+    border-style: solid;
     border-color: map-get($tab, bordercolor);
     background-color: map-get($tab, bgcolor);
     font-size: map-get($tab, font-size);
@@ -301,19 +299,20 @@
     line-height: map-get($tab, height);
     > .item{
         @include flex();
-        border-top: 1px solid map-get($tab, bordercolor);
-        &:not(:first-child) {
-            // 是否有间隔线
-            @if map-get($tab, is-item-border) {
-                border-left-width: 1px;
-                border-left-style: solid;
-            }
-            border-left-color: map-get($tab, bordercolor);
+        position: relative;
+        &:not(:last-child)::after {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            @include transform(translatey(-50%));
+            width: .01rem;
+            height: map-get($tab, item-border-height);
+            background-color: map-get($tab, item-bordercolor);
+            content: "\0020";
         }
         color: map-get($tab, color);
         &:active,
         &.on {
-            border-top-color: map-get($tab, on-bordercolor);
             background-color: map-get($tab, on-bgcolor);
             color: map-get($tab, on-color);
         }

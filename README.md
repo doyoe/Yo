@@ -28,6 +28,7 @@
 
 ### Developing: v1.3.0
 
+* update: `yo-tab` 删除 `is-border`, `is-item-border`, `on-bordercolor` 参数，新增 `border-width`, `radius`, `item-border-height`, `item-bordercolor` 参数
 * add: 新增分值元素 yo-score
 * add: 新增双list yo-dblist
 * update: 建议 checkbox 及 radio 都使用 yo-checked，后续考虑将 yo-checkbox 及 yo-radio 删除，尽量不要使用，之前使用过最好及时替换；

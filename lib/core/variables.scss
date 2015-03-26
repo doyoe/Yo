@@ -304,22 +304,20 @@ $list: (
     label-font-size:   .13rem
 ) !default;
 
-// Fragment tab(13)
+// Widget tab(14)
 $tab: (
-    // {Length} tab高度
+    // {Length} 组件高度
     height:         .49rem,
-    // {Boole} 是否有外边框
-    is-border:      false,
-    // {Boole} 是否有子项竖边框
-    is-item-border: false,
-    // {Color} tab边框色
+    // {Length} 圆角半径
+    radius:         null,
+    // {Length} 边框厚度
+    border-width:   .01rem 0 0 0,
+    // {Color} 边框色
     bordercolor:    map-get($base, bordercolor),
     // {Color} tab背景色
     bgcolor:        #fafafa,
     // {Color} tab文本色
     color:          map-get($base, color),
-    // {Color} tab激活边框色
-    on-bordercolor: null,
     // {Color} tab激活背景色
     on-bgcolor:     #fff,
     // {Color} tab激活文本色
@@ -331,7 +329,11 @@ $tab: (
     // {Length} 垂直ico大小
     y-ico-size:     .2rem,
     // {Length} only ico大小
-    only-ico-size:  .32rem
+    only-ico-size:  .32rem,
+    // {Color} item间隔线高度
+    item-border-height: 100%,
+    // {Color} item间隔线颜色
+    item-bordercolor:   transparent
 ) !default;
 
 // Fragment Table(10)
