@@ -28,8 +28,9 @@
 
 ### Developing: v1.3.0
 
+* update: `yo-switchable` 参数配置
 * update: `yo-btn`
-    - 增加 `on-bordercolor`, `on-bgcolor`, `on-color` 参数，用于设置按钮按下时的边框、背景、文本颜色；
+    - 增加 `active-bordercolor`, `active-bgcolor`, `active-color` 参数，用于设置按钮按下时的边框、背景、文本颜色；
 * update: `yo-tab`
     - 删除 `is-border`, `is-item-border`, `on-bordercolor` 参数；
     - 新增 `border-width` 参数，用于设置tab的外边框厚度；

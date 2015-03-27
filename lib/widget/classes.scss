@@ -621,24 +621,31 @@
         > li {
             float: left;
             margin: 0 .05rem;
-            @include square(.1rem);
+            @include square(map-get($switchable, index-size));
             border-radius: 50%;
-            background-color: #85c8d1;
+            background-color: map-get($switchable, index-bgcolor);
             &.on {
-                background-color: #09a5c4;
+                background-color: map-get($switchable, index-on-bgcolor);
             }
         }
     }
     > .yo-ico {
+        @if map-get($switchable, has-btn) == false {
+            display: none;
+        }
         position: absolute;
         top: 50%;
         @include transform(translate(0, -50%) translatez(0));
-        @include square(.44rem);
+        @include square(map-get($switchable, btn-size));
         border-radius: 50%;
-        background-color: #09a5c4;
-        color: #fff;
-        line-height: .44rem;
+        background-color: map-get($switchable, btn-bgcolor);
+        color: map-get($switchable, btn-color);
+        line-height: map-get($switchable, btn-size);
         cursor: pointer;
+        &:active {
+            background-color: map-get($switchable, btn-active-bgcolor);
+            color: map-get($switchable, btn-active-color);
+        }
     }
     > .yo-ico-prev {
         left: 0;

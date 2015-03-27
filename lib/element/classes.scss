@@ -25,9 +25,9 @@
     vertical-align: middle;
     cursor: pointer;
     &:active {
-        border-color: map-get($btn, on-bordercolor);
-        background-color: map-get($btn, on-bgcolor);
-        color: map-get($btn, on-color);
+        border-color: map-get($btn, active-bordercolor);
+        background-color: map-get($btn, active-bgcolor);
+        color: map-get($btn, active-color);
     }
 }
 
@@ -371,5 +371,6 @@
         height: 100%;
         background-position: 0 -#{map-get($score, item-height)};
         line-height: 10;
+        vertical-align: top;
     }
 }

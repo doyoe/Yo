@@ -424,11 +424,6 @@ a {
   vertical-align: middle;
   cursor: pointer;
 }
-.yo-btn:active {
-  border-color: #000;
-  background-color: #eee;
-  color: #000;
-}
 .yo-btn-s {
   height: 0.28rem;
   line-height: 0.28rem;
@@ -2372,11 +2367,6 @@ a {
   vertical-align: middle;
   cursor: pointer;
 }
-.yo-btn:active {
-  border-color: #000;
-  background-color: #eee;
-  color: #000;
-}
 .yo-btn-s {
   height: 0.28rem;
   line-height: 0.28rem;
@@ -2633,11 +2623,6 @@ a {
   text-align: center;
   vertical-align: middle;
   cursor: pointer;
-}
-.yo-btn:active {
-  border-color: #000;
-  background-color: #eee;
-  color: #000;
 }
 .yo-btn-s {
   height: 0.28rem;
@@ -4514,16 +4499,22 @@ a {
  * Time: 2012.1.1
  */
 /**
- * Widget: yo-switch
+ * Widget: yo-switchable
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  ------------------------
- * @method yo-switch
- * variables length(4)
- * @param {default | String} $name 定义yo-switch名称
- * @param {default | Length} $width 定义yo-switch宽度
- * @param {default | Color} $color 定义yo-switch文本色
- * @param {default | Length} $font-size 定义yo-switch文本字号
+ * @method yo-switchable
+ * variables length(10)
+ * @param {default | String} $name 扩展的名称
+ * @param {default | Boolen} $has-btn 是否有按钮
+ * @param {default | Length} $btn-size 按钮大小
+ * @param {default | Length} $btn-bgcolor 按钮背景色
+ * @param {default | Length} $btn-color 按钮文本色
+ * @param {default | Color} $btn-active-bgcolor 按钮按下背景色
+ * @param {default | Length} $btn-active-color 按钮按下文本色
+ * @param {default | Length} $index-size 索引大小
+ * @param {default | Color} $index-bgcolor 索引背景色
+ * @param {default | Length} $index-on-bgcolor 索引当前项背景色
  */
 .yo-switchable {
   position: relative;
@@ -4569,6 +4560,7 @@ a {
   background-color: #09a5c4;
 }
 .yo-switchable > .yo-ico {
+  display: none;
   position: absolute;
   top: 50%;
   -webkit-transform: translate(0, -50%) translatez(0);
@@ -4576,10 +4568,13 @@ a {
   width: 0.44rem;
   height: 0.44rem;
   border-radius: 50%;
-  background-color: #09a5c4;
+  background-color: rgba(9, 165, 196, 0.8);
   color: #fff;
-  line-height: .44rem;
+  line-height: 0.44rem;
   cursor: pointer;
+}
+.yo-switchable > .yo-ico:active {
+  background-color: rgba(9, 165, 196, 0.5);
 }
 .yo-switchable > .yo-ico-prev {
   left: 0;

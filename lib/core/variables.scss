@@ -142,11 +142,11 @@ $btn: (
     // {Color} 文本色
     color:          #fff,
     // {Color} 激活时边框色
-    on-bordercolor: #000,
+    active-bordercolor: null,
     // {Color} 激活时背景色
-    on-bgcolor:     #eee,
+    active-bgcolor:     null,
     // {Color} 激活时文本色
-    on-color:       #000,
+    active-color:       null,
     // {Length} 内补白(使用em让根据字号动态调整)
     padding:        0 1.2em,
     // {Length} 圆角半径
@@ -538,9 +538,26 @@ $number: (
     disabled-sign-color: map-get($base, disabled-color)
 ) !default;
 
-// Widget UI switchable()
-$slider: (
-    // {Length} 宽度
+// Widget UI switchable(9)
+$switchable: (
+    // {Boolen} 是否有按钮
+    has-btn:            false,
+    // {Length} 按钮大小
+    btn-size:           .44rem,
+    // {Color} 按钮背景色
+    btn-bgcolor:        rgba(#09a5c4, .8),
+    // {Color} 按钮文本色
+    btn-color:          #fff,
+    // {Color} 按钮按下时背景色
+    btn-active-bgcolor: rgba(#09a5c4, .5),
+    // {Color} 按钮按下时文本色
+    btn-active-color:   null,
+    // {Length} 索引大小
+    index-size:         .1rem,
+    // {Color} 索引背景色
+    index-bgcolor:      #85c8d1,
+    // {Color} 索引的当前项背景色
+    index-on-bgcolor:   #09a5c4
 ) !default;
 
 // Widget UI mask(1)

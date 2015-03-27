@@ -2,23 +2,35 @@
 @import "classes";
 
 /**
- * Widget: yo-switch
+ * Widget: yo-switchable
  * Author: joy.du(飘零雾雨)
  * Time: 2012.1.1
  ------------------------
- * @method yo-switch
- * variables length(4)
- * @param {default | String} $name 定义yo-switch名称
- * @param {default | Length} $width 定义yo-switch宽度
- * @param {default | Color} $color 定义yo-switch文本色
- * @param {default | Length} $font-size 定义yo-switch文本字号
+ * @method yo-switchable
+ * variables length(10)
+ * @param {default | String} $name 扩展的名称
+ * @param {default | Boolen} $has-btn 是否有按钮
+ * @param {default | Length} $btn-size 按钮大小
+ * @param {default | Length} $btn-bgcolor 按钮背景色
+ * @param {default | Length} $btn-color 按钮文本色
+ * @param {default | Color} $btn-active-bgcolor 按钮按下背景色
+ * @param {default | Length} $btn-active-color 按钮按下文本色
+ * @param {default | Length} $index-size 索引大小
+ * @param {default | Color} $index-bgcolor 索引背景色
+ * @param {default | Length} $index-on-bgcolor 索引当前项背景色
  */
 
-@mixin yo-switch(
+@mixin yo-switchable(
     $name: default,
-    $width: default,
-    $color: default,
-    $font-size: default) {
+    $has-btn: default,
+    $btn-size: default,
+    $btn-bgcolor: default,
+    $btn-color: default,
+    $btn-active-bgcolor: default,
+    $btn-active-color: default,
+    $index-size: default,
+    $index-bgcolor: default,
+    $index-on-bgcolor: default) {
     // 区别是否新增实例还是修改本身
     @if $name == default {
         $name: "";
@@ -26,37 +38,80 @@
         $name: "-#{$name}";
     }
     // 如果值为default，则取config的定义
-    @if $width == default {
-        $width: map-get($switch, width);
+    @if $has-btn == default {
+        $has-btn: map-get($switchable, has-btn);
     }
-    @if $color == default {
-        $color: map-get($switch, color);
+    @if $btn-size == default {
+        $btn-size: map-get($switchable, btn-size);
     }
-    @if $font-size == default {
-        $font-size: map-get($switch, font-size);
+    @if $btn-bgcolor == default {
+        $btn-bgcolor: map-get($switchable, btn-bgcolor);
+    }
+    @if $btn-color == default {
+        $btn-color: map-get($switchable, btn-color);
+    }
+    @if $btn-active-bgcolor == default {
+        $btn-active-bgcolor: map-get($switchable, btn-active-bgcolor);
+    }
+    @if $btn-active-color == default {
+        $btn-active-color: map-get($switchable, btn-active-color);
+    }
+    @if $index-size == default {
+        $index-size: map-get($switchable, index-size);
+    }
+    @if $index-bgcolor == default {
+        $index-bgcolor: map-get($switchable, index-bgcolor);
+    }
+    @if $index-on-bgcolor == default {
+        $index-on-bgcolor: map-get($switchable, index-on-bgcolor);
     }
     .yo-switchable#{$name} {
-        @if $width != map-get($switch, width) {
-            width: $width;
-        }
-        @if $color != map-get($switch, color) {
-            color: $color;
-        }
-        @if $font-size != map-get($switch, font-size) {
-            font-size: $font-size;
-        }
-        .ellipsis {
-            @if $color != map-get($switch, color) {
-                background-color: $color;
+        > .index {
+            > li {
+                @if $index-size != map-get($switchable, index-size) {
+                    @include square($index-size);
+                }
+                @if $index-bgcolor != map-get($switchable, index-bgcolor) {
+                    background-color: $index-bgcolor;
+                }
+                &.on {
+                    @if $index-on-bgcolor != map-get($switchable, index-on-bgcolor) {
+                        background-color: $index-on-bgcolor;
+                    }
+                }
             }
-            @if $font-size != map-get($switch, font-size) {
-                @include square($font-size / 2);
+        }
+        > .yo-ico {
+            @if $has-btn != map-get($switchable, has-btn) {
+                @if $has-btn == false {
+                    display: none;
+                } @else {
+                    display: inline;
+                }
+            }
+            @if $btn-size != map-get($switchable, btn-size) {
+                @include square($btn-size);
+                line-height: $btn-size;
+            }
+            @if $btn-bgcolor != map-get($switchable, btn-bgcolor) {
+                background-color: $btn-bgcolor;
+            }
+            @if $btn-color != map-get($switchable, btn-color) {
+                color: $btn-color;
+            }
+            &:active {
+                @if $btn-active-bgcolor != map-get($switchable, btn-active-bgcolor) {
+                background-color: $btn-active-bgcolor;
+                }
+                @if $btn-active-color != map-get($switchable, btn-active-color) {
+                    color: $btn-active-color;
+                }
             }
         }
     }
 }
 
-// 调用本文件时载入switchable基础构造
+// 调用本文件时载入switchableable基础构造
 .yo-switchable {
     @include _switchable;
 }
