@@ -7,7 +7,7 @@
  * Time: 2012.1.1
  ------------------------
  * @method yo-search
- * variables length(15)
+ * variables length(16)
  * @param {default | String} $name 定义yo-search名称
  * @param {default | Length} $height 定义yo-search高度
  * @param {default | Length} $font-size 定义yo-search文本大小
@@ -23,6 +23,7 @@
  * @param {default | Color} $cancel-color 定义yo-search取消按钮颜色
  * @param {default | Color} $op-bgcolor 定义yo-search搜索区域背景色
  * @param {default | Color} $mask-bgcolor 定义yo-search遮罩背景色
+ * @param {default | Length} $cancel-width 取消按钮区域宽度
  */
 
 @mixin yo-search(
@@ -40,7 +41,8 @@
     $ico-color: default,
     $cancel-color: default,
     $op-bgcolor: default,
-    $mask-bgcolor: default) {
+    $mask-bgcolor: default,
+    $cancel-width: default) {
     // 区别是否新增实例还是修改本身
     @if $name == default {
         $name: "";
@@ -89,6 +91,9 @@
     }
     @if $mask-bgcolor == default {
         $mask-bgcolor: map-get($search, mask-bgcolor);
+    }
+    @if $cancel-width == default {
+        $cancel-width: map-get($search, cancel-width);
     }
     .yo-search#{$name} {
         > .operate {
@@ -142,6 +147,9 @@
                 }
             }
             > .cancel {
+                @if $cancel-width != map-get($search, cancel-width) {
+                    width: $cancel-width;
+                }
                 @if $cancel-color != map-get($search, cancel-color) {
                     color: $cancel-color;
                 }
@@ -155,6 +163,13 @@
                     }
                     @if $on-bgcolor != map-get($search, on-bgcolor) {
                         background-color: $on-bgcolor;
+                    }
+                }
+            }
+            &-on {
+                > .action {
+                    @if $cancel-width != map-get($search, cancel-width) {
+                        margin-right: $cancel-width;
                     }
                 }
             }

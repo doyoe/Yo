@@ -414,7 +414,7 @@ $group: (
     top: .95rem
 ) !default;
 
-// Widget search(14)
+// Widget search(15)
 $search: (
     // {Length} 输入框高度
     height:           .3rem,
@@ -443,7 +443,9 @@ $search: (
     // {Color} 搜索区背景色
     op-bgcolor:       #fff,
     // {Color} mask背景色
-    mask-bgcolor:     #fff
+    mask-bgcolor:     #fff,
+    // {Length} 取消按钮区域宽度
+    cancel-width:     .7rem
 ) !default;
 
 // Widget UI Dialog(11)

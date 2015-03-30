@@ -1304,7 +1304,7 @@ html, body {
  * Time: 2012.1.1
  ------------------------
  * @method yo-search
- * variables length(15)
+ * variables length(16)
  * @param {default | String} $name 定义yo-search名称
  * @param {default | Length} $height 定义yo-search高度
  * @param {default | Length} $font-size 定义yo-search文本大小
@@ -1320,6 +1320,7 @@ html, body {
  * @param {default | Color} $cancel-color 定义yo-search取消按钮颜色
  * @param {default | Color} $op-bgcolor 定义yo-search搜索区域背景色
  * @param {default | Color} $mask-bgcolor 定义yo-search遮罩背景色
+ * @param {default | Length} $cancel-width 取消按钮区域宽度
  */
 .yo-search {
   display: -webkit-box;
@@ -1331,9 +1332,6 @@ html, body {
   flex-direction: column;
 }
 .yo-search > .operate {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
   position: relative;
   overflow: hidden;
   z-index: 2501;
@@ -1343,26 +1341,13 @@ html, body {
   border-bottom: 1px solid #ddd;
   background-color: #fff;
 }
-.yo-search > .operate > .action,
-.yo-search > .operate > .action > .label,
-.yo-search > .operate > .cancel {
-  -webkit-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
-}
 .yo-search > .operate > .action {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  flex: 1;
   display: block;
-  width: 100%;
-  -webkit-transform: translatez(0);
-  transform: translatez(0);
   position: relative;
+  z-index: 2;
   height: 0.3rem;
 }
 .yo-search > .operate > .action > .input {
-  -webkit-transform: translatez(0);
-  transform: translatez(0);
   width: 100%;
   height: 100%;
   padding: 0 .3rem;
@@ -1373,6 +1358,7 @@ html, body {
   background-color: #ddd;
   color: #212121;
   font-size: 0.14rem;
+  line-height: 1.5;
 }
 .yo-search > .operate > .action > .yo-ico-delete,
 .yo-search > .operate > .action > .yo-ico-fresh,
@@ -1386,39 +1372,41 @@ html, body {
   color: #999;
 }
 .yo-search > .operate > .action > .label {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
   position: absolute;
   top: 0;
   left: 50%;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
   -webkit-transform: translatex(-50%) translatez(0);
   transform: translatex(-50%) translatez(0);
   color: #fff;
-  word-spacing: -.05rem;
 }
-.yo-search > .operate > .action > .label > .yo-ico-search {
-  vertical-align: top;
-  margin: 0 .08rem 0 .1rem;
+.yo-search > .operate > .action > .label > .placeholder {
+  margin-left: .08rem;
 }
 .yo-search > .operate > .cancel {
-  display: block;
-  -webkit-transform: translatez(0);
-  transform: translatez(0);
-  overflow: hidden;
-  width: 0;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  -webkit-transform: translatey(-50%);
+  transform: translatey(-50%);
+  width: 0.7rem;
   color: #00afc7;
-  white-space: nowrap;
-  text-align: right;
+  text-align: center;
+}
+.yo-search > .operate-on > .action {
+  margin-right: 0.7rem;
 }
 .yo-search > .operate-on > .action > .label {
-  left: 0;
+  left: .1rem;
   -webkit-transform: translatex(0) translatez(0);
   transform: translatex(0) translatez(0);
 }
 .yo-search > .operate-on > .action > .yo-ico-delete {
   display: inline-block;
-}
-.yo-search > .operate-on > .cancel {
-  width: .6rem;
-  padding-right: .1rem;
 }
 .yo-search > .operate-fresh > .action > .input, .yo-search > .operate-stop > .action > .input {
   text-align: center;

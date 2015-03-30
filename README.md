@@ -28,7 +28,8 @@
 
 ### Developing: v1.4.0
 
-* 开发中...
+* update: `yo-search`
+    - 增加 `cancel-width` 参数，用于设置取消按钮区域的宽度
 
 ### Lastest: v1.3.1
 

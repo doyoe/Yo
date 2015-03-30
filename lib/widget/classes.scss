@@ -392,7 +392,6 @@
     @include flexbox();
     @include flex-direction(column);
     > .operate {
-        @include flexbox();
         position: relative;
         overflow: hidden;
         z-index: map-get($z-index, search);
@@ -401,27 +400,22 @@
         padding: map-get($search, op-padding);
         border-bottom: 1px solid map-get($search, bordercolor);
         background-color: map-get($search, op-bgcolor);
-        > .action,
-        > .action > .label,
-        > .cancel {
-            @include transition(all .2s ease-in);
-        }
         > .action {
-            @include flex();
-            @include transform(translatez(0));
+            display: block;
             position: relative;
+            z-index: 2;
             height: map-get($search, height);
             > .input {
-                @include transform(translatez(0));
                 width: 100%;
                 height: 100%;
                 padding: 0 .3rem;
-                @include appearance();
+                @include appearance;
                 border: 1px solid map-get($search, bordercolor);
                 border-radius: map-get($search, radius);
                 background-color: map-get($search, bgcolor);
                 color: map-get($search, color);
                 font-size: map-get($search, font-size);
+                line-height: map-get($base, line-height);
             }
             > .yo-ico-delete,
             > .yo-ico-fresh,
@@ -435,26 +429,26 @@
                 color: map-get($search, ico-color);
             }
             > .label {
+                @include flexbox;
                 position: absolute;
                 top: 0;
                 left: 50%;
+                @include transition(all .2s ease-in);
                 @include transform(translatex(-50%) translatez(0));
                 color: map-get($search, placeholder-color);
-                word-spacing: -.05rem;
-                > .yo-ico-search {
-                    vertical-align: top;
-                    margin: 0 .08rem 0 .1rem;
+                > .placeholder {
+                    margin-left: .08rem;
                 }
             }
         }
         > .cancel {
-            display: block;
-            @include transform(translatez(0));
-            overflow: hidden;
-            width: 0;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            @include transform(translatey(-50%));
+            width: map-get($search, cancel-width);
             color: map-get($search, cancel-color);
-            white-space: nowrap;
-            text-align: right;
+            text-align: center;
         }
         &-on,
         &-fresh,
@@ -466,17 +460,14 @@
         }
         &-on {
             > .action {
+                margin-right: map-get($search, cancel-width);
                 > .label {
-                    left: 0;
+                    left: .1rem;
                     @include transform(translatex(0) translatez(0));
                 }
                 > .yo-ico-delete {
                     display: inline-block;
                 }
-            }
-            > .cancel {
-                width: .6rem;
-                padding-right: .1rem;
             }
         }
         &-fresh,
