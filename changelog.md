@@ -3,7 +3,7 @@
 History Version and release time.
 
 <a name="v1-2-0"></a>
-## v1.3.0 (2015.3.27)
+## v1.3.1 (2015.3.27)
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v1.3.0)
 

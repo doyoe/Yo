@@ -30,7 +30,7 @@
 
 * 开发中...
 
-### Lastest: v1.3.0
+### Lastest: v1.3.1
 
 * update: `yo-switchable` 参数配置
 * update: `yo-btn`
