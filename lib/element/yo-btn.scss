@@ -13,9 +13,9 @@
  * @param {default | Color} $bordercolor 边框色
  * @param {default | Color} $bgcolor 背景色
  * @param {default | Color} $color 文本色
- * @param {default | Color} $on-bordercolor 激活时边框色
- * @param {default | Color} $on-bgcolor 激活时背景色
- * @param {default | Color} $on-color 激活时文本色
+ * @param {default | Color} $active-bordercolor 激活时边框色
+ * @param {default | Color} $active-bgcolor 激活时背景色
+ * @param {default | Color} $oactiven-color 激活时文本色
  * @param {default | Length} $padding 横向补白
  * @param {default | Length} $radius 圆角半径
  * @param {default | Length} $font-size 字号
@@ -28,9 +28,9 @@
     $bordercolor: default,
     $bgcolor: default,
     $color: default,
-    $on-bordercolor: default,
-    $on-bgcolor: default,
-    $on-color: default,
+    $active-bordercolor: default,
+    $active-bgcolor: default,
+    $active-color: default,
     $padding: default,
     $radius: default,
     $font-size: default,
@@ -52,14 +52,14 @@
     @if $color == default {
         $color: map-get($btn, color);
     }
-    @if $on-bordercolor == default {
-        $on-bordercolor: map-get($btn, on-bordercolor);
+    @if $active-bordercolor == default {
+        $active-bordercolor: map-get($btn, active-bordercolor);
     }
-    @if $on-bgcolor == default {
-        $on-bgcolor: map-get($btn, on-bgcolor);
+    @if $active-bgcolor == default {
+        $active-bgcolor: map-get($btn, active-bgcolor);
     }
-    @if $on-color == default {
-        $on-color: map-get($btn, on-color);
+    @if $active-color == default {
+        $active-color: map-get($btn, active-color);
     }
     @if $padding == default {
         $padding: map-get($btn, padding);
@@ -111,14 +111,14 @@
             font-size: $font-size;
         }
         &:active {
-            @if $on-bordercolor != map-get($btn, on-bordercolor) {
-                border-color: $on-bordercolor;
+            @if $active-bordercolor != map-get($btn, active-bordercolor) {
+                border-color: $active-bordercolor;
             }
-            @if $on-bgcolor != map-get($btn, on-bgcolor) {
-                background-color: $on-bgcolor;
+            @if $active-bgcolor != map-get($btn, active-bgcolor) {
+                background-color: $active-bgcolor;
             }
-            @if $on-color != map-get($btn, on-color) {
-                color: $on-color;
+            @if $active-color != map-get($btn, active-color) {
+                color: $active-color;
             }
         }
         // 如果是禁用按钮，则不需要交互状态

@@ -305,9 +305,8 @@
 // 使用方法请查看 yo-badge.scss
 @mixin _badge {
     display: inline-block;
-    min-width: .2rem;
-    min-height: .2rem;
-    padding: .02rem .03rem;
+    min-width: .16rem;
+    min-height: .16rem;
     border: .01rem solid map-get($badge, bordercolor);
     border-radius: map-get($badge, radius);
     background-color: map-get($badge, bgcolor);

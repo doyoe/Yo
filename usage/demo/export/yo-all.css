@@ -402,9 +402,9 @@ a {
  * @param {default | Color} $bordercolor 边框色
  * @param {default | Color} $bgcolor 背景色
  * @param {default | Color} $color 文本色
- * @param {default | Color} $on-bordercolor 激活时边框色
- * @param {default | Color} $on-bgcolor 激活时背景色
- * @param {default | Color} $on-color 激活时文本色
+ * @param {default | Color} $active-bordercolor 激活时边框色
+ * @param {default | Color} $active-bgcolor 激活时背景色
+ * @param {default | Color} $oactiven-color 激活时文本色
  * @param {default | Length} $padding 横向补白
  * @param {default | Length} $radius 圆角半径
  * @param {default | Length} $font-size 字号
@@ -665,9 +665,8 @@ a {
  */
 .yo-badge {
   display: inline-block;
-  min-width: .2rem;
-  min-height: .2rem;
-  padding: .02rem .03rem;
+  min-width: .16rem;
+  min-height: .16rem;
   border: 0.01rem solid #f00;
   border-radius: 0.1rem;
   background-color: #f00;
@@ -2345,9 +2344,9 @@ a {
  * @param {default | Color} $bordercolor 边框色
  * @param {default | Color} $bgcolor 背景色
  * @param {default | Color} $color 文本色
- * @param {default | Color} $on-bordercolor 激活时边框色
- * @param {default | Color} $on-bgcolor 激活时背景色
- * @param {default | Color} $on-color 激活时文本色
+ * @param {default | Color} $active-bordercolor 激活时边框色
+ * @param {default | Color} $active-bgcolor 激活时背景色
+ * @param {default | Color} $oactiven-color 激活时文本色
  * @param {default | Length} $padding 横向补白
  * @param {default | Length} $radius 圆角半径
  * @param {default | Length} $font-size 字号
@@ -2602,9 +2601,9 @@ a {
  * @param {default | Color} $bordercolor 边框色
  * @param {default | Color} $bgcolor 背景色
  * @param {default | Color} $color 文本色
- * @param {default | Color} $on-bordercolor 激活时边框色
- * @param {default | Color} $on-bgcolor 激活时背景色
- * @param {default | Color} $on-color 激活时文本色
+ * @param {default | Color} $active-bordercolor 激活时边框色
+ * @param {default | Color} $active-bgcolor 激活时背景色
+ * @param {default | Color} $oactiven-color 激活时文本色
  * @param {default | Length} $padding 横向补白
  * @param {default | Length} $radius 圆角半径
  * @param {default | Length} $font-size 字号
