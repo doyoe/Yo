@@ -259,12 +259,12 @@ $loadtip: (
     ico-color: map-get($base, link-color)
 ) !default;
 
-// Widget UI rating(3)
+// Widget UI score(3)
 $score: (
     // {Length} 单项宽度
-    item-width:  .14rem,
+    item-width:  .16rem,
     // {Length} 单项高度
-    item-height: .14rem,
+    item-height: .12rem,
     // {String} 图片URL
     url:    "star.png"
 ) !default;
@@ -579,9 +579,9 @@ $panel: (
 // Widget UI rating(3)
 $rating: (
     // {Length} 单项宽度
-    item-width:  .2rem,
+    item-width:  .24rem,
     // {Length} 单项高度
-    item-height: .2rem,
+    item-height: .18rem,
     // {String} 图片URL
     url:    "star.png"
 ) !default;

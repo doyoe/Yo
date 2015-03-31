@@ -9,5 +9,7 @@
 
 @include yo-score(
     $name: test,
-    $url: "star2.png"
+    $url: "star2.png",
+    $item-width: .15rem,
+    $item-height: .15rem
 );

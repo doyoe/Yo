@@ -1119,19 +1119,19 @@ html, body {
  */
 .yo-score {
   position: relative;
-  width: 0.7rem;
-  height: 0.14rem;
+  width: 0.8rem;
+  height: 0.12rem;
   overflow: hidden;
 }
 .yo-score,
 .yo-score > .index {
   display: inline-block;
   background: url(../../../bgimg/star.png) repeat-x;
-  background-size: auto 0.28rem;
+  background-size: auto 0.24rem;
 }
 .yo-score > .index {
   height: 100%;
-  background-position: 0 -0.14rem;
+  background-position: 0 -0.12rem;
   line-height: 10;
   vertical-align: top;
 }
@@ -1141,9 +1141,17 @@ html, body {
  * Author: joy.du(飘零雾雨)
  * Time: 2015.1.16
  */
+.yo-score-test {
+  width: 0.75rem;
+  height: 0.15rem;
+}
 .yo-score-test,
 .yo-score-test > .index {
   background-image: url(../../../bgimg/star2.png);
+  background-size: auto 0.3rem;
+}
+.yo-score-test > .index {
+  background-position: 0 -0.15rem;
 }
 
 /**

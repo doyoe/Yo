@@ -4917,15 +4917,15 @@ a {
 .yo-rating {
   display: inline-block;
   position: relative;
-  width: 1rem;
-  height: 0.2rem;
+  width: 1.2rem;
+  height: 0.18rem;
   overflow: hidden;
 }
 .yo-rating,
 .yo-rating > .index,
 .yo-rating > .item {
   background: url(../../../bgimg/star.png) repeat-x;
-  background-size: auto 0.4rem;
+  background-size: auto 0.36rem;
 }
 .yo-rating > .index,
 .yo-rating > .item {
@@ -4936,7 +4936,7 @@ a {
   line-height: 10;
 }
 .yo-rating > .index {
-  background-position: 0 -0.2rem;
+  background-position: 0 -0.18rem;
 }
 .yo-rating > .item {
   z-index: 3;
@@ -4971,7 +4971,7 @@ a {
 .yo-rating > .item:hover {
   z-index: 2;
   left: 0 !important;
-  background-position: 0 -0.2rem;
+  background-position: 0 -0.18rem;
 }
 
 /**
