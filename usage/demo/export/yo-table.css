@@ -6,10 +6,10 @@
  * Edit: 2014.12.5
  */
 /**
- * Directory: lib/core/classes.scss
- * Global Classes 约定常规解决方案
- * Author: joy.du(飘零雾雨)
- * Time: 2012.1.1
+ * @class classes
+ * @module core
+ * @author: doyoe(杜瑶)
+ * @edit: 2015.3.31
  */
 /**
  * 给需要的属性加厂家前缀
@@ -21,12 +21,6 @@
  * 定义响应式方案
  * @method responsive
  * @param {String} $media 指定媒体查询条件
- * 使用方法如下，结合variables中的$media-types：
-    @include responsive(phone) {
-        .foo {
-            background: blue;
-        }
-    }
  */
 /**
  * 定义字体图标
@@ -72,6 +66,112 @@
  * 定义补间
  * @method transition
  * @param {String} $transition 取值与原生语法一致
+ */
+/**
+ * 定义显示类型为伸缩盒
+ * @method flexbox
+ * @param {String} $flexbox 默认值：flex，取值与最新原生语法一致
+ */
+/**
+ * 定义伸缩盒子元素如何分配空间
+ * @method flex
+ * @param {String} $flex 默认值：1，取值与最新原生语法一致
+ */
+/**
+ * 定义伸缩盒子元素的排版顺序
+ * @method order
+ * @param {String} $order 默认值：1，取值与最新原生语法一致
+ */
+/**
+ * 定义伸缩盒子元素的流动方向
+ * @method flex-direction
+ * @param {String} $flex-direction 默认值：row，取值与最新原生语法一致
+ */
+/**
+ * 定义伸缩盒子元素溢出排版
+ * @method flex-wrap
+ * @param {String} $flex-wrap 默认值：nowrap，取值与最新原生语法一致
+ */
+/**
+ * 定义伸缩盒子元素的水平对齐方式
+ * @method justify-content
+ * @param {String} $justify-content 默认值：center，取值与最新原生语法一致
+ */
+/**
+ * 定义伸缩盒子元素的垂直对齐方式
+ * @method align-items
+ * @param {String} $align-items 默认值：center，取值与最新原生语法一致
+ */
+/**
+ * 定义伸缩盒子元素自身的垂直对齐方式
+ * @method align-self
+ * @param {String} $align-self 默认值：center，取值与最新原生语法一致
+ */
+/**
+ * 定义是否有滚动条
+ * @method overflow
+ * @param {String} $overflow 默认值：auto，取值与最新原生语法一致
+ */
+/**
+ * 生成矩形方法
+ * @method rect
+ * @param {Length} $width 定义矩形的长度
+ * @param {Length} $height 定义矩形的高度
+ */
+/**
+ * 生成正方形方法
+ * @method square
+ * @param {Length} $size 定义正方形的边长
+ */
+/**
+ * 生成圆形方法
+ * @method circle
+ * @param {Length} $size 定义圆的半径长度
+ * @param {Length} $radius 定义圆的圆角半径长度
+ */
+/**
+ * 清除浮动方案
+ * @method clearfix
+ */
+/**
+ * 链接处理方法
+ * @method link
+ * @param {Color} $color 定义链接颜色
+ */
+/**
+ * 强制换行方案
+ * @method wrap
+ */
+/**
+ * 单行文本溢出显示方案
+ * @method ellipsis
+ * @param {Boolen} $ellipsis 定义是否需要省略号
+ */
+/**
+ * 文字隐藏方案
+ * @method texthide
+ */
+/**
+ * 清除间隙方案-容器
+ * @method killspace
+ */
+/**
+ * 清除间隙方案-子级
+ * @method killspace-item
+ */
+/**
+ * 未知尺寸元素垂直居中解决方案-容器
+ * @method valign
+ */
+/**
+ * 未知尺寸元素垂直居中解决方案-子级
+ * @method valign-item
+ */
+/**
+ * 已经尺寸元素垂直居中解决方案
+ * @method alignment
+ * @param {Length} $width 居中元素的宽度
+ * @param {Length} $height 居中元素的高度
  */
 /**
  * Directory: lib/core/reset.scss
@@ -312,10 +412,10 @@ a {
  * Edit: 2014.12.5
  */
 /**
- * Directory: lib/core/classes.scss
- * Global Classes 约定常规解决方案
- * Author: joy.du(飘零雾雨)
- * Time: 2012.1.1
+ * @class classes
+ * @module core
+ * @author: doyoe(杜瑶)
+ * @edit: 2015.3.31
  */
 /**
  * 给需要的属性加厂家前缀
@@ -327,12 +427,6 @@ a {
  * 定义响应式方案
  * @method responsive
  * @param {String} $media 指定媒体查询条件
- * 使用方法如下，结合variables中的$media-types：
-    @include responsive(phone) {
-        .foo {
-            background: blue;
-        }
-    }
  */
 /**
  * 定义字体图标
@@ -378,6 +472,112 @@ a {
  * 定义补间
  * @method transition
  * @param {String} $transition 取值与原生语法一致
+ */
+/**
+ * 定义显示类型为伸缩盒
+ * @method flexbox
+ * @param {String} $flexbox 默认值：flex，取值与最新原生语法一致
+ */
+/**
+ * 定义伸缩盒子元素如何分配空间
+ * @method flex
+ * @param {String} $flex 默认值：1，取值与最新原生语法一致
+ */
+/**
+ * 定义伸缩盒子元素的排版顺序
+ * @method order
+ * @param {String} $order 默认值：1，取值与最新原生语法一致
+ */
+/**
+ * 定义伸缩盒子元素的流动方向
+ * @method flex-direction
+ * @param {String} $flex-direction 默认值：row，取值与最新原生语法一致
+ */
+/**
+ * 定义伸缩盒子元素溢出排版
+ * @method flex-wrap
+ * @param {String} $flex-wrap 默认值：nowrap，取值与最新原生语法一致
+ */
+/**
+ * 定义伸缩盒子元素的水平对齐方式
+ * @method justify-content
+ * @param {String} $justify-content 默认值：center，取值与最新原生语法一致
+ */
+/**
+ * 定义伸缩盒子元素的垂直对齐方式
+ * @method align-items
+ * @param {String} $align-items 默认值：center，取值与最新原生语法一致
+ */
+/**
+ * 定义伸缩盒子元素自身的垂直对齐方式
+ * @method align-self
+ * @param {String} $align-self 默认值：center，取值与最新原生语法一致
+ */
+/**
+ * 定义是否有滚动条
+ * @method overflow
+ * @param {String} $overflow 默认值：auto，取值与最新原生语法一致
+ */
+/**
+ * 生成矩形方法
+ * @method rect
+ * @param {Length} $width 定义矩形的长度
+ * @param {Length} $height 定义矩形的高度
+ */
+/**
+ * 生成正方形方法
+ * @method square
+ * @param {Length} $size 定义正方形的边长
+ */
+/**
+ * 生成圆形方法
+ * @method circle
+ * @param {Length} $size 定义圆的半径长度
+ * @param {Length} $radius 定义圆的圆角半径长度
+ */
+/**
+ * 清除浮动方案
+ * @method clearfix
+ */
+/**
+ * 链接处理方法
+ * @method link
+ * @param {Color} $color 定义链接颜色
+ */
+/**
+ * 强制换行方案
+ * @method wrap
+ */
+/**
+ * 单行文本溢出显示方案
+ * @method ellipsis
+ * @param {Boolen} $ellipsis 定义是否需要省略号
+ */
+/**
+ * 文字隐藏方案
+ * @method texthide
+ */
+/**
+ * 清除间隙方案-容器
+ * @method killspace
+ */
+/**
+ * 清除间隙方案-子级
+ * @method killspace-item
+ */
+/**
+ * 未知尺寸元素垂直居中解决方案-容器
+ * @method valign
+ */
+/**
+ * 未知尺寸元素垂直居中解决方案-子级
+ * @method valign-item
+ */
+/**
+ * 已经尺寸元素垂直居中解决方案
+ * @method alignment
+ * @param {Length} $width 居中元素的宽度
+ * @param {Length} $height 居中元素的高度
  */
 /**
  * Directory: lib/layout/classes.scss
@@ -408,10 +608,10 @@ html, body {
  * Edit: 2014.12.5
  */
 /**
- * Directory: lib/core/classes.scss
- * Global Classes 约定常规解决方案
- * Author: joy.du(飘零雾雨)
- * Time: 2012.1.1
+ * @class classes
+ * @module core
+ * @author: doyoe(杜瑶)
+ * @edit: 2015.3.31
  */
 /**
  * 给需要的属性加厂家前缀
@@ -423,12 +623,6 @@ html, body {
  * 定义响应式方案
  * @method responsive
  * @param {String} $media 指定媒体查询条件
- * 使用方法如下，结合variables中的$media-types：
-    @include responsive(phone) {
-        .foo {
-            background: blue;
-        }
-    }
  */
 /**
  * 定义字体图标
@@ -474,6 +668,112 @@ html, body {
  * 定义补间
  * @method transition
  * @param {String} $transition 取值与原生语法一致
+ */
+/**
+ * 定义显示类型为伸缩盒
+ * @method flexbox
+ * @param {String} $flexbox 默认值：flex，取值与最新原生语法一致
+ */
+/**
+ * 定义伸缩盒子元素如何分配空间
+ * @method flex
+ * @param {String} $flex 默认值：1，取值与最新原生语法一致
+ */
+/**
+ * 定义伸缩盒子元素的排版顺序
+ * @method order
+ * @param {String} $order 默认值：1，取值与最新原生语法一致
+ */
+/**
+ * 定义伸缩盒子元素的流动方向
+ * @method flex-direction
+ * @param {String} $flex-direction 默认值：row，取值与最新原生语法一致
+ */
+/**
+ * 定义伸缩盒子元素溢出排版
+ * @method flex-wrap
+ * @param {String} $flex-wrap 默认值：nowrap，取值与最新原生语法一致
+ */
+/**
+ * 定义伸缩盒子元素的水平对齐方式
+ * @method justify-content
+ * @param {String} $justify-content 默认值：center，取值与最新原生语法一致
+ */
+/**
+ * 定义伸缩盒子元素的垂直对齐方式
+ * @method align-items
+ * @param {String} $align-items 默认值：center，取值与最新原生语法一致
+ */
+/**
+ * 定义伸缩盒子元素自身的垂直对齐方式
+ * @method align-self
+ * @param {String} $align-self 默认值：center，取值与最新原生语法一致
+ */
+/**
+ * 定义是否有滚动条
+ * @method overflow
+ * @param {String} $overflow 默认值：auto，取值与最新原生语法一致
+ */
+/**
+ * 生成矩形方法
+ * @method rect
+ * @param {Length} $width 定义矩形的长度
+ * @param {Length} $height 定义矩形的高度
+ */
+/**
+ * 生成正方形方法
+ * @method square
+ * @param {Length} $size 定义正方形的边长
+ */
+/**
+ * 生成圆形方法
+ * @method circle
+ * @param {Length} $size 定义圆的半径长度
+ * @param {Length} $radius 定义圆的圆角半径长度
+ */
+/**
+ * 清除浮动方案
+ * @method clearfix
+ */
+/**
+ * 链接处理方法
+ * @method link
+ * @param {Color} $color 定义链接颜色
+ */
+/**
+ * 强制换行方案
+ * @method wrap
+ */
+/**
+ * 单行文本溢出显示方案
+ * @method ellipsis
+ * @param {Boolen} $ellipsis 定义是否需要省略号
+ */
+/**
+ * 文字隐藏方案
+ * @method texthide
+ */
+/**
+ * 清除间隙方案-容器
+ * @method killspace
+ */
+/**
+ * 清除间隙方案-子级
+ * @method killspace-item
+ */
+/**
+ * 未知尺寸元素垂直居中解决方案-容器
+ * @method valign
+ */
+/**
+ * 未知尺寸元素垂直居中解决方案-子级
+ * @method valign-item
+ */
+/**
+ * 已经尺寸元素垂直居中解决方案
+ * @method alignment
+ * @param {Length} $width 居中元素的宽度
+ * @param {Length} $height 居中元素的高度
  */
 /**
  * Directory: lib/layout/classes.scss
@@ -655,10 +955,10 @@ html, body {
  * Edit: 2014.12.5
  */
 /**
- * Directory: lib/core/classes.scss
- * Global Classes 约定常规解决方案
- * Author: joy.du(飘零雾雨)
- * Time: 2012.1.1
+ * @class classes
+ * @module core
+ * @author: doyoe(杜瑶)
+ * @edit: 2015.3.31
  */
 /**
  * 给需要的属性加厂家前缀
@@ -670,12 +970,6 @@ html, body {
  * 定义响应式方案
  * @method responsive
  * @param {String} $media 指定媒体查询条件
- * 使用方法如下，结合variables中的$media-types：
-    @include responsive(phone) {
-        .foo {
-            background: blue;
-        }
-    }
  */
 /**
  * 定义字体图标
@@ -721,6 +1015,112 @@ html, body {
  * 定义补间
  * @method transition
  * @param {String} $transition 取值与原生语法一致
+ */
+/**
+ * 定义显示类型为伸缩盒
+ * @method flexbox
+ * @param {String} $flexbox 默认值：flex，取值与最新原生语法一致
+ */
+/**
+ * 定义伸缩盒子元素如何分配空间
+ * @method flex
+ * @param {String} $flex 默认值：1，取值与最新原生语法一致
+ */
+/**
+ * 定义伸缩盒子元素的排版顺序
+ * @method order
+ * @param {String} $order 默认值：1，取值与最新原生语法一致
+ */
+/**
+ * 定义伸缩盒子元素的流动方向
+ * @method flex-direction
+ * @param {String} $flex-direction 默认值：row，取值与最新原生语法一致
+ */
+/**
+ * 定义伸缩盒子元素溢出排版
+ * @method flex-wrap
+ * @param {String} $flex-wrap 默认值：nowrap，取值与最新原生语法一致
+ */
+/**
+ * 定义伸缩盒子元素的水平对齐方式
+ * @method justify-content
+ * @param {String} $justify-content 默认值：center，取值与最新原生语法一致
+ */
+/**
+ * 定义伸缩盒子元素的垂直对齐方式
+ * @method align-items
+ * @param {String} $align-items 默认值：center，取值与最新原生语法一致
+ */
+/**
+ * 定义伸缩盒子元素自身的垂直对齐方式
+ * @method align-self
+ * @param {String} $align-self 默认值：center，取值与最新原生语法一致
+ */
+/**
+ * 定义是否有滚动条
+ * @method overflow
+ * @param {String} $overflow 默认值：auto，取值与最新原生语法一致
+ */
+/**
+ * 生成矩形方法
+ * @method rect
+ * @param {Length} $width 定义矩形的长度
+ * @param {Length} $height 定义矩形的高度
+ */
+/**
+ * 生成正方形方法
+ * @method square
+ * @param {Length} $size 定义正方形的边长
+ */
+/**
+ * 生成圆形方法
+ * @method circle
+ * @param {Length} $size 定义圆的半径长度
+ * @param {Length} $radius 定义圆的圆角半径长度
+ */
+/**
+ * 清除浮动方案
+ * @method clearfix
+ */
+/**
+ * 链接处理方法
+ * @method link
+ * @param {Color} $color 定义链接颜色
+ */
+/**
+ * 强制换行方案
+ * @method wrap
+ */
+/**
+ * 单行文本溢出显示方案
+ * @method ellipsis
+ * @param {Boolen} $ellipsis 定义是否需要省略号
+ */
+/**
+ * 文字隐藏方案
+ * @method texthide
+ */
+/**
+ * 清除间隙方案-容器
+ * @method killspace
+ */
+/**
+ * 清除间隙方案-子级
+ * @method killspace-item
+ */
+/**
+ * 未知尺寸元素垂直居中解决方案-容器
+ * @method valign
+ */
+/**
+ * 未知尺寸元素垂直居中解决方案-子级
+ * @method valign-item
+ */
+/**
+ * 已经尺寸元素垂直居中解决方案
+ * @method alignment
+ * @param {Length} $width 居中元素的宽度
+ * @param {Length} $height 居中元素的高度
  */
 /**
  * Directory: lib/fragment/classes.scss
@@ -817,10 +1217,10 @@ html, body {
  * Edit: 2014.12.5
  */
 /**
- * Directory: lib/core/classes.scss
- * Global Classes 约定常规解决方案
- * Author: joy.du(飘零雾雨)
- * Time: 2012.1.1
+ * @class classes
+ * @module core
+ * @author: doyoe(杜瑶)
+ * @edit: 2015.3.31
  */
 /**
  * 给需要的属性加厂家前缀
@@ -832,12 +1232,6 @@ html, body {
  * 定义响应式方案
  * @method responsive
  * @param {String} $media 指定媒体查询条件
- * 使用方法如下，结合variables中的$media-types：
-    @include responsive(phone) {
-        .foo {
-            background: blue;
-        }
-    }
  */
 /**
  * 定义字体图标
@@ -883,6 +1277,112 @@ html, body {
  * 定义补间
  * @method transition
  * @param {String} $transition 取值与原生语法一致
+ */
+/**
+ * 定义显示类型为伸缩盒
+ * @method flexbox
+ * @param {String} $flexbox 默认值：flex，取值与最新原生语法一致
+ */
+/**
+ * 定义伸缩盒子元素如何分配空间
+ * @method flex
+ * @param {String} $flex 默认值：1，取值与最新原生语法一致
+ */
+/**
+ * 定义伸缩盒子元素的排版顺序
+ * @method order
+ * @param {String} $order 默认值：1，取值与最新原生语法一致
+ */
+/**
+ * 定义伸缩盒子元素的流动方向
+ * @method flex-direction
+ * @param {String} $flex-direction 默认值：row，取值与最新原生语法一致
+ */
+/**
+ * 定义伸缩盒子元素溢出排版
+ * @method flex-wrap
+ * @param {String} $flex-wrap 默认值：nowrap，取值与最新原生语法一致
+ */
+/**
+ * 定义伸缩盒子元素的水平对齐方式
+ * @method justify-content
+ * @param {String} $justify-content 默认值：center，取值与最新原生语法一致
+ */
+/**
+ * 定义伸缩盒子元素的垂直对齐方式
+ * @method align-items
+ * @param {String} $align-items 默认值：center，取值与最新原生语法一致
+ */
+/**
+ * 定义伸缩盒子元素自身的垂直对齐方式
+ * @method align-self
+ * @param {String} $align-self 默认值：center，取值与最新原生语法一致
+ */
+/**
+ * 定义是否有滚动条
+ * @method overflow
+ * @param {String} $overflow 默认值：auto，取值与最新原生语法一致
+ */
+/**
+ * 生成矩形方法
+ * @method rect
+ * @param {Length} $width 定义矩形的长度
+ * @param {Length} $height 定义矩形的高度
+ */
+/**
+ * 生成正方形方法
+ * @method square
+ * @param {Length} $size 定义正方形的边长
+ */
+/**
+ * 生成圆形方法
+ * @method circle
+ * @param {Length} $size 定义圆的半径长度
+ * @param {Length} $radius 定义圆的圆角半径长度
+ */
+/**
+ * 清除浮动方案
+ * @method clearfix
+ */
+/**
+ * 链接处理方法
+ * @method link
+ * @param {Color} $color 定义链接颜色
+ */
+/**
+ * 强制换行方案
+ * @method wrap
+ */
+/**
+ * 单行文本溢出显示方案
+ * @method ellipsis
+ * @param {Boolen} $ellipsis 定义是否需要省略号
+ */
+/**
+ * 文字隐藏方案
+ * @method texthide
+ */
+/**
+ * 清除间隙方案-容器
+ * @method killspace
+ */
+/**
+ * 清除间隙方案-子级
+ * @method killspace-item
+ */
+/**
+ * 未知尺寸元素垂直居中解决方案-容器
+ * @method valign
+ */
+/**
+ * 未知尺寸元素垂直居中解决方案-子级
+ * @method valign-item
+ */
+/**
+ * 已经尺寸元素垂直居中解决方案
+ * @method alignment
+ * @param {Length} $width 居中元素的宽度
+ * @param {Length} $height 居中元素的高度
  */
 /**
  * Directory: lib/fragment/classes.scss

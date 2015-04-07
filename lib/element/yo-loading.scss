@@ -2,17 +2,23 @@
 @import "classes";
 
 /**
- * Element: yo-loading
- * Author: joy.du(飘零雾雨)
- * Time: 2012.1.1
+ * @class _loading
+ * @module element
+ */
+
+/**
+ * 构造加载中的自定义使用方法
+ =======================
+ * Variables: 5
+ * Author: doyoe(杜瑶)
+ * Edit: 2012.1.1
  -----------------------
- * @method loading
- * variables length(5)
- * @param {defailt | String} $name 定义名称
- * @param {defailt | Length} $size 定义尺寸
- * @param {defailt | Color} $color 定义loading颜色
- * @param {defailt | Color} $mask-bgcolor 定义mask背景色
- * @param {defailt | Color} $bgcolor 定义背景色
+ * @method yo-loading
+ * @param {defailt | String} $name 为需要的扩展定义一个名称
+ * @param {defailt | Length} $size loading的尺寸
+ * @param {defailt | Color} $color 颜色
+ * @param {defailt | Color} $mask-bgcolor 遮罩背景色
+ * @param {defailt | Color} $bgcolor 背景色
  */
 
 @mixin yo-loading(

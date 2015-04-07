@@ -2,60 +2,63 @@
 @import "classes";
 
 /**
- * 定义吊索动画
- * @method sling
- * 使用方式，code: 
-   <div class="ani sling"...
+ * @class animate
+ * @module ani
  */
 
-@-webkit-keyframes sling{
-	0%{
+/**
+ * 定义吊索动画
+ * @method sling
+ */
+
+@-webkit-keyframes sling {
+	0% {
 		-webkit-transform: scale3d(1, 1, 1);
 	}
 	10%,
-	20%{
+	20% {
 		-webkit-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
 	}
 	30%,
 	50%,
 	70%,
-	90%{
+	90% {
 		-webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
 	}
 	40%,
 	60%,
-	80%{
+	80% {
 		-webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
 	}
-	100%{
+	100% {
 		-webkit-transform: scale3d(1, 1, 1);
 	}
 }
-@keyframes sling{
-	0%{
+@keyframes sling {
+	0% {
 		transform: scale3d(1, 1, 1);
 	}
 	10%,
-	20%{
+	20% {
 		transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
 	}
 	30%,
 	50%,
 	70%,
-	90%{
+	90% {
 		transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
 	}
 	40%,
 	60%,
-	80%{
+	80% {
 		transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
 	}
-	100%{
+	100% {
 		transform: scale3d(1, 1, 1);
 	}
 }
 
-.ani.sling{
+.ani.sling {
 	-webkit-animation-name: sling;
 	animation-name: sling;
 }

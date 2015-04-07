@@ -2,59 +2,62 @@
 @import "classes";
 
 /**
- * 定义Y轴弹性动画
- * @method elastic-y
- * 使用方式，code: 
-   <div class="ani elastic-y"...
+ * @class animate
+ * @module ani
  */
 
-@-webkit-keyframes elastic-y{
+/**
+ * 定义Y轴弹性动画
+ * @method elastic-y
+ */
+
+@-webkit-keyframes elastic-y {
 	0%,
 	20%,
-	100%{
+	100% {
 		-webkit-transform: translate3d(0, 0, 0);
 	}
-	30%{
+	30% {
 		-webkit-transform: translate3d(0, 20px, 0);
 	}
-	50%{
+	50% {
 		-webkit-transform: translate3d(0, -20px, 0);
 	}
-	65%{
+	65% {
 		-webkit-transform: translate3d(0, 10px, 0);
 	}
-	80%{
+	80% {
 		-webkit-transform: translate3d(0, -10px, 0);
 	}
-	90%{
+	90% {
 		-webkit-transform: translate3d(0, 5px, 0);
 	}
 }
-@keyframes elastic-y{
+@keyframes elastic-y {
 	0%,
 	20%,
-	100%{
+	100% {
 		transform: translate3d(0, 0, 0);
 	}
-	30%{
+	30% {
 		transform: translate3d(0, 20px, 0);
 	}
-	50%{
+	50% {
 		transform: translate3d(0, -20px, 0);
 	}
-	65%{
+	65% {
 		transform: translate3d(0, 10px, 0);
 	}
-	80%{
+	80% {
 		transform: translate3d(0, -10px, 0);
 	}
-	90%{
+	90% {
 		transform: translate3d(0, 5px, 0);
 	}
 }
 
 
-.ani.elastic-y{
+.ani.elastic-y {
 	-webkit-animation-name: elastic-y;
 	animation-name: elastic-y;
 }

@@ -2,53 +2,57 @@
 @import "classes";
 
 /**
- * 定义弹性升起动画
- * @method elastic-in-up
- * 使用方式，code: 
-   <div class="ani elastic-in-up"...
+ * @class animate
+ * @module ani
  */
 
-@-webkit-keyframes elastic-in-up{
-	0%{
+/**
+ * 定义弹性升起动画
+ * @method elastic-in-up
+
+ */
+
+@-webkit-keyframes elastic-in-up {
+	0% {
 		opacity: 0;
 		-webkit-transform: translate3d(0, 3000px, 0);
 	}
-	60%{
+	60% {
 		opacity: 1;
 		-webkit-transform: translate3d(0, -25px, 0);
 	}
-	75%{
+	75% {
 		-webkit-transform: translate3d(0, 10px, 0);
 	}
-	90%{
+	90% {
 		-webkit-transform: translate3d(0, -5px, 0);
 	}
-	100%{
+	100% {
 		-webkit-transform: translate3d(0, 0, 0);
 	}
 }
-@keyframes elastic-in-up{
-	0%{
+@keyframes elastic-in-up {
+	0% {
 		opacity: 0;
 		transform: translate3d(0, 3000px, 0);
 	}
-	60%{
+	60% {
 		opacity: 1;
 		transform: translate3d(0, -25px, 0);
 	}
-	75%{
+	75% {
 		transform: translate3d(0, 10px, 0);
 	}
-	90%{
+	90% {
 		transform: translate3d(0, -5px, 0);
 	}
-	100%{
+	100% {
 		transform: translate3d(0, 0, 0);
 	}
 }
 
 
-.ani.elastic-in-up{
+.ani.elastic-in-up {
 	-webkit-animation-name: elastic-in-up;
 	animation-name: elastic-in-up;
 }

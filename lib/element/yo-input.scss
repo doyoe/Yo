@@ -2,22 +2,27 @@
 @import "classes";
 
 /**
- * Element: yo-input
- * Author: joy.du(飘零雾雨)
- * Time: 2012.1.1
+ * @class _input
+ * @module element
+ */
+
+/**
+ * 构造输入框的自定义使用方法，可同时作用于 input 与 textarea
+ =======================
+ * Variables: 9
+ * Author: doyoe(杜瑶)
+ * Edit: 2012.1.1
  ------------------------
- * 定义按钮使用方法
  * @method yo-input
- * variables length(9)
- * @param {default | String} $name 定义输入框名称
- * @param {default | Length} $width 定义输入框宽度
- * @param {default | Length} $height 定义输入框高度
- * @param {default | Length} $padding 定义输入框内补白
- * @param {default | Length} $radius 定义输入框圆角
- * @param {default | Color} $bordercolor 定义输入框边框色
- * @param {default | Color} $bgcolor 定义输入框背景色
- * @param {default | Color} $color 定义输入框文本色
- * @param {default | Color} $placeholder-color 定义输入框placeholder文本色
+ * @param {default | String} $name 为需要的扩展定义一个名称
+ * @param {default | Length} $width 宽度
+ * @param {default | Length} $height 高度
+ * @param {default | Length} $padding 内补白
+ * @param {default | Length} $radius 圆角半径长度
+ * @param {default | Color} $bordercolor 边框色
+ * @param {default | Color} $bgcolor 背景色
+ * @param {default | Color} $color 文本色
+ * @param {default | Color} $placeholder-color placeholder文本色
  */
 
 @mixin yo-input(

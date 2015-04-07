@@ -2,60 +2,63 @@
 @import "classes";
 
 /**
- * 定义橡皮圈挤压回弹动画
- * @method extrusion
- * 使用方式，code: 
-   <div class="ani extrusion"...
+ * @class animate
+ * @module ani
  */
 
-@-webkit-keyframes extrusion{
-	0%{
+/**
+ * 定义橡皮圈挤压回弹动画
+ * @method extrusion
+ */
+
+@-webkit-keyframes extrusion {
+	0% {
 		-webkit-transform: scale3d(1, 1, 1);
 	}
-	30%{
+	30% {
 		-webkit-transform: scale3d(.65, 1.35, 1);
 	}
-	40%{
+	40% {
 		-webkit-transform: scale3d(1.35, .65, 1);
 	}
-	50%{
+	50% {
 		-webkit-transform: scale3d(.85, 1.15, 1);
 	}
-	65%{
+	65% {
 		-webkit-transform: scale3d(1.05, .95, 1);
 	}
-	75%{
+	75% {
 		-webkit-transform: scale3d(.95, 1.05, 1);
 	}
-	100%{
+	100% {
 		-webkit-transform: scale3d(1, 1, 1);
 	}
 }
-@keyframes extrusion{
-	0%{
+@keyframes extrusion {
+	0% {
 		transform: scale3d(1, 1, 1);
 	}
-	30%{
+	30% {
 		transform: scale3d(.65, 1.35, 1);
 	}
-	40%{
+	40% {
 		transform: scale3d(1.35, .65, 1);
 	}
-	50%{
+	50% {
 		transform: scale3d(.85, 1.15, 1);
 	}
-	65%{
+	65% {
 		transform: scale3d(1.05, .95, 1);
 	}
-	75%{
+	75% {
 		transform: scale3d(.95, 1.05, 1);
 	}
-	100%{
+	100% {
 		transform: scale3d(1, 1, 1);
 	}
 }
 
-.ani.extrusion{
+.ani.extrusion {
 	-webkit-animation-name: extrusion;
 	animation-name: extrusion;
 }

@@ -2,13 +2,16 @@
 @import "classes";
 
 /**
- * 定义旋转退出动画
- * @method rotate-out
- * 使用方式，code:
-   <div class="ani rotate-out"...
+ * @class animate
+ * @module ani
  */
 
-@-webkit-keyframes rotate-out{
+/**
+ * 定义旋转退出动画
+ * @method rotate-out
+ */
+
+@-webkit-keyframes rotate-out {
 	0% {
 		-webkit-transform-origin: center;
 		opacity: 1;
@@ -19,7 +22,7 @@
 		opacity: 0;
 	}
 }
-@keyframes rotate-out{
+@keyframes rotate-out {
 	0% {
 		transform-origin: center;
 		opacity: 1;
@@ -31,7 +34,7 @@
 	}
 }
 
-.ani.rotate-out{
+.ani.rotate-out {
 	-webkit-animation-name: rotate-out;
 	animation-name: rotate-out;
 }

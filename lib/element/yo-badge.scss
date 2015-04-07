@@ -2,18 +2,25 @@
 @import "classes";
 
 /**
- * Element: yo-badge
- * Author: joy.du(飘零雾雨)
- * edit: 2015.1.19
+ * @class _badge
+ * @module element
+ * @private
+ */
+
+/**
+ * 构造提醒气泡的自定义使用方法，可以扩展为：tag, 文字ico等形态
+ =======================
+ * Variables: 6
+ * Author: doyoe(杜瑶)
+ * Edit: 2015.1.19
  -----------------------
- * @method badge
- * variables length(6)
- * @param {defailt | String} $name 定义名称
- * @param {defailt | Color} $bordercolor 定义边框色
- * @param {defailt | Color} $bgcolor 定义背景色
- * @param {defailt | Color} $color 定义文本色
- * @param {defailt | Number} $radius 定义圆角
- * @param {defailt | Length} $font-size 定义字号
+ * @method yo-badge
+ * @param {defailt | String} $name 为需要的扩展定义一个名称
+ * @param {defailt | Color} $bordercolor 边框色
+ * @param {defailt | Color} $bgcolor 背景色
+ * @param {defailt | Color} $color 文本色
+ * @param {defailt | Length} $radius 圆角半径长度
+ * @param {defailt | Length} $font-size 字号大小
  */
 
 @mixin yo-badge(

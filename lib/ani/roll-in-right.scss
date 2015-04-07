@@ -2,13 +2,16 @@
 @import "classes";
 
 /**
- * 定义从右侧翻滚进入动画
- * @method roll-in-right
- * 使用方式，code:
-   <div class="ani roll-in-right"...
+ * @class animate
+ * @module ani
  */
 
-@-webkit-keyframes roll-in-right{
+/**
+ * 定义从右侧翻滚进入动画
+ * @method roll-in-righ
+ */
+
+@-webkit-keyframes roll-in-right {
 	0% {
 		opacity: 0;
 		-webkit-transform: translate3d(100%, 0, 0) rotate3d(0, 0, 1, 120deg);
@@ -18,7 +21,7 @@
 		-webkit-transform: none;
 	}
 }
-@keyframes roll-in-right{
+@keyframes roll-in-right {
 	0% {
 		opacity: 0;
 		transform: translate3d(100%, 0, 0) rotate3d(0, 0, 1, 120deg);
@@ -29,7 +32,7 @@
 	}
 }
 
-.ani.roll-in-right{
+.ani.roll-in-right {
 	-webkit-animation-name: roll-in-right;
 	animation-name: roll-in-right;
 }

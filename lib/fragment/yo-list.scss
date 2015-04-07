@@ -7,7 +7,7 @@
  * Time: 2012.1.1
  ------------------------
  * @method yo-list
- * variables length(14)
+ * variables length(15)
  * @param {default|String} $name 定义list名称
  * @param {default|Length} $margin 定义list外边距
  * @param {default|Boole} $is-outline 定义list是否需要轮廓（即外边框）
@@ -18,6 +18,7 @@
  * @param {default|Color} $label-bgcolor 定义list分组标题背景色
  * @param {default|Color} $active-bgcolor 定义list点击反馈背景色
  * @param {default|Color} $on-bgcolor 定义list选中背景色
+ * @param {default|Color} $on-color 定义list选中文本色
  * @param {default|Color} $item-bordercolor 定义list子项边框色
  * @param {default|Color} $label-bordercolor 定义list子项组头边框色
  * @param {default|Length} $item-font-size 定义list项字号
@@ -35,6 +36,7 @@
     $label-bgcolor: default,
     $active-bgcolor: default,
     $on-bgcolor: default,
+    $on-color: default,
     $item-bordercolor: default,
     $label-bordercolor: default,
     $item-font-size: default,
@@ -72,6 +74,9 @@
     }
     @if $on-bgcolor == default {
         $on-bgcolor: map-get($list, on-bgcolor);
+    }
+    @if $on-color == default {
+        $on-color: map-get($list, on-color);
     }
     @if $item-bordercolor == default {
         $item-bordercolor: map-get($list, item-bordercolor);
@@ -146,6 +151,9 @@
             &.item-on {
                 @if $on-bgcolor != map-get($list, on-bgcolor) {
                     background-color: $on-bgcolor;
+                }
+                @if $on-color != map-get($list, on-color) {
+                    color: $on-color;
                 }
             }
         }

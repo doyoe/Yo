@@ -1,0 +1,2397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>animate - The Yo API</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="The Yo API" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 1.3.1</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/_badge.html">_badge</a></li>
+                                <li><a href="../classes/_btn.html">_btn</a></li>
+                                <li><a href="../classes/_checkbox.html">_checkbox</a></li>
+                                <li><a href="../classes/_checked.html">_checked</a></li>
+                                <li><a href="../classes/_input.html">_input</a></li>
+                                <li><a href="../classes/_loading.html">_loading</a></li>
+                                <li><a href="../classes/_loadtip.html">_loadtip</a></li>
+                                <li><a href="../classes/_radio.html">_radio</a></li>
+                                <li><a href="../classes/_range.html">_range</a></li>
+                                <li><a href="../classes/_score.html">_score</a></li>
+                                <li><a href="../classes/animate.html">animate</a></li>
+                                <li><a href="../classes/classes.html">classes</a></li>
+                            </ul>
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/ani.html">ani</a></li>
+                                <li><a href="../modules/core.html">core</a></li>
+                                <li><a href="../modules/element.html">element</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1>animate Class</h1>
+<div class="box meta">
+
+
+        <div class="foundat">
+            Defined in: <a href="../files/lib_ani_zoom-out.scss.html#l4"><code>lib&#x2F;ani&#x2F;zoom-out.scss:4</code></a>
+        </div>
+
+            Module: <a href="../modules/ani.html">ani</a>
+
+</div>
+
+
+<div class="box intro">
+    <p>Yo框架的动画解决方案</p>
+
+</div>
+
+
+<div id="classdocs" class="tabview">
+    <ul class="api-class-tabs">
+        <li class="api-class-tab index"><a href="#index">Index</a></li>
+
+            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
+    </ul>
+
+    <div>
+        <div id="index" class="api-class-tabpanel index">
+            <h2 class="off-left">Item Index</h2>
+
+                <div class="index-section methods">
+                    <h3>Methods</h3>
+
+                    <ul class="index-list methods">
+                            <li class="index-item method">
+                                <a href="#method_elastic-in">elastic-in</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_elastic-in-down">elastic-in-down</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_elastic-in-left">elastic-in-left</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_elastic-in-right">elastic-in-right</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_elastic-in-up">elastic-in-up</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_elastic-out">elastic-out</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_elastic-out-down">elastic-out-down</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_elastic-out-left">elastic-out-left</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_elastic-out-right">elastic-out-right</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_elastic-out-up">elastic-out-up</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_elastic-x">elastic-x</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_elastic-y">elastic-y</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_extrusion">extrusion</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_fade-in">fade-in</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_fade-in-down">fade-in-down</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_fade-in-left">fade-in-left</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_fade-in-right">fade-in-right</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_fade-in-up">fade-in-up</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_fade-out">fade-out</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_fade-out-down">fade-out-down</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_fade-out-left">fade-out-left</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_fade-out-right">fade-out-right</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_fade-out-up">fade-out-up</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_flash">flash</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_flip">flip</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_flip-in-x">flip-in-x</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_flip-in-y">flip-in-y</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_flip-out-x">flip-out-x</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_flip-out-y">flip-out-y</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_hinge">hinge</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_pulse">pulse</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_roll-in-left">roll-in-left</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_roll-in-righ">roll-in-righ</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_roll-out-left">roll-out-left</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_roll-out-right">roll-out-right</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_rotate-in">rotate-in</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_rotate-in-down-left">rotate-in-down-left</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_rotate-in-down-right">rotate-in-down-right</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_rotate-in-up-left">rotate-in-up-left</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_rotate-in-up-right">rotate-in-up-right</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_rotate-out">rotate-out</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_rotate-out-down-left">rotate-out-down-left</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_rotate-out-down-right">rotate-out-down-right</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_rotate-out-up-left">rotate-out-up-left</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_rotate-out-up-right">rotate-out-up-right</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_shake">shake</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_sling">sling</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_speed-in-left">speed-in-left</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_speed-in-right">speed-in-right</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_speed-out-left">speed-out-left</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_speed-out-right">speed-out-right</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_stretch">stretch</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_swing">swing</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_wobble">wobble</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_zoom-in">zoom-in</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_zoom-in-down">zoom-in-down</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_zoom-in-left">zoom-in-left</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_zoom-in-right">zoom-in-right</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_zoom-in-up">zoom-in-up</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_zoom-out">zoom-out</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_zoom-out-down">zoom-out-down</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_zoom-out-left">zoom-out-left</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_zoom-out-right">zoom-out-right</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_zoom-out-up">zoom-out-up</a>
+
+                            </li>
+                    </ul>
+                </div>
+
+
+
+        </div>
+
+            <div id="methods" class="api-class-tabpanel">
+                <h2 class="off-left">Methods</h2>
+
+<div id="method_elastic-in" class="method item">
+    <h3 class="name"><code>elastic-in</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_elastic-in.scss.html#l9"><code>lib&#x2F;ani&#x2F;elastic-in.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义弹性进入动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_elastic-in-down" class="method item">
+    <h3 class="name"><code>elastic-in-down</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_elastic-in-down.scss.html#l9"><code>lib&#x2F;ani&#x2F;elastic-in-down.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义弹性下落动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_elastic-in-left" class="method item">
+    <h3 class="name"><code>elastic-in-left</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_elastic-in-left.scss.html#l9"><code>lib&#x2F;ani&#x2F;elastic-in-left.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义从左侧弹性进入动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_elastic-in-right" class="method item">
+    <h3 class="name"><code>elastic-in-right</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_elastic-in-right.scss.html#l9"><code>lib&#x2F;ani&#x2F;elastic-in-right.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义从右侧弹性进入动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_elastic-in-up" class="method item">
+    <h3 class="name"><code>elastic-in-up</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_elastic-in-up.scss.html#l9"><code>lib&#x2F;ani&#x2F;elastic-in-up.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义弹性升起动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_elastic-out" class="method item">
+    <h3 class="name"><code>elastic-out</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_elastic-out.scss.html#l9"><code>lib&#x2F;ani&#x2F;elastic-out.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义弹性移出动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_elastic-out-down" class="method item">
+    <h3 class="name"><code>elastic-out-down</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_elastic-out-down.scss.html#l9"><code>lib&#x2F;ani&#x2F;elastic-out-down.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义弹性向下移出动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_elastic-out-left" class="method item">
+    <h3 class="name"><code>elastic-out-left</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_elastic-out-left.scss.html#l9"><code>lib&#x2F;ani&#x2F;elastic-out-left.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义弹性向右移出动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_elastic-out-right" class="method item">
+    <h3 class="name"><code>elastic-out-right</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_elastic-out-right.scss.html#l9"><code>lib&#x2F;ani&#x2F;elastic-out-right.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义弹性向右移出动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_elastic-out-up" class="method item">
+    <h3 class="name"><code>elastic-out-up</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_elastic-out-up.scss.html#l9"><code>lib&#x2F;ani&#x2F;elastic-out-up.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义弹性向上移出动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_elastic-x" class="method item">
+    <h3 class="name"><code>elastic-x</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_elastic-x.scss.html#l9"><code>lib&#x2F;ani&#x2F;elastic-x.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义X轴弹性动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_elastic-y" class="method item">
+    <h3 class="name"><code>elastic-y</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_elastic-y.scss.html#l9"><code>lib&#x2F;ani&#x2F;elastic-y.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义Y轴弹性动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_extrusion" class="method item">
+    <h3 class="name"><code>extrusion</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_extrusion.scss.html#l9"><code>lib&#x2F;ani&#x2F;extrusion.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义橡皮圈挤压回弹动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_fade-in" class="method item">
+    <h3 class="name"><code>fade-in</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_fade-in.scss.html#l9"><code>lib&#x2F;ani&#x2F;fade-in.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义淡入动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_fade-in-down" class="method item">
+    <h3 class="name"><code>fade-in-down</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_fade-in-down.scss.html#l9"><code>lib&#x2F;ani&#x2F;fade-in-down.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义淡入落下动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_fade-in-left" class="method item">
+    <h3 class="name"><code>fade-in-left</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_fade-in-left.scss.html#l9"><code>lib&#x2F;ani&#x2F;fade-in-left.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义从左侧淡入动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_fade-in-right" class="method item">
+    <h3 class="name"><code>fade-in-right</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_fade-in-right.scss.html#l9"><code>lib&#x2F;ani&#x2F;fade-in-right.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义从右侧淡入动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_fade-in-up" class="method item">
+    <h3 class="name"><code>fade-in-up</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_fade-in-up.scss.html#l9"><code>lib&#x2F;ani&#x2F;fade-in-up.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义淡入升起动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_fade-out" class="method item">
+    <h3 class="name"><code>fade-out</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_fade-out.scss.html#l9"><code>lib&#x2F;ani&#x2F;fade-out.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义淡出动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_fade-out-down" class="method item">
+    <h3 class="name"><code>fade-out-down</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_fade-out-down.scss.html#l9"><code>lib&#x2F;ani&#x2F;fade-out-down.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义从下面淡出动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_fade-out-left" class="method item">
+    <h3 class="name"><code>fade-out-left</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_fade-out-left.scss.html#l9"><code>lib&#x2F;ani&#x2F;fade-out-left.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义从左侧淡出动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_fade-out-right" class="method item">
+    <h3 class="name"><code>fade-out-right</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_fade-out-right.scss.html#l9"><code>lib&#x2F;ani&#x2F;fade-out-right.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义从右侧淡出动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_fade-out-up" class="method item">
+    <h3 class="name"><code>fade-out-up</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_fade-out-up.scss.html#l9"><code>lib&#x2F;ani&#x2F;fade-out-up.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义从上面淡出动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_flash" class="method item">
+    <h3 class="name"><code>flash</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_flash.scss.html#l9"><code>lib&#x2F;ani&#x2F;flash.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义闪烁动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_flip" class="method item">
+    <h3 class="name"><code>flip</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_flip.scss.html#l9"><code>lib&#x2F;ani&#x2F;flip.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义翻转动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_flip-in-x" class="method item">
+    <h3 class="name"><code>flip-in-x</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_flip-in-x.scss.html#l9"><code>lib&#x2F;ani&#x2F;flip-in-x.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义翻转动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_flip-in-y" class="method item">
+    <h3 class="name"><code>flip-in-y</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_flip-in-y.scss.html#l9"><code>lib&#x2F;ani&#x2F;flip-in-y.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义翻转动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_flip-out-x" class="method item">
+    <h3 class="name"><code>flip-out-x</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_flip-out-x.scss.html#l9"><code>lib&#x2F;ani&#x2F;flip-out-x.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义翻转动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_flip-out-y" class="method item">
+    <h3 class="name"><code>flip-out-y</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_flip-out-y.scss.html#l9"><code>lib&#x2F;ani&#x2F;flip-out-y.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义翻转动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_hinge" class="method item">
+    <h3 class="name"><code>hinge</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_hinge.scss.html#l9"><code>lib&#x2F;ani&#x2F;hinge.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义悬挂动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_pulse" class="method item">
+    <h3 class="name"><code>pulse</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_pulse.scss.html#l9"><code>lib&#x2F;ani&#x2F;pulse.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义脉冲动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_roll-in-left" class="method item">
+    <h3 class="name"><code>roll-in-left</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_roll-in-left.scss.html#l9"><code>lib&#x2F;ani&#x2F;roll-in-left.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义从左侧翻滚进入动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_roll-in-righ" class="method item">
+    <h3 class="name"><code>roll-in-righ</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_roll-in-right.scss.html#l9"><code>lib&#x2F;ani&#x2F;roll-in-right.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义从右侧翻滚进入动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_roll-out-left" class="method item">
+    <h3 class="name"><code>roll-out-left</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_roll-out-left.scss.html#l9"><code>lib&#x2F;ani&#x2F;roll-out-left.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义从左侧翻滚出去动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_roll-out-right" class="method item">
+    <h3 class="name"><code>roll-out-right</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_roll-out-right.scss.html#l9"><code>lib&#x2F;ani&#x2F;roll-out-right.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义从右侧翻滚出去动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_rotate-in" class="method item">
+    <h3 class="name"><code>rotate-in</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_rotate-in.scss.html#l9"><code>lib&#x2F;ani&#x2F;rotate-in.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义旋转进入动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_rotate-in-down-left" class="method item">
+    <h3 class="name"><code>rotate-in-down-left</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_rotate-in-down-left.scss.html#l9"><code>lib&#x2F;ani&#x2F;rotate-in-down-left.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义旋转从左向下进入动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_rotate-in-down-right" class="method item">
+    <h3 class="name"><code>rotate-in-down-right</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_rotate-in-down-right.scss.html#l9"><code>lib&#x2F;ani&#x2F;rotate-in-down-right.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义旋转从右向下进入动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_rotate-in-up-left" class="method item">
+    <h3 class="name"><code>rotate-in-up-left</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_rotate-in-up-left.scss.html#l9"><code>lib&#x2F;ani&#x2F;rotate-in-up-left.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义旋转从左向上进入动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_rotate-in-up-right" class="method item">
+    <h3 class="name"><code>rotate-in-up-right</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_rotate-in-up-right.scss.html#l9"><code>lib&#x2F;ani&#x2F;rotate-in-up-right.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义旋转从右向上进入动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_rotate-out" class="method item">
+    <h3 class="name"><code>rotate-out</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_rotate-out.scss.html#l9"><code>lib&#x2F;ani&#x2F;rotate-out.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义旋转退出动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_rotate-out-down-left" class="method item">
+    <h3 class="name"><code>rotate-out-down-left</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_rotate-out-down-left.scss.html#l9"><code>lib&#x2F;ani&#x2F;rotate-out-down-left.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义旋转从左往下退出动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_rotate-out-down-right" class="method item">
+    <h3 class="name"><code>rotate-out-down-right</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_rotate-out-down-right.scss.html#l9"><code>lib&#x2F;ani&#x2F;rotate-out-down-right.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义旋转从右往下退出动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_rotate-out-up-left" class="method item">
+    <h3 class="name"><code>rotate-out-up-left</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_rotate-out-up-left.scss.html#l9"><code>lib&#x2F;ani&#x2F;rotate-out-up-left.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义旋转从左向上退出动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_rotate-out-up-right" class="method item">
+    <h3 class="name"><code>rotate-out-up-right</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_rotate-out-up-right.scss.html#l9"><code>lib&#x2F;ani&#x2F;rotate-out-up-right.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义旋转从右向上退出动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_shake" class="method item">
+    <h3 class="name"><code>shake</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_shake.scss.html#l9"><code>lib&#x2F;ani&#x2F;shake.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义摇动动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_sling" class="method item">
+    <h3 class="name"><code>sling</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_sling.scss.html#l9"><code>lib&#x2F;ani&#x2F;sling.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义吊索动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_speed-in-left" class="method item">
+    <h3 class="name"><code>speed-in-left</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_speed-in-left.scss.html#l9"><code>lib&#x2F;ani&#x2F;speed-in-left.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义从右侧快速进入动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_speed-in-right" class="method item">
+    <h3 class="name"><code>speed-in-right</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_speed-in-right.scss.html#l9"><code>lib&#x2F;ani&#x2F;speed-in-right.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义从右侧快速进入动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_speed-out-left" class="method item">
+    <h3 class="name"><code>speed-out-left</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_speed-out-left.scss.html#l9"><code>lib&#x2F;ani&#x2F;speed-out-left.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义从左侧快速出去动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_speed-out-right" class="method item">
+    <h3 class="name"><code>speed-out-right</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_speed-out-right.scss.html#l9"><code>lib&#x2F;ani&#x2F;speed-out-right.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义从右侧快速出去动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_stretch" class="method item">
+    <h3 class="name"><code>stretch</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_stretch.scss.html#l9"><code>lib&#x2F;ani&#x2F;stretch.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义橡皮圈拉伸回弹动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_swing" class="method item">
+    <h3 class="name"><code>swing</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_swing.scss.html#l9"><code>lib&#x2F;ani&#x2F;swing.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义晃动动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_wobble" class="method item">
+    <h3 class="name"><code>wobble</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_wobble.scss.html#l9"><code>lib&#x2F;ani&#x2F;wobble.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义摆动动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_zoom-in" class="method item">
+    <h3 class="name"><code>zoom-in</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_zoom-in.scss.html#l9"><code>lib&#x2F;ani&#x2F;zoom-in.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义放大进入动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_zoom-in-down" class="method item">
+    <h3 class="name"><code>zoom-in-down</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_zoom-in-down.scss.html#l9"><code>lib&#x2F;ani&#x2F;zoom-in-down.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义放大下降进入动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_zoom-in-left" class="method item">
+    <h3 class="name"><code>zoom-in-left</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_zoom-in-left.scss.html#l9"><code>lib&#x2F;ani&#x2F;zoom-in-left.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义从左侧放大进入动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_zoom-in-right" class="method item">
+    <h3 class="name"><code>zoom-in-right</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_zoom-in-right.scss.html#l9"><code>lib&#x2F;ani&#x2F;zoom-in-right.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义从右侧放大进入动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_zoom-in-up" class="method item">
+    <h3 class="name"><code>zoom-in-up</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_zoom-in-up.scss.html#l9"><code>lib&#x2F;ani&#x2F;zoom-in-up.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义放大上升进入动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_zoom-out" class="method item">
+    <h3 class="name"><code>zoom-out</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_zoom-out.scss.html#l9"><code>lib&#x2F;ani&#x2F;zoom-out.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义缩小退出动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_zoom-out-down" class="method item">
+    <h3 class="name"><code>zoom-out-down</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_zoom-out-down.scss.html#l9"><code>lib&#x2F;ani&#x2F;zoom-out-down.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义下降缩小退出动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_zoom-out-left" class="method item">
+    <h3 class="name"><code>zoom-out-left</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_zoom-out-left.scss.html#l9"><code>lib&#x2F;ani&#x2F;zoom-out-left.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义从左往右缩小退出动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_zoom-out-right" class="method item">
+    <h3 class="name"><code>zoom-out-right</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_zoom-out-right.scss.html#l9"><code>lib&#x2F;ani&#x2F;zoom-out-right.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义从右往左缩小退出动画</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_zoom-out-up" class="method item">
+    <h3 class="name"><code>zoom-out-up</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_ani_zoom-out-up.scss.html#l9"><code>lib&#x2F;ani&#x2F;zoom-out-up.scss:9</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>定义上升缩小退出动画</p>
+
+    </div>
+
+
+
+
+</div>
+            </div>
+
+
+
+    </div>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

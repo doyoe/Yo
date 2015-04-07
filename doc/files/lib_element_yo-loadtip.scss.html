@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>lib/element/yo-loadtip.scss - The Yo API</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="The Yo API" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 1.3.1</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/_badge.html">_badge</a></li>
+                                <li><a href="../classes/_btn.html">_btn</a></li>
+                                <li><a href="../classes/_checkbox.html">_checkbox</a></li>
+                                <li><a href="../classes/_checked.html">_checked</a></li>
+                                <li><a href="../classes/_input.html">_input</a></li>
+                                <li><a href="../classes/_loading.html">_loading</a></li>
+                                <li><a href="../classes/_loadtip.html">_loadtip</a></li>
+                                <li><a href="../classes/_radio.html">_radio</a></li>
+                                <li><a href="../classes/_range.html">_range</a></li>
+                                <li><a href="../classes/_score.html">_score</a></li>
+                                <li><a href="../classes/animate.html">animate</a></li>
+                                <li><a href="../classes/classes.html">classes</a></li>
+                            </ul>
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/ani.html">ani</a></li>
+                                <li><a href="../modules/core.html">core</a></li>
+                                <li><a href="../modules/element.html">element</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: lib/element/yo-loadtip.scss</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+@charset &quot;utf-8&quot;;
+@import &quot;classes&quot;;
+
+/**
+ * @class _loadtip
+ * @module element
+ */
+
+/**
+ * 构造加载提示的自定义使用方法
+ =======================
+ * Variables: 4
+ * Author: doyoe(杜瑶)
+ * Edit: 2015.3.9
+ -----------------------
+ * @method yo-loadtip
+ * @param {defailt | String} $name 为需要的扩展定义一个名称
+ * @param {defailt | Color} $color 文本色
+ * @param {defailt | Length} $font-size 字号大小
+ * @param {defailt | Color} $ico-color ico颜色
+ */
+
+@mixin yo-loadtip(
+    $name: default,
+    $color: default,
+    $font-size: default,
+    $ico-color: default) {
+    // 区别是否新增实例还是修改本身
+    @if $name == default {
+        $name: &quot;&quot;;
+    } @else {
+        $name: &quot;-#{$name}&quot;;
+    }
+    // 如果值为default，则取config的定义
+    @if $color == default {
+        $color: map-get($loadtip, color);
+    }
+    @if $font-size == default {
+        $font-size: map-get($loadtip, font-size);
+    }
+    @if $ico-color == default {
+        $ico-color: map-get($loadtip, ico-color);
+    }
+
+    .yo-loadtip#{$name} {
+        // 如果$color不等于config设定，则重绘文本色
+        @if $color != map-get($loadtip, color) {
+            color: $color;
+        }
+        // 如果$font-size不等于config设定，则重绘字号
+        @if $font-size != map-get($loadtip, font-size) {
+            font-size: $font-size;
+        }
+        &gt; .yo-ico {
+            // 如果$ico-color不等于config设定，则重绘ico颜色
+            @if $ico-color != map-get($loadtip, ico-color) {
+                color: $ico-color;
+            }
+        }
+    }
+}
+
+// 调用本文件时载入气泡基础构造
+.yo-loadtip {
+    @include _loadtip;
+    @at-root{
+        @-webkit-keyframes loadtip {
+            from{-webkit-transform: rotatez(0);}
+            to{-webkit-transform: rotatez(360deg);}
+        }
+        @keyframes loadtip {
+            from{transform: rotatez(0);}
+            to{transform: rotatez(360deg);}
+        }
+    }
+}
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

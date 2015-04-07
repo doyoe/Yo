@@ -1,17 +1,17 @@
 @charset "utf-8";
-
 /**
- * Directory: lib/ani/classes.scss
- * Ani - Yo框架的动画解决方案
- * Author: joy.du(飘零雾雨)
- * Time: 2012.1.1
+ * Yo框架的动画解决方案
+ * @class animate
+ * @module ani
+ * @author: doyoe(杜瑶)
+ * @edit: 2015.3.31
  */
 
 
 /**
  * 定义动画基本特性
  */
-.ani{
+.ani {
 	// 定义动画的持续时间
 	-webkit-animation-duration: 1s;
 	animation-duration: 1s;
@@ -20,7 +20,7 @@
 	animation-fill-mode: both;
 }
 
-.ani.infinite{
+.ani.infinite {
 	//定义动画无限循环
 	-webkit-animation-iteration-count: infinite;
 	animation-iteration-count: infinite;

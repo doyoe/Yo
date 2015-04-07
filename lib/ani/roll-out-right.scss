@@ -2,13 +2,16 @@
 @import "classes";
 
 /**
- * 定义从右侧翻滚出去动画
- * @method roll-out-right
- * 使用方式，code:
-   <div class="ani roll-out-right"...
+ * @class animate
+ * @module ani
  */
 
-@-webkit-keyframes roll-out-right{
+/**
+ * 定义从右侧翻滚出去动画
+ * @method roll-out-right
+ */
+
+@-webkit-keyframes roll-out-right {
 	0% {
 		opacity: 1;
 	}
@@ -17,7 +20,7 @@
 		-webkit-transform: translate3d(100%, 0, 0) rotate3d(0, 0, 1, 120deg);
 	}
 }
-@keyframes roll-out-right{
+@keyframes roll-out-right {
 	0% {
 		opacity: 1;
 	}
@@ -27,7 +30,7 @@
 	}
 }
 
-.ani.roll-out-right{
+.ani.roll-out-right {
 	-webkit-animation-name: roll-out-right;
 	animation-name: roll-out-right;
 }

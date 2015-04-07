@@ -2,43 +2,46 @@
 @import "classes";
 
 /**
- * 定义弹性向右移出动画
- * @method elastic-out-left
- * 使用方式，code: 
-   <div class="ani elastic-out-left"...
+ * @class animate
+ * @module ani
  */
 
-@-webkit-keyframes elastic-out-left{
-	20%{
+/**
+ * 定义弹性向右移出动画
+ * @method elastic-out-left
+ */
+
+@-webkit-keyframes elastic-out-left {
+	20% {
 		-webkit-transform: translate3d(-10px, 0, 0);
 	}
 	40%,
-	45%{
+	45% {
 		opacity: 1;
 		-webkit-transform: translate3d(20px, 0, 0);
 	}
-	100%{
+	100% {
 		opacity: 0;
 		-webkit-transform: translate3d(-2000px, 0, 0);
 	}
 }
-@keyframes elastic-out-left{
-	20%{
+@keyframes elastic-out-left {
+	20% {
 		transform: translate3d(-10px, 0, 0);
 	}
 	40%,
-	45%{
+	45% {
 		opacity: 1;
 		transform: translate3d(20px, 0, 0);
 	}
-	100%{
+	100% {
 		opacity: 0;
 		transform: translate3d(-2000px, 0, 0);
 	}
 }
 
 
-.ani.elastic-out-left{
+.ani.elastic-out-left {
 	-webkit-animation-name: elastic-out-left;
 	animation-name: elastic-out-left;
 }

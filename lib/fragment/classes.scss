@@ -96,9 +96,10 @@
         &.item-light {
             background-color: map-get($list, active-bgcolor);
         }
-        // 选中时背景色
+        // 选中时背景和文本色
         &.item-on {
             background-color: map-get($list, on-bgcolor);
+            color: map-get($list, on-color);
         }
         // 定义单元格的padding
         > .col {

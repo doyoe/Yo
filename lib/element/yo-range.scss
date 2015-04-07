@@ -2,17 +2,23 @@
 @import "classes";
 
 /**
- * Element: yo-range
+ * @class _range
+ * @module element
+ */
+
+/**
+ * 构造区间选择的自定义使用方法
+ =======================
+ * Variables: 4
  * Author: joy.du(飘零雾雨)
- * Time: 2012.1.1
+ * Edit: 2012.1.1
  ------------------------
  * 定义按钮使用方法
  * @method yo-range
- * variables length(4)
- * @param {default | String} $name 定义range名称
- * @param {default | Color} $inner-bgcolor 定义range已选择区域滑条色
- * @param {default | Color} $outer-bgcolor 定义range未选择区域滑条色
- * @param {default | Color} $ball-color 定义range滑块色
+ * @param {default | String} $name 为需要的扩展定义一个名称
+ * @param {default | Color} $inner-bgcolor 已选择区域滑条色
+ * @param {default | Color} $outer-bgcolor 未选择区域滑条色
+ * @param {default | Color} $ball-color 滑块色
  */
 
 @mixin yo-range(

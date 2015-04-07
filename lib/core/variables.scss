@@ -276,7 +276,7 @@ $btnbar: (
     radius: auto
 ) !default;
 
-// Fragment list(13)
+// Fragment list(14)
 $list: (
     // {Length} 列表外边距
     margin:            -.01rem -.01rem 0 -.01rem,
@@ -296,6 +296,8 @@ $list: (
     active-bgcolor:    #f8f8f8,
     // {Color} 选中背景色
     on-bgcolor:        null,
+    // {Color} 选中文本色
+    on-color:          null,
     // {Color} 列表项边框色
     item-bordercolor:  map-get($base, bordercolor),
     // {Color} 列表项组名边框色

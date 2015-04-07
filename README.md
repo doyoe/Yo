@@ -28,6 +28,8 @@
 
 ### Developing: v1.4.0
 
+* update: `yo-list`
+    - 增加 `on-color` 参数，用于设置列表项选中时文本色
 * update: `yo-search`
     - 增加 `cancel-width` 参数，用于设置取消按钮区域的宽度
 

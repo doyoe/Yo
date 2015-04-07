@@ -2,14 +2,19 @@
 @import "classes";
 
 /**
- * Element: yo-btn
- * Author: joy.du(飘零雾雨)
+ * @class _btn
+ * @module element
+ */
+
+/**
+ * 构造按钮的自定义使用方法，可轻松自定义边框，尺寸，背景，文字等
+ =======================
+ * Variables: 12
+ * Author: doyoe(杜瑶)
  * Edit: 2015.1.19
  ------------------------
- * 定义按钮使用方法
  * @method yo-btn
- * variables length(12)
- * @param {default | String} $name 扩展的名称
+ * @param {default | String} $name 为需要的扩展定义一个名称
  * @param {default | Color} $bordercolor 边框色
  * @param {default | Color} $bgcolor 背景色
  * @param {default | Color} $color 文本色
@@ -17,8 +22,8 @@
  * @param {default | Color} $active-bgcolor 激活时背景色
  * @param {default | Color} $active-color 激活时文本色
  * @param {default | Length} $padding 横向补白
- * @param {default | Length} $radius 圆角半径
- * @param {default | Length} $font-size 字号
+ * @param {default | Length} $radius 圆角半径长度
+ * @param {default | Length} $font-size 字号大小
  * @param {default | Length} $width 宽度
  * @param {default | Length} $height 高度
  */

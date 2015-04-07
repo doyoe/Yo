@@ -2,36 +2,39 @@
 @import "classes";
 
 /**
- * 定义闪烁动画
- * @method flash
- * 使用方式，code: 
-   <div class="ani flash"...
+ * @class animate
+ * @module ani
  */
 
-@-webkit-keyframes flash{
+/**
+ * 定义闪烁动画
+ * @method flash
+ */
+
+@-webkit-keyframes flash {
 	0%,
 	50%,
-	100%{
+	100% {
 		opacity: 1;
 	}
 	25%,
-	75%{
+	75% {
 		opacity: 0;
 	}
 }
-@keyframes flash{
+@keyframes flash {
 	0%,
 	50%,
-	100%{
+	100% {
 		opacity: 1;
 	}
 	25%,
-	75%{
+	75% {
 		opacity: 0;
 	}
 }
 
-.ani.flash{
+.ani.flash {
 	-webkit-animation-name: flash;
 	animation-name: flash;
 }

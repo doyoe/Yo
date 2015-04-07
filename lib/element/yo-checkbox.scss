@@ -2,21 +2,27 @@
 @import "classes";
 
 /**
- * element: yo-checkbox
- * Author: joy.du(飘零雾雨)
- * Time: 2014.11.14
+ * @class _checkbox
+ * @module element
+ */
+
+/**
+ * 构造多选的自定义使用方法
+ =======================
+ * Variables: 9
+ * Author: doyoe(杜瑶)
+ * Edit: 2014.11.14
  -----------------------
  * @method yo-checkbox
- * variables length(9)
- * @param {default | String} $name 扩展的名称
- * @param {default | String} $type 类型，可选值：[circle | tick]
+ * @param {default | String} $name 为需要的扩展定义一个名称
+ * @param {default | String} $type 选中时的标记类型，可选值：[circle | tick]
  * @param {default | Length} $size 元件大小
  * @param {default | Color} $bordercolor 边框色
  * @param {default | Color} $bgcolor 背景色
- * @param {default | Color} $on-bordercolor 激活时边框色
- * @param {default | Color} $on-bgcolor 激活时背景色
- * @param {default | Color} $on-color 激活时标记色
- * @param {default | Length} $radius 圆角半径
+ * @param {default | Color} $on-bordercolor 选中时的边框色
+ * @param {default | Color} $on-bgcolor 选中时的背景色
+ * @param {default | Color} $on-color 选中时的标记色
+ * @param {default | Length} $radius 圆角半径长度
  */
 
 @mixin yo-checkbox(

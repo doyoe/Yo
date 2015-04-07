@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>lib/widget/classes.scss - The Yo API</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="The Yo API" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 1.3.1</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/_badge.html">_badge</a></li>
+                                <li><a href="../classes/_btn.html">_btn</a></li>
+                                <li><a href="../classes/_checkbox.html">_checkbox</a></li>
+                                <li><a href="../classes/_checked.html">_checked</a></li>
+                                <li><a href="../classes/_input.html">_input</a></li>
+                                <li><a href="../classes/_loading.html">_loading</a></li>
+                                <li><a href="../classes/_loadtip.html">_loadtip</a></li>
+                                <li><a href="../classes/_radio.html">_radio</a></li>
+                                <li><a href="../classes/_range.html">_range</a></li>
+                                <li><a href="../classes/_score.html">_score</a></li>
+                                <li><a href="../classes/animate.html">animate</a></li>
+                                <li><a href="../classes/classes.html">classes</a></li>
+                            </ul>
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/ani.html">ani</a></li>
+                                <li><a href="../modules/core.html">core</a></li>
+                                <li><a href="../modules/element.html">element</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: lib/widget/classes.scss</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+@charset &quot;utf-8&quot;;
+@import &quot;../core/variables&quot;;
+@import &quot;../core/classes&quot;;
+
+/**
+ * Directory: lib/widget/classes.scss
+ * widget的基础构造
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ */
+
+// 定义弹窗dialog的基础构造
+// 使用方法请查看 yo-dialog.scss
+@mixin _dialog {
+    @include flexbox();
+    @include flex-direction(column);
+    position: fixed;
+    z-index: map-get($z-index, dialog);
+    overflow: hidden;
+    border-radius: map-get($dialog, radius);
+    @if map-get($dialog, shadow-opacity) != null {
+        box-shadow: 0 0 5px rgba(map-get($dialog, bordercolor), map-get($dialog, shadow-opacity));
+    }
+    border: 1px solid map-get($dialog, bordercolor);
+    min-width: 2.8rem;
+    max-width: 90%;
+    width: map-get($dialog, width);
+    height: map-get($dialog, height);
+    background: #fff;
+    text-align: center;
+    &gt; .hd {
+        position: relative;
+        height: map-get($dialog, hd-height);
+        background: map-get($dialog, hd-bgcolor);
+        line-height: map-get($dialog, hd-height);
+        margin-bottom: -.2rem;
+        .title {
+            overflow: hidden;
+            height: 100%;
+            margin: 0 60px;
+            @if map-get($dialog, title-color) != map-get($base, color) {
+                color: map-get($dialog, title-color);
+            }
+            @if map-get($dialog, title-font-size) != map-get($base, font-size) {
+                font-size: map-get($dialog, title-font-size);
+            }
+        }
+        .regret,
+        .affirm {
+            position: absolute;
+            top: 0;
+        }
+        .regret {
+            left: .1rem;
+        }
+        .affirm {
+            right: .1rem;
+        }
+    }
+    &gt; .bd {
+        @include flex();
+        @include overflow();
+        padding: map-get($dialog, bd-padding);
+        @if map-get($dialog, bd-font-size) != map-get($base, font-size) {
+            font-size: map-get($dialog, bd-font-size);
+        }
+    }
+    &gt; .ft {
+        @include flexbox();
+        text-align: center;
+        @include yo-btn(default, map-get($base, bordercolor), #fff, map-get($base, link-color), default, 0);
+        &gt; .yo-btn {
+            @include flex();
+            border-width: 1px 0 0 0;
+            &amp;:last-child:not(:only-child),
+            &amp;:only-child {
+                font-weight: bold;
+            }
+            &amp;:last-child:not(:only-child) {
+                border-left-width: 1px;
+            }
+            &amp;:focus,
+            &amp;:active {
+                background-color: #f9f9f9;
+            }
+        }
+    }
+}
+
+// 定义浮层popup的基础构造
+// 使用方法请查看 yo-popup.scss
+@mixin _popup {
+    @include flexbox();
+    @include flex-direction(column);
+    position: absolute;
+    z-index: map-get($z-index, popup);
+    border-radius: map-get($popup, radius);
+    @if map-get($popup, shadow-opacity) != null {
+        box-shadow: 0 0 5px rgba(map-get($popup, bordercolor), map-get($popup, shadow-opacity));
+    }
+    border: 1px solid map-get($popup, bordercolor);
+    min-width: 2.8rem;
+    min-height: 1rem;
+    width: map-get($popup, width);
+    height: map-get($popup, height);
+    background: #fff;
+    // 改用标签的方式，因为JS需要控制位置
+    &gt; .arrow::after {
+        position: absolute;
+        content: &quot;◆&quot;;
+        color: #fff;
+        font-size: map-get($popup, arrow-size) * 2;
+        line-height: 1;
+    }
+    // 控制箭头方向
+    .arrow-top,
+    .arrow-down {
+        &amp;::after {
+            @include transform(translate(-50%));
+            left: 50%;
+        }
+    }
+    .arrow-top::after {
+        top: -#{map-get($popup, arrow-size) - .01rem};
+        // 箭头边框色
+        text-shadow: 0 -1px map-get($popup, bordercolor);
+    }
+    .arrow-down::after {
+        bottom: -#{map-get($popup, arrow-size) - .01rem};
+        // 箭头边框色
+        text-shadow: 0 1px map-get($popup, bordercolor);
+    }
+    .arrow-right,
+    .arrow-left {
+        &amp;::after {
+            @include transform(translate(0, -50%));
+            top: 50%;
+        }
+    }
+    .arrow-right::after {
+        right: -#{map-get($popup, arrow-size) - .01rem};
+        // 箭头边框色
+        text-shadow: 1px 0 map-get($popup, bordercolor);
+    }
+    .arrow-left::after {
+        left: -#{map-get($popup, arrow-size) - .01rem};
+        // 箭头边框色
+        text-shadow: -1px 0 map-get($popup, bordercolor);
+    }
+    // 有hd或ft时，箭头的颜色应该和hd或ft相同
+    .arrow-extra.arrow::after {
+        color: map-get($popup, hd-bgcolor);
+    }
+    &gt; .hd,
+    &gt; .bd {
+        position: relative;
+        z-index: 2;
+    }
+    &gt; .hd {
+        height: map-get($popup, hd-height);
+        border-bottom: 1px solid map-get($popup, bordercolor);
+        background: map-get($popup, hd-bgcolor);
+        line-height: map-get($popup, hd-height);
+        text-align: center;
+        .title {
+            overflow: hidden;
+            height: 100%;
+            margin: 0 60px;
+            @if map-get($popup, title-color) != map-get($base, color) {
+                color: map-get($popup, title-color);
+            }
+            @if map-get($popup, title-font-size) != map-get($base, font-size) {
+                font-size: map-get($popup, title-font-size);
+            }
+        }
+        .regret,
+        .affirm {
+            position: absolute;
+            top: 0;
+        }
+        .regret {left: 10px;}
+        .affirm {right: 10px;}
+    }
+    &gt; .bd {
+        @include flex();
+        @include overflow();
+        padding: map-get($popup, bd-padding);
+    }
+    &gt; .ft {
+        padding: .1rem 0;
+        border-top: 1px solid map-get($popup, bordercolor);
+        text-align: center;
+    }
+}
+
+// 定义浮层tip的基础构造
+// 使用方法请查看 yo-tip.scss
+@mixin _tip{
+    position: fixed;
+    min-width: 1rem;
+    max-width: 90%;
+    z-index: map-get($z-index, tip);
+    padding: map-get($tip, padding);
+    border-radius: map-get($tip, radius);
+    background-color: rgba(map-get($tip, bgcolor), .5);
+    color: map-get($tip, color);
+    text-align: center;
+}
+
+// 定义mask的基础构造
+// 使用方法请查看 yo-mask.scss
+@mixin _mask{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: map-get($z-index, mask);
+    background-color: rgba(map-get($mask, bgcolor), .5);
+}
+
+// 定义select的基础构造
+// 使用方法请查看 yo-select.scss
+@mixin _select {
+    @include flexbox();
+    position: relative;
+    overflow: hidden;
+    height: map-get($select, item-height) * map-get($select, item);
+    line-height: map-get($select, item-height);
+    &amp;::before {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: map-get($select, item-height);
+        margin-top: -#{map-get($select, item-height) / 2};
+        content: &quot;\0020&quot;;
+        border: 1px solid map-get($select, bordercolor);
+        border-width: 1px 0;
+    }
+    &amp;-item,
+    &amp;-item-list,
+    &amp;-item ul {
+        height: 100%;
+    }
+    &amp;-item {
+        @include flex();
+        position: relative;
+        z-index: 2;
+        text-align: center;
+
+    }
+    &amp;-item-list {
+        ul {
+            position: relative;
+        }
+        li {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: map-get($select, item-height);
+            &amp;.disabled {
+                opacity: .4;
+            }
+        }
+    }
+    &amp;-item-tag {
+        position: absolute;
+        top: 50%;
+        right: .1rem;
+        margin-top: -#{map-get($select, item-height) / 2};
+    }
+    &gt; .mask {
+        position: absolute;
+        z-index: 3;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        content: &quot;\0020&quot;;
+        pointer-events: none;
+        // background: -webkit-linear-gradient(top, white, transparent 40%, transparent 40%, transparent 60%, transparent 60%, white);
+    }
+}
+
+// 定义tab的基础构造
+// 使用方法请查看 yo-tab.scss
+@mixin _tab {
+    @include flexbox();
+    height: map-get($tab, height);
+    border-radius: map-get($tab, radius);
+    border-width: map-get($tab, border-width);
+    border-style: solid;
+    border-color: map-get($tab, bordercolor);
+    background-color: map-get($tab, bgcolor);
+    font-size: map-get($tab, font-size);
+    text-align: center;
+    line-height: map-get($tab, height);
+    &gt; .item{
+        @include flex();
+        position: relative;
+        &amp;:not(:last-child)::after {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            @include transform(translatey(-50%));
+            width: .01rem;
+            height: map-get($tab, item-border-height);
+            background-color: map-get($tab, item-bordercolor);
+            content: &quot;\0020&quot;;
+        }
+        color: map-get($tab, color);
+        &amp;:active,
+        &amp;.on,
+        &amp;-on {
+            background-color: map-get($tab, on-bgcolor);
+            color: map-get($tab, on-color);
+        }
+        &amp;-top-ico {
+            padding-top: .04rem;
+            line-height: .2rem;
+            .yo-ico {
+                display: block;
+                font-size: map-get($tab, y-ico-size);
+            }
+        }
+        &amp;-left-ico {
+            .yo-ico {
+                font-size: map-get($tab, x-ico-size);
+            }
+        }
+        &amp;-only-ico {
+            .yo-ico {
+                font-size: map-get($tab, only-ico-size);
+            }
+        }
+    }
+}
+
+// 定义number的基础构造
+// 使用方法请查看 yo-number.scss
+@mixin _number{
+    @include flexbox(inline-flex);
+    overflow: hidden;
+    width: map-get($number, width);
+    height: map-get($number, height);
+    line-height: map-get($number, height);
+    border: 1px solid map-get($number, bordercolor);
+    border-radius: 0;
+    box-shadow: 1px 1px 1px rgba(map-get($number, bordercolor),.3);
+    background-color: #fff;
+    font-size: 0;
+    vertical-align: middle;
+    &gt; .minus,
+    &gt; .plus,
+    &gt; .input{
+        text-align: center;
+    }
+    &gt; .minus,
+    &gt; .plus{
+        display: block;
+        width: .35rem;
+        background-color: map-get($number, sign-bgcolor);
+        color: map-get($number, sign-color);
+        font-size: 30px;
+        font-family: arial;
+        cursor: pointer;
+        &amp;.disabled{
+            color: map-get($number, disabled-sign-color);
+            cursor: not-allowed;
+        }
+    }
+    &gt; .input{
+        @include flex();
+        border: 1px solid map-get($number, bordercolor);
+        border-width: 0 1px;
+        box-shadow: inset 1px 1px 1px rgba(map-get($number, bordercolor), .1);
+        border-radius: 0;
+        color: map-get($number, color);
+        font-size: .16rem;
+        &amp;,
+        &amp;::-webkit-inner-spin-button{
+            @include appearance();
+        }
+    }
+}
+
+// 定义search的基础构造
+// 使用方法请查看 yo-search.scss
+@mixin _search {
+    @include flexbox();
+    @include flex-direction(column);
+    &gt; .operate {
+        position: relative;
+        overflow: hidden;
+        z-index: map-get($z-index, search);
+        font-size: map-get($search, font-size);
+        line-height: map-get($search, height);
+        padding: map-get($search, op-padding);
+        border-bottom: 1px solid map-get($search, bordercolor);
+        background-color: map-get($search, op-bgcolor);
+        &gt; .action {
+            display: block;
+            position: relative;
+            z-index: 2;
+            height: map-get($search, height);
+            &gt; .input {
+                width: 100%;
+                height: 100%;
+                padding: 0 .3rem;
+                @include appearance;
+                border: 1px solid map-get($search, bordercolor);
+                border-radius: map-get($search, radius);
+                background-color: map-get($search, bgcolor);
+                color: map-get($search, color);
+                font-size: map-get($search, font-size);
+                line-height: map-get($base, line-height);
+            }
+            &gt; .yo-ico-delete,
+            &gt; .yo-ico-fresh,
+            &gt; .yo-ico-stop {
+                display: none;
+                position: absolute;
+                top: 0;
+                right: 0;
+                height: 100%;
+                padding: 0 .08rem;
+                color: map-get($search, ico-color);
+            }
+            &gt; .label {
+                @include flexbox;
+                position: absolute;
+                top: 0;
+                left: 50%;
+                @include transition(all .2s ease-in);
+                @include transform(translatex(-50%) translatez(0));
+                color: map-get($search, placeholder-color);
+                &gt; .placeholder {
+                    margin-left: .08rem;
+                }
+            }
+        }
+        &gt; .cancel {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            @include transform(translatey(-50%));
+            width: map-get($search, cancel-width);
+            color: map-get($search, cancel-color);
+            text-align: center;
+        }
+        &amp;-on,
+        &amp;-fresh,
+        &amp;-stop {
+            &gt; .action &gt; .input {
+                border-color: map-get($search, on-bordercolor);
+                background-color: map-get($search, on-bgcolor);
+            }
+        }
+        &amp;-on {
+            &gt; .action {
+                margin-right: map-get($search, cancel-width);
+                &gt; .label {
+                    left: .1rem;
+                    @include transform(translatex(0) translatez(0));
+                }
+                &gt; .yo-ico-delete {
+                    display: inline-block;
+                }
+            }
+        }
+        &amp;-fresh,
+        &amp;-stop {
+            &gt; .action {
+                &gt; .input {
+                    text-align: center;
+                }
+                &gt; .label {
+                    display: none;
+                }
+            }
+        }
+        &amp;-fresh {
+            &gt; .action {
+                &gt; .yo-ico-fresh {
+                    display: inline-block;
+                }
+            }
+        }
+        &amp;-stop {
+            &gt; .action {
+                &gt; .yo-ico-stop {
+                    display: inline-block;
+                }
+            }
+        }
+    }
+    &gt; .cont {
+        @include flex();
+        display: none;
+        position: absolute;
+        top: .95rem;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(map-get($search, mask-bgcolor), .9);
+        &gt; .recommend,
+        &gt; .result {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            &gt; .yo-group {
+                top: 0;
+            }
+        }
+        &amp;-on {
+            display: block;
+        }
+    }
+    // 模态搜索
+    &amp;-modal {
+        position: fixed;
+        z-index: map-get($z-index, search);
+        top: 0;
+        right: 0;
+        left: 0;
+        height: 100%;
+        &gt; .cont {
+            position: relative;
+            top: 0;
+        }
+    }
+}
+
+// 定义index的基础构造
+// 使用方法请查看 yo-index.scss
+@mixin _index {
+    width: map-get($index, width);
+    text-transform: uppercase;
+    color: map-get($index, color);
+    font-size: map-get($index, font-size);
+    line-height: 1.1;
+    text-align: center;
+    .ellipsis {
+        display: inline-block;
+        @include square(map-get($index, font-size) / 2);
+        border-radius: 50%;
+        background-color: map-get($index, color);
+    }
+}
+
+// 定义group的基础构造
+// 使用方法请查看 yo-group.scss
+@mixin _group {
+    position: absolute;
+    top: map-get($group, top);
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    &gt; .sticky,
+    &gt; .scroll-index {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    &gt; .sticky {
+        left: 0;
+        padding: map-get($list, label-padding);
+        background-color: map-get($list, label-bgcolor);
+        color: map-get($base, sub-color);
+    }
+    .no-data {
+        height: 100%;
+        padding-top: 1rem;
+        text-align: center;
+    }
+}
+
+// 定义switchable的基础构造
+// 使用方法请查看 yo-switchable.scss
+@mixin _switchable {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    text-align: center;
+    &gt; .cont {
+        position: relative;
+        white-space: nowrap;
+        @include killspace;
+        &gt; .item {
+            @include killspace-item;
+            width: 100%;
+            background-color: #eee;
+            min-height: .1rem;
+            .img {
+                max-width: 100%;
+                max-height: 100%;
+                height: auto;
+            }
+        }
+    }
+    &gt; .index {
+        position: absolute;
+        bottom: .1rem;
+        left: 50%;
+        @include transform(translate(-50%, 0) translatez(0));
+        &gt; li {
+            float: left;
+            margin: 0 .05rem;
+            @include square(map-get($switchable, index-size));
+            border-radius: 50%;
+            background-color: map-get($switchable, index-bgcolor);
+            &amp;.on {
+                background-color: map-get($switchable, index-on-bgcolor);
+            }
+        }
+    }
+    &gt; .yo-ico {
+        @if map-get($switchable, has-btn) == false {
+            display: none;
+        }
+        position: absolute;
+        top: 50%;
+        @include transform(translate(0, -50%) translatez(0));
+        @include square(map-get($switchable, btn-size));
+        border-radius: 50%;
+        background-color: map-get($switchable, btn-bgcolor);
+        color: map-get($switchable, btn-color);
+        line-height: map-get($switchable, btn-size);
+        cursor: pointer;
+        &amp;:active {
+            background-color: map-get($switchable, btn-active-bgcolor);
+            color: map-get($switchable, btn-active-color);
+        }
+    }
+    &gt; .yo-ico-prev {
+        left: 0;
+    }
+    &gt; .yo-ico-next {
+        right: 0;
+    }
+}
+
+// 定义switch的基础构造
+// 使用方法请查看 yo-switch.scss
+@mixin _switch {
+    display: inline-block;
+    &gt; input {
+        display: none;
+    }
+    &gt; .track {
+        display: inline-block;
+        position: relative;
+        width: .6rem;
+        height: .32rem;
+        margin: 0;
+        cursor: pointer;
+        border: .02rem solid map-get($switch, bordercolor);
+        border-radius: .16rem;
+        background-color: map-get($switch, bgcolor);
+        vertical-align: middle;
+        @include transition(border-color .1s ease-out, background-color .1s ease-out);
+        &gt; .handle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            @include square(.28rem);
+            border-radius: 50%;
+            background-color: map-get($switch, ball-color);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
+            @include transition(transform .1s ease-out);
+            -webkit-transform: translate(0, 0); // samsung s4 4.4.2 如果写了Z或者3D，元素的边框及背景色无法被圆角化
+            transform: translate(0, 0) translatez(0);
+        }
+    }
+    &gt; input:checked + .track {
+        border-color: map-get($switch, checked-bordercolor);
+        background-color: map-get($switch, checked-bgcolor);
+        &gt; .handle {
+            -webkit-transform: translate(100%, 0);
+            transform: translate(100%, 0) translatez(0);
+        }
+    }
+    &gt; input:disabled + .track {
+        opacity: .4;
+        border-color: map-get($base, disabled-bordercolor);
+        background-color: map-get($base, disabled-bordercolor);
+    }
+}
+
+// 定义panel的基础构造
+// 使用方法请查看 yo-panel.scss
+@mixin _panel {
+    position: relative;
+    overflow: hidden;
+    &gt; .front {
+        position: relative;
+        z-index: 2;
+        background-color: #fff;
+    }
+    &gt; .action {
+        position: absolute;
+        top: 0;
+        right: 0;
+        overflow: hidden;
+        width: map-get($panel, action-width);
+        height: 100%;
+        background-color: map-get($panel, action-bgcolor);
+    }
+}
+
+// 定义rating的基础构造
+// 使用方法请查看 yo-rating.scss
+@mixin _rating {
+    display: inline-block;
+    position: relative;
+    width: map-get($rating, item-width) * 5;
+    height: map-get($rating, item-height);
+    overflow: hidden;
+    &amp;,
+    &gt; .index,
+    &gt; .item {
+        background: url(#{map-get($setting, bgimg-domain)}#{map-get($rating, url)}) repeat-x;
+        @if map-get($rating, item-height) != null {
+            background-size: auto map-get($rating, item-height) * 2;
+        }
+    }
+    &gt; .index,
+    &gt; .item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        line-height: 10;
+    }
+    &gt; .index {
+        background-position: 0 -#{map-get($rating, item-height)};
+    }
+    &gt; .item {
+        z-index: 3;
+        width: 20%;
+        // 默认情况下不显示
+        background-position: 0 100px;
+        cursor: pointer;
+        &amp;:nth-of-type(2) {
+            left: 20%;
+            &amp;:hover {
+                width: 40%;
+            }
+        }
+        &amp;:nth-of-type(3) {
+            left: 40%;
+            &amp;:hover {
+                width: 60%;
+            }
+        }
+        &amp;:nth-of-type(4) {
+            left: 60%;
+            &amp;:hover {
+                width: 80%;
+            }
+        }
+        &amp;:nth-of-type(5) {
+            left: 80%;
+            &amp;:hover {
+                width: 100%;
+            }
+        }
+        &amp;:hover {
+            z-index: 2;
+            left: 0 !important;
+            background-position: 0 -#{map-get($rating, item-height)};
+        }
+    }
+}
+
+// 定义dblist的基础构造
+// 使用方法请查看 yo-dblist.scss
+@mixin _dblist {
+    @include flexbox;
+    min-height: 2rem;
+    height: 100%;
+    &gt; .item {
+        position: relative;
+        min-width: .1rem;
+        &amp;:first-child {
+            width: map-get($dblist, aside-width);
+            @include order(map-get($dblist, aside-order));
+        }
+        &amp;:not(:first-child) {
+            @include flex;
+        }
+    }
+}
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>
