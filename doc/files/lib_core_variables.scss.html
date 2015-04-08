@@ -179,11 +179,12 @@ $ico: (
     // {Boole} 是否使用图标字体
     is-use:     true,
     // {String} 图标字体文件名
-    font-name:  fontawesome-webfont,
+    font-name:  yofont,
     // {String} 使用哪几种图标
     font-types: eot,
     // {Url} 图标字体路径
-    font-path:  &quot;http://source.qunarzz.com/fonts/fontawesome/4.3.0/&quot;,
+    // font-path:  &quot;http://source.qunarzz.com/fonts/fontawesome/4.3.0/&quot;
+    font-path:  &quot;../../../font/&quot;
 ) !default;
 
 // Element loading(4)
@@ -468,7 +469,9 @@ $header: (
     // {Color} 文本色
     item-color:     map-get($base, color),
     // {Length} 两侧的子项文本大小
-    item-font-size: .14rem
+    item-font-size: .14rem,
+    // {Length} 两侧的子项ico大小
+    item-ico-size:  .2rem
 ) !default;
 
 // Widget switch(5)

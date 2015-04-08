@@ -28,6 +28,7 @@
 
 ### Developing: v1.4.0
 
+* add `background-size` 方法
 * update: `yo-header`
     - 增加 `item-ico-size` 参数，用于设置两侧ico的大小
 * update: `yo-list`

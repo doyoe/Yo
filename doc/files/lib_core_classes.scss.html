@@ -152,7 +152,8 @@
             font-family: map-get($ico, font-name) !important;
             font-style: normal;
             -webkit-font-smoothing: antialiased;
-            -webkit-text-stroke-width: .1px;
+            // PC端chrome有锯齿问题，Mobile不需要
+            // -webkit-text-stroke-width: .1px;
             -moz-osx-font-smoothing: grayscale;
             vertical-align: middle;
         }
@@ -190,6 +191,15 @@
         }
     }
     background-image: #{$type}-gradient($gradient);
+}
+
+/**
+ * 定义背景图像缩放
+ * @method background-size
+ * @param {String} $background-size 指定背景图缩放值
+ */
+@mixin background-size($background-size...) {
+    @include prefix(background-size, $background-size);
 }
 
 /**

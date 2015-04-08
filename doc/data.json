@@ -1835,7 +1835,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 77,
+            "line": 78,
             "description": "定义UA默认外观",
             "itemtype": "method",
             "name": "appearance",
@@ -1851,7 +1851,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 86,
+            "line": 87,
             "description": "定义是否可以选中元素",
             "itemtype": "method",
             "name": "user-select",
@@ -1867,7 +1867,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 95,
+            "line": 96,
             "description": "定义渐变色值",
             "itemtype": "method",
             "name": "gradient",
@@ -1888,7 +1888,23 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 110,
+            "line": 111,
+            "description": "定义背景图像缩放",
+            "itemtype": "method",
+            "name": "background-size",
+            "params": [
+                {
+                    "name": "$background-size",
+                    "description": "指定背景图缩放值",
+                    "type": "String"
+                }
+            ],
+            "class": "classes",
+            "module": "ani"
+        },
+        {
+            "file": "lib/core/classes.scss",
+            "line": 120,
             "description": "定义盒模型",
             "itemtype": "method",
             "name": "box-sizing",
@@ -1904,7 +1920,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 119,
+            "line": 129,
             "description": "定义简单变换",
             "itemtype": "method",
             "name": "transform",
@@ -1920,7 +1936,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 128,
+            "line": 138,
             "description": "定义变换原点",
             "itemtype": "method",
             "name": "transform-origin",
@@ -1936,7 +1952,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 137,
+            "line": 147,
             "description": "定义动画",
             "itemtype": "method",
             "name": "animation",
@@ -1952,7 +1968,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 146,
+            "line": 156,
             "description": "定义补间",
             "itemtype": "method",
             "name": "transition",
@@ -1968,7 +1984,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 155,
+            "line": 165,
             "description": "定义显示类型为伸缩盒",
             "itemtype": "method",
             "name": "flexbox",
@@ -1984,7 +2000,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 172,
+            "line": 182,
             "description": "定义伸缩盒子元素如何分配空间",
             "itemtype": "method",
             "name": "flex",
@@ -2000,7 +2016,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 187,
+            "line": 197,
             "description": "定义伸缩盒子元素的排版顺序",
             "itemtype": "method",
             "name": "order",
@@ -2016,7 +2032,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 198,
+            "line": 208,
             "description": "定义伸缩盒子元素的流动方向",
             "itemtype": "method",
             "name": "flex-direction",
@@ -2032,7 +2048,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 221,
+            "line": 231,
             "description": "定义伸缩盒子元素溢出排版",
             "itemtype": "method",
             "name": "flex-wrap",
@@ -2048,7 +2064,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 236,
+            "line": 246,
             "description": "定义伸缩盒子元素的水平对齐方式",
             "itemtype": "method",
             "name": "justify-content",
@@ -2064,7 +2080,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 255,
+            "line": 265,
             "description": "定义伸缩盒子元素的垂直对齐方式",
             "itemtype": "method",
             "name": "align-items",
@@ -2080,7 +2096,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 274,
+            "line": 284,
             "description": "定义伸缩盒子元素自身的垂直对齐方式",
             "itemtype": "method",
             "name": "align-self",
@@ -2096,7 +2112,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 284,
+            "line": 294,
             "description": "定义是否有滚动条",
             "itemtype": "method",
             "name": "overflow",
@@ -2112,7 +2128,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 298,
+            "line": 308,
             "description": "生成矩形方法",
             "itemtype": "method",
             "name": "rect",
@@ -2133,7 +2149,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 309,
+            "line": 319,
             "description": "生成正方形方法",
             "itemtype": "method",
             "name": "square",
@@ -2149,7 +2165,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 319,
+            "line": 329,
             "description": "生成圆形方法",
             "itemtype": "method",
             "name": "circle",
@@ -2170,7 +2186,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 330,
+            "line": 340,
             "description": "清除浮动方案",
             "itemtype": "method",
             "name": "clearfix",
@@ -2179,7 +2195,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 344,
+            "line": 354,
             "description": "链接处理方法",
             "itemtype": "method",
             "name": "link",
@@ -2195,7 +2211,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 357,
+            "line": 367,
             "description": "强制换行方案",
             "itemtype": "method",
             "name": "wrap",
@@ -2204,7 +2220,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 366,
+            "line": 376,
             "description": "单行文本溢出显示方案",
             "itemtype": "method",
             "name": "ellipsis",
@@ -2220,7 +2236,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 380,
+            "line": 390,
             "description": "文字隐藏方案",
             "itemtype": "method",
             "name": "texthide",
@@ -2229,7 +2245,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 390,
+            "line": 400,
             "description": "清除间隙方案-容器",
             "itemtype": "method",
             "name": "killspace",
@@ -2238,7 +2254,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 399,
+            "line": 409,
             "description": "清除间隙方案-子级",
             "itemtype": "method",
             "name": "killspace-item",
@@ -2247,7 +2263,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 409,
+            "line": 419,
             "description": "未知尺寸元素垂直居中解决方案-容器",
             "itemtype": "method",
             "name": "valign",
@@ -2256,7 +2272,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 424,
+            "line": 434,
             "description": "未知尺寸元素垂直居中解决方案-子级",
             "itemtype": "method",
             "name": "valign-item",
@@ -2265,7 +2281,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 433,
+            "line": 443,
             "description": "已经尺寸元素垂直居中解决方案",
             "itemtype": "method",
             "name": "alignment",
