@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>_input - The Yo API</title>
+    <title>fragment - The Yo API</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -38,24 +38,14 @@
                 
                         <div id="api-tabview-panel">
                             <ul id="api-classes" class="apis classes">
-                                <li><a href="../classes/_badge.html">_badge</a></li>
-                                <li><a href="../classes/_btn.html">_btn</a></li>
-                                <li><a href="../classes/_checkbox.html">_checkbox</a></li>
-                                <li><a href="../classes/_checked.html">_checked</a></li>
-                                <li><a href="../classes/_input.html">_input</a></li>
-                                <li><a href="../classes/_loading.html">_loading</a></li>
-                                <li><a href="../classes/_loadtip.html">_loadtip</a></li>
-                                <li><a href="../classes/_radio.html">_radio</a></li>
-                                <li><a href="../classes/_range.html">_range</a></li>
-                                <li><a href="../classes/_score.html">_score</a></li>
                                 <li><a href="../classes/animate.html">animate</a></li>
                                 <li><a href="../classes/classes.html">classes</a></li>
+                                <li><a href="../classes/element.html">element</a></li>
+                                <li><a href="../classes/fragment.html">fragment</a></li>
                             </ul>
                 
                             <ul id="api-modules" class="apis modules">
                                 <li><a href="../modules/ani.html">ani</a></li>
-                                <li><a href="../modules/core.html">core</a></li>
-                                <li><a href="../modules/element.html">element</a></li>
                             </ul>
                         </div>
                     </div>
@@ -89,21 +79,25 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-<h1>_input Class</h1>
+<h1>fragment Class</h1>
 <div class="box meta">
 
 
         <div class="foundat">
-            Defined in: <a href="../files/lib_element_yo-input.scss.html#l4"><code>lib&#x2F;element&#x2F;yo-input.scss:4</code></a>
+            Defined in: <a href="../files/lib_fragment_yo-btnbar.scss.html#l5"><code>lib&#x2F;fragment&#x2F;yo-btnbar.scss:5</code></a>
         </div>
 
-            Module: <a href="../modules/element.html">element</a>
+            Module: <a href="../modules/ani.html">ani</a>
 
 </div>
 
 
 <div class="box intro">
-    
+    <h1>fragment的基础构造</h1>
+<p>定义常见的通用代码片段，如：列表，表格，按钮组，头</p>
+<p>Author: doyoe(杜瑶)
+Edit: 2015.1.19</p>
+
 </div>
 
 
@@ -123,7 +117,7 @@
 
                     <ul class="index-list methods">
                             <li class="index-item method">
-                                <a href="#method_yo-input">yo-input</a>
+                                <a href="#method_yo-btnbar">yo-btnbar</a>
 
                             </li>
                     </ul>
@@ -136,8 +130,8 @@
             <div id="methods" class="api-class-tabpanel">
                 <h2 class="off-left">Methods</h2>
 
-<div id="method_yo-input" class="method item">
-    <h3 class="name"><code>yo-input</code></h3>
+<div id="method_yo-btnbar" class="method item">
+    <h3 class="name"><code>yo-btnbar</code></h3>
 
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
@@ -145,28 +139,7 @@
                         <code>$name</code>
                 </li>
                 <li class="arg">
-                        <code>$width</code>
-                </li>
-                <li class="arg">
-                        <code>$height</code>
-                </li>
-                <li class="arg">
-                        <code>$padding</code>
-                </li>
-                <li class="arg">
                         <code>$radius</code>
-                </li>
-                <li class="arg">
-                        <code>$bordercolor</code>
-                </li>
-                <li class="arg">
-                        <code>$bgcolor</code>
-                </li>
-                <li class="arg">
-                        <code>$color</code>
-                </li>
-                <li class="arg">
-                        <code>$placeholder-color</code>
                 </li>
             </ul><span class="paren">)</span>
         </div>
@@ -181,7 +154,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/lib_element_yo-input.scss.html#l9"><code>lib&#x2F;element&#x2F;yo-input.scss:9</code></a>
+        <a href="../files/lib_fragment_yo-btnbar.scss.html#l9"><code>lib&#x2F;fragment&#x2F;yo-btnbar.scss:9</code></a>
         </p>
 
 
@@ -189,10 +162,10 @@
     </div>
 
     <div class="description">
-        <h1>构造输入框的自定义使用方法，可同时作用于 input 与 textarea</h1>
-<p>Variables: 9
+        <h1>构造按钮组的自定义使用方法</h1>
+<p>Variables: 2
 Author: doyoe(杜瑶)
-Edit: 2012.1.1</p>
+Edit: 2015.1.19</p>
 <hr>
 
     </div>
@@ -207,95 +180,18 @@ Edit: 2012.1.1</p>
 
 
                     <div class="param-description">
-                        <p>为需要的扩展定义一个名称</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">$width</code>
-                        <span class="type">Default | Length</span>
-
-
-                    <div class="param-description">
-                        <p>宽度</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">$height</code>
-                        <span class="type">Default | Length</span>
-
-
-                    <div class="param-description">
-                        <p>高度</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">$padding</code>
-                        <span class="type">Default | Length</span>
-
-
-                    <div class="param-description">
-                        <p>内补白</p>
+                        <p>定义yo-btnbar名称</p>
 
                     </div>
 
                 </li>
                 <li class="param">
                         <code class="param-name">$radius</code>
-                        <span class="type">Default | Length</span>
+                        <span class="type">Default | auto | Length</span>
 
 
                     <div class="param-description">
-                        <p>圆角半径长度</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">$bordercolor</code>
-                        <span class="type">Default | Color</span>
-
-
-                    <div class="param-description">
-                        <p>边框色</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">$bgcolor</code>
-                        <span class="type">Default | Color</span>
-
-
-                    <div class="param-description">
-                        <p>背景色</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">$color</code>
-                        <span class="type">Default | Color</span>
-
-
-                    <div class="param-description">
-                        <p>文本色</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">$placeholder-color</code>
-                        <span class="type">Default | Color</span>
-
-
-                    <div class="param-description">
-                        <p>placeholder文本色</p>
+                        <p>定义yo-btnbar圆角，当值为auto时，圆角大小取决于按钮的圆角大小</p>
 
                     </div>
 

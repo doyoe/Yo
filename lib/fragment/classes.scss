@@ -1,12 +1,14 @@
 @charset "utf-8";
 @import "../core/variables";
 @import "../core/classes";
-
 /**
- * Directory: lib/fragment/classes.scss
  * fragment的基础构造
- * Author: joy.du(飘零雾雨)
- * Time: 2012.1.1
+ =======================
+ * 定义常见的通用代码片段，如：列表，表格，按钮组，头
+ *
+ * Author: doyoe(杜瑶)
+ * Edit: 2015.1.19
+ * @class fragment
  */
 
 // 定义list的基础构造
@@ -230,6 +232,10 @@
             font-size: map-get($header, item-font-size);
         }
         @include link;
+        &.yo-ico,
+        > .yo-ico {
+            font-size: map-get($header, item-ico-size);
+        }
     }
     > .regret {
         left: 0;

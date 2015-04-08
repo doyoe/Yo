@@ -28,6 +28,8 @@
 
 ### Developing: v1.4.0
 
+* update: `yo-header`
+    - 增加 `item-ico-size` 参数，用于设置两侧ico的大小
 * update: `yo-list`
     - 增加 `on-color` 参数，用于设置列表项选中时文本色
 * update: `yo-search`

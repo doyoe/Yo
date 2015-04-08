@@ -30,7 +30,8 @@
     $color: default,
     $font-size: default,
     $item-color: default,
-    $item-font-size: default) {
+    $item-font-size: default,
+    $item-ico-size: default) {
     // 区别是否新增实例还是修改本身
     @if $name == default {
         $name: "";
@@ -65,6 +66,9 @@
     @if $item-font-size == default {
         $item-font-size: map-get($header, item-font-size);
     }
+    @if $item-ico-size == default {
+        $item-ico-size: map-get($header, item-ico-size);
+    }
     .yo-header#{$name} {
         @if $height != map-get($header, height) {
             height: $height;
@@ -97,6 +101,12 @@
             }
             @if $item-font-size != map-get($header, item-font-size) {
                 font-size: $item-font-size;
+            }
+            &.yo-ico,
+            > .yo-ico {
+                @if $item-ico-size != map-get($header, item-ico-size) {
+                    font-size: $item-ico-size;
+                }
             }
         }
         @if $item-space != map-get($header, item-space) {

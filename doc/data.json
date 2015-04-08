@@ -8,16 +8,16 @@
     "files": {
         "lib/ani/classes.scss": {
             "name": "lib/ani/classes.scss",
-            "modules": {
-                "ani": 1
-            },
+            "modules": {},
             "classes": {},
             "fors": {},
             "namespaces": {}
         },
         "lib/ani/elastic-in-down.scss": {
             "name": "lib/ani/elastic-in-down.scss",
-            "modules": {},
+            "modules": {
+                "ani": 1
+            },
             "classes": {},
             "fors": {},
             "namespaces": {}
@@ -467,9 +467,7 @@
         },
         "lib/core/classes.scss": {
             "name": "lib/core/classes.scss",
-            "modules": {
-                "core": 1
-            },
+            "modules": {},
             "classes": {
                 "classes": 1
             },
@@ -499,84 +497,64 @@
         },
         "lib/element/yo-badge.scss": {
             "name": "lib/element/yo-badge.scss",
-            "modules": {
-                "element": 1
-            },
-            "classes": {
-                "_badge": 1
-            },
+            "modules": {},
+            "classes": {},
             "fors": {},
             "namespaces": {}
         },
         "lib/element/yo-btn.scss": {
             "name": "lib/element/yo-btn.scss",
             "modules": {},
-            "classes": {
-                "_btn": 1
-            },
+            "classes": {},
             "fors": {},
             "namespaces": {}
         },
         "lib/element/yo-checkbox.scss": {
             "name": "lib/element/yo-checkbox.scss",
             "modules": {},
-            "classes": {
-                "_checkbox": 1
-            },
+            "classes": {},
             "fors": {},
             "namespaces": {}
         },
         "lib/element/yo-checked.scss": {
             "name": "lib/element/yo-checked.scss",
             "modules": {},
-            "classes": {
-                "_checked": 1
-            },
+            "classes": {},
             "fors": {},
             "namespaces": {}
         },
         "lib/element/yo-input.scss": {
             "name": "lib/element/yo-input.scss",
             "modules": {},
-            "classes": {
-                "_input": 1
-            },
+            "classes": {},
             "fors": {},
             "namespaces": {}
         },
         "lib/element/yo-loading.scss": {
             "name": "lib/element/yo-loading.scss",
             "modules": {},
-            "classes": {
-                "_loading": 1
-            },
+            "classes": {},
             "fors": {},
             "namespaces": {}
         },
         "lib/element/yo-loadtip.scss": {
             "name": "lib/element/yo-loadtip.scss",
             "modules": {},
-            "classes": {
-                "_loadtip": 1
-            },
+            "classes": {},
             "fors": {},
             "namespaces": {}
         },
         "lib/element/yo-radio.scss": {
             "name": "lib/element/yo-radio.scss",
             "modules": {},
-            "classes": {
-                "_radio": 1
-            },
+            "classes": {},
             "fors": {},
             "namespaces": {}
         },
         "lib/element/yo-range.scss": {
             "name": "lib/element/yo-range.scss",
             "modules": {},
-            "classes": {
-                "_range": 1
-            },
+            "classes": {},
             "fors": {},
             "namespaces": {}
         },
@@ -584,7 +562,7 @@
             "name": "lib/element/yo-score.scss",
             "modules": {},
             "classes": {
-                "_score": 1
+                "element": 1
             },
             "fors": {},
             "namespaces": {}
@@ -599,7 +577,9 @@
         "lib/fragment/yo-btnbar.scss": {
             "name": "lib/fragment/yo-btnbar.scss",
             "modules": {},
-            "classes": {},
+            "classes": {
+                "fragment": 1
+            },
             "fors": {},
             "namespaces": {}
         },
@@ -1155,47 +1135,16 @@
             "name": "ani",
             "submodules": {},
             "classes": {
-                "animate": 1
+                "animate": 1,
+                "classes": 1,
+                "element": 1,
+                "fragment": 1
             },
             "fors": {},
             "namespaces": {},
             "tag": "module",
-            "file": "lib/ani/zoom-out.scss",
-            "line": 4,
-            "description": "Yo框架的动画解决方案"
-        },
-        "core": {
-            "name": "core",
-            "submodules": {},
-            "classes": {
-                "classes": 1
-            },
-            "fors": {},
-            "namespaces": {},
-            "tag": "module",
-            "file": "lib/core/classes.scss",
-            "line": 2
-        },
-        "element": {
-            "name": "element",
-            "submodules": {},
-            "classes": {
-                "_badge": 1,
-                "_btn": 1,
-                "_checkbox": 1,
-                "_checked": 1,
-                "_input": 1,
-                "_loading": 1,
-                "_loadtip": 1,
-                "_radio": 1,
-                "_range": 1,
-                "_score": 1
-            },
-            "fors": {},
-            "namespaces": {},
-            "tag": "module",
-            "file": "lib/element/yo-score.scss",
-            "line": 4
+            "file": "lib/fragment/yo-btnbar.scss",
+            "line": 5
         }
     },
     "classes": {
@@ -1210,9 +1159,7 @@
             "module": "ani",
             "file": "lib/ani/zoom-out.scss",
             "line": 4,
-            "description": "Yo框架的动画解决方案",
-            "author": ": doyoe(杜瑶)",
-            "edit": ": 2015.3.31"
+            "description": "Yo框架的动画解决方案\n=======================\n飒飒大师大师\n\nAuthor: doyoe(杜瑶)\nEdit: 2015.3.31"
         },
         "classes": {
             "name": "classes",
@@ -1222,153 +1169,47 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "module": "core",
+            "module": "ani",
             "namespace": "",
             "file": "lib/core/classes.scss",
             "line": 2,
-            "author": ": doyoe(杜瑶)",
-            "edit": ": 2015.3.31"
+            "description": "fragment的基础构造\n=======================\n飒飒大师大师\n\nAuthor: doyoe(杜瑶)\nEdit: 2015.1.19"
         },
-        "_badge": {
-            "name": "_badge",
-            "shortname": "_badge",
+        "element": {
+            "name": "element",
+            "shortname": "element",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "module": "element",
-            "namespace": "",
-            "file": "lib/element/yo-badge.scss",
-            "line": 4,
-            "access": "private",
-            "tagname": ""
-        },
-        "_btn": {
-            "name": "_btn",
-            "shortname": "_btn",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "element",
-            "namespace": "",
-            "file": "lib/element/yo-btn.scss",
-            "line": 4
-        },
-        "_checkbox": {
-            "name": "_checkbox",
-            "shortname": "_checkbox",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "element",
-            "namespace": "",
-            "file": "lib/element/yo-checkbox.scss",
-            "line": 4
-        },
-        "_checked": {
-            "name": "_checked",
-            "shortname": "_checked",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "element",
-            "namespace": "",
-            "file": "lib/element/yo-checked.scss",
-            "line": 4
-        },
-        "_input": {
-            "name": "_input",
-            "shortname": "_input",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "element",
-            "namespace": "",
-            "file": "lib/element/yo-input.scss",
-            "line": 4
-        },
-        "_loading": {
-            "name": "_loading",
-            "shortname": "_loading",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "element",
-            "namespace": "",
-            "file": "lib/element/yo-loading.scss",
-            "line": 4
-        },
-        "_loadtip": {
-            "name": "_loadtip",
-            "shortname": "_loadtip",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "element",
-            "namespace": "",
-            "file": "lib/element/yo-loadtip.scss",
-            "line": 4
-        },
-        "_radio": {
-            "name": "_radio",
-            "shortname": "_radio",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "element",
-            "namespace": "",
-            "file": "lib/element/yo-radio.scss",
-            "line": 4
-        },
-        "_range": {
-            "name": "_range",
-            "shortname": "_range",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "element",
-            "namespace": "",
-            "file": "lib/element/yo-range.scss",
-            "line": 4
-        },
-        "_score": {
-            "name": "_score",
-            "shortname": "_score",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "element",
+            "module": "ani",
             "namespace": "",
             "file": "lib/element/yo-score.scss",
-            "line": 4
+            "line": 4,
+            "description": "element的基础构造\n=======================\nAuthor: doyoe(杜瑶)\nEdit: 2015.1.19"
+        },
+        "fragment": {
+            "name": "fragment",
+            "shortname": "fragment",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ani",
+            "namespace": "",
+            "file": "lib/fragment/yo-btnbar.scss",
+            "line": 5,
+            "description": "fragment的基础构造\n=======================\n定义常见的通用代码片段，如：列表，表格，按钮组，头\n\nAuthor: doyoe(杜瑶)\nEdit: 2015.1.19"
         }
     },
     "classitems": [
         {
             "file": "lib/ani/classes.scss",
-            "line": 11,
+            "line": 13,
             "description": "定义动画基本特性",
-            "class": "animate",
-            "module": "ani"
+            "class": "animate"
         },
         {
             "file": "lib/ani/elastic-in-down.scss",
@@ -1948,7 +1789,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 9,
+            "line": 12,
             "description": "给需要的属性加厂家前缀",
             "itemtype": "method",
             "name": "prefix",
@@ -1965,11 +1806,11 @@
                 }
             ],
             "class": "classes",
-            "module": "core"
+            "module": "ani"
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 26,
+            "line": 29,
             "description": "定义响应式方案",
             "itemtype": "method",
             "name": "responsive",
@@ -1981,20 +1822,20 @@
                 }
             ],
             "class": "classes",
-            "module": "core"
+            "module": "ani"
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 41,
+            "line": 44,
             "description": "定义字体图标",
             "itemtype": "method",
             "name": "yofont",
             "class": "classes",
-            "module": "core"
+            "module": "ani"
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 74,
+            "line": 77,
             "description": "定义UA默认外观",
             "itemtype": "method",
             "name": "appearance",
@@ -2006,11 +1847,11 @@
                 }
             ],
             "class": "classes",
-            "module": "core"
+            "module": "ani"
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 83,
+            "line": 86,
             "description": "定义是否可以选中元素",
             "itemtype": "method",
             "name": "user-select",
@@ -2022,11 +1863,11 @@
                 }
             ],
             "class": "classes",
-            "module": "core"
+            "module": "ani"
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 92,
+            "line": 95,
             "description": "定义渐变色值",
             "itemtype": "method",
             "name": "gradient",
@@ -2043,11 +1884,11 @@
                 }
             ],
             "class": "classes",
-            "module": "core"
+            "module": "ani"
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 107,
+            "line": 110,
             "description": "定义盒模型",
             "itemtype": "method",
             "name": "box-sizing",
@@ -2059,11 +1900,11 @@
                 }
             ],
             "class": "classes",
-            "module": "core"
+            "module": "ani"
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 116,
+            "line": 119,
             "description": "定义简单变换",
             "itemtype": "method",
             "name": "transform",
@@ -2075,11 +1916,11 @@
                 }
             ],
             "class": "classes",
-            "module": "core"
+            "module": "ani"
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 125,
+            "line": 128,
             "description": "定义变换原点",
             "itemtype": "method",
             "name": "transform-origin",
@@ -2091,11 +1932,11 @@
                 }
             ],
             "class": "classes",
-            "module": "core"
+            "module": "ani"
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 134,
+            "line": 137,
             "description": "定义动画",
             "itemtype": "method",
             "name": "animation",
@@ -2107,11 +1948,11 @@
                 }
             ],
             "class": "classes",
-            "module": "core"
+            "module": "ani"
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 143,
+            "line": 146,
             "description": "定义补间",
             "itemtype": "method",
             "name": "transition",
@@ -2123,11 +1964,11 @@
                 }
             ],
             "class": "classes",
-            "module": "core"
+            "module": "ani"
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 152,
+            "line": 155,
             "description": "定义显示类型为伸缩盒",
             "itemtype": "method",
             "name": "flexbox",
@@ -2139,11 +1980,11 @@
                 }
             ],
             "class": "classes",
-            "module": "core"
+            "module": "ani"
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 169,
+            "line": 172,
             "description": "定义伸缩盒子元素如何分配空间",
             "itemtype": "method",
             "name": "flex",
@@ -2155,11 +1996,11 @@
                 }
             ],
             "class": "classes",
-            "module": "core"
+            "module": "ani"
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 184,
+            "line": 187,
             "description": "定义伸缩盒子元素的排版顺序",
             "itemtype": "method",
             "name": "order",
@@ -2171,11 +2012,11 @@
                 }
             ],
             "class": "classes",
-            "module": "core"
+            "module": "ani"
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 195,
+            "line": 198,
             "description": "定义伸缩盒子元素的流动方向",
             "itemtype": "method",
             "name": "flex-direction",
@@ -2187,11 +2028,11 @@
                 }
             ],
             "class": "classes",
-            "module": "core"
+            "module": "ani"
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 218,
+            "line": 221,
             "description": "定义伸缩盒子元素溢出排版",
             "itemtype": "method",
             "name": "flex-wrap",
@@ -2203,11 +2044,11 @@
                 }
             ],
             "class": "classes",
-            "module": "core"
+            "module": "ani"
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 233,
+            "line": 236,
             "description": "定义伸缩盒子元素的水平对齐方式",
             "itemtype": "method",
             "name": "justify-content",
@@ -2219,11 +2060,11 @@
                 }
             ],
             "class": "classes",
-            "module": "core"
+            "module": "ani"
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 252,
+            "line": 255,
             "description": "定义伸缩盒子元素的垂直对齐方式",
             "itemtype": "method",
             "name": "align-items",
@@ -2235,11 +2076,11 @@
                 }
             ],
             "class": "classes",
-            "module": "core"
+            "module": "ani"
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 271,
+            "line": 274,
             "description": "定义伸缩盒子元素自身的垂直对齐方式",
             "itemtype": "method",
             "name": "align-self",
@@ -2251,11 +2092,11 @@
                 }
             ],
             "class": "classes",
-            "module": "core"
+            "module": "ani"
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 281,
+            "line": 284,
             "description": "定义是否有滚动条",
             "itemtype": "method",
             "name": "overflow",
@@ -2267,11 +2108,11 @@
                 }
             ],
             "class": "classes",
-            "module": "core"
+            "module": "ani"
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 295,
+            "line": 298,
             "description": "生成矩形方法",
             "itemtype": "method",
             "name": "rect",
@@ -2288,11 +2129,11 @@
                 }
             ],
             "class": "classes",
-            "module": "core"
+            "module": "ani"
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 306,
+            "line": 309,
             "description": "生成正方形方法",
             "itemtype": "method",
             "name": "square",
@@ -2304,11 +2145,11 @@
                 }
             ],
             "class": "classes",
-            "module": "core"
+            "module": "ani"
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 316,
+            "line": 319,
             "description": "生成圆形方法",
             "itemtype": "method",
             "name": "circle",
@@ -2325,20 +2166,20 @@
                 }
             ],
             "class": "classes",
-            "module": "core"
+            "module": "ani"
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 327,
+            "line": 330,
             "description": "清除浮动方案",
             "itemtype": "method",
             "name": "clearfix",
             "class": "classes",
-            "module": "core"
+            "module": "ani"
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 341,
+            "line": 344,
             "description": "链接处理方法",
             "itemtype": "method",
             "name": "link",
@@ -2350,20 +2191,20 @@
                 }
             ],
             "class": "classes",
-            "module": "core"
+            "module": "ani"
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 354,
+            "line": 357,
             "description": "强制换行方案",
             "itemtype": "method",
             "name": "wrap",
             "class": "classes",
-            "module": "core"
+            "module": "ani"
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 363,
+            "line": 366,
             "description": "单行文本溢出显示方案",
             "itemtype": "method",
             "name": "ellipsis",
@@ -2375,56 +2216,56 @@
                 }
             ],
             "class": "classes",
-            "module": "core"
+            "module": "ani"
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 377,
+            "line": 380,
             "description": "文字隐藏方案",
             "itemtype": "method",
             "name": "texthide",
             "class": "classes",
-            "module": "core"
+            "module": "ani"
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 387,
+            "line": 390,
             "description": "清除间隙方案-容器",
             "itemtype": "method",
             "name": "killspace",
             "class": "classes",
-            "module": "core"
+            "module": "ani"
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 396,
+            "line": 399,
             "description": "清除间隙方案-子级",
             "itemtype": "method",
             "name": "killspace-item",
             "class": "classes",
-            "module": "core"
+            "module": "ani"
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 406,
+            "line": 409,
             "description": "未知尺寸元素垂直居中解决方案-容器",
             "itemtype": "method",
             "name": "valign",
             "class": "classes",
-            "module": "core"
+            "module": "ani"
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 421,
+            "line": 424,
             "description": "未知尺寸元素垂直居中解决方案-子级",
             "itemtype": "method",
             "name": "valign-item",
             "class": "classes",
-            "module": "core"
+            "module": "ani"
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 430,
+            "line": 433,
             "description": "已经尺寸元素垂直居中解决方案",
             "itemtype": "method",
             "name": "alignment",
@@ -2441,32 +2282,25 @@
                 }
             ],
             "class": "classes",
-            "module": "core"
+            "module": "ani"
         },
         {
             "file": "lib/core/reset.scss",
             "line": 5,
             "description": "Directory: lib/core/reset.scss\nCss Reset\nAuthor: joy.du(飘零雾雨)\nEdit: 2015.1.18\nNote: only for mobile",
-            "class": "_badge",
-            "module": "core"
+            "class": "element",
+            "module": "ani"
         },
         {
             "file": "lib/core/variables.scss",
             "line": 3,
             "description": "Directory: lib/core/variables.scss\nCSS Variables 定义各种页面沙粒变量\nAuthor: joy.du(飘零雾雨)\nEdit: 2014.12.5",
-            "class": "_badge",
-            "module": "core"
-        },
-        {
-            "file": "lib/element/classes.scss",
-            "line": 5,
-            "description": "element的基础构造\nAuthor: doyoe(杜瑶)\nEdit: 2012.1.1",
-            "class": "_badge",
-            "module": "core"
+            "class": "element",
+            "module": "ani"
         },
         {
             "file": "lib/element/yo-badge.scss",
-            "line": 10,
+            "line": 8,
             "description": "构造提醒气泡的自定义使用方法，可以扩展为：tag, 文字ico等形态\n=======================\nVariables: 6\nAuthor: doyoe(杜瑶)\nEdit: 2015.1.19\n-----------------------",
             "itemtype": "method",
             "name": "yo-badge",
@@ -2502,12 +2336,12 @@
                     "type": "Defailt | Length"
                 }
             ],
-            "class": "_badge",
-            "module": "element"
+            "class": "element",
+            "module": "ani"
         },
         {
             "file": "lib/element/yo-btn.scss",
-            "line": 9,
+            "line": 8,
             "description": "构造按钮的自定义使用方法，可轻松自定义边框，尺寸，背景，文字等\n=======================\nVariables: 12\nAuthor: doyoe(杜瑶)\nEdit: 2015.1.19\n------------------------",
             "itemtype": "method",
             "name": "yo-btn",
@@ -2573,12 +2407,12 @@
                     "type": "Default | Length"
                 }
             ],
-            "class": "_btn",
-            "module": "element"
+            "class": "element",
+            "module": "ani"
         },
         {
             "file": "lib/element/yo-checkbox.scss",
-            "line": 9,
+            "line": 8,
             "description": "构造多选的自定义使用方法\n=======================\nVariables: 9\nAuthor: doyoe(杜瑶)\nEdit: 2014.11.14\n-----------------------",
             "itemtype": "method",
             "name": "yo-checkbox",
@@ -2629,12 +2463,12 @@
                     "type": "Default | Length"
                 }
             ],
-            "class": "_checkbox",
-            "module": "element"
+            "class": "element",
+            "module": "ani"
         },
         {
             "file": "lib/element/yo-checked.scss",
-            "line": 9,
+            "line": 8,
             "description": "构造单选多选的自定义使用方法，可同时作用于 checkbox 与 radio\n=======================\nVariables: 9\nAuthor: doyoe(杜瑶)\nEdit: 2015.3.21\n-----------------------",
             "itemtype": "method",
             "name": "yo-checked",
@@ -2685,12 +2519,12 @@
                     "type": "Default | Length"
                 }
             ],
-            "class": "_checked",
-            "module": "element"
+            "class": "element",
+            "module": "ani"
         },
         {
             "file": "lib/element/yo-input.scss",
-            "line": 9,
+            "line": 8,
             "description": "构造输入框的自定义使用方法，可同时作用于 input 与 textarea\n=======================\nVariables: 9\nAuthor: doyoe(杜瑶)\nEdit: 2012.1.1\n------------------------",
             "itemtype": "method",
             "name": "yo-input",
@@ -2741,12 +2575,12 @@
                     "type": "Default | Color"
                 }
             ],
-            "class": "_input",
-            "module": "element"
+            "class": "element",
+            "module": "ani"
         },
         {
             "file": "lib/element/yo-loading.scss",
-            "line": 9,
+            "line": 8,
             "description": "构造加载中的自定义使用方法\n=======================\nVariables: 5\nAuthor: doyoe(杜瑶)\nEdit: 2012.1.1\n-----------------------",
             "itemtype": "method",
             "name": "yo-loading",
@@ -2777,12 +2611,12 @@
                     "type": "Defailt | Color"
                 }
             ],
-            "class": "_loading",
-            "module": "element"
+            "class": "element",
+            "module": "ani"
         },
         {
             "file": "lib/element/yo-loadtip.scss",
-            "line": 9,
+            "line": 8,
             "description": "构造加载提示的自定义使用方法\n=======================\nVariables: 4\nAuthor: doyoe(杜瑶)\nEdit: 2015.3.9\n-----------------------",
             "itemtype": "method",
             "name": "yo-loadtip",
@@ -2808,12 +2642,12 @@
                     "type": "Defailt | Color"
                 }
             ],
-            "class": "_loadtip",
-            "module": "element"
+            "class": "element",
+            "module": "ani"
         },
         {
             "file": "lib/element/yo-radio.scss",
-            "line": 9,
+            "line": 8,
             "description": "构造单选的自定义使用方法\n=======================\nVariables: 9\nAuthor: doyoe(杜瑶)\nEdit: 2015.3.21\n-----------------------",
             "itemtype": "method",
             "name": "yo-radio",
@@ -2864,12 +2698,12 @@
                     "type": "Default | Length"
                 }
             ],
-            "class": "_radio",
-            "module": "element"
+            "class": "element",
+            "module": "ani"
         },
         {
             "file": "lib/element/yo-range.scss",
-            "line": 9,
+            "line": 8,
             "description": "构造区间选择的自定义使用方法\n=======================\nVariables: 4\nAuthor: joy.du(飘零雾雨)\nEdit: 2012.1.1\n------------------------\n定义按钮使用方法",
             "itemtype": "method",
             "name": "yo-range",
@@ -2895,12 +2729,12 @@
                     "type": "Default | Color"
                 }
             ],
-            "class": "_range",
-            "module": "element"
+            "class": "element",
+            "module": "ani"
         },
         {
             "file": "lib/element/yo-score.scss",
-            "line": 9,
+            "line": 8,
             "description": "构造评分展示的自定义使用方法\n=======================\nVariables: 4\nAuthor: joy.du(飘零雾雨)\nEdit: 2012.1.1\n------------------------",
             "itemtype": "method",
             "name": "yo-score",
@@ -2926,22 +2760,15 @@
                     "type": "Default | String"
                 }
             ],
-            "class": "_score",
-            "module": "element"
-        },
-        {
-            "file": "lib/fragment/classes.scss",
-            "line": 5,
-            "description": "Directory: lib/fragment/classes.scss\nfragment的基础构造\nAuthor: joy.du(飘零雾雨)\nTime: 2012.1.1",
-            "class": "",
-            "module": "element"
+            "class": "element",
+            "module": "ani"
         },
         {
             "file": "lib/fragment/yo-btnbar.scss",
-            "line": 5,
-            "description": "Widget: yo-btnbar\nAuthor: joy.du(飘零雾雨)\nTime: 2012.1.1\n------------------------",
+            "line": 9,
+            "description": "构造按钮组的自定义使用方法\n=======================\nVariables: 2\nAuthor: doyoe(杜瑶)\nEdit: 2015.1.19\n-----------------------",
             "itemtype": "method",
-            "name": "yo-btnbar\nvariables length(2)",
+            "name": "yo-btnbar",
             "params": [
                 {
                     "name": "$name",
@@ -2954,8 +2781,8 @@
                     "type": "Default | auto | Length"
                 }
             ],
-            "class": "",
-            "module": "element"
+            "class": "fragment",
+            "module": "ani"
         },
         {
             "file": "lib/fragment/yo-header.scss",
@@ -3016,7 +2843,7 @@
                 }
             ],
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "lib/fragment/yo-list.scss",
@@ -3102,21 +2929,21 @@
                 }
             ],
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "lib/fragment/yo-table.scss",
             "line": 4,
             "description": "Widget: yo-table\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.25\n-----------------------\nmethod yo-table\nvariables length(11)\nparam {default|String} $name 定义table名称\nparam {default|String} $width 定义table长度\nparam {default|Boole} $has-vertical-border 定义table是否需要纵向边框\nparam {default|Length} $thead-padding 定义table头部内补白\nparam {default|Length} $tbody-padding 定义table主体内补白\nparam {default|Color} $bordercolor 定义table边框色\nparam {default|Color} $thead-bgcolor 定义table头部背景色\nparam {default|Color} $odd-bgcolor 定义table奇数行背景色\nparam {default|Color} $even-bgcolor 定义table偶数行背景色\nparam {default|Color} $active-bgcolor 定义table激活背景色\nparam {default|Color} $on-bgcolor 定义table选中背景色",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "lib/layout/classes.scss",
             "line": 5,
             "description": "Directory: lib/layout/classes.scss\nGlobal Layout Classes 约定布局方案\nAuthor: joy.du(飘零雾雨)\nTime: 2012.1.1",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "lib/layout/layout.scss",
@@ -3147,7 +2974,7 @@
                 }
             ],
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "lib/layout/yo-stacked.scss",
@@ -3168,14 +2995,14 @@
                 }
             ],
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "lib/widget/classes.scss",
             "line": 5,
             "description": "Directory: lib/widget/classes.scss\nwidget的基础构造\nAuthor: joy.du(飘零雾雨)\nTime: 2012.1.1",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "lib/widget/yo-dblist.scss",
@@ -3201,7 +3028,7 @@
                 }
             ],
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "lib/widget/yo-dialog.scss",
@@ -3272,7 +3099,7 @@
                 }
             ],
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "lib/widget/yo-group.scss",
@@ -3293,7 +3120,7 @@
                 }
             ],
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "lib/widget/yo-index.scss",
@@ -3324,7 +3151,7 @@
                 }
             ],
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "lib/widget/yo-mask.scss",
@@ -3345,7 +3172,7 @@
                 }
             ],
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "lib/widget/yo-number.scss",
@@ -3396,7 +3223,7 @@
                 }
             ],
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "lib/widget/yo-panel.scss",
@@ -3422,7 +3249,7 @@
                 }
             ],
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "lib/widget/yo-popup.scss",
@@ -3493,7 +3320,7 @@
                 }
             ],
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "lib/widget/yo-rating.scss",
@@ -3524,7 +3351,7 @@
                 }
             ],
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "lib/widget/yo-search.scss",
@@ -3615,7 +3442,7 @@
                 }
             ],
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "lib/widget/yo-select.scss",
@@ -3646,7 +3473,7 @@
                 }
             ],
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "lib/widget/yo-switch.scss",
@@ -3687,7 +3514,7 @@
                 }
             ],
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "lib/widget/yo-switchable.scss",
@@ -3748,7 +3575,7 @@
                 }
             ],
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "lib/widget/yo-tab.scss",
@@ -3834,7 +3661,7 @@
                 }
             ],
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "lib/widget/yo-tip.scss",
@@ -3870,413 +3697,405 @@
                 }
             ],
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/element/yo-badge.scss",
             "line": 4,
             "description": "yo-badge扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/element/yo-btn.scss",
             "line": 4,
             "description": "Element扩展: yo-btn-normal, yo-btn-light, yo-btn-info\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/element/yo-checkbox.scss",
             "line": 4,
             "description": "yo-checkbox扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/element/yo-checked.scss",
             "line": 4,
             "description": "yo-checked扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/element/yo-loading.scss",
             "line": 4,
             "description": "Element扩展: yo-loading\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/element/yo-loadtip.scss",
             "line": 4,
             "description": "Element扩展: yo-range\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/element/yo-radio.scss",
             "line": 4,
             "description": "yo-radio扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/element/yo-range.scss",
             "line": 4,
             "description": "Element扩展: yo-range\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/element/yo-score.scss",
             "line": 4,
             "description": "yo-score扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/fragment/yo-btnbar.scss",
             "line": 4,
             "description": "Fragment扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/fragment/yo-header.scss",
             "line": 4,
             "description": "Fragment扩展: yo-header-normal, yo-header-positive\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/fragment/yo-list.scss",
             "line": 4,
             "description": "yo-list扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/fragment/yo-table.scss",
             "line": 4,
             "description": "Fragment扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/layout/layout.scss",
             "line": 6,
             "description": "document layout\nAuthor: joy.du(飘零雾雨)\nTime: 2013.10.17",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/module/m-code.scss",
             "line": 2,
             "description": "module: m-code\nAuthor: joy.du(飘零雾雨)\nTime: 2013.10.17",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/module/m-demo.scss",
             "line": 2,
             "description": "module: m-demo\nAuthor: joy.du(飘零雾雨)\nTime: 2013.10.17",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/module/m-desc.scss",
             "line": 2,
             "description": "module: m-desc\nAuthor: joy.du(飘零雾雨)\nTime: 2013.10.17",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/module/m-head.scss",
             "line": 2,
             "description": "module: m-head\nAuthor: joy.du(飘零雾雨)\nTime: 2013.10.17",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/page/ani-page.scss",
             "line": 7,
             "description": "Page Animation Switch 演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2015.2.5",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/page/ani-text.scss",
             "line": 7,
             "description": "Page Animation Switch 演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2015.2.5",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/page/ani.scss",
             "line": 66,
             "description": "ani演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/page/index.scss",
             "line": 6,
             "description": "list演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/page/yo-all.scss",
             "line": 3,
             "description": "Yo框架demo\nAuthor: joy.du(飘零雾雨)\nTime: 2015.2.11",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/page/yo-badge.scss",
             "line": 9,
             "description": "badge演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/page/yo-btn.scss",
             "line": 9,
             "description": "button演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/page/yo-btnbar.scss",
             "line": 8,
             "description": "yo-btnbar演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.9.18",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/page/yo-checkbox.scss",
             "line": 9,
             "description": "checkbox演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.11.14",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/page/yo-checked.scss",
             "line": 9,
             "description": "checked演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.11.14",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/page/yo-dblist.scss",
             "line": 9,
             "description": "button演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/page/yo-dialog.scss",
             "line": 7,
             "description": "dialog演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/page/yo-group.scss",
             "line": 8,
             "description": "group演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2015.2.10",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/page/yo-header.scss",
             "line": 8,
             "description": "header演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/page/yo-index.scss",
             "line": 9,
             "description": "index演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2015.2.10",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/page/yo-input.scss",
             "line": 10,
             "description": "input演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.15",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/page/yo-list.scss",
             "line": 10,
             "description": "list演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/page/yo-loading.scss",
             "line": 7,
             "description": "loading演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/page/yo-loadtip.scss",
             "line": 9,
             "description": "loadtip演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2015.3.9",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/page/yo-mask.scss",
             "line": 7,
             "description": "mask演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/page/yo-number.scss",
             "line": 8,
             "description": "number演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/page/yo-panel.scss",
             "line": 9,
             "description": "panel演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/page/yo-popup.scss",
             "line": 7,
             "description": "popup演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/page/yo-radio.scss",
             "line": 9,
             "description": "radio演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.11.14",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/page/yo-range.scss",
             "line": 9,
             "description": "range演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.11.14",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/page/yo-rating.scss",
             "line": 9,
             "description": "badge演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/page/yo-score.scss",
             "line": 9,
             "description": "badge演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/page/yo-search.scss",
             "line": 9,
             "description": "search演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/page/yo-select.scss",
             "line": 6,
             "description": "select演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.11.13",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/page/yo-switch.scss",
             "line": 9,
             "description": "switch演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.11.14",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/page/yo-switchable.scss",
             "line": 8,
             "description": "slider演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2015.2.10",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/page/yo-tab.scss",
             "line": 7,
             "description": "g-tab演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.9.18",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/page/yo-table.scss",
             "line": 8,
             "description": "table演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/page/yo-tip.scss",
             "line": 8,
             "description": "tip演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/page/yofont.scss",
             "line": 3,
             "description": "yofont演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/widget/yo-rating.scss",
             "line": 4,
             "description": "yo-rating扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/widget/yo-switch.scss",
             "line": 4,
             "description": "Element扩展: yo-switch\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
             "class": "",
-            "module": "element"
+            "module": "ani"
         },
         {
             "file": "usage/demo/widget/yo-tab.scss",
             "line": 4,
             "description": "yo-tab扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
             "class": "",
-            "module": "element"
+            "module": "ani"
         }
     ],
     "warnings": [
         {
-            "message": "unknown tag: edit",
-            "line": " lib/ani/classes.scss:2"
-        },
-        {
-            "message": "unknown tag: edit",
-            "line": " lib/core/classes.scss:2"
-        },
-        {
             "message": "Missing item type\n定义动画基本特性",
-            "line": " lib/ani/classes.scss:11"
+            "line": " lib/ani/classes.scss:13"
         },
         {
             "message": "Missing item type\nDirectory: lib/core/reset.scss\nCss Reset\nAuthor: joy.du(飘零雾雨)\nEdit: 2015.1.18\nNote: only for mobile",
@@ -4285,14 +4104,6 @@
         {
             "message": "Missing item type\nDirectory: lib/core/variables.scss\nCSS Variables 定义各种页面沙粒变量\nAuthor: joy.du(飘零雾雨)\nEdit: 2014.12.5",
             "line": " lib/core/variables.scss:3"
-        },
-        {
-            "message": "Missing item type\nelement的基础构造\nAuthor: doyoe(杜瑶)\nEdit: 2012.1.1",
-            "line": " lib/element/classes.scss:5"
-        },
-        {
-            "message": "Missing item type\nDirectory: lib/fragment/classes.scss\nfragment的基础构造\nAuthor: joy.du(飘零雾雨)\nTime: 2012.1.1",
-            "line": " lib/fragment/classes.scss:5"
         },
         {
             "message": "Missing item type\nWidget: yo-table\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.25\n-----------------------\nmethod yo-table\nvariables length(11)\nparam {default|String} $name 定义table名称\nparam {default|String} $width 定义table长度\nparam {default|Boole} $has-vertical-border 定义table是否需要纵向边框\nparam {default|Length} $thead-padding 定义table头部内补白\nparam {default|Length} $tbody-padding 定义table主体内补白\nparam {default|Color} $bordercolor 定义table边框色\nparam {default|Color} $thead-bgcolor 定义table头部背景色\nparam {default|Color} $odd-bgcolor 定义table奇数行背景色\nparam {default|Color} $even-bgcolor 定义table偶数行背景色\nparam {default|Color} $active-bgcolor 定义table激活背景色\nparam {default|Color} $on-bgcolor 定义table选中背景色",

@@ -3,12 +3,17 @@
 @import "../element/yo-btn";
 
 /**
- * Widget: yo-btnbar
- * Author: joy.du(飘零雾雨)
- * Time: 2012.1.1
- ------------------------
+ * @class fragment
+ */
+
+/**
+ * 构造按钮组的自定义使用方法
+ =======================
+ * Variables: 2
+ * Author: doyoe(杜瑶)
+ * Edit: 2015.1.19
+ -----------------------
  * @method yo-btnbar
- * variables length(2)
  * @param {default | String} $name 定义yo-btnbar名称
  * @param {default | auto | Length} $radius 定义yo-btnbar圆角，当值为auto时，圆角大小取决于按钮的圆角大小
  */
