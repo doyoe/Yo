@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<link rel="apple-touch-icon-precomposed" href="/qunar-touch.png" />
+<title>slidermenu - 侧滑</title>
+<link rel="stylesheet" href="../../usage/demo/export/yo-slidermenu.css" />
+</head>
+<body>
+
+<div class="m-demo">
+    <div class="device">
+    <div class="stage">
+        <h2 class="yo-header">Slidermenu</h2>
+        <div class="yo-slidermenu">
+            <div class="front" style="-webkit-transform:translate(-1rem, 0) translatez(0);">这是默认的slidermenu内容</div>
+            <div class="action">查看详情</div>
+        </div>
+    </div>
+    </div>
+    <code class="code"><xmp><h2 class="yo-header">slidermenu</h2>
+<div class="yo-slidermenu">
+    <div class="front">这是默认的slidermenu内容</div>
+    <div class="action">查看详情</div>
+</div></xmp></code>
+</div>
+
+<div class="m-demo">
+    <div class="device">
+    <div class="stage">
+        <h2 class="yo-header">Default slidermenu List</h2>
+        <div class="yo-list">
+            <a href="#" class="item yo-slidermenu">
+                <div class="front">
+                    <div class="mark">
+                        <img src="http://b.hiphotos.baidu.com/image/pic/item/9f510fb30f2442a7186eec16d243ad4bd1130224.jpg" alt="美女" />
+                    </div>
+                    <div class="cont">
+                        <h3>高圆圆</h3>
+                        <p>这是一个我很喜欢的美女</p>
+                    </div>
+                </div>
+                <div class="action">
+                    <span>删除</span>
+                </div>
+            </a>
+            <a href="#" class="item yo-slidermenu">
+                <div class="front" style="-webkit-transform:translate(-1rem, 0) translatez(0);">
+                    <div class="mark">
+                        <img src="http://b.hiphotos.baidu.com/image/pic/item/9f510fb30f2442a7186eec16d243ad4bd1130224.jpg" alt="美女" />
+                    </div>
+                    <div class="cont">
+                        <h3>高圆圆</h3>
+                        <p>这是一个我很喜欢的美女</p>
+                    </div>
+                </div>
+                <div class="action">
+                    <span>删除</span>
+                </div>
+            </a>
+            <a href="#" class="item yo-slidermenu">
+                <div class="front">
+                    <div class="mark">
+                        <img src="http://e.hiphotos.baidu.com/image/pic/item/43a7d933c895d1436916f59070f082025aaf0724.jpg" alt="美女" />
+                    </div>
+                    <div class="cont">
+                        <h3>高圆圆</h3>
+                        <p>这是一个我很喜欢的美女</p>
+                    </div>
+                </div>
+                <div class="action">
+                    <span>删除</span>
+                </div>
+            </a>
+            <a href="#" class="item yo-slidermenu">
+                <div class="front">
+                    <div class="mark">
+                        <img src="http://a.hiphotos.baidu.com/image/pic/item/a044ad345982b2b79808287732adcbef77099be9.jpg" alt="美女" />
+                    </div>
+                    <div class="cont">
+                        <h3>高圆圆</h3>
+                        <p>这是一个我很喜欢的美女</p>
+                    </div>
+                </div>
+                <div class="action">
+                    <span>删除</span>
+                </div>
+            </a>
+        </div>
+    </div>
+    </div>
+    <code class="code"><xmp><h2 class="yo-header">Default Img List</h2>
+<div class="yo-list">
+    <a href="#" class="item yo-slidermenu">
+        <div class="front">
+            <div class="mark">
+                <img src="../../../img/human.png" alt="美女" />
+            </div>
+            <div class="cont">
+                <h3>高圆圆</h3>
+                <p>这是一个我很喜欢的美女</p>
+            </div>
+        </div>
+        <div class="action">
+            <span>删除</span>
+        </div>
+    </a>
+    <a href="#" class="item yo-slidermenu">
+        <div class="front">
+            <div class="mark">
+                <img src="../../../img/human.png" alt="美女" />
+            </div>
+            <div class="cont">
+                <h3>高圆圆</h3>
+                <p>这是一个我很喜欢的美女</p>
+            </div>
+        </div>
+        <div class="action">
+            <span>删除</span>
+        </div>
+    </a>
+    ...
+</div></xmp></code>
+</div>
+
+
+<pre class="m-code"><span class="method">@include yo-slidermenu</span><span class="bracket">(</span>
+    $name<span class="colon">:</span>default, <mark>//{default|String} yo-slidermenu名称</mark>
+    $action-width<span class="colon">:</span>default, <mark>//{default|Length} action宽度</mark>
+    $action-bgcolor<span class="colon">:</span>default <mark>//{default|Color} action背景色</mark>
+<span class="bracket">)</span>
+</pre>
+
+</body>
+</html>

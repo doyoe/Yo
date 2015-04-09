@@ -1,0 +1,48 @@
+@charset "utf-8";
+@import "classes";
+
+/**
+ * Widget: yo-slidermenu
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ ------------------------
+ * @method yo-slidermenu
+ * variables length(5)
+ * @param {default | String} $name 扩展的名称
+ * @param {default | Length} $action-width 定义action宽度
+ * @param {default | Color} $action-bgcolor 定义action背景色
+ */
+
+@mixin yo-slidermenu(
+    $name: default,
+    $action-width: default,
+    $action-bgcolor: default) {
+    // 区别是否新增实例还是修改本身
+    @if $name == default {
+        $name: "";
+    } @else {
+        $name: "-#{$name}";
+    }
+    // 如果值为default，则取config的定义
+    @if $action-width == default {
+        $action-width: map-get($slidermenu, action-width);
+    }
+    @if $action-bgcolor == default {
+        $action-bgcolor: map-get($slidermenu, action-bgcolor);
+    }
+    .yo-slidermenu#{$name} {
+        > .action {
+            @if $action-width != map-get($slidermenu, action-width) {
+                width: $action-width;
+            }
+            @if $action-bgcolor != map-get($slidermenu, action-bgcolor) {
+                background-color: $action-bgcolor;
+            }
+        }
+    }
+}
+
+// 调用本文件时载入slidermenu基础构造
+.yo-slidermenu {
+    @include _slidermenu;
+}
