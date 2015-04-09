@@ -10,8 +10,8 @@
  * variables length(15)
  * @param {default|String} $name 定义list名称
  * @param {default|Length} $margin 定义list外边距
- * @param {default|Boole} $is-outline 定义list是否需要轮廓（即外边框）
  * @param {default|Length} $radius 定义list圆角
+ * @param {default|Length} $border-width 定义list外边框厚度
  * @param {default|Color} $bordercolor 定义list边框色
  * @param {default|Length} $item-padding 定义list项的内补白
  * @param {default|Length} $label-padding 定义list分组标题内补白
@@ -28,8 +28,8 @@
 @mixin yo-list(
     $name: default,
     $margin: default,
-    $is-outline: default,
     $radius: default,
+    $border-width: default,
     $bordercolor: default,
     $item-padding: default,
     $label-padding: default,
@@ -51,11 +51,11 @@
     @if $margin == default {
         $margin: map-get($list, margin);
     }
-    @if $is-outline == default {
-        $is-outline: map-get($list, is-outline);
-    }
     @if $radius == default {
         $radius: map-get($list, radius);
+    }
+    @if $border-width == default {
+        $border-width: map-get($list, border-width);
     }
     @if $bordercolor == default {
         $bordercolor: map-get($list, bordercolor);
@@ -97,20 +97,14 @@
         @if $radius != map-get($list, radius) {
             border-radius: $radius;
         }
-        // 如果$is-outline为true，则重绘轮廓
-        @if $is-outline {
-            @if $is-outline != map-get($list, is-outline) {
-                overflow: hidden;
-                border: .01rem solid map-get($list, bordercolor);
+        @if $border-width != map-get($list, border-width) {
+            border-width: $border-width;
+            @if $border-width != null and $border-width != 0 {
+                border-style: solid;
             }
-            @if $bordercolor != map-get($list, bordercolor) {
-                border-color: $bordercolor;
-            }
-        } @else {
-            @if $is-outline != map-get($list, is-outline) {
-                overflow: visible;
-                border: 0;
-            }
+        }
+        @if $bordercolor != map-get($list, bordercolor) {
+            border-color: $bordercolor;
         }
         > .label {
             @if $label-padding != map-get($list, label-padding) {
@@ -141,6 +135,12 @@
             }
             @if $item-font-size != map-get($list, item-font-size) {
                 font-size: $item-font-size;
+            }
+            &:last-child {
+                // 最后一根线的颜色与外边框颜色相同
+                @if $bordercolor != map-get($list, bordercolor) {
+                    border-color: $bordercolor;
+                }
             }
             &.item-active:active,
             &.item-light {

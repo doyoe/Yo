@@ -693,9 +693,9 @@
     }
 }
 
-// 定义panel的基础构造
-// 使用方法请查看 yo-panel.scss
-@mixin _panel {
+// 定义slidermenu的基础构造
+// 使用方法请查看 yo-slidermenu.scss
+@mixin _slidermenu {
     position: relative;
     overflow: hidden;
     > .front {
@@ -708,9 +708,9 @@
         top: 0;
         right: 0;
         overflow: hidden;
-        width: map-get($panel, action-width);
+        width: map-get($slidermenu, action-width);
         height: 100%;
-        background-color: map-get($panel, action-bgcolor);
+        background-color: map-get($slidermenu, action-bgcolor);
     }
 }
 

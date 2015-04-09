@@ -16,14 +16,14 @@
 @mixin _list {
     margin: map-get($list, margin);
     border-radius: map-get($list, radius);
-    // 如果config变量$is-outline为true，则列表需要轮廓
-    @if map-get($list, is-outline) {
-        overflow: hidden;
-        border: .01rem solid map-get($list, bordercolor);
+    @if map-get($list, border-width) != 0 {
+        border-width: map-get($list, border-width);
+        border-style: solid;
+        border-color: map-get($list, bordercolor);
     }
     > .label,
     > .item,
-    > .yo-panel > .front {
+    > .yo-slidermenu > .front {
         @include flexbox;
         @include align-items;
         > .mark:not(:last-child),
@@ -60,7 +60,7 @@
         }
     }
     > .item,
-    > .yo-panel > .front {
+    > .yo-slidermenu > .front {
         padding: map-get($list, item-padding);
     }
     > .item {
@@ -70,12 +70,14 @@
         color: map-get($base, color);
         font-size: map-get($list, item-font-size);
         &:last-child {
-            margin-bottom: -1px;
+            margin-bottom: -.01rem;
+            // 最后一根线的颜色与外边框颜色相同
+            border-color: map-get($list, bordercolor);
         }
         &-stacked {
             display: block;
             > .mark {
-                padding-bottom: 5px;
+                padding-bottom: .05rem;
             }
         }
         &-input {
@@ -108,7 +110,7 @@
             padding: map-get($list, item-padding);
         }
     }
-    > .yo-panel {
+    > .yo-slidermenu {
         display: block;
         padding: 0;
     }

@@ -4,6 +4,7 @@
  * CSS Variables 定义各种页面沙粒变量
  * Author: joy.du(飘零雾雨)
  * Edit: 2014.12.5
+ * Description: Color类型不设定值时使用null，Length类型使用0
  */
 /**
  * fragment的基础构造
@@ -417,6 +418,7 @@ a {
  * CSS Variables 定义各种页面沙粒变量
  * Author: joy.du(飘零雾雨)
  * Edit: 2014.12.5
+ * Description: Color类型不设定值时使用null，Length类型使用0
  */
 /**
  * fragment的基础构造
@@ -621,6 +623,7 @@ html, body {
  * CSS Variables 定义各种页面沙粒变量
  * Author: joy.du(飘零雾雨)
  * Edit: 2014.12.5
+ * Description: Color类型不设定值时使用null，Length类型使用0
  */
 /**
  * fragment的基础构造
@@ -976,6 +979,7 @@ html, body {
  * CSS Variables 定义各种页面沙粒变量
  * Author: joy.du(飘零雾雨)
  * Edit: 2014.12.5
+ * Description: Color类型不设定值时使用null，Length类型使用0
  */
 /**
  * fragment的基础构造
@@ -1171,8 +1175,8 @@ html, body {
  * variables length(15)
  * @param {default|String} $name 定义list名称
  * @param {default|Length} $margin 定义list外边距
- * @param {default|Boole} $is-outline 定义list是否需要轮廓（即外边框）
  * @param {default|Length} $radius 定义list圆角
+ * @param {default|Length} $border-width 定义list外边框厚度
  * @param {default|Color} $bordercolor 定义list边框色
  * @param {default|Length} $item-padding 定义list项的内补白
  * @param {default|Length} $label-padding 定义list分组标题内补白
@@ -1185,12 +1189,9 @@ html, body {
  * @param {default|Length} $item-font-size 定义list项字号
  * @param {default|Length} $label-font-size 定义list列表组头字号
  */
-.yo-list {
-  margin: -0.01rem -0.01rem 0 -0.01rem;
-}
 .yo-list > .label,
 .yo-list > .item,
-.yo-list > .yo-panel > .front {
+.yo-list > .yo-slidermenu > .front {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -1202,13 +1203,13 @@ html, body {
 .yo-list > .label > .yo-ico:not(:last-child),
 .yo-list > .item > .mark:not(:last-child),
 .yo-list > .item > .yo-ico:not(:last-child),
-.yo-list > .yo-panel > .front > .mark:not(:last-child),
-.yo-list > .yo-panel > .front > .yo-ico:not(:last-child) {
+.yo-list > .yo-slidermenu > .front > .mark:not(:last-child),
+.yo-list > .yo-slidermenu > .front > .yo-ico:not(:last-child) {
   margin-right: .1rem;
 }
 .yo-list > .label > .flex,
 .yo-list > .item > .flex,
-.yo-list > .yo-panel > .front > .flex {
+.yo-list > .yo-slidermenu > .front > .flex {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
@@ -1223,15 +1224,15 @@ html, body {
 .yo-list > .item > .yo-ico,
 .yo-list > .item > .col,
 .yo-list > .item > .flex,
-.yo-list > .yo-panel > .front > .mark,
-.yo-list > .yo-panel > .front > .yo-ico,
-.yo-list > .yo-panel > .front > .col,
-.yo-list > .yo-panel > .front > .flex {
+.yo-list > .yo-slidermenu > .front > .mark,
+.yo-list > .yo-slidermenu > .front > .yo-ico,
+.yo-list > .yo-slidermenu > .front > .col,
+.yo-list > .yo-slidermenu > .front > .flex {
   display: block;
 }
 .yo-list > .label.tr,
 .yo-list > .item.tr,
-.yo-list > .yo-panel > .front.tr {
+.yo-list > .yo-slidermenu > .front.tr {
   padding: 0;
 }
 .yo-list > .label {
@@ -1248,7 +1249,7 @@ html, body {
   padding: 0.03rem 0.1rem;
 }
 .yo-list > .item,
-.yo-list > .yo-panel > .front {
+.yo-list > .yo-slidermenu > .front {
   padding: 0.11rem;
 }
 .yo-list > .item {
@@ -1259,13 +1260,14 @@ html, body {
   font-size: 0.14rem;
 }
 .yo-list > .item:last-child {
-  margin-bottom: -1px;
+  margin-bottom: -.01rem;
+  border-color: #ccc;
 }
 .yo-list > .item-stacked {
   display: block;
 }
 .yo-list > .item-stacked > .mark {
-  padding-bottom: 5px;
+  padding-bottom: .05rem;
 }
 .yo-list > .item-input > .yo-input {
   height: auto;
@@ -1281,7 +1283,7 @@ html, body {
 .yo-list > .item > .col {
   padding: 0.11rem;
 }
-.yo-list > .yo-panel {
+.yo-list > .yo-slidermenu {
   display: block;
   padding: 0;
 }
@@ -1291,6 +1293,7 @@ html, body {
  * CSS Variables 定义各种页面沙粒变量
  * Author: joy.du(飘零雾雨)
  * Edit: 2014.12.5
+ * Description: Color类型不设定值时使用null，Length类型使用0
  */
 /**
  * fragment的基础构造

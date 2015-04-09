@@ -5,6 +5,7 @@
  * CSS Variables 定义各种页面沙粒变量
  * Author: joy.du(飘零雾雨)
  * Edit: 2014.12.5
+ * Description: Color类型不设定值时使用null，Length类型使用0
  */
 
 $setting: (
@@ -280,11 +281,11 @@ $btnbar: (
 // Fragment list(14)
 $list: (
     // {Length} 列表外边距
-    margin:            -.01rem -.01rem 0 -.01rem,
-    // {Boole} 列表是否有外边框
-    is-outline:        false,
+    margin:            null,
     // {Length} 列表圆角
     radius:            null,
+    // {Length} 列表边框厚度
+    border-width:      0,
     // {Color} 列表边框色
     bordercolor:       #ccc,
     // {Length} 列表项内补白，列表项有最小高度.44rem
@@ -573,8 +574,8 @@ $mask: (
     bgcolor: #fff
 ) !default;
 
-// Widget UI panel(1)
-$panel: (
+// Widget UI slidermenu(1)
+$slidermenu: (
     // {Length} action 宽度
     action-width: 1rem,
     // {Color} action 背景色
