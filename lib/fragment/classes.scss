@@ -16,11 +16,9 @@
 @mixin _list {
     margin: map-get($list, margin);
     border-radius: map-get($list, radius);
-    @if map-get($list, border-width) != 0 {
-        border-width: map-get($list, border-width);
-        border-style: solid;
-        border-color: map-get($list, bordercolor);
-    }
+    border-width: map-get($list, border-width);
+    border-style: solid;
+    border-color: map-get($list, bordercolor);
     > .label,
     > .item,
     > .yo-slidermenu > .front {

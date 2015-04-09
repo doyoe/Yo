@@ -28,6 +28,8 @@
 
 ### Developing: v1.4.0
 
+* update: `yo-list`
+    - 删除 `is-outline` 参数，新增 `border-width` 参数用于设置外边框厚度
 * add `background-size` 方法
 * update: `yo-header`
     - 增加 `item-ico-size` 参数，用于设置两侧ico的大小
