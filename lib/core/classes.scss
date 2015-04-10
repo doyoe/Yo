@@ -379,7 +379,6 @@
  * @param {Boolen} $ellipsis 定义是否需要省略号
  */
 @mixin ellipsis($ellipsis: true) {
-    display: block;
     overflow: hidden;
     white-space: nowrap;
     @if $ellipsis {

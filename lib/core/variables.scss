@@ -99,7 +99,6 @@ $ico: (
     // {String} 使用哪几种图标
     font-types: eot,
     // {Url} 图标字体路径
-    // font-path:  "http://source.qunarzz.com/fonts/fontawesome/4.3.0/"
     font-path:  "../../../font/"
 ) !default;
 
@@ -181,12 +180,14 @@ $badge: (
     font-size:   .14rem
 ) !default;
 
-// Element checked(8)
+// Element checked(9)
 $checked: (
-    // {String} 选中标记类型: [circle | tick]
-    type:           circle,
-    // {Length} 标签大小
+    // {String} 选中标记的内容，可以是自定义的webfont
+    content:        "\f078",
+    // {Length} 元件大小
     size:           .2rem,
+    // {Length} 标签大小
+    font-size:      .12rem,
     // {Color} 边框色，如不需要边框，取值null
     bordercolor:    null,
     // {Color} 背景色，如不需要背景，取值null

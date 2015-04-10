@@ -28,12 +28,15 @@
 
 ### Developing: v1.4.0
 
-* update: `yo-list`
-    - 删除 `is-outline` 参数，新增 `border-width` 参数用于设置外边框厚度
+* update: `yo-checked`
+    - 删除 `type` 参数，不再使用该参数设置来判定使用哪个标记
+    - 新增 `content` 参数用于设置标记，可以直接传字符或者iconfont
+    - 新增 `font-size` 参数用于标记大小
 * add `background-size` 方法
 * update: `yo-header`
     - 增加 `item-ico-size` 参数，用于设置两侧ico的大小
 * update: `yo-list`
+    - 删除 `is-outline` 参数，新增 `border-width` 参数用于设置外边框厚度
     - 增加 `on-color` 参数，用于设置列表项选中时文本色
 * update: `yo-search`
     - 增加 `cancel-width` 参数，用于设置取消按钮区域的宽度

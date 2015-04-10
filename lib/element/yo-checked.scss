@@ -15,7 +15,9 @@
  * @method yo-checked
  * @param {default | String} $name 为需要的扩展定义一个名称
  * @param {default | String} $type 选中时的标记类型，可选值：[circle | tick]
+ * @param {default | String} $content 选中时的标记内容
  * @param {default | Length} $size 元件大小
+ * @param {default | Length} $font-size 标记大小
  * @param {default | Color} $bordercolor 边框色
  * @param {default | Color} $bgcolor 背景色
  * @param {default | Color} $on-bordercolor 选中时的边框色
@@ -26,8 +28,9 @@
 
 @mixin yo-checked(
     $name: default,
-    $type: default,
+    $content: default,
     $size: default,
+    $font-size: default,
     $bordercolor: default,
     $bgcolor: default,
     $on-bordercolor: default,
@@ -41,11 +44,17 @@
         $name: "-#{$name}";
     }
     // 如果值为default，则取config的定义
-    @if $type == default {
-        $type: map-get($checked, type);
+    // @if $type == default {
+    //     $type: map-get($checked, type);
+    // }
+    @if $content == default {
+        $content: map-get($checked, content);
     }
     @if $size == default {
         $size: map-get($checked, size);
+    }
+    @if $font-size == default {
+        $font-size: map-get($checked, font-size);
     }
     @if $bordercolor == default {
         $bordercolor: map-get($checked, bordercolor);
@@ -68,27 +77,28 @@
     .yo-checked#{$name} {
         @if $size != map-get($checked, size) {
             @include square($size);
-            font-size: $size;
+            line-height: $size;
         }
-        @if $radius != map-get($checked, radius) {
-            border-radius: $radius;
+        @if $font-size != map-get($checked, font-size) {
+            font-size: $font-size;
         }
-        @if $bordercolor != map-get($checked, bordercolor) {
-            border-color: $bordercolor;
-        }
-        @if $bgcolor != map-get($checked, bgcolor) {
-            background-color: $bgcolor;
-        }
-        &::after{
-            @if $type != map-get($checked, type) {
-                @if $type == tick {
-                    content: "✓";
-                } @else {
-                    content: "●";
+        > .type {
+            @if $radius != map-get($checked, radius) {
+                border-radius: $radius;
+            }
+            @if $bordercolor != map-get($checked, bordercolor) {
+                border-color: $bordercolor;
+            }
+            @if $bgcolor != map-get($checked, bgcolor) {
+                background-color: $bgcolor;
+            }
+            &::after {
+                @if $content != map-get($checked, content) {
+                    content: $content;
                 }
             }
         }
-        &:checked {
+        > input:checked ~ .type {
             @if $on-bordercolor != map-get($checked, on-bordercolor) {
                 border-color: $on-bordercolor;
             }

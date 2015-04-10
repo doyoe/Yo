@@ -167,32 +167,40 @@
 }
 
 @mixin _checked {
-    @include appearance(none);
+    display: inline-block;
     position: relative;
     @include square(map-get($checked, size));
-    border-radius: map-get($checked, radius);
-    background-color: transparent;
-    // 将 color 设置为 transparent，这时如果不需要边框，就可以将 $bordercolor 设置为 null 了，边框色为 color 设置
-    border: .01rem solid;
-    border-color: map-get($checked, bordercolor);
-    color: transparent;
-    font-size: map-get($checked, size);
-    cursor: pointer;
+    line-height: map-get($checked, size);
+    font-size: map-get($checked, font-size);
+    font-family: map-get($ico, font-name);
+    text-align: center;
     vertical-align: middle;
-    &::after {
-        position:absolute;
-        top: 50%;
-        left: 50%;
-        @include transform(translate(-50%, -50%));
-        @if map-get($checked, type) == tick {
-            content: "✓";
-        } @else {
-            content: "●";
-        }
-        font-size: 68%;
+    cursor: pointer;
+    > input,
+    > .type {
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        @include square(100%);
+    }
+    > input {
+        z-index: 2;
         opacity: 0;
     }
-    &:checked {
+    > .type {
+        border-radius: map-get($checked, radius);
+        background-color: transparent;
+        // 将 color 设置为 transparent，这时如果不需要边框，就可以将 $bordercolor 设置为 null 了，边框色为 color 设置
+        border: .01rem solid;
+        border-color: map-get($checked, bordercolor);
+        color: transparent;
+        &::after {
+            content: "#{map-get($checked, content)}";
+            opacity: 0;
+        }
+    }
+    > input:checked ~ .type {
         border-color: map-get($checked, on-bordercolor);
         background-color: map-get($checked, on-bgcolor);
         &::after {
@@ -200,7 +208,7 @@
             opacity: 1;
         }
     }
-    &:disabled {
+    > input:disabled ~ .type {
         opacity: .4;
         border-color: map-get($base, disabled-bordercolor) !important;
         background-color: map-get($base, disabled-bgcolor) !important;

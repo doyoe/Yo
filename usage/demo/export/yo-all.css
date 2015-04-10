@@ -1854,7 +1854,9 @@ a {
  * @method yo-checked
  * @param {default | String} $name 为需要的扩展定义一个名称
  * @param {default | String} $type 选中时的标记类型，可选值：[circle | tick]
+ * @param {default | String} $content 选中时的标记内容
  * @param {default | Length} $size 元件大小
+ * @param {default | Length} $font-size 标记大小
  * @param {default | Color} $bordercolor 边框色
  * @param {default | Color} $bgcolor 背景色
  * @param {default | Color} $on-bordercolor 选中时的边框色
@@ -1863,39 +1865,50 @@ a {
  * @param {default | Length} $radius 圆角半径长度
  */
 .yo-checked {
-  -webkit-appearance: none;
-  appearance: none;
+  display: inline-block;
   position: relative;
   width: 0.2rem;
   height: 0.2rem;
+  line-height: 0.2rem;
+  font-size: 0.12rem;
+  font-family: yofont;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.yo-checked > input,
+.yo-checked > .type {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.yo-checked > input {
+  z-index: 2;
+  opacity: 0;
+}
+.yo-checked > .type {
   border-radius: 0.05rem;
   background-color: transparent;
   border: .01rem solid;
   color: transparent;
-  font-size: 0.2rem;
-  cursor: pointer;
-  vertical-align: middle;
 }
-.yo-checked::after {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  content: "●";
-  font-size: 68%;
+.yo-checked > .type::after {
+  content: "";
   opacity: 0;
 }
-.yo-checked:checked::after {
+.yo-checked > input:checked ~ .type::after {
   color: #2b94ff;
   opacity: 1;
 }
-.yo-checked:disabled {
+.yo-checked > input:disabled ~ .type {
   opacity: .4;
   border-color: #bbb !important;
   background-color: #ccc !important;
 }
-.yo-checked:disabled::after {
+.yo-checked > input:disabled ~ .type::after {
   color: #f9f9f9 !important;
 }
 
@@ -3171,14 +3184,12 @@ a {
   border-bottom: 1px solid #ddd;
   background-color: #fff;
   font-size: 0.16rem;
-  display: block;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   text-align: center;
 }
 .yo-header > .title {
-  display: block;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
