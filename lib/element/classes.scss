@@ -16,7 +16,16 @@
     display: inline-block;
     overflow: hidden;
     padding: map-get($btn, padding);
-    border: .01rem solid map-get($btn, bordercolor);
+    // 当边框厚度大于0时，才定义边框相关属性
+    @if map-get($btn, border-width) != null and
+        map-get($btn, border-width) != 0 {
+        border-width: map-get($btn, border-width);
+        border-style: solid;
+        border-color: map-get($btn, bordercolor);
+    } @else {
+        // 当使用input和button时，默认有巨丑边框，需清除
+        border-style: none;
+    }
     // 内阴影，用来描内部的1px白边
     box-shadow: inset 1px 1px rgba(255, 255, 255, .1);
     border-radius: map-get($btn, radius);

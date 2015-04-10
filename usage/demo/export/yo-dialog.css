@@ -1359,12 +1359,13 @@ html, body {
 /**
  * 构造按钮的自定义使用方法，可轻松自定义边框，尺寸，背景，文字等
  =======================
- * Variables: 12
+ * Variables: 13
  * Author: doyoe(杜瑶)
  * Edit: 2015.1.19
  ------------------------
  * @method yo-btn
  * @param {default | String} $name 为需要的扩展定义一个名称
+ * @param {default | Length} $border-width 边框厚度
  * @param {default | Color} $bordercolor 边框色
  * @param {default | Color} $bgcolor 背景色
  * @param {default | Color} $color 文本色
@@ -1381,7 +1382,9 @@ html, body {
   display: inline-block;
   overflow: hidden;
   padding: 0 1.2em;
-  border: 0.01rem solid #e26704;
+  border-width: 0.01rem;
+  border-style: solid;
+  border-color: #e26704;
   box-shadow: inset 1px 1px rgba(255, 255, 255, 0.1);
   border-radius: 0.02rem;
   background-color: #ff801a;
@@ -1453,8 +1456,8 @@ html, body {
   z-index: 1001;
   overflow: hidden;
   border-radius: 0.05rem;
-  box-shadow: 0 0 5px rgba(221, 221, 221, 0.5);
-  border: 1px solid #ddd;
+  box-shadow: 0 0 5px rgba(204, 204, 204, 0.5);
+  border: 1px solid #ccc;
   min-width: 2.8rem;
   max-width: 90%;
   height: 3rem;
@@ -1503,12 +1506,12 @@ html, body {
   text-align: center;
 }
 .yo-dialog > .ft .yo-btn {
-  border-color: #ddd;
-  background-color: #fff;
-  color: #00afc7;
+  border-width: #ccc;
+  border-color: #fff;
+  background-color: #00afc7;
 }
 .yo-dialog > .ft .yo-btn:active {
-  background-color: 0;
+  border-color: 0;
 }
 .yo-dialog > .ft > .yo-btn {
   -webkit-box-flex: 1;

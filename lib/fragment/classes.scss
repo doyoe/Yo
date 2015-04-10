@@ -62,7 +62,6 @@
         padding: map-get($list, item-padding);
     }
     > .item {
-        min-height: .44rem;
         border-bottom: .01rem solid map-get($list, item-bordercolor);
         background-color: #fff;
         color: map-get($base, color);

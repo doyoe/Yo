@@ -66,7 +66,7 @@ $base: (
     // 默认文档背景色
     doc-bgcolor:          #fafafa,
     // 默认边框色
-    bordercolor:          #ddd,
+    bordercolor:          #ccc,
     // 默认背景颜色
     bgcolor:              #fafafa,
     // 默认文本颜色
@@ -134,8 +134,10 @@ $input: (
     placeholder-color: #bbb
 ) !default;
 
-// Element Button(15)
+// Element Button(16)
 $btn: (
+    // {Color} Length
+    border-width:   .01rem,
     // {Color} 边框色
     bordercolor:    #e26704,
     // {Color} 背景色
@@ -288,7 +290,7 @@ $list: (
     // {Length} 列表边框厚度
     border-width:      0,
     // {Color} 列表边框色
-    bordercolor:       #ccc,
+    bordercolor:       map-get($base, bordercolor),
     // {Length} 列表项内补白，列表项有最小高度.44rem
     item-padding:      .11rem,
     // {Length} 列表组头内补白
@@ -302,9 +304,9 @@ $list: (
     // {Color} 选中文本色
     on-color:          null,
     // {Color} 列表项边框色
-    item-bordercolor:  map-get($base, bordercolor),
+    item-bordercolor:  #eee,
     // {Color} 列表项组名边框色
-    label-bordercolor: map-get($base, bordercolor),
+    label-bordercolor: #eee,
     // {Length} 列表项字号
     item-font-size:    .14rem,
     // {Length} 列表组头字号

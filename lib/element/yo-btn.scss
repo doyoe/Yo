@@ -8,12 +8,13 @@
 /**
  * 构造按钮的自定义使用方法，可轻松自定义边框，尺寸，背景，文字等
  =======================
- * Variables: 12
+ * Variables: 13
  * Author: doyoe(杜瑶)
  * Edit: 2015.1.19
  ------------------------
  * @method yo-btn
  * @param {default | String} $name 为需要的扩展定义一个名称
+ * @param {default | Length} $border-width 边框厚度
  * @param {default | Color} $bordercolor 边框色
  * @param {default | Color} $bgcolor 背景色
  * @param {default | Color} $color 文本色
@@ -29,6 +30,7 @@
 
 @mixin yo-btn(
     $name: default,
+    $border-width: default,
     $bordercolor: default,
     $bgcolor: default,
     $color: default,
@@ -47,6 +49,9 @@
         $name: "-#{$name}";
     }
     // 如果值为default，则取config的定义
+    @if $border-width == default {
+        $border-width: map-get($btn, border-width);
+    }
     @if $bordercolor == default {
         $bordercolor: map-get($btn, bordercolor);
     }
@@ -98,9 +103,35 @@
         @if $radius != map-get($btn, radius) {
             border-radius: $radius;
         }
-        // 如果$bordercolor不等于config设定，则重绘边框色
-        @if $bordercolor != map-get($btn, bordercolor) {
-            border-color: $bordercolor;
+        // 如果$border-width不等于config设定，则重绘边框相关
+        @if $border-width != map-get($btn, border-width) {
+            // 如果$border-width为null，重设置为0
+            @if $border-width == null {
+                $border-width: 0;
+            }
+            border-width: $border-width;
+            // 如果$bordercolor不等于config设定，则重绘边框色
+            @if $bordercolor != map-get($btn, bordercolor) {
+                border-color: $bordercolor;
+            } @else {
+                // 如果config的边框厚度定义为null或者0，在扩展时，加上边框色
+                @if map-get($btn, border-width) == null or
+                    map-get($btn, border-width) == 0 {
+                    border-color: map-get($btn, bordercolor);
+                }
+            }
+            // 如果config的边框厚度定义为null或者0，在扩展时，加上border-style
+            @if map-get($btn, border-width) == null or
+                map-get($btn, border-width) == 0 {
+                border-style: solid;
+            }
+        } @else {
+            // 如果扩展的边框厚度大于0且边框色和config边框色不同，在扩展时，重绘边框色
+            @if $border-width != null and
+                $border-width != 0 and
+                $bordercolor != map-get($btn, bordercolor) {
+                border-color: $bordercolor;
+            }
         }
         // 如果$bgcolor不等于config设定，则重绘背景色
         @if $bgcolor != map-get($btn, bgcolor) {

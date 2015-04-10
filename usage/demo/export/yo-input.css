@@ -1189,7 +1189,7 @@ html, body {
   overflow: hidden;
   height: 0.44rem;
   line-height: 0.44rem;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #ccc;
   background-color: #fff;
   font-size: 0.16rem;
   overflow: hidden;
@@ -1239,6 +1239,7 @@ html, body {
  * Time: 2015.1.16
  */
 .yo-header {
+  border-color: #ddd;
   background-color: #fafafa;
 }
 
@@ -1521,7 +1522,7 @@ html, body {
 .yo-list > .label {
   margin-top: -1px;
   padding: 0.03rem 0.1rem;
-  border: 1px solid #ddd;
+  border: 1px solid #eee;
   border-width: 1px 0;
   background-color: #fafafa;
   color: #9e9e9e;
@@ -1536,8 +1537,7 @@ html, body {
   padding: 0.11rem;
 }
 .yo-list > .item {
-  min-height: .44rem;
-  border-bottom: 0.01rem solid #ddd;
+  border-bottom: 0.01rem solid #eee;
   background-color: #fff;
   color: #212121;
   font-size: 0.14rem;
@@ -1797,7 +1797,7 @@ html, body {
   width: 100%;
   height: 0.44rem;
   padding: 0.1rem;
-  border: 0.01rem solid #ddd;
+  border: 0.01rem solid #ccc;
   border-radius: 0.02rem;
   background-color: transparent;
 }
@@ -2005,12 +2005,13 @@ html, body {
 /**
  * 构造按钮的自定义使用方法，可轻松自定义边框，尺寸，背景，文字等
  =======================
- * Variables: 12
+ * Variables: 13
  * Author: doyoe(杜瑶)
  * Edit: 2015.1.19
  ------------------------
  * @method yo-btn
  * @param {default | String} $name 为需要的扩展定义一个名称
+ * @param {default | Length} $border-width 边框厚度
  * @param {default | Color} $bordercolor 边框色
  * @param {default | Color} $bgcolor 背景色
  * @param {default | Color} $color 文本色
@@ -2027,7 +2028,9 @@ html, body {
   display: inline-block;
   overflow: hidden;
   padding: 0 1.2em;
-  border: 0.01rem solid #e26704;
+  border-width: 0.01rem;
+  border-style: solid;
+  border-color: #e26704;
   box-shadow: inset 1px 1px rgba(255, 255, 255, 0.1);
   border-radius: 0.02rem;
   background-color: #ff801a;

@@ -614,12 +614,13 @@ a {
 /**
  * 构造按钮的自定义使用方法，可轻松自定义边框，尺寸，背景，文字等
  =======================
- * Variables: 12
+ * Variables: 13
  * Author: doyoe(杜瑶)
  * Edit: 2015.1.19
  ------------------------
  * @method yo-btn
  * @param {default | String} $name 为需要的扩展定义一个名称
+ * @param {default | Length} $border-width 边框厚度
  * @param {default | Color} $bordercolor 边框色
  * @param {default | Color} $bgcolor 背景色
  * @param {default | Color} $color 文本色
@@ -636,7 +637,9 @@ a {
   display: inline-block;
   overflow: hidden;
   padding: 0 1.2em;
-  border: 0.01rem solid #e26704;
+  border-width: 0.01rem;
+  border-style: solid;
+  border-color: #e26704;
   box-shadow: inset 1px 1px rgba(255, 255, 255, 0.1);
   border-radius: 0.02rem;
   background-color: #ff801a;
@@ -891,7 +894,7 @@ a {
   width: 100%;
   height: 0.44rem;
   padding: 0.1rem;
-  border: 0.01rem solid #ddd;
+  border: 0.01rem solid #ccc;
   border-radius: 0.02rem;
   background-color: transparent;
 }
@@ -1344,7 +1347,7 @@ a {
   border-radius: 0.05rem;
   background-color: #fff;
   border: .01rem solid;
-  border-color: #ddd;
+  border-color: #ccc;
   color: transparent;
   font-size: 0.2rem;
   cursor: pointer;
@@ -1847,13 +1850,12 @@ a {
 /**
  * 构造单选多选的自定义使用方法，可同时作用于 checkbox 与 radio
  =======================
- * Variables: 9
+ * Variables: 10
  * Author: doyoe(杜瑶)
  * Edit: 2015.3.21
  -----------------------
  * @method yo-checked
  * @param {default | String} $name 为需要的扩展定义一个名称
- * @param {default | String} $type 选中时的标记类型，可选值：[circle | tick]
  * @param {default | String} $content 选中时的标记内容
  * @param {default | Length} $size 元件大小
  * @param {default | Length} $font-size 标记大小
@@ -2397,7 +2399,7 @@ a {
   border-radius: 50%;
   background-color: #fff;
   border: .01rem solid;
-  border-color: #ddd;
+  border-color: #ccc;
   color: transparent;
   font-size: 0.2rem;
   cursor: pointer;
@@ -3181,7 +3183,7 @@ a {
   overflow: hidden;
   height: 0.44rem;
   line-height: 0.44rem;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #ccc;
   background-color: #fff;
   font-size: 0.16rem;
   overflow: hidden;
@@ -3494,7 +3496,7 @@ a {
 .yo-list > .label {
   margin-top: -1px;
   padding: 0.03rem 0.1rem;
-  border: 1px solid #ddd;
+  border: 1px solid #eee;
   border-width: 1px 0;
   background-color: #fafafa;
   color: #9e9e9e;
@@ -3509,8 +3511,7 @@ a {
   padding: 0.11rem;
 }
 .yo-list > .item {
-  min-height: .44rem;
-  border-bottom: 0.01rem solid #ddd;
+  border-bottom: 0.01rem solid #eee;
   background-color: #fff;
   color: #212121;
   font-size: 0.14rem;
@@ -3772,7 +3773,7 @@ a {
 .yo-table td {
   border-width: 0 0 1px 0;
   border-style: solid;
-  border-color: #ddd;
+  border-color: #ccc;
 }
 
 /**
@@ -4163,12 +4164,13 @@ a {
 /**
  * 构造按钮的自定义使用方法，可轻松自定义边框，尺寸，背景，文字等
  =======================
- * Variables: 12
+ * Variables: 13
  * Author: doyoe(杜瑶)
  * Edit: 2015.1.19
  ------------------------
  * @method yo-btn
  * @param {default | String} $name 为需要的扩展定义一个名称
+ * @param {default | Length} $border-width 边框厚度
  * @param {default | Color} $bordercolor 边框色
  * @param {default | Color} $bgcolor 背景色
  * @param {default | Color} $color 文本色
@@ -4185,7 +4187,9 @@ a {
   display: inline-block;
   overflow: hidden;
   padding: 0 1.2em;
-  border: 0.01rem solid #e26704;
+  border-width: 0.01rem;
+  border-style: solid;
+  border-color: #e26704;
   box-shadow: inset 1px 1px rgba(255, 255, 255, 0.1);
   border-radius: 0.02rem;
   background-color: #ff801a;
@@ -4646,12 +4650,13 @@ a {
 /**
  * 构造按钮的自定义使用方法，可轻松自定义边框，尺寸，背景，文字等
  =======================
- * Variables: 12
+ * Variables: 13
  * Author: doyoe(杜瑶)
  * Edit: 2015.1.19
  ------------------------
  * @method yo-btn
  * @param {default | String} $name 为需要的扩展定义一个名称
+ * @param {default | Length} $border-width 边框厚度
  * @param {default | Color} $bordercolor 边框色
  * @param {default | Color} $bgcolor 背景色
  * @param {default | Color} $color 文本色
@@ -4668,7 +4673,9 @@ a {
   display: inline-block;
   overflow: hidden;
   padding: 0 1.2em;
-  border: 0.01rem solid #e26704;
+  border-width: 0.01rem;
+  border-style: solid;
+  border-color: #e26704;
   box-shadow: inset 1px 1px rgba(255, 255, 255, 0.1);
   border-radius: 0.02rem;
   background-color: #ff801a;
@@ -4740,8 +4747,8 @@ a {
   z-index: 1001;
   overflow: hidden;
   border-radius: 0.05rem;
-  box-shadow: 0 0 5px rgba(221, 221, 221, 0.5);
-  border: 1px solid #ddd;
+  box-shadow: 0 0 5px rgba(204, 204, 204, 0.5);
+  border: 1px solid #ccc;
   min-width: 2.8rem;
   max-width: 90%;
   height: 3rem;
@@ -4790,12 +4797,12 @@ a {
   text-align: center;
 }
 .yo-dialog > .ft .yo-btn {
-  border-color: #ddd;
-  background-color: #fff;
-  color: #00afc7;
+  border-width: #ccc;
+  border-color: #fff;
+  background-color: #00afc7;
 }
 .yo-dialog > .ft .yo-btn:active {
-  background-color: 0;
+  border-color: 0;
 }
 .yo-dialog > .ft > .yo-btn {
   -webkit-box-flex: 1;
@@ -5035,8 +5042,8 @@ a {
   position: absolute;
   z-index: 2001;
   border-radius: 0.03rem;
-  box-shadow: 0 0 5px rgba(221, 221, 221, 0.5);
-  border: 1px solid #ddd;
+  box-shadow: 0 0 5px rgba(204, 204, 204, 0.5);
+  border: 1px solid #ccc;
   min-width: 2.8rem;
   min-height: 1rem;
   height: 3rem;
@@ -5057,11 +5064,11 @@ a {
 }
 .yo-popup .arrow-top::after {
   top: -0.11rem;
-  text-shadow: 0 -1px #ddd;
+  text-shadow: 0 -1px #ccc;
 }
 .yo-popup .arrow-down::after {
   bottom: -0.11rem;
-  text-shadow: 0 1px #ddd;
+  text-shadow: 0 1px #ccc;
 }
 .yo-popup .arrow-right::after,
 .yo-popup .arrow-left::after {
@@ -5071,11 +5078,11 @@ a {
 }
 .yo-popup .arrow-right::after {
   right: -0.11rem;
-  text-shadow: 1px 0 #ddd;
+  text-shadow: 1px 0 #ccc;
 }
 .yo-popup .arrow-left::after {
   left: -0.11rem;
-  text-shadow: -1px 0 #ddd;
+  text-shadow: -1px 0 #ccc;
 }
 .yo-popup .arrow-extra.arrow::after {
   color: #eee;
@@ -5087,7 +5094,7 @@ a {
 }
 .yo-popup > .hd {
   height: 0.5rem;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #ccc;
   background: #eee;
   line-height: 0.5rem;
   text-align: center;
@@ -5121,7 +5128,7 @@ a {
 }
 .yo-popup > .ft {
   padding: .1rem 0;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #ccc;
   text-align: center;
 }
 
@@ -5338,9 +5345,9 @@ a {
   width: 1.2rem;
   height: 0.36rem;
   line-height: 0.36rem;
-  border: 1px solid #ddd;
+  border: 1px solid #ccc;
   border-radius: 0;
-  box-shadow: 1px 1px 1px rgba(221, 221, 221, 0.3);
+  box-shadow: 1px 1px 1px rgba(204, 204, 204, 0.3);
   background-color: #fff;
   font-size: 0;
   vertical-align: middle;
@@ -5371,9 +5378,9 @@ a {
   flex: 1;
   display: block;
   width: 100%;
-  border: 1px solid #ddd;
+  border: 1px solid #ccc;
   border-width: 0 1px;
-  box-shadow: inset 1px 1px 1px rgba(221, 221, 221, 0.1);
+  box-shadow: inset 1px 1px 1px rgba(204, 204, 204, 0.1);
   border-radius: 0;
   color: #212121;
   font-size: .16rem;
@@ -5601,7 +5608,7 @@ a {
   height: 0.3rem;
   margin-top: -0.15rem;
   content: "\0020";
-  border: 1px solid #ddd;
+  border: 1px solid #ccc;
   border-width: 1px 0;
 }
 .yo-select-item, .yo-select-item-list, .yo-select-item ul {
@@ -5866,7 +5873,7 @@ a {
   height: 0.49rem;
   border-width: 0.01rem 0 0 0;
   border-style: solid;
-  border-color: #ddd;
+  border-color: #ccc;
   background-color: #fafafa;
   text-align: center;
   line-height: 0.49rem;
@@ -7008,7 +7015,7 @@ a {
 .yo-list > .label {
   margin-top: -1px;
   padding: 0.03rem 0.1rem;
-  border: 1px solid #ddd;
+  border: 1px solid #eee;
   border-width: 1px 0;
   background-color: #fafafa;
   color: #9e9e9e;
@@ -7023,8 +7030,7 @@ a {
   padding: 0.11rem;
 }
 .yo-list > .item {
-  min-height: .44rem;
-  border-bottom: 0.01rem solid #ddd;
+  border-bottom: 0.01rem solid #eee;
   background-color: #fff;
   color: #212121;
   font-size: 0.14rem;
@@ -7540,7 +7546,7 @@ a {
   font-size: 0.14rem;
   line-height: 0.3rem;
   padding: 0.1rem;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #ccc;
   background-color: #fff;
 }
 .yo-search > .operate > .action {
@@ -7555,9 +7561,9 @@ a {
   padding: 0 .3rem;
   -webkit-appearance: none;
   appearance: none;
-  border: 1px solid #ddd;
+  border: 1px solid #ccc;
   border-radius: 0.05rem;
-  background-color: #ddd;
+  background-color: #ccc;
   color: #212121;
   font-size: 0.14rem;
   line-height: 1.5;
@@ -8155,7 +8161,7 @@ a {
   height: .32rem;
   margin: 0;
   cursor: pointer;
-  border: 0.02rem solid #ddd;
+  border: 0.02rem solid #ccc;
   border-radius: .16rem;
   background-color: #fafafa;
   vertical-align: middle;
@@ -8392,7 +8398,6 @@ a {
  */
 .yo-slidermenu {
   position: relative;
-  overflow: hidden;
 }
 .yo-slidermenu > .front {
   position: relative;
