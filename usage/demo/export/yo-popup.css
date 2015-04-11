@@ -1194,8 +1194,8 @@ html, body {
   position: absolute;
   z-index: 2001;
   border-radius: 0.03rem;
-  box-shadow: 0 0 5px rgba(204, 204, 204, 0.5);
-  border: 1px solid #ccc;
+  box-shadow: 0 0 5px rgba(221, 221, 221, 0.5);
+  border: 1px solid #ddd;
   min-width: 2.8rem;
   min-height: 1rem;
   height: 3rem;
@@ -1216,11 +1216,11 @@ html, body {
 }
 .yo-popup .arrow-top::after {
   top: -0.11rem;
-  text-shadow: 0 -1px #ccc;
+  text-shadow: 0 -1px #ddd;
 }
 .yo-popup .arrow-down::after {
   bottom: -0.11rem;
-  text-shadow: 0 1px #ccc;
+  text-shadow: 0 1px #ddd;
 }
 .yo-popup .arrow-right::after,
 .yo-popup .arrow-left::after {
@@ -1230,11 +1230,11 @@ html, body {
 }
 .yo-popup .arrow-right::after {
   right: -0.11rem;
-  text-shadow: 1px 0 #ccc;
+  text-shadow: 1px 0 #ddd;
 }
 .yo-popup .arrow-left::after {
   left: -0.11rem;
-  text-shadow: -1px 0 #ccc;
+  text-shadow: -1px 0 #ddd;
 }
 .yo-popup .arrow-extra.arrow::after {
   color: #eee;
@@ -1246,7 +1246,7 @@ html, body {
 }
 .yo-popup > .hd {
   height: 0.5rem;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #ddd;
   background: #eee;
   line-height: 0.5rem;
   text-align: center;
@@ -1280,7 +1280,7 @@ html, body {
 }
 .yo-popup > .ft {
   padding: .1rem 0;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #ddd;
   text-align: center;
 }
 

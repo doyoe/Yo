@@ -29,8 +29,10 @@
     $bgcolor: white,
     $color: #666,
     $radius: .05rem,
-    $font-size: .12rem
+    $font-size: .12rem,
+    $padding: 0
 );
+
 
 // 预设标签气泡
 @include yo-badge(

@@ -28,6 +28,9 @@
 
 ### Developing: v1.4.0
 
+* update: `yo-badge`
+    - 新增 `padding` 参数用于设置内补白
+    - 新增 `border-width` 参数用于设置边框厚度
 * update: `yo-btn`
     - 新增 `border-width` 参数用于设置边框厚度
 * update: `yo-checked`

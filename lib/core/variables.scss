@@ -66,7 +66,7 @@ $base: (
     // 默认文档背景色
     doc-bgcolor:          #fafafa,
     // 默认边框色
-    bordercolor:          #ccc,
+    bordercolor:          #ddd,
     // 默认背景颜色
     bgcolor:              #fafafa,
     // 默认文本颜色
@@ -168,18 +168,22 @@ $btn: (
     l-font-size:    .16rem
 ) !default;
 
-// Element UI badge(5)
+// Element UI badge(7)
 $badge: (
+    // {Length} 内补白
+    padding:      0 .03rem,
+    // {Color} 边框厚度
+    border-width: .01rem,
     // {Color} 边框色
-    bordercolor: #f00,
+    bordercolor:  #f00,
     // {Color} 背景色
-    bgcolor:     #f00,
+    bgcolor:      #f00,
     // {Color} 文本色
-    color:       #fff,
+    color:        #fff,
     // {Number} 圆角
-    radius:      .1rem,
+    radius:       .1rem,
     // {Length} 字号
-    font-size:   .14rem
+    font-size:    .12rem
 ) !default;
 
 // Element checked(9)

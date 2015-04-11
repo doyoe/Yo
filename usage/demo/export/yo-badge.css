@@ -1189,7 +1189,7 @@ html, body {
   overflow: hidden;
   height: 0.44rem;
   line-height: 0.44rem;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #ddd;
   background-color: #fff;
   font-size: 0.16rem;
   overflow: hidden;
@@ -1239,7 +1239,6 @@ html, body {
  * Time: 2015.1.16
  */
 .yo-header {
-  border-color: #ddd;
   background-color: #fafafa;
 }
 
@@ -1471,7 +1470,7 @@ html, body {
 .yo-list {
   border-width: 0;
   border-style: solid;
-  border-color: #ccc;
+  border-color: #ddd;
 }
 .yo-list > .label,
 .yo-list > .item,
@@ -1544,7 +1543,7 @@ html, body {
 }
 .yo-list > .item:last-child {
   margin-bottom: -.01rem;
-  border-color: #ccc;
+  border-color: #ddd;
 }
 .yo-list > .item-stacked {
   display: block;
@@ -1778,12 +1777,14 @@ html, body {
 /**
  * 构造提醒气泡的自定义使用方法，可以扩展为：tag, 文字ico等形态
  =======================
- * Variables: 6
+ * Variables: 8
  * Author: doyoe(杜瑶)
  * Edit: 2015.1.19
  -----------------------
  * @method yo-badge
  * @param {defailt | String} $name 为需要的扩展定义一个名称
+ * @param {defailt | Length} $padding 内补白
+ * @param {defailt | Length} $border-width 边框厚度
  * @param {defailt | Color} $bordercolor 边框色
  * @param {defailt | Color} $bgcolor 背景色
  * @param {defailt | Color} $color 文本色
@@ -1794,12 +1795,15 @@ html, body {
   display: inline-block;
   min-width: .16rem;
   min-height: .16rem;
-  border: 0.01rem solid #f00;
+  padding: 0 0.03rem;
+  border-width: 0.01rem;
+  border-style: solid;
+  border-color: #f00;
   border-radius: 0.1rem;
   background-color: #f00;
   color: #fff;
-  font-size: 0.14rem;
-  line-height: 0.14rem;
+  font-size: 0.12rem;
+  line-height: .14rem;
   text-align: center;
 }
 
@@ -1820,20 +1824,17 @@ html, body {
 }
 
 .yo-badge-ident {
+  padding: 0;
   border-color: #666;
   background-color: white;
   color: #666;
   border-radius: 0.05rem;
-  font-size: 0.12rem;
-  line-height: .14rem;
 }
 
 .yo-badge-tag {
   border-color: #aaa;
   background-color: #aaa;
   border-radius: 0.05rem;
-  font-size: 0.12rem;
-  line-height: .14rem;
 }
 
 /**

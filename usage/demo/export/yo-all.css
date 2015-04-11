@@ -894,7 +894,7 @@ a {
   width: 100%;
   height: 0.44rem;
   padding: 0.1rem;
-  border: 0.01rem solid #ccc;
+  border: 0.01rem solid #ddd;
   border-radius: 0.02rem;
   background-color: transparent;
 }
@@ -1102,12 +1102,14 @@ a {
 /**
  * 构造提醒气泡的自定义使用方法，可以扩展为：tag, 文字ico等形态
  =======================
- * Variables: 6
+ * Variables: 8
  * Author: doyoe(杜瑶)
  * Edit: 2015.1.19
  -----------------------
  * @method yo-badge
  * @param {defailt | String} $name 为需要的扩展定义一个名称
+ * @param {defailt | Length} $padding 内补白
+ * @param {defailt | Length} $border-width 边框厚度
  * @param {defailt | Color} $bordercolor 边框色
  * @param {defailt | Color} $bgcolor 背景色
  * @param {defailt | Color} $color 文本色
@@ -1118,12 +1120,15 @@ a {
   display: inline-block;
   min-width: .16rem;
   min-height: .16rem;
-  border: 0.01rem solid #f00;
+  padding: 0 0.03rem;
+  border-width: 0.01rem;
+  border-style: solid;
+  border-color: #f00;
   border-radius: 0.1rem;
   background-color: #f00;
   color: #fff;
-  font-size: 0.14rem;
-  line-height: 0.14rem;
+  font-size: 0.12rem;
+  line-height: .14rem;
   text-align: center;
 }
 
@@ -1347,7 +1352,7 @@ a {
   border-radius: 0.05rem;
   background-color: #fff;
   border: .01rem solid;
-  border-color: #ccc;
+  border-color: #ddd;
   color: transparent;
   font-size: 0.2rem;
   cursor: pointer;
@@ -2399,7 +2404,7 @@ a {
   border-radius: 50%;
   background-color: #fff;
   border: .01rem solid;
-  border-color: #ccc;
+  border-color: #ddd;
   color: transparent;
   font-size: 0.2rem;
   cursor: pointer;
@@ -3183,7 +3188,7 @@ a {
   overflow: hidden;
   height: 0.44rem;
   line-height: 0.44rem;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #ddd;
   background-color: #fff;
   font-size: 0.16rem;
   overflow: hidden;
@@ -3445,7 +3450,7 @@ a {
 .yo-list {
   border-width: 0;
   border-style: solid;
-  border-color: #ccc;
+  border-color: #ddd;
 }
 .yo-list > .label,
 .yo-list > .item,
@@ -3518,7 +3523,7 @@ a {
 }
 .yo-list > .item:last-child {
   margin-bottom: -.01rem;
-  border-color: #ccc;
+  border-color: #ddd;
 }
 .yo-list > .item-stacked {
   display: block;
@@ -3773,7 +3778,7 @@ a {
 .yo-table td {
   border-width: 0 0 1px 0;
   border-style: solid;
-  border-color: #ccc;
+  border-color: #ddd;
 }
 
 /**
@@ -4747,8 +4752,8 @@ a {
   z-index: 1001;
   overflow: hidden;
   border-radius: 0.05rem;
-  box-shadow: 0 0 5px rgba(204, 204, 204, 0.5);
-  border: 1px solid #ccc;
+  box-shadow: 0 0 5px rgba(221, 221, 221, 0.5);
+  border: 1px solid #ddd;
   min-width: 2.8rem;
   max-width: 90%;
   height: 3rem;
@@ -4797,7 +4802,7 @@ a {
   text-align: center;
 }
 .yo-dialog > .ft .yo-btn {
-  border-width: #ccc;
+  border-width: #ddd;
   border-color: #fff;
   background-color: #00afc7;
 }
@@ -5042,8 +5047,8 @@ a {
   position: absolute;
   z-index: 2001;
   border-radius: 0.03rem;
-  box-shadow: 0 0 5px rgba(204, 204, 204, 0.5);
-  border: 1px solid #ccc;
+  box-shadow: 0 0 5px rgba(221, 221, 221, 0.5);
+  border: 1px solid #ddd;
   min-width: 2.8rem;
   min-height: 1rem;
   height: 3rem;
@@ -5064,11 +5069,11 @@ a {
 }
 .yo-popup .arrow-top::after {
   top: -0.11rem;
-  text-shadow: 0 -1px #ccc;
+  text-shadow: 0 -1px #ddd;
 }
 .yo-popup .arrow-down::after {
   bottom: -0.11rem;
-  text-shadow: 0 1px #ccc;
+  text-shadow: 0 1px #ddd;
 }
 .yo-popup .arrow-right::after,
 .yo-popup .arrow-left::after {
@@ -5078,11 +5083,11 @@ a {
 }
 .yo-popup .arrow-right::after {
   right: -0.11rem;
-  text-shadow: 1px 0 #ccc;
+  text-shadow: 1px 0 #ddd;
 }
 .yo-popup .arrow-left::after {
   left: -0.11rem;
-  text-shadow: -1px 0 #ccc;
+  text-shadow: -1px 0 #ddd;
 }
 .yo-popup .arrow-extra.arrow::after {
   color: #eee;
@@ -5094,7 +5099,7 @@ a {
 }
 .yo-popup > .hd {
   height: 0.5rem;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #ddd;
   background: #eee;
   line-height: 0.5rem;
   text-align: center;
@@ -5128,7 +5133,7 @@ a {
 }
 .yo-popup > .ft {
   padding: .1rem 0;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #ddd;
   text-align: center;
 }
 
@@ -5345,9 +5350,9 @@ a {
   width: 1.2rem;
   height: 0.36rem;
   line-height: 0.36rem;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   border-radius: 0;
-  box-shadow: 1px 1px 1px rgba(204, 204, 204, 0.3);
+  box-shadow: 1px 1px 1px rgba(221, 221, 221, 0.3);
   background-color: #fff;
   font-size: 0;
   vertical-align: middle;
@@ -5378,9 +5383,9 @@ a {
   flex: 1;
   display: block;
   width: 100%;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   border-width: 0 1px;
-  box-shadow: inset 1px 1px 1px rgba(204, 204, 204, 0.1);
+  box-shadow: inset 1px 1px 1px rgba(221, 221, 221, 0.1);
   border-radius: 0;
   color: #212121;
   font-size: .16rem;
@@ -5608,7 +5613,7 @@ a {
   height: 0.3rem;
   margin-top: -0.15rem;
   content: "\0020";
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   border-width: 1px 0;
 }
 .yo-select-item, .yo-select-item-list, .yo-select-item ul {
@@ -5873,7 +5878,7 @@ a {
   height: 0.49rem;
   border-width: 0.01rem 0 0 0;
   border-style: solid;
-  border-color: #ccc;
+  border-color: #ddd;
   background-color: #fafafa;
   text-align: center;
   line-height: 0.49rem;
@@ -6964,7 +6969,7 @@ a {
 .yo-list {
   border-width: 0;
   border-style: solid;
-  border-color: #ccc;
+  border-color: #ddd;
 }
 .yo-list > .label,
 .yo-list > .item,
@@ -7037,7 +7042,7 @@ a {
 }
 .yo-list > .item:last-child {
   margin-bottom: -.01rem;
-  border-color: #ccc;
+  border-color: #ddd;
 }
 .yo-list > .item-stacked {
   display: block;
@@ -7546,7 +7551,7 @@ a {
   font-size: 0.14rem;
   line-height: 0.3rem;
   padding: 0.1rem;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #ddd;
   background-color: #fff;
 }
 .yo-search > .operate > .action {
@@ -7561,9 +7566,9 @@ a {
   padding: 0 .3rem;
   -webkit-appearance: none;
   appearance: none;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   border-radius: 0.05rem;
-  background-color: #ccc;
+  background-color: #ddd;
   color: #212121;
   font-size: 0.14rem;
   line-height: 1.5;
@@ -8161,7 +8166,7 @@ a {
   height: .32rem;
   margin: 0;
   cursor: pointer;
-  border: 0.02rem solid #ccc;
+  border: 0.02rem solid #ddd;
   border-radius: .16rem;
   background-color: #fafafa;
   vertical-align: middle;
