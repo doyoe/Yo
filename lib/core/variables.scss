@@ -4,8 +4,8 @@
  * Directory: lib/core/variables.scss
  * CSS Variables 定义各种页面沙粒变量
  * Author: joy.du(飘零雾雨)
- * Edit: 2014.12.5
- * Description: Color类型不设定值时使用null，Length类型使用0
+ * Edit: 2015.4.11
+ * Description: 如果不想定义某属性，将其value设置为null
  */
 
 $setting: (
@@ -186,7 +186,7 @@ $badge: (
     font-size:    .12rem
 ) !default;
 
-// Element checked(9)
+// Element checked(11)
 $checked: (
     // {String} 选中标记的内容，可以是自定义的webfont
     content:        "\f078",
@@ -194,13 +194,17 @@ $checked: (
     size:           .2rem,
     // {Length} 标签大小
     font-size:      .12rem,
-    // {Color} 边框色，如不需要边框，取值null
+    // {Length} 边框厚度
+    border-width:   null,
+    // {Color} 未选中时的边框色
     bordercolor:    null,
-    // {Color} 背景色，如不需要背景，取值null
+    // {Color} 未选中时的背景色
     bgcolor:        null,
-    // {Color} 激活边框色，如不需要，取值null
+    // {Color} 未选中时的标记颜色
+    color:          transparent,
+    // {Color} 激活边框色
     on-bordercolor: null,
-    // {Color} 激活背景色，如不需要，取值null
+    // {Color} 激活背景色
     on-bgcolor:     null,
     // {Color} 激活标记颜色
     on-color:       #2b94ff,

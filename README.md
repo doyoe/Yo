@@ -37,6 +37,8 @@
     - 删除 `type` 参数，不再使用该参数设置来判定使用哪个标记
     - 新增 `content` 参数用于设置标记，可以直接传字符或者iconfont
     - 新增 `font-size` 参数用于标记大小
+    - 新增 `border-width` 参数用于设置边框厚度
+    - 新增 `color` 参数用于未选中状态时的标记颜色
 * add `background-size` 方法
 * update: `yo-header`
     - 增加 `item-ico-size` 参数，用于设置两侧ico的大小

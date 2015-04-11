@@ -9,12 +9,14 @@
 
 @include yo-checked(
     $name: a,
+    $border-width: .01rem,
     $bordercolor: #ddd,
     $on-bordercolor: #2b94ff
 );
 
 @include yo-checked(
     $name: b,
+    $border-width: .01rem,
     $bordercolor: #ddd,
     $on-bordercolor: #1ba9ba,
     $on-bgcolor: #1ba9ba,
@@ -23,6 +25,7 @@
 
 @include yo-checked(
     $name: c,
+    $border-width: .01rem,
     $bordercolor: #ddd,
     $on-bordercolor: #1ba9ba,
     $on-bgcolor: #1ba9ba,
@@ -38,6 +41,7 @@
 @include yo-checked(
     $name: e,
     $content: "\f083",
+    $border-width: .01rem,
     $bordercolor: #ddd,
     $on-bordercolor: #2b94ff
 );
@@ -45,6 +49,7 @@
 @include yo-checked(
     $name: f,
     $content: "\f083",
+    $border-width: .01rem,
     $bordercolor: #ddd,
     $on-bordercolor: #1ba9ba,
     $on-bgcolor: #1ba9ba,
@@ -54,6 +59,7 @@
 @include yo-checked(
     $name: g,
     $content: "\f083",
+    $border-width: .01rem,
     $bordercolor: #ddd,
     $on-bordercolor: #1ba9ba,
     $on-bgcolor: #1ba9ba,

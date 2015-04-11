@@ -179,7 +179,6 @@
     display: inline-block;
     position: relative;
     @include square(map-get($checked, size));
-    line-height: map-get($checked, size);
     font-size: map-get($checked, font-size);
     font-family: map-get($ico, font-name);
     text-align: center;
@@ -200,26 +199,37 @@
     > .type {
         border-radius: map-get($checked, radius);
         background-color: transparent;
-        // 将 color 设置为 transparent，这时如果不需要边框，就可以将 $bordercolor 设置为 null 了，边框色为 color 设置
-        border: .01rem solid;
-        border-color: map-get($checked, bordercolor);
-        color: transparent;
+        // 当边框厚度大于0时，才定义边框相关属性
+        @if map-get($checked, border-width) != null and
+            map-get($checked, border-width) != 0 {
+            border-width: map-get($checked, border-width);
+            border-style: solid;
+            border-color: map-get($checked, bordercolor);
+            line-height: map-get($checked, size) - nth(map-get($checked, border-width), 1) * 2;
+        } @else {
+            line-height: map-get($checked, size);
+        }
         &::after {
-            content: "#{map-get($checked, content)}";
-            opacity: 0;
+            content: map-get($checked, content);
+            color: map-get($checked, color);
         }
     }
     > input:checked ~ .type {
-        border-color: map-get($checked, on-bordercolor);
+        @if map-get($checked, border-width) != null and
+            map-get($checked, border-width) != 0 {
+            border-color: map-get($checked, on-bordercolor);
+        }
         background-color: map-get($checked, on-bgcolor);
         &::after {
             color: map-get($checked, on-color);
-            opacity: 1;
         }
     }
     > input:disabled ~ .type {
         opacity: .4;
-        border-color: map-get($base, disabled-bordercolor) !important;
+        @if map-get($checked, border-width) != null and
+            map-get($checked, border-width) != 0 {
+            border-color: map-get($base, disabled-bordercolor) !important;
+        }
         background-color: map-get($base, disabled-bgcolor) !important;
         &::after {
             color: map-get($base, disabled-color) !important;

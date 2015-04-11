@@ -112,7 +112,9 @@
             border-width: $border-width;
             // 如果$bordercolor不等于config设定，则重绘边框色
             @if $bordercolor != map-get($btn, bordercolor) {
-                border-color: $bordercolor;
+                @if $border-width != 0 {
+                    border-color: $bordercolor;
+                }
             } @else {
                 // 如果config的边框厚度定义为null或者0，在扩展时，加上边框色
                 @if map-get($btn, border-width) == null or
