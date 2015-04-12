@@ -1770,20 +1770,17 @@ html, body {
  */
 /**
  * 构造提醒气泡的自定义使用方法，可以扩展为：tag, 文字ico等形态
- =======================
- * Variables: 8
- * Author: doyoe(杜瑶)
- * Edit: 2015.1.19
  -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/element/yo-btn.html)
  * @method yo-badge
- * @param {defailt | String} $name 为需要的扩展定义一个名称
- * @param {defailt | Length} $padding 内补白
- * @param {defailt | Length} $border-width 边框厚度
- * @param {defailt | Color} $bordercolor 边框色
- * @param {defailt | Color} $bgcolor 背景色
- * @param {defailt | Color} $color 文本色
- * @param {defailt | Length} $radius 圆角半径长度
- * @param {defailt | Length} $font-size 字号大小
+ * @param {String} $name 为新的扩展定义一个名称，假设扩展了一个 `$name` 为 `tag` 的 `yo-badge`，那么你可以这样使用 `<span class="yo-badge yo-badge-tag">`
+ * @param {Length} $padding 内补白
+ * @param {Length} $border-width 边框厚度
+ * @param {Color} $bordercolor 边框色
+ * @param {Color} $bgcolor 背景色
+ * @param {Color} $color 文本色
+ * @param {Length} $radius 圆角半径长度
+ * @param {Length} $font-size 字号大小
  */
 .yo-badge {
   display: inline-block;

@@ -613,25 +613,22 @@ a {
  */
 /**
  * 构造按钮的自定义使用方法，可轻松自定义边框，尺寸，背景，文字等
- =======================
- * Variables: 13
- * Author: doyoe(杜瑶)
- * Edit: 2015.1.19
- ------------------------
+ -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/element/yo-btn.html)
  * @method yo-btn
- * @param {default | String} $name 为需要的扩展定义一个名称
- * @param {default | Length} $border-width 边框厚度
- * @param {default | Color} $bordercolor 边框色
- * @param {default | Color} $bgcolor 背景色
- * @param {default | Color} $color 文本色
- * @param {default | Color} $active-bordercolor 激活时边框色
- * @param {default | Color} $active-bgcolor 激活时背景色
- * @param {default | Color} $active-color 激活时文本色
- * @param {default | Length} $padding 横向补白
- * @param {default | Length} $radius 圆角半径长度
- * @param {default | Length} $font-size 字号大小
- * @param {default | Length} $width 宽度
- * @param {default | Length} $height 高度
+ * @param {String} $name 为新的按钮扩展定义一个名称
+ * @param {Length} $border-width 按钮边框厚度
+ * @param {Color} $bordercolor 按钮边框色
+ * @param {Color} $bgcolor 按钮背景色
+ * @param {Color} $color 按钮文本色
+ * @param {Color} $active-bordercolor 触点（鼠标，手指或其它）按下时的按钮边框色
+ * @param {Color} $active-bgcolor 触点（鼠标，手指或其它）按下的按钮背景色
+ * @param {Color} $active-color 触点（鼠标，手指或其它）按下的按钮文本色
+ * @param {Length} $padding 按钮内补白
+ * @param {Length} $radius 按钮圆角半径长度
+ * @param {Length} $font-size 按钮字号大小
+ * @param {Length} $width 按钮宽度
+ * @param {Length} $height 按钮高度
  */
 .yo-btn {
   display: inline-block;
@@ -874,21 +871,18 @@ a {
  */
 /**
  * 构造输入框的自定义使用方法，可同时作用于 input 与 textarea
- =======================
- * Variables: 9
- * Author: doyoe(杜瑶)
- * Edit: 2012.1.1
- ------------------------
+ -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/element/yo-input.html)
  * @method yo-input
- * @param {default | String} $name 为需要的扩展定义一个名称
- * @param {default | Length} $width 宽度
- * @param {default | Length} $height 高度
- * @param {default | Length} $padding 内补白
- * @param {default | Length} $radius 圆角半径长度
- * @param {default | Color} $bordercolor 边框色
- * @param {default | Color} $bgcolor 背景色
- * @param {default | Color} $color 文本色
- * @param {default | Color} $placeholder-color placeholder文本色
+ * @param {String} $name 为新的扩展定义一个名称
+ * @param {Length} $width 宽度
+ * @param {Length} $height 高度
+ * @param {Length} $padding 内补白
+ * @param {Length} $radius 圆角半径长度
+ * @param {Color} $bordercolor 边框色
+ * @param {Color} $bgcolor 背景色
+ * @param {Color} $color 文本色
+ * @param {Color} $placeholder-color placeholder文本色
  */
 .yo-input {
   width: 100%;
@@ -1101,20 +1095,17 @@ a {
  */
 /**
  * 构造提醒气泡的自定义使用方法，可以扩展为：tag, 文字ico等形态
- =======================
- * Variables: 8
- * Author: doyoe(杜瑶)
- * Edit: 2015.1.19
  -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/element/yo-btn.html)
  * @method yo-badge
- * @param {defailt | String} $name 为需要的扩展定义一个名称
- * @param {defailt | Length} $padding 内补白
- * @param {defailt | Length} $border-width 边框厚度
- * @param {defailt | Color} $bordercolor 边框色
- * @param {defailt | Color} $bgcolor 背景色
- * @param {defailt | Color} $color 文本色
- * @param {defailt | Length} $radius 圆角半径长度
- * @param {defailt | Length} $font-size 字号大小
+ * @param {String} $name 为新的扩展定义一个名称，假设扩展了一个 `$name` 为 `tag` 的 `yo-badge`，那么你可以这样使用 `<span class="yo-badge yo-badge-tag">`
+ * @param {Length} $padding 内补白
+ * @param {Length} $border-width 边框厚度
+ * @param {Color} $bordercolor 边框色
+ * @param {Color} $bgcolor 背景色
+ * @param {Color} $color 文本色
+ * @param {Length} $radius 圆角半径长度
+ * @param {Length} $font-size 字号大小
  */
 .yo-badge {
   display: inline-block;
@@ -1321,27 +1312,6 @@ a {
  * Author: doyoe(杜瑶)
  * Edit: 2015.1.19
  * @class element
- */
-/**
- * @class element
- */
-/**
- * 构造多选的自定义使用方法
- =======================
- * Variables: 9
- * Author: doyoe(杜瑶)
- * Edit: 2014.11.14
- -----------------------
- * @method yo-checkbox
- * @param {default | String} $name 为需要的扩展定义一个名称
- * @param {default | String} $type 选中时的标记类型，可选值：[circle | tick]
- * @param {default | Length} $size 元件大小
- * @param {default | Color} $bordercolor 边框色
- * @param {default | Color} $bgcolor 背景色
- * @param {default | Color} $on-bordercolor 选中时的边框色
- * @param {default | Color} $on-bgcolor 选中时的背景色
- * @param {default | Color} $on-color 选中时的标记色
- * @param {default | Length} $radius 圆角半径长度
  */
 .yo-checkbox {
   -webkit-appearance: none;
@@ -1580,17 +1550,14 @@ a {
  */
 /**
  * 构造加载中的自定义使用方法
- =======================
- * Variables: 5
- * Author: doyoe(杜瑶)
- * Edit: 2012.1.1
  -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/element/yo-loading.html)
  * @method yo-loading
- * @param {defailt | String} $name 为需要的扩展定义一个名称
- * @param {defailt | Length} $size loading的尺寸
- * @param {defailt | Color} $color 颜色
- * @param {defailt | Color} $mask-bgcolor 遮罩背景色
- * @param {defailt | Color} $bgcolor 背景色
+ * @param {String} $name 为新的扩展定义一个名称
+ * @param {Length} $size loading的尺寸
+ * @param {Color} $color loading的颜色
+ * @param {Color} $mask-bgcolor 遮罩背景色
+ * @param {Color} $bgcolor 背景色
  */
 .yo-loading {
   display: block;
@@ -1854,24 +1821,21 @@ a {
  */
 /**
  * 构造单选多选的自定义使用方法，可同时作用于 checkbox 与 radio
- =======================
- * Variables: 12
- * Author: doyoe(杜瑶)
- * Edit: 2015.3.21
  -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/element/yo-checked.html)
  * @method yo-checked
- * @param {default | String} $name 为需要的扩展定义一个名称
- * @param {default | String} $content 选中时的标记内容
- * @param {default | Length} $size 元件大小
- * @param {default | Length} $font-size 标记大小
- * @param {default | Length} $border-width 边框厚度
- * @param {default | Color} $bordercolor 边框色
- * @param {default | Color} $bgcolor 背景色
- * @param {default | Color} $color 标记色
- * @param {default | Color} $on-bordercolor 选中时的边框色
- * @param {default | Color} $on-bgcolor 选中时的背景色
- * @param {default | Color} $on-color 选中时的标记色
- * @param {default | Length} $radius 圆角半径长度
+ * @param {String} $name 为新的扩展定义一个名称
+ * @param {String} $content 标记（对勾，圆点或者任意字符，可以是webfonts的编码）
+ * @param {Length} $size 元件大小
+ * @param {Length} $font-size 标记大小
+ * @param {Length} $border-width 边框厚度
+ * @param {Color} $bordercolor 边框色
+ * @param {Color} $bgcolor 背景色
+ * @param {Color} $color 标记色
+ * @param {Color} $on-bordercolor 选中时的边框色
+ * @param {Color} $on-bgcolor 选中时的背景色
+ * @param {Color} $on-color 选中时的标记色
+ * @param {Length} $radius 圆角半径长度
  */
 .yo-checked {
   display: inline-block;
@@ -2112,17 +2076,13 @@ a {
  */
 /**
  * 构造区间选择的自定义使用方法
- =======================
- * Variables: 4
- * Author: joy.du(飘零雾雨)
- * Edit: 2012.1.1
- ------------------------
- * 定义按钮使用方法
+ -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/element/yo-range.html)
  * @method yo-range
- * @param {default | String} $name 为需要的扩展定义一个名称
- * @param {default | Color} $inner-bgcolor 已选择区域滑条色
- * @param {default | Color} $outer-bgcolor 未选择区域滑条色
- * @param {default | Color} $ball-color 滑块色
+ * @param {String} $name 为新的扩展定义一个名称
+ * @param {Color} $inner-bgcolor 已选择区域滑条色
+ * @param {Color} $outer-bgcolor 未选择区域滑条色
+ * @param {Color} $ball-color 滑块色
  */
 .yo-range {
   display: -webkit-box;
@@ -2371,27 +2331,6 @@ a {
  * Edit: 2015.1.19
  * @class element
  */
-/**
- * @class element
- */
-/**
- * 构造单选的自定义使用方法
- =======================
- * Variables: 9
- * Author: doyoe(杜瑶)
- * Edit: 2015.3.21
- -----------------------
- * @method yo-radio
- * @param {default | String} $name 为需要的扩展定义一个名称
- * @param {default | String} $type 选中时的标记类型，可选值：[circle | tick]
- * @param {default | Length} $size 元件大小
- * @param {default | Color} $bordercolor 边框色
- * @param {default | Color} $bgcolor 背景色
- * @param {default | Color} $on-bordercolor 选中时的边框色
- * @param {default | Color} $on-bgcolor 选中时的背景色
- * @param {default | Color} $on-color 选中时的标记色
- * @param {default | Length} $radius 圆角半径长度
- */
 .yo-radio {
   -webkit-appearance: none;
   appearance: none;
@@ -2629,17 +2568,14 @@ a {
  */
 /**
  * 构造加载中的自定义使用方法
- =======================
- * Variables: 5
- * Author: doyoe(杜瑶)
- * Edit: 2012.1.1
  -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/element/yo-loading.html)
  * @method yo-loading
- * @param {defailt | String} $name 为需要的扩展定义一个名称
- * @param {defailt | Length} $size loading的尺寸
- * @param {defailt | Color} $color 颜色
- * @param {defailt | Color} $mask-bgcolor 遮罩背景色
- * @param {defailt | Color} $bgcolor 背景色
+ * @param {String} $name 为新的扩展定义一个名称
+ * @param {Length} $size loading的尺寸
+ * @param {Color} $color loading的颜色
+ * @param {Color} $mask-bgcolor 遮罩背景色
+ * @param {Color} $bgcolor 背景色
  */
 .yo-loading {
   display: block;
@@ -2903,16 +2839,13 @@ a {
  */
 /**
  * 构造加载提示的自定义使用方法
- =======================
- * Variables: 4
- * Author: doyoe(杜瑶)
- * Edit: 2015.3.9
  -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/element/yo-loadtip.html)
  * @method yo-loadtip
- * @param {defailt | String} $name 为需要的扩展定义一个名称
- * @param {defailt | Color} $color 文本色
- * @param {defailt | Length} $font-size 字号大小
- * @param {defailt | Color} $ico-color ico颜色
+ * @param {String} $name 为新的扩展定义一个名称
+ * @param {Color} $color 文本色
+ * @param {Length} $font-size 字号大小
+ * @param {Color} $ico-color ico颜色
  */
 .yo-loadtip {
   display: -webkit-inline-box;
@@ -4158,25 +4091,22 @@ a {
  */
 /**
  * 构造按钮的自定义使用方法，可轻松自定义边框，尺寸，背景，文字等
- =======================
- * Variables: 13
- * Author: doyoe(杜瑶)
- * Edit: 2015.1.19
- ------------------------
+ -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/element/yo-btn.html)
  * @method yo-btn
- * @param {default | String} $name 为需要的扩展定义一个名称
- * @param {default | Length} $border-width 边框厚度
- * @param {default | Color} $bordercolor 边框色
- * @param {default | Color} $bgcolor 背景色
- * @param {default | Color} $color 文本色
- * @param {default | Color} $active-bordercolor 激活时边框色
- * @param {default | Color} $active-bgcolor 激活时背景色
- * @param {default | Color} $active-color 激活时文本色
- * @param {default | Length} $padding 横向补白
- * @param {default | Length} $radius 圆角半径长度
- * @param {default | Length} $font-size 字号大小
- * @param {default | Length} $width 宽度
- * @param {default | Length} $height 高度
+ * @param {String} $name 为新的按钮扩展定义一个名称
+ * @param {Length} $border-width 按钮边框厚度
+ * @param {Color} $bordercolor 按钮边框色
+ * @param {Color} $bgcolor 按钮背景色
+ * @param {Color} $color 按钮文本色
+ * @param {Color} $active-bordercolor 触点（鼠标，手指或其它）按下时的按钮边框色
+ * @param {Color} $active-bgcolor 触点（鼠标，手指或其它）按下的按钮背景色
+ * @param {Color} $active-color 触点（鼠标，手指或其它）按下的按钮文本色
+ * @param {Length} $padding 按钮内补白
+ * @param {Length} $radius 按钮圆角半径长度
+ * @param {Length} $font-size 按钮字号大小
+ * @param {Length} $width 按钮宽度
+ * @param {Length} $height 按钮高度
  */
 .yo-btn {
   display: inline-block;
@@ -4644,25 +4574,22 @@ a {
  */
 /**
  * 构造按钮的自定义使用方法，可轻松自定义边框，尺寸，背景，文字等
- =======================
- * Variables: 13
- * Author: doyoe(杜瑶)
- * Edit: 2015.1.19
- ------------------------
+ -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/element/yo-btn.html)
  * @method yo-btn
- * @param {default | String} $name 为需要的扩展定义一个名称
- * @param {default | Length} $border-width 边框厚度
- * @param {default | Color} $bordercolor 边框色
- * @param {default | Color} $bgcolor 背景色
- * @param {default | Color} $color 文本色
- * @param {default | Color} $active-bordercolor 激活时边框色
- * @param {default | Color} $active-bgcolor 激活时背景色
- * @param {default | Color} $active-color 激活时文本色
- * @param {default | Length} $padding 横向补白
- * @param {default | Length} $radius 圆角半径长度
- * @param {default | Length} $font-size 字号大小
- * @param {default | Length} $width 宽度
- * @param {default | Length} $height 高度
+ * @param {String} $name 为新的按钮扩展定义一个名称
+ * @param {Length} $border-width 按钮边框厚度
+ * @param {Color} $bordercolor 按钮边框色
+ * @param {Color} $bgcolor 按钮背景色
+ * @param {Color} $color 按钮文本色
+ * @param {Color} $active-bordercolor 触点（鼠标，手指或其它）按下时的按钮边框色
+ * @param {Color} $active-bgcolor 触点（鼠标，手指或其它）按下的按钮背景色
+ * @param {Color} $active-color 触点（鼠标，手指或其它）按下的按钮文本色
+ * @param {Length} $padding 按钮内补白
+ * @param {Length} $radius 按钮圆角半径长度
+ * @param {Length} $font-size 按钮字号大小
+ * @param {Length} $width 按钮宽度
+ * @param {Length} $height 按钮高度
  */
 .yo-btn {
   display: inline-block;

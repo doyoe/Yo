@@ -7,24 +7,21 @@
 
 /**
  * 构造单选多选的自定义使用方法，可同时作用于 checkbox 与 radio
- =======================
- * Variables: 12
- * Author: doyoe(杜瑶)
- * Edit: 2015.3.21
  -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/element/yo-checked.html)
  * @method yo-checked
- * @param {default | String} $name 为需要的扩展定义一个名称
- * @param {default | String} $content 选中时的标记内容
- * @param {default | Length} $size 元件大小
- * @param {default | Length} $font-size 标记大小
- * @param {default | Length} $border-width 边框厚度
- * @param {default | Color} $bordercolor 边框色
- * @param {default | Color} $bgcolor 背景色
- * @param {default | Color} $color 标记色
- * @param {default | Color} $on-bordercolor 选中时的边框色
- * @param {default | Color} $on-bgcolor 选中时的背景色
- * @param {default | Color} $on-color 选中时的标记色
- * @param {default | Length} $radius 圆角半径长度
+ * @param {String} $name 为新的扩展定义一个名称
+ * @param {String} $content 标记（对勾，圆点或者任意字符，可以是webfonts的编码）
+ * @param {Length} $size 元件大小
+ * @param {Length} $font-size 标记大小
+ * @param {Length} $border-width 边框厚度
+ * @param {Color} $bordercolor 边框色
+ * @param {Color} $bgcolor 背景色
+ * @param {Color} $color 标记色
+ * @param {Color} $on-bordercolor 选中时的边框色
+ * @param {Color} $on-bgcolor 选中时的背景色
+ * @param {Color} $on-color 选中时的标记色
+ * @param {Length} $radius 圆角半径长度
  */
 
 @mixin yo-checked(
@@ -83,7 +80,6 @@
     .yo-checked#{$name} {
         @if $size != map-get($checked, size) {
             @include square($size);
-            // line-height: $size;
         }
         @if $font-size != map-get($checked, font-size) {
             font-size: $font-size;

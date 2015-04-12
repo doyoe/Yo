@@ -101,7 +101,16 @@
     display: inline-block;
     overflow: hidden;
     padding: map-get($btn, padding);
-    border: .01rem solid map-get($btn, bordercolor);
+    // 当边框厚度大于0时，才定义边框相关属性
+    @if map-get($btn, border-width) != null and
+        map-get($btn, border-width) != 0 {
+        border-width: map-get($btn, border-width);
+        border-style: solid;
+        border-color: map-get($btn, bordercolor);
+    } @else {
+        // 当使用input和button时，默认有巨丑边框，需清除
+        border-style: none;
+    }
     // 内阴影，用来描内部的1px白边
     box-shadow: inset 1px 1px rgba(255, 255, 255, .1);
     border-radius: map-get($btn, radius);
@@ -252,42 +261,60 @@
 }
 
 @mixin _checked {
-    @include appearance(none);
+    display: inline-block;
     position: relative;
     @include square(map-get($checked, size));
-    border-radius: map-get($checked, radius);
-    background-color: transparent;
-    // 将 color 设置为 transparent，这时如果不需要边框，就可以将 $bordercolor 设置为 null 了，边框色为 color 设置
-    border: .01rem solid;
-    border-color: map-get($checked, bordercolor);
-    color: transparent;
-    font-size: map-get($checked, size);
-    cursor: pointer;
+    font-size: map-get($checked, font-size);
+    font-family: map-get($ico, font-name);
+    text-align: center;
     vertical-align: middle;
-    &amp;::after {
-        position:absolute;
-        top: 50%;
-        left: 50%;
-        @include transform(translate(-50%, -50%));
-        @if map-get($checked, type) == tick {
-            content: &quot;✓&quot;;
-        } @else {
-            content: &quot;●&quot;;
-        }
-        font-size: 68%;
+    cursor: pointer;
+    &gt; input,
+    &gt; .type {
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        @include square(100%);
+    }
+    &gt; input {
+        z-index: 2;
         opacity: 0;
     }
-    &amp;:checked {
-        border-color: map-get($checked, on-bordercolor);
+    &gt; .type {
+        border-radius: map-get($checked, radius);
+        background-color: transparent;
+        // 当边框厚度大于0时，才定义边框相关属性
+        @if map-get($checked, border-width) != null and
+            map-get($checked, border-width) != 0 {
+            border-width: map-get($checked, border-width);
+            border-style: solid;
+            border-color: map-get($checked, bordercolor);
+            line-height: map-get($checked, size) - nth(map-get($checked, border-width), 1) * 2;
+        } @else {
+            line-height: map-get($checked, size);
+        }
+        &amp;::after {
+            content: map-get($checked, content);
+            color: map-get($checked, color);
+        }
+    }
+    &gt; input:checked ~ .type {
+        @if map-get($checked, border-width) != null and
+            map-get($checked, border-width) != 0 {
+            border-color: map-get($checked, on-bordercolor);
+        }
         background-color: map-get($checked, on-bgcolor);
         &amp;::after {
             color: map-get($checked, on-color);
-            opacity: 1;
         }
     }
-    &amp;:disabled {
+    &gt; input:disabled ~ .type {
         opacity: .4;
-        border-color: map-get($base, disabled-bordercolor) !important;
+        @if map-get($checked, border-width) != null and
+            map-get($checked, border-width) != 0 {
+            border-color: map-get($base, disabled-bordercolor) !important;
+        }
         background-color: map-get($base, disabled-bgcolor) !important;
         &amp;::after {
             color: map-get($base, disabled-color) !important;
@@ -393,12 +420,20 @@
     display: inline-block;
     min-width: .16rem;
     min-height: .16rem;
-    border: .01rem solid map-get($badge, bordercolor);
+    padding: map-get($badge, padding);
+    // 当边框厚度大于0时，才定义边框相关属性
+    @if map-get($badge, border-width) != null and
+        map-get($badge, border-width) != 0 {
+        border-width: map-get($badge, border-width);
+        border-style: solid;
+        border-color: map-get($badge, bordercolor);
+    }
     border-radius: map-get($badge, radius);
     background-color: map-get($badge, bgcolor);
     color: map-get($badge, color);
     font-size: map-get($badge, font-size);
-    @if map-get($badge, font-size) &lt; .14rem {
+    @if map-get($badge, font-size) == null or
+        map-get($badge, font-size) &lt;= .14rem {
         line-height: .14rem;
     } @else {
         line-height: map-get($badge, font-size);

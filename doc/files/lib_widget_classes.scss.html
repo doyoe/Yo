@@ -153,20 +153,22 @@
     &gt; .ft {
         @include flexbox();
         text-align: center;
-        @include yo-btn(default, map-get($base, bordercolor), #fff, map-get($base, link-color), default, 0);
+        @include yo-btn(
+            $border-width: .01rem 0 0 0,
+            $bordercolor: map-get($base, bordercolor),
+            $bgcolor: #fff,
+            $color: map-get($base, link-color),
+            $radius: 0,
+            $active-bgcolor: #f9f9f9
+        );
         &gt; .yo-btn {
             @include flex();
-            border-width: 1px 0 0 0;
             &amp;:last-child:not(:only-child),
             &amp;:only-child {
                 font-weight: bold;
             }
             &amp;:last-child:not(:only-child) {
-                border-left-width: 1px;
-            }
-            &amp;:focus,
-            &amp;:active {
-                background-color: #f9f9f9;
+                border-left-width: .01rem;
             }
         }
     }
@@ -778,11 +780,10 @@
     }
 }
 
-// 定义panel的基础构造
-// 使用方法请查看 yo-panel.scss
-@mixin _panel {
+// 定义slidermenu的基础构造
+// 使用方法请查看 yo-slidermenu.scss
+@mixin _slidermenu {
     position: relative;
-    overflow: hidden;
     &gt; .front {
         position: relative;
         z-index: 2;
@@ -793,9 +794,9 @@
         top: 0;
         right: 0;
         overflow: hidden;
-        width: map-get($panel, action-width);
+        width: map-get($slidermenu, action-width);
         height: 100%;
-        background-color: map-get($panel, action-bgcolor);
+        background-color: map-get($slidermenu, action-bgcolor);
     }
 }
 

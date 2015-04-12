@@ -92,28 +92,27 @@
 
 /**
  * 构造按钮的自定义使用方法，可轻松自定义边框，尺寸，背景，文字等
- =======================
- * Variables: 12
- * Author: doyoe(杜瑶)
- * Edit: 2015.1.19
- ------------------------
+ -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/element/yo-btn.html)
  * @method yo-btn
- * @param {default | String} $name 为需要的扩展定义一个名称
- * @param {default | Color} $bordercolor 边框色
- * @param {default | Color} $bgcolor 背景色
- * @param {default | Color} $color 文本色
- * @param {default | Color} $active-bordercolor 激活时边框色
- * @param {default | Color} $active-bgcolor 激活时背景色
- * @param {default | Color} $active-color 激活时文本色
- * @param {default | Length} $padding 横向补白
- * @param {default | Length} $radius 圆角半径长度
- * @param {default | Length} $font-size 字号大小
- * @param {default | Length} $width 宽度
- * @param {default | Length} $height 高度
+ * @param {String} $name 为新的按钮扩展定义一个名称
+ * @param {Length} $border-width 按钮边框厚度
+ * @param {Color} $bordercolor 按钮边框色
+ * @param {Color} $bgcolor 按钮背景色
+ * @param {Color} $color 按钮文本色
+ * @param {Color} $active-bordercolor 触点（鼠标，手指或其它）按下时的按钮边框色
+ * @param {Color} $active-bgcolor 触点（鼠标，手指或其它）按下的按钮背景色
+ * @param {Color} $active-color 触点（鼠标，手指或其它）按下的按钮文本色
+ * @param {Length} $padding 按钮内补白
+ * @param {Length} $radius 按钮圆角半径长度
+ * @param {Length} $font-size 按钮字号大小
+ * @param {Length} $width 按钮宽度
+ * @param {Length} $height 按钮高度
  */
 
 @mixin yo-btn(
     $name: default,
+    $border-width: default,
     $bordercolor: default,
     $bgcolor: default,
     $color: default,
@@ -132,6 +131,9 @@
         $name: &quot;-#{$name}&quot;;
     }
     // 如果值为default，则取config的定义
+    @if $border-width == default {
+        $border-width: map-get($btn, border-width);
+    }
     @if $bordercolor == default {
         $bordercolor: map-get($btn, bordercolor);
     }
@@ -183,9 +185,37 @@
         @if $radius != map-get($btn, radius) {
             border-radius: $radius;
         }
-        // 如果$bordercolor不等于config设定，则重绘边框色
-        @if $bordercolor != map-get($btn, bordercolor) {
-            border-color: $bordercolor;
+        // 如果$border-width不等于config设定，则重绘边框相关
+        @if $border-width != map-get($btn, border-width) {
+            // 如果$border-width为null，重设置为0
+            @if $border-width == null {
+                $border-width: 0;
+            }
+            border-width: $border-width;
+            // 如果$bordercolor不等于config设定，则重绘边框色
+            @if $bordercolor != map-get($btn, bordercolor) {
+                @if $border-width != 0 {
+                    border-color: $bordercolor;
+                }
+            } @else {
+                // 如果config的边框厚度定义为null或者0，在扩展时，加上边框色
+                @if map-get($btn, border-width) == null or
+                    map-get($btn, border-width) == 0 {
+                    border-color: map-get($btn, bordercolor);
+                }
+            }
+            // 如果config的边框厚度定义为null或者0，在扩展时，加上border-style
+            @if map-get($btn, border-width) == null or
+                map-get($btn, border-width) == 0 {
+                border-style: solid;
+            }
+        } @else {
+            // 如果扩展的边框厚度大于0且边框色和config边框色不同，在扩展时，重绘边框色
+            @if $border-width != null and
+                $border-width != 0 and
+                $bordercolor != map-get($btn, bordercolor) {
+                border-color: $bordercolor;
+            }
         }
         // 如果$bgcolor不等于config设定，则重绘背景色
         @if $bgcolor != map-get($btn, bgcolor) {

@@ -1637,25 +1637,22 @@ html, body {
  */
 /**
  * 构造按钮的自定义使用方法，可轻松自定义边框，尺寸，背景，文字等
- =======================
- * Variables: 13
- * Author: doyoe(杜瑶)
- * Edit: 2015.1.19
- ------------------------
+ -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/element/yo-btn.html)
  * @method yo-btn
- * @param {default | String} $name 为需要的扩展定义一个名称
- * @param {default | Length} $border-width 边框厚度
- * @param {default | Color} $bordercolor 边框色
- * @param {default | Color} $bgcolor 背景色
- * @param {default | Color} $color 文本色
- * @param {default | Color} $active-bordercolor 激活时边框色
- * @param {default | Color} $active-bgcolor 激活时背景色
- * @param {default | Color} $active-color 激活时文本色
- * @param {default | Length} $padding 横向补白
- * @param {default | Length} $radius 圆角半径长度
- * @param {default | Length} $font-size 字号大小
- * @param {default | Length} $width 宽度
- * @param {default | Length} $height 高度
+ * @param {String} $name 为新的按钮扩展定义一个名称
+ * @param {Length} $border-width 按钮边框厚度
+ * @param {Color} $bordercolor 按钮边框色
+ * @param {Color} $bgcolor 按钮背景色
+ * @param {Color} $color 按钮文本色
+ * @param {Color} $active-bordercolor 触点（鼠标，手指或其它）按下时的按钮边框色
+ * @param {Color} $active-bgcolor 触点（鼠标，手指或其它）按下的按钮背景色
+ * @param {Color} $active-color 触点（鼠标，手指或其它）按下的按钮文本色
+ * @param {Length} $padding 按钮内补白
+ * @param {Length} $radius 按钮圆角半径长度
+ * @param {Length} $font-size 按钮字号大小
+ * @param {Length} $width 按钮宽度
+ * @param {Length} $height 按钮高度
  */
 .yo-btn {
   display: inline-block;

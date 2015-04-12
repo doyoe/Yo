@@ -7,16 +7,13 @@
 
 /**
  * 构造评分展示的自定义使用方法
- =======================
- * Variables: 4
- * Author: joy.du(飘零雾雨)
- * Edit: 2012.1.1
- ------------------------
+ -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/element/yo-score.html)
  * @method yo-score
- * @param {default | String} $name 为需要的扩展定义一个名称
- * @param {default | Length} $item-width 单项宽度
- * @param {default | Length} $item-height 单项高度
- * @param {default | String} $url 背景图片url
+ * @param {String} $name 为新的扩展定义一个名称
+ * @param {Length} $item-width 单项宽度
+ * @param {Length} $item-height 单项高度
+ * @param {String} $url 背景图片url
  */
 
 @mixin yo-score(

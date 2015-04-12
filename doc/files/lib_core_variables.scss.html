@@ -89,7 +89,8 @@
  * Directory: lib/core/variables.scss
  * CSS Variables 定义各种页面沙粒变量
  * Author: joy.du(飘零雾雨)
- * Edit: 2014.12.5
+ * Edit: 2015.4.11
+ * Description: 如果不想定义某属性，将其value设置为null
  */
 
 $setting: (
@@ -183,7 +184,6 @@ $ico: (
     // {String} 使用哪几种图标
     font-types: eot,
     // {Url} 图标字体路径
-    // font-path:  &quot;http://source.qunarzz.com/fonts/fontawesome/4.3.0/&quot;
     font-path:  &quot;../../../font/&quot;
 ) !default;
 
@@ -219,8 +219,10 @@ $input: (
     placeholder-color: #bbb
 ) !default;
 
-// Element Button(15)
+// Element Button(16)
 $btn: (
+    // {Color} Length
+    border-width:   .01rem,
     // {Color} 边框色
     bordercolor:    #e26704,
     // {Color} 背景色
@@ -251,33 +253,43 @@ $btn: (
     l-font-size:    .16rem
 ) !default;
 
-// Element UI badge(5)
+// Element UI badge(7)
 $badge: (
+    // {Length} 内补白
+    padding:      0 .03rem,
+    // {Color} 边框厚度
+    border-width: .01rem,
     // {Color} 边框色
-    bordercolor: #f00,
+    bordercolor:  #f00,
     // {Color} 背景色
-    bgcolor:     #f00,
+    bgcolor:      #f00,
     // {Color} 文本色
-    color:       #fff,
+    color:        #fff,
     // {Number} 圆角
-    radius:      .1rem,
+    radius:       .1rem,
     // {Length} 字号
-    font-size:   .14rem
+    font-size:    .12rem
 ) !default;
 
-// Element checked(8)
+// Element checked(11)
 $checked: (
-    // {String} 选中标记类型: [circle | tick]
-    type:           circle,
-    // {Length} 标签大小
+    // {String} 选中标记的内容，可以是自定义的webfont
+    content:        &quot;\f078&quot;,
+    // {Length} 元件大小
     size:           .2rem,
-    // {Color} 边框色，如不需要边框，取值null
+    // {Length} 标签大小
+    font-size:      .12rem,
+    // {Length} 边框厚度
+    border-width:   null,
+    // {Color} 未选中时的边框色
     bordercolor:    null,
-    // {Color} 背景色，如不需要背景，取值null
+    // {Color} 未选中时的背景色
     bgcolor:        null,
-    // {Color} 激活边框色，如不需要，取值null
+    // {Color} 未选中时的标记颜色
+    color:          transparent,
+    // {Color} 激活边框色
     on-bordercolor: null,
-    // {Color} 激活背景色，如不需要，取值null
+    // {Color} 激活背景色
     on-bgcolor:     null,
     // {Color} 激活标记颜色
     on-color:       #2b94ff,
@@ -365,13 +377,13 @@ $btnbar: (
 // Fragment list(14)
 $list: (
     // {Length} 列表外边距
-    margin:            -.01rem -.01rem 0 -.01rem,
-    // {Boole} 列表是否有外边框
-    is-outline:        false,
+    margin:            null,
     // {Length} 列表圆角
     radius:            null,
+    // {Length} 列表边框厚度
+    border-width:      null,
     // {Color} 列表边框色
-    bordercolor:       #ccc,
+    bordercolor:       map-get($base, bordercolor),
     // {Length} 列表项内补白，列表项有最小高度.44rem
     item-padding:      .11rem,
     // {Length} 列表组头内补白
@@ -385,9 +397,9 @@ $list: (
     // {Color} 选中文本色
     on-color:          null,
     // {Color} 列表项边框色
-    item-bordercolor:  map-get($base, bordercolor),
+    item-bordercolor:  #eee,
     // {Color} 列表项组名边框色
-    label-bordercolor: map-get($base, bordercolor),
+    label-bordercolor: #eee,
     // {Length} 列表项字号
     item-font-size:    .14rem,
     // {Length} 列表组头字号
@@ -658,8 +670,8 @@ $mask: (
     bgcolor: #fff
 ) !default;
 
-// Widget UI panel(1)
-$panel: (
+// Widget UI slidermenu(1)
+$slidermenu: (
     // {Length} action 宽度
     action-width: 1rem,
     // {Color} action 背景色

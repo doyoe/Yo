@@ -509,13 +509,6 @@
             "fors": {},
             "namespaces": {}
         },
-        "lib/element/yo-checkbox.scss": {
-            "name": "lib/element/yo-checkbox.scss",
-            "modules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
         "lib/element/yo-checked.scss": {
             "name": "lib/element/yo-checked.scss",
             "modules": {},
@@ -539,13 +532,6 @@
         },
         "lib/element/yo-loadtip.scss": {
             "name": "lib/element/yo-loadtip.scss",
-            "modules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
-        "lib/element/yo-radio.scss": {
-            "name": "lib/element/yo-radio.scss",
             "modules": {},
             "classes": {},
             "fors": {},
@@ -674,13 +660,6 @@
             "fors": {},
             "namespaces": {}
         },
-        "lib/widget/yo-panel.scss": {
-            "name": "lib/widget/yo-panel.scss",
-            "modules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
         "lib/widget/yo-popup.scss": {
             "name": "lib/widget/yo-popup.scss",
             "modules": {},
@@ -704,6 +683,13 @@
         },
         "lib/widget/yo-select.scss": {
             "name": "lib/widget/yo-select.scss",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/widget/yo-slidermenu.scss": {
+            "name": "lib/widget/yo-slidermenu.scss",
             "modules": {},
             "classes": {},
             "fors": {},
@@ -1010,13 +996,6 @@
             "fors": {},
             "namespaces": {}
         },
-        "usage/demo/page/yo-panel.scss": {
-            "name": "usage/demo/page/yo-panel.scss",
-            "modules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
         "usage/demo/page/yo-popup.scss": {
             "name": "usage/demo/page/yo-popup.scss",
             "modules": {},
@@ -1061,6 +1040,13 @@
         },
         "usage/demo/page/yo-select.scss": {
             "name": "usage/demo/page/yo-select.scss",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "usage/demo/page/yo-slidermenu.scss": {
+            "name": "usage/demo/page/yo-slidermenu.scss",
             "modules": {},
             "classes": {},
             "fors": {},
@@ -1896,7 +1882,7 @@
                 {
                     "name": "$background-size",
                     "description": "指定背景图缩放值",
-                    "type": "String"
+                    "type": "String | Length"
                 }
             ],
             "class": "classes",
@@ -2236,7 +2222,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 390,
+            "line": 389,
             "description": "文字隐藏方案",
             "itemtype": "method",
             "name": "texthide",
@@ -2245,7 +2231,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 400,
+            "line": 399,
             "description": "清除间隙方案-容器",
             "itemtype": "method",
             "name": "killspace",
@@ -2254,7 +2240,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 409,
+            "line": 408,
             "description": "清除间隙方案-子级",
             "itemtype": "method",
             "name": "killspace-item",
@@ -2263,7 +2249,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 419,
+            "line": 418,
             "description": "未知尺寸元素垂直居中解决方案-容器",
             "itemtype": "method",
             "name": "valign",
@@ -2272,7 +2258,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 434,
+            "line": 433,
             "description": "未知尺寸元素垂直居中解决方案-子级",
             "itemtype": "method",
             "name": "valign-item",
@@ -2281,7 +2267,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 443,
+            "line": 442,
             "description": "已经尺寸元素垂直居中解决方案",
             "itemtype": "method",
             "name": "alignment",
@@ -2310,46 +2296,56 @@
         {
             "file": "lib/core/variables.scss",
             "line": 3,
-            "description": "Directory: lib/core/variables.scss\nCSS Variables 定义各种页面沙粒变量\nAuthor: joy.du(飘零雾雨)\nEdit: 2014.12.5",
+            "description": "Directory: lib/core/variables.scss\nCSS Variables 定义各种页面沙粒变量\nAuthor: joy.du(飘零雾雨)\nEdit: 2015.4.11\nDescription: 如果不想定义某属性，将其value设置为null",
             "class": "element",
             "module": "ani"
         },
         {
             "file": "lib/element/yo-badge.scss",
             "line": 8,
-            "description": "构造提醒气泡的自定义使用方法，可以扩展为：tag, 文字ico等形态\n=======================\nVariables: 6\nAuthor: doyoe(杜瑶)\nEdit: 2015.1.19\n-----------------------",
+            "description": "构造提醒气泡的自定义使用方法，可以扩展为：tag, 文字ico等形态\n-----------------------\n使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/element/yo-btn.html)",
             "itemtype": "method",
             "name": "yo-badge",
             "params": [
                 {
                     "name": "$name",
-                    "description": "为需要的扩展定义一个名称",
-                    "type": "Defailt | String"
+                    "description": "为新的扩展定义一个名称，假设扩展了一个 `$name` 为 `tag` 的 `yo-badge`，那么你可以这样使用 `<span class=\"yo-badge yo-badge-tag\">`",
+                    "type": "String"
+                },
+                {
+                    "name": "$padding",
+                    "description": "内补白",
+                    "type": "Length"
+                },
+                {
+                    "name": "$border-width",
+                    "description": "边框厚度",
+                    "type": "Length"
                 },
                 {
                     "name": "$bordercolor",
                     "description": "边框色",
-                    "type": "Defailt | Color"
+                    "type": "Color"
                 },
                 {
                     "name": "$bgcolor",
                     "description": "背景色",
-                    "type": "Defailt | Color"
+                    "type": "Color"
                 },
                 {
                     "name": "$color",
                     "description": "文本色",
-                    "type": "Defailt | Color"
+                    "type": "Color"
                 },
                 {
                     "name": "$radius",
                     "description": "圆角半径长度",
-                    "type": "Defailt | Length"
+                    "type": "Length"
                 },
                 {
                     "name": "$font-size",
                     "description": "字号大小",
-                    "type": "Defailt | Length"
+                    "type": "Length"
                 }
             ],
             "class": "element",
@@ -2358,125 +2354,74 @@
         {
             "file": "lib/element/yo-btn.scss",
             "line": 8,
-            "description": "构造按钮的自定义使用方法，可轻松自定义边框，尺寸，背景，文字等\n=======================\nVariables: 12\nAuthor: doyoe(杜瑶)\nEdit: 2015.1.19\n------------------------",
+            "description": "构造按钮的自定义使用方法，可轻松自定义边框，尺寸，背景，文字等\n-----------------------\n使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/element/yo-btn.html)",
             "itemtype": "method",
             "name": "yo-btn",
             "params": [
                 {
                     "name": "$name",
-                    "description": "为需要的扩展定义一个名称",
-                    "type": "Default | String"
+                    "description": "为新的按钮扩展定义一个名称",
+                    "type": "String"
+                },
+                {
+                    "name": "$border-width",
+                    "description": "按钮边框厚度",
+                    "type": "Length"
                 },
                 {
                     "name": "$bordercolor",
-                    "description": "边框色",
-                    "type": "Default | Color"
+                    "description": "按钮边框色",
+                    "type": "Color"
                 },
                 {
                     "name": "$bgcolor",
-                    "description": "背景色",
-                    "type": "Default | Color"
+                    "description": "按钮背景色",
+                    "type": "Color"
                 },
                 {
                     "name": "$color",
-                    "description": "文本色",
-                    "type": "Default | Color"
+                    "description": "按钮文本色",
+                    "type": "Color"
                 },
                 {
                     "name": "$active-bordercolor",
-                    "description": "激活时边框色",
-                    "type": "Default | Color"
+                    "description": "触点（鼠标，手指或其它）按下时的按钮边框色",
+                    "type": "Color"
                 },
                 {
                     "name": "$active-bgcolor",
-                    "description": "激活时背景色",
-                    "type": "Default | Color"
+                    "description": "触点（鼠标，手指或其它）按下的按钮背景色",
+                    "type": "Color"
                 },
                 {
                     "name": "$active-color",
-                    "description": "激活时文本色",
-                    "type": "Default | Color"
+                    "description": "触点（鼠标，手指或其它）按下的按钮文本色",
+                    "type": "Color"
                 },
                 {
                     "name": "$padding",
-                    "description": "横向补白",
-                    "type": "Default | Length"
+                    "description": "按钮内补白",
+                    "type": "Length"
                 },
                 {
                     "name": "$radius",
-                    "description": "圆角半径长度",
-                    "type": "Default | Length"
+                    "description": "按钮圆角半径长度",
+                    "type": "Length"
                 },
                 {
                     "name": "$font-size",
-                    "description": "字号大小",
-                    "type": "Default | Length"
+                    "description": "按钮字号大小",
+                    "type": "Length"
                 },
                 {
                     "name": "$width",
-                    "description": "宽度",
-                    "type": "Default | Length"
+                    "description": "按钮宽度",
+                    "type": "Length"
                 },
                 {
                     "name": "$height",
-                    "description": "高度",
-                    "type": "Default | Length"
-                }
-            ],
-            "class": "element",
-            "module": "ani"
-        },
-        {
-            "file": "lib/element/yo-checkbox.scss",
-            "line": 8,
-            "description": "构造多选的自定义使用方法\n=======================\nVariables: 9\nAuthor: doyoe(杜瑶)\nEdit: 2014.11.14\n-----------------------",
-            "itemtype": "method",
-            "name": "yo-checkbox",
-            "params": [
-                {
-                    "name": "$name",
-                    "description": "为需要的扩展定义一个名称",
-                    "type": "Default | String"
-                },
-                {
-                    "name": "$type",
-                    "description": "选中时的标记类型，可选值：[circle | tick]",
-                    "type": "Default | String"
-                },
-                {
-                    "name": "$size",
-                    "description": "元件大小",
-                    "type": "Default | Length"
-                },
-                {
-                    "name": "$bordercolor",
-                    "description": "边框色",
-                    "type": "Default | Color"
-                },
-                {
-                    "name": "$bgcolor",
-                    "description": "背景色",
-                    "type": "Default | Color"
-                },
-                {
-                    "name": "$on-bordercolor",
-                    "description": "选中时的边框色",
-                    "type": "Default | Color"
-                },
-                {
-                    "name": "$on-bgcolor",
-                    "description": "选中时的背景色",
-                    "type": "Default | Color"
-                },
-                {
-                    "name": "$on-color",
-                    "description": "选中时的标记色",
-                    "type": "Default | Color"
-                },
-                {
-                    "name": "$radius",
-                    "description": "圆角半径长度",
-                    "type": "Default | Length"
+                    "description": "按钮高度",
+                    "type": "Length"
                 }
             ],
             "class": "element",
@@ -2485,54 +2430,69 @@
         {
             "file": "lib/element/yo-checked.scss",
             "line": 8,
-            "description": "构造单选多选的自定义使用方法，可同时作用于 checkbox 与 radio\n=======================\nVariables: 9\nAuthor: doyoe(杜瑶)\nEdit: 2015.3.21\n-----------------------",
+            "description": "构造单选多选的自定义使用方法，可同时作用于 checkbox 与 radio\n-----------------------\n使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/element/yo-checked.html)",
             "itemtype": "method",
             "name": "yo-checked",
             "params": [
                 {
                     "name": "$name",
-                    "description": "为需要的扩展定义一个名称",
-                    "type": "Default | String"
+                    "description": "为新的扩展定义一个名称",
+                    "type": "String"
                 },
                 {
-                    "name": "$type",
-                    "description": "选中时的标记类型，可选值：[circle | tick]",
-                    "type": "Default | String"
+                    "name": "$content",
+                    "description": "标记（对勾，圆点或者任意字符，可以是webfonts的编码）",
+                    "type": "String"
                 },
                 {
                     "name": "$size",
                     "description": "元件大小",
-                    "type": "Default | Length"
+                    "type": "Length"
+                },
+                {
+                    "name": "$font-size",
+                    "description": "标记大小",
+                    "type": "Length"
+                },
+                {
+                    "name": "$border-width",
+                    "description": "边框厚度",
+                    "type": "Length"
                 },
                 {
                     "name": "$bordercolor",
                     "description": "边框色",
-                    "type": "Default | Color"
+                    "type": "Color"
                 },
                 {
                     "name": "$bgcolor",
                     "description": "背景色",
-                    "type": "Default | Color"
+                    "type": "Color"
+                },
+                {
+                    "name": "$color",
+                    "description": "标记色",
+                    "type": "Color"
                 },
                 {
                     "name": "$on-bordercolor",
                     "description": "选中时的边框色",
-                    "type": "Default | Color"
+                    "type": "Color"
                 },
                 {
                     "name": "$on-bgcolor",
                     "description": "选中时的背景色",
-                    "type": "Default | Color"
+                    "type": "Color"
                 },
                 {
                     "name": "$on-color",
                     "description": "选中时的标记色",
-                    "type": "Default | Color"
+                    "type": "Color"
                 },
                 {
                     "name": "$radius",
                     "description": "圆角半径长度",
-                    "type": "Default | Length"
+                    "type": "Length"
                 }
             ],
             "class": "element",
@@ -2541,54 +2501,54 @@
         {
             "file": "lib/element/yo-input.scss",
             "line": 8,
-            "description": "构造输入框的自定义使用方法，可同时作用于 input 与 textarea\n=======================\nVariables: 9\nAuthor: doyoe(杜瑶)\nEdit: 2012.1.1\n------------------------",
+            "description": "构造输入框的自定义使用方法，可同时作用于 input 与 textarea\n-----------------------\n使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/element/yo-input.html)",
             "itemtype": "method",
             "name": "yo-input",
             "params": [
                 {
                     "name": "$name",
-                    "description": "为需要的扩展定义一个名称",
-                    "type": "Default | String"
+                    "description": "为新的扩展定义一个名称",
+                    "type": "String"
                 },
                 {
                     "name": "$width",
                     "description": "宽度",
-                    "type": "Default | Length"
+                    "type": "Length"
                 },
                 {
                     "name": "$height",
                     "description": "高度",
-                    "type": "Default | Length"
+                    "type": "Length"
                 },
                 {
                     "name": "$padding",
                     "description": "内补白",
-                    "type": "Default | Length"
+                    "type": "Length"
                 },
                 {
                     "name": "$radius",
                     "description": "圆角半径长度",
-                    "type": "Default | Length"
+                    "type": "Length"
                 },
                 {
                     "name": "$bordercolor",
                     "description": "边框色",
-                    "type": "Default | Color"
+                    "type": "Color"
                 },
                 {
                     "name": "$bgcolor",
                     "description": "背景色",
-                    "type": "Default | Color"
+                    "type": "Color"
                 },
                 {
                     "name": "$color",
                     "description": "文本色",
-                    "type": "Default | Color"
+                    "type": "Color"
                 },
                 {
                     "name": "$placeholder-color",
                     "description": "placeholder文本色",
-                    "type": "Default | Color"
+                    "type": "Color"
                 }
             ],
             "class": "element",
@@ -2597,34 +2557,34 @@
         {
             "file": "lib/element/yo-loading.scss",
             "line": 8,
-            "description": "构造加载中的自定义使用方法\n=======================\nVariables: 5\nAuthor: doyoe(杜瑶)\nEdit: 2012.1.1\n-----------------------",
+            "description": "构造加载中的自定义使用方法\n-----------------------\n使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/element/yo-loading.html)",
             "itemtype": "method",
             "name": "yo-loading",
             "params": [
                 {
                     "name": "$name",
-                    "description": "为需要的扩展定义一个名称",
-                    "type": "Defailt | String"
+                    "description": "为新的扩展定义一个名称",
+                    "type": "String"
                 },
                 {
                     "name": "$size",
                     "description": "loading的尺寸",
-                    "type": "Defailt | Length"
+                    "type": "Length"
                 },
                 {
                     "name": "$color",
-                    "description": "颜色",
-                    "type": "Defailt | Color"
+                    "description": "loading的颜色",
+                    "type": "Color"
                 },
                 {
                     "name": "$mask-bgcolor",
                     "description": "遮罩背景色",
-                    "type": "Defailt | Color"
+                    "type": "Color"
                 },
                 {
                     "name": "$bgcolor",
                     "description": "背景色",
-                    "type": "Defailt | Color"
+                    "type": "Color"
                 }
             ],
             "class": "element",
@@ -2633,85 +2593,29 @@
         {
             "file": "lib/element/yo-loadtip.scss",
             "line": 8,
-            "description": "构造加载提示的自定义使用方法\n=======================\nVariables: 4\nAuthor: doyoe(杜瑶)\nEdit: 2015.3.9\n-----------------------",
+            "description": "构造加载提示的自定义使用方法\n-----------------------\n使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/element/yo-loadtip.html)",
             "itemtype": "method",
             "name": "yo-loadtip",
             "params": [
                 {
                     "name": "$name",
-                    "description": "为需要的扩展定义一个名称",
-                    "type": "Defailt | String"
+                    "description": "为新的扩展定义一个名称",
+                    "type": "String"
                 },
                 {
                     "name": "$color",
                     "description": "文本色",
-                    "type": "Defailt | Color"
+                    "type": "Color"
                 },
                 {
                     "name": "$font-size",
                     "description": "字号大小",
-                    "type": "Defailt | Length"
+                    "type": "Length"
                 },
                 {
                     "name": "$ico-color",
                     "description": "ico颜色",
-                    "type": "Defailt | Color"
-                }
-            ],
-            "class": "element",
-            "module": "ani"
-        },
-        {
-            "file": "lib/element/yo-radio.scss",
-            "line": 8,
-            "description": "构造单选的自定义使用方法\n=======================\nVariables: 9\nAuthor: doyoe(杜瑶)\nEdit: 2015.3.21\n-----------------------",
-            "itemtype": "method",
-            "name": "yo-radio",
-            "params": [
-                {
-                    "name": "$name",
-                    "description": "为需要的扩展定义一个名称",
-                    "type": "Default | String"
-                },
-                {
-                    "name": "$type",
-                    "description": "选中时的标记类型，可选值：[circle | tick]",
-                    "type": "Default | String"
-                },
-                {
-                    "name": "$size",
-                    "description": "元件大小",
-                    "type": "Default | Length"
-                },
-                {
-                    "name": "$bordercolor",
-                    "description": "边框色",
-                    "type": "Default | Color"
-                },
-                {
-                    "name": "$bgcolor",
-                    "description": "背景色",
-                    "type": "Default | Color"
-                },
-                {
-                    "name": "$on-bordercolor",
-                    "description": "选中时的边框色",
-                    "type": "Default | Color"
-                },
-                {
-                    "name": "$on-bgcolor",
-                    "description": "选中时的背景色",
-                    "type": "Default | Color"
-                },
-                {
-                    "name": "$on-color",
-                    "description": "选中时的标记色",
-                    "type": "Default | Color"
-                },
-                {
-                    "name": "$radius",
-                    "description": "圆角半径长度",
-                    "type": "Default | Length"
+                    "type": "Color"
                 }
             ],
             "class": "element",
@@ -2720,29 +2624,29 @@
         {
             "file": "lib/element/yo-range.scss",
             "line": 8,
-            "description": "构造区间选择的自定义使用方法\n=======================\nVariables: 4\nAuthor: joy.du(飘零雾雨)\nEdit: 2012.1.1\n------------------------\n定义按钮使用方法",
+            "description": "构造区间选择的自定义使用方法\n-----------------------\n使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/element/yo-range.html)",
             "itemtype": "method",
             "name": "yo-range",
             "params": [
                 {
                     "name": "$name",
-                    "description": "为需要的扩展定义一个名称",
-                    "type": "Default | String"
+                    "description": "为新的扩展定义一个名称",
+                    "type": "String"
                 },
                 {
                     "name": "$inner-bgcolor",
                     "description": "已选择区域滑条色",
-                    "type": "Default | Color"
+                    "type": "Color"
                 },
                 {
                     "name": "$outer-bgcolor",
                     "description": "未选择区域滑条色",
-                    "type": "Default | Color"
+                    "type": "Color"
                 },
                 {
                     "name": "$ball-color",
                     "description": "滑块色",
-                    "type": "Default | Color"
+                    "type": "Color"
                 }
             ],
             "class": "element",
@@ -2751,29 +2655,29 @@
         {
             "file": "lib/element/yo-score.scss",
             "line": 8,
-            "description": "构造评分展示的自定义使用方法\n=======================\nVariables: 4\nAuthor: joy.du(飘零雾雨)\nEdit: 2012.1.1\n------------------------",
+            "description": "构造评分展示的自定义使用方法\n-----------------------\n使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/element/yo-score.html)",
             "itemtype": "method",
             "name": "yo-score",
             "params": [
                 {
                     "name": "$name",
-                    "description": "为需要的扩展定义一个名称",
-                    "type": "Default | String"
+                    "description": "为新的扩展定义一个名称",
+                    "type": "String"
                 },
                 {
                     "name": "$item-width",
                     "description": "单项宽度",
-                    "type": "Default | Length"
+                    "type": "Length"
                 },
                 {
                     "name": "$item-height",
                     "description": "单项高度",
-                    "type": "Default | Length"
+                    "type": "Length"
                 },
                 {
                     "name": "$url",
                     "description": "背景图片url",
-                    "type": "Default | String"
+                    "type": "String"
                 }
             ],
             "class": "element",
@@ -2879,13 +2783,13 @@
                     "type": "Default|Length"
                 },
                 {
-                    "name": "$is-outline",
-                    "description": "定义list是否需要轮廓（即外边框）",
-                    "type": "Default|Boole"
-                },
-                {
                     "name": "$radius",
                     "description": "定义list圆角",
+                    "type": "Default|Length"
+                },
+                {
+                    "name": "$border-width",
+                    "description": "定义list外边框厚度",
                     "type": "Default|Length"
                 },
                 {
@@ -3242,32 +3146,6 @@
             "module": "ani"
         },
         {
-            "file": "lib/widget/yo-panel.scss",
-            "line": 4,
-            "description": "Widget: yo-panel\nAuthor: joy.du(飘零雾雨)\nTime: 2012.1.1\n------------------------",
-            "itemtype": "method",
-            "name": "yo-panel\nvariables length(5)",
-            "params": [
-                {
-                    "name": "$name",
-                    "description": "定义yo-panel名称",
-                    "type": "Default | String"
-                },
-                {
-                    "name": "$action-width",
-                    "description": "定义action宽度",
-                    "type": "Default | Length"
-                },
-                {
-                    "name": "$action-bgcolor",
-                    "description": "定义action背景色",
-                    "type": "Default | Color"
-                }
-            ],
-            "class": "",
-            "module": "ani"
-        },
-        {
             "file": "lib/widget/yo-popup.scss",
             "line": 4,
             "description": "Widget: yo-popup\nAuthor: joy.du(飘零雾雨)\nTime: 2012.1.1\n-----------------------",
@@ -3485,6 +3363,32 @@
                 {
                     "name": "$bordercolor",
                     "description": "定义select边框色",
+                    "type": "Default | Color"
+                }
+            ],
+            "class": "",
+            "module": "ani"
+        },
+        {
+            "file": "lib/widget/yo-slidermenu.scss",
+            "line": 4,
+            "description": "Widget: yo-slidermenu\nAuthor: joy.du(飘零雾雨)\nTime: 2012.1.1\n------------------------",
+            "itemtype": "method",
+            "name": "yo-slidermenu\nvariables length(5)",
+            "params": [
+                {
+                    "name": "$name",
+                    "description": "扩展的名称",
+                    "type": "Default | String"
+                },
+                {
+                    "name": "$action-width",
+                    "description": "定义action宽度",
+                    "type": "Default | Length"
+                },
+                {
+                    "name": "$action-bgcolor",
+                    "description": "定义action背景色",
                     "type": "Default | Color"
                 }
             ],
@@ -3955,7 +3859,7 @@
         },
         {
             "file": "usage/demo/page/yo-list.scss",
-            "line": 10,
+            "line": 9,
             "description": "list演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
             "class": "",
             "module": "ani"
@@ -3985,13 +3889,6 @@
             "file": "usage/demo/page/yo-number.scss",
             "line": 8,
             "description": "number演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
-            "class": "",
-            "module": "ani"
-        },
-        {
-            "file": "usage/demo/page/yo-panel.scss",
-            "line": 9,
-            "description": "panel演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
             "class": "",
             "module": "ani"
         },
@@ -4041,6 +3938,13 @@
             "file": "usage/demo/page/yo-select.scss",
             "line": 6,
             "description": "select演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.11.13",
+            "class": "",
+            "module": "ani"
+        },
+        {
+            "file": "usage/demo/page/yo-slidermenu.scss",
+            "line": 9,
+            "description": "slidermenu演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
             "class": "",
             "module": "ani"
         },
@@ -4118,7 +4022,7 @@
             "line": " lib/core/reset.scss:5"
         },
         {
-            "message": "Missing item type\nDirectory: lib/core/variables.scss\nCSS Variables 定义各种页面沙粒变量\nAuthor: joy.du(飘零雾雨)\nEdit: 2014.12.5",
+            "message": "Missing item type\nDirectory: lib/core/variables.scss\nCSS Variables 定义各种页面沙粒变量\nAuthor: joy.du(飘零雾雨)\nEdit: 2015.4.11\nDescription: 如果不想定义某属性，将其value设置为null",
             "line": " lib/core/variables.scss:3"
         },
         {
@@ -4271,7 +4175,7 @@
         },
         {
             "message": "Missing item type\nlist演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
-            "line": " usage/demo/page/yo-list.scss:10"
+            "line": " usage/demo/page/yo-list.scss:9"
         },
         {
             "message": "Missing item type\nloading演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
@@ -4288,10 +4192,6 @@
         {
             "message": "Missing item type\nnumber演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
             "line": " usage/demo/page/yo-number.scss:8"
-        },
-        {
-            "message": "Missing item type\npanel演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
-            "line": " usage/demo/page/yo-panel.scss:9"
         },
         {
             "message": "Missing item type\npopup演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
@@ -4320,6 +4220,10 @@
         {
             "message": "Missing item type\nselect演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.11.13",
             "line": " usage/demo/page/yo-select.scss:6"
+        },
+        {
+            "message": "Missing item type\nslidermenu演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
+            "line": " usage/demo/page/yo-slidermenu.scss:9"
         },
         {
             "message": "Missing item type\nswitch演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.11.14",

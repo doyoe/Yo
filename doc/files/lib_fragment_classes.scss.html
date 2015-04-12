@@ -101,14 +101,16 @@
 @mixin _list {
     margin: map-get($list, margin);
     border-radius: map-get($list, radius);
-    // 如果config变量$is-outline为true，则列表需要轮廓
-    @if map-get($list, is-outline) {
-        overflow: hidden;
-        border: .01rem solid map-get($list, bordercolor);
+    // 当边框厚度大于0时，才定义边框相关属性
+    @if map-get($list, border-width) != null and
+        map-get($list, border-width) != 0 {
+        border-width: map-get($list, border-width);
+        border-style: solid;
+        border-color: map-get($list, bordercolor);
     }
     &gt; .label,
     &gt; .item,
-    &gt; .yo-panel &gt; .front {
+    &gt; .yo-slidermenu &gt; .front {
         @include flexbox;
         @include align-items;
         &gt; .mark:not(:last-child),
@@ -145,22 +147,23 @@
         }
     }
     &gt; .item,
-    &gt; .yo-panel &gt; .front {
+    &gt; .yo-slidermenu &gt; .front {
         padding: map-get($list, item-padding);
     }
     &gt; .item {
-        min-height: .44rem;
         border-bottom: .01rem solid map-get($list, item-bordercolor);
         background-color: #fff;
         color: map-get($base, color);
         font-size: map-get($list, item-font-size);
         &amp;:last-child {
-            margin-bottom: -1px;
+            margin-bottom: -.01rem;
+            // 最后一根线的颜色与外边框颜色相同
+            border-color: map-get($list, bordercolor);
         }
         &amp;-stacked {
             display: block;
             &gt; .mark {
-                padding-bottom: 5px;
+                padding-bottom: .05rem;
             }
         }
         &amp;-input {
@@ -193,7 +196,7 @@
             padding: map-get($list, item-padding);
         }
     }
-    &gt; .yo-panel {
+    &gt; .yo-slidermenu {
         display: block;
         padding: 0;
     }

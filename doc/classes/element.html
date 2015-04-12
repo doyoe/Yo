@@ -124,10 +124,6 @@ Edit: 2015.1.19</p>
 
                             </li>
                             <li class="index-item method">
-                                <a href="#method_yo-checkbox">yo-checkbox</a>
-
-                            </li>
-                            <li class="index-item method">
                                 <a href="#method_yo-checked">yo-checked</a>
 
                             </li>
@@ -141,10 +137,6 @@ Edit: 2015.1.19</p>
                             </li>
                             <li class="index-item method">
                                 <a href="#method_yo-loadtip">yo-loadtip</a>
-
-                            </li>
-                            <li class="index-item method">
-                                <a href="#method_yo-radio">yo-radio</a>
 
                             </li>
                             <li class="index-item method">
@@ -172,6 +164,12 @@ Edit: 2015.1.19</p>
             <span class="paren">(</span><ul class="args-list inline commas">
                 <li class="arg">
                         <code>$name</code>
+                </li>
+                <li class="arg">
+                        <code>$padding</code>
+                </li>
+                <li class="arg">
+                        <code>$border-width</code>
                 </li>
                 <li class="arg">
                         <code>$bordercolor</code>
@@ -209,11 +207,8 @@ Edit: 2015.1.19</p>
     </div>
 
     <div class="description">
-        <h1>构造提醒气泡的自定义使用方法，可以扩展为：tag, 文字ico等形态</h1>
-<p>Variables: 6
-Author: doyoe(杜瑶)
-Edit: 2015.1.19</p>
-<hr>
+        <h2>构造提醒气泡的自定义使用方法，可以扩展为：tag, 文字ico等形态</h2>
+<p>使用方法，详见 <a href="http://doyoe.github.io/yo/demo/element/yo-btn.html">Demo</a></p>
 
     </div>
 
@@ -223,18 +218,40 @@ Edit: 2015.1.19</p>
             <ul class="params-list">
                 <li class="param">
                         <code class="param-name">$name</code>
-                        <span class="type">Defailt | String</span>
+                        <span class="type">String</span>
 
 
                     <div class="param-description">
-                        <p>为需要的扩展定义一个名称</p>
+                        <p>为新的扩展定义一个名称，假设扩展了一个 <code>$name</code> 为 <code>tag</code> 的 <code>yo-badge</code>，那么你可以这样使用 <code>&lt;span class=&quot;yo-badge yo-badge-tag&quot;&gt;</code></p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$padding</code>
+                        <span class="type">Length</span>
+
+
+                    <div class="param-description">
+                        <p>内补白</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$border-width</code>
+                        <span class="type">Length</span>
+
+
+                    <div class="param-description">
+                        <p>边框厚度</p>
 
                     </div>
 
                 </li>
                 <li class="param">
                         <code class="param-name">$bordercolor</code>
-                        <span class="type">Defailt | Color</span>
+                        <span class="type">Color</span>
 
 
                     <div class="param-description">
@@ -245,7 +262,7 @@ Edit: 2015.1.19</p>
                 </li>
                 <li class="param">
                         <code class="param-name">$bgcolor</code>
-                        <span class="type">Defailt | Color</span>
+                        <span class="type">Color</span>
 
 
                     <div class="param-description">
@@ -256,7 +273,7 @@ Edit: 2015.1.19</p>
                 </li>
                 <li class="param">
                         <code class="param-name">$color</code>
-                        <span class="type">Defailt | Color</span>
+                        <span class="type">Color</span>
 
 
                     <div class="param-description">
@@ -267,7 +284,7 @@ Edit: 2015.1.19</p>
                 </li>
                 <li class="param">
                         <code class="param-name">$radius</code>
-                        <span class="type">Defailt | Length</span>
+                        <span class="type">Length</span>
 
 
                     <div class="param-description">
@@ -278,7 +295,7 @@ Edit: 2015.1.19</p>
                 </li>
                 <li class="param">
                         <code class="param-name">$font-size</code>
-                        <span class="type">Defailt | Length</span>
+                        <span class="type">Length</span>
 
 
                     <div class="param-description">
@@ -300,6 +317,9 @@ Edit: 2015.1.19</p>
             <span class="paren">(</span><ul class="args-list inline commas">
                 <li class="arg">
                         <code>$name</code>
+                </li>
+                <li class="arg">
+                        <code>$border-width</code>
                 </li>
                 <li class="arg">
                         <code>$bordercolor</code>
@@ -355,11 +375,8 @@ Edit: 2015.1.19</p>
     </div>
 
     <div class="description">
-        <h1>构造按钮的自定义使用方法，可轻松自定义边框，尺寸，背景，文字等</h1>
-<p>Variables: 12
-Author: doyoe(杜瑶)
-Edit: 2015.1.19</p>
-<hr>
+        <h2>构造按钮的自定义使用方法，可轻松自定义边框，尺寸，背景，文字等</h2>
+<p>使用方法，详见 <a href="http://doyoe.github.io/yo/demo/element/yo-btn.html">Demo</a></p>
 
     </div>
 
@@ -369,302 +386,143 @@ Edit: 2015.1.19</p>
             <ul class="params-list">
                 <li class="param">
                         <code class="param-name">$name</code>
-                        <span class="type">Default | String</span>
+                        <span class="type">String</span>
 
 
                     <div class="param-description">
-                        <p>为需要的扩展定义一个名称</p>
+                        <p>为新的按钮扩展定义一个名称</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$border-width</code>
+                        <span class="type">Length</span>
+
+
+                    <div class="param-description">
+                        <p>按钮边框厚度</p>
 
                     </div>
 
                 </li>
                 <li class="param">
                         <code class="param-name">$bordercolor</code>
-                        <span class="type">Default | Color</span>
+                        <span class="type">Color</span>
 
 
                     <div class="param-description">
-                        <p>边框色</p>
+                        <p>按钮边框色</p>
 
                     </div>
 
                 </li>
                 <li class="param">
                         <code class="param-name">$bgcolor</code>
-                        <span class="type">Default | Color</span>
+                        <span class="type">Color</span>
 
 
                     <div class="param-description">
-                        <p>背景色</p>
+                        <p>按钮背景色</p>
 
                     </div>
 
                 </li>
                 <li class="param">
                         <code class="param-name">$color</code>
-                        <span class="type">Default | Color</span>
+                        <span class="type">Color</span>
 
 
                     <div class="param-description">
-                        <p>文本色</p>
+                        <p>按钮文本色</p>
 
                     </div>
 
                 </li>
                 <li class="param">
                         <code class="param-name">$active-bordercolor</code>
-                        <span class="type">Default | Color</span>
+                        <span class="type">Color</span>
 
 
                     <div class="param-description">
-                        <p>激活时边框色</p>
+                        <p>触点（鼠标，手指或其它）按下时的按钮边框色</p>
 
                     </div>
 
                 </li>
                 <li class="param">
                         <code class="param-name">$active-bgcolor</code>
-                        <span class="type">Default | Color</span>
+                        <span class="type">Color</span>
 
 
                     <div class="param-description">
-                        <p>激活时背景色</p>
+                        <p>触点（鼠标，手指或其它）按下的按钮背景色</p>
 
                     </div>
 
                 </li>
                 <li class="param">
                         <code class="param-name">$active-color</code>
-                        <span class="type">Default | Color</span>
+                        <span class="type">Color</span>
 
 
                     <div class="param-description">
-                        <p>激活时文本色</p>
+                        <p>触点（鼠标，手指或其它）按下的按钮文本色</p>
 
                     </div>
 
                 </li>
                 <li class="param">
                         <code class="param-name">$padding</code>
-                        <span class="type">Default | Length</span>
+                        <span class="type">Length</span>
 
 
                     <div class="param-description">
-                        <p>横向补白</p>
+                        <p>按钮内补白</p>
 
                     </div>
 
                 </li>
                 <li class="param">
                         <code class="param-name">$radius</code>
-                        <span class="type">Default | Length</span>
+                        <span class="type">Length</span>
 
 
                     <div class="param-description">
-                        <p>圆角半径长度</p>
+                        <p>按钮圆角半径长度</p>
 
                     </div>
 
                 </li>
                 <li class="param">
                         <code class="param-name">$font-size</code>
-                        <span class="type">Default | Length</span>
+                        <span class="type">Length</span>
 
 
                     <div class="param-description">
-                        <p>字号大小</p>
+                        <p>按钮字号大小</p>
 
                     </div>
 
                 </li>
                 <li class="param">
                         <code class="param-name">$width</code>
-                        <span class="type">Default | Length</span>
+                        <span class="type">Length</span>
 
 
                     <div class="param-description">
-                        <p>宽度</p>
+                        <p>按钮宽度</p>
 
                     </div>
 
                 </li>
                 <li class="param">
                         <code class="param-name">$height</code>
-                        <span class="type">Default | Length</span>
+                        <span class="type">Length</span>
 
 
                     <div class="param-description">
-                        <p>高度</p>
-
-                    </div>
-
-                </li>
-            </ul>
-        </div>
-
-
-
-</div>
-<div id="method_yo-checkbox" class="method item">
-    <h3 class="name"><code>yo-checkbox</code></h3>
-
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-                <li class="arg">
-                        <code>$name</code>
-                </li>
-                <li class="arg">
-                        <code>$type</code>
-                </li>
-                <li class="arg">
-                        <code>$size</code>
-                </li>
-                <li class="arg">
-                        <code>$bordercolor</code>
-                </li>
-                <li class="arg">
-                        <code>$bgcolor</code>
-                </li>
-                <li class="arg">
-                        <code>$on-bordercolor</code>
-                </li>
-                <li class="arg">
-                        <code>$on-bgcolor</code>
-                </li>
-                <li class="arg">
-                        <code>$on-color</code>
-                </li>
-                <li class="arg">
-                        <code>$radius</code>
-                </li>
-            </ul><span class="paren">)</span>
-        </div>
-
-
-
-
-
-
-
-
-    <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/lib_element_yo-checkbox.scss.html#l8"><code>lib&#x2F;element&#x2F;yo-checkbox.scss:8</code></a>
-        </p>
-
-
-
-    </div>
-
-    <div class="description">
-        <h1>构造多选的自定义使用方法</h1>
-<p>Variables: 9
-Author: doyoe(杜瑶)
-Edit: 2014.11.14</p>
-<hr>
-
-    </div>
-
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-                <li class="param">
-                        <code class="param-name">$name</code>
-                        <span class="type">Default | String</span>
-
-
-                    <div class="param-description">
-                        <p>为需要的扩展定义一个名称</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">$type</code>
-                        <span class="type">Default | String</span>
-
-
-                    <div class="param-description">
-                        <p>选中时的标记类型，可选值：[circle | tick]</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">$size</code>
-                        <span class="type">Default | Length</span>
-
-
-                    <div class="param-description">
-                        <p>元件大小</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">$bordercolor</code>
-                        <span class="type">Default | Color</span>
-
-
-                    <div class="param-description">
-                        <p>边框色</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">$bgcolor</code>
-                        <span class="type">Default | Color</span>
-
-
-                    <div class="param-description">
-                        <p>背景色</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">$on-bordercolor</code>
-                        <span class="type">Default | Color</span>
-
-
-                    <div class="param-description">
-                        <p>选中时的边框色</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">$on-bgcolor</code>
-                        <span class="type">Default | Color</span>
-
-
-                    <div class="param-description">
-                        <p>选中时的背景色</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">$on-color</code>
-                        <span class="type">Default | Color</span>
-
-
-                    <div class="param-description">
-                        <p>选中时的标记色</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">$radius</code>
-                        <span class="type">Default | Length</span>
-
-
-                    <div class="param-description">
-                        <p>圆角半径长度</p>
+                        <p>按钮高度</p>
 
                     </div>
 
@@ -684,16 +542,25 @@ Edit: 2014.11.14</p>
                         <code>$name</code>
                 </li>
                 <li class="arg">
-                        <code>$type</code>
+                        <code>$content</code>
                 </li>
                 <li class="arg">
                         <code>$size</code>
+                </li>
+                <li class="arg">
+                        <code>$font-size</code>
+                </li>
+                <li class="arg">
+                        <code>$border-width</code>
                 </li>
                 <li class="arg">
                         <code>$bordercolor</code>
                 </li>
                 <li class="arg">
                         <code>$bgcolor</code>
+                </li>
+                <li class="arg">
+                        <code>$color</code>
                 </li>
                 <li class="arg">
                         <code>$on-bordercolor</code>
@@ -728,11 +595,8 @@ Edit: 2014.11.14</p>
     </div>
 
     <div class="description">
-        <h1>构造单选多选的自定义使用方法，可同时作用于 checkbox 与 radio</h1>
-<p>Variables: 9
-Author: doyoe(杜瑶)
-Edit: 2015.3.21</p>
-<hr>
+        <h2>构造单选多选的自定义使用方法，可同时作用于 checkbox 与 radio</h2>
+<p>使用方法，详见 <a href="http://doyoe.github.io/yo/demo/element/yo-checked.html">Demo</a></p>
 
     </div>
 
@@ -742,29 +606,29 @@ Edit: 2015.3.21</p>
             <ul class="params-list">
                 <li class="param">
                         <code class="param-name">$name</code>
-                        <span class="type">Default | String</span>
+                        <span class="type">String</span>
 
 
                     <div class="param-description">
-                        <p>为需要的扩展定义一个名称</p>
+                        <p>为新的扩展定义一个名称</p>
 
                     </div>
 
                 </li>
                 <li class="param">
-                        <code class="param-name">$type</code>
-                        <span class="type">Default | String</span>
+                        <code class="param-name">$content</code>
+                        <span class="type">String</span>
 
 
                     <div class="param-description">
-                        <p>选中时的标记类型，可选值：[circle | tick]</p>
+                        <p>标记（对勾，圆点或者任意字符，可以是webfonts的编码）</p>
 
                     </div>
 
                 </li>
                 <li class="param">
                         <code class="param-name">$size</code>
-                        <span class="type">Default | Length</span>
+                        <span class="type">Length</span>
 
 
                     <div class="param-description">
@@ -774,8 +638,30 @@ Edit: 2015.3.21</p>
 
                 </li>
                 <li class="param">
+                        <code class="param-name">$font-size</code>
+                        <span class="type">Length</span>
+
+
+                    <div class="param-description">
+                        <p>标记大小</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$border-width</code>
+                        <span class="type">Length</span>
+
+
+                    <div class="param-description">
+                        <p>边框厚度</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
                         <code class="param-name">$bordercolor</code>
-                        <span class="type">Default | Color</span>
+                        <span class="type">Color</span>
 
 
                     <div class="param-description">
@@ -786,7 +672,7 @@ Edit: 2015.3.21</p>
                 </li>
                 <li class="param">
                         <code class="param-name">$bgcolor</code>
-                        <span class="type">Default | Color</span>
+                        <span class="type">Color</span>
 
 
                     <div class="param-description">
@@ -796,8 +682,19 @@ Edit: 2015.3.21</p>
 
                 </li>
                 <li class="param">
+                        <code class="param-name">$color</code>
+                        <span class="type">Color</span>
+
+
+                    <div class="param-description">
+                        <p>标记色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
                         <code class="param-name">$on-bordercolor</code>
-                        <span class="type">Default | Color</span>
+                        <span class="type">Color</span>
 
 
                     <div class="param-description">
@@ -808,7 +705,7 @@ Edit: 2015.3.21</p>
                 </li>
                 <li class="param">
                         <code class="param-name">$on-bgcolor</code>
-                        <span class="type">Default | Color</span>
+                        <span class="type">Color</span>
 
 
                     <div class="param-description">
@@ -819,7 +716,7 @@ Edit: 2015.3.21</p>
                 </li>
                 <li class="param">
                         <code class="param-name">$on-color</code>
-                        <span class="type">Default | Color</span>
+                        <span class="type">Color</span>
 
 
                     <div class="param-description">
@@ -830,7 +727,7 @@ Edit: 2015.3.21</p>
                 </li>
                 <li class="param">
                         <code class="param-name">$radius</code>
-                        <span class="type">Default | Length</span>
+                        <span class="type">Length</span>
 
 
                     <div class="param-description">
@@ -898,11 +795,8 @@ Edit: 2015.3.21</p>
     </div>
 
     <div class="description">
-        <h1>构造输入框的自定义使用方法，可同时作用于 input 与 textarea</h1>
-<p>Variables: 9
-Author: doyoe(杜瑶)
-Edit: 2012.1.1</p>
-<hr>
+        <h2>构造输入框的自定义使用方法，可同时作用于 input 与 textarea</h2>
+<p>使用方法，详见 <a href="http://doyoe.github.io/yo/demo/element/yo-input.html">Demo</a></p>
 
     </div>
 
@@ -912,18 +806,18 @@ Edit: 2012.1.1</p>
             <ul class="params-list">
                 <li class="param">
                         <code class="param-name">$name</code>
-                        <span class="type">Default | String</span>
+                        <span class="type">String</span>
 
 
                     <div class="param-description">
-                        <p>为需要的扩展定义一个名称</p>
+                        <p>为新的扩展定义一个名称</p>
 
                     </div>
 
                 </li>
                 <li class="param">
                         <code class="param-name">$width</code>
-                        <span class="type">Default | Length</span>
+                        <span class="type">Length</span>
 
 
                     <div class="param-description">
@@ -934,7 +828,7 @@ Edit: 2012.1.1</p>
                 </li>
                 <li class="param">
                         <code class="param-name">$height</code>
-                        <span class="type">Default | Length</span>
+                        <span class="type">Length</span>
 
 
                     <div class="param-description">
@@ -945,7 +839,7 @@ Edit: 2012.1.1</p>
                 </li>
                 <li class="param">
                         <code class="param-name">$padding</code>
-                        <span class="type">Default | Length</span>
+                        <span class="type">Length</span>
 
 
                     <div class="param-description">
@@ -956,7 +850,7 @@ Edit: 2012.1.1</p>
                 </li>
                 <li class="param">
                         <code class="param-name">$radius</code>
-                        <span class="type">Default | Length</span>
+                        <span class="type">Length</span>
 
 
                     <div class="param-description">
@@ -967,7 +861,7 @@ Edit: 2012.1.1</p>
                 </li>
                 <li class="param">
                         <code class="param-name">$bordercolor</code>
-                        <span class="type">Default | Color</span>
+                        <span class="type">Color</span>
 
 
                     <div class="param-description">
@@ -978,7 +872,7 @@ Edit: 2012.1.1</p>
                 </li>
                 <li class="param">
                         <code class="param-name">$bgcolor</code>
-                        <span class="type">Default | Color</span>
+                        <span class="type">Color</span>
 
 
                     <div class="param-description">
@@ -989,7 +883,7 @@ Edit: 2012.1.1</p>
                 </li>
                 <li class="param">
                         <code class="param-name">$color</code>
-                        <span class="type">Default | Color</span>
+                        <span class="type">Color</span>
 
 
                     <div class="param-description">
@@ -1000,7 +894,7 @@ Edit: 2012.1.1</p>
                 </li>
                 <li class="param">
                         <code class="param-name">$placeholder-color</code>
-                        <span class="type">Default | Color</span>
+                        <span class="type">Color</span>
 
 
                     <div class="param-description">
@@ -1056,11 +950,8 @@ Edit: 2012.1.1</p>
     </div>
 
     <div class="description">
-        <h1>构造加载中的自定义使用方法</h1>
-<p>Variables: 5
-Author: doyoe(杜瑶)
-Edit: 2012.1.1</p>
-<hr>
+        <h2>构造加载中的自定义使用方法</h2>
+<p>使用方法，详见 <a href="http://doyoe.github.io/yo/demo/element/yo-loading.html">Demo</a></p>
 
     </div>
 
@@ -1070,18 +961,18 @@ Edit: 2012.1.1</p>
             <ul class="params-list">
                 <li class="param">
                         <code class="param-name">$name</code>
-                        <span class="type">Defailt | String</span>
+                        <span class="type">String</span>
 
 
                     <div class="param-description">
-                        <p>为需要的扩展定义一个名称</p>
+                        <p>为新的扩展定义一个名称</p>
 
                     </div>
 
                 </li>
                 <li class="param">
                         <code class="param-name">$size</code>
-                        <span class="type">Defailt | Length</span>
+                        <span class="type">Length</span>
 
 
                     <div class="param-description">
@@ -1092,18 +983,18 @@ Edit: 2012.1.1</p>
                 </li>
                 <li class="param">
                         <code class="param-name">$color</code>
-                        <span class="type">Defailt | Color</span>
+                        <span class="type">Color</span>
 
 
                     <div class="param-description">
-                        <p>颜色</p>
+                        <p>loading的颜色</p>
 
                     </div>
 
                 </li>
                 <li class="param">
                         <code class="param-name">$mask-bgcolor</code>
-                        <span class="type">Defailt | Color</span>
+                        <span class="type">Color</span>
 
 
                     <div class="param-description">
@@ -1114,7 +1005,7 @@ Edit: 2012.1.1</p>
                 </li>
                 <li class="param">
                         <code class="param-name">$bgcolor</code>
-                        <span class="type">Defailt | Color</span>
+                        <span class="type">Color</span>
 
 
                     <div class="param-description">
@@ -1167,11 +1058,8 @@ Edit: 2012.1.1</p>
     </div>
 
     <div class="description">
-        <h1>构造加载提示的自定义使用方法</h1>
-<p>Variables: 4
-Author: doyoe(杜瑶)
-Edit: 2015.3.9</p>
-<hr>
+        <h2>构造加载提示的自定义使用方法</h2>
+<p>使用方法，详见 <a href="http://doyoe.github.io/yo/demo/element/yo-loadtip.html">Demo</a></p>
 
     </div>
 
@@ -1181,18 +1069,18 @@ Edit: 2015.3.9</p>
             <ul class="params-list">
                 <li class="param">
                         <code class="param-name">$name</code>
-                        <span class="type">Defailt | String</span>
+                        <span class="type">String</span>
 
 
                     <div class="param-description">
-                        <p>为需要的扩展定义一个名称</p>
+                        <p>为新的扩展定义一个名称</p>
 
                     </div>
 
                 </li>
                 <li class="param">
                         <code class="param-name">$color</code>
-                        <span class="type">Defailt | Color</span>
+                        <span class="type">Color</span>
 
 
                     <div class="param-description">
@@ -1203,7 +1091,7 @@ Edit: 2015.3.9</p>
                 </li>
                 <li class="param">
                         <code class="param-name">$font-size</code>
-                        <span class="type">Defailt | Length</span>
+                        <span class="type">Length</span>
 
 
                     <div class="param-description">
@@ -1214,181 +1102,11 @@ Edit: 2015.3.9</p>
                 </li>
                 <li class="param">
                         <code class="param-name">$ico-color</code>
-                        <span class="type">Defailt | Color</span>
+                        <span class="type">Color</span>
 
 
                     <div class="param-description">
                         <p>ico颜色</p>
-
-                    </div>
-
-                </li>
-            </ul>
-        </div>
-
-
-
-</div>
-<div id="method_yo-radio" class="method item">
-    <h3 class="name"><code>yo-radio</code></h3>
-
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-                <li class="arg">
-                        <code>$name</code>
-                </li>
-                <li class="arg">
-                        <code>$type</code>
-                </li>
-                <li class="arg">
-                        <code>$size</code>
-                </li>
-                <li class="arg">
-                        <code>$bordercolor</code>
-                </li>
-                <li class="arg">
-                        <code>$bgcolor</code>
-                </li>
-                <li class="arg">
-                        <code>$on-bordercolor</code>
-                </li>
-                <li class="arg">
-                        <code>$on-bgcolor</code>
-                </li>
-                <li class="arg">
-                        <code>$on-color</code>
-                </li>
-                <li class="arg">
-                        <code>$radius</code>
-                </li>
-            </ul><span class="paren">)</span>
-        </div>
-
-
-
-
-
-
-
-
-    <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/lib_element_yo-radio.scss.html#l8"><code>lib&#x2F;element&#x2F;yo-radio.scss:8</code></a>
-        </p>
-
-
-
-    </div>
-
-    <div class="description">
-        <h1>构造单选的自定义使用方法</h1>
-<p>Variables: 9
-Author: doyoe(杜瑶)
-Edit: 2015.3.21</p>
-<hr>
-
-    </div>
-
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-                <li class="param">
-                        <code class="param-name">$name</code>
-                        <span class="type">Default | String</span>
-
-
-                    <div class="param-description">
-                        <p>为需要的扩展定义一个名称</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">$type</code>
-                        <span class="type">Default | String</span>
-
-
-                    <div class="param-description">
-                        <p>选中时的标记类型，可选值：[circle | tick]</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">$size</code>
-                        <span class="type">Default | Length</span>
-
-
-                    <div class="param-description">
-                        <p>元件大小</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">$bordercolor</code>
-                        <span class="type">Default | Color</span>
-
-
-                    <div class="param-description">
-                        <p>边框色</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">$bgcolor</code>
-                        <span class="type">Default | Color</span>
-
-
-                    <div class="param-description">
-                        <p>背景色</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">$on-bordercolor</code>
-                        <span class="type">Default | Color</span>
-
-
-                    <div class="param-description">
-                        <p>选中时的边框色</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">$on-bgcolor</code>
-                        <span class="type">Default | Color</span>
-
-
-                    <div class="param-description">
-                        <p>选中时的背景色</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">$on-color</code>
-                        <span class="type">Default | Color</span>
-
-
-                    <div class="param-description">
-                        <p>选中时的标记色</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">$radius</code>
-                        <span class="type">Default | Length</span>
-
-
-                    <div class="param-description">
-                        <p>圆角半径长度</p>
 
                     </div>
 
@@ -1437,12 +1155,8 @@ Edit: 2015.3.21</p>
     </div>
 
     <div class="description">
-        <h1>构造区间选择的自定义使用方法</h1>
-<p>Variables: 4
-Author: joy.du(飘零雾雨)
-Edit: 2012.1.1</p>
-<hr>
-<p>定义按钮使用方法</p>
+        <h2>构造区间选择的自定义使用方法</h2>
+<p>使用方法，详见 <a href="http://doyoe.github.io/yo/demo/element/yo-range.html">Demo</a></p>
 
     </div>
 
@@ -1452,18 +1166,18 @@ Edit: 2012.1.1</p>
             <ul class="params-list">
                 <li class="param">
                         <code class="param-name">$name</code>
-                        <span class="type">Default | String</span>
+                        <span class="type">String</span>
 
 
                     <div class="param-description">
-                        <p>为需要的扩展定义一个名称</p>
+                        <p>为新的扩展定义一个名称</p>
 
                     </div>
 
                 </li>
                 <li class="param">
                         <code class="param-name">$inner-bgcolor</code>
-                        <span class="type">Default | Color</span>
+                        <span class="type">Color</span>
 
 
                     <div class="param-description">
@@ -1474,7 +1188,7 @@ Edit: 2012.1.1</p>
                 </li>
                 <li class="param">
                         <code class="param-name">$outer-bgcolor</code>
-                        <span class="type">Default | Color</span>
+                        <span class="type">Color</span>
 
 
                     <div class="param-description">
@@ -1485,7 +1199,7 @@ Edit: 2012.1.1</p>
                 </li>
                 <li class="param">
                         <code class="param-name">$ball-color</code>
-                        <span class="type">Default | Color</span>
+                        <span class="type">Color</span>
 
 
                     <div class="param-description">
@@ -1538,11 +1252,8 @@ Edit: 2012.1.1</p>
     </div>
 
     <div class="description">
-        <h1>构造评分展示的自定义使用方法</h1>
-<p>Variables: 4
-Author: joy.du(飘零雾雨)
-Edit: 2012.1.1</p>
-<hr>
+        <h2>构造评分展示的自定义使用方法</h2>
+<p>使用方法，详见 <a href="http://doyoe.github.io/yo/demo/element/yo-score.html">Demo</a></p>
 
     </div>
 
@@ -1552,18 +1263,18 @@ Edit: 2012.1.1</p>
             <ul class="params-list">
                 <li class="param">
                         <code class="param-name">$name</code>
-                        <span class="type">Default | String</span>
+                        <span class="type">String</span>
 
 
                     <div class="param-description">
-                        <p>为需要的扩展定义一个名称</p>
+                        <p>为新的扩展定义一个名称</p>
 
                     </div>
 
                 </li>
                 <li class="param">
                         <code class="param-name">$item-width</code>
-                        <span class="type">Default | Length</span>
+                        <span class="type">Length</span>
 
 
                     <div class="param-description">
@@ -1574,7 +1285,7 @@ Edit: 2012.1.1</p>
                 </li>
                 <li class="param">
                         <code class="param-name">$item-height</code>
-                        <span class="type">Default | Length</span>
+                        <span class="type">Length</span>
 
 
                     <div class="param-description">
@@ -1585,7 +1296,7 @@ Edit: 2012.1.1</p>
                 </li>
                 <li class="param">
                         <code class="param-name">$url</code>
-                        <span class="type">Default | String</span>
+                        <span class="type">String</span>
 
 
                     <div class="param-description">

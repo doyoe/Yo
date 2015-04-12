@@ -92,29 +92,32 @@
 
 /**
  * 构造单选多选的自定义使用方法，可同时作用于 checkbox 与 radio
- =======================
- * Variables: 9
- * Author: doyoe(杜瑶)
- * Edit: 2015.3.21
  -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/element/yo-checked.html)
  * @method yo-checked
- * @param {default | String} $name 为需要的扩展定义一个名称
- * @param {default | String} $type 选中时的标记类型，可选值：[circle | tick]
- * @param {default | Length} $size 元件大小
- * @param {default | Color} $bordercolor 边框色
- * @param {default | Color} $bgcolor 背景色
- * @param {default | Color} $on-bordercolor 选中时的边框色
- * @param {default | Color} $on-bgcolor 选中时的背景色
- * @param {default | Color} $on-color 选中时的标记色
- * @param {default | Length} $radius 圆角半径长度
+ * @param {String} $name 为新的扩展定义一个名称
+ * @param {String} $content 标记（对勾，圆点或者任意字符，可以是webfonts的编码）
+ * @param {Length} $size 元件大小
+ * @param {Length} $font-size 标记大小
+ * @param {Length} $border-width 边框厚度
+ * @param {Color} $bordercolor 边框色
+ * @param {Color} $bgcolor 背景色
+ * @param {Color} $color 标记色
+ * @param {Color} $on-bordercolor 选中时的边框色
+ * @param {Color} $on-bgcolor 选中时的背景色
+ * @param {Color} $on-color 选中时的标记色
+ * @param {Length} $radius 圆角半径长度
  */
 
 @mixin yo-checked(
     $name: default,
-    $type: default,
+    $content: default,
     $size: default,
+    $font-size: default,
+    $border-width: default,
     $bordercolor: default,
     $bgcolor: default,
+    $color: default,
     $on-bordercolor: default,
     $on-bgcolor: default,
     $on-color: default,
@@ -126,17 +129,26 @@
         $name: &quot;-#{$name}&quot;;
     }
     // 如果值为default，则取config的定义
-    @if $type == default {
-        $type: map-get($checked, type);
+    @if $content == default {
+        $content: map-get($checked, content);
     }
     @if $size == default {
         $size: map-get($checked, size);
+    }
+    @if $font-size == default {
+        $font-size: map-get($checked, font-size);
+    }
+    @if $border-width == default {
+        $border-width: map-get($checked, border-width);
     }
     @if $bordercolor == default {
         $bordercolor: map-get($checked, bordercolor);
     }
     @if $bgcolor == default {
         $bgcolor: map-get($checked, bgcolor);
+    }
+    @if $color == default {
+        $color: map-get($checked, color);
     }
     @if $on-bordercolor == default {
         $on-bordercolor: map-get($checked, on-bordercolor);
@@ -153,29 +165,85 @@
     .yo-checked#{$name} {
         @if $size != map-get($checked, size) {
             @include square($size);
-            font-size: $size;
         }
-        @if $radius != map-get($checked, radius) {
-            border-radius: $radius;
+        @if $font-size != map-get($checked, font-size) {
+            font-size: $font-size;
         }
-        @if $bordercolor != map-get($checked, bordercolor) {
-            border-color: $bordercolor;
-        }
-        @if $bgcolor != map-get($checked, bgcolor) {
-            background-color: $bgcolor;
-        }
-        &amp;::after{
-            @if $type != map-get($checked, type) {
-                @if $type == tick {
-                    content: &quot;✓&quot;;
+        &gt; .type {
+            @if $radius != map-get($checked, radius) {
+                border-radius: $radius;
+            }
+            // 如果$border-width不等于config设定，则重绘边框相关
+            @if $border-width != map-get($checked, border-width) {
+                // 如果$border-width为null，重设置为0
+                @if $border-width == null {
+                    $border-width: 0;
+                }
+                border-width: $border-width;
+                // 如果$bordercolor不等于config设定，则重绘边框色
+                @if $bordercolor != map-get($checked, bordercolor) {
+                    @if $border-width != 0 {
+                        border-color: $bordercolor;
+                    }
                 } @else {
-                    content: &quot;●&quot;;
+                    // 如果config的边框厚度定义为null或者0，在扩展时，加上边框色
+                    @if map-get($checked, border-width) == null or
+                        map-get($checked, border-width) == 0 {
+                        border-color: map-get($checked, bordercolor);
+                    }
+                }
+                // 如果config的边框厚度定义为null或者0，在扩展时，加上border-style
+                @if map-get($checked, border-width) == null or
+                    map-get($checked, border-width) == 0 {
+                    border-style: solid;
+                }
+                line-height: $size - nth($border-width, 1) * 2;
+            } @else {
+                // 如果扩展的边框厚度大于0且边框色和config边框色不同，在扩展时，重绘边框色
+                @if $border-width != null and
+                    $border-width != 0 and
+                    $bordercolor != map-get($checked, bordercolor) {
+                    border-color: $bordercolor;
+                }
+            }
+            @if $bgcolor != map-get($checked, bgcolor) {
+                background-color: $bgcolor;
+            }
+            &amp;::after {
+                @if $content != map-get($checked, content) {
+                    content: $content;
+                }
+                @if $color != map-get($checked, color) {
+                    color: $color;
                 }
             }
         }
-        &amp;:checked {
-            @if $on-bordercolor != map-get($checked, on-bordercolor) {
-                border-color: $on-bordercolor;
+        &gt; input:checked ~ .type {
+            // 如果$border-width不等于config设定，则重绘边框相关
+            @if $border-width != map-get($checked, border-width) {
+                // 如果$border-width为null，重设置为0
+                @if $border-width == null {
+                    $border-width: 0;
+                }
+                // 如果$on-bordercolor不等于config设定，则重绘边框色
+                @if $on-bordercolor != map-get($checked, on-bordercolor) {
+                    @if $border-width != 0 {
+                        border-color: $on-bordercolor;
+                    }
+                } @else {
+                    // 如果config的边框厚度定义为null或者0，在扩展时，加上边框色
+                    @if map-get($checked, border-width) == null or
+                        map-get($checked, border-width) == 0 {
+                        border-color: map-get($checked, on-bordercolor);
+                    }
+                }
+            } @else {
+                // 如果扩展的边框厚度大于0且边框色和config边框色不同，在扩展时，重绘边框色
+                @if $border-width != null and
+                    $border-width != 0 and
+                    $on-bordercolor != map-get($checked, on-bordercolor) {
+                    border-color: $on-bordercolor;
+                }
             }
             @if $on-bgcolor != map-get($checked, on-bgcolor) {
                 background-color: $on-bgcolor;

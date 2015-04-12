@@ -92,22 +92,23 @@
 
 /**
  * 构造提醒气泡的自定义使用方法，可以扩展为：tag, 文字ico等形态
- =======================
- * Variables: 6
- * Author: doyoe(杜瑶)
- * Edit: 2015.1.19
  -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/element/yo-btn.html)
  * @method yo-badge
- * @param {defailt | String} $name 为需要的扩展定义一个名称
- * @param {defailt | Color} $bordercolor 边框色
- * @param {defailt | Color} $bgcolor 背景色
- * @param {defailt | Color} $color 文本色
- * @param {defailt | Length} $radius 圆角半径长度
- * @param {defailt | Length} $font-size 字号大小
+ * @param {String} $name 为新的扩展定义一个名称，假设扩展了一个 &#x60;$name&#x60; 为 &#x60;tag&#x60; 的 &#x60;yo-badge&#x60;，那么你可以这样使用 &#x60;&lt;span class=&quot;yo-badge yo-badge-tag&quot;&gt;&#x60;
+ * @param {Length} $padding 内补白
+ * @param {Length} $border-width 边框厚度
+ * @param {Color} $bordercolor 边框色
+ * @param {Color} $bgcolor 背景色
+ * @param {Color} $color 文本色
+ * @param {Length} $radius 圆角半径长度
+ * @param {Length} $font-size 字号大小
  */
 
 @mixin yo-badge(
     $name: default,
+    $padding: default,
+    $border-width: default,
     $bordercolor: default,
     $bgcolor: default,
     $color: default,
@@ -120,6 +121,12 @@
         $name: &quot;-#{$name}&quot;;
     }
     // 如果值为default，则取config的定义
+    @if $padding == default {
+        $padding: map-get($badge, padding);
+    }
+    @if $border-width == default {
+        $border-width: map-get($badge, border-width);
+    }
     @if $bordercolor == default {
         $bordercolor: map-get($badge, bordercolor);
     }
@@ -135,11 +142,42 @@
     @if $font-size == default {
         $font-size: map-get($badge, font-size);
     }
-
     .yo-badge#{$name} {
-        // 如果$bordercolor不等于config设定，则重绘边框色
-        @if $bordercolor != map-get($badge, bordercolor) {
-            border-color: $bordercolor;
+        // 如果$padding不等于config设定，则重绘内补白
+        @if $padding != map-get($badge, padding) {
+            padding: $padding;
+        }
+        // 如果$border-width不等于config设定，则重绘边框相关
+        @if $border-width != map-get($badge, border-width) {
+            // 如果$border-width为null，重设置为0
+            @if $border-width == null {
+                $border-width: 0;
+            }
+            border-width: $border-width;
+            // 如果$bordercolor不等于config设定，则重绘边框色
+            @if $bordercolor != map-get($badge, bordercolor) {
+                @if $border-width != 0 {
+                    border-color: $bordercolor;
+                }
+            } @else {
+                // 如果config的边框厚度定义为null或者0，在扩展时，加上边框色
+                @if map-get($badge, border-width) == null or
+                    map-get($badge, border-width) == 0 {
+                    border-color: map-get($badge, bordercolor);
+                }
+            }
+            // 如果config的边框厚度定义为null或者0，在扩展时，加上border-style
+            @if map-get($badge, border-width) == null or
+                map-get($badge, border-width) == 0 {
+                border-style: solid;
+            }
+        } @else {
+            // 如果扩展的边框厚度大于0且边框色和config边框色不同，在扩展时，重绘边框色
+            @if $border-width != null and
+                $border-width != 0 and
+                $bordercolor != map-get($badge, bordercolor) {
+                border-color: $bordercolor;
+            }
         }
         // 如果$bgcolor不等于config设定，则重绘背景色
         @if $bgcolor != map-get($badge, bgcolor) {
@@ -156,9 +194,9 @@
         // 如果$font-size不等于config设定，则重绘字号
         @if $font-size != map-get($badge, font-size) {
             font-size: $font-size;
-            @if $font-size &lt; .14rem {
-                line-height: .14rem;
-            } @else {
+            // 如果$font-size不等于config设定，并且不等于null，且大于.14rem时，重绘行高
+            @if $font-size != null and
+                $font-size &gt; .14rem {
                 line-height: $font-size;
             }
         }

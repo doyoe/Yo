@@ -196,7 +196,7 @@
 /**
  * 定义背景图像缩放
  * @method background-size
- * @param {String} $background-size 指定背景图缩放值
+ * @param {String | Length} $background-size 指定背景图缩放值
  */
 @mixin background-size($background-size...) {
     @include prefix(background-size, $background-size);
@@ -274,7 +274,7 @@
     -webkit-flex: $flex;
     flex: $flex;
     // iOS6要求所有的伸缩盒子元素需要为非inline
-    display: block;
+    // display: block; // 如果参与flex布局，请自行使用非inline元素
     // 修复iOS6下不均分bug，任意非auto的值
     width: 100%;
 }
@@ -464,7 +464,6 @@
  * @param {Boolen} $ellipsis 定义是否需要省略号
  */
 @mixin ellipsis($ellipsis: true) {
-    display: block;
     overflow: hidden;
     white-space: nowrap;
     @if $ellipsis {
