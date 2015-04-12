@@ -926,7 +926,6 @@ html, body {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
     flex: 1;
-    display: block;
     width: 100%;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
@@ -951,7 +950,6 @@ html, body {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
-  display: block;
   width: 100%;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
@@ -1492,7 +1490,6 @@ html, body {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
-  display: block;
   width: 100%;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
@@ -1506,29 +1503,26 @@ html, body {
   text-align: center;
 }
 .yo-dialog > .ft .yo-btn {
-  border-width: #ddd;
-  border-color: #fff;
-  background-color: #00afc7;
+  border-radius: 0;
+  border-width: 0.01rem 0 0 0;
+  border-color: #ddd;
+  background-color: #fff;
+  color: #00afc7;
 }
 .yo-dialog > .ft .yo-btn:active {
-  border-color: 0;
+  background-color: #f9f9f9;
 }
 .yo-dialog > .ft > .yo-btn {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
-  display: block;
   width: 100%;
-  border-width: 1px 0 0 0;
 }
 .yo-dialog > .ft > .yo-btn:last-child:not(:only-child), .yo-dialog > .ft > .yo-btn:only-child {
   font-weight: bold;
 }
 .yo-dialog > .ft > .yo-btn:last-child:not(:only-child) {
-  border-left-width: 1px;
-}
-.yo-dialog > .ft > .yo-btn:focus, .yo-dialog > .ft > .yo-btn:active {
-  background-color: #f9f9f9;
+  border-left-width: .01rem;
 }
 
 /**

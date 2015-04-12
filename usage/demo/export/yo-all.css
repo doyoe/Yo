@@ -2136,7 +2136,6 @@ a {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
-  display: block;
   width: 100%;
   overflow: hidden;
   height: .28rem;
@@ -2947,7 +2946,6 @@ a {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
-  display: block;
   width: 100%;
   margin-left: .1rem;
 }
@@ -3469,7 +3467,6 @@ a {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
-  display: block;
   width: 100%;
 }
 .yo-list > .label > .mark,
@@ -4781,7 +4778,6 @@ a {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
-  display: block;
   width: 100%;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
@@ -4795,29 +4791,26 @@ a {
   text-align: center;
 }
 .yo-dialog > .ft .yo-btn {
-  border-width: #ddd;
-  border-color: #fff;
-  background-color: #00afc7;
+  border-radius: 0;
+  border-width: 0.01rem 0 0 0;
+  border-color: #ddd;
+  background-color: #fff;
+  color: #00afc7;
 }
 .yo-dialog > .ft .yo-btn:active {
-  border-color: 0;
+  background-color: #f9f9f9;
 }
 .yo-dialog > .ft > .yo-btn {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
-  display: block;
   width: 100%;
-  border-width: 1px 0 0 0;
 }
 .yo-dialog > .ft > .yo-btn:last-child:not(:only-child), .yo-dialog > .ft > .yo-btn:only-child {
   font-weight: bold;
 }
 .yo-dialog > .ft > .yo-btn:last-child:not(:only-child) {
-  border-left-width: 1px;
-}
-.yo-dialog > .ft > .yo-btn:focus, .yo-dialog > .ft > .yo-btn:active {
-  background-color: #f9f9f9;
+  border-left-width: .01rem;
 }
 
 /**
@@ -5118,7 +5111,6 @@ a {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
-  display: block;
   width: 100%;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
@@ -5374,7 +5366,6 @@ a {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
-  display: block;
   width: 100%;
   border: 1px solid #ddd;
   border-width: 0 1px;
@@ -5616,7 +5607,6 @@ a {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
-  display: block;
   width: 100%;
   position: relative;
   z-index: 2;
@@ -5880,7 +5870,6 @@ a {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
-  display: block;
   width: 100%;
   position: relative;
   color: #212121;
@@ -6983,7 +6972,6 @@ a {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
-  display: block;
   width: 100%;
 }
 .yo-list > .label > .mark,
@@ -7625,7 +7613,6 @@ a {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
-  display: block;
   width: 100%;
   display: none;
   position: absolute;
@@ -8883,6 +8870,5 @@ a {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
-  display: block;
   width: 100%;
 }

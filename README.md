@@ -28,6 +28,8 @@
 
 ### Developing: v1.4.0
 
+* update: `flex` 方法
+    - 删除 `flex` 方法的 `display: block` 设置，如果参与flex布局，请自行使用非inline元素
 * update: `yo-badge`
     - 新增 `padding` 参数用于设置内补白
     - 新增 `border-width` 参数用于设置边框厚度

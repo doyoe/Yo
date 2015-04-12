@@ -68,20 +68,22 @@
     > .ft {
         @include flexbox();
         text-align: center;
-        @include yo-btn(default, map-get($base, bordercolor), #fff, map-get($base, link-color), default, 0);
+        @include yo-btn(
+            $border-width: .01rem 0 0 0,
+            $bordercolor: map-get($base, bordercolor),
+            $bgcolor: #fff,
+            $color: map-get($base, link-color),
+            $radius: 0,
+            $active-bgcolor: #f9f9f9
+        );
         > .yo-btn {
             @include flex();
-            border-width: 1px 0 0 0;
             &:last-child:not(:only-child),
             &:only-child {
                 font-weight: bold;
             }
             &:last-child:not(:only-child) {
-                border-left-width: 1px;
-            }
-            &:focus,
-            &:active {
-                background-color: #f9f9f9;
+                border-left-width: .01rem;
             }
         }
     }
