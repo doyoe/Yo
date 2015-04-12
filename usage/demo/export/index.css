@@ -1049,11 +1049,6 @@ html, body {
  * @param {default|Length} $item-font-size 定义list项字号
  * @param {default|Length} $label-font-size 定义list列表组头字号
  */
-.yo-list {
-  border-width: 0;
-  border-style: solid;
-  border-color: #ddd;
-}
 .yo-list > .label,
 .yo-list > .item,
 .yo-list > .yo-slidermenu > .front {
@@ -1161,6 +1156,8 @@ html, body {
   margin: 0.2rem 0.1rem 0 0.1rem;
   border-radius: 0.02rem;
   border-width: 0.01rem;
+  border-color: #ddd;
+  border-style: solid;
 }
 
 /**
