@@ -1046,7 +1046,7 @@ html, body {
  */
 .yo-list > .label,
 .yo-list > .item,
-.yo-list > .yo-slidermenu .front {
+.yo-list .front {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -1058,13 +1058,13 @@ html, body {
 .yo-list > .label > .yo-ico:not(:last-child),
 .yo-list > .item > .mark:not(:last-child),
 .yo-list > .item > .yo-ico:not(:last-child),
-.yo-list > .yo-slidermenu .front > .mark:not(:last-child),
-.yo-list > .yo-slidermenu .front > .yo-ico:not(:last-child) {
+.yo-list .front > .mark:not(:last-child),
+.yo-list .front > .yo-ico:not(:last-child) {
   margin-right: .1rem;
 }
 .yo-list > .label > .flex,
 .yo-list > .item > .flex,
-.yo-list > .yo-slidermenu .front > .flex {
+.yo-list .front > .flex {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
@@ -1078,15 +1078,15 @@ html, body {
 .yo-list > .item > .yo-ico,
 .yo-list > .item > .col,
 .yo-list > .item > .flex,
-.yo-list > .yo-slidermenu .front > .mark,
-.yo-list > .yo-slidermenu .front > .yo-ico,
-.yo-list > .yo-slidermenu .front > .col,
-.yo-list > .yo-slidermenu .front > .flex {
+.yo-list .front > .mark,
+.yo-list .front > .yo-ico,
+.yo-list .front > .col,
+.yo-list .front > .flex {
   display: block;
 }
 .yo-list > .label.tr,
 .yo-list > .item.tr,
-.yo-list > .yo-slidermenu .front.tr {
+.yo-list .front.tr {
   padding: 0;
 }
 .yo-list > .label {
@@ -1103,7 +1103,7 @@ html, body {
   padding: 0.03rem 0.1rem;
 }
 .yo-list > .item,
-.yo-list > .yo-slidermenu .front {
+.yo-list .front {
   padding: 0.11rem;
 }
 .yo-list > .item {
