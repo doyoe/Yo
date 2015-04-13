@@ -700,12 +700,12 @@
 // 使用方法请查看 yo-slidermenu.scss
 @mixin _slidermenu {
     position: relative;
-    > .front {
+    .front {
         position: relative;
         z-index: 2;
         background-color: #fff;
     }
-    > .action {
+    .action {
         position: absolute;
         top: 0;
         right: 0;

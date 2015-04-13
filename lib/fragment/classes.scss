@@ -24,7 +24,7 @@
     }
     > .label,
     > .item,
-    > .yo-slidermenu > .front {
+    > .yo-slidermenu .front {
         @include flexbox;
         @include align-items;
         > .mark:not(:last-child),
@@ -61,7 +61,7 @@
         }
     }
     > .item,
-    > .yo-slidermenu > .front {
+    > .yo-slidermenu .front {
         padding: map-get($list, item-padding);
     }
     > .item {
