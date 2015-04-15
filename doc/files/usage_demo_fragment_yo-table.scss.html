@@ -97,9 +97,16 @@
  */
 
 // 有竖线
-@include yo-table(test,default,true);
+@include yo-table(
+    $name: test,
+    $has-vertical-border: true
+);
+
 // 有间隔色
-@include yo-table(test2,default,default,default,default,default,default,default,#f9f9f9);
+@include yo-table(
+    $name: test2,
+    $even-bgcolor: #f9f9f9
+);
     </pre>
 </div>
                     </div>

@@ -148,13 +148,16 @@
                 font-size: $label-font-size;
             }
         }
-        > .item {
+        > .item,
+        .front {
             @if $item-padding != map-get($list, item-padding) {
                 padding: $item-padding;
                 > .col {
                     padding: $item-padding;
                 }
             }
+        }
+        > .item {
             @if $item-bordercolor != map-get($list, item-bordercolor) {
                 border-color: $item-bordercolor;
             }

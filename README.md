@@ -31,7 +31,11 @@
 
 ## Versioning
 
-### Developing: v1.4.0
+### Developing: v1.5.0
+
+* TODO...
+
+### Lastest: v1.4.0
 
 * update:
     - 删除了 `layout.scss`，如果当前页面需要设置root是否允许滚动，使用 `root-scroll()` 方法
@@ -58,29 +62,6 @@
     - 删除列表项的 `min-height` 定义
 * update: `yo-search`
     - 增加 `cancel-width` 参数，用于设置取消按钮区域的宽度
-
-### Lastest: v1.3.1
-
-* update: `yo-switchable` 参数配置
-* update: `yo-btn`
-    - 增加 `active-bordercolor`, `active-bgcolor`, `active-color` 参数，用于设置按钮按下时的边框、背景、文本颜色；
-* update: `yo-tab`
-    - 删除 `is-border`, `is-item-border`, `on-bordercolor` 参数；
-    - 新增 `border-width` 参数，用于设置tab的外边框厚度；
-    - 新增 `radius` 参数，用于设置tab的圆角大小；
-    - 新增 `item-border-height` 参数，用于设置tab子项间隔线的高度；
-    - 新增 `item-bordercolor` 参数，用于设置tab子项间隔线的颜色；
-* add: 新增分值元素 `yo-score`；
-* add: 新增双list `yo-dblist`；
-* update: 建议单选和多选都使用 `yo-checked`，后续考虑将 `yo-checkbox` 及 `yo-radio` 删除，尽量不要使用，之前使用过最好及时替换；
-* update: `yo-checked`
-    - 删除 `is-border` 参数，不再使用该参数来设定是否有边框，利用原有 `bordercolor` 参数，当值为 `transparent` 时，则无边框；
-    - 删除 `disabled-color` 参数，Yo所有元素的禁用色都改为继承 `$base` map；
-    - 增加 `radius` 参数用于设置圆角；
-    - 增加 `on-bordercolor` 参数用于设置激活边框色；
-    - 增加 `on-bgcolor` 参数用于设置激活背景色；
-* update: yo-rating 外观
-    - 增加 `url` 参数用于改变 yo-rating 的外观；
 
 
 ### History
