@@ -42,6 +42,9 @@
                                 <li><a href="../classes/classes.html">classes</a></li>
                                 <li><a href="../classes/element.html">element</a></li>
                                 <li><a href="../classes/fragment.html">fragment</a></li>
+                                <li><a href="../classes/layout.html">layout</a></li>
+                                <li><a href="../classes/reset.html">reset</a></li>
+                                <li><a href="../classes/variables.html">variables</a></li>
                                 <li><a href="../classes/widget.html">widget</a></li>
                             </ul>
                 
@@ -85,7 +88,7 @@
 
 
         <div class="foundat">
-            Defined in: <a href="../files/lib_widget_classes.scss.html#l4"><code>lib&#x2F;widget&#x2F;classes.scss:4</code></a>
+            Defined in: <a href="../files/lib_widget_yo-tip.scss.html#l4"><code>lib&#x2F;widget&#x2F;yo-tip.scss:4</code></a>
         </div>
 
             Module: <a href="../modules/Yo.html">Yo</a>
@@ -116,25 +119,63 @@
 
                     <ul class="index-list methods">
                             <li class="index-item method">
-                                <a href="#method_doc">doc</a>
+                                <a href="#method_yo-dblist">yo-dblist</a>
 
                             </li>
                             <li class="index-item method">
-                                <a href="#method_stacked
-variables length(2)">stacked
-variables length(2)</a>
+                                <a href="#method_yo-dialog">yo-dialog</a>
 
                             </li>
                             <li class="index-item method">
-                                <a href="#method_yo-header
-variables length(10)">yo-header
-variables length(10)</a>
+                                <a href="#method_yo-group">yo-group</a>
 
                             </li>
                             <li class="index-item method">
-                                <a href="#method_yo-list
-variables length(15)">yo-list
-variables length(15)</a>
+                                <a href="#method_yo-index">yo-index</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_yo-mask">yo-mask</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_yo-number">yo-number</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_yo-popup">yo-popup</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_yo-rating">yo-rating</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_yo-search">yo-search</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_yo-select">yo-select</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_yo-slidermenu">yo-slidermenu</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_yo-switch">yo-switch</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_yo-switchable">yo-switchable</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_yo-tab">yo-tab</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_yo-tip">yo-tip</a>
 
                             </li>
                     </ul>
@@ -147,8 +188,8 @@ variables length(15)</a>
             <div id="methods" class="api-class-tabpanel">
                 <h2 class="off-left">Methods</h2>
 
-<div id="method_doc" class="method item">
-    <h3 class="name"><code>doc</code></h3>
+<div id="method_yo-dblist" class="method item">
+    <h3 class="name"><code>yo-dblist</code></h3>
 
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
@@ -156,13 +197,10 @@ variables length(15)</a>
                         <code>$name</code>
                 </li>
                 <li class="arg">
-                        <code>$fixed</code>
+                        <code>$aside-width</code>
                 </li>
                 <li class="arg">
-                        <code>$hd-gap</code>
-                </li>
-                <li class="arg">
-                        <code>$ft-gap</code>
+                        <code>$aside-order</code>
                 </li>
             </ul><span class="paren">)</span>
         </div>
@@ -177,7 +215,7 @@ variables length(15)</a>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/lib_layout_layout.scss.html#l4"><code>lib&#x2F;layout&#x2F;layout.scss:4</code></a>
+        <a href="../files/lib_widget_yo-dblist.scss.html#l8"><code>lib&#x2F;widget&#x2F;yo-dblist.scss:8</code></a>
         </p>
 
 
@@ -185,10 +223,8 @@ variables length(15)</a>
     </div>
 
     <div class="description">
-        <p>document: doc
-Author: joy.du(飘零雾雨)
-Time: 2012.1.1</p>
-<hr>
+        <h2>构造列表的自定义使用方法</h2>
+<p>使用方法，详见 <a href="http://doyoe.github.io/yo/demo/widget/yo-dblist.html">Demo</a></p>
 
     </div>
 
@@ -198,44 +234,33 @@ Time: 2012.1.1</p>
             <ul class="params-list">
                 <li class="param">
                         <code class="param-name">$name</code>
-                        <span class="type">String</span>
+                        <span class="type">Default | String</span>
 
 
                     <div class="param-description">
-                        <p>定义page-name</p>
+                        <p>扩展的名称</p>
 
                     </div>
 
                 </li>
                 <li class="param">
-                        <code class="param-name">$fixed</code>
-                        <span class="type">String</span>
+                        <code class="param-name">$aside-width</code>
+                        <span class="type">Default | Length</span>
 
 
                     <div class="param-description">
-                        <p>定义头尾是否固定</p>
+                        <p>侧边栏宽度</p>
 
                     </div>
 
                 </li>
                 <li class="param">
-                        <code class="param-name">$hd-gap</code>
-                        <span class="type">Length</span>
+                        <code class="param-name">$aside-order</code>
+                        <span class="type">Default | Length</span>
 
 
                     <div class="param-description">
-                        <p>定义主体到viewport顶部的距离</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">$ft-gap</code>
-                        <span class="type">Length</span>
-
-
-                    <div class="param-description">
-                        <p>定义主体到viewport底部的距离</p>
+                        <p>侧边栏顺序</p>
 
                     </div>
 
@@ -246,10 +271,8 @@ Time: 2012.1.1</p>
 
 
 </div>
-<div id="method_stacked
-variables length(2)" class="method item">
-    <h3 class="name"><code>stacked
-variables length(2)</code></h3>
+<div id="method_yo-dialog" class="method item">
+    <h3 class="name"><code>yo-dialog</code></h3>
 
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
@@ -257,7 +280,37 @@ variables length(2)</code></h3>
                         <code>$name</code>
                 </li>
                 <li class="arg">
-                        <code>$margin</code>
+                        <code>$width</code>
+                </li>
+                <li class="arg">
+                        <code>$height</code>
+                </li>
+                <li class="arg">
+                        <code>$radius</code>
+                </li>
+                <li class="arg">
+                        <code>$shadow-opacity</code>
+                </li>
+                <li class="arg">
+                        <code>$bordercolor</code>
+                </li>
+                <li class="arg">
+                        <code>$hd-height</code>
+                </li>
+                <li class="arg">
+                        <code>$hd-bgcolor</code>
+                </li>
+                <li class="arg">
+                        <code>$title-color</code>
+                </li>
+                <li class="arg">
+                        <code>$title-font-size</code>
+                </li>
+                <li class="arg">
+                        <code>$bd-padding</code>
+                </li>
+                <li class="arg">
+                        <code>$bd-font-size</code>
                 </li>
             </ul><span class="paren">)</span>
         </div>
@@ -272,7 +325,7 @@ variables length(2)</code></h3>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/lib_layout_yo-stacked.scss.html#l4"><code>lib&#x2F;layout&#x2F;yo-stacked.scss:4</code></a>
+        <a href="../files/lib_widget_yo-dialog.scss.html#l9"><code>lib&#x2F;widget&#x2F;yo-dialog.scss:9</code></a>
         </p>
 
 
@@ -280,10 +333,8 @@ variables length(2)</code></h3>
     </div>
 
     <div class="description">
-        <p>Layout: yo-stacked
-Author: joy.du(飘零雾雨)
-Edit: 2015.1.15</p>
-<hr>
+        <h2>构造列表的自定义使用方法</h2>
+<p>使用方法，详见 <a href="http://doyoe.github.io/yo/demo/widget/yo-dialog.html">Demo</a></p>
 
     </div>
 
@@ -293,22 +344,132 @@ Edit: 2015.1.15</p>
             <ul class="params-list">
                 <li class="param">
                         <code class="param-name">$name</code>
-                        <span class="type">Defailt | String</span>
+                        <span class="type">Default | String</span>
 
 
                     <div class="param-description">
-                        <p>定义名称</p>
+                        <p>定义dialog名称</p>
 
                     </div>
 
                 </li>
                 <li class="param">
-                        <code class="param-name">$margin</code>
-                        <span class="type">Defailt | Color</span>
+                        <code class="param-name">$width</code>
+                        <span class="type">Default | Length | null</span>
 
 
                     <div class="param-description">
-                        <p>定义外边距</p>
+                        <p>定义dialog宽度</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$height</code>
+                        <span class="type">Default | Length</span>
+
+
+                    <div class="param-description">
+                        <p>定义dialog高度</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$radius</code>
+                        <span class="type">Default | Length</span>
+
+
+                    <div class="param-description">
+                        <p>定义dialog圆角</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$shadow-opacity</code>
+                        <span class="type">Default | Number</span>
+
+
+                    <div class="param-description">
+                        <p>定义dialog阴影透明度</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$bordercolor</code>
+                        <span class="type">Default | Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义dialog边框色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$hd-height</code>
+                        <span class="type">Default | Length</span>
+
+
+                    <div class="param-description">
+                        <p>定义dialog头部高度</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$hd-bgcolor</code>
+                        <span class="type">Default | Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义dialog头部背景色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$title-color</code>
+                        <span class="type">Default | Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义dialog标题文本色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$title-font-size</code>
+                        <span class="type">Default | Length</span>
+
+
+                    <div class="param-description">
+                        <p>定义dialog标题字号</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$bd-padding</code>
+                        <span class="type">Default | Length</span>
+
+
+                    <div class="param-description">
+                        <p>定义dialog主体补白</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$bd-font-size</code>
+                        <span class="type">Default | Length</span>
+
+
+                    <div class="param-description">
+                        <p>定义dialog主体字号</p>
 
                     </div>
 
@@ -319,10 +480,702 @@ Edit: 2015.1.15</p>
 
 
 </div>
-<div id="method_yo-header
-variables length(10)" class="method item">
-    <h3 class="name"><code>yo-header
-variables length(10)</code></h3>
+<div id="method_yo-group" class="method item">
+    <h3 class="name"><code>yo-group</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>$name</code>
+                </li>
+                <li class="arg">
+                        <code>$top</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_widget_yo-group.scss.html#l10"><code>lib&#x2F;widget&#x2F;yo-group.scss:10</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <h2>构造列表的自定义使用方法</h2>
+<p>使用方法，详见 <a href="http://doyoe.github.io/yo/demo/widget/yo-group.html">Demo</a></p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">$name</code>
+                        <span class="type">Default | String</span>
+
+
+                    <div class="param-description">
+                        <p>定义yo-group名称</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$top</code>
+                        <span class="type">Default | Length</span>
+
+
+                    <div class="param-description">
+                        <p>定义yo-group顶部偏移值</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_yo-index" class="method item">
+    <h3 class="name"><code>yo-index</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>$name</code>
+                </li>
+                <li class="arg">
+                        <code>$width</code>
+                </li>
+                <li class="arg">
+                        <code>$color</code>
+                </li>
+                <li class="arg">
+                        <code>$font-size</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_widget_yo-index.scss.html#l8"><code>lib&#x2F;widget&#x2F;yo-index.scss:8</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <h2>构造列表的自定义使用方法</h2>
+<p>使用方法，详见 <a href="http://doyoe.github.io/yo/demo/widget/yo-index.html">Demo</a></p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">$name</code>
+                        <span class="type">Default | String</span>
+
+
+                    <div class="param-description">
+                        <p>定义yo-index名称</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$width</code>
+                        <span class="type">Default | Length</span>
+
+
+                    <div class="param-description">
+                        <p>定义yo-index宽度</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$color</code>
+                        <span class="type">Default | Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义yo-index文本色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$font-size</code>
+                        <span class="type">Default | Length</span>
+
+
+                    <div class="param-description">
+                        <p>定义yo-index文本字号</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_yo-mask" class="method item">
+    <h3 class="name"><code>yo-mask</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>$name</code>
+                </li>
+                <li class="arg">
+                        <code>$bgcolor</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_widget_yo-mask.scss.html#l8"><code>lib&#x2F;widget&#x2F;yo-mask.scss:8</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <h2>构造列表的自定义使用方法</h2>
+<p>使用方法，详见 <a href="http://doyoe.github.io/yo/demo/widget/yo-mask.html">Demo</a></p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">$name</code>
+                        <span class="type">Default | String</span>
+
+
+                    <div class="param-description">
+                        <p>定义yo-mask名称</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$bgcolor</code>
+                        <span class="type">Default | Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义yo-mask背景色</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_yo-number" class="method item">
+    <h3 class="name"><code>yo-number</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>$name</code>
+                </li>
+                <li class="arg">
+                        <code>$width</code>
+                </li>
+                <li class="arg">
+                        <code>$height</code>
+                </li>
+                <li class="arg">
+                        <code>$bordercolor</code>
+                </li>
+                <li class="arg">
+                        <code>$color</code>
+                </li>
+                <li class="arg">
+                        <code>$sign-bgcolor</code>
+                </li>
+                <li class="arg">
+                        <code>$sign-color</code>
+                </li>
+                <li class="arg">
+                        <code>$disabled-sign-color</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_widget_yo-number.scss.html#l8"><code>lib&#x2F;widget&#x2F;yo-number.scss:8</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <h2>构造列表的自定义使用方法</h2>
+<p>使用方法，详见 <a href="http://doyoe.github.io/yo/demo/widget/yo-number.html">Demo</a></p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">$name</code>
+                        <span class="type">Default | String</span>
+
+
+                    <div class="param-description">
+                        <p>定义yo-number名称</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$width</code>
+                        <span class="type">Default | Length</span>
+
+
+                    <div class="param-description">
+                        <p>定义yo-number宽度</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$height</code>
+                        <span class="type">Default | Length</span>
+
+
+                    <div class="param-description">
+                        <p>定义yo-number高度</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$bordercolor</code>
+                        <span class="type">Default | Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义yo-number边框色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$color</code>
+                        <span class="type">Default | Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义yo-number输入框文本色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$sign-bgcolor</code>
+                        <span class="type">Default | Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义yo-number加减号背景色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$sign-color</code>
+                        <span class="type">Default | Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义yo-number加减号文本色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$disabled-sign-color</code>
+                        <span class="type">Default | Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义yo-number禁用文本色</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_yo-popup" class="method item">
+    <h3 class="name"><code>yo-popup</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>$name</code>
+                </li>
+                <li class="arg">
+                        <code>$width</code>
+                </li>
+                <li class="arg">
+                        <code>$height</code>
+                </li>
+                <li class="arg">
+                        <code>$radius</code>
+                </li>
+                <li class="arg">
+                        <code>$shadow-opacity</code>
+                </li>
+                <li class="arg">
+                        <code>$bordercolor</code>
+                </li>
+                <li class="arg">
+                        <code>$hd-height</code>
+                </li>
+                <li class="arg">
+                        <code>$hd-bgcolor</code>
+                </li>
+                <li class="arg">
+                        <code>$title-color</code>
+                </li>
+                <li class="arg">
+                        <code>$title-font-size</code>
+                </li>
+                <li class="arg">
+                        <code>$bd-padding</code>
+                </li>
+                <li class="arg">
+                        <code>$arrow-size</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_widget_yo-popup.scss.html#l8"><code>lib&#x2F;widget&#x2F;yo-popup.scss:8</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <h2>构造列表的自定义使用方法</h2>
+<p>使用方法，详见 <a href="http://doyoe.github.io/yo/demo/widget/yo-popup.html">Demo</a></p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">$name</code>
+                        <span class="type">Default | String</span>
+
+
+                    <div class="param-description">
+                        <p>定义popup名称</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$width</code>
+                        <span class="type">Default | Length | null</span>
+
+
+                    <div class="param-description">
+                        <p>定义popup宽度</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$height</code>
+                        <span class="type">Default | Length</span>
+
+
+                    <div class="param-description">
+                        <p>定义popup高度</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$radius</code>
+                        <span class="type">Default | Length</span>
+
+
+                    <div class="param-description">
+                        <p>定义popup圆角</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$shadow-opacity</code>
+                        <span class="type">Default | Number</span>
+
+
+                    <div class="param-description">
+                        <p>定义popup阴影透明度</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$bordercolor</code>
+                        <span class="type">Default | Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义popup边框色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$hd-height</code>
+                        <span class="type">Default | Length</span>
+
+
+                    <div class="param-description">
+                        <p>定义popup头部高度</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$hd-bgcolor</code>
+                        <span class="type">Default | Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义popup头部背景色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$title-color</code>
+                        <span class="type">Default | Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义popup标题文本色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$title-font-size</code>
+                        <span class="type">Default | Length</span>
+
+
+                    <div class="param-description">
+                        <p>定义popup标题字号</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$bd-padding</code>
+                        <span class="type">Default | Length</span>
+
+
+                    <div class="param-description">
+                        <p>定义popup主体补白</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$arrow-size</code>
+                        <span class="type">Default | Length</span>
+
+
+                    <div class="param-description">
+                        <p>定义popup箭头高度</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_yo-rating" class="method item">
+    <h3 class="name"><code>yo-rating</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>$name</code>
+                </li>
+                <li class="arg">
+                        <code>$item-width</code>
+                </li>
+                <li class="arg">
+                        <code>$item-height</code>
+                </li>
+                <li class="arg">
+                        <code>$url</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_widget_yo-rating.scss.html#l8"><code>lib&#x2F;widget&#x2F;yo-rating.scss:8</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <h2>构造列表的自定义使用方法</h2>
+<p>使用方法，详见 <a href="http://doyoe.github.io/yo/demo/widget/yo-rating.html">Demo</a></p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">$name</code>
+                        <span class="type">Default | String</span>
+
+
+                    <div class="param-description">
+                        <p>定义yo-rating名称</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$item-width</code>
+                        <span class="type">Default | Length</span>
+
+
+                    <div class="param-description">
+                        <p>定义yo-rating 单项宽度</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$item-height</code>
+                        <span class="type">Default | Length</span>
+
+
+                    <div class="param-description">
+                        <p>定义yo-rating 单项高度</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$url</code>
+                        <span class="type">Default | Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义yo-rating 图片url</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_yo-search" class="method item">
+    <h3 class="name"><code>yo-search</code></h3>
 
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
@@ -333,10 +1186,13 @@ variables length(10)</code></h3>
                         <code>$height</code>
                 </li>
                 <li class="arg">
-                        <code>$item-width</code>
+                        <code>$font-size</code>
                 </li>
                 <li class="arg">
-                        <code>$item-space</code>
+                        <code>$op-padding</code>
+                </li>
+                <li class="arg">
+                        <code>$radius</code>
                 </li>
                 <li class="arg">
                         <code>$bordercolor</code>
@@ -348,13 +1204,28 @@ variables length(10)</code></h3>
                         <code>$color</code>
                 </li>
                 <li class="arg">
-                        <code>$font-size</code>
+                        <code>$on-bordercolor</code>
                 </li>
                 <li class="arg">
-                        <code>$item-color</code>
+                        <code>$on-bgcolor</code>
                 </li>
                 <li class="arg">
-                        <code>$item-font-size</code>
+                        <code>$placeholder-color</code>
+                </li>
+                <li class="arg">
+                        <code>$ico-color</code>
+                </li>
+                <li class="arg">
+                        <code>$cancel-color</code>
+                </li>
+                <li class="arg">
+                        <code>$op-bgcolor</code>
+                </li>
+                <li class="arg">
+                        <code>$mask-bgcolor</code>
+                </li>
+                <li class="arg">
+                        <code>$cancel-width</code>
                 </li>
             </ul><span class="paren">)</span>
         </div>
@@ -369,7 +1240,7 @@ variables length(10)</code></h3>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/lib_fragment_yo-header.scss.html#l4"><code>lib&#x2F;fragment&#x2F;yo-header.scss:4</code></a>
+        <a href="../files/lib_widget_yo-search.scss.html#l8"><code>lib&#x2F;widget&#x2F;yo-search.scss:8</code></a>
         </p>
 
 
@@ -377,10 +1248,8 @@ variables length(10)</code></h3>
     </div>
 
     <div class="description">
-        <p>Widget: yo-header
-Author: joy.du(飘零雾雨)
-Time: 2012.1.1</p>
-<hr>
+        <h2>构造列表的自定义使用方法</h2>
+<p>使用方法，详见 <a href="http://doyoe.github.io/yo/demo/widget/yo-search.html">Demo</a></p>
 
     </div>
 
@@ -394,7 +1263,7 @@ Time: 2012.1.1</p>
 
 
                     <div class="param-description">
-                        <p>定义yo-header名称</p>
+                        <p>定义yo-search名称</p>
 
                     </div>
 
@@ -405,62 +1274,7 @@ Time: 2012.1.1</p>
 
 
                     <div class="param-description">
-                        <p>定义yo-header高度</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">$item-width</code>
-                        <span class="type">Default | Length</span>
-
-
-                    <div class="param-description">
-                        <p>定义yo-header两侧子项宽度</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">$item-space</code>
-                        <span class="type">Default | Length</span>
-
-
-                    <div class="param-description">
-                        <p>定义yo-header两侧子项离边界的间隙</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">$bordercolor</code>
-                        <span class="type">Default | Color</span>
-
-
-                    <div class="param-description">
-                        <p>定义yo-header边框色</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">$bgcolor</code>
-                        <span class="type">Default | Color</span>
-
-
-                    <div class="param-description">
-                        <p>定义yo-header背景色</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">$color</code>
-                        <span class="type">Default | Color</span>
-
-
-                    <div class="param-description">
-                        <p>定义yo-header文本色</p>
+                        <p>定义yo-search高度</p>
 
                     </div>
 
@@ -471,29 +1285,150 @@ Time: 2012.1.1</p>
 
 
                     <div class="param-description">
-                        <p>定义yo-header文本大小</p>
+                        <p>定义yo-search文本大小</p>
 
                     </div>
 
                 </li>
                 <li class="param">
-                        <code class="param-name">$item-color</code>
-                        <span class="type">Default | Color</span>
-
-
-                    <div class="param-description">
-                        <p>定义yo-header两侧的子项文本色</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">$item-font-size</code>
+                        <code class="param-name">$op-padding</code>
                         <span class="type">Default | Length</span>
 
 
                     <div class="param-description">
-                        <p>定义yo-header两侧的子项文本大小</p>
+                        <p>定义yo-search内补白</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$radius</code>
+                        <span class="type">Default | Length</span>
+
+
+                    <div class="param-description">
+                        <p>定义yo-search圆角</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$bordercolor</code>
+                        <span class="type">Default | Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义yo-search边框色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$bgcolor</code>
+                        <span class="type">Default | Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义yo-search背景色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$color</code>
+                        <span class="type">Default | Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义yo-search文本色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$on-bordercolor</code>
+                        <span class="type">Default | Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义yo-search激活边框色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$on-bgcolor</code>
+                        <span class="type">Default | Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义yo-search激活背景色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$placeholder-color</code>
+                        <span class="type">Default | Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义yo-search占位背景色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$ico-color</code>
+                        <span class="type">Default | Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义yo-search 操作区ico颜色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$cancel-color</code>
+                        <span class="type">Default | Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义yo-search取消按钮颜色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$op-bgcolor</code>
+                        <span class="type">Default | Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义yo-search搜索区域背景色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$mask-bgcolor</code>
+                        <span class="type">Default | Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义yo-search遮罩背景色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$cancel-width</code>
+                        <span class="type">Default | Length</span>
+
+
+                    <div class="param-description">
+                        <p>取消按钮区域宽度</p>
 
                     </div>
 
@@ -504,10 +1439,8 @@ Time: 2012.1.1</p>
 
 
 </div>
-<div id="method_yo-list
-variables length(15)" class="method item">
-    <h3 class="name"><code>yo-list
-variables length(15)</code></h3>
+<div id="method_yo-select" class="method item">
+    <h3 class="name"><code>yo-select</code></h3>
 
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
@@ -515,7 +1448,493 @@ variables length(15)</code></h3>
                         <code>$name</code>
                 </li>
                 <li class="arg">
-                        <code>$margin</code>
+                        <code>$width</code>
+                </li>
+                <li class="arg">
+                        <code>$height</code>
+                </li>
+                <li class="arg">
+                        <code>$bordercolor</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_widget_yo-select.scss.html#l8"><code>lib&#x2F;widget&#x2F;yo-select.scss:8</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <h2>构造列表的自定义使用方法</h2>
+<p>使用方法，详见 <a href="http://doyoe.github.io/yo/demo/widget/yo-select.html">Demo</a></p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">$name</code>
+                        <span class="type">Default | String</span>
+
+
+                    <div class="param-description">
+                        <p>定义select名称</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$width</code>
+                        <span class="type">Default | Length</span>
+
+
+                    <div class="param-description">
+                        <p>定义select显示的子项个数</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$height</code>
+                        <span class="type">Default | Length</span>
+
+
+                    <div class="param-description">
+                        <p>定义select子项高度</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$bordercolor</code>
+                        <span class="type">Default | Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义select边框色</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_yo-slidermenu" class="method item">
+    <h3 class="name"><code>yo-slidermenu</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>$name</code>
+                </li>
+                <li class="arg">
+                        <code>$action-width</code>
+                </li>
+                <li class="arg">
+                        <code>$action-bgcolor</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_widget_yo-slidermenu.scss.html#l8"><code>lib&#x2F;widget&#x2F;yo-slidermenu.scss:8</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <h2>构造列表的自定义使用方法</h2>
+<p>使用方法，详见 <a href="http://doyoe.github.io/yo/demo/widget/yo-slidermenu.html">Demo</a></p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">$name</code>
+                        <span class="type">Default | String</span>
+
+
+                    <div class="param-description">
+                        <p>扩展的名称</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$action-width</code>
+                        <span class="type">Default | Length</span>
+
+
+                    <div class="param-description">
+                        <p>定义action宽度</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$action-bgcolor</code>
+                        <span class="type">Default | Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义action背景色</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_yo-switch" class="method item">
+    <h3 class="name"><code>yo-switch</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>$name</code>
+                </li>
+                <li class="arg">
+                        <code>$checked-bordercolor</code>
+                </li>
+                <li class="arg">
+                        <code>$checked-bgcolor</code>
+                </li>
+                <li class="arg">
+                        <code>$bordercolor</code>
+                </li>
+                <li class="arg">
+                        <code>$bgcolor</code>
+                </li>
+                <li class="arg">
+                        <code>$ball-color</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_widget_yo-switch.scss.html#l8"><code>lib&#x2F;widget&#x2F;yo-switch.scss:8</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <h2>构造列表的自定义使用方法</h2>
+<p>使用方法，详见 <a href="http://doyoe.github.io/yo/demo/widget/yo-switch.html">Demo</a></p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">$name</code>
+                        <span class="type">Default | String</span>
+
+
+                    <div class="param-description">
+                        <p>定义switch名称</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$checked-bordercolor</code>
+                        <span class="type">Default | Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义switch激活边框色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$checked-bgcolor</code>
+                        <span class="type">Default | Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义switch激活背景色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$bordercolor</code>
+                        <span class="type">Default | Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义switch边框色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$bgcolor</code>
+                        <span class="type">Default | Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义switch背景色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$ball-color</code>
+                        <span class="type">Default | Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义switch滑块色</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_yo-switchable" class="method item">
+    <h3 class="name"><code>yo-switchable</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>$name</code>
+                </li>
+                <li class="arg">
+                        <code>$has-btn</code>
+                </li>
+                <li class="arg">
+                        <code>$btn-size</code>
+                </li>
+                <li class="arg">
+                        <code>$btn-bgcolor</code>
+                </li>
+                <li class="arg">
+                        <code>$btn-color</code>
+                </li>
+                <li class="arg">
+                        <code>$btn-active-bgcolor</code>
+                </li>
+                <li class="arg">
+                        <code>$btn-active-color</code>
+                </li>
+                <li class="arg">
+                        <code>$index-size</code>
+                </li>
+                <li class="arg">
+                        <code>$index-bgcolor</code>
+                </li>
+                <li class="arg">
+                        <code>$index-on-bgcolor</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_widget_yo-switchable.scss.html#l8"><code>lib&#x2F;widget&#x2F;yo-switchable.scss:8</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <h2>构造列表的自定义使用方法</h2>
+<p>使用方法，详见 <a href="http://doyoe.github.io/yo/demo/widget/yo-switchable.html">Demo</a></p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">$name</code>
+                        <span class="type">Default | String</span>
+
+
+                    <div class="param-description">
+                        <p>扩展的名称</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$has-btn</code>
+                        <span class="type">Default | Boolen</span>
+
+
+                    <div class="param-description">
+                        <p>是否有按钮</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$btn-size</code>
+                        <span class="type">Default | Length</span>
+
+
+                    <div class="param-description">
+                        <p>按钮大小</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$btn-bgcolor</code>
+                        <span class="type">Default | Length</span>
+
+
+                    <div class="param-description">
+                        <p>按钮背景色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$btn-color</code>
+                        <span class="type">Default | Length</span>
+
+
+                    <div class="param-description">
+                        <p>按钮文本色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$btn-active-bgcolor</code>
+                        <span class="type">Default | Color</span>
+
+
+                    <div class="param-description">
+                        <p>按钮按下背景色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$btn-active-color</code>
+                        <span class="type">Default | Length</span>
+
+
+                    <div class="param-description">
+                        <p>按钮按下文本色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$index-size</code>
+                        <span class="type">Default | Length</span>
+
+
+                    <div class="param-description">
+                        <p>索引大小</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$index-bgcolor</code>
+                        <span class="type">Default | Color</span>
+
+
+                    <div class="param-description">
+                        <p>索引背景色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$index-on-bgcolor</code>
+                        <span class="type">Default | Length</span>
+
+
+                    <div class="param-description">
+                        <p>索引当前项背景色</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_yo-tab" class="method item">
+    <h3 class="name"><code>yo-tab</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>$name</code>
+                </li>
+                <li class="arg">
+                        <code>$height</code>
                 </li>
                 <li class="arg">
                         <code>$radius</code>
@@ -527,16 +1946,10 @@ variables length(15)</code></h3>
                         <code>$bordercolor</code>
                 </li>
                 <li class="arg">
-                        <code>$item-padding</code>
+                        <code>$bgcolor</code>
                 </li>
                 <li class="arg">
-                        <code>$label-padding</code>
-                </li>
-                <li class="arg">
-                        <code>$label-bgcolor</code>
-                </li>
-                <li class="arg">
-                        <code>$active-bgcolor</code>
+                        <code>$color</code>
                 </li>
                 <li class="arg">
                         <code>$on-bgcolor</code>
@@ -545,16 +1958,22 @@ variables length(15)</code></h3>
                         <code>$on-color</code>
                 </li>
                 <li class="arg">
+                        <code>$font-size</code>
+                </li>
+                <li class="arg">
+                        <code>$x-ico-size</code>
+                </li>
+                <li class="arg">
+                        <code>$y-ico-size</code>
+                </li>
+                <li class="arg">
+                        <code>$only-ico-size</code>
+                </li>
+                <li class="arg">
+                        <code>$item-border-height</code>
+                </li>
+                <li class="arg">
                         <code>$item-bordercolor</code>
-                </li>
-                <li class="arg">
-                        <code>$label-bordercolor</code>
-                </li>
-                <li class="arg">
-                        <code>$item-font-size</code>
-                </li>
-                <li class="arg">
-                        <code>$label-font-size</code>
                 </li>
             </ul><span class="paren">)</span>
         </div>
@@ -569,7 +1988,7 @@ variables length(15)</code></h3>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/lib_fragment_yo-list.scss.html#l4"><code>lib&#x2F;fragment&#x2F;yo-list.scss:4</code></a>
+        <a href="../files/lib_widget_yo-tab.scss.html#l8"><code>lib&#x2F;widget&#x2F;yo-tab.scss:8</code></a>
         </p>
 
 
@@ -577,10 +1996,8 @@ variables length(15)</code></h3>
     </div>
 
     <div class="description">
-        <p>Fragment: yo-list
-Author: joy.du(飘零雾雨)
-Time: 2012.1.1</p>
-<hr>
+        <h2>构造列表的自定义使用方法</h2>
+<p>使用方法，详见 <a href="http://doyoe.github.io/yo/demo/widget/yo-tab.html">Demo</a></p>
 
     </div>
 
@@ -594,18 +2011,18 @@ Time: 2012.1.1</p>
 
 
                     <div class="param-description">
-                        <p>定义list名称</p>
+                        <p>扩展的名称</p>
 
                     </div>
 
                 </li>
                 <li class="param">
-                        <code class="param-name">$margin</code>
+                        <code class="param-name">$height</code>
                         <span class="type">Default | Length</span>
 
 
                     <div class="param-description">
-                        <p>定义list外边距</p>
+                        <p>组件高度</p>
 
                     </div>
 
@@ -616,7 +2033,7 @@ Time: 2012.1.1</p>
 
 
                     <div class="param-description">
-                        <p>定义list圆角</p>
+                        <p>圆角半径</p>
 
                     </div>
 
@@ -627,7 +2044,7 @@ Time: 2012.1.1</p>
 
 
                     <div class="param-description">
-                        <p>定义list外边框厚度</p>
+                        <p>边框厚度</p>
 
                     </div>
 
@@ -638,51 +2055,29 @@ Time: 2012.1.1</p>
 
 
                     <div class="param-description">
-                        <p>定义list边框色</p>
+                        <p>边框色</p>
 
                     </div>
 
                 </li>
                 <li class="param">
-                        <code class="param-name">$item-padding</code>
-                        <span class="type">Default | Length</span>
-
-
-                    <div class="param-description">
-                        <p>定义list项的内补白</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">$label-padding</code>
-                        <span class="type">Default | Length</span>
-
-
-                    <div class="param-description">
-                        <p>定义list分组标题内补白</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">$label-bgcolor</code>
+                        <code class="param-name">$bgcolor</code>
                         <span class="type">Default | Color</span>
 
 
                     <div class="param-description">
-                        <p>定义list分组标题背景色</p>
+                        <p>背景色</p>
 
                     </div>
 
                 </li>
                 <li class="param">
-                        <code class="param-name">$active-bgcolor</code>
+                        <code class="param-name">$color</code>
                         <span class="type">Default | Color</span>
 
 
                     <div class="param-description">
-                        <p>定义list点击反馈背景色</p>
+                        <p>文本色</p>
 
                     </div>
 
@@ -693,7 +2088,7 @@ Time: 2012.1.1</p>
 
 
                     <div class="param-description">
-                        <p>定义list选中背景色</p>
+                        <p>激活时背景色</p>
 
                     </div>
 
@@ -704,7 +2099,62 @@ Time: 2012.1.1</p>
 
 
                     <div class="param-description">
-                        <p>定义list选中文本色</p>
+                        <p>激活时文本色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$font-size</code>
+                        <span class="type">Default | Color</span>
+
+
+                    <div class="param-description">
+                        <p>文本字号</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$x-ico-size</code>
+                        <span class="type">Default | Color</span>
+
+
+                    <div class="param-description">
+                        <p>子项内容为水平ico时，ico的大小</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$y-ico-size</code>
+                        <span class="type">Default | Color</span>
+
+
+                    <div class="param-description">
+                        <p>子项内容为垂直ico时，ico的大小</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$only-ico-size</code>
+                        <span class="type">Default | Color</span>
+
+
+                    <div class="param-description">
+                        <p>子项内容仅有ico时，ico的大小</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$item-border-height</code>
+                        <span class="type">Default | Length</span>
+
+
+                    <div class="param-description">
+                        <p>子项的间隔线高度</p>
 
                     </div>
 
@@ -715,40 +2165,118 @@ Time: 2012.1.1</p>
 
 
                     <div class="param-description">
-                        <p>定义list子项边框色</p>
+                        <p>子项的间隔线颜色</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_yo-tip" class="method item">
+    <h3 class="name"><code>yo-tip</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>$name</code>
+                </li>
+                <li class="arg">
+                        <code>$padding</code>
+                </li>
+                <li class="arg">
+                        <code>$radius</code>
+                </li>
+                <li class="arg">
+                        <code>$bgcolor</code>
+                </li>
+                <li class="arg">
+                        <code>$color</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_widget_yo-tip.scss.html#l8"><code>lib&#x2F;widget&#x2F;yo-tip.scss:8</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <h2>构造列表的自定义使用方法</h2>
+<p>使用方法，详见 <a href="http://doyoe.github.io/yo/demo/widget/yo-tip.html">Demo</a></p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">$name</code>
+                        <span class="type">Default | String</span>
+
+
+                    <div class="param-description">
+                        <p>定义yo-tip名称</p>
 
                     </div>
 
                 </li>
                 <li class="param">
-                        <code class="param-name">$label-bordercolor</code>
+                        <code class="param-name">$padding</code>
+                        <span class="type">Default | Length</span>
+
+
+                    <div class="param-description">
+                        <p>定义yo-tip内补白</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$radius</code>
+                        <span class="type">Default | Length</span>
+
+
+                    <div class="param-description">
+                        <p>定义yo-tip圆角</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$bgcolor</code>
                         <span class="type">Default | Color</span>
 
 
                     <div class="param-description">
-                        <p>定义list子项组头边框色</p>
+                        <p>定义yo-tip背景色</p>
 
                     </div>
 
                 </li>
                 <li class="param">
-                        <code class="param-name">$item-font-size</code>
-                        <span class="type">Default | Length</span>
+                        <code class="param-name">$color</code>
+                        <span class="type">Default | Color</span>
 
 
                     <div class="param-description">
-                        <p>定义list项字号</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">$label-font-size</code>
-                        <span class="type">Default | Length</span>
-
-
-                    <div class="param-description">
-                        <p>定义list列表组头字号</p>
+                        <p>定义yo-tip文本色</p>
 
                     </div>
 

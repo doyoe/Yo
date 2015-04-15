@@ -42,6 +42,9 @@
                                 <li><a href="../classes/classes.html">classes</a></li>
                                 <li><a href="../classes/element.html">element</a></li>
                                 <li><a href="../classes/fragment.html">fragment</a></li>
+                                <li><a href="../classes/layout.html">layout</a></li>
+                                <li><a href="../classes/reset.html">reset</a></li>
+                                <li><a href="../classes/variables.html">variables</a></li>
                                 <li><a href="../classes/widget.html">widget</a></li>
                             </ul>
                 
@@ -88,27 +91,29 @@
 @import &quot;classes&quot;;
 
 /**
- * Fragment: yo-list
- * Author: joy.du(飘零雾雨)
- * Time: 2012.1.1
- ------------------------
+ * @class fragment
+ */
+
+/**
+ * 构造列表的自定义使用方法
+ -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/fragment/yo-list.html)
  * @method yo-list
- * variables length(15)
- * @param {default|String} $name 定义list名称
- * @param {default|Length} $margin 定义list外边距
- * @param {default|Length} $radius 定义list圆角
- * @param {default|Length} $border-width 定义list外边框厚度
- * @param {default|Color} $bordercolor 定义list边框色
- * @param {default|Length} $item-padding 定义list项的内补白
- * @param {default|Length} $label-padding 定义list分组标题内补白
- * @param {default|Color} $label-bgcolor 定义list分组标题背景色
- * @param {default|Color} $active-bgcolor 定义list点击反馈背景色
- * @param {default|Color} $on-bgcolor 定义list选中背景色
- * @param {default|Color} $on-color 定义list选中文本色
- * @param {default|Color} $item-bordercolor 定义list子项边框色
- * @param {default|Color} $label-bordercolor 定义list子项组头边框色
- * @param {default|Length} $item-font-size 定义list项字号
- * @param {default|Length} $label-font-size 定义list列表组头字号
+ * @param {String} $name 定义list名称
+ * @param {Length} $margin 定义list外边距
+ * @param {Length} $radius 定义list圆角
+ * @param {Length} $border-width 定义list外边框厚度
+ * @param {Color} $bordercolor 定义list边框色
+ * @param {Length} $item-padding 定义list项的内补白
+ * @param {Length} $label-padding 定义list分组标题内补白
+ * @param {Color} $label-bgcolor 定义list分组标题背景色
+ * @param {Color} $active-bgcolor 定义list点击反馈背景色
+ * @param {Color} $on-bgcolor 定义list选中背景色
+ * @param {Color} $on-color 定义list选中文本色
+ * @param {Color} $item-bordercolor 定义list子项边框色
+ * @param {Color} $label-bordercolor 定义list子项组头边框色
+ * @param {Length} $item-font-size 定义list项字号
+ * @param {Length} $label-font-size 定义list列表组头字号
  */
 
 @mixin yo-list(

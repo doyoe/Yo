@@ -2,12 +2,14 @@
 @import "classes";
 
 /**
- * widget: yo-switch
- * Author: joy.du(飘零雾雨)
- * Time: 2014.11.14
+ * @class widget
+ */
+
+/**
+ * 构造列表的自定义使用方法
  -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/widget/yo-switch.html)
  * @method yo-switch
- * variables length(6)
  * @param {default | String} $name 定义switch名称
  * @param {default | Color} $checked-bordercolor 定义switch激活边框色
  * @param {default | Color} $checked-bgcolor 定义switch激活背景色

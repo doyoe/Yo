@@ -2,22 +2,24 @@
 @import "classes";
 
 /**
- * Widget: yo-header
- * Author: joy.du(飘零雾雨)
- * Time: 2012.1.1
- ------------------------
+ * @class fragment
+ */
+
+/**
+ * 构造头的自定义使用方法
+ -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/fragment/yo-header.html)
  * @method yo-header
- * variables length(10)
- * @param {default | String} $name 定义yo-header名称
- * @param {default | Length} $height 定义yo-header高度
- * @param {default | Length} $item-width 定义yo-header两侧子项宽度
- * @param {default | Length} $item-space 定义yo-header两侧子项离边界的间隙
- * @param {default | Color} $bordercolor 定义yo-header边框色
- * @param {default | Color} $bgcolor 定义yo-header背景色
- * @param {default | Color} $color 定义yo-header文本色
- * @param {default | Length} $font-size 定义yo-header文本大小
- * @param {default | Color} $item-color 定义yo-header两侧的子项文本色
- * @param {default | Length} $item-font-size 定义yo-header两侧的子项文本大小
+ * @param {String} $name 定义yo-header名称
+ * @param {Length} $height 定义yo-header高度
+ * @param {Length} $item-width 定义yo-header两侧子项宽度
+ * @param {Length} $item-space 定义yo-header两侧子项离边界的间隙
+ * @param {Color} $bordercolor 定义yo-header边框色
+ * @param {Color} $bgcolor 定义yo-header背景色
+ * @param {Color} $color 定义yo-header文本色
+ * @param {Length} $font-size 定义yo-header文本大小
+ * @param {Color} $item-color 定义yo-header两侧的子项文本色
+ * @param {Length} $item-font-size 定义yo-header两侧的子项文本大小
  */
 
 @mixin yo-header(

@@ -42,6 +42,9 @@
                                 <li><a href="../classes/classes.html">classes</a></li>
                                 <li><a href="../classes/element.html">element</a></li>
                                 <li><a href="../classes/fragment.html">fragment</a></li>
+                                <li><a href="../classes/layout.html">layout</a></li>
+                                <li><a href="../classes/reset.html">reset</a></li>
+                                <li><a href="../classes/variables.html">variables</a></li>
                                 <li><a href="../classes/widget.html">widget</a></li>
                             </ul>
                 
@@ -88,13 +91,15 @@
 @import &quot;../../../lib/fragment/yo-btnbar&quot;;
 
 /**
- * Fragment扩展
+ * yo-btnbar扩展
  * Author: joy.du(飘零雾雨)
  * Time: 2015.1.16
  */
 
-@include yo-btnbar(test,.1rem);
-
+@include yo-btnbar(
+    $name: test,
+    $radius: .1rem
+);
     </pre>
 </div>
                     </div>

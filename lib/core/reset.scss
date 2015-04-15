@@ -1,13 +1,13 @@
 @charset "utf-8";
 @import "variables";
 @import "classes";
-
 /**
- * Directory: lib/core/reset.scss
- * Css Reset
- * Author: joy.du(飘零雾雨)
- * Edit: 2015.1.18
- * Note: only for mobile
+ * Yo框架全局Reset
+ -----------------------
+ * Yo重置Mobile上常见的差异
+ *
+ * @class reset
+ * @module Yo
  */
 
 // 1. 将元素的盒模型统一为：border-box
@@ -26,7 +26,7 @@ html {
     // 用于rem计算
     font-size: map-get($base, font-size-root);
     // 如果是适配大小的场景
-    @if map-get($doc, responsive-type) == scaling {
+    @if map-get($base, responsive-type) == scaling {
         font-size: map-get($base, font-size-root-scaling);
     }
     @include user-select();

@@ -5,6 +5,9 @@ YUI.add("yuidoc-meta", function(Y) {
         "classes",
         "element",
         "fragment",
+        "layout",
+        "reset",
+        "variables",
         "widget"
     ],
     "modules": [

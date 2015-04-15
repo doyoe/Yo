@@ -8,7 +8,7 @@
 <meta name="format-detection" content="telephone=no" />
 <link rel="apple-touch-icon-precomposed" href="/qunar-touch.png" />
 <title>button btnbar - 按钮组</title>
-<link rel="stylesheet" href="../../usage/demo/export/yo-btnbar.css" />
+<link rel="stylesheet" href="../../usage/demo/export/yo-all.css" />
 </head>
 <body>
 
@@ -16,16 +16,22 @@
     <div class="device">
     <div class="stage">
         <h2 class="yo-header">Button Bar</h2>
-        <div class="yo-btnbar">
-            <a href="?" class="yo-btn yo-btn-m">取消</a>
-            <a href="?" class="yo-btn yo-btn-m">取消</a>
-            <a href="?" class="yo-btn yo-btn-m">取消</a>
-        </div>
-        <div class="yo-btnbar">
-            <a href="?" class="yo-btn yo-btn-m"><i class="yo-ico">&#xf07d;</i></a>
-            <a href="?" class="yo-btn yo-btn-m"><i class="yo-ico">&#xf07e;</i></a>
-            <a href="?" class="yo-btn yo-btn-m"><i class="yo-ico">&#xf07f;</i></a>
-        </div>
+        <ul class="yo-list">
+            <li class="item">
+                <div class="yo-btnbar">
+                    <a href="?" class="yo-btn yo-btn-m">取消</a>
+                    <a href="?" class="yo-btn yo-btn-m">取消</a>
+                    <a href="?" class="yo-btn yo-btn-m">取消</a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="yo-btnbar">
+                    <a href="?" class="yo-btn yo-btn-m"><i class="yo-ico">&#xf07d;</i></a>
+                    <a href="?" class="yo-btn yo-btn-m"><i class="yo-ico">&#xf07e;</i></a>
+                    <a href="?" class="yo-btn yo-btn-m"><i class="yo-ico">&#xf07f;</i></a>
+                </div>
+            </li>
+        </ul>
     </div>
     </div>
     <code class="code"><xmp><div class="yo-btnbar">
@@ -44,26 +50,36 @@
     <div class="device">
     <div class="stage">
         <h2 class="yo-header">Button Bar</h2>
-        <div class="yo-btnbar yo-btnbar-test">
-            <a href="?" class="yo-btn yo-btn-m">按钮</a>
-            <a href="?" class="yo-btn yo-btn-m">按钮</a>
-            <a href="?" class="yo-btn yo-btn-m">按钮</a>
-            <a href="?" class="yo-btn yo-btn-m">按钮</a>
-        </div>
+        <ul class="yo-list">
+            <li class="item">
+                <div class="yo-btnbar yo-btnbar-test">
+                    <a href="?" class="yo-btn yo-btn-m">按钮</a>
+                    <a href="?" class="yo-btn yo-btn-m">按钮</a>
+                    <a href="?" class="yo-btn yo-btn-m">按钮</a>
+                    <a href="?" class="yo-btn yo-btn-m">按钮</a>
+                </div>
+            </li>
+        </ul>
     </div>
     </div>
     <code class="code">
     <h2>假设你想要改变圆角，那么你可以这样扩展：</h2>
     <p>命名及颜色按照各自团队内部的FE/UI规范即可</p>
     <h3>全局扩展方式：</h3>
-    <xmp>@include yo-btnbar(test,.1rem);</xmp>
+    <xmp>@include yo-btnbar(
+    $name: test,
+    $radius: .1rem
+);</xmp>
     <h3>使用方法：</h3>
     <xmp><div class="yo-btnbar yo-btnbar-test">
     ...
 </div></xmp>
     <h3>局部扩展方式：</h3>
     <xmp>.xxx{
-    @include yo-btnbar(test,.1rem);
+    @include yo-btnbar(
+        $name: test,
+        $radius: .1rem
+    );
 }</xmp>
     <h3>使用方法：</h3>
     <xmp><div class="xxx">
@@ -76,8 +92,8 @@
 
 
 <pre class="m-code"><span class="method">@include yo-btnbar</span><span class="bracket">(</span>
-    $name<span class="colon">:</span>default, <mark>//{default | String} yo-btnbar名称</mark>
-    $radius<span class="colon">:</span>default <mark>//{default | auto | Length} yo-btnbar圆角，当值为auto时，圆角大小取决于按钮的圆角大小</mark>
+    $name<span class="colon">:</span>default, <mark>//{String} 为新的扩展定义一个名称</mark>
+    $radius<span class="colon">:</span>default <mark>//{Length} 圆角半径长度</mark>
 <span class="bracket">)</span>
 </pre>
 

@@ -477,14 +477,18 @@
         "lib/core/reset.scss": {
             "name": "lib/core/reset.scss",
             "modules": {},
-            "classes": {},
+            "classes": {
+                "reset": 1
+            },
             "fors": {},
             "namespaces": {}
         },
         "lib/core/variables.scss": {
             "name": "lib/core/variables.scss",
             "modules": {},
-            "classes": {},
+            "classes": {
+                "variables": 1
+            },
             "fors": {},
             "namespaces": {}
         },
@@ -563,9 +567,7 @@
         "lib/fragment/yo-btnbar.scss": {
             "name": "lib/fragment/yo-btnbar.scss",
             "modules": {},
-            "classes": {
-                "fragment": 1
-            },
+            "classes": {},
             "fors": {},
             "namespaces": {}
         },
@@ -586,7 +588,9 @@
         "lib/fragment/yo-table.scss": {
             "name": "lib/fragment/yo-table.scss",
             "modules": {},
-            "classes": {},
+            "classes": {
+                "fragment": 1
+            },
             "fors": {},
             "namespaces": {}
         },
@@ -597,8 +601,8 @@
             "fors": {},
             "namespaces": {}
         },
-        "lib/layout/layout.scss": {
-            "name": "lib/layout/layout.scss",
+        "lib/layout/yo-flex.scss": {
+            "name": "lib/layout/yo-flex.scss",
             "modules": {},
             "classes": {},
             "fors": {},
@@ -607,16 +611,16 @@
         "lib/layout/yo-stacked.scss": {
             "name": "lib/layout/yo-stacked.scss",
             "modules": {},
-            "classes": {},
+            "classes": {
+                "layout": 1
+            },
             "fors": {},
             "namespaces": {}
         },
         "lib/widget/classes.scss": {
             "name": "lib/widget/classes.scss",
             "modules": {},
-            "classes": {
-                "widget": 1
-            },
+            "classes": {},
             "fors": {},
             "namespaces": {}
         },
@@ -721,7 +725,9 @@
         "lib/widget/yo-tip.scss": {
             "name": "lib/widget/yo-tip.scss",
             "modules": {},
-            "classes": {},
+            "classes": {
+                "widget": 1
+            },
             "fors": {},
             "namespaces": {}
         },
@@ -748,6 +754,13 @@
         },
         "usage/demo/element/yo-checked.scss": {
             "name": "usage/demo/element/yo-checked.scss",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "usage/demo/element/yo-input.scss": {
+            "name": "usage/demo/element/yo-input.scss",
             "modules": {},
             "classes": {},
             "fors": {},
@@ -844,13 +857,6 @@
             "fors": {},
             "namespaces": {}
         },
-        "usage/demo/module/m-head.scss": {
-            "name": "usage/demo/module/m-head.scss",
-            "modules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
         "usage/demo/page/ani-page.scss": {
             "name": "usage/demo/page/ani-page.scss",
             "modules": {},
@@ -886,211 +892,57 @@
             "fors": {},
             "namespaces": {}
         },
-        "usage/demo/page/yo-badge.scss": {
-            "name": "usage/demo/page/yo-badge.scss",
-            "modules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
-        "usage/demo/page/yo-btn.scss": {
-            "name": "usage/demo/page/yo-btn.scss",
-            "modules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
-        "usage/demo/page/yo-btnbar.scss": {
-            "name": "usage/demo/page/yo-btnbar.scss",
-            "modules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
-        "usage/demo/page/yo-checkbox.scss": {
-            "name": "usage/demo/page/yo-checkbox.scss",
-            "modules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
-        "usage/demo/page/yo-checked.scss": {
-            "name": "usage/demo/page/yo-checked.scss",
-            "modules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
-        "usage/demo/page/yo-dblist.scss": {
-            "name": "usage/demo/page/yo-dblist.scss",
-            "modules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
-        "usage/demo/page/yo-dialog.scss": {
-            "name": "usage/demo/page/yo-dialog.scss",
-            "modules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
-        "usage/demo/page/yo-group.scss": {
-            "name": "usage/demo/page/yo-group.scss",
-            "modules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
-        "usage/demo/page/yo-header.scss": {
-            "name": "usage/demo/page/yo-header.scss",
-            "modules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
-        "usage/demo/page/yo-index.scss": {
-            "name": "usage/demo/page/yo-index.scss",
-            "modules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
-        "usage/demo/page/yo-input.scss": {
-            "name": "usage/demo/page/yo-input.scss",
-            "modules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
-        "usage/demo/page/yo-list.scss": {
-            "name": "usage/demo/page/yo-list.scss",
-            "modules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
-        "usage/demo/page/yo-loading.scss": {
-            "name": "usage/demo/page/yo-loading.scss",
-            "modules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
-        "usage/demo/page/yo-loadtip.scss": {
-            "name": "usage/demo/page/yo-loadtip.scss",
-            "modules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
-        "usage/demo/page/yo-mask.scss": {
-            "name": "usage/demo/page/yo-mask.scss",
-            "modules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
-        "usage/demo/page/yo-number.scss": {
-            "name": "usage/demo/page/yo-number.scss",
-            "modules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
-        "usage/demo/page/yo-popup.scss": {
-            "name": "usage/demo/page/yo-popup.scss",
-            "modules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
-        "usage/demo/page/yo-radio.scss": {
-            "name": "usage/demo/page/yo-radio.scss",
-            "modules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
-        "usage/demo/page/yo-range.scss": {
-            "name": "usage/demo/page/yo-range.scss",
-            "modules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
-        "usage/demo/page/yo-rating.scss": {
-            "name": "usage/demo/page/yo-rating.scss",
-            "modules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
-        "usage/demo/page/yo-score.scss": {
-            "name": "usage/demo/page/yo-score.scss",
-            "modules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
-        "usage/demo/page/yo-search.scss": {
-            "name": "usage/demo/page/yo-search.scss",
-            "modules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
-        "usage/demo/page/yo-select.scss": {
-            "name": "usage/demo/page/yo-select.scss",
-            "modules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
-        "usage/demo/page/yo-slidermenu.scss": {
-            "name": "usage/demo/page/yo-slidermenu.scss",
-            "modules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
-        "usage/demo/page/yo-switch.scss": {
-            "name": "usage/demo/page/yo-switch.scss",
-            "modules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
-        "usage/demo/page/yo-switchable.scss": {
-            "name": "usage/demo/page/yo-switchable.scss",
-            "modules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
-        "usage/demo/page/yo-tab.scss": {
-            "name": "usage/demo/page/yo-tab.scss",
-            "modules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
-        "usage/demo/page/yo-table.scss": {
-            "name": "usage/demo/page/yo-table.scss",
-            "modules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
-        "usage/demo/page/yo-tip.scss": {
-            "name": "usage/demo/page/yo-tip.scss",
-            "modules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
         "usage/demo/page/yofont.scss": {
             "name": "usage/demo/page/yofont.scss",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "usage/demo/widget/yo-dblist.scss": {
+            "name": "usage/demo/widget/yo-dblist.scss",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "usage/demo/widget/yo-dialog.scss": {
+            "name": "usage/demo/widget/yo-dialog.scss",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "usage/demo/widget/yo-group.scss": {
+            "name": "usage/demo/widget/yo-group.scss",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "usage/demo/widget/yo-index.scss": {
+            "name": "usage/demo/widget/yo-index.scss",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "usage/demo/widget/yo-mask.scss": {
+            "name": "usage/demo/widget/yo-mask.scss",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "usage/demo/widget/yo-number.scss": {
+            "name": "usage/demo/widget/yo-number.scss",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "usage/demo/widget/yo-popup.scss": {
+            "name": "usage/demo/widget/yo-popup.scss",
             "modules": {},
             "classes": {},
             "fors": {},
@@ -1103,6 +955,27 @@
             "fors": {},
             "namespaces": {}
         },
+        "usage/demo/widget/yo-search.scss": {
+            "name": "usage/demo/widget/yo-search.scss",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "usage/demo/widget/yo-select.scss": {
+            "name": "usage/demo/widget/yo-select.scss",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "usage/demo/widget/yo-slidermenu.scss": {
+            "name": "usage/demo/widget/yo-slidermenu.scss",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
         "usage/demo/widget/yo-switch.scss": {
             "name": "usage/demo/widget/yo-switch.scss",
             "modules": {},
@@ -1110,8 +983,22 @@
             "fors": {},
             "namespaces": {}
         },
+        "usage/demo/widget/yo-switchable.scss": {
+            "name": "usage/demo/widget/yo-switchable.scss",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
         "usage/demo/widget/yo-tab.scss": {
             "name": "usage/demo/widget/yo-tab.scss",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "usage/demo/widget/yo-tip.scss": {
+            "name": "usage/demo/widget/yo-tip.scss",
             "modules": {},
             "classes": {},
             "fors": {},
@@ -1125,14 +1012,17 @@
             "classes": {
                 "ani": 1,
                 "classes": 1,
+                "reset": 1,
+                "variables": 1,
                 "element": 1,
                 "fragment": 1,
+                "layout": 1,
                 "widget": 1
             },
             "fors": {},
             "namespaces": {},
             "tag": "module",
-            "file": "lib/widget/classes.scss",
+            "file": "lib/widget/yo-tip.scss",
             "line": 4,
             "description": "Yo框架动画解决方案\n-----------------------\nYo内置了超过60种动画形态，不同的动画可以任意组合"
         }
@@ -1165,6 +1055,34 @@
             "line": 2,
             "description": "Yo框架全局基础方法\n-----------------------\nYo内置了包括响应式方案，CSS3兼容性方案，厂商前缀方案，iconfont方案，flex布局等全局方法"
         },
+        "reset": {
+            "name": "reset",
+            "shortname": "reset",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Yo",
+            "namespace": "",
+            "file": "lib/core/reset.scss",
+            "line": 4,
+            "description": "Yo框架全局Reset\n-----------------------\nYo重置Mobile上常见的差异"
+        },
+        "variables": {
+            "name": "variables",
+            "shortname": "variables",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Yo",
+            "namespace": "",
+            "file": "lib/core/variables.scss",
+            "line": 2,
+            "description": "Yo框架全局Variables\n-----------------------\nYo基础变量map，如果不想定义某属性，将其value设置为null"
+        },
         "element": {
             "name": "element",
             "shortname": "element",
@@ -1189,9 +1107,23 @@
             "extension_for": [],
             "module": "Yo",
             "namespace": "",
-            "file": "lib/fragment/yo-btnbar.scss",
-            "line": 5,
+            "file": "lib/fragment/yo-table.scss",
+            "line": 4,
             "description": "Yo框架fragment基础构造\n-----------------------\nYo内置了包括：dialog, popup, tip, tab, switch, rating等基础组件"
+        },
+        "layout": {
+            "name": "layout",
+            "shortname": "layout",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Yo",
+            "namespace": "",
+            "file": "lib/layout/yo-stacked.scss",
+            "line": 4,
+            "description": "Yo框架layout\n-----------------------\nYo内置的布局方式"
         },
         "widget": {
             "name": "widget",
@@ -1203,19 +1135,12 @@
             "extension_for": [],
             "module": "Yo",
             "namespace": "",
-            "file": "lib/widget/classes.scss",
+            "file": "lib/widget/yo-tip.scss",
             "line": 4,
             "description": "Yo框架widget基础构造\n-----------------------\nYo内置了常见的通用代码片段，如：列表，表格，按钮组，头"
         }
     },
     "classitems": [
-        {
-            "file": "lib/ani/classes.scss",
-            "line": 12,
-            "description": "定义动画基本特性",
-            "class": "ani",
-            "module": "Yo"
-        },
         {
             "file": "lib/ani/elastic-in-down.scss",
             "line": 9,
@@ -2118,6 +2043,22 @@
         {
             "file": "lib/core/classes.scss",
             "line": 293,
+            "description": "定义root root-scroll",
+            "itemtype": "method",
+            "name": "root-scroll",
+            "params": [
+                {
+                    "name": "$root-scroll",
+                    "description": "指定scroll类型，取值overflow属性的标准值",
+                    "type": "String"
+                }
+            ],
+            "class": "classes",
+            "module": "Yo"
+        },
+        {
+            "file": "lib/core/classes.scss",
+            "line": 306,
             "description": "定义是否有滚动条",
             "itemtype": "method",
             "name": "overflow",
@@ -2133,7 +2074,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 307,
+            "line": 320,
             "description": "生成矩形方法",
             "itemtype": "method",
             "name": "rect",
@@ -2154,7 +2095,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 318,
+            "line": 331,
             "description": "生成正方形方法",
             "itemtype": "method",
             "name": "square",
@@ -2170,7 +2111,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 328,
+            "line": 341,
             "description": "生成圆形方法",
             "itemtype": "method",
             "name": "circle",
@@ -2191,7 +2132,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 339,
+            "line": 352,
             "description": "清除浮动方案",
             "itemtype": "method",
             "name": "clearfix",
@@ -2200,7 +2141,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 353,
+            "line": 366,
             "description": "链接处理方法",
             "itemtype": "method",
             "name": "link",
@@ -2216,7 +2157,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 366,
+            "line": 379,
             "description": "强制换行方案",
             "itemtype": "method",
             "name": "wrap",
@@ -2225,7 +2166,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 375,
+            "line": 388,
             "description": "单行文本溢出显示方案",
             "itemtype": "method",
             "name": "ellipsis",
@@ -2241,7 +2182,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 388,
+            "line": 401,
             "description": "文字隐藏方案",
             "itemtype": "method",
             "name": "texthide",
@@ -2250,7 +2191,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 398,
+            "line": 411,
             "description": "清除间隙方案-容器",
             "itemtype": "method",
             "name": "killspace",
@@ -2259,7 +2200,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 407,
+            "line": 420,
             "description": "清除间隙方案-子级",
             "itemtype": "method",
             "name": "killspace-item",
@@ -2268,7 +2209,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 417,
+            "line": 430,
             "description": "未知尺寸元素垂直居中解决方案-容器",
             "itemtype": "method",
             "name": "valign",
@@ -2277,7 +2218,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 432,
+            "line": 445,
             "description": "未知尺寸元素垂直居中解决方案-子级",
             "itemtype": "method",
             "name": "valign-item",
@@ -2286,7 +2227,7 @@
         },
         {
             "file": "lib/core/classes.scss",
-            "line": 441,
+            "line": 454,
             "description": "已经尺寸元素垂直居中解决方案",
             "itemtype": "method",
             "name": "alignment",
@@ -2303,20 +2244,6 @@
                 }
             ],
             "class": "classes",
-            "module": "Yo"
-        },
-        {
-            "file": "lib/core/reset.scss",
-            "line": 5,
-            "description": "Directory: lib/core/reset.scss\nCss Reset\nAuthor: joy.du(飘零雾雨)\nEdit: 2015.1.18\nNote: only for mobile",
-            "class": "element",
-            "module": "Yo"
-        },
-        {
-            "file": "lib/core/variables.scss",
-            "line": 3,
-            "description": "Directory: lib/core/variables.scss\nCSS Variables 定义各种页面沙粒变量\nAuthor: joy.du(飘零雾雨)\nEdit: 2015.4.11\nDescription: 如果不想定义某属性，将其value设置为null",
-            "class": "element",
             "module": "Yo"
         },
         {
@@ -2705,19 +2632,19 @@
         {
             "file": "lib/fragment/yo-btnbar.scss",
             "line": 9,
-            "description": "构造按钮组的自定义使用方法\n=======================\nVariables: 2\nAuthor: doyoe(杜瑶)\nEdit: 2015.1.19\n-----------------------",
+            "description": "构造按钮组的自定义使用方法\n-----------------------\n使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/fragment/yo-btnbar.html)",
             "itemtype": "method",
             "name": "yo-btnbar",
             "params": [
                 {
                     "name": "$name",
-                    "description": "定义yo-btnbar名称",
-                    "type": "Default | String"
+                    "description": "为新的扩展定义一个名称",
+                    "type": "String"
                 },
                 {
                     "name": "$radius",
-                    "description": "定义yo-btnbar圆角，当值为auto时，圆角大小取决于按钮的圆角大小",
-                    "type": "Default | auto | Length"
+                    "description": "圆角半径长度",
+                    "type": "Length"
                 }
             ],
             "class": "fragment",
@@ -2725,202 +2652,249 @@
         },
         {
             "file": "lib/fragment/yo-header.scss",
-            "line": 4,
-            "description": "Widget: yo-header\nAuthor: joy.du(飘零雾雨)\nTime: 2012.1.1\n------------------------",
+            "line": 8,
+            "description": "构造头的自定义使用方法\n-----------------------\n使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/fragment/yo-header.html)",
             "itemtype": "method",
-            "name": "yo-header\nvariables length(10)",
+            "name": "yo-header",
             "params": [
                 {
                     "name": "$name",
                     "description": "定义yo-header名称",
-                    "type": "Default | String"
+                    "type": "String"
                 },
                 {
                     "name": "$height",
                     "description": "定义yo-header高度",
-                    "type": "Default | Length"
+                    "type": "Length"
                 },
                 {
                     "name": "$item-width",
                     "description": "定义yo-header两侧子项宽度",
-                    "type": "Default | Length"
+                    "type": "Length"
                 },
                 {
                     "name": "$item-space",
                     "description": "定义yo-header两侧子项离边界的间隙",
-                    "type": "Default | Length"
+                    "type": "Length"
                 },
                 {
                     "name": "$bordercolor",
                     "description": "定义yo-header边框色",
-                    "type": "Default | Color"
+                    "type": "Color"
                 },
                 {
                     "name": "$bgcolor",
                     "description": "定义yo-header背景色",
-                    "type": "Default | Color"
+                    "type": "Color"
                 },
                 {
                     "name": "$color",
                     "description": "定义yo-header文本色",
-                    "type": "Default | Color"
+                    "type": "Color"
                 },
                 {
                     "name": "$font-size",
                     "description": "定义yo-header文本大小",
-                    "type": "Default | Length"
+                    "type": "Length"
                 },
                 {
                     "name": "$item-color",
                     "description": "定义yo-header两侧的子项文本色",
-                    "type": "Default | Color"
+                    "type": "Color"
                 },
                 {
                     "name": "$item-font-size",
                     "description": "定义yo-header两侧的子项文本大小",
-                    "type": "Default | Length"
+                    "type": "Length"
                 }
             ],
-            "class": "widget",
+            "class": "fragment",
             "module": "Yo"
         },
         {
             "file": "lib/fragment/yo-list.scss",
-            "line": 4,
-            "description": "Fragment: yo-list\nAuthor: joy.du(飘零雾雨)\nTime: 2012.1.1\n------------------------",
+            "line": 8,
+            "description": "构造列表的自定义使用方法\n-----------------------\n使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/fragment/yo-list.html)",
             "itemtype": "method",
-            "name": "yo-list\nvariables length(15)",
+            "name": "yo-list",
             "params": [
                 {
                     "name": "$name",
                     "description": "定义list名称",
-                    "type": "Default|String"
+                    "type": "String"
                 },
                 {
                     "name": "$margin",
                     "description": "定义list外边距",
-                    "type": "Default|Length"
+                    "type": "Length"
                 },
                 {
                     "name": "$radius",
                     "description": "定义list圆角",
-                    "type": "Default|Length"
+                    "type": "Length"
                 },
                 {
                     "name": "$border-width",
                     "description": "定义list外边框厚度",
-                    "type": "Default|Length"
+                    "type": "Length"
                 },
                 {
                     "name": "$bordercolor",
                     "description": "定义list边框色",
-                    "type": "Default|Color"
+                    "type": "Color"
                 },
                 {
                     "name": "$item-padding",
                     "description": "定义list项的内补白",
-                    "type": "Default|Length"
+                    "type": "Length"
                 },
                 {
                     "name": "$label-padding",
                     "description": "定义list分组标题内补白",
-                    "type": "Default|Length"
+                    "type": "Length"
                 },
                 {
                     "name": "$label-bgcolor",
                     "description": "定义list分组标题背景色",
-                    "type": "Default|Color"
+                    "type": "Color"
                 },
                 {
                     "name": "$active-bgcolor",
                     "description": "定义list点击反馈背景色",
-                    "type": "Default|Color"
+                    "type": "Color"
                 },
                 {
                     "name": "$on-bgcolor",
                     "description": "定义list选中背景色",
-                    "type": "Default|Color"
+                    "type": "Color"
                 },
                 {
                     "name": "$on-color",
                     "description": "定义list选中文本色",
-                    "type": "Default|Color"
+                    "type": "Color"
                 },
                 {
                     "name": "$item-bordercolor",
                     "description": "定义list子项边框色",
-                    "type": "Default|Color"
+                    "type": "Color"
                 },
                 {
                     "name": "$label-bordercolor",
                     "description": "定义list子项组头边框色",
-                    "type": "Default|Color"
+                    "type": "Color"
                 },
                 {
                     "name": "$item-font-size",
                     "description": "定义list项字号",
-                    "type": "Default|Length"
+                    "type": "Length"
                 },
                 {
                     "name": "$label-font-size",
                     "description": "定义list列表组头字号",
-                    "type": "Default|Length"
+                    "type": "Length"
                 }
             ],
-            "class": "widget",
+            "class": "fragment",
             "module": "Yo"
         },
         {
             "file": "lib/fragment/yo-table.scss",
-            "line": 4,
-            "description": "Widget: yo-table\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.25\n-----------------------\nmethod yo-table\nvariables length(11)\nparam {default|String} $name 定义table名称\nparam {default|String} $width 定义table长度\nparam {default|Boole} $has-vertical-border 定义table是否需要纵向边框\nparam {default|Length} $thead-padding 定义table头部内补白\nparam {default|Length} $tbody-padding 定义table主体内补白\nparam {default|Color} $bordercolor 定义table边框色\nparam {default|Color} $thead-bgcolor 定义table头部背景色\nparam {default|Color} $odd-bgcolor 定义table奇数行背景色\nparam {default|Color} $even-bgcolor 定义table偶数行背景色\nparam {default|Color} $active-bgcolor 定义table激活背景色\nparam {default|Color} $on-bgcolor 定义table选中背景色",
-            "class": "widget",
-            "module": "Yo"
-        },
-        {
-            "file": "lib/layout/classes.scss",
-            "line": 5,
-            "description": "Directory: lib/layout/classes.scss\nGlobal Layout Classes 约定布局方案\nAuthor: joy.du(飘零雾雨)\nTime: 2012.1.1",
-            "class": "widget",
-            "module": "Yo"
-        },
-        {
-            "file": "lib/layout/layout.scss",
-            "line": 4,
-            "description": "document: doc\nAuthor: joy.du(飘零雾雨)\nTime: 2012.1.1\n------------------------",
+            "line": 8,
+            "description": "构造表格的自定义使用方法\n-----------------------\n使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/fragment/yo-table.html)",
             "itemtype": "method",
-            "name": "doc",
+            "name": "yo-table",
             "params": [
                 {
                     "name": "$name",
-                    "description": "定义page-name",
+                    "description": "定义table名称",
                     "type": "String"
                 },
                 {
-                    "name": "$fixed",
-                    "description": "定义头尾是否固定",
+                    "name": "$width",
+                    "description": "定义table长度",
                     "type": "String"
                 },
                 {
-                    "name": "$hd-gap",
-                    "description": "定义主体到viewport顶部的距离",
+                    "name": "$has-vertical-border",
+                    "description": "定义table是否需要纵向边框",
+                    "type": "Boole"
+                },
+                {
+                    "name": "$thead-padding",
+                    "description": "定义table头部内补白",
                     "type": "Length"
                 },
                 {
-                    "name": "$ft-gap",
-                    "description": "定义主体到viewport底部的距离",
+                    "name": "$tbody-padding",
+                    "description": "定义table主体内补白",
                     "type": "Length"
+                },
+                {
+                    "name": "$bordercolor",
+                    "description": "定义table边框色",
+                    "type": "Color"
+                },
+                {
+                    "name": "$thead-bgcolor",
+                    "description": "定义table头部背景色",
+                    "type": "Color"
+                },
+                {
+                    "name": "$odd-bgcolor",
+                    "description": "定义table奇数行背景色",
+                    "type": "Color"
+                },
+                {
+                    "name": "$even-bgcolor",
+                    "description": "定义table偶数行背景色",
+                    "type": "Color"
+                },
+                {
+                    "name": "$active-bgcolor",
+                    "description": "定义table激活背景色",
+                    "type": "Color"
+                },
+                {
+                    "name": "$on-bgcolor",
+                    "description": "定义table选中背景色",
+                    "type": "Color"
                 }
             ],
-            "class": "widget",
+            "class": "fragment",
+            "module": "Yo"
+        },
+        {
+            "file": "lib/layout/yo-flex.scss",
+            "line": 8,
+            "description": "构造弹性布局使用方法，可以是横向和纵向\n-----------------------\n使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/layout/yo-flex.html)",
+            "itemtype": "method",
+            "name": "yo-flex",
+            "params": [
+                {
+                    "name": "$name",
+                    "description": "为新的扩展定义一个名称",
+                    "type": "String"
+                },
+                {
+                    "name": "$box",
+                    "description": "指定块级或者行级弹性盒",
+                    "type": "String"
+                },
+                {
+                    "name": "$direction",
+                    "description": "指定是水平或者垂直布局",
+                    "type": "String"
+                }
+            ],
+            "class": "layout",
             "module": "Yo"
         },
         {
             "file": "lib/layout/yo-stacked.scss",
-            "line": 4,
-            "description": "Layout: yo-stacked\nAuthor: joy.du(飘零雾雨)\nEdit: 2015.1.15\n-----------------------",
+            "line": 8,
+            "description": "构造独立区块布局\n-----------------------\n使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/layout/yo-stacked.html)",
             "itemtype": "method",
-            "name": "stacked\nvariables length(2)",
+            "name": "stacked",
             "params": [
                 {
                     "name": "$name",
@@ -2933,15 +2907,15 @@
                     "type": "Defailt | Color"
                 }
             ],
-            "class": "widget",
+            "class": "layout",
             "module": "Yo"
         },
         {
             "file": "lib/widget/yo-dblist.scss",
-            "line": 4,
-            "description": "Widget: yo-dblist\nAuthor: joy.du(飘零雾雨)\nTime: 2012.1.1\n------------------------",
+            "line": 8,
+            "description": "构造列表的自定义使用方法\n-----------------------\n使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/widget/yo-dblist.html)",
             "itemtype": "method",
-            "name": "yo-dblist\nvariables length(5)",
+            "name": "yo-dblist",
             "params": [
                 {
                     "name": "$name",
@@ -2959,15 +2933,15 @@
                     "type": "Default | Length"
                 }
             ],
-            "class": "",
+            "class": "widget",
             "module": "Yo"
         },
         {
             "file": "lib/widget/yo-dialog.scss",
-            "line": 5,
-            "description": "widget: yo-dialog\nAuthor: joy.du(飘零雾雨)\nTime: 2012.1.1\n------------------------",
+            "line": 9,
+            "description": "构造列表的自定义使用方法\n-----------------------\n使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/widget/yo-dialog.html)",
             "itemtype": "method",
-            "name": "yo-dialog\nvariables length(12)",
+            "name": "yo-dialog",
             "params": [
                 {
                     "name": "$name",
@@ -3030,15 +3004,15 @@
                     "type": "Default | Length"
                 }
             ],
-            "class": "",
+            "class": "widget",
             "module": "Yo"
         },
         {
             "file": "lib/widget/yo-group.scss",
-            "line": 6,
-            "description": "Widget: yo-group\nAuthor: joy.du(飘零雾雨)\nTime: 2012.1.1\n------------------------",
+            "line": 10,
+            "description": "构造列表的自定义使用方法\n-----------------------\n使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/widget/yo-group.html)",
             "itemtype": "method",
-            "name": "yo-group\nvariables length(2)",
+            "name": "yo-group",
             "params": [
                 {
                     "name": "$name",
@@ -3051,15 +3025,15 @@
                     "type": "Default | Length"
                 }
             ],
-            "class": "",
+            "class": "widget",
             "module": "Yo"
         },
         {
             "file": "lib/widget/yo-index.scss",
-            "line": 4,
-            "description": "Widget: yo-index\nAuthor: joy.du(飘零雾雨)\nTime: 2012.1.1\n------------------------",
+            "line": 8,
+            "description": "构造列表的自定义使用方法\n-----------------------\n使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/widget/yo-index.html)",
             "itemtype": "method",
-            "name": "yo-index\nvariables length(4)",
+            "name": "yo-index",
             "params": [
                 {
                     "name": "$name",
@@ -3082,15 +3056,15 @@
                     "type": "Default | Length"
                 }
             ],
-            "class": "",
+            "class": "widget",
             "module": "Yo"
         },
         {
             "file": "lib/widget/yo-mask.scss",
-            "line": 4,
-            "description": "Widget: yo-mask\nAuthor: joy.du(飘零雾雨)\nTime: 2012.1.1\n------------------------",
+            "line": 8,
+            "description": "构造列表的自定义使用方法\n-----------------------\n使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/widget/yo-mask.html)",
             "itemtype": "method",
-            "name": "yo-mask\nvariables length(2)",
+            "name": "yo-mask",
             "params": [
                 {
                     "name": "$name",
@@ -3103,15 +3077,15 @@
                     "type": "Default | Color"
                 }
             ],
-            "class": "",
+            "class": "widget",
             "module": "Yo"
         },
         {
             "file": "lib/widget/yo-number.scss",
-            "line": 4,
-            "description": "Widget: yo-number\nAuthor: joy.du(飘零雾雨)\nTime: 2012.1.1\n------------------------",
+            "line": 8,
+            "description": "构造列表的自定义使用方法\n-----------------------\n使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/widget/yo-number.html)",
             "itemtype": "method",
-            "name": "yo-number\nvariables length(8)",
+            "name": "yo-number",
             "params": [
                 {
                     "name": "$name",
@@ -3154,15 +3128,15 @@
                     "type": "Default | Color"
                 }
             ],
-            "class": "",
+            "class": "widget",
             "module": "Yo"
         },
         {
             "file": "lib/widget/yo-popup.scss",
-            "line": 4,
-            "description": "Widget: yo-popup\nAuthor: joy.du(飘零雾雨)\nTime: 2012.1.1\n-----------------------",
+            "line": 8,
+            "description": "构造列表的自定义使用方法\n-----------------------\n使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/widget/yo-popup.html)",
             "itemtype": "method",
-            "name": "yo-popup\nvariables length(12)",
+            "name": "yo-popup",
             "params": [
                 {
                     "name": "$name",
@@ -3225,15 +3199,15 @@
                     "type": "Default | Length"
                 }
             ],
-            "class": "",
+            "class": "widget",
             "module": "Yo"
         },
         {
             "file": "lib/widget/yo-rating.scss",
-            "line": 4,
-            "description": "Widget: yo-rating\nAuthor: joy.du(飘零雾雨)\nTime: 2012.1.1\n------------------------",
+            "line": 8,
+            "description": "构造列表的自定义使用方法\n-----------------------\n使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/widget/yo-rating.html)",
             "itemtype": "method",
-            "name": "yo-rating\nvariables length(5)",
+            "name": "yo-rating",
             "params": [
                 {
                     "name": "$name",
@@ -3256,15 +3230,15 @@
                     "type": "Default | Color"
                 }
             ],
-            "class": "",
+            "class": "widget",
             "module": "Yo"
         },
         {
             "file": "lib/widget/yo-search.scss",
-            "line": 4,
-            "description": "Widget: yo-search\nAuthor: joy.du(飘零雾雨)\nTime: 2012.1.1\n------------------------",
+            "line": 8,
+            "description": "构造列表的自定义使用方法\n-----------------------\n使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/widget/yo-search.html)",
             "itemtype": "method",
-            "name": "yo-search\nvariables length(16)",
+            "name": "yo-search",
             "params": [
                 {
                     "name": "$name",
@@ -3347,15 +3321,15 @@
                     "type": "Default | Length"
                 }
             ],
-            "class": "",
+            "class": "widget",
             "module": "Yo"
         },
         {
             "file": "lib/widget/yo-select.scss",
-            "line": 4,
-            "description": "Widget: yo-select\nAuthor: joy.du(飘零雾雨)\nTime: 2014.11.13\n-----------------------",
+            "line": 8,
+            "description": "构造列表的自定义使用方法\n-----------------------\n使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/widget/yo-select.html)",
             "itemtype": "method",
-            "name": "yo-select\nvariables length(4)",
+            "name": "yo-select",
             "params": [
                 {
                     "name": "$name",
@@ -3378,15 +3352,15 @@
                     "type": "Default | Color"
                 }
             ],
-            "class": "",
+            "class": "widget",
             "module": "Yo"
         },
         {
             "file": "lib/widget/yo-slidermenu.scss",
-            "line": 4,
-            "description": "Widget: yo-slidermenu\nAuthor: joy.du(飘零雾雨)\nTime: 2012.1.1\n------------------------",
+            "line": 8,
+            "description": "构造列表的自定义使用方法\n-----------------------\n使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/widget/yo-slidermenu.html)",
             "itemtype": "method",
-            "name": "yo-slidermenu\nvariables length(5)",
+            "name": "yo-slidermenu",
             "params": [
                 {
                     "name": "$name",
@@ -3404,15 +3378,15 @@
                     "type": "Default | Color"
                 }
             ],
-            "class": "",
+            "class": "widget",
             "module": "Yo"
         },
         {
             "file": "lib/widget/yo-switch.scss",
-            "line": 4,
-            "description": "widget: yo-switch\nAuthor: joy.du(飘零雾雨)\nTime: 2014.11.14\n-----------------------",
+            "line": 8,
+            "description": "构造列表的自定义使用方法\n-----------------------\n使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/widget/yo-switch.html)",
             "itemtype": "method",
-            "name": "yo-switch\nvariables length(6)",
+            "name": "yo-switch",
             "params": [
                 {
                     "name": "$name",
@@ -3445,15 +3419,15 @@
                     "type": "Default | Color"
                 }
             ],
-            "class": "",
+            "class": "widget",
             "module": "Yo"
         },
         {
             "file": "lib/widget/yo-switchable.scss",
-            "line": 4,
-            "description": "Widget: yo-switchable\nAuthor: joy.du(飘零雾雨)\nTime: 2012.1.1\n------------------------",
+            "line": 8,
+            "description": "构造列表的自定义使用方法\n-----------------------\n使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/widget/yo-switchable.html)",
             "itemtype": "method",
-            "name": "yo-switchable\nvariables length(10)",
+            "name": "yo-switchable",
             "params": [
                 {
                     "name": "$name",
@@ -3506,15 +3480,15 @@
                     "type": "Default | Length"
                 }
             ],
-            "class": "",
+            "class": "widget",
             "module": "Yo"
         },
         {
             "file": "lib/widget/yo-tab.scss",
-            "line": 4,
-            "description": "Widget: yo-tab\nAuthor: joy.du(飘零雾雨)\nEdit: 2015.3.26\n------------------------",
+            "line": 8,
+            "description": "构造列表的自定义使用方法\n-----------------------\n使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/widget/yo-tab.html)",
             "itemtype": "method",
-            "name": "yo-tab\nvariables length(15)",
+            "name": "yo-tab",
             "params": [
                 {
                     "name": "$name",
@@ -3592,15 +3566,15 @@
                     "type": "Default | Color"
                 }
             ],
-            "class": "",
+            "class": "widget",
             "module": "Yo"
         },
         {
             "file": "lib/widget/yo-tip.scss",
-            "line": 4,
-            "description": "Widget: yo-tip\nAuthor: joy.du(飘零雾雨)\nTime: 2012.1.1\n------------------------",
+            "line": 8,
+            "description": "构造列表的自定义使用方法\n-----------------------\n使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/widget/yo-tip.html)",
             "itemtype": "method",
-            "name": "yo-tip\nvariables length(5)",
+            "name": "yo-tip",
             "params": [
                 {
                     "name": "$name",
@@ -3628,7 +3602,7 @@
                     "type": "Default | Color"
                 }
             ],
-            "class": "",
+            "class": "widget",
             "module": "Yo"
         },
         {
@@ -3641,7 +3615,7 @@
         {
             "file": "usage/demo/element/yo-btn.scss",
             "line": 4,
-            "description": "Element扩展: yo-btn-normal, yo-btn-light, yo-btn-info\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
+            "description": "yo-btn扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
             "class": "",
             "module": "Yo"
         },
@@ -3660,16 +3634,23 @@
             "module": "Yo"
         },
         {
+            "file": "usage/demo/element/yo-input.scss",
+            "line": 4,
+            "description": "yo-input扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
+            "class": "",
+            "module": "Yo"
+        },
+        {
             "file": "usage/demo/element/yo-loading.scss",
             "line": 4,
-            "description": "Element扩展: yo-loading\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
+            "description": "yo-loading扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
             "class": "",
             "module": "Yo"
         },
         {
             "file": "usage/demo/element/yo-loadtip.scss",
             "line": 4,
-            "description": "Element扩展: yo-range\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
+            "description": "yo-loadtip扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
             "class": "",
             "module": "Yo"
         },
@@ -3683,7 +3664,7 @@
         {
             "file": "usage/demo/element/yo-range.scss",
             "line": 4,
-            "description": "Element扩展: yo-range\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
+            "description": "yo-range扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
             "class": "",
             "module": "Yo"
         },
@@ -3697,7 +3678,7 @@
         {
             "file": "usage/demo/fragment/yo-btnbar.scss",
             "line": 4,
-            "description": "Fragment扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
+            "description": "yo-btnbar扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
             "class": "",
             "module": "Yo"
         },
@@ -3751,13 +3732,6 @@
             "module": "Yo"
         },
         {
-            "file": "usage/demo/module/m-head.scss",
-            "line": 2,
-            "description": "module: m-head\nAuthor: joy.du(飘零雾雨)\nTime: 2013.10.17",
-            "class": "",
-            "module": "Yo"
-        },
-        {
             "file": "usage/demo/page/ani-page.scss",
             "line": 7,
             "description": "Page Animation Switch 演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2015.2.5",
@@ -3793,212 +3767,58 @@
             "module": "Yo"
         },
         {
-            "file": "usage/demo/page/yo-badge.scss",
-            "line": 9,
-            "description": "badge演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
-            "class": "",
-            "module": "Yo"
-        },
-        {
-            "file": "usage/demo/page/yo-btn.scss",
-            "line": 9,
-            "description": "button演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
-            "class": "",
-            "module": "Yo"
-        },
-        {
-            "file": "usage/demo/page/yo-btnbar.scss",
-            "line": 8,
-            "description": "yo-btnbar演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.9.18",
-            "class": "",
-            "module": "Yo"
-        },
-        {
-            "file": "usage/demo/page/yo-checkbox.scss",
-            "line": 9,
-            "description": "checkbox演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.11.14",
-            "class": "",
-            "module": "Yo"
-        },
-        {
-            "file": "usage/demo/page/yo-checked.scss",
-            "line": 9,
-            "description": "checked演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.11.14",
-            "class": "",
-            "module": "Yo"
-        },
-        {
-            "file": "usage/demo/page/yo-dblist.scss",
-            "line": 9,
-            "description": "button演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
-            "class": "",
-            "module": "Yo"
-        },
-        {
-            "file": "usage/demo/page/yo-dialog.scss",
-            "line": 7,
-            "description": "dialog演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
-            "class": "",
-            "module": "Yo"
-        },
-        {
-            "file": "usage/demo/page/yo-group.scss",
-            "line": 8,
-            "description": "group演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2015.2.10",
-            "class": "",
-            "module": "Yo"
-        },
-        {
-            "file": "usage/demo/page/yo-header.scss",
-            "line": 8,
-            "description": "header演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
-            "class": "",
-            "module": "Yo"
-        },
-        {
-            "file": "usage/demo/page/yo-index.scss",
-            "line": 9,
-            "description": "index演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2015.2.10",
-            "class": "",
-            "module": "Yo"
-        },
-        {
-            "file": "usage/demo/page/yo-input.scss",
-            "line": 10,
-            "description": "input演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.15",
-            "class": "",
-            "module": "Yo"
-        },
-        {
-            "file": "usage/demo/page/yo-list.scss",
-            "line": 9,
-            "description": "list演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
-            "class": "",
-            "module": "Yo"
-        },
-        {
-            "file": "usage/demo/page/yo-loading.scss",
-            "line": 7,
-            "description": "loading演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
-            "class": "",
-            "module": "Yo"
-        },
-        {
-            "file": "usage/demo/page/yo-loadtip.scss",
-            "line": 9,
-            "description": "loadtip演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2015.3.9",
-            "class": "",
-            "module": "Yo"
-        },
-        {
-            "file": "usage/demo/page/yo-mask.scss",
-            "line": 7,
-            "description": "mask演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
-            "class": "",
-            "module": "Yo"
-        },
-        {
-            "file": "usage/demo/page/yo-number.scss",
-            "line": 8,
-            "description": "number演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
-            "class": "",
-            "module": "Yo"
-        },
-        {
-            "file": "usage/demo/page/yo-popup.scss",
-            "line": 7,
-            "description": "popup演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
-            "class": "",
-            "module": "Yo"
-        },
-        {
-            "file": "usage/demo/page/yo-radio.scss",
-            "line": 9,
-            "description": "radio演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.11.14",
-            "class": "",
-            "module": "Yo"
-        },
-        {
-            "file": "usage/demo/page/yo-range.scss",
-            "line": 9,
-            "description": "range演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.11.14",
-            "class": "",
-            "module": "Yo"
-        },
-        {
-            "file": "usage/demo/page/yo-rating.scss",
-            "line": 9,
-            "description": "badge演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
-            "class": "",
-            "module": "Yo"
-        },
-        {
-            "file": "usage/demo/page/yo-score.scss",
-            "line": 9,
-            "description": "badge演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
-            "class": "",
-            "module": "Yo"
-        },
-        {
-            "file": "usage/demo/page/yo-search.scss",
-            "line": 9,
-            "description": "search演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
-            "class": "",
-            "module": "Yo"
-        },
-        {
-            "file": "usage/demo/page/yo-select.scss",
-            "line": 6,
-            "description": "select演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.11.13",
-            "class": "",
-            "module": "Yo"
-        },
-        {
-            "file": "usage/demo/page/yo-slidermenu.scss",
-            "line": 9,
-            "description": "slidermenu演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
-            "class": "",
-            "module": "Yo"
-        },
-        {
-            "file": "usage/demo/page/yo-switch.scss",
-            "line": 9,
-            "description": "switch演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.11.14",
-            "class": "",
-            "module": "Yo"
-        },
-        {
-            "file": "usage/demo/page/yo-switchable.scss",
-            "line": 8,
-            "description": "slider演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2015.2.10",
-            "class": "",
-            "module": "Yo"
-        },
-        {
-            "file": "usage/demo/page/yo-tab.scss",
-            "line": 7,
-            "description": "g-tab演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.9.18",
-            "class": "",
-            "module": "Yo"
-        },
-        {
-            "file": "usage/demo/page/yo-table.scss",
-            "line": 8,
-            "description": "table演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
-            "class": "",
-            "module": "Yo"
-        },
-        {
-            "file": "usage/demo/page/yo-tip.scss",
-            "line": 8,
-            "description": "tip演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
-            "class": "",
-            "module": "Yo"
-        },
-        {
             "file": "usage/demo/page/yofont.scss",
             "line": 3,
             "description": "yofont演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
+            "class": "",
+            "module": "Yo"
+        },
+        {
+            "file": "usage/demo/widget/yo-dblist.scss",
+            "line": 4,
+            "description": "yo-dblist扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
+            "class": "",
+            "module": "Yo"
+        },
+        {
+            "file": "usage/demo/widget/yo-dialog.scss",
+            "line": 4,
+            "description": "yo-dialog扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
+            "class": "",
+            "module": "Yo"
+        },
+        {
+            "file": "usage/demo/widget/yo-group.scss",
+            "line": 4,
+            "description": "yo-group扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
+            "class": "",
+            "module": "Yo"
+        },
+        {
+            "file": "usage/demo/widget/yo-index.scss",
+            "line": 4,
+            "description": "yo-index扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
+            "class": "",
+            "module": "Yo"
+        },
+        {
+            "file": "usage/demo/widget/yo-mask.scss",
+            "line": 4,
+            "description": "yo-mask扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
+            "class": "",
+            "module": "Yo"
+        },
+        {
+            "file": "usage/demo/widget/yo-number.scss",
+            "line": 4,
+            "description": "Element扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
+            "class": "",
+            "module": "Yo"
+        },
+        {
+            "file": "usage/demo/widget/yo-popup.scss",
+            "line": 4,
+            "description": "Element扩展: yo-popup\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
             "class": "",
             "module": "Yo"
         },
@@ -4010,9 +3830,37 @@
             "module": "Yo"
         },
         {
+            "file": "usage/demo/widget/yo-search.scss",
+            "line": 4,
+            "description": "yo-search扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
+            "class": "",
+            "module": "Yo"
+        },
+        {
+            "file": "usage/demo/widget/yo-select.scss",
+            "line": 4,
+            "description": "yo-select扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
+            "class": "",
+            "module": "Yo"
+        },
+        {
+            "file": "usage/demo/widget/yo-slidermenu.scss",
+            "line": 4,
+            "description": "yo-slidermenu扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
+            "class": "",
+            "module": "Yo"
+        },
+        {
             "file": "usage/demo/widget/yo-switch.scss",
             "line": 4,
             "description": "Element扩展: yo-switch\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
+            "class": "",
+            "module": "Yo"
+        },
+        {
+            "file": "usage/demo/widget/yo-switchable.scss",
+            "line": 4,
+            "description": "yo-switchable扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
             "class": "",
             "module": "Yo"
         },
@@ -4022,35 +3870,22 @@
             "description": "yo-tab扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
             "class": "",
             "module": "Yo"
+        },
+        {
+            "file": "usage/demo/widget/yo-tip.scss",
+            "line": 4,
+            "description": "yo-tip扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
+            "class": "",
+            "module": "Yo"
         }
     ],
     "warnings": [
-        {
-            "message": "Missing item type\n定义动画基本特性",
-            "line": " lib/ani/classes.scss:12"
-        },
-        {
-            "message": "Missing item type\nDirectory: lib/core/reset.scss\nCss Reset\nAuthor: joy.du(飘零雾雨)\nEdit: 2015.1.18\nNote: only for mobile",
-            "line": " lib/core/reset.scss:5"
-        },
-        {
-            "message": "Missing item type\nDirectory: lib/core/variables.scss\nCSS Variables 定义各种页面沙粒变量\nAuthor: joy.du(飘零雾雨)\nEdit: 2015.4.11\nDescription: 如果不想定义某属性，将其value设置为null",
-            "line": " lib/core/variables.scss:3"
-        },
-        {
-            "message": "Missing item type\nWidget: yo-table\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.25\n-----------------------\nmethod yo-table\nvariables length(11)\nparam {default|String} $name 定义table名称\nparam {default|String} $width 定义table长度\nparam {default|Boole} $has-vertical-border 定义table是否需要纵向边框\nparam {default|Length} $thead-padding 定义table头部内补白\nparam {default|Length} $tbody-padding 定义table主体内补白\nparam {default|Color} $bordercolor 定义table边框色\nparam {default|Color} $thead-bgcolor 定义table头部背景色\nparam {default|Color} $odd-bgcolor 定义table奇数行背景色\nparam {default|Color} $even-bgcolor 定义table偶数行背景色\nparam {default|Color} $active-bgcolor 定义table激活背景色\nparam {default|Color} $on-bgcolor 定义table选中背景色",
-            "line": " lib/fragment/yo-table.scss:4"
-        },
-        {
-            "message": "Missing item type\nDirectory: lib/layout/classes.scss\nGlobal Layout Classes 约定布局方案\nAuthor: joy.du(飘零雾雨)\nTime: 2012.1.1",
-            "line": " lib/layout/classes.scss:5"
-        },
         {
             "message": "Missing item type\nyo-badge扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
             "line": " usage/demo/element/yo-badge.scss:4"
         },
         {
-            "message": "Missing item type\nElement扩展: yo-btn-normal, yo-btn-light, yo-btn-info\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
+            "message": "Missing item type\nyo-btn扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
             "line": " usage/demo/element/yo-btn.scss:4"
         },
         {
@@ -4062,11 +3897,15 @@
             "line": " usage/demo/element/yo-checked.scss:4"
         },
         {
-            "message": "Missing item type\nElement扩展: yo-loading\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
+            "message": "Missing item type\nyo-input扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
+            "line": " usage/demo/element/yo-input.scss:4"
+        },
+        {
+            "message": "Missing item type\nyo-loading扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
             "line": " usage/demo/element/yo-loading.scss:4"
         },
         {
-            "message": "Missing item type\nElement扩展: yo-range\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
+            "message": "Missing item type\nyo-loadtip扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
             "line": " usage/demo/element/yo-loadtip.scss:4"
         },
         {
@@ -4074,7 +3913,7 @@
             "line": " usage/demo/element/yo-radio.scss:4"
         },
         {
-            "message": "Missing item type\nElement扩展: yo-range\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
+            "message": "Missing item type\nyo-range扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
             "line": " usage/demo/element/yo-range.scss:4"
         },
         {
@@ -4082,7 +3921,7 @@
             "line": " usage/demo/element/yo-score.scss:4"
         },
         {
-            "message": "Missing item type\nFragment扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
+            "message": "Missing item type\nyo-btnbar扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
             "line": " usage/demo/fragment/yo-btnbar.scss:4"
         },
         {
@@ -4114,10 +3953,6 @@
             "line": " usage/demo/module/m-desc.scss:2"
         },
         {
-            "message": "Missing item type\nmodule: m-head\nAuthor: joy.du(飘零雾雨)\nTime: 2013.10.17",
-            "line": " usage/demo/module/m-head.scss:2"
-        },
-        {
             "message": "Missing item type\nPage Animation Switch 演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2015.2.5",
             "line": " usage/demo/page/ani-page.scss:7"
         },
@@ -4138,136 +3973,68 @@
             "line": " usage/demo/page/yo-all.scss:3"
         },
         {
-            "message": "Missing item type\nbadge演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
-            "line": " usage/demo/page/yo-badge.scss:9"
-        },
-        {
-            "message": "Missing item type\nbutton演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
-            "line": " usage/demo/page/yo-btn.scss:9"
-        },
-        {
-            "message": "Missing item type\nyo-btnbar演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.9.18",
-            "line": " usage/demo/page/yo-btnbar.scss:8"
-        },
-        {
-            "message": "Missing item type\ncheckbox演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.11.14",
-            "line": " usage/demo/page/yo-checkbox.scss:9"
-        },
-        {
-            "message": "Missing item type\nchecked演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.11.14",
-            "line": " usage/demo/page/yo-checked.scss:9"
-        },
-        {
-            "message": "Missing item type\nbutton演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
-            "line": " usage/demo/page/yo-dblist.scss:9"
-        },
-        {
-            "message": "Missing item type\ndialog演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
-            "line": " usage/demo/page/yo-dialog.scss:7"
-        },
-        {
-            "message": "Missing item type\ngroup演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2015.2.10",
-            "line": " usage/demo/page/yo-group.scss:8"
-        },
-        {
-            "message": "Missing item type\nheader演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
-            "line": " usage/demo/page/yo-header.scss:8"
-        },
-        {
-            "message": "Missing item type\nindex演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2015.2.10",
-            "line": " usage/demo/page/yo-index.scss:9"
-        },
-        {
-            "message": "Missing item type\ninput演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.15",
-            "line": " usage/demo/page/yo-input.scss:10"
-        },
-        {
-            "message": "Missing item type\nlist演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
-            "line": " usage/demo/page/yo-list.scss:9"
-        },
-        {
-            "message": "Missing item type\nloading演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
-            "line": " usage/demo/page/yo-loading.scss:7"
-        },
-        {
-            "message": "Missing item type\nloadtip演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2015.3.9",
-            "line": " usage/demo/page/yo-loadtip.scss:9"
-        },
-        {
-            "message": "Missing item type\nmask演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
-            "line": " usage/demo/page/yo-mask.scss:7"
-        },
-        {
-            "message": "Missing item type\nnumber演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
-            "line": " usage/demo/page/yo-number.scss:8"
-        },
-        {
-            "message": "Missing item type\npopup演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
-            "line": " usage/demo/page/yo-popup.scss:7"
-        },
-        {
-            "message": "Missing item type\nradio演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.11.14",
-            "line": " usage/demo/page/yo-radio.scss:9"
-        },
-        {
-            "message": "Missing item type\nrange演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.11.14",
-            "line": " usage/demo/page/yo-range.scss:9"
-        },
-        {
-            "message": "Missing item type\nbadge演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
-            "line": " usage/demo/page/yo-rating.scss:9"
-        },
-        {
-            "message": "Missing item type\nbadge演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
-            "line": " usage/demo/page/yo-score.scss:9"
-        },
-        {
-            "message": "Missing item type\nsearch演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
-            "line": " usage/demo/page/yo-search.scss:9"
-        },
-        {
-            "message": "Missing item type\nselect演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.11.13",
-            "line": " usage/demo/page/yo-select.scss:6"
-        },
-        {
-            "message": "Missing item type\nslidermenu演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
-            "line": " usage/demo/page/yo-slidermenu.scss:9"
-        },
-        {
-            "message": "Missing item type\nswitch演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.11.14",
-            "line": " usage/demo/page/yo-switch.scss:9"
-        },
-        {
-            "message": "Missing item type\nslider演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2015.2.10",
-            "line": " usage/demo/page/yo-switchable.scss:8"
-        },
-        {
-            "message": "Missing item type\ng-tab演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.9.18",
-            "line": " usage/demo/page/yo-tab.scss:7"
-        },
-        {
-            "message": "Missing item type\ntable演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
-            "line": " usage/demo/page/yo-table.scss:8"
-        },
-        {
-            "message": "Missing item type\ntip演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
-            "line": " usage/demo/page/yo-tip.scss:8"
-        },
-        {
             "message": "Missing item type\nyofont演示页面\nAuthor: joy.du(飘零雾雨)\nTime: 2014.4.1",
             "line": " usage/demo/page/yofont.scss:3"
+        },
+        {
+            "message": "Missing item type\nyo-dblist扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
+            "line": " usage/demo/widget/yo-dblist.scss:4"
+        },
+        {
+            "message": "Missing item type\nyo-dialog扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
+            "line": " usage/demo/widget/yo-dialog.scss:4"
+        },
+        {
+            "message": "Missing item type\nyo-group扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
+            "line": " usage/demo/widget/yo-group.scss:4"
+        },
+        {
+            "message": "Missing item type\nyo-index扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
+            "line": " usage/demo/widget/yo-index.scss:4"
+        },
+        {
+            "message": "Missing item type\nyo-mask扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
+            "line": " usage/demo/widget/yo-mask.scss:4"
+        },
+        {
+            "message": "Missing item type\nElement扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
+            "line": " usage/demo/widget/yo-number.scss:4"
+        },
+        {
+            "message": "Missing item type\nElement扩展: yo-popup\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
+            "line": " usage/demo/widget/yo-popup.scss:4"
         },
         {
             "message": "Missing item type\nyo-rating扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
             "line": " usage/demo/widget/yo-rating.scss:4"
         },
         {
+            "message": "Missing item type\nyo-search扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
+            "line": " usage/demo/widget/yo-search.scss:4"
+        },
+        {
+            "message": "Missing item type\nyo-select扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
+            "line": " usage/demo/widget/yo-select.scss:4"
+        },
+        {
+            "message": "Missing item type\nyo-slidermenu扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
+            "line": " usage/demo/widget/yo-slidermenu.scss:4"
+        },
+        {
             "message": "Missing item type\nElement扩展: yo-switch\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
             "line": " usage/demo/widget/yo-switch.scss:4"
         },
         {
+            "message": "Missing item type\nyo-switchable扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
+            "line": " usage/demo/widget/yo-switchable.scss:4"
+        },
+        {
             "message": "Missing item type\nyo-tab扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
             "line": " usage/demo/widget/yo-tab.scss:4"
+        },
+        {
+            "message": "Missing item type\nyo-tip扩展\nAuthor: joy.du(飘零雾雨)\nTime: 2015.1.16",
+            "line": " usage/demo/widget/yo-tip.scss:4"
         }
     ]
 }

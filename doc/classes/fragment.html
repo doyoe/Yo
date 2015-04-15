@@ -42,6 +42,9 @@
                                 <li><a href="../classes/classes.html">classes</a></li>
                                 <li><a href="../classes/element.html">element</a></li>
                                 <li><a href="../classes/fragment.html">fragment</a></li>
+                                <li><a href="../classes/layout.html">layout</a></li>
+                                <li><a href="../classes/reset.html">reset</a></li>
+                                <li><a href="../classes/variables.html">variables</a></li>
                                 <li><a href="../classes/widget.html">widget</a></li>
                             </ul>
                 
@@ -85,7 +88,7 @@
 
 
         <div class="foundat">
-            Defined in: <a href="../files/lib_fragment_yo-btnbar.scss.html#l5"><code>lib&#x2F;fragment&#x2F;yo-btnbar.scss:5</code></a>
+            Defined in: <a href="../files/lib_fragment_yo-table.scss.html#l4"><code>lib&#x2F;fragment&#x2F;yo-table.scss:4</code></a>
         </div>
 
             Module: <a href="../modules/Yo.html">Yo</a>
@@ -117,6 +120,18 @@
                     <ul class="index-list methods">
                             <li class="index-item method">
                                 <a href="#method_yo-btnbar">yo-btnbar</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_yo-header">yo-header</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_yo-list">yo-list</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_yo-table">yo-table</a>
 
                             </li>
                     </ul>
@@ -161,11 +176,8 @@
     </div>
 
     <div class="description">
-        <h1>构造按钮组的自定义使用方法</h1>
-<p>Variables: 2
-Author: doyoe(杜瑶)
-Edit: 2015.1.19</p>
-<hr>
+        <h2>构造按钮组的自定义使用方法</h2>
+<p>使用方法，详见 <a href="http://doyoe.github.io/yo/demo/fragment/yo-btnbar.html">Demo</a></p>
 
     </div>
 
@@ -175,22 +187,649 @@ Edit: 2015.1.19</p>
             <ul class="params-list">
                 <li class="param">
                         <code class="param-name">$name</code>
-                        <span class="type">Default | String</span>
+                        <span class="type">String</span>
 
 
                     <div class="param-description">
-                        <p>定义yo-btnbar名称</p>
+                        <p>为新的扩展定义一个名称</p>
 
                     </div>
 
                 </li>
                 <li class="param">
                         <code class="param-name">$radius</code>
-                        <span class="type">Default | auto | Length</span>
+                        <span class="type">Length</span>
 
 
                     <div class="param-description">
-                        <p>定义yo-btnbar圆角，当值为auto时，圆角大小取决于按钮的圆角大小</p>
+                        <p>圆角半径长度</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_yo-header" class="method item">
+    <h3 class="name"><code>yo-header</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>$name</code>
+                </li>
+                <li class="arg">
+                        <code>$height</code>
+                </li>
+                <li class="arg">
+                        <code>$item-width</code>
+                </li>
+                <li class="arg">
+                        <code>$item-space</code>
+                </li>
+                <li class="arg">
+                        <code>$bordercolor</code>
+                </li>
+                <li class="arg">
+                        <code>$bgcolor</code>
+                </li>
+                <li class="arg">
+                        <code>$color</code>
+                </li>
+                <li class="arg">
+                        <code>$font-size</code>
+                </li>
+                <li class="arg">
+                        <code>$item-color</code>
+                </li>
+                <li class="arg">
+                        <code>$item-font-size</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_fragment_yo-header.scss.html#l8"><code>lib&#x2F;fragment&#x2F;yo-header.scss:8</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <h2>构造头的自定义使用方法</h2>
+<p>使用方法，详见 <a href="http://doyoe.github.io/yo/demo/fragment/yo-header.html">Demo</a></p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">$name</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>定义yo-header名称</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$height</code>
+                        <span class="type">Length</span>
+
+
+                    <div class="param-description">
+                        <p>定义yo-header高度</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$item-width</code>
+                        <span class="type">Length</span>
+
+
+                    <div class="param-description">
+                        <p>定义yo-header两侧子项宽度</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$item-space</code>
+                        <span class="type">Length</span>
+
+
+                    <div class="param-description">
+                        <p>定义yo-header两侧子项离边界的间隙</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$bordercolor</code>
+                        <span class="type">Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义yo-header边框色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$bgcolor</code>
+                        <span class="type">Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义yo-header背景色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$color</code>
+                        <span class="type">Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义yo-header文本色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$font-size</code>
+                        <span class="type">Length</span>
+
+
+                    <div class="param-description">
+                        <p>定义yo-header文本大小</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$item-color</code>
+                        <span class="type">Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义yo-header两侧的子项文本色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$item-font-size</code>
+                        <span class="type">Length</span>
+
+
+                    <div class="param-description">
+                        <p>定义yo-header两侧的子项文本大小</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_yo-list" class="method item">
+    <h3 class="name"><code>yo-list</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>$name</code>
+                </li>
+                <li class="arg">
+                        <code>$margin</code>
+                </li>
+                <li class="arg">
+                        <code>$radius</code>
+                </li>
+                <li class="arg">
+                        <code>$border-width</code>
+                </li>
+                <li class="arg">
+                        <code>$bordercolor</code>
+                </li>
+                <li class="arg">
+                        <code>$item-padding</code>
+                </li>
+                <li class="arg">
+                        <code>$label-padding</code>
+                </li>
+                <li class="arg">
+                        <code>$label-bgcolor</code>
+                </li>
+                <li class="arg">
+                        <code>$active-bgcolor</code>
+                </li>
+                <li class="arg">
+                        <code>$on-bgcolor</code>
+                </li>
+                <li class="arg">
+                        <code>$on-color</code>
+                </li>
+                <li class="arg">
+                        <code>$item-bordercolor</code>
+                </li>
+                <li class="arg">
+                        <code>$label-bordercolor</code>
+                </li>
+                <li class="arg">
+                        <code>$item-font-size</code>
+                </li>
+                <li class="arg">
+                        <code>$label-font-size</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_fragment_yo-list.scss.html#l8"><code>lib&#x2F;fragment&#x2F;yo-list.scss:8</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <h2>构造列表的自定义使用方法</h2>
+<p>使用方法，详见 <a href="http://doyoe.github.io/yo/demo/fragment/yo-list.html">Demo</a></p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">$name</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>定义list名称</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$margin</code>
+                        <span class="type">Length</span>
+
+
+                    <div class="param-description">
+                        <p>定义list外边距</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$radius</code>
+                        <span class="type">Length</span>
+
+
+                    <div class="param-description">
+                        <p>定义list圆角</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$border-width</code>
+                        <span class="type">Length</span>
+
+
+                    <div class="param-description">
+                        <p>定义list外边框厚度</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$bordercolor</code>
+                        <span class="type">Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义list边框色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$item-padding</code>
+                        <span class="type">Length</span>
+
+
+                    <div class="param-description">
+                        <p>定义list项的内补白</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$label-padding</code>
+                        <span class="type">Length</span>
+
+
+                    <div class="param-description">
+                        <p>定义list分组标题内补白</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$label-bgcolor</code>
+                        <span class="type">Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义list分组标题背景色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$active-bgcolor</code>
+                        <span class="type">Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义list点击反馈背景色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$on-bgcolor</code>
+                        <span class="type">Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义list选中背景色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$on-color</code>
+                        <span class="type">Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义list选中文本色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$item-bordercolor</code>
+                        <span class="type">Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义list子项边框色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$label-bordercolor</code>
+                        <span class="type">Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义list子项组头边框色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$item-font-size</code>
+                        <span class="type">Length</span>
+
+
+                    <div class="param-description">
+                        <p>定义list项字号</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$label-font-size</code>
+                        <span class="type">Length</span>
+
+
+                    <div class="param-description">
+                        <p>定义list列表组头字号</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_yo-table" class="method item">
+    <h3 class="name"><code>yo-table</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>$name</code>
+                </li>
+                <li class="arg">
+                        <code>$width</code>
+                </li>
+                <li class="arg">
+                        <code>$has-vertical-border</code>
+                </li>
+                <li class="arg">
+                        <code>$thead-padding</code>
+                </li>
+                <li class="arg">
+                        <code>$tbody-padding</code>
+                </li>
+                <li class="arg">
+                        <code>$bordercolor</code>
+                </li>
+                <li class="arg">
+                        <code>$thead-bgcolor</code>
+                </li>
+                <li class="arg">
+                        <code>$odd-bgcolor</code>
+                </li>
+                <li class="arg">
+                        <code>$even-bgcolor</code>
+                </li>
+                <li class="arg">
+                        <code>$active-bgcolor</code>
+                </li>
+                <li class="arg">
+                        <code>$on-bgcolor</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/lib_fragment_yo-table.scss.html#l8"><code>lib&#x2F;fragment&#x2F;yo-table.scss:8</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <h2>构造表格的自定义使用方法</h2>
+<p>使用方法，详见 <a href="http://doyoe.github.io/yo/demo/fragment/yo-table.html">Demo</a></p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">$name</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>定义table名称</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$width</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>定义table长度</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$has-vertical-border</code>
+                        <span class="type">Boole</span>
+
+
+                    <div class="param-description">
+                        <p>定义table是否需要纵向边框</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$thead-padding</code>
+                        <span class="type">Length</span>
+
+
+                    <div class="param-description">
+                        <p>定义table头部内补白</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$tbody-padding</code>
+                        <span class="type">Length</span>
+
+
+                    <div class="param-description">
+                        <p>定义table主体内补白</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$bordercolor</code>
+                        <span class="type">Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义table边框色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$thead-bgcolor</code>
+                        <span class="type">Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义table头部背景色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$odd-bgcolor</code>
+                        <span class="type">Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义table奇数行背景色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$even-bgcolor</code>
+                        <span class="type">Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义table偶数行背景色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$active-bgcolor</code>
+                        <span class="type">Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义table激活背景色</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">$on-bgcolor</code>
+                        <span class="type">Color</span>
+
+
+                    <div class="param-description">
+                        <p>定义table选中背景色</p>
 
                     </div>
 

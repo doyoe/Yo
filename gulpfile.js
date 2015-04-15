@@ -2,25 +2,28 @@
 var gulp = require('gulp');
 
 // 引入组件
-var jshint = require('gulp-jshint');
-var sass = require('gulp-ruby-sass');
-var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
-var rename = require('gulp-rename');
+var compass = require('gulp-compass');
 
-// style path
+// style path，由业务自己配置
 var scssPath = './usage/demo/page';
 var cssPath = './usage/demo/export';
 
 // 编译Sass
-gulp.task('sass', function() {
-    sass(scssPath, { style: 'expanded',sourcemap: false })
-        .on('error', function (err) { console.log(err.message); })
-        .pipe(gulp.dest(cssPath));
+// 只能编译不超过16个文件，谁能破，请告诉我呀
+gulp.task('compass', function() {
+  gulp.src(scssPath + '/*.scss')
+    .pipe(compass({
+        config_file: './config.rb',
+        css: cssPath,
+        sass: scssPath,
+        style: 'compressed'
+    }))
+});
+
+// watch变更
+gulp.task('watch', function() {
+    gulp.watch('./**/*.scss', ['compass']);
 });
 
 // 默认任务
-gulp.task('default', function(){
-    gulp.run('sass');
-    gulp.watch('./**/*.scss', ['sass']);
-});
+gulp.task('default', ['compass', 'watch']);

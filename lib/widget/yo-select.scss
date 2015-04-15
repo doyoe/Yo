@@ -2,12 +2,14 @@
 @import "classes";
 
 /**
- * Widget: yo-select
- * Author: joy.du(飘零雾雨)
- * Time: 2014.11.13
+ * @class widget
+ */
+
+/**
+ * 构造列表的自定义使用方法
  -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/widget/yo-select.html)
  * @method yo-select
- * variables length(4)
  * @param {default | String} $name 定义select名称
  * @param {default | Length} $width 定义select显示的子项个数
  * @param {default | Length} $height 定义select子项高度

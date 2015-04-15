@@ -42,6 +42,9 @@
                                 <li><a href="../classes/classes.html">classes</a></li>
                                 <li><a href="../classes/element.html">element</a></li>
                                 <li><a href="../classes/fragment.html">fragment</a></li>
+                                <li><a href="../classes/layout.html">layout</a></li>
+                                <li><a href="../classes/reset.html">reset</a></li>
+                                <li><a href="../classes/variables.html">variables</a></li>
                                 <li><a href="../classes/widget.html">widget</a></li>
                             </ul>
                 
@@ -87,13 +90,13 @@
 @charset &quot;utf-8&quot;;
 @import &quot;variables&quot;;
 @import &quot;classes&quot;;
-
 /**
- * Directory: lib/core/reset.scss
- * Css Reset
- * Author: joy.du(飘零雾雨)
- * Edit: 2015.1.18
- * Note: only for mobile
+ * Yo框架全局Reset
+ -----------------------
+ * Yo重置Mobile上常见的差异
+ *
+ * @class reset
+ * @module Yo
  */
 
 // 1. 将元素的盒模型统一为：border-box
@@ -112,7 +115,7 @@ html {
     // 用于rem计算
     font-size: map-get($base, font-size-root);
     // 如果是适配大小的场景
-    @if map-get($doc, responsive-type) == scaling {
+    @if map-get($base, responsive-type) == scaling {
         font-size: map-get($base, font-size-root-scaling);
     }
     @include user-select();

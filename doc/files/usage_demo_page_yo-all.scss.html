@@ -42,6 +42,9 @@
                                 <li><a href="../classes/classes.html">classes</a></li>
                                 <li><a href="../classes/element.html">element</a></li>
                                 <li><a href="../classes/fragment.html">fragment</a></li>
+                                <li><a href="../classes/layout.html">layout</a></li>
+                                <li><a href="../classes/reset.html">reset</a></li>
+                                <li><a href="../classes/variables.html">variables</a></li>
                                 <li><a href="../classes/widget.html">widget</a></li>
                             </ul>
                 
@@ -92,38 +95,123 @@
  * Time: 2015.2.11
  */
 
-@import &quot;../core/reset&quot;;
-@import &quot;../../../lib/element/yo-btn&quot;;
-@import &quot;../../../lib/element/yo-input&quot;;
-@import &quot;../../../lib/element/yo-badge&quot;;
-@import &quot;../../../lib/element/yo-checkbox&quot;;
-@import &quot;../../../lib/element/yo-loading&quot;;
-@import &quot;../../../lib/element/yo-checked&quot;;
-@import &quot;../../../lib/element/yo-range&quot;;
-@import &quot;../../../lib/element/yo-radio&quot;;
-@import &quot;../../../lib/element/yo-loading&quot;;
-@import &quot;../../../lib/element/yo-loadtip&quot;;
+@import &quot;../layout/layout&quot;;
 
-@import &quot;../../../lib/fragment/yo-header&quot;;
-@import &quot;../../../lib/fragment/yo-list&quot;;
-@import &quot;../../../lib/fragment/yo-table&quot;;
-@import &quot;../../../lib/fragment/yo-btnbar&quot;;
+@import &quot;../module/m-code&quot;;
+@import &quot;../module/m-demo&quot;;
+@import &quot;../module/m-desc&quot;;
 
-@import &quot;../../../lib/widget/yo-dialog&quot;;
-@import &quot;../../../lib/widget/yo-popup&quot;;
-@import &quot;../../../lib/widget/yo-number&quot;;
-@import &quot;../../../lib/widget/yo-select&quot;;
-@import &quot;../../../lib/widget/yo-tab&quot;;
-@import &quot;../../../lib/widget/yo-tip&quot;;
-@import &quot;../../../lib/widget/yo-mask&quot;;
-@import &quot;../../../lib/widget/yo-index&quot;;
-@import &quot;../../../lib/widget/yo-group&quot;;
-@import &quot;../../../lib/widget/yo-search&quot;;
-@import &quot;../../../lib/widget/yo-switchable&quot;;
-@import &quot;../../../lib/widget/yo-switch&quot;;
-@import &quot;../../../lib/widget/yo-slidermenu&quot;;
-@import &quot;../../../lib/widget/yo-rating&quot;;
-@import &quot;../../../lib/widget/yo-dblist&quot;;
+@import &quot;../element/yo-badge&quot;;
+@import &quot;../element/yo-btn&quot;;
+@import &quot;../element/yo-checkbox&quot;;
+@import &quot;../element/yo-checked&quot;;
+@import &quot;../element/yo-input&quot;;
+@import &quot;../element/yo-loading&quot;;
+@import &quot;../element/yo-loadtip&quot;;
+@import &quot;../element/yo-radio&quot;;
+@import &quot;../element/yo-range&quot;;
+@import &quot;../element/yo-score&quot;;
+
+@import &quot;../fragment/yo-header&quot;;
+@import &quot;../fragment/yo-list&quot;;
+@import &quot;../fragment/yo-table&quot;;
+@import &quot;../fragment/yo-btnbar&quot;;
+
+@import &quot;../widget/yo-dblist&quot;;
+@import &quot;../widget/yo-dialog&quot;;
+@import &quot;../widget/yo-group&quot;;
+@import &quot;../widget/yo-index&quot;;
+@import &quot;../widget/yo-mask&quot;;
+@import &quot;../widget/yo-number&quot;;
+@import &quot;../widget/yo-popup&quot;;
+@import &quot;../widget/yo-rating&quot;;
+@import &quot;../widget/yo-search&quot;;
+@import &quot;../widget/yo-select&quot;;
+@import &quot;../widget/yo-slidermenu&quot;;
+@import &quot;../widget/yo-switch&quot;;
+@import &quot;../widget/yo-switchable&quot;;
+@import &quot;../widget/yo-tab&quot;;
+@import &quot;../widget/yo-tip&quot;;
+
+
+.yo-list {
+    .mark img {
+        width: 80px;
+        height: 50px;
+    }
+}
+
+.m-demo {
+    .yo-table {
+        .c1 {
+            width: .8rem;
+        }
+    }
+}
+
+.m-demo {
+    .stage {
+        // yo-btn
+        .yo-list .yo-btn:not(:first-child){
+            margin-left: .1rem;
+        }
+        // yo-dialog
+        .yo-dialog {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            @include transform(translate(-50%, -50%));
+        }
+        @include yo-dialog(
+            $name: test,
+            $height: auto
+        );
+        // yo-popup
+        .yo-popup {
+            top: 50%;
+            left: 50%;
+            @include transform(translate(-50%, -50%));
+        }
+        // yo-tab
+        .yo-tab {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            &amp;-test {
+                bottom: 50%;
+            }
+            &amp;-test2 {
+                top: 0;
+                bottom: auto;
+            }
+        }
+        // yo-tip
+        .yo-tip {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            @include transform(translate(-50%, -50%));
+        }
+        // yo-index
+        &gt; .yo-index {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            @include transform(translatey(-50%));
+        }
+        // yo-group
+        &gt; .yo-group:nth-child(2) {
+            top: .44rem;
+        }
+        .yo-group {
+            &gt; .scroll-index {
+                top: 50%;
+                @include transform(translatey(-50%));
+            }
+        }
+    }
+}
     </pre>
 </div>
                     </div>

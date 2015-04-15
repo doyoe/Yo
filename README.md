@@ -5,7 +5,12 @@
 
 ## Quick start
 
-待完善...
+* git clone
+* windows环境需要先安装ruby
+* 装compass工具 gem install compass
+* 装gulp工具 npm install gulp -g
+* 安装依赖模块，在 yo 下 npm install
+* 编译命令：gulp
 
 
 ## Browser support
@@ -28,6 +33,9 @@
 
 ### Developing: v1.4.0
 
+* update:
+    - 删除了 `layout.scss`，如果当前页面需要设置root是否允许滚动，使用 `root-scroll()` 方法
+    - 新增 `yo-flex` 弹性布局方法
 * update: `flex` 方法
     - 删除 `flex` 方法的 `display: block` 设置，如果参与flex布局，请自行使用非inline元素
 * update: `yo-badge`

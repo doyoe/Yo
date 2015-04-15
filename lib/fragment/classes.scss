@@ -166,7 +166,7 @@
     > .yo-btn {
         float: left;
         &:not(:first-child) {
-            margin-left: -1px;
+            margin-left: -.01rem !important;
         }
         &:first-child {
             // 如果按钮有圆角，那么去掉第一个按钮的右侧圆角

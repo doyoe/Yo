@@ -2,9 +2,12 @@
 @import "../../../lib/fragment/yo-btnbar";
 
 /**
- * Fragment扩展
+ * yo-btnbar扩展
  * Author: joy.du(飘零雾雨)
  * Time: 2015.1.16
  */
 
-@include yo-btnbar(test,.1rem);
+@include yo-btnbar(
+    $name: test,
+    $radius: .1rem
+);

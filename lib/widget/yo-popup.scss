@@ -2,12 +2,14 @@
 @import "classes";
 
 /**
- * Widget: yo-popup
- * Author: joy.du(飘零雾雨)
- * Time: 2012.1.1
+ * @class widget
+ */
+
+/**
+ * 构造列表的自定义使用方法
  -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/widget/yo-popup.html)
  * @method yo-popup
- * variables length(12)
  * @param {default | String} $name 定义popup名称
  * @param {default | Length | null} $width 定义popup宽度
  * @param {default | Length} $height 定义popup高度

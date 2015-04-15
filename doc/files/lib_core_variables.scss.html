@@ -42,6 +42,9 @@
                                 <li><a href="../classes/classes.html">classes</a></li>
                                 <li><a href="../classes/element.html">element</a></li>
                                 <li><a href="../classes/fragment.html">fragment</a></li>
+                                <li><a href="../classes/layout.html">layout</a></li>
+                                <li><a href="../classes/reset.html">reset</a></li>
+                                <li><a href="../classes/variables.html">variables</a></li>
                                 <li><a href="../classes/widget.html">widget</a></li>
                             </ul>
                 
@@ -85,13 +88,13 @@
 <div class="file">
     <pre class="code prettyprint linenums">
 @charset &quot;utf-8&quot;;
-
 /**
- * Directory: lib/core/variables.scss
- * CSS Variables 定义各种页面沙粒变量
- * Author: joy.du(飘零雾雨)
- * Edit: 2015.4.11
- * Description: 如果不想定义某属性，将其value设置为null
+ * Yo框架全局Variables
+ -----------------------
+ * Yo基础变量map，如果不想定义某属性，将其value设置为null
+ *
+ * @class variables
+ * @module Yo
  */
 
 $setting: (
@@ -105,16 +108,18 @@ $setting: (
     bgimg-domain:     &quot;../../../bgimg/&quot;
 ) !default;
 
-//  Layout Document
-$doc: (
-    responsive-type: none,
-    is-scroll:       false
-) !default;
-
 // Layout Stacked
 $stacked: (
     // {Length} 区块外边距
     margin: .2rem .1rem
+) !default;
+
+// Layout flex
+$flex: (
+    // {String} 定义弹性布局是flex还是inline-flex
+    box: flex,
+    // {String} 定义是水平布局还是垂直布局
+    direction: column
 ) !default;
 
 // responsive media types
@@ -133,6 +138,8 @@ $media-types: (
 
 // base
 $base: (
+    // 响应式的类型：none | scaling
+    responsive-type:        none,
     // html root使用100px，方便rem单位的换算
     font-size-root:         100px,
     // 适配：用于做元素随屏幕大小而变化的情况

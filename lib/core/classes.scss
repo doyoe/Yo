@@ -291,6 +291,19 @@
 }
 
 /**
+ * 定义root root-scroll
+ * @method root-scroll
+ * @param {String} $root-scroll 指定scroll类型，取值overflow属性的标准值
+ */
+@mixin root-scroll($root-scroll: hidden) {
+    html,
+    body {
+        overflow: $root-scroll;
+        height: 100%;
+    }
+}
+
+/**
  * 定义是否有滚动条
  * @method overflow
  * @param {String} $overflow 默认值：auto，取值与最新原生语法一致

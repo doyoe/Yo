@@ -8,7 +8,7 @@
 <meta name="format-detection" content="telephone=no" />
 <link rel="apple-touch-icon-precomposed" href="/qunar-touch.png" />
 <title>table - 表格</title>
-<link rel="stylesheet" href="../../usage/demo/export/yo-table.css" />
+<link rel="stylesheet" href="../../usage/demo/export/yo-all.css" />
 </head>
 <body>
 
@@ -128,14 +128,20 @@
     <h2>假设你想要有竖线的，那么你可以这样扩展：</h2>
     <p>命名及颜色按照各自团队内部的FE/UI规范即可</p>
     <h3>全局扩展方式：</h3>
-    <xmp>@include yo-table(test,default,true);</xmp>
+    <xmp>@include yo-table(
+    $name: test,
+    $has-vertical-border: true
+);</xmp>
     <h3>使用方法：</h3>
     <xmp><table class="yo-table yo-table-test">
     ...
 </table></xmp>
     <h3>局部扩展方式：</h3>
-    <xmp>.xxx{
-    @include yo-table(test,default,true);
+    <xmp>.xxx {
+    @include yo-table(
+        $name: test,
+        $has-vertical-border: true
+    );
 }</xmp>
     <h3>使用方法：</h3>
     <xmp><div class="xxx">
@@ -197,14 +203,20 @@
     <h2>假设你想要有间隔色，那么你可以这样扩展：</h2>
     <p>命名及颜色按照各自团队内部的FE/UI规范即可</p>
     <h3>全局扩展方式：</h3>
-    <xmp>@include yo-table(test2,default,default,default,default,default,default,default,#f9f9f9);</xmp>
+    <xmp>@include yo-table(
+    $name: test2,
+    $even-bgcolor: #f9f9f9
+);</xmp>
     <h3>使用方法：</h3>
     <xmp><table class="yo-table yo-table-test2">
     ...
 </table></xmp>
     <h3>局部扩展方式：</h3>
-    <xmp>.xxx{
-    @include yo-table(test2,default,default,default,default,default,default,default,#f9f9f9);
+    <xmp>.xxx {
+    @include yo-table(
+        $name: test2,
+        $even-bgcolor: #f9f9f9
+    );
 }</xmp>
     <h3>使用方法：</h3>
     <xmp><div class="xxx">
@@ -217,17 +229,17 @@
 
 
 <pre class="m-code"><span class="method">@include yo-table</span><span class="bracket">(</span>
-    $name<span class="colon">:</span>default, <mark>//{default|String} table名称</mark>
-    $width<span class="colon">:</span>default, <mark>//{default|Length} table宽度</mark>
-    $has-vertical-border<span class="colon">:</span>default, <mark>//{default|Boole} table是否需要纵向边框</mark>
-    $thead-padding<span class="colon">:</span>default, <mark>//{default|Length} table头部内补白</mark>
-    $tbody-padding<span class="colon">:</span>default, <mark>//{default|Length} table主体内补白</mark>
-    $bordercolor<span class="colon">:</span>default, <mark>//{default|Color} table边框色</mark>
-    $thead-bgcolor<span class="colon">:</span>default, <mark>//{default|Color} table头部背景色</mark>
-    $odd-bgcolor<span class="colon">:</span>default, <mark>//{default|Color} table奇数行背景色</mark>
-    $even-bgcolor<span class="colon">:</span>default, <mark>//{default|Color} table偶数行背景色</mark>
-    $active-bgcolor<span class="colon">:</span>default, <mark>//{default|Color} table激活背景色</mark>
-    $on-bgcolor<span class="colon">:</span>default <mark>//{default|Color} table选中背景色</mark>
+    $name<span class="colon">:</span>default, <mark>//{String} table名称</mark>
+    $width<span class="colon">:</span>default, <mark>//{Length} table宽度</mark>
+    $has-vertical-border<span class="colon">:</span>default, <mark>//{Boole} table是否需要纵向边框</mark>
+    $thead-padding<span class="colon">:</span>default, <mark>//{Length} table头部内补白</mark>
+    $tbody-padding<span class="colon">:</span>default, <mark>//{Length} table主体内补白</mark>
+    $bordercolor<span class="colon">:</span>default, <mark>//{Color} table边框色</mark>
+    $thead-bgcolor<span class="colon">:</span>default, <mark>//{Color} table头部背景色</mark>
+    $odd-bgcolor<span class="colon">:</span>default, <mark>//{Color} table奇数行背景色</mark>
+    $even-bgcolor<span class="colon">:</span>default, <mark>//{Color} table偶数行背景色</mark>
+    $active-bgcolor<span class="colon">:</span>default, <mark>//{Color} table激活背景色</mark>
+    $on-bgcolor<span class="colon">:</span>default <mark>//{Color} table选中背景色</mark>
 <span class="bracket">)</span>
 </pre>
 

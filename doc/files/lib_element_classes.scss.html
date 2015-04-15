@@ -42,6 +42,9 @@
                                 <li><a href="../classes/classes.html">classes</a></li>
                                 <li><a href="../classes/element.html">element</a></li>
                                 <li><a href="../classes/fragment.html">fragment</a></li>
+                                <li><a href="../classes/layout.html">layout</a></li>
+                                <li><a href="../classes/reset.html">reset</a></li>
+                                <li><a href="../classes/variables.html">variables</a></li>
                                 <li><a href="../classes/widget.html">widget</a></li>
                             </ul>
                 
@@ -114,7 +117,7 @@
         border-style: none;
     }
     // 内阴影，用来描内部的1px白边
-    box-shadow: inset 1px 1px rgba(255, 255, 255, .1);
+    box-shadow: inset .01rem .01rem rgba(255, 255, 255, .1);
     border-radius: map-get($btn, radius);
     background-color: map-get($btn, bgcolor);
     color: map-get($btn, color);
@@ -122,7 +125,11 @@
     vertical-align: middle;
     cursor: pointer;
     &amp;:active {
-        border-color: map-get($btn, active-bordercolor);
+        // 当边框厚度大于0时，才定义边框相关属性
+        @if map-get($btn, border-width) != null and
+            map-get($btn, border-width) != 0 {
+            border-color: map-get($btn, active-bordercolor);
+        }
         background-color: map-get($btn, active-bgcolor);
         color: map-get($btn, active-color);
     }

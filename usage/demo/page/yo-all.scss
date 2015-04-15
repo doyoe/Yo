@@ -6,35 +6,120 @@
  * Time: 2015.2.11
  */
 
-@import "../core/reset";
-@import "../../../lib/element/yo-btn";
-@import "../../../lib/element/yo-input";
-@import "../../../lib/element/yo-badge";
-@import "../../../lib/element/yo-checkbox";
-@import "../../../lib/element/yo-loading";
-@import "../../../lib/element/yo-checked";
-@import "../../../lib/element/yo-range";
-@import "../../../lib/element/yo-radio";
-@import "../../../lib/element/yo-loading";
-@import "../../../lib/element/yo-loadtip";
+@import "../layout/layout";
 
-@import "../../../lib/fragment/yo-header";
-@import "../../../lib/fragment/yo-list";
-@import "../../../lib/fragment/yo-table";
-@import "../../../lib/fragment/yo-btnbar";
+@import "../module/m-code";
+@import "../module/m-demo";
+@import "../module/m-desc";
 
-@import "../../../lib/widget/yo-dialog";
-@import "../../../lib/widget/yo-popup";
-@import "../../../lib/widget/yo-number";
-@import "../../../lib/widget/yo-select";
-@import "../../../lib/widget/yo-tab";
-@import "../../../lib/widget/yo-tip";
-@import "../../../lib/widget/yo-mask";
-@import "../../../lib/widget/yo-index";
-@import "../../../lib/widget/yo-group";
-@import "../../../lib/widget/yo-search";
-@import "../../../lib/widget/yo-switchable";
-@import "../../../lib/widget/yo-switch";
-@import "../../../lib/widget/yo-slidermenu";
-@import "../../../lib/widget/yo-rating";
-@import "../../../lib/widget/yo-dblist";
+@import "../element/yo-badge";
+@import "../element/yo-btn";
+@import "../element/yo-checkbox";
+@import "../element/yo-checked";
+@import "../element/yo-input";
+@import "../element/yo-loading";
+@import "../element/yo-loadtip";
+@import "../element/yo-radio";
+@import "../element/yo-range";
+@import "../element/yo-score";
+
+@import "../fragment/yo-header";
+@import "../fragment/yo-list";
+@import "../fragment/yo-table";
+@import "../fragment/yo-btnbar";
+
+@import "../widget/yo-dblist";
+@import "../widget/yo-dialog";
+@import "../widget/yo-group";
+@import "../widget/yo-index";
+@import "../widget/yo-mask";
+@import "../widget/yo-number";
+@import "../widget/yo-popup";
+@import "../widget/yo-rating";
+@import "../widget/yo-search";
+@import "../widget/yo-select";
+@import "../widget/yo-slidermenu";
+@import "../widget/yo-switch";
+@import "../widget/yo-switchable";
+@import "../widget/yo-tab";
+@import "../widget/yo-tip";
+
+
+.yo-list {
+    .mark img {
+        width: 80px;
+        height: 50px;
+    }
+}
+
+.m-demo {
+    .yo-table {
+        .c1 {
+            width: .8rem;
+        }
+    }
+}
+
+.m-demo {
+    .stage {
+        // yo-btn
+        .yo-list .yo-btn:not(:first-child){
+            margin-left: .1rem;
+        }
+        // yo-dialog
+        .yo-dialog {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            @include transform(translate(-50%, -50%));
+        }
+        @include yo-dialog(
+            $name: test,
+            $height: auto
+        );
+        // yo-popup
+        .yo-popup {
+            top: 50%;
+            left: 50%;
+            @include transform(translate(-50%, -50%));
+        }
+        // yo-tab
+        .yo-tab {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            &-test {
+                bottom: 50%;
+            }
+            &-test2 {
+                top: 0;
+                bottom: auto;
+            }
+        }
+        // yo-tip
+        .yo-tip {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            @include transform(translate(-50%, -50%));
+        }
+        // yo-index
+        > .yo-index {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            @include transform(translatey(-50%));
+        }
+        // yo-group
+        > .yo-group:nth-child(2) {
+            top: .44rem;
+        }
+        .yo-group {
+            > .scroll-index {
+                top: 50%;
+                @include transform(translatey(-50%));
+            }
+        }
+    }
+}

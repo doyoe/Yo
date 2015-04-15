@@ -1,10 +1,11 @@
 @charset "UTF-8";
 /**
- * Directory: lib/core/variables.scss
- * CSS Variables 定义各种页面沙粒变量
- * Author: joy.du(飘零雾雨)
- * Edit: 2015.4.11
- * Description: 如果不想定义某属性，将其value设置为null
+ * Yo框架全局Variables
+ -----------------------
+ * Yo基础变量map，如果不想定义某属性，将其value设置为null
+ *
+ * @class variables
+ * @module Yo
  */
 /**
  * Yo框架全局基础方法
@@ -116,6 +117,11 @@
  * @param {String} $align-self 默认值：center，取值与最新原生语法一致
  */
 /**
+ * 定义root root-scroll
+ * @method root-scroll
+ * @param {String} $root-scroll 指定scroll类型，取值overflow属性的标准值
+ */
+/**
  * 定义是否有滚动条
  * @method overflow
  * @param {String} $overflow 默认值：auto，取值与最新原生语法一致
@@ -182,34 +188,32 @@
  * @param {Length} $height 居中元素的高度
  */
 /**
- * Directory: lib/core/reset.scss
- * Css Reset
- * Author: joy.du(飘零雾雨)
- * Edit: 2015.1.18
- * Note: only for mobile
+ * Yo框架全局Reset
+ -----------------------
+ * Yo重置Mobile上常见的差异
+ *
+ * @class reset
+ * @module Yo
  */
 *,
 ::before,
 ::after {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
-}
+  -webkit-tap-highlight-color: transparent; }
 
 html {
   background-color: #fafafa;
   color: #212121;
   font-size: 100px;
   -webkit-user-select: none;
-  user-select: none;
-}
+  user-select: none; }
 
 body {
   margin: 0;
   font-size: 14px;
   line-height: 1.5;
-  font-family: Helvetica Neue, Helvetica, STHeiTi, sans-serif;
-}
+  font-family: Helvetica Neue, Helvetica, STHeiTi, sans-serif; }
 
 ul,
 ol,
@@ -235,8 +239,7 @@ td,
 pre,
 xmp {
   margin: 0;
-  padding: 0;
-}
+  padding: 0; }
 
 input,
 textarea,
@@ -249,8 +252,7 @@ code,
 kbd,
 samp {
   line-height: inherit;
-  font-family: inherit;
-}
+  font-family: inherit; }
 
 h1,
 h2,
@@ -264,8 +266,7 @@ input,
 textarea,
 button,
 select {
-  font-size: inherit;
-}
+  font-size: inherit; }
 
 address,
 cite,
@@ -274,27 +275,23 @@ em,
 i,
 optgroup,
 var {
-  font-style: normal;
-}
+  font-style: normal; }
 
 table {
   border-collapse: collapse;
   border-spacing: 0;
   table-layout: fixed;
-  text-align: left;
-}
+  text-align: left; }
 
 ul,
 ol,
 menu {
-  list-style: none;
-}
+  list-style: none; }
 
 fieldset,
 img {
   border: 0;
-  vertical-align: middle;
-}
+  vertical-align: middle; }
 
 article,
 aside,
@@ -308,88 +305,74 @@ menu,
 nav,
 section,
 summary {
-  display: block;
-}
+  display: block; }
 
 audio,
 canvas,
 video {
-  display: inline-block;
-}
+  display: inline-block; }
 
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: "\0020";
-}
+  content: "\0020"; }
 
 textarea,
 pre,
 xmp {
   overflow: auto;
-  -webkit-overflow-scrolling: touch;
-}
+  -webkit-overflow-scrolling: touch; }
 
 textarea {
-  resize: vertical;
-}
+  resize: vertical; }
 
 input,
 textarea,
 button,
 select
 a {
-  outline: 0 none;
-}
+  outline: 0 none; }
 
 input,
 textarea,
 button,
 select {
-  color: inherit;
-}
-input:disabled,
-textarea:disabled,
-button:disabled,
-select:disabled {
-  opacity: 1;
-}
+  color: inherit; }
+  input:disabled,
+  textarea:disabled,
+  button:disabled,
+  select:disabled {
+    opacity: 1; }
 
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   padding: 0;
-  border: 0;
-}
+  border: 0; }
 
 input[type="button"],
 input[type="submit"],
 input[type="reset"],
 input[type="file"]::-webkit-file-upload-button {
   -webkit-appearance: none;
-  appearance: none;
-}
+  appearance: none; }
 
 mark {
-  background-color: transparent;
-}
+  background-color: transparent; }
 
 a,
 ins,
 s,
 u,
 del {
-  text-decoration: none;
-}
+  text-decoration: none; }
 
 a,
 img {
-  -webkit-touch-callout: none;
-}
+  -webkit-touch-callout: none; }
 
 a {
-  color: #00afc7;
-}
+  color: #00afc7; }
 
 .g-clear::after,
 .g-mod::after {
@@ -397,434 +380,74 @@ a {
   overflow: hidden;
   clear: both;
   height: 0;
-  content: "\0020";
-}
+  content: "\0020"; }
 
 @font-face {
   font-family: yofont;
-  src: url("../../../font/yofont.woff") format("woff"), url("../../../font/yofont.ttf") format("truetype");
-}
+  src: url("../../../font/yofont.woff") format("woff"), url("../../../font/yofont.ttf") format("truetype"); }
 .yo-ico {
   font-family: yofont !important;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  vertical-align: middle;
-}
+  vertical-align: middle; }
 
 /**
- * Directory: lib/core/variables.scss
- * CSS Variables 定义各种页面沙粒变量
- * Author: joy.du(飘零雾雨)
- * Edit: 2015.4.11
- * Description: 如果不想定义某属性，将其value设置为null
- */
-/**
- * Yo框架全局基础方法
+ * Yo框架layout
  -----------------------
- * Yo内置了包括响应式方案，CSS3兼容性方案，厂商前缀方案，iconfont方案，flex布局等全局方法
+ * Yo内置的布局方式
  *
- * @class classes
+ * @class layout
  * @module Yo
  */
 /**
- * 给需要的属性加厂家前缀
- * @method prefix
- * @param {String} $appearance 指定属性
- * @param {String} $value 指定属性值
+ * @class layout
  */
 /**
- * 定义响应式方案
- * @method responsive
- * @param {String} $media 指定媒体查询条件
- */
-/**
- * 定义字体图标
- * @method yofont
- */
-/**
- * 定义UA默认外观
- * @method appearance
- * @param {String} $appearance 指定UA外观类型
- */
-/**
- * 定义是否可以选中元素
- * @method user-select
- * @param {String} $user-select 指定是否可以选中
- */
-/**
- * 定义渐变色值
- * @method gradient
- * @param {String} $type 指定渐变的4种类型：linear, repeating-linear, radial, repeating-radial
- * @param {String} $gradient 指定渐变取值，与原生语法一致
- */
-/**
- * 定义背景图像缩放
- * @method background-size
- * @param {String | Length} $background-size 指定背景图缩放值
- */
-/**
- * 定义盒模型
- * @method box-sizing
- * @param {String} $box-sizing 的2个值分别为：content-box(标准盒模型) | border-box(怪异盒模型)
- */
-/**
- * 定义简单变换
- * @method transform
- * @param {String} $transform 取值与原生语法一致
- */
-/**
- * 定义变换原点
- * @method transform-origin
- * @param {String} $transform-origin 取值与原生语法一致
- */
-/**
- * 定义动画
- * @method animation
- * @param {String} $animation 取值与原生语法一致
- */
-/**
- * 定义补间
- * @method transition
- * @param {String} $transition 取值与原生语法一致
- */
-/**
- * 定义显示类型为伸缩盒
- * @method flexbox
- * @param {String} $flexbox 默认值：flex，取值与最新原生语法一致
- */
-/**
- * 定义伸缩盒子元素如何分配空间
- * @method flex
- * @param {String} $flex 默认值：1，取值与最新原生语法一致
- */
-/**
- * 定义伸缩盒子元素的排版顺序
- * @method order
- * @param {String} $order 默认值：1，取值与最新原生语法一致
- */
-/**
- * 定义伸缩盒子元素的流动方向
- * @method flex-direction
- * @param {String} $flex-direction 默认值：row，取值与最新原生语法一致
- */
-/**
- * 定义伸缩盒子元素溢出排版
- * @method flex-wrap
- * @param {String} $flex-wrap 默认值：nowrap，取值与最新原生语法一致
- */
-/**
- * 定义伸缩盒子元素的水平对齐方式
- * @method justify-content
- * @param {String} $justify-content 默认值：center，取值与最新原生语法一致
- */
-/**
- * 定义伸缩盒子元素的垂直对齐方式
- * @method align-items
- * @param {String} $align-items 默认值：center，取值与最新原生语法一致
- */
-/**
- * 定义伸缩盒子元素自身的垂直对齐方式
- * @method align-self
- * @param {String} $align-self 默认值：center，取值与最新原生语法一致
- */
-/**
- * 定义是否有滚动条
- * @method overflow
- * @param {String} $overflow 默认值：auto，取值与最新原生语法一致
- */
-/**
- * 生成矩形方法
- * @method rect
- * @param {Length} $width 定义矩形的长度
- * @param {Length} $height 定义矩形的高度
- */
-/**
- * 生成正方形方法
- * @method square
- * @param {Length} $size 定义正方形的边长
- */
-/**
- * 生成圆形方法
- * @method circle
- * @param {Length} $size 定义圆的半径长度
- * @param {Length} $radius 定义圆的圆角半径长度
- */
-/**
- * 清除浮动方案
- * @method clearfix
- */
-/**
- * 链接处理方法
- * @method link
- * @param {Color} $color 定义链接颜色
- */
-/**
- * 强制换行方案
- * @method wrap
- */
-/**
- * 单行文本溢出显示方案
- * @method ellipsis
- * @param {Boolen} $ellipsis 定义是否需要省略号
- */
-/**
- * 文字隐藏方案
- * @method texthide
- */
-/**
- * 清除间隙方案-容器
- * @method killspace
- */
-/**
- * 清除间隙方案-子级
- * @method killspace-item
- */
-/**
- * 未知尺寸元素垂直居中解决方案-容器
- * @method valign
- */
-/**
- * 未知尺寸元素垂直居中解决方案-子级
- * @method valign-item
- */
-/**
- * 已经尺寸元素垂直居中解决方案
- * @method alignment
- * @param {Length} $width 居中元素的宽度
- * @param {Length} $height 居中元素的高度
- */
-/**
- * Directory: lib/layout/classes.scss
- * Global Layout Classes 约定布局方案
- * Author: joy.du(飘零雾雨)
- * Time: 2012.1.1
- */
-/**
- * document: doc
- * Author: joy.du(飘零雾雨)
- * Time: 2012.1.1
- ------------------------
- * @method doc
- * @param {String} $name 定义page-name
- * @param {String} $fixed 定义头尾是否固定
- * @param {Length} $hd-gap 定义主体到viewport顶部的距离
- * @param {Length} $ft-gap 定义主体到viewport底部的距离
- */
-html, body {
-  overflow: hidden;
-  height: 100%;
-}
-
-/**
- * Directory: lib/core/variables.scss
- * CSS Variables 定义各种页面沙粒变量
- * Author: joy.du(飘零雾雨)
- * Edit: 2015.4.11
- * Description: 如果不想定义某属性，将其value设置为null
- */
-/**
- * Yo框架全局基础方法
+ * 构造独立区块布局
  -----------------------
- * Yo内置了包括响应式方案，CSS3兼容性方案，厂商前缀方案，iconfont方案，flex布局等全局方法
- *
- * @class classes
- * @module Yo
- */
-/**
- * 给需要的属性加厂家前缀
- * @method prefix
- * @param {String} $appearance 指定属性
- * @param {String} $value 指定属性值
- */
-/**
- * 定义响应式方案
- * @method responsive
- * @param {String} $media 指定媒体查询条件
- */
-/**
- * 定义字体图标
- * @method yofont
- */
-/**
- * 定义UA默认外观
- * @method appearance
- * @param {String} $appearance 指定UA外观类型
- */
-/**
- * 定义是否可以选中元素
- * @method user-select
- * @param {String} $user-select 指定是否可以选中
- */
-/**
- * 定义渐变色值
- * @method gradient
- * @param {String} $type 指定渐变的4种类型：linear, repeating-linear, radial, repeating-radial
- * @param {String} $gradient 指定渐变取值，与原生语法一致
- */
-/**
- * 定义背景图像缩放
- * @method background-size
- * @param {String | Length} $background-size 指定背景图缩放值
- */
-/**
- * 定义盒模型
- * @method box-sizing
- * @param {String} $box-sizing 的2个值分别为：content-box(标准盒模型) | border-box(怪异盒模型)
- */
-/**
- * 定义简单变换
- * @method transform
- * @param {String} $transform 取值与原生语法一致
- */
-/**
- * 定义变换原点
- * @method transform-origin
- * @param {String} $transform-origin 取值与原生语法一致
- */
-/**
- * 定义动画
- * @method animation
- * @param {String} $animation 取值与原生语法一致
- */
-/**
- * 定义补间
- * @method transition
- * @param {String} $transition 取值与原生语法一致
- */
-/**
- * 定义显示类型为伸缩盒
- * @method flexbox
- * @param {String} $flexbox 默认值：flex，取值与最新原生语法一致
- */
-/**
- * 定义伸缩盒子元素如何分配空间
- * @method flex
- * @param {String} $flex 默认值：1，取值与最新原生语法一致
- */
-/**
- * 定义伸缩盒子元素的排版顺序
- * @method order
- * @param {String} $order 默认值：1，取值与最新原生语法一致
- */
-/**
- * 定义伸缩盒子元素的流动方向
- * @method flex-direction
- * @param {String} $flex-direction 默认值：row，取值与最新原生语法一致
- */
-/**
- * 定义伸缩盒子元素溢出排版
- * @method flex-wrap
- * @param {String} $flex-wrap 默认值：nowrap，取值与最新原生语法一致
- */
-/**
- * 定义伸缩盒子元素的水平对齐方式
- * @method justify-content
- * @param {String} $justify-content 默认值：center，取值与最新原生语法一致
- */
-/**
- * 定义伸缩盒子元素的垂直对齐方式
- * @method align-items
- * @param {String} $align-items 默认值：center，取值与最新原生语法一致
- */
-/**
- * 定义伸缩盒子元素自身的垂直对齐方式
- * @method align-self
- * @param {String} $align-self 默认值：center，取值与最新原生语法一致
- */
-/**
- * 定义是否有滚动条
- * @method overflow
- * @param {String} $overflow 默认值：auto，取值与最新原生语法一致
- */
-/**
- * 生成矩形方法
- * @method rect
- * @param {Length} $width 定义矩形的长度
- * @param {Length} $height 定义矩形的高度
- */
-/**
- * 生成正方形方法
- * @method square
- * @param {Length} $size 定义正方形的边长
- */
-/**
- * 生成圆形方法
- * @method circle
- * @param {Length} $size 定义圆的半径长度
- * @param {Length} $radius 定义圆的圆角半径长度
- */
-/**
- * 清除浮动方案
- * @method clearfix
- */
-/**
- * 链接处理方法
- * @method link
- * @param {Color} $color 定义链接颜色
- */
-/**
- * 强制换行方案
- * @method wrap
- */
-/**
- * 单行文本溢出显示方案
- * @method ellipsis
- * @param {Boolen} $ellipsis 定义是否需要省略号
- */
-/**
- * 文字隐藏方案
- * @method texthide
- */
-/**
- * 清除间隙方案-容器
- * @method killspace
- */
-/**
- * 清除间隙方案-子级
- * @method killspace-item
- */
-/**
- * 未知尺寸元素垂直居中解决方案-容器
- * @method valign
- */
-/**
- * 未知尺寸元素垂直居中解决方案-子级
- * @method valign-item
- */
-/**
- * 已经尺寸元素垂直居中解决方案
- * @method alignment
- * @param {Length} $width 居中元素的宽度
- * @param {Length} $height 居中元素的高度
- */
-/**
- * Directory: lib/layout/classes.scss
- * Global Layout Classes 约定布局方案
- * Author: joy.du(飘零雾雨)
- * Time: 2012.1.1
- */
-/**
- * Layout: yo-stacked
- * Author: joy.du(飘零雾雨)
- * Edit: 2015.1.15
- -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/layout/yo-stacked.html)
  * @method stacked
- * variables length(2)
  * @param {defailt | String} $name 定义名称
  * @param {defailt | Color} $margin 定义外边距
  */
 .yo-stacked {
   display: block;
-  margin: 0.2rem 0.1rem;
-}
-.yo-stacked::after {
-  display: block;
-  overflow: hidden;
-  clear: both;
-  height: 0;
-  content: "\0020";
-}
+  margin: 0.2rem 0.1rem; }
+  .yo-stacked::after {
+    display: block;
+    overflow: hidden;
+    clear: both;
+    height: 0;
+    content: "\0020"; }
+
+/**
+ * @class layout
+ */
+/**
+ * 构造弹性布局使用方法，可以是横向和纵向
+ -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/layout/yo-flex.html)
+ * @method yo-flex
+ * @param {String} $name 为新的扩展定义一个名称
+ * @param {String} $box 指定块级或者行级弹性盒
+ * @param {String} $direction 指定是水平或者垂直布局
+ */
+.yo-flex,
+.yo-flex > .flex-inherit {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column; }
+  .yo-flex > .flex,
+  .yo-flex > .flex-inherit > .flex {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    width: 100%; }
 
 /**
 * document layout
@@ -841,12 +464,9 @@ html, body {
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;
-    margin: .1rem;
-  }
-}
+    margin: .1rem; } }
 .m-demo .device .stage {
-  position: relative;
-}
+  position: relative; }
 @media screen and (min-width: 800px) {
   .m-demo .device {
     position: relative;
@@ -854,68 +474,59 @@ html, body {
     height: 7.83rem;
     border: .05rem solid #505559;
     border-radius: .55rem;
-    background-color: #313538;
-  }
-  .m-demo .device::before, .m-demo .device::after {
-    position: absolute;
-    left: 50%;
-    -webkit-transform: translate(-50%);
-    transform: translate(-50%);
-    content: "\0020";
-  }
-  .m-demo .device::before {
-    top: .58rem;
-    width: .68rem;
-    height: .08rem;
-    border-radius: 4px;
-    background-color: #3e4243;
-  }
-  .m-demo .device::after {
-    bottom: .18rem;
-    width: 0.65rem;
-    height: 0.65rem;
-    border: .05rem solid #3e4243;
-    border-radius: 50%;
-  }
-  .m-demo .device .stage {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-    flex-direction: column;
-    top: .99rem;
-    left: .18rem;
-    overflow: hidden;
-    width: 3.20rem;
-    height: 5.68rem;
-    background-color: #fff;
-  }
-  .m-demo .device .stage .wrap {
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-    flex: 1;
-    width: 100%;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-  .m-demo .device .stage, .m-demo .device .stage::before {
-    position: absolute;
-  }
-  .m-demo .device .stage::before {
-    top: -.68rem;
-    left: 50%;
-    -webkit-transform: translate(-50%);
-    transform: translate(-50%);
-    width: 0.1rem;
-    height: 0.1rem;
-    border-radius: 50%;
-    background-color: #3e4243;
-    box-shadow: -.5rem .26rem #3e4243;
-    content: "\0020";
-  }
-}
+    background-color: #313538; }
+    .m-demo .device::before, .m-demo .device::after {
+      position: absolute;
+      left: 50%;
+      -webkit-transform: translate(-50%);
+      transform: translate(-50%);
+      content: "\0020"; }
+    .m-demo .device::before {
+      top: .58rem;
+      width: .68rem;
+      height: .08rem;
+      border-radius: 4px;
+      background-color: #3e4243; }
+    .m-demo .device::after {
+      bottom: .18rem;
+      width: 0.65rem;
+      height: 0.65rem;
+      border: .05rem solid #3e4243;
+      border-radius: 50%; }
+    .m-demo .device .stage {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      top: .99rem;
+      left: .18rem;
+      overflow: hidden;
+      width: 3.20rem;
+      height: 5.68rem;
+      background-color: #fff; }
+      .m-demo .device .stage .wrap {
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        flex: 1;
+        width: 100%;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch; }
+      .m-demo .device .stage, .m-demo .device .stage::before {
+        position: absolute; }
+      .m-demo .device .stage::before {
+        top: -.68rem;
+        left: 50%;
+        -webkit-transform: translate(-50%);
+        transform: translate(-50%);
+        width: 0.1rem;
+        height: 0.1rem;
+        border-radius: 50%;
+        background-color: #3e4243;
+        box-shadow: -.5rem .26rem #3e4243;
+        content: "\0020"; } }
 .m-demo .code {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
@@ -930,17 +541,13 @@ html, body {
   border-style: solid;
   border-color: #D7DBE4;
   padding: .1rem;
-  background-color: #F0F3F8;
-}
-@media screen and (min-width: 800px) {
-  .m-demo .code {
-    margin: .1rem;
-    border-width: 0 0 0 .04rem;
-  }
-}
-.m-demo .code h3 {
-  margin-top: .1rem;
-}
+  background-color: #F0F3F8; }
+  @media screen and (min-width: 800px) {
+    .m-demo .code {
+      margin: .1rem;
+      border-width: 0 0 0 .04rem; } }
+  .m-demo .code h3 {
+    margin-top: .1rem; }
 
 /**
  * module: m-code
@@ -953,204 +560,18 @@ html, body {
   border-radius: 5px;
   background: #272822;
   color: #51bbe1;
-  font-size: 20px;
-}
-.m-code .method {
-  color: #93de08;
-}
-.m-code .bracket,
-.m-code .colon {
-  padding-right: 5px;
-  color: #fff;
-}
-.m-code mark {
-  background: none;
-  color: #ccc;
-  font-size: 16px;
-}
+  font-size: 20px; }
+  .m-code .method {
+    color: #93de08; }
+  .m-code .bracket,
+  .m-code .colon {
+    padding-right: 5px;
+    color: #fff; }
+  .m-code mark {
+    background: none;
+    color: #ccc;
+    font-size: 16px; }
 
-/**
- * Directory: lib/core/variables.scss
- * CSS Variables 定义各种页面沙粒变量
- * Author: joy.du(飘零雾雨)
- * Edit: 2015.4.11
- * Description: 如果不想定义某属性，将其value设置为null
- */
-/**
- * Yo框架全局基础方法
- -----------------------
- * Yo内置了包括响应式方案，CSS3兼容性方案，厂商前缀方案，iconfont方案，flex布局等全局方法
- *
- * @class classes
- * @module Yo
- */
-/**
- * 给需要的属性加厂家前缀
- * @method prefix
- * @param {String} $appearance 指定属性
- * @param {String} $value 指定属性值
- */
-/**
- * 定义响应式方案
- * @method responsive
- * @param {String} $media 指定媒体查询条件
- */
-/**
- * 定义字体图标
- * @method yofont
- */
-/**
- * 定义UA默认外观
- * @method appearance
- * @param {String} $appearance 指定UA外观类型
- */
-/**
- * 定义是否可以选中元素
- * @method user-select
- * @param {String} $user-select 指定是否可以选中
- */
-/**
- * 定义渐变色值
- * @method gradient
- * @param {String} $type 指定渐变的4种类型：linear, repeating-linear, radial, repeating-radial
- * @param {String} $gradient 指定渐变取值，与原生语法一致
- */
-/**
- * 定义背景图像缩放
- * @method background-size
- * @param {String | Length} $background-size 指定背景图缩放值
- */
-/**
- * 定义盒模型
- * @method box-sizing
- * @param {String} $box-sizing 的2个值分别为：content-box(标准盒模型) | border-box(怪异盒模型)
- */
-/**
- * 定义简单变换
- * @method transform
- * @param {String} $transform 取值与原生语法一致
- */
-/**
- * 定义变换原点
- * @method transform-origin
- * @param {String} $transform-origin 取值与原生语法一致
- */
-/**
- * 定义动画
- * @method animation
- * @param {String} $animation 取值与原生语法一致
- */
-/**
- * 定义补间
- * @method transition
- * @param {String} $transition 取值与原生语法一致
- */
-/**
- * 定义显示类型为伸缩盒
- * @method flexbox
- * @param {String} $flexbox 默认值：flex，取值与最新原生语法一致
- */
-/**
- * 定义伸缩盒子元素如何分配空间
- * @method flex
- * @param {String} $flex 默认值：1，取值与最新原生语法一致
- */
-/**
- * 定义伸缩盒子元素的排版顺序
- * @method order
- * @param {String} $order 默认值：1，取值与最新原生语法一致
- */
-/**
- * 定义伸缩盒子元素的流动方向
- * @method flex-direction
- * @param {String} $flex-direction 默认值：row，取值与最新原生语法一致
- */
-/**
- * 定义伸缩盒子元素溢出排版
- * @method flex-wrap
- * @param {String} $flex-wrap 默认值：nowrap，取值与最新原生语法一致
- */
-/**
- * 定义伸缩盒子元素的水平对齐方式
- * @method justify-content
- * @param {String} $justify-content 默认值：center，取值与最新原生语法一致
- */
-/**
- * 定义伸缩盒子元素的垂直对齐方式
- * @method align-items
- * @param {String} $align-items 默认值：center，取值与最新原生语法一致
- */
-/**
- * 定义伸缩盒子元素自身的垂直对齐方式
- * @method align-self
- * @param {String} $align-self 默认值：center，取值与最新原生语法一致
- */
-/**
- * 定义是否有滚动条
- * @method overflow
- * @param {String} $overflow 默认值：auto，取值与最新原生语法一致
- */
-/**
- * 生成矩形方法
- * @method rect
- * @param {Length} $width 定义矩形的长度
- * @param {Length} $height 定义矩形的高度
- */
-/**
- * 生成正方形方法
- * @method square
- * @param {Length} $size 定义正方形的边长
- */
-/**
- * 生成圆形方法
- * @method circle
- * @param {Length} $size 定义圆的半径长度
- * @param {Length} $radius 定义圆的圆角半径长度
- */
-/**
- * 清除浮动方案
- * @method clearfix
- */
-/**
- * 链接处理方法
- * @method link
- * @param {Color} $color 定义链接颜色
- */
-/**
- * 强制换行方案
- * @method wrap
- */
-/**
- * 单行文本溢出显示方案
- * @method ellipsis
- * @param {Boolen} $ellipsis 定义是否需要省略号
- */
-/**
- * 文字隐藏方案
- * @method texthide
- */
-/**
- * 清除间隙方案-容器
- * @method killspace
- */
-/**
- * 清除间隙方案-子级
- * @method killspace-item
- */
-/**
- * 未知尺寸元素垂直居中解决方案-容器
- * @method valign
- */
-/**
- * 未知尺寸元素垂直居中解决方案-子级
- * @method valign-item
- */
-/**
- * 已经尺寸元素垂直居中解决方案
- * @method alignment
- * @param {Length} $width 居中元素的宽度
- * @param {Length} $height 居中元素的高度
- */
 /**
  * Yo框架element基础构造
  -----------------------
@@ -1188,44 +609,37 @@ html, body {
   border-width: 0.01rem;
   border-style: solid;
   border-color: #e26704;
-  box-shadow: inset 1px 1px rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0.01rem 0.01rem rgba(255, 255, 255, 0.1);
   border-radius: 0.02rem;
   background-color: #ff801a;
   color: #fff;
   text-align: center;
   vertical-align: middle;
-  cursor: pointer;
-}
-.yo-btn-s {
-  height: 0.28rem;
-  line-height: 0.28rem;
-  font-size: 0.12rem;
-}
-.yo-btn-m {
-  height: 0.36rem;
-  line-height: 0.36rem;
-  font-size: 0.14rem;
-}
-.yo-btn-l {
-  height: 0.44rem;
-  line-height: 0.44rem;
-  font-size: 0.16rem;
-}
-.yo-btn-stacked {
-  display: block;
-  width: 100%;
-  clear: both;
-}
+  cursor: pointer; }
+  .yo-btn-s {
+    height: 0.28rem;
+    line-height: 0.28rem;
+    font-size: 0.12rem; }
+  .yo-btn-m {
+    height: 0.36rem;
+    line-height: 0.36rem;
+    font-size: 0.14rem; }
+  .yo-btn-l {
+    height: 0.44rem;
+    line-height: 0.44rem;
+    font-size: 0.16rem; }
+  .yo-btn-stacked {
+    display: block;
+    width: 100%;
+    clear: both; }
 
 .yo-btn-disabled {
   border-color: #bbb;
   background-color: #ccc;
   color: #f9f9f9;
-  cursor: not-allowed;
-}
-.yo-btn-disabled, .yo-btn-disabled:focus, .yo-btn-disabled:active {
-  opacity: .4;
-}
+  cursor: not-allowed; }
+  .yo-btn-disabled, .yo-btn-disabled:focus, .yo-btn-disabled:active {
+    opacity: .4; }
 
 /**
  * Page Animation Switch 演示页面
@@ -1239,92 +653,74 @@ html, body {
     right: 0;
     bottom: 0;
     left: 0;
-    height: auto;
-  }
-}
+    height: auto; } }
 .pages {
   position: relative;
   overflow: hidden;
   width: 100%;
-  height: 100%;
-}
-.pages .page {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  overflow: hidden;
-  visibility: hidden;
-}
-.pages .page.current {
-  visibility: visible;
-  z-index: 1;
-}
-.pages .page-1 {
-  background: #0ac2d2;
-}
-.pages .page-2 {
-  background: #7bb7fa;
-}
-.pages .page-3 {
-  background: #60d7a9;
-}
-.pages .page-4 {
-  background: #fdc162;
-}
-.pages .page-5 {
-  background: #fd6a62;
-}
-.pages .page-6 {
-  background: #f68dbb;
-}
-.pages .con {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 2.8rem;
-  height: 3.8rem;
-  margin-top: -1.9rem;
-  margin-left: -1.4rem;
-  z-index: 2;
-}
-.pages .con > h1 {
-  color: rgba(255, 255, 255, 0.6);
-  font-size: .64rem;
-}
-.pages .con > h2 {
-  color: rgba(0, 0, 0, 0.2);
-  font-size: .3rem;
-}
-.pages .con > p {
-  color: rgba(255, 255, 255, 0.9);
-  font-size: .36rem;
-}
-.pages .con > .yo-btn,
-.pages .con > select {
-  width: 70%;
-  height: .44rem;
-  margin: .1rem 0;
-  padding: 0 .15rem;
-  border: 0;
-  border-radius: .02rem;
-  line-height: .44rem;
-  box-shadow: 0 0.03rem 0 rgba(0, 0, 0, 0.1);
-  background: #fff;
-  color: #aaa;
-  cursor: pointer;
-  font-size: .16rem;
-}
-.pages .con > .yo-btn {
-  font-weight: bold;
-}
-.pages .con > select {
-  -webkit-appearance: none;
-  appearance: none;
-  text-transform: capitalize;
-  background-size: .1rem .1rem;
-  background-repeat: no-repeat;
-  background-position: right .1rem center;
-  background-image: radial-gradient(circle, #0ac2d2, #0ac2d2 50%, transparent, transparent);
-}
+  height: 100%; }
+  .pages .page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    visibility: hidden; }
+    .pages .page.current {
+      visibility: visible;
+      z-index: 1; }
+  .pages .page-1 {
+    background: #0ac2d2; }
+  .pages .page-2 {
+    background: #7bb7fa; }
+  .pages .page-3 {
+    background: #60d7a9; }
+  .pages .page-4 {
+    background: #fdc162; }
+  .pages .page-5 {
+    background: #fd6a62; }
+  .pages .page-6 {
+    background: #f68dbb; }
+  .pages .con {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2.8rem;
+    height: 3.8rem;
+    margin-top: -1.9rem;
+    margin-left: -1.4rem;
+    z-index: 2; }
+    .pages .con > h1 {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: .64rem; }
+    .pages .con > h2 {
+      color: rgba(0, 0, 0, 0.2);
+      font-size: .3rem; }
+    .pages .con > p {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: .36rem; }
+    .pages .con > .yo-btn,
+    .pages .con > select {
+      width: 70%;
+      height: .44rem;
+      margin: .1rem 0;
+      padding: 0 .15rem;
+      border: 0;
+      border-radius: .02rem;
+      line-height: .44rem;
+      box-shadow: 0 0.03rem 0 rgba(0, 0, 0, 0.1);
+      background: #fff;
+      color: #aaa;
+      cursor: pointer;
+      font-size: .16rem; }
+    .pages .con > .yo-btn {
+      font-weight: bold; }
+    .pages .con > select {
+      -webkit-appearance: none;
+      appearance: none;
+      text-transform: capitalize;
+      background-size: .1rem .1rem;
+      background-repeat: no-repeat;
+      background-position: right .1rem center;
+      background-image: radial-gradient(circle, #0ac2d2, #0ac2d2 50%, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)); }

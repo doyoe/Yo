@@ -8,9 +8,10 @@
  * Author: joy.du(飘零雾雨)
  * Time: 2014.4.1
  */
-@include doc(default, false);
+
+@include root-scroll(hidden);
 @include yo-list(
-    $label-padding: 0.18rem 0.1rem .03rem
+    $label-padding: .18rem .1rem .03rem
 );
 .m-demo {
     @include flexbox;
