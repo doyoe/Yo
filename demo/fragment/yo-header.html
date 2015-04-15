@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<link rel="apple-touch-icon-precomposed" href="/qunar-touch.png" />
+<title>header - 头部</title>
+<link rel="stylesheet" href="../../usage/demo/export/yo-all.css" />
+</head>
+<body>
+
+<div class="m-demo">
+    <div class="device">
+    <div class="stage">
+        <h2 class="yo-header">Header</h2>
+        <ul class="yo-list">
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+        </ul>
+    </div>
+    </div>
+    <code class="code"><xmp><h2 class="yo-header">Header</h2></xmp></code>
+</div>
+
+<div class="m-demo">
+    <div class="device">
+    <div class="stage">
+        <div class="yo-header">
+            <h2 class="title">这有可能是一个非常长的标题</h2>
+            <span class="regret">取消</span>
+            <span class="affirm">确定</span>
+        </div>
+        <ul class="yo-list">
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+        </ul>
+    </div>
+    </div>
+    <code class="code">
+    <h3>假设你想要一个有操作类型的Header可以这样：</h3>
+    <xmp>
+<div class="yo-header">
+    <h2 class="title">这有可能是一个非常长的标题</h2>
+    <span class="regret">取消</span>
+    <span class="affirm">确定</span>
+</div></xmp>
+    </code>
+</div>
+
+<div class="m-demo">
+    <div class="device">
+    <div class="stage">
+        <h2 class="yo-header yo-header-normal">Normal Header</h2>
+        <ul class="yo-list">
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+        </ul>
+    </div>
+    </div>
+    <code class="code">
+    <h2>假设你想要有点的颜色，那么你可以这样扩展：</h2>
+    <p>命名及颜色按照各自团队内部的FE/UI规范即可</p>
+    <h3>全局扩展方式：</h3>
+    <xmp>@include yo-header(
+    $bordercolor: #ddd,
+    $bgcolor: #fafafa
+);</xmp>
+    <h3>使用方法：</h3>
+    <xmp><h2 class="yo-header yo-header-normal">Normal Header</h2></xmp>
+    <h3>局部扩展方式：</h3>
+    <xmp>.xxx {
+    @include yo-header(
+        $bordercolor: #ddd,
+        $bgcolor: #fafafa
+    );
+}</xmp>
+    <h3>使用方法：</h3>
+    <xmp><div class="xxx">
+    <h2 class="yo-header yo-header-normal">Normal Header</h2>
+</div></xmp>
+    </code>
+</div>
+
+<div class="m-demo">
+    <div class="device">
+    <div class="stage">
+        <div class="yo-header yo-header-positive">
+            <h2 class="title">Positive Header</h2>
+            <span class="regret">取消</span>
+            <span class="affirm">确定</span>
+        </div>
+        <ul class="yo-list">
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+        </ul>
+    </div>
+    </div>
+    <code class="code">
+    <h2>假设你想要积极一点的颜色，那么你可以这样扩展：</h2>
+    <p>命名及颜色按照各自团队内部的FE/UI规范即可</p>
+    <h3>全局扩展方式：</h3>
+    <xmp>@include yo-header(
+    $name: positive,
+    $bordercolor: #145fd7,
+    $bgcolor: #4a87ee,
+    $color: #fff
+);</xmp>
+    <h3>使用方法：</h3>
+    <xmp><div class="yo-header yo-header-positive">
+    <h2 class="title">Positive Header</h2>
+    <span class="regret">取消</span>
+    <span class="affirm">确定</span>
+</div></xmp>
+    <h3>局部扩展方式：</h3>
+    <xmp>.xxx {
+    @include yo-header(
+        $name: positive,
+        $bordercolor: #145fd7,
+        $bgcolor: #4a87ee,
+        $color: #fff
+    );
+}</xmp>
+    <h3>使用方法：</h3>
+    <xmp><div class="xxx">
+    <div class="yo-header yo-header-positive">
+        <h2 class="title">Positive Header</h2>
+        <span class="regret">取消</span>
+        <span class="affirm">确定</span>
+    </div>
+</div></xmp>
+    </code>
+</div>
+
+<div class="m-demo">
+    <div class="device">
+    <div class="stage">
+        <div class="yo-header yo-header-positive">
+            <h2 class="title">Positive Header</h2>
+            <span class="regret yo-ico">&#xf07d;</span>
+            <span class="affirm yo-ico">&#xf067;</span>
+        </div>
+        <ul class="yo-list">
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+        </ul>
+    </div>
+    </div>
+    <code class="code">
+    <h2>假设你想要两侧是ico，那么你可以这样扩展：</h2>
+    <p>命名及颜色按照各自团队内部的FE/UI规范即可</p>
+    <h3>全局扩展方式：</h3>
+    <xmp>@include yo-header(
+    $name: positive,
+    $bordercolor: #145fd7,
+    $bgcolor: #4a87ee,
+    $color: #fff,
+    $item-ico-size: .2rem
+);</xmp>
+    <h3>使用方法：</h3>
+    <xmp><div class="yo-header yo-header-positive">
+    <h2 class="title">Positive Header</h2>
+    <span class="regret yo-ico">&#xf07d;</span>
+    <span class="affirm yo-ico">&#xf067;</span>
+</div></xmp>
+    <h3>局部扩展方式：</h3>
+    <xmp>.xxx {
+    @include yo-header(
+        $name: positive,
+        $bordercolor: #145fd7,
+        $bgcolor: #4a87ee,
+        $color: #fff,
+        $item-ico-size: .2rem
+    );
+}</xmp>
+    <h3>使用方法：</h3>
+    <xmp><div class="xxx">
+    <div class="yo-header yo-header-positive">
+        <h2 class="title">Positive Header</h2>
+        <span class="regret yo-ico">&#xf07d;</span>
+        <span class="affirm yo-ico">&#xf067;</span>
+    </div>
+</div></xmp>
+    </code>
+</div>
+
+<pre class="m-code"><span class="method">@include yo-header</span><span class="bracket">(</span>
+    $name<span class="colon">:</span>default, <mark>//{String} yo-header名称</mark>
+    $height<span class="colon">:</span>default, <mark>//{Length} yo-header高度</mark>
+    $item-width<span class="colon">:</span>default, <mark>//{Length} yo-header两侧子项宽度</mark>
+    $item-space<span class="colon">:</span>default, <mark>//{Length} yo-header两侧子项离边界的间隙</mark>
+    $bordercolor<span class="colon">:</span>default, <mark>//{Color} yo-header边框色</mark>
+    $bgcolor<span class="colon">:</span>default, <mark>//{Color} yo-header背景色</mark>
+    $color<span class="colon">:</span>default, <mark>//{Color} yo-header文本色</mark>
+    $font-size<span class="colon">:</span>default, <mark>//{Length} yo-header文字大小</mark>
+    $item-color<span class="colon">:</span>default, <mark>//{Color} yo-header两侧的子项文本色</mark>
+    $item-font-size<span class="colon">:</span>default, <mark>//{Length} yo-header两侧的子项文本大小</mark>
+    $item-ico-size<span class="colon">:</span>default <mark>//{Length} yo-header两侧的子项ico大小</mark>
+<span class="bracket">)</span>
+</pre>
+
+</body>
+</html>

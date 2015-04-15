@@ -1,0 +1,52 @@
+@charset "utf-8";
+@import "classes";
+
+/**
+ * @class widget
+ */
+
+/**
+ * 构造列表的自定义使用方法
+ -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/widget/yo-dblist.html)
+ * @method yo-dblist
+ * @param {default | String} $name 扩展的名称
+ * @param {default | Length} $aside-width 侧边栏宽度
+ * @param {default | Length} $aside-order 侧边栏顺序
+ */
+
+@mixin yo-dblist(
+    $name: default,
+    $aside-width: default,
+    $aside-order: default) {
+    // 区别是否新增实例还是修改本身
+    @if $name == default {
+        $name: "";
+    } @else {
+        $name: "-#{$name}";
+    }
+    // 如果值为default，则取config的定义
+    @if $aside-width == default {
+        $aside-width: map-get($dblist, aside-width);
+    }
+    @if $aside-order == default {
+        $aside-order: map-get($dblist, aside-order);
+    }
+    .yo-dblist#{$name} {
+        > .item {
+            &:first-child {
+                @if $aside-width != map-get($dblist, aside-width) {
+                    width: $aside-width;
+                }
+                @if $aside-order != map-get($dblist, aside-order) {
+                    @include order($aside-order);
+                }
+            }
+        }
+    }
+}
+
+// 调用本文件时载入dblist基础构造
+.yo-dblist {
+    @include _dblist;
+}

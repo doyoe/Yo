@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<link rel="apple-touch-icon-precomposed" href="/qunar-touch.png" />
+<title>checkbox - 多选</title>
+<link rel="stylesheet" href="../../usage/demo/export/yo-all.css" />
+</head>
+<body>
+<div class="m-demo">
+    <div class="device">
+    <div class="stage">
+        <h2 class="yo-header">Checkbox</h2>
+        <div class="yo-list">
+            <label class="item item-active">
+                <input type="checkbox" name="project" class="yo-checkbox mark" checked />
+                <span class="flex">CRM</span>
+            </label>
+            <label class="item item-active">
+                <input type="checkbox" name="project" class="yo-checkbox mark" />
+                <span class="flex">PMS</span>
+            </label>
+            <label class="item item-active">
+                <input type="checkbox" name="project" class="yo-checkbox mark" />
+                <span class="flex">Mobile</span>
+            </label>
+            <label class="item item-active">
+                <input type="checkbox" name="project" class="yo-checkbox mark" />
+                <span class="flex">Yo</span>
+            </label>
+        </div>
+    </div>
+    </div>
+    <code class="code"><xmp><div class="yo-list">
+    <label class="item item-active">
+        <input type="checkbox" name="project" class="yo-checkbox mark" checked />
+        <span class="flex">CRM</span>
+    </label>
+    <label class="item item-active">
+        <input type="checkbox" name="project" class="yo-checkbox mark" />
+        <span class="flex">PMS</span>
+    </label>
+    <label class="item item-active">
+        <input type="checkbox" name="project" class="yo-checkbox mark" />
+        <span class="flex">Mobile</span>
+    </label>
+    <label class="item item-active">
+        <input type="checkbox" name="project" class="yo-checkbox mark" />
+        <span class="flex">Yo</span>
+    </label>
+</div></xmp></code>
+</div>
+
+<pre class="m-code"><span class="method">@include yo-checkbox</span><span class="bracket">(</span>
+    $name<span class="colon">:</span>default, <mark>//{default | String} 定义名称</mark>
+    $type<span class="colon">:</span>default, <mark>//{default | String} 定义标记类型，可选值：[circle | tick]</mark>
+    $size<span class="colon">:</span>default, <mark>//{default | Length} 定义标记大小</mark>
+    $bordercolor<span class="colon">:</span>default, <mark>//{default | Color} 定义边框色</mark>
+    $bgcolor<span class="colon">:</span>default, <mark>//{default | Color} 定义背景色</mark>
+    $on-bordercolor<span class="colon">:</span>default, <mark>//{default | Color} 定义激活时边框色</mark>
+    $on-bgcolor<span class="colon">:</span>default, <mark>//{default | Color} 定义激活时背景色</mark>
+    $on-color<span class="colon">:</span>default, <mark>//{default | Color} 定义激活时标记色</mark>
+    $radius<span class="colon">:</span>default <mark>//{default | Length} 定义圆角大小</mark>
+<span class="bracket">)</span>
+</pre>
+</body>
+</html>

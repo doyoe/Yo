@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<title>button - 按钮</title>
+<link rel="stylesheet" href="../../usage/demo/export/yo-all.css" />
+</head>
+<body>
+<div class="m-demo">
+    <div class="device">
+    <div class="stage">
+        <h2 class="yo-header">Default Button</h2>
+        <ul class="yo-list">
+            <li class="item">
+                <a href="?" class="yo-btn yo-btn-s">Button</a>
+                <button class="yo-btn yo-btn-s">Button</button>
+                <input type="button" value="Button" class="yo-btn yo-btn-s" />
+            </li>
+            <li class="item">
+                <a href="?" class="yo-btn yo-btn-m">Button</a>
+                <button class="yo-btn yo-btn-m">Button</button>
+                <input type="button" value="Button" class="yo-btn yo-btn-m" />
+            </li>
+            <li class="item">
+                <a href="?" class="yo-btn yo-btn-l">Button</a>
+                <button class="yo-btn yo-btn-l">Button</button>
+                <input type="button" value="Button" class="yo-btn yo-btn-l" />
+            </li>
+        </ul>
+    </div>
+    </div>
+    <code class="code"><xmp><ul class="yo-list">
+    <li class="item">
+        <a href="?" class="yo-btn yo-btn-s">Button</a>
+        <button class="yo-btn yo-btn-s">Button</button>
+        <input type="button" value="Button" class="yo-btn yo-btn-s" />
+    </li>
+    <li class="item">
+        <a href="?" class="yo-btn yo-btn-m">Button</a>
+        <button class="yo-btn yo-btn-m">Button</button>
+        <input type="button" value="Button" class="yo-btn yo-btn-m" />
+    </li>
+    <li class="item">
+        <a href="?" class="yo-btn yo-btn-l">Button</a>
+        <button class="yo-btn yo-btn-l">Button</button>
+        <input type="button" value="Button" class="yo-btn yo-btn-l" />
+    </li>
+</ul></xmp></code>
+</div>
+
+<div class="m-demo">
+    <div class="device">
+    <div class="stage">
+        <h2 class="yo-header">Disabled Button</h2>
+        <ul class="yo-list">
+            <li class="item">
+                <a href="?" class="yo-btn yo-btn-disabled yo-btn-s">Button</a>
+                <button class="yo-btn yo-btn-disabled yo-btn-s">Button</button>
+                <input type="button" value="Button" class="yo-btn yo-btn-disabled yo-btn-s" />
+            </li>
+            <li class="item">
+                <a href="?" class="yo-btn yo-btn-disabled yo-btn-m">Button</a>
+                <button class="yo-btn yo-btn-disabled yo-btn-m">Button</button>
+                <input type="button" value="Button" class="yo-btn yo-btn-disabled yo-btn-m" />
+            </li>
+            <li class="item">
+                <a href="?" class="yo-btn yo-btn-disabled yo-btn-l">Button</a>
+                <button class="yo-btn yo-btn-disabled yo-btn-l">Button</button>
+                <input type="button" value="Button" class="yo-btn yo-btn-disabled yo-btn-l" />
+            </li>
+        </ul>
+    </div>
+    </div>
+    <code class="code"><xmp><ul class="yo-list">
+    <li class="item">
+        <a href="?" class="yo-btn yo-btn-disabled yo-btn-s">Button</a>
+        <button class="yo-btn yo-btn-disabled yo-btn-s">Button</button>
+        <input type="button" value="Button" class="yo-btn yo-btn-disabled yo-btn-s" />
+    </li>
+    <li class="item">
+        <a href="?" class="yo-btn yo-btn-disabled yo-btn-m">Button</a>
+        <button class="yo-btn yo-btn-disabled yo-btn-m">Button</button>
+        <input type="button" value="Button" class="yo-btn yo-btn-disabled yo-btn-m" />
+    </li>
+    <li class="item">
+        <a href="?" class="yo-btn yo-btn-disabled yo-btn-l">Button</a>
+        <button class="yo-btn yo-btn-disabled yo-btn-l">Button</button>
+        <input type="button" value="Button" class="yo-btn yo-btn-disabled yo-btn-l" />
+    </li>
+</ul></xmp></code>
+</div>
+
+<div class="m-demo">
+    <div class="device">
+    <div class="stage">
+        <h2 class="yo-header">Light Button</h2>
+        <ul class="yo-list">
+            <li class="item">
+                <a href="?" class="yo-btn yo-btn-light yo-btn-s">Button</a>
+                <button class="yo-btn yo-btn-light yo-btn-s">Button</button>
+                <input type="button" value="Button" class="yo-btn yo-btn-light yo-btn-s" />
+            </li>
+            <li class="item">
+                <a href="?" class="yo-btn yo-btn-light yo-btn-m">Button</a>
+                <button class="yo-btn yo-btn-light yo-btn-m">Button</button>
+                <input type="button" value="Button" class="yo-btn yo-btn-light yo-btn-m" />
+            </li>
+            <li class="item">
+                <a href="?" class="yo-btn yo-btn-light yo-btn-l">Button</a>
+                <button class="yo-btn yo-btn-light yo-btn-l">Button</button>
+                <input type="button" value="Button" class="yo-btn yo-btn-light yo-btn-l" />
+            </li>
+        </ul>
+    </div>
+    </div>
+    <code class="code">
+    <h2>假设你想要轻柔一点的颜色，那么你可以这样扩展：</h2>
+    <p>命名及颜色按照各自团队内部的FE/UI规范即可</p>
+
+    <h3>全局扩展方式：</h3>
+    <xmp>@include yo-btn(
+    $name: light,
+    $bordercolor: #ddd,
+    $bgcolor: #fff,
+    $color: map-get($base, color)
+);</xmp>
+
+    <h3>使用方法：</h3>
+    <xmp><button class="yo-btn yo-btn-light">Button</button></xmp>
+    <h3>局部扩展方式：</h3>
+    <xmp>.xxx {
+    @include yo-btn(
+        $name: light,
+        $bordercolor: #ddd,
+        $bgcolor: #fff,
+        $color: map-get($base, color)
+    );
+}</xmp>
+    <h3>使用方法：</h3>
+    <xmp><div class="xxx">
+    <button class="yo-btn yo-btn-light">Button</button>
+</div></xmp>
+    </code>
+</div>
+
+<div class="m-demo">
+    <div class="device">
+    <div class="stage">
+        <h2 class="yo-header">Normal Button</h2>
+        <ul class="yo-list">
+            <li class="item">
+                <a href="?" class="yo-btn yo-btn-normal yo-btn-s">Button</a>
+                <button class="yo-btn yo-btn-normal yo-btn-s">Button</button>
+                <input type="button" value="Button" class="yo-btn yo-btn-normal yo-btn-s" />
+            </li>
+            <li class="item">
+                <a href="?" class="yo-btn yo-btn-normal yo-btn-m">Button</a>
+                <button class="yo-btn yo-btn-normal yo-btn-m">Button</button>
+                <input type="button" value="Button" class="yo-btn yo-btn-normal yo-btn-m" />
+            </li>
+            <li class="item">
+                <a href="?" class="yo-btn yo-btn-normal yo-btn-l">Button</a>
+                <button class="yo-btn yo-btn-normal yo-btn-l">Button</button>
+                <input type="button" value="Button" class="yo-btn yo-btn-normal yo-btn-l" />
+            </li>
+        </ul>
+    </div>
+    </div>
+    <code class="code">
+    <h2>假设你想要浅一点的颜色，那么你可以这样扩展：</h2>
+    <p>命名及颜色按照各自团队内部的FE/UI规范即可</p>
+    <h3>全局扩展方式：</h3>
+    <xmp>@include yo-btn(
+    $name: normal,
+    $bordercolor: #ddd,
+    $bgcolor: #eee,
+    $color: #212121
+);</xmp>
+    <h3>使用方法：</h3>
+    <xmp><button class="yo-btn yo-btn-normal">Button</button></xmp>
+    <h3>局部扩展方式：</h3>
+    <xmp>.xxx{
+    @include yo-btn(
+        $name: normal,
+        $bordercolor: #ddd,
+        $bgcolor: #eee,
+        $color: #212121
+    );
+}</xmp>
+    <h3>使用方法：</h3>
+    <xmp><div class="xxx">
+    <button class="yo-btn yo-btn-normal">Button</button>
+</div></xmp>
+    </code>
+</div>
+
+<div class="m-demo">
+    <div class="device">
+    <div class="stage">
+        <h2 class="yo-header">Info Button</h2>
+        <ul class="yo-list">
+            <li class="item">
+                <a href="?" class="yo-btn yo-btn-info yo-btn-s">Button</a>
+                <button class="yo-btn yo-btn-info yo-btn-s">Button</button>
+                <input type="button" value="Button" class="yo-btn yo-btn-info yo-btn-s" />
+            </li>
+            <li class="item">
+                <a href="?" class="yo-btn yo-btn-info yo-btn-m">Button</a>
+                <button class="yo-btn yo-btn-info yo-btn-m">Button</button>
+                <input type="button" value="Button" class="yo-btn yo-btn-info yo-btn-m" />
+            </li>
+            <li class="item">
+                <a href="?" class="yo-btn yo-btn-info yo-btn-l">Button</a>
+                <button class="yo-btn yo-btn-info yo-btn-l">Button</button>
+                <input type="button" value="Button" class="yo-btn yo-btn-info yo-btn-l" />
+            </li>
+        </ul>
+    </div>
+    </div>
+    <code class="code">
+    <h2>假设你想要素雅点的颜色，那么你可以这样扩展：</h2>
+    <p>命名及颜色按照各自团队内部的FE/UI规范即可</p>
+
+    <h3>全局扩展方式：</h3>
+    <xmp>@include yo-btn(
+    $name: info,
+    $bordercolor: #0456e2,
+    $bgcolor: #4a87ee
+);</xmp>
+    <h3>使用方法：</h3>
+    <xmp><button class="yo-btn yo-btn-info">Button</button></xmp>
+
+    <h3>局部扩展方式：</h3>
+    <xmp>.xxx{
+    @include yo-btn(
+        $name: info,
+        $bordercolor: #0456e2,
+        $bgcolor: #4a87ee
+    );
+}</xmp>
+    <h3>使用方法：</h3>
+    <xmp><div class="xxx">
+    <button class="yo-btn yo-btn-info">Button</button>
+</div></xmp>
+    </code>
+</div>
+
+<div class="m-demo">
+    <div class="device">
+    <div class="stage">
+        <h2 class="yo-header">Stacked Button</h2>
+        <ul class="yo-list">
+            <li class="item">
+                <input type="button" value="Button" class="yo-btn yo-btn-l yo-btn-stacked" />
+            </li>
+            <li class="item">
+                <input type="button" value="Button" class="yo-btn yo-btn-light yo-btn-l yo-btn-stacked" />
+            </li>
+            <li class="item">
+                <input type="button" value="Button" class="yo-btn yo-btn-normal yo-btn-l yo-btn-stacked" />
+            </li>
+            <li class="item">
+                <input type="button" value="Button" class="yo-btn yo-btn-info yo-btn-l yo-btn-stacked" />
+            </li>
+            <li class="item">
+                <input type="button" value="Button" class="yo-btn yo-btn-disabled yo-btn-l yo-btn-stacked" />
+            </li>
+        </ul>
+    </div>
+    </div>
+    <code class="code">
+    <xmp><ul class="yo-list">
+    <li class="item">
+        <input type="button" value="Button" class="yo-btn yo-btn-l yo-btn-stacked" />
+    </li>
+    <li class="item">
+        <input type="button" value="Button" class="yo-btn yo-btn-light yo-btn-l yo-btn-stacked" />
+    </li>
+    <li class="item">
+        <input type="button" value="Button" class="yo-btn yo-btn-normal yo-btn-l yo-btn-stacked" />
+    </li>
+    <li class="item">
+        <input type="button" value="Button" class="yo-btn yo-btn-info yo-btn-l yo-btn-stacked" />
+    </li>
+    <li class="item">
+        <input type="button" value="Button" class="yo-btn yo-btn-disabled yo-btn-l yo-btn-stacked" />
+    </li>
+</ul></xmp>
+    </code>
+</div>
+
+
+<pre class="m-code"><span class="method">@include yo-btn</span><span class="bracket">(</span>
+    $name<span class="colon">:</span>default, <mark>//{String} 扩展的名称</mark>
+    $border-width<span class="colon">:</span>default, <mark>//{Length} 边框厚度</mark>
+    $bordercolor<span class="colon">:</span>default, <mark>//{Color} 边框色</mark>
+    $bgcolor<span class="colon">:</span>default, <mark>//{Color} 背景色</mark>
+    $color<span class="colon">:</span>default, <mark>//{Color} 文本色</mark>
+    $active-bordercolor<span class="colon">:</span>default, <mark>//{Color} 激活时边框色</mark>
+    $active-bgcolor<span class="colon">:</span>default, <mark>//{Color} 激活时背景色</mark>
+    $active-color<span class="colon">:</span>default, <mark>//{Color} 激活时文本色</mark>
+    $padding<span class="colon">:</span>default, <mark>//{Length} 内补白</mark>
+    $radius<span class="colon">:</span>default, <mark>//{Length} 圆角半径</mark>
+    $font-size<span class="colon">:</span>default, <mark>//{Length} 字号</mark>
+    $width<span class="colon">:</span>default, <mark>//{Length} 宽度</mark>
+    $height<span class="colon">:</span>default <mark>//{Length} 高度</mark>
+<span class="bracket">)</span>
+</pre>
+
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<title>loading - 菊花</title>
+<link rel="stylesheet" href="../../usage/demo/export/yo-all.css" />
+</head>
+<body>
+
+<div class="m-demo">
+    <div class="device">
+    <div class="stage">
+        <div class="yo-loading"></div>
+    </div>
+    </div>
+    <code class="code"><xmp><div class="yo-loading"></div></xmp></code>
+</div>
+
+<div class="m-demo">
+    <div class="device">
+    <div class="stage">
+        <div class="yo-loading">
+            <div class="inner">加载中...</div>
+        </div>
+    </div>
+    </div>
+    <code class="code"><xmp><div class="yo-loading">
+    <div class="inner">加载中...</div>
+</div></xmp></code>
+</div>
+
+<div class="m-demo">
+    <div class="device">
+    <div class="stage">
+        <div class="yo-loading yo-loading-b">
+            <div class="inner">加载中...</div>
+        </div>
+    </div>
+    </div>
+    <code class="code">
+    <h2>假设你想要背景色，那么你可以这样扩展：</h2>
+    <p>命名及颜色按照各自团队内部的FE/UI规范即可</p>
+    <h3>全局扩展方式：</h3>
+    <xmp>@include yo-loading(b,default,default,default,rgba(0,0,0,.5));</xmp>
+    <h3>使用方法：</h3>
+    <xmp><div class="yo-loading yo-loading-b">
+    <div class="inner">加载中...</div>
+</div></xmp>
+    <h3>局部扩展方式：</h3>
+    <xmp>.xxx{
+    @include yo-loading(b,default,default,default,rgba(0,0,0,.5));
+}</xmp>
+    <h3>使用方法：</h3>
+    <xmp><div class="xxx">
+    <div class="yo-loading yo-loading-b">
+        <div class="inner">加载中...</div>
+    </div>
+</div></xmp>
+    </code>
+</div>
+
+<div class="m-demo">
+    <div class="device">
+    <div class="stage">
+        <div class="yo-loading yo-loading-c">
+            <div class="inner">加载中...</div>
+        </div>
+    </div>
+    </div>
+    <code class="code">
+    <h2>假设你想要改变loading颜色，那么你可以这样扩展：</h2>
+    <p>命名及颜色按照各自团队内部的FE/UI规范即可</p>
+    <h3>全局扩展方式：</h3>
+    <xmp>@include yo-loading(c,default,#00afc7,default,rgba(0,0,0,.5));</xmp>
+    <h3>使用方法：</h3>
+    <xmp><div class="yo-loading yo-loading-c">
+    <div class="inner">加载中...</div>
+</div></xmp>
+    <h3>局部扩展方式：</h3>
+    <xmp>.xxx{
+    @include yo-loading(c,default,#00afc7,default,rgba(0,0,0,.5));
+}</xmp>
+    <h3>使用方法：</h3>
+    <xmp><div class="xxx">
+    <div class="yo-loading yo-loading-c">
+        <div class="inner">加载中...</div>
+    </div>
+</div></xmp>
+    </code>
+</div>
+
+<div class="m-demo">
+    <div class="device">
+    <div class="stage">
+        <div class="yo-loading yo-loading-d">
+            <div class="inner">加载中...</div>
+        </div>
+    </div>
+    </div>
+    <code class="code">
+    <h2>假设你想要改变loading大小，那么你可以这样扩展：</h2>
+    <p>命名及颜色按照各自团队内部的FE/UI规范即可</p>
+    <h3>全局扩展方式：</h3>
+    <xmp>@include yo-loading(d,.7rem,#00afc7,default,rgba(0,0,0,.5));</xmp>
+    <h3>使用方法：</h3>
+    <xmp><div class="yo-loading yo-loading-d">
+    <div class="inner">加载中...</div>
+</div></xmp>
+    <h3>局部扩展方式：</h3>
+    <xmp>.xxx{
+    @include yo-loading(d,.7rem,#00afc7,default,rgba(0,0,0,.5));
+}</xmp>
+    <h3>使用方法：</h3>
+    <xmp><div class="xxx">
+    <div class="yo-loading yo-loading-d">
+        <div class="inner">加载中...</div>
+    </div>
+</div></xmp>
+    </code>
+</div>
+
+<pre class="m-code"><span class="method">@include yo-loading</span><span class="bracket">(</span>
+    $name<span class="colon">:</span>default, <mark>//{String} yo-loading名称</mark>
+    $size<span class="colon">:</span>default, <mark>//{Length} yo-loading菊花大小</mark>
+    $color<span class="colon">:</span>default, <mark>//{Color} yo-loading菊花颜色</mark>
+    $mask-bgcolor<span class="colon">:</span>default, <mark>//{Color} yo-loading遮罩颜色</mark>
+    $bgcolor<span class="colon">:</span>default <mark>//{Color} yo-loading背景颜色</mark>
+<span class="bracket">)</span>
+</pre>
+
+</body>
+</html>

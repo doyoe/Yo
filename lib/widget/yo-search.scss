@@ -1,0 +1,190 @@
+@charset "utf-8";
+@import "classes";
+
+/**
+ * @class widget
+ */
+
+/**
+ * 构造列表的自定义使用方法
+ -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/widget/yo-search.html)
+ * @method yo-search
+ * @param {default | String} $name 定义yo-search名称
+ * @param {default | Length} $height 定义yo-search高度
+ * @param {default | Length} $font-size 定义yo-search文本大小
+ * @param {default | Length} $op-padding 定义yo-search内补白
+ * @param {default | Length} $radius 定义yo-search圆角
+ * @param {default | Color} $bordercolor 定义yo-search边框色
+ * @param {default | Color} $bgcolor 定义yo-search背景色
+ * @param {default | Color} $color 定义yo-search文本色
+ * @param {default | Color} $on-bordercolor 定义yo-search激活边框色
+ * @param {default | Color} $on-bgcolor 定义yo-search激活背景色
+ * @param {default | Color} $placeholder-color 定义yo-search占位背景色
+ * @param {default | Color} $ico-color 定义yo-search 操作区ico颜色
+ * @param {default | Color} $cancel-color 定义yo-search取消按钮颜色
+ * @param {default | Color} $op-bgcolor 定义yo-search搜索区域背景色
+ * @param {default | Color} $mask-bgcolor 定义yo-search遮罩背景色
+ * @param {default | Length} $cancel-width 取消按钮区域宽度
+ */
+
+@mixin yo-search(
+    $name: default,
+    $height: default,
+    $font-size: default,
+    $op-padding: default,
+    $radius: default,
+    $bordercolor: default,
+    $bgcolor: default,
+    $color: default,
+    $on-bordercolor: default,
+    $on-bgcolor: default,
+    $placeholder-color: default,
+    $ico-color: default,
+    $cancel-color: default,
+    $op-bgcolor: default,
+    $mask-bgcolor: default,
+    $cancel-width: default) {
+    // 区别是否新增实例还是修改本身
+    @if $name == default {
+        $name: "";
+    } @else {
+        $name: "-#{$name}";
+    }
+    // 如果值为default，则取config的定义
+    @if $height == default {
+        $height: map-get($search, height);
+    }
+    @if $font-size == default {
+        $font-size: map-get($search, font-size);
+    }
+    @if $op-padding == default {
+        $op-padding: map-get($search, op-padding);
+    }
+    @if $radius == default {
+        $radius: map-get($search, radius);
+    }
+    @if $bordercolor == default {
+        $bordercolor: map-get($search, bordercolor);
+    }
+    @if $bgcolor == default {
+        $bgcolor: map-get($search, bgcolor);
+    }
+    @if $color == default {
+        $color: map-get($search,color);
+    }
+    @if $on-bordercolor == default {
+        $on-bordercolor: map-get($search, on-bordercolor);
+    }
+    @if $on-bgcolor == default {
+        $on-bgcolor: map-get($search, on-bgcolor);
+    }
+    @if $placeholder-color == default {
+        $placeholder-color: map-get($search, placeholder-color);
+    }
+    @if $ico-color == default {
+        $ico-color: map-get($search, ico-color);
+    }
+    @if $cancel-color == default {
+        $cancel-color: map-get($search, cancel-color);
+    }
+    @if $op-bgcolor == default {
+        $op-bgcolor: map-get($search, op-bgcolor);
+    }
+    @if $mask-bgcolor == default {
+        $mask-bgcolor: map-get($search, mask-bgcolor);
+    }
+    @if $cancel-width == default {
+        $cancel-width: map-get($search, cancel-width);
+    }
+    .yo-search#{$name} {
+        > .operate {
+            @if $font-size != map-get($search, font-size) {
+                font-size: $font-size;
+            }
+            @if $height != map-get($search, height) {
+                line-height: $height;
+            }
+            @if $op-padding != map-get($search, op-padding) {
+                padding: $op-padding;
+            }
+            @if $bordercolor != map-get($search, bordercolor) {
+                border-bottom-color: $bordercolor;
+            }
+            @if $op-bgcolor != map-get($search, op-bgcolor) {
+                background-color: $op-bgcolor;
+            }
+            > .action {
+                @if $height != map-get($search, height) {
+                    height: $height;
+                }
+                > .input {
+                    @if $bordercolor != map-get($search, bordercolor) {
+                        border-color: $bordercolor;
+                    }
+                    @if $radius != map-get($search, radius) {
+                        border-radius: $radius;
+                    }
+                    @if $bgcolor != map-get($search, bgcolor) {
+                        background-color: $bgcolor;
+                    }
+                    @if $color != map-get($search, color) {
+                        color: $color;
+                    }
+                    @if $font-size != map-get($search, font-size) {
+                        font-size: $font-size;
+                    }
+                }
+                > .yo-ico-delete,
+                > .yo-ico-fresh,
+                > .yo-ico-stop {
+                    @if $ico-color != map-get($search, ico-color) {
+                        color: $ico-color;
+                    }
+                }
+                > .label {
+                    @if $placeholder-color != map-get($search, placeholder-color) {
+                        color: $placeholder-color;
+                    }
+                }
+            }
+            > .cancel {
+                @if $cancel-width != map-get($search, cancel-width) {
+                    width: $cancel-width;
+                }
+                @if $cancel-color != map-get($search, cancel-color) {
+                    color: $cancel-color;
+                }
+            }
+            &-on,
+            &-fresh,
+            &-stop {
+                > .action > .input {
+                    @if $on-bordercolor != map-get($search, on-bordercolor) {
+                        border-color: $on-bordercolor;
+                    }
+                    @if $on-bgcolor != map-get($search, on-bgcolor) {
+                        background-color: $on-bgcolor;
+                    }
+                }
+            }
+            &-on {
+                > .action {
+                    @if $cancel-width != map-get($search, cancel-width) {
+                        margin-right: $cancel-width;
+                    }
+                }
+            }
+        }
+        > .cont {
+            @if $mask-bgcolor != map-get($search, mask-bgcolor) {
+                background-color: rgba($mask-bgcolor, .9);
+            }
+        }
+    }
+}
+
+// 调用本文件时载入search基础构造
+.yo-search {
+    @include _search;
+}

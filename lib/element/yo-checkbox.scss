@@ -1,0 +1,87 @@
+@charset "utf-8";
+@import "classes";
+
+@mixin yo-checkbox(
+    $name: default,
+    $type: default,
+    $size: default,
+    $bordercolor: default,
+    $bgcolor: default,
+    $on-bordercolor: default,
+    $on-bgcolor: default,
+    $on-color: default,
+    $radius: default) {
+    // 区别是否新增实例还是修改本身
+    @if $name == default {
+        $name: "";
+    } @else {
+        $name: "-#{$name}";
+    }
+    // 如果值为default，则取config的定义
+    @if $type == default {
+        $type: map-get($checkbox, type);
+    }
+    @if $size == default {
+        $size: map-get($checkbox, size);
+    }
+    @if $bordercolor == default {
+        $bordercolor: map-get($checkbox, bordercolor);
+    }
+    @if $bgcolor == default {
+        $bgcolor: map-get($checkbox, bgcolor);
+    }
+    @if $on-bordercolor == default {
+        $on-bordercolor: map-get($checkbox, on-bordercolor);
+    }
+    @if $on-bgcolor == default {
+        $on-bgcolor: map-get($checkbox, on-bgcolor);
+    }
+    @if $on-color == default {
+        $on-color: map-get($checkbox, on-color);
+    }
+    @if $radius == default {
+        $radius: map-get($checkbox, radius);
+    }
+    .yo-checkbox#{$name} {
+        @if $size != map-get($checkbox, size) {
+            @include square($size);
+            font-size: $size;
+        }
+        @if $radius != map-get($checkbox, radius) {
+            border-radius: $radius;
+        }
+        @if $bordercolor != map-get($checkbox, bordercolor) {
+            border-color: $bordercolor;
+        }
+        @if $bgcolor != map-get($checkbox, bgcolor) {
+            background-color: $bgcolor;
+        }
+        &::after {
+            @if $type != map-get($checkbox, type) {
+                @if $type == tick {
+                    content: "✓";
+                } @else {
+                    content: "●";
+                }
+            }
+        }
+        &:checked {
+            @if $on-bordercolor != map-get($checkbox, on-bordercolor) {
+                border-color: $on-bordercolor;
+            }
+            @if $on-bgcolor != map-get($checkbox, on-bgcolor) {
+                background-color: $on-bgcolor;
+            }
+            &::after{
+                @if $on-color != map-get($checkbox, on-color) {
+                    color: $on-color;
+                }
+            }
+        }
+    }
+}
+
+// 调用本文件时载入checkbox基础构造
+.yo-checkbox {
+    @include _checkbox;
+}

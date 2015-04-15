@@ -1,0 +1,53 @@
+@charset "utf-8";
+@import "classes";
+
+/**
+ * @class layout
+ */
+
+/**
+ * 构造弹性布局使用方法，可以是横向和纵向
+ -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/layout/yo-flex.html)
+ * @method yo-flex
+ * @param {String} $name 为新的扩展定义一个名称
+ * @param {String} $box 指定块级或者行级弹性盒
+ * @param {String} $direction 指定是水平或者垂直布局
+ */
+
+@mixin yo-flex(
+    $name: default,
+    $box: default,
+    $direction: default) {
+    // 区别是否新增实例还是修改本身
+    @if $name == default {
+        $name: "";
+    } @else {
+        $name: "-#{$name}";
+    }
+    // 如果值为default，则取config的定义
+    @if $box == default {
+        $box: map-get($flex, box);
+    }
+    @if $direction == default {
+        $direction: map-get($flex, direction);
+    }
+    .yo-flex#{$name} {
+        &,
+        > .flex-inherit {
+            // 如果$box不等于config预设，则重绘弹性盒类型
+            @if $box != map-get($flex, box) {
+                @include box($box);
+            }
+            // 如果$direction不等于config预设，则重绘方向
+            @if $direction != map-get($flex, direction) {
+                @include direction($direction);
+            }
+        }
+    }
+}
+
+// 调用本文件时载入弹性布局基础构造
+.yo-flex {
+    @include _flex;
+}

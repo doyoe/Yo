@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>lib/fragment/yo-list.scss - The Yo API</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="The Yo API" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 1.3.1</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/ani.html">ani</a></li>
+                                <li><a href="../classes/classes.html">classes</a></li>
+                                <li><a href="../classes/element.html">element</a></li>
+                                <li><a href="../classes/fragment.html">fragment</a></li>
+                                <li><a href="../classes/layout.html">layout</a></li>
+                                <li><a href="../classes/reset.html">reset</a></li>
+                                <li><a href="../classes/variables.html">variables</a></li>
+                                <li><a href="../classes/widget.html">widget</a></li>
+                            </ul>
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/Yo.html">Yo</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: lib/fragment/yo-list.scss</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+@charset &quot;utf-8&quot;;
+@import &quot;classes&quot;;
+
+/**
+ * @class fragment
+ */
+
+/**
+ * 构造列表的自定义使用方法
+ -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/fragment/yo-list.html)
+ * @method yo-list
+ * @param {String} $name 定义list名称
+ * @param {Length} $margin 定义list外边距
+ * @param {Length} $radius 定义list圆角
+ * @param {Length} $border-width 定义list外边框厚度
+ * @param {Color} $bordercolor 定义list边框色
+ * @param {Length} $item-padding 定义list项的内补白
+ * @param {Length} $label-padding 定义list分组标题内补白
+ * @param {Color} $label-bgcolor 定义list分组标题背景色
+ * @param {Color} $active-bgcolor 定义list点击反馈背景色
+ * @param {Color} $on-bgcolor 定义list选中背景色
+ * @param {Color} $on-color 定义list选中文本色
+ * @param {Color} $item-bordercolor 定义list子项边框色
+ * @param {Color} $label-bordercolor 定义list子项组头边框色
+ * @param {Length} $item-font-size 定义list项字号
+ * @param {Length} $label-font-size 定义list列表组头字号
+ */
+
+@mixin yo-list(
+    $name: default,
+    $margin: default,
+    $radius: default,
+    $border-width: default,
+    $bordercolor: default,
+    $item-padding: default,
+    $label-padding: default,
+    $label-bgcolor: default,
+    $active-bgcolor: default,
+    $on-bgcolor: default,
+    $on-color: default,
+    $item-bordercolor: default,
+    $label-bordercolor: default,
+    $item-font-size: default,
+    $label-font-size: default) {
+    // 区别是否新增实例还是修改本身
+    @if $name == default {
+        $name: &quot;&quot;;
+    } @else {
+        $name: &quot;-#{$name}&quot;;
+    }
+    // 如果值为default，则取config的定义
+    @if $margin == default {
+        $margin: map-get($list, margin);
+    }
+    @if $radius == default {
+        $radius: map-get($list, radius);
+    }
+    @if $border-width == default {
+        $border-width: map-get($list, border-width);
+    }
+    @if $bordercolor == default {
+        $bordercolor: map-get($list, bordercolor);
+    }
+    @if $item-padding == default {
+        $item-padding: map-get($list, item-padding);
+    }
+    @if $label-padding == default {
+        $label-padding: map-get($list, label-padding);
+    }
+    @if $label-bgcolor == default {
+        $label-bgcolor: map-get($list, label-bgcolor);
+    }
+    @if $active-bgcolor == default {
+        $active-bgcolor: map-get($list, active-bgcolor);
+    }
+    @if $on-bgcolor == default {
+        $on-bgcolor: map-get($list, on-bgcolor);
+    }
+    @if $on-color == default {
+        $on-color: map-get($list, on-color);
+    }
+    @if $item-bordercolor == default {
+        $item-bordercolor: map-get($list, item-bordercolor);
+    }
+    @if $label-bordercolor == default {
+        $label-bordercolor: map-get($list, label-bordercolor);
+    }
+    @if $label-font-size == default {
+        $label-font-size: map-get($list, label-font-size);
+    }
+    @if $item-font-size == default {
+        $item-font-size: map-get($list, item-font-size);
+    }
+    .yo-list#{$name} {
+        @if $margin != map-get($list, margin) {
+            margin: $margin;
+        }
+        @if $radius != map-get($list, radius) {
+            border-radius: $radius;
+        }
+        // 如果$border-width不等于config设定，则重绘边框相关
+        @if $border-width != map-get($list, border-width) {
+            // 如果$border-width为null，重设置为0
+            @if $border-width == null {
+                $border-width: 0;
+            }
+            border-width: $border-width;
+            // 如果$bordercolor不等于config设定，则重绘边框色
+            @if $bordercolor != map-get($list, bordercolor) {
+                @if $border-width != 0 {
+                    border-color: $bordercolor;
+                }
+            } @else {
+                // 如果config的边框厚度定义为null或者0，在扩展时，加上边框色
+                @if map-get($list, border-width) == null or
+                    map-get($list, border-width) == 0 {
+                    border-color: map-get($list, bordercolor);
+                }
+            }
+            // 如果config的边框厚度定义为null或者0，在扩展时，加上border-style
+            @if map-get($list, border-width) == null or
+                map-get($list, border-width) == 0 {
+                border-style: solid;
+            }
+        } @else {
+            // 如果扩展的边框厚度大于0且边框色和config边框色不同，在扩展时，重绘边框色
+            @if $border-width != null and
+                $border-width != 0 and
+                $bordercolor != map-get($list, bordercolor) {
+                border-color: $bordercolor;
+            }
+        }
+        &gt; .label {
+            @if $label-padding != map-get($list, label-padding) {
+                padding: $label-padding;
+                &gt; .col {
+                    padding: $label-padding;
+                }
+            }
+            @if $label-bordercolor != map-get($list, label-bordercolor) {
+                border-color: $label-bordercolor;
+            }
+            @if $label-bgcolor != map-get($list, label-bgcolor) {
+                background-color: $label-bgcolor;
+            }
+            @if $label-font-size != map-get($list, label-font-size) {
+                font-size: $label-font-size;
+            }
+        }
+        &gt; .item,
+        .front {
+            @if $item-padding != map-get($list, item-padding) {
+                padding: $item-padding;
+                &gt; .col {
+                    padding: $item-padding;
+                }
+            }
+        }
+        &gt; .item {
+            @if $item-bordercolor != map-get($list, item-bordercolor) {
+                border-color: $item-bordercolor;
+            }
+            @if $item-font-size != map-get($list, item-font-size) {
+                font-size: $item-font-size;
+            }
+            &amp;:last-child {
+                // 最后一根线的颜色与外边框颜色相同
+                @if $bordercolor != map-get($list, bordercolor) {
+                    border-color: $bordercolor;
+                }
+            }
+            &amp;.item-active:active,
+            &amp;.item-light {
+                @if $active-bgcolor != map-get($list, active-bgcolor) {
+                    background-color: $active-bgcolor;
+                }
+            }
+            &amp;.item-on {
+                @if $on-bgcolor != map-get($list, on-bgcolor) {
+                    background-color: $on-bgcolor;
+                }
+                @if $on-color != map-get($list, on-color) {
+                    color: $on-color;
+                }
+            }
+        }
+    }
+}
+
+// 调用本文件时载入list基础构造
+.yo-list {
+    @include _list;
+}
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+@charset "utf-8";
+@import "classes";
+
+/**
+ * @class widget
+ */
+
+/**
+ * 构造列表的自定义使用方法
+ -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/widget/yo-switch.html)
+ * @method yo-switch
+ * @param {default | String} $name 定义switch名称
+ * @param {default | Color} $checked-bordercolor 定义switch激活边框色
+ * @param {default | Color} $checked-bgcolor 定义switch激活背景色
+ * @param {default | Color} $bordercolor 定义switch边框色
+ * @param {default | Color} $bgcolor 定义switch背景色
+ * @param {default | Color} $ball-color 定义switch滑块色
+ */
+
+@mixin yo-switch(
+    $name: default,
+    $checked-bordercolor: default,
+    $checked-bgcolor: default,
+    $bordercolor: default,
+    $bgcolor: default,
+    $ball-color: default) {
+    // 区别是否新增实例还是修改本身
+    @if $name == default {
+        $name: "";
+    } @else {
+        $name: "-#{$name}";
+    }
+    // 如果值为default，则取config的定义
+    @if $bordercolor == default {
+        $bordercolor: map-get($switch, bordercolor);
+    }
+    @if $bgcolor == default {
+        $bgcolor: map-get($switch, bgcolor);
+    }
+    @if $ball-color == default {
+        $ball-color: map-get($switch, ball-color);
+    }
+    @if $checked-bordercolor == default {
+        $checked-bordercolor: map-get($switch, checked-bordercolor);
+    }
+    @if $checked-bgcolor == default {
+        $checked-bgcolor: map-get($switch, checked-bgcolor);
+    }
+    .yo-switch#{$name} {
+        > .track {
+            @if $bordercolor != map-get($switch, bordercolor) {
+                border-color: $bordercolor;
+            }
+            @if $bgcolor != map-get($switch, bgcolor) {
+                background-color: $bgcolor;
+            }
+            > .handle {
+                @if $ball-color != map-get($switch, ball-color) {
+                    background-color: $ball-color;
+                }
+            }
+        }
+        > input:checked + .track {
+            @if $checked-bordercolor != map-get($switch, checked-bordercolor) {
+                border-color: $checked-bordercolor;
+            }
+            @if $checked-bgcolor != map-get($switch, checked-bgcolor) {
+                background-color: $checked-bgcolor;
+            }
+        }
+    }
+}
+
+// 调用本文件时载入switch基础构造
+.yo-switch {
+    @include _switch;
+}

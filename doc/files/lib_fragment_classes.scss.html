@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>lib/fragment/classes.scss - The Yo API</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="The Yo API" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 1.3.1</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/ani.html">ani</a></li>
+                                <li><a href="../classes/classes.html">classes</a></li>
+                                <li><a href="../classes/element.html">element</a></li>
+                                <li><a href="../classes/fragment.html">fragment</a></li>
+                                <li><a href="../classes/layout.html">layout</a></li>
+                                <li><a href="../classes/reset.html">reset</a></li>
+                                <li><a href="../classes/variables.html">variables</a></li>
+                                <li><a href="../classes/widget.html">widget</a></li>
+                            </ul>
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/Yo.html">Yo</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: lib/fragment/classes.scss</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+@charset &quot;utf-8&quot;;
+@import &quot;../core/variables&quot;;
+@import &quot;../core/classes&quot;;
+/**
+ * Yo框架fragment基础构造
+ -----------------------
+ * Yo内置了包括：dialog, popup, tip, tab, switch, rating等基础组件
+ *
+ * @class fragment
+ * @module Yo
+ */
+
+// 定义list的基础构造
+// 使用方法请查看 yo-list.scss
+@mixin _list {
+    margin: map-get($list, margin);
+    border-radius: map-get($list, radius);
+    // 当边框厚度大于0时，才定义边框相关属性
+    @if map-get($list, border-width) != null and
+        map-get($list, border-width) != 0 {
+        border-width: map-get($list, border-width);
+        border-style: solid;
+        border-color: map-get($list, bordercolor);
+    }
+    &gt; .label,
+    &gt; .item,
+    .front {
+        @include flexbox;
+        @include align-items;
+        &gt; .mark:not(:last-child),
+        &gt; .yo-ico:not(:last-child) {
+            margin-right: .1rem;
+        }
+        // 定义需要自适应宽度的列
+        &gt; .flex {
+            @include flex;
+        }
+        &gt; .mark,
+        &gt; .yo-ico,
+        &gt; .col,
+        &gt; .flex {
+            display: block;
+        }
+        &amp;.tr {
+            // 当模式为table时，padding将设置到col上
+            padding: 0;
+        }
+    }
+    &gt; .label {
+        margin-top: -1px;
+        padding: map-get($list, label-padding);
+        border: 1px solid map-get($list, label-bordercolor);
+        border-width: 1px 0;
+        background-color: map-get($list, label-bgcolor);
+        color: map-get($base, sub-color);
+        font-size: map-get($list, label-font-size);
+        font-weight: normal;
+        // 定义单元格的padding
+        &gt; .col {
+            padding: map-get($list, label-padding);
+        }
+    }
+    &gt; .item,
+    .front {
+        padding: map-get($list, item-padding);
+    }
+    &gt; .item {
+        border-bottom: .01rem solid map-get($list, item-bordercolor);
+        background-color: #fff;
+        color: map-get($base, color);
+        font-size: map-get($list, item-font-size);
+        &amp;:last-child {
+            margin-bottom: -.01rem;
+            // 最后一根线的颜色与外边框颜色相同
+            border-color: map-get($list, bordercolor);
+        }
+        &amp;-stacked {
+            display: block;
+            &gt; .mark {
+                padding-bottom: .05rem;
+            }
+        }
+        &amp;-input {
+            // 让输入框占满整个父容器
+            &gt; .yo-input {
+                height: auto;
+                padding: 0;
+                border: 0;
+            }
+        }
+        &amp;-input,
+        &amp;-active,
+        &amp;-on,
+        &amp;-light {
+            cursor: pointer;
+        }
+        // 常规需要active的项目，没有使用到第3方组件的
+        &amp;.item-active:active,
+        // 为第3方组件提供active状态
+        &amp;.item-light {
+            background-color: map-get($list, active-bgcolor);
+        }
+        // 选中时背景和文本色
+        &amp;.item-on {
+            background-color: map-get($list, on-bgcolor);
+            color: map-get($list, on-color);
+        }
+        // 定义单元格的padding
+        &gt; .col {
+            padding: map-get($list, item-padding);
+        }
+    }
+    &gt; .yo-slidermenu {
+        display: block;
+        padding: 0 !important;
+    }
+}
+
+// 定义table的基础构造
+// 使用方法请查看 yo-table.scss
+@mixin _table {
+    width: map-get($table, width);
+    background-color: #fff;
+    thead {
+        background-color: map-get($table, thead-bgcolor);
+        th {
+            padding: map-get($table, thead-padding);
+        }
+    }
+    td {
+        padding: map-get($table, tbody-padding);
+    }
+    th,
+    td {
+        // 判断是够需要垂直边框
+        @if map-get($table, has-vertical-border) == false {
+            border-width: 0 0 1px 0;
+        } @else {
+            border-width: 1px;
+        }
+        border-style: solid;
+        border-color: map-get($table, bordercolor);
+    }
+    tbody {
+        tr:nth-child(odd) {
+            background-color: map-get($table, odd-bgcolor);
+        }
+        tr:nth-child(even) {
+            background-color: map-get($table, even-bgcolor);
+        }
+        tr:active,
+        tr.active {
+            background-color: map-get($table, active-bgcolor);
+        }
+        tr.on{
+            background-color: map-get($table, on-bgcolor);
+        }
+    }
+}
+
+// 定义btnbar的基础构造
+// 使用方法请查看 yo-btnbar.scss
+@mixin _btnbar {
+    display: inline-block;
+    vertical-align: middle;
+    &gt; .yo-btn {
+        float: left;
+        &amp;:not(:first-child) {
+            margin-left: -.01rem !important;
+        }
+        &amp;:first-child {
+            // 如果按钮有圆角，那么去掉第一个按钮的右侧圆角
+            @if map-get($btn, radius) != 0 {
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+            // 如果工具栏定义了圆角，那么不管按钮有没有左侧圆角，都重绘
+            @if map-get($btnbar, radius) != auto and map-get($btnbar, radius) != map-get($btn, radius) {
+                border-top-left-radius: map-get($btnbar, radius);
+                border-bottom-left-radius: map-get($btnbar, radius);
+            }
+        }
+        &amp;:last-child {
+            // 如果按钮有圆角，那么去掉最后一个按钮的左侧圆角
+            @if map-get($btn, radius) != 0 {
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+            // 如果工具栏定义了圆角，那么不管按钮有没有右侧圆角，都重绘
+            @if map-get($btnbar, radius) != auto and map-get($btnbar, radius) != map-get($btn, radius) {
+                border-top-right-radius: map-get($btnbar, radius);
+                border-bottom-right-radius: map-get($btnbar, radius);
+            }
+        }
+        &amp;:not(:first-child):not(:last-child){
+            // 如果按钮有圆角，那么清除中间所有按钮的圆角
+            @if map-get($btn, radius) != 0 {
+                border-radius: 0;
+            }
+        }
+    }
+}
+
+// 定义header的基础构造
+// 使用方法请查看 yo-header.scss
+@mixin _header {
+    position: relative;
+    overflow: hidden;
+    height: map-get($header, height);
+    line-height: map-get($header, height);
+    border-bottom: 1px solid map-get($header, bordercolor);
+    background-color: map-get($header, bgcolor);
+    // 如果config预设值不等于base color，则重绘color
+    @if map-get($header, color) != map-get($base, color) {
+        color: map-get($header, color);
+    }
+    // 如果config预设值不等于base font-size，则重绘font-size
+    @if map-get($header, font-size) != map-get($base, font-size) {
+        font-size: map-get($header, font-size);
+    }
+    @include ellipsis;
+    text-align: center;
+    &gt; .title {
+        @include ellipsis;
+        margin: 0 map-get($header, item-width);
+    }
+    &gt; .regret,
+    &gt; .affirm {
+        position: absolute;
+        top: 0;
+        width: map-get($header, item-width);
+        // 如果config预设值不等于parent font-size，则重绘子项的font-size
+        @if map-get($header, item-font-size) != map-get($header, font-size) {
+            font-size: map-get($header, item-font-size);
+        }
+        @include link;
+        &amp;.yo-ico,
+        &gt; .yo-ico {
+            font-size: map-get($header, item-ico-size);
+        }
+    }
+    &gt; .regret {
+        left: 0;
+        padding-left: map-get($header, item-space);
+        text-align: left;
+    }
+    &gt; .affirm {
+        right: 0;
+        padding-right: map-get($header, item-space);
+        text-align: right;
+    }
+}
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

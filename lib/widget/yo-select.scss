@@ -1,0 +1,65 @@
+@charset "utf-8";
+@import "classes";
+
+/**
+ * @class widget
+ */
+
+/**
+ * 构造列表的自定义使用方法
+ -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/widget/yo-select.html)
+ * @method yo-select
+ * @param {default | String} $name 定义select名称
+ * @param {default | Length} $width 定义select显示的子项个数
+ * @param {default | Length} $height 定义select子项高度
+ * @param {default | Color} $bordercolor 定义select边框色
+ */
+
+@mixin yo-select(
+    $name: default,
+    $item: default,
+    $item-height: default,
+    $bordercolor: default) {
+    // 区别是否新增实例还是修改本身
+    @if $name == default {
+        $name: "";
+    } @else {
+        $name: "-#{$name}";
+    }
+    // 如果值为default，则取config的定义
+    @if $item == default {
+        $item: map-get($select, item);
+    }
+    @if $item-height == default {
+        $item-height: map-get($select, item-height);
+    }
+    @if $bordercolor == default {
+        $bordercolor: map-get($select, bordercolor);
+    }
+    .yo-select#{$name} {
+        @if $item-height != map-get($select, item-height) or $item != map-get($select, item) {
+            height: $item-height * $item;
+            line-height: $item-height;
+        }
+        &::before {
+            @if $item-height != map-get($select, item-height) {
+                height: $item-height;
+                margin-top: -#{$item-height / 2};
+            }
+            @if $bordercolor != map-get($select, bordercolor) {
+                border-color: $bordercolor;
+            }
+        }
+        &-item-tag {
+            @if $item-height != map-get($select, item-height) or $item != map-get($select, item) {
+                line-height: $item-height * $item;
+            }
+        }
+    }
+}
+
+// 调用本文件时载入select基础构造
+.yo-select {
+    @include _select;
+}

@@ -1,0 +1,67 @@
+@charset "utf-8";
+@import "classes";
+
+/**
+ * @class element
+ */
+
+/**
+ * 构造评分展示的自定义使用方法
+ -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/element/yo-score.html)
+ * @method yo-score
+ * @param {String} $name 为新的扩展定义一个名称
+ * @param {Length} $item-width 单项宽度
+ * @param {Length} $item-height 单项高度
+ * @param {String} $url 背景图片url
+ */
+
+@mixin yo-score(
+    $name: default,
+    $item-width: default,
+    $item-height: default,
+    $url: default) {
+    // 区别是否新增实例还是修改本身
+    @if $name == default {
+        $name: "";
+    } @else {
+        $name: "-#{$name}";
+    }
+    // 如果值为default，则取config的定义
+    @if $item-width == default {
+        $item-width: map-get($score, item-width);
+    }
+    @if $item-height == default {
+        $item-height: map-get($score, item-height);
+    }
+    @if $url == default {
+        $url: map-get($score, url);
+    }
+    .yo-score#{$name} {
+        @if $item-width != map-get($score, item-width) {
+            width: $item-width * 5;
+        }
+        @if $item-height != map-get($score, item-height) {
+            height: $item-height;
+        }
+        &,
+        > .index {
+            @if $url != map-get($score, url) {
+                background-image: url(#{map-get($setting, bgimg-domain)}#{$url});
+            }
+            @if $item-height != map-get($score, item-height) {
+                background-size: auto $item-height * 2;
+            }
+        }
+        > .index {
+            @if $item-height != map-get($score, item-height) {
+                background-position: 0 -#{$item-height};
+            }
+        }
+    }
+}
+
+// 调用本文件时载入score基础构造
+.yo-score {
+    @include _score;
+}

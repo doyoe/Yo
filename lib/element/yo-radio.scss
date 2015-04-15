@@ -1,0 +1,87 @@
+@charset "utf-8";
+@import "classes";
+
+@mixin yo-radio(
+    $name: default,
+    $type: default,
+    $size: default,
+    $bordercolor: default,
+    $bgcolor: default,
+    $on-bordercolor: default,
+    $on-bgcolor: default,
+    $on-color: default,
+    $radius: default) {
+    // 区别是否新增实例还是修改本身
+    @if $name == default {
+        $name: "";
+    } @else {
+        $name: "-#{$name}";
+    }
+    // 如果值为default，则取config的定义
+    @if $type == default {
+        $type: map-get($radio, type);
+    }
+    @if $size == default {
+        $size: map-get($radio, size);
+    }
+    @if $bordercolor == default {
+        $bordercolor: map-get($radio, bordercolor);
+    }
+    @if $bgcolor == default {
+        $bgcolor: map-get($radio, bgcolor);
+    }
+    @if $on-bordercolor == default {
+        $on-bordercolor: map-get($radio, on-bordercolor);
+    }
+    @if $on-bgcolor == default {
+        $on-bgcolor: map-get($radio, on-bgcolor);
+    }
+    @if $on-color == default {
+        $on-color: map-get($radio, on-color);
+    }
+    @if $radius == default {
+        $radius: map-get($radio, radius);
+    }
+    .yo-radio#{$name} {
+        @if $size != map-get($radio, size) {
+            @include square($size);
+            font-size: $size;
+        }
+        @if $radius != map-get($checked, radius) {
+            border-radius: $radius;
+        }
+        @if $bordercolor != map-get($radio, bordercolor) {
+            border-color: $bordercolor;
+        }
+        @if $bgcolor != map-get($radio, bgcolor) {
+            background-color: $bgcolor;
+        }
+        &::after{
+            @if $type != map-get($checked, type) {
+                @if $type == tick {
+                    content: "✓";
+                } @else {
+                    content: "●";
+                }
+            }
+        }
+        &:checked {
+            @if $on-bordercolor != map-get($radio, on-bordercolor) {
+                border-color: $on-bordercolor;
+            }
+            @if $on-bgcolor != map-get($radio, on-bgcolor) {
+                background-color: $on-bgcolor;
+            }
+            &::after {
+                @if $on-color != map-get($radio, on-color) {
+                    color: $on-color;
+                }
+            }
+        }
+    }
+}
+
+// 调用本文件时载入radio基础构造
+.yo-radio {
+    @include _radio;
+}

@@ -1,0 +1,24 @@
+@charset "utf-8";
+@import "../layout/layout";
+@import "../fragment/yo-list";
+@import "../fragment/yo-header";
+
+/**
+ * list演示页面
+ * Author: joy.du(飘零雾雨)
+ * Time: 2014.4.1
+ */
+
+@include root-scroll(hidden);
+@include yo-list(
+    $label-padding: .18rem .1rem .03rem
+);
+.m-demo {
+    @include flexbox;
+    @include flex-direction(column);
+    height: 100%;
+    > .stage {
+        @include flex;
+        @include overflow;
+    }
+}

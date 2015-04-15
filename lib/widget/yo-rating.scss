@@ -1,0 +1,75 @@
+@charset "utf-8";
+@import "classes";
+
+/**
+ * @class widget
+ */
+
+/**
+ * 构造列表的自定义使用方法
+ -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/widget/yo-rating.html)
+ * @method yo-rating
+ * @param {default | String} $name 定义yo-rating名称
+ * @param {default | Length} $item-width 定义yo-rating 单项宽度
+ * @param {default | Length} $item-height 定义yo-rating 单项高度
+ * @param {default | Color} $url 定义yo-rating 图片url
+ */
+
+@mixin yo-rating(
+    $name: default,
+    $item-width: default,
+    $item-height: default,
+    $url: default) {
+    // 区别是否新增实例还是修改本身
+    @if $name == default {
+        $name: "";
+    } @else {
+        $name: "-#{$name}";
+    }
+    // 如果值为default，则取config的定义
+    @if $item-width == default {
+        $item-width: map-get($rating, item-width);
+    }
+    @if $item-height == default {
+        $item-height: map-get($rating, item-height);
+    }
+    @if $url == default {
+        $url: map-get($rating, url);
+    }
+    .yo-rating#{$name} {
+        @if $item-width != map-get($rating, item-width) {
+            width: $item-width * 5;
+        }
+        @if $item-height != map-get($rating, item-height) {
+            height: $item-height;
+        }
+        &,
+        > .index,
+        > .item {
+            @if $url != map-get($rating, url) {
+                background-image: url(#{map-get($setting, bgimg-domain)}#{$url});
+            }
+            @if $item-height != map-get($rating, item-height) {
+                background-size: auto $item-height * 2;
+            }
+        }
+        > .index {
+            @if $item-height != map-get($rating, item-height) {
+                background-position: 0 -#{$item-height};
+            }
+        }
+        > .item {
+            &:hover {
+                @if $item-height != map-get($rating, item-height) {
+                    background-position: 0 -#{$item-height};
+                }
+            }
+        }
+    }
+}
+
+// 调用本文件时载入rating基础构造
+.yo-rating {
+    @include _rating;
+}

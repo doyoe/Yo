@@ -1,0 +1,51 @@
+@charset "utf-8";
+@import "classes";
+@import "../element/yo-btn";
+
+/**
+ * @class fragment
+ */
+
+/**
+ * 构造按钮组的自定义使用方法
+ -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/yo/demo/fragment/yo-btnbar.html)
+ * @method yo-btnbar
+ * @param {String} $name 为新的扩展定义一个名称
+ * @param {Length} $radius 圆角半径长度
+ */
+
+@mixin yo-btnbar(
+    $name: default,
+    $radius: default) {
+    // 区别是否新增实例还是修改本身
+    @if $name == default {
+        $name: "";
+    } @else {
+        $name: "-#{$name}";
+    }
+    // 如果值为default，则取config的定义
+    @if $radius == default {
+        $radius: map-get($btnbar, radius);
+    }
+    .yo-btnbar#{$name} {
+        > .yo-btn {
+            // 如果工具栏定义了圆角且不等于config定义，则重绘圆角半径
+            @if $radius != map-get($btnbar, radius) {
+                &:first-child {
+                    border-top-left-radius: $radius;
+                    border-bottom-left-radius: $radius;
+                }
+                &:last-child {
+                    border-top-right-radius: $radius;
+                    border-bottom-right-radius: $radius;
+                }
+            }
+        }
+    }
+}
+
+// 调用本文件时载入btnbar基础构造
+.yo-btnbar {
+    @include _btnbar;
+}
