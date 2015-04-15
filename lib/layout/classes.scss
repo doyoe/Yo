@@ -21,12 +21,16 @@
 // 定义常见弹性布局
 // 使用方法请查看 yo-flex.scss
 @mixin _flex {
+    height: 100%;
     &,
     > .flex-inherit {
         @include flexbox(map-get($flex, box));
         @include flex-direction(map-get($flex, direction));
+        &,
         > .flex {
             @include flex;
+            position: relative;
+            overflow: hidden;
         }
     }
 }
