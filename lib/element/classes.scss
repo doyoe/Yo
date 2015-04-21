@@ -111,7 +111,8 @@
             -.2em -.36em 0 .06em,
             0 -.41em 0 .07em;
         font-size: map-get($loading, size);
-        color: map-get($loading, color);
+        // color: map-get($loading, color);
+        color: red;
     }
     &:before {
         @include square(map-get($loading, size) * 2);
