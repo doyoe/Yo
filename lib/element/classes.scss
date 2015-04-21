@@ -83,6 +83,7 @@
     min-height: map-get($loading, size) + .2rem;
     background-color: map-get($loading, mask-bgcolor);
     text-align: center;
+    color: red;
     &:before,
     &:after {
         position: absolute;
@@ -99,11 +100,11 @@
         @include animation(loading 1s infinite linear);
         @include transform-origin(center);
         box-shadow:
-            .35em -.29em red,
-            .47em -.03em 0 .01em red,
-            .4em .20em 0 .02em red,
-            .25em .38em 0 .03em red,
-            0 .44em 0 .04em red,
+            .35em -.29em,
+            .47em -.03em 0 .01em,
+            .4em .20em 0 .02em,
+            .25em .38em 0 .03em,
+            0 .44em 0 .04em,
             -.22em .38em 0 .05em,
             -.38em .24em 0 .05em,
             -.42em 0 0 .06em,
@@ -111,8 +112,7 @@
             -.2em -.36em 0 .06em,
             0 -.41em 0 .07em;
         font-size: map-get($loading, size);
-        // color: map-get($loading, color);
-        color: red;
+        color: map-get($loading, color);
     }
     &:before {
         @include square(map-get($loading, size) * 2);
