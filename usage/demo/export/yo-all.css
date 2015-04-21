@@ -539,6 +539,7 @@ a {
 }
 .m-demo .device .stage {
   position: relative;
+  min-height: 2rem;
 }
 @media screen and (min-width: 800px) {
   .m-demo .device {
@@ -610,6 +611,7 @@ a {
   }
 }
 .m-demo .code {
+  display: block;
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
