@@ -68,7 +68,6 @@
     }
     > .ft {
         @include flexbox();
-        overflow: hidden;
         text-align: center;
         @include yo-btn(
             $border-width: .01rem 0 0 0,
