@@ -1123,22 +1123,7 @@ a {
   font-size: .12rem;
   color: #333;
 }
-@-webkit-keyframes loading {
-  from {
-    -webkit-transform: rotatez(0);
-  }
-  to {
-    -webkit-transform: rotatez(360deg);
-  }
-}
-@keyframes loading {
-  from {
-    transform: rotatez(0);
-  }
-  to {
-    transform: rotatez(360deg);
-  }
-}
+
 /**
  * yo-loading扩展
  * Author: joy.du(飘零雾雨)

@@ -84,14 +84,14 @@
 // 调用本文件时载入loading基础构造
 .yo-loading {
     @include _loading;
-    @at-root{
-        @-webkit-keyframes loading {
-            from{-webkit-transform: rotatez(0);}
-            to{-webkit-transform: rotatez(360deg);}
-        }
-        @keyframes loading {
-            from{transform: rotatez(0);}
-            to{transform: rotatez(360deg);}
-        }
-    }
+    // @at-root{
+    //     @-webkit-keyframes loading {
+    //         from{-webkit-transform: rotatez(0);}
+    //         to{-webkit-transform: rotatez(360deg);}
+    //     }
+    //     @keyframes loading {
+    //         from{transform: rotatez(0);}
+    //         to{transform: rotatez(360deg);}
+    //     }
+    // }
 }
