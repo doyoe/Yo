@@ -41,7 +41,7 @@
     - 新增 `color` 参数用以控制文本颜色
     - 新增 `content` 参数用以控制loading的形态，可传入webfonts编码
 * update:
-    - 删除元素 `yo-checkbox` 和 `yo-radio`，请改用 `yo-checked`
+    - 删除元素 `yo-checkbox` 和 `yo-radio`，如已使用可以直接改用 `yo-checked`
 
 ### Lastest: v1.4.0
 
