@@ -220,46 +220,6 @@ $checked: (
     radius:         .05rem
 ) !default;
 
-// Element radio(8)
-$radio: (
-    // {String} 选中标记类型: [circle | tick]
-    type:           circle,
-    // {Length} radio尺寸
-    size:           .2rem,
-    // {Color} radio边框色
-    bordercolor:    map-get($base, bordercolor),
-    // {Color} radio背景色
-    bgcolor:        #fff,
-    // {Color} radio选中背景色
-    on-bgcolor:     #2b94ff,
-    // {Color} radio选中边框色
-    on-bordercolor: #2b94ff,
-    // {Color} radio选中标记色
-    on-color:       #fff,
-    // {Length} 圆角
-    radius:         50%
-) !default;
-
-// Element checkbox(8)
-$checkbox: (
-    // {String} 选中标记类型: [circle | tick]
-    type:           tick,
-    // {Length} checkbox尺寸
-    size:           .2rem,
-    // {Color} checkbox边框色
-    bordercolor:    map-get($base, bordercolor),
-    // {Color} checkbox背景色
-    bgcolor:        #fff,
-    // {Color} checkbox选中背景色
-    on-bgcolor:     #2b94ff,
-    // {Color} checkbox选中边框色
-    on-bordercolor: #2b94ff,
-    // {Color} checkbox选中标记色
-    on-color:       #fff,
-    // {Length} checkbox圆角
-    radius:         .05rem
-) !default;
-
 // Element range(3)
 $range: (
     // {Color} 已选择区域的滑轴背景色

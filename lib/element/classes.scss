@@ -152,6 +152,8 @@
     }
 }
 
+// 定义checked的基础构造
+// 使用方法请查看 yo-checked.scss
 @mixin _checked {
     display: inline-block;
     position: relative;
@@ -207,98 +209,6 @@
             map-get($checked, border-width) != 0 {
             border-color: map-get($base, disabled-bordercolor) !important;
         }
-        background-color: map-get($base, disabled-bgcolor) !important;
-        &::after {
-            color: map-get($base, disabled-color) !important;
-        }
-    }
-}
-
-// 定义radio的基础构造
-// 使用方法请查看 yo-radio.scss
-@mixin _radio {
-    @include appearance(none);
-    position: relative;
-    @include square(map-get($radio, size));
-    border-radius: map-get($radio, radius);
-    background-color: map-get($radio, bgcolor);
-    // 将 color 设置为 transparent，这时如果不需要边框，就可以将 $bordercolor 设置为 null 了，边框色为 color 设置
-    border: .01rem solid;
-    border-color: map-get($radio, bordercolor);
-    color: transparent;
-    font-size: map-get($radio, size);
-    cursor: pointer;
-    vertical-align: middle;
-    &::after {
-        position:absolute;
-        top: 50%;
-        left: 50%;
-        @include transform(translate(-50%, -50%));
-        @if map-get($radio, type) == tick {
-            content: "✓";
-        } @else {
-            content: "●";
-        }
-        font-size: 68%;
-        opacity: 0;
-    }
-    &:checked {
-        border-color: map-get($radio, on-bordercolor);
-        background-color: map-get($radio, on-bgcolor);
-        &::after {
-            color: map-get($radio, on-color);
-            opacity: 1;
-        }
-    }
-    &:disabled {
-        opacity: .4;
-        border-color: map-get($base, disabled-bordercolor) !important;
-        background-color: map-get($base, disabled-bgcolor) !important;
-        &::after {
-            color: map-get($base, disabled-color) !important;
-        }
-    }
-}
-
-// 定义checkbox的基础构造
-// 使用方法请查看 yo-checkbox.scss
-@mixin _checkbox {
-    @include appearance(none);
-    position: relative;
-    @include square(map-get($checkbox, size));
-    border-radius: map-get($checkbox, radius);
-    background-color: map-get($checkbox, bgcolor);
-    // 将 color 设置为 transparent，这时如果不需要边框，就可以将 $bordercolor 设置为 null 了，边框色为 color 设置
-    border: .01rem solid;
-    border-color: map-get($checkbox, bordercolor);
-    color: transparent;
-    font-size: map-get($checkbox, size);
-    cursor: pointer;
-    vertical-align: middle;
-    &::after {
-        position:absolute;
-        top: 50%;
-        left: 50%;
-        @include transform(translate(-50%, -50%));
-        @if map-get($checkbox, type) == tick {
-            content: "✓";
-        } @else {
-            content: "●";
-        }
-        font-size: 68%;
-        opacity: 0;
-    }
-    &:checked {
-        border-color: map-get($checkbox, on-bordercolor);
-        background-color: map-get($checkbox, on-bgcolor);
-        &::after {
-            color: map-get($checkbox, on-color);
-            opacity: 1;
-        }
-    }
-    &:disabled {
-        opacity: .4;
-        border-color: map-get($base, disabled-bordercolor) !important;
         background-color: map-get($base, disabled-bgcolor) !important;
         &::after {
             color: map-get($base, disabled-color) !important;

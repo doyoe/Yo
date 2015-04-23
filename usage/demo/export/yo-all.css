@@ -811,53 +811,6 @@ a {
   background-color: #4a87ee;
 }
 
-.yo-checkbox {
-  -webkit-appearance: none;
-  appearance: none;
-  position: relative;
-  width: 0.2rem;
-  height: 0.2rem;
-  border-radius: 0.05rem;
-  background-color: #fff;
-  border: .01rem solid;
-  border-color: #ddd;
-  color: transparent;
-  font-size: 0.2rem;
-  cursor: pointer;
-  vertical-align: middle;
-}
-.yo-checkbox::after {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  content: "✓";
-  font-size: 68%;
-  opacity: 0;
-}
-.yo-checkbox:checked {
-  border-color: #2b94ff;
-  background-color: #2b94ff;
-}
-.yo-checkbox:checked::after {
-  color: #fff;
-  opacity: 1;
-}
-.yo-checkbox:disabled {
-  opacity: .4;
-  border-color: #bbb !important;
-  background-color: #ccc !important;
-}
-.yo-checkbox:disabled::after {
-  color: #f9f9f9 !important;
-}
-
-/**
- * yo-checkbox扩展
- * Author: joy.du(飘零雾雨)
- * Time: 2015.1.16
- */
 /**
  * @class element
  */
@@ -1216,53 +1169,6 @@ a {
 }
 /**
  * yo-loadtip扩展
- * Author: joy.du(飘零雾雨)
- * Time: 2015.1.16
- */
-.yo-radio {
-  -webkit-appearance: none;
-  appearance: none;
-  position: relative;
-  width: 0.2rem;
-  height: 0.2rem;
-  border-radius: 50%;
-  background-color: #fff;
-  border: .01rem solid;
-  border-color: #ddd;
-  color: transparent;
-  font-size: 0.2rem;
-  cursor: pointer;
-  vertical-align: middle;
-}
-.yo-radio::after {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  content: "●";
-  font-size: 68%;
-  opacity: 0;
-}
-.yo-radio:checked {
-  border-color: #2b94ff;
-  background-color: #2b94ff;
-}
-.yo-radio:checked::after {
-  color: #fff;
-  opacity: 1;
-}
-.yo-radio:disabled {
-  opacity: .4;
-  border-color: #bbb !important;
-  background-color: #ccc !important;
-}
-.yo-radio:disabled::after {
-  color: #f9f9f9 !important;
-}
-
-/**
- * yo-radio扩展
  * Author: joy.du(飘零雾雨)
  * Time: 2015.1.16
  */
