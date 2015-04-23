@@ -4,13 +4,13 @@
 /**
  * Yo框架全局Reset
  -----------------------
- * Yo重置Mobile上常见的差异
+ * Yo重置Mobile及高级浏览器上常见的差异
  *
  * @class reset
  * @module Yo
  */
 
-// 1. 将元素的盒模型统一为：border-box
+// 1. 将元素的盒模型统一为: border-box
 // 2. 清除元素tap时出现的焦点框
 *,
 ::before,
@@ -103,7 +103,7 @@ select {
     font-size: inherit;
 }
 
-// 1. 重置斜体表现的元素为正常文本
+// 1. 重置斜体表现为正常文本
 address,
 cite,
 dfn,
@@ -190,7 +190,7 @@ a {
 }
 
 // 1. 让表单元素具有颜色继承
-// 2. iOS上当禁用时会设置opacity:.4
+// 2. iOS上当禁用时会设置opacity: .4
 input,
 textarea,
 button,
@@ -213,7 +213,7 @@ input[type="button"],
 input[type="submit"],
 input[type="reset"],
 input[type="file"]::-webkit-file-upload-button {
-    @include appearance(none);
+    @include appearance;
 }
 
 // 1. 重置mark元素的默认背景色
@@ -245,8 +245,8 @@ a {
 // 1. 预设清除浮动
 .g-clear,
 .g-mod {
-    @include clearfix();
+    @include clearfix;
 }
 
 // 1. 使用字体图标
-@include yofont();
+@include yofont;
