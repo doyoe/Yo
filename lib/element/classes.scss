@@ -68,64 +68,36 @@
     }
 }
 
-// 定义loading的基础构造
-// 使用方法请查看 yo-loading.scss
 @mixin _loading {
-    display: block;
+    @include flexbox;
     position: absolute;
     z-index: map-get($z-index, loading);
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    overflow: hidden;
-    min-width: map-get($loading, size) + .2rem;
-    min-height: map-get($loading, size) + .2rem;
+    @include justify-content;
+    @include align-items;
     background-color: map-get($loading, mask-bgcolor);
-    text-align: center;
-    &:before,
-    &:after {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        @include transform(translate(-50%, -50%));
-        content: "\0020";
-    }
-    &:after {
-        @include square(.04em);
-        margin-top: -.1rem;
-        background: transparent;
-        border-radius: 50%;
-        @include animation(loading 1s infinite linear);
-        @include transform-origin(center);
-        box-shadow:
-            .35em -.29em,
-            .47em -.03em 0 .01em,
-            .4em .20em 0 .02em,
-            .25em .38em 0 .03em,
-            0 .44em 0 .04em,
-            -.22em .38em 0 .05em,
-            -.38em .24em 0 .05em,
-            -.42em 0 0 .06em,
-            -.36em -.21em 0 .06em,
-            -.2em -.36em 0 .06em,
-            0 -.41em 0 .07em;
-        font-size: map-get($loading, size);
-        color: map-get($loading, color);
-    }
-    &:before {
-        @include square(map-get($loading, size) * 2);
-        border-radius: .1rem;
-        background-color: map-get($loading, bgcolor);
-    }
+    line-height: 1;
     > .inner {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        @include transform(translate(-50%, -50%));
-        margin-top: map-get($loading, size) - .18rem;
-        font-size: .12rem;
+        display: block;
+        text-align: center;
+        padding: .1rem .2rem;
+        border-radius: .05rem;
+        background-color: map-get($loading, bgcolor);
         color: map-get($loading, color);
+        font-size: map-get($loading, font-size);
+        &::before {
+            display: block;
+            margin-bottom: .1rem;
+            content: map-get($loading, content);
+            color: map-get($loading, ico-color);
+            font-family: map-get($ico, font-name);
+            font-size: map-get($loading, ico-size);
+            @include animation(loading 1s infinite linear);
+            @include transform-origin(center);
+        }
     }
 }
 
@@ -180,6 +152,8 @@
     }
 }
 
+// 定义checked的基础构造
+// 使用方法请查看 yo-checked.scss
 @mixin _checked {
     display: inline-block;
     position: relative;
@@ -235,98 +209,6 @@
             map-get($checked, border-width) != 0 {
             border-color: map-get($base, disabled-bordercolor) !important;
         }
-        background-color: map-get($base, disabled-bgcolor) !important;
-        &::after {
-            color: map-get($base, disabled-color) !important;
-        }
-    }
-}
-
-// 定义radio的基础构造
-// 使用方法请查看 yo-radio.scss
-@mixin _radio {
-    @include appearance(none);
-    position: relative;
-    @include square(map-get($radio, size));
-    border-radius: map-get($radio, radius);
-    background-color: map-get($radio, bgcolor);
-    // 将 color 设置为 transparent，这时如果不需要边框，就可以将 $bordercolor 设置为 null 了，边框色为 color 设置
-    border: .01rem solid;
-    border-color: map-get($radio, bordercolor);
-    color: transparent;
-    font-size: map-get($radio, size);
-    cursor: pointer;
-    vertical-align: middle;
-    &::after {
-        position:absolute;
-        top: 50%;
-        left: 50%;
-        @include transform(translate(-50%, -50%));
-        @if map-get($radio, type) == tick {
-            content: "✓";
-        } @else {
-            content: "●";
-        }
-        font-size: 68%;
-        opacity: 0;
-    }
-    &:checked {
-        border-color: map-get($radio, on-bordercolor);
-        background-color: map-get($radio, on-bgcolor);
-        &::after {
-            color: map-get($radio, on-color);
-            opacity: 1;
-        }
-    }
-    &:disabled {
-        opacity: .4;
-        border-color: map-get($base, disabled-bordercolor) !important;
-        background-color: map-get($base, disabled-bgcolor) !important;
-        &::after {
-            color: map-get($base, disabled-color) !important;
-        }
-    }
-}
-
-// 定义checkbox的基础构造
-// 使用方法请查看 yo-checkbox.scss
-@mixin _checkbox {
-    @include appearance(none);
-    position: relative;
-    @include square(map-get($checkbox, size));
-    border-radius: map-get($checkbox, radius);
-    background-color: map-get($checkbox, bgcolor);
-    // 将 color 设置为 transparent，这时如果不需要边框，就可以将 $bordercolor 设置为 null 了，边框色为 color 设置
-    border: .01rem solid;
-    border-color: map-get($checkbox, bordercolor);
-    color: transparent;
-    font-size: map-get($checkbox, size);
-    cursor: pointer;
-    vertical-align: middle;
-    &::after {
-        position:absolute;
-        top: 50%;
-        left: 50%;
-        @include transform(translate(-50%, -50%));
-        @if map-get($checkbox, type) == tick {
-            content: "✓";
-        } @else {
-            content: "●";
-        }
-        font-size: 68%;
-        opacity: 0;
-    }
-    &:checked {
-        border-color: map-get($checkbox, on-bordercolor);
-        background-color: map-get($checkbox, on-bgcolor);
-        &::after {
-            color: map-get($checkbox, on-color);
-            opacity: 1;
-        }
-    }
-    &:disabled {
-        opacity: .4;
-        border-color: map-get($base, disabled-bordercolor) !important;
         background-color: map-get($base, disabled-bgcolor) !important;
         &::after {
             color: map-get($base, disabled-color) !important;

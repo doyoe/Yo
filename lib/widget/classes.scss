@@ -78,6 +78,7 @@
             $active-bgcolor: #f9f9f9
         );
         > .yo-btn {
+            display: block;
             @include flex();
             &:last-child:not(:only-child),
             &:only-child {

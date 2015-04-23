@@ -7,6 +7,10 @@
  * Time: 2015.1.16
  */
 
-@include yo-loading(b,default,default,default,rgba(0,0,0,.5));
-@include yo-loading(c,default,#00afc7,default,rgba(0,0,0,.5));
-@include yo-loading(d,.7rem,#00afc7,default,rgba(0,0,0,.5));
+@include yo-loading(
+    $name: b,
+    $bgcolor: #666,
+    $mask-bgcolor: rgba(0, 0, 0, .2),
+    $ico-color: #00afc7,
+    $color: #00afc7
+);

@@ -12,6 +12,7 @@
     .device {
         .stage {
             position: relative;
+            min-height: 2rem;
         }
         @include responsive(pc) {
             position: relative;
@@ -71,6 +72,7 @@
         }
     }
     .code {
+        display: block;
         @include flex();
         @include overflow();
         // 开启demo中的选中功能，用以拷贝代码
