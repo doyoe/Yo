@@ -493,32 +493,362 @@ a {
 * Time: 2013.10.17
 */
 /**
+ * module: m-demo
+ * Author: joy.du(飘零雾雨)
+ * Time: 2013.10.17
+ */
+@media screen and (min-width: 800px) {
+  .m-demo {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    margin: .1rem;
+  }
+}
+.m-demo .device .stage {
+  position: relative;
+  min-height: 2rem;
+}
+@media screen and (min-width: 800px) {
+  .m-demo .device {
+    position: relative;
+    width: 3.66rem;
+    height: 7.83rem;
+    border: .05rem solid #505559;
+    border-radius: .55rem;
+    background-color: #313538;
+  }
+  .m-demo .device::before, .m-demo .device::after {
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translate(-50%);
+    transform: translate(-50%);
+    content: "\0020";
+  }
+  .m-demo .device::before {
+    top: .58rem;
+    width: .68rem;
+    height: .08rem;
+    border-radius: 4px;
+    background-color: #3e4243;
+  }
+  .m-demo .device::after {
+    bottom: .18rem;
+    width: 0.65rem;
+    height: 0.65rem;
+    border: .05rem solid #3e4243;
+    border-radius: 50%;
+  }
+  .m-demo .device .stage {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    top: .99rem;
+    left: .18rem;
+    overflow: hidden;
+    width: 3.20rem;
+    height: 5.68rem;
+    background-color: #fff;
+  }
+  .m-demo .device .stage .wrap {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    width: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .m-demo .device .stage, .m-demo .device .stage::before {
+    position: absolute;
+  }
+  .m-demo .device .stage::before {
+    top: -.68rem;
+    left: 50%;
+    -webkit-transform: translate(-50%);
+    transform: translate(-50%);
+    width: 0.1rem;
+    height: 0.1rem;
+    border-radius: 50%;
+    background-color: #3e4243;
+    box-shadow: -.5rem .26rem #3e4243;
+    content: "\0020";
+  }
+}
+.m-demo .code {
+  display: block;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  width: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  -webkit-user-select: text;
+  user-select: text;
+  margin: .1rem 0;
+  border-width: .04rem 0 .04rem 0;
+  border-style: solid;
+  border-color: #D7DBE4;
+  padding: .1rem;
+  background-color: #F0F3F8;
+}
+@media screen and (min-width: 800px) {
+  .m-demo .code {
+    margin: .1rem;
+    border-width: 0 0 0 .04rem;
+  }
+}
+.m-demo .code h3 {
+  margin-top: .1rem;
+}
+
+/**
+ * Yo框架fragment基础构造
+ -----------------------
+ * Yo内置了包括：dialog, popup, tip, tab, switch, rating等基础组件
+ *
+ * @class fragment
+ * @module Yo
+ */
+/**
+ * @class fragment
+ */
+/**
+ * 构造头的自定义使用方法
+ -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/fragment/yo-header.html)
+ * @method yo-header
+ * @param {String} $name 定义yo-header名称
+ * @param {Length} $height 定义yo-header高度
+ * @param {Length} $item-width 定义yo-header两侧子项宽度
+ * @param {Length} $item-space 定义yo-header两侧子项离边界的间隙
+ * @param {Color} $bordercolor 定义yo-header边框色
+ * @param {Color} $bgcolor 定义yo-header背景色
+ * @param {Color} $color 定义yo-header文本色
+ * @param {Length} $font-size 定义yo-header文本大小
+ * @param {Color} $item-color 定义yo-header两侧的子项文本色
+ * @param {Length} $item-font-size 定义yo-header两侧的子项文本大小
+ */
+.yo-header {
+  position: relative;
+  overflow: hidden;
+  height: 0.44rem;
+  line-height: 0.44rem;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
+  font-size: 0.16rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+.yo-header > .title {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin: 0 0.6rem;
+}
+.yo-header > .regret,
+.yo-header > .affirm {
+  position: absolute;
+  top: 0;
+  width: 0.6rem;
+  font-size: 0.14rem;
+  color: #00afc7;
+  cursor: pointer;
+}
+.yo-header > .regret:active,
+.yo-header > .affirm:active {
+  opacity: .5;
+}
+.yo-header > .regret.yo-ico,
+.yo-header > .regret > .yo-ico,
+.yo-header > .affirm.yo-ico,
+.yo-header > .affirm > .yo-ico {
+  font-size: 0.2rem;
+}
+.yo-header > .regret {
+  left: 0;
+  padding-left: 0.15rem;
+  text-align: left;
+}
+.yo-header > .affirm {
+  right: 0;
+  padding-right: 0.15rem;
+  text-align: right;
+}
+
+/**
+ * Fragment扩展: yo-header-normal, yo-header-positive
+ * Author: joy.du(飘零雾雨)
+ * Time: 2015.1.16
+ */
+.yo-header {
+  background-color: #fafafa;
+}
+
+.yo-header-positive {
+  border-color: #145fd7;
+  background-color: #4a87ee;
+  color: #fff;
+}
+.yo-header-positive > .regret,
+.yo-header-positive > .affirm {
+  color: #7ff;
+}
+
+/**
+ * @class fragment
+ */
+/**
+ * 构造列表的自定义使用方法
+ -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/fragment/yo-list.html)
+ * @method yo-list
+ * @param {String} $name 定义list名称
+ * @param {Length} $margin 定义list外边距
+ * @param {Length} $radius 定义list圆角
+ * @param {Length} $border-width 定义list外边框厚度
+ * @param {Color} $bordercolor 定义list边框色
+ * @param {Length} $item-padding 定义list项的内补白
+ * @param {Length} $label-padding 定义list分组标题内补白
+ * @param {Color} $label-bgcolor 定义list分组标题背景色
+ * @param {Color} $active-bgcolor 定义list点击反馈背景色
+ * @param {Color} $on-bgcolor 定义list选中背景色
+ * @param {Color} $on-color 定义list选中文本色
+ * @param {Color} $item-bordercolor 定义list子项边框色
+ * @param {Color} $label-bordercolor 定义list子项组头边框色
+ * @param {Length} $item-font-size 定义list项字号
+ * @param {Length} $label-font-size 定义list列表组头字号
+ */
+.yo-list > .label,
+.yo-list > .item,
+.yo-list .front {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.yo-list > .label > .mark:not(:last-child),
+.yo-list > .label > .yo-ico:not(:last-child),
+.yo-list > .item > .mark:not(:last-child),
+.yo-list > .item > .yo-ico:not(:last-child),
+.yo-list .front > .mark:not(:last-child),
+.yo-list .front > .yo-ico:not(:last-child) {
+  margin-right: .1rem;
+}
+.yo-list > .label > .flex,
+.yo-list > .item > .flex,
+.yo-list .front > .flex {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  width: 100%;
+}
+.yo-list > .label > .mark,
+.yo-list > .label > .yo-ico,
+.yo-list > .label > .col,
+.yo-list > .label > .flex,
+.yo-list > .item > .mark,
+.yo-list > .item > .yo-ico,
+.yo-list > .item > .col,
+.yo-list > .item > .flex,
+.yo-list .front > .mark,
+.yo-list .front > .yo-ico,
+.yo-list .front > .col,
+.yo-list .front > .flex {
+  display: block;
+}
+.yo-list > .label.tr,
+.yo-list > .item.tr,
+.yo-list .front.tr {
+  padding: 0;
+}
+.yo-list > .label {
+  margin-top: -1px;
+  padding: 0.03rem 0.1rem;
+  border: 1px solid #eee;
+  border-width: 1px 0;
+  background-color: #fafafa;
+  color: #9e9e9e;
+  font-size: 0.13rem;
+  font-weight: normal;
+}
+.yo-list > .label > .col {
+  padding: 0.03rem 0.1rem;
+}
+.yo-list > .item,
+.yo-list .front {
+  padding: 0.11rem;
+}
+.yo-list > .item {
+  border-bottom: 0.01rem solid #eee;
+  background-color: #fff;
+  color: #212121;
+  font-size: 0.14rem;
+}
+.yo-list > .item:last-child {
+  margin-bottom: -.01rem;
+  border-color: #ddd;
+}
+.yo-list > .item-stacked {
+  display: block;
+}
+.yo-list > .item-stacked > .mark {
+  padding-bottom: .05rem;
+}
+.yo-list > .item-input > .yo-input {
+  height: auto;
+  padding: 0;
+  border: 0;
+}
+.yo-list > .item-input, .yo-list > .item-active, .yo-list > .item-on, .yo-list > .item-light {
+  cursor: pointer;
+}
+.yo-list > .item.item-active:active, .yo-list > .item.item-light {
+  background-color: #f8f8f8;
+}
+.yo-list > .item > .col {
+  padding: 0.11rem;
+}
+.yo-list > .yo-slidermenu {
+  display: block;
+  padding: 0 !important;
+}
+
+/**
+ * yo-list扩展
+ * Author: joy.du(飘零雾雨)
+ * Time: 2015.1.16
+ */
+.yo-list-inset {
+  margin: 0.2rem 0.1rem 0 0.1rem;
+  border-radius: 0.02rem;
+  border-width: 0.01rem;
+  border-color: #ddd;
+  border-style: solid;
+}
+
+/**
 * yofont演示页面
 * Author: joy.du(飘零雾雨)
 * Time: 2014.4.1
 */
-.demo h1 {
-  margin: 20px 30px;
-  border-bottom: 1px solid #aaa;
-  font-size: 48px;
+.m-demo {
+  -webkit-user-select: text;
+  user-select: text;
 }
-.demo ul {
-  overflow: hidden;
+.m-demo .flex::before, .m-demo .flex::after {
+  color: #999;
 }
-.demo li {
-  float: left;
-  overflow: hidden;
-  width: 12.49%;
-  height: 140px;
-  text-align: center;
+.m-demo .flex::before {
+  content: "( ";
 }
-.demo .yo-ico {
-  font-size: 32px;
-  line-height: 100px;
-  color: #f00;
-  -webkit-transition: font-size 0.25s ease-out;
-  transition: font-size 0.25s ease-out;
-}
-.demo .yo-ico:hover {
-  font-size: 100px;
+.m-demo .flex::after {
+  content: " )";
 }
