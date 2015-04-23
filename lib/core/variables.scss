@@ -106,16 +106,22 @@ $ico: (
     font-path:  "../../../font/"
 ) !default;
 
-// Element loading(4)
+// Element loading(7)
 $loading: (
     // {Length} 菊花大小
-    size:        .5rem,
+    ico-size:     .5rem,
     // {Color} 菊花颜色
-    color:       #333,
+    ico-color:    #333,
     // {Color} mask颜色
-    mask-bgcolor:rgba(0, 0, 0, .1),
+    mask-bgcolor: rgba(0, 0, 0, .1),
     // {Color} 背景颜色
-    bgcolor:     null
+    bgcolor:      null,
+    // {Length} 字号
+    font-size:    map-get($base, font-size),
+    // {Color} 文本颜色
+    color:        map-get($base, color),
+    // {String} loading的ico编码，自定义的webfont
+    content:      "\f089"
 ) !default;
 
 // Element Input(8)

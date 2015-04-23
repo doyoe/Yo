@@ -1067,60 +1067,51 @@ a {
  * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/element/yo-loading.html)
  * @method yo-loading
  * @param {String} $name 为新的扩展定义一个名称
- * @param {Length} $size loading的尺寸
- * @param {Color} $color loading的颜色
- * @param {Color} $mask-bgcolor 遮罩背景色
+ * @param {Length} $ico-size loading的尺寸
+ * @param {Color} $ico-color loading的颜色
  * @param {Color} $bgcolor 背景色
+ * @param {Color} $mask-bgcolor 遮罩背景色
+ * @param {Length} $font-size 文本字号
+ * @param {Color} $color 文本颜色
+ * @param {String} $content loading形态
  */
 .yo-loading {
-  display: block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
   position: absolute;
   z-index: 9999;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  overflow: hidden;
-  min-width: 0.7rem;
-  min-height: 0.7rem;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
   background-color: rgba(0, 0, 0, 0.1);
+  line-height: 1;
+}
+.yo-loading > .inner {
   text-align: center;
+  padding: .1rem .2rem;
+  border-radius: .05rem;
+  color: #212121;
+  font-size: 14px;
 }
-.yo-loading:before, .yo-loading:after {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  content: "\0020";
-}
-.yo-loading:after {
-  width: 0.04em;
-  height: 0.04em;
-  margin-top: -.1rem;
-  border-radius: 50%;
+.yo-loading > .inner::before {
+  display: block;
+  margin-bottom: .1rem;
+  content: "";
+  color: #333;
+  font-family: yofont;
+  font-size: 0.5rem;
   -webkit-animation: loading 1s infinite linear;
   animation: loading 1s infinite linear;
   -webkit-transform-origin: center;
   transform-origin: center;
-  box-shadow: .35em -.29em, .47em -.03em 0 .01em, .4em .20em 0 .02em, .25em .38em 0 .03em, 0 .44em 0 .04em, -.22em .38em 0 .05em, -.38em .24em 0 .05em, -.42em 0 0 .06em, -.36em -.21em 0 .06em, -.2em -.36em 0 .06em, 0 -.41em 0 .07em;
-  font-size: 0.5rem;
-  color: #333;
-}
-.yo-loading:before {
-  width: 1rem;
-  height: 1rem;
-  border-radius: .1rem;
-}
-.yo-loading > .inner {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  margin-top: 0.32rem;
-  font-size: .12rem;
-  color: #333;
 }
 @-webkit-keyframes loading {
   from {
@@ -1143,35 +1134,14 @@ a {
  * Author: joy.du(飘零雾雨)
  * Time: 2015.1.16
  */
-.yo-loading-b:before {
-  background-color: rgba(0, 0, 0, 0.5);
+.yo-loading-b {
+  background-color: rgba(0, 0, 0, 0.2);
 }
-
-.yo-loading-c:before {
-  background-color: rgba(0, 0, 0, 0.5);
-}
-.yo-loading-c:after {
+.yo-loading-b > .inner {
+  background-color: #666;
   color: #00afc7;
 }
-.yo-loading-c > .inner {
-  color: #00afc7;
-}
-
-.yo-loading-d {
-  min-width: 0.9rem;
-  min-height: 0.9rem;
-}
-.yo-loading-d:before {
-  width: 1.4rem;
-  height: 1.4rem;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-.yo-loading-d:after {
-  font-size: 0.7rem;
-  color: #00afc7;
-}
-.yo-loading-d > .inner {
-  margin-top: 0.52rem;
+.yo-loading-b > .inner::before {
   color: #00afc7;
 }
 
@@ -1232,7 +1202,7 @@ a {
     -webkit-transform: rotatez(0);
   }
   to {
-    -webkit-transform: rotatez(-360deg);
+    -webkit-transform: rotatez(360deg);
   }
 }
 @keyframes loadtip {
@@ -1240,7 +1210,7 @@ a {
     transform: rotatez(0);
   }
   to {
-    transform: rotatez(-360deg);
+    transform: rotatez(360deg);
   }
 }
 /**

@@ -14,17 +14,21 @@
 <div class="m-demo">
     <div class="device">
     <div class="stage">
-        <div class="yo-loading"></div>
+        <div class="yo-loading">
+            <span class="inner"></span>
+        </div>
     </div>
     </div>
-    <code class="code"><xmp><div class="yo-loading"></div></xmp></code>
+    <code class="code"><xmp><div class="yo-loading">
+    <span class="inner"></span>
+</div></xmp></code>
 </div>
 
 <div class="m-demo">
     <div class="device">
     <div class="stage">
         <div class="yo-loading">
-            <div class="inner">加载中...</div>
+            <span class="inner">加载中...</span>
         </div>
     </div>
     </div>
@@ -45,14 +49,26 @@
     <h2>假设你想要背景色，那么你可以这样扩展：</h2>
     <p>命名及颜色按照各自团队内部的FE/UI规范即可</p>
     <h3>全局扩展方式：</h3>
-    <xmp>@include yo-loading(b,default,default,default,rgba(0,0,0,.5));</xmp>
+    <xmp>@include yo-loading(
+    $name: b,
+    $bgcolor: #666,
+    $mask-bgcolor: rgba(0, 0, 0, .2),
+    $ico-color: #00afc7,
+    $color: #00afc7
+);</xmp>
     <h3>使用方法：</h3>
     <xmp><div class="yo-loading yo-loading-b">
     <div class="inner">加载中...</div>
 </div></xmp>
     <h3>局部扩展方式：</h3>
     <xmp>.xxx{
-    @include yo-loading(b,default,default,default,rgba(0,0,0,.5));
+    @include yo-loading(
+        $name: b,
+        $bgcolor: #666,
+        $mask-bgcolor: rgba(0, 0, 0, .2),
+        $ico-color: #00afc7,
+        $color: #00afc7
+    );
 }</xmp>
     <h3>使用方法：</h3>
     <xmp><div class="xxx">
@@ -63,72 +79,15 @@
     </code>
 </div>
 
-<div class="m-demo">
-    <div class="device">
-    <div class="stage">
-        <div class="yo-loading yo-loading-c">
-            <div class="inner">加载中...</div>
-        </div>
-    </div>
-    </div>
-    <code class="code">
-    <h2>假设你想要改变loading颜色，那么你可以这样扩展：</h2>
-    <p>命名及颜色按照各自团队内部的FE/UI规范即可</p>
-    <h3>全局扩展方式：</h3>
-    <xmp>@include yo-loading(c,default,#00afc7,default,rgba(0,0,0,.5));</xmp>
-    <h3>使用方法：</h3>
-    <xmp><div class="yo-loading yo-loading-c">
-    <div class="inner">加载中...</div>
-</div></xmp>
-    <h3>局部扩展方式：</h3>
-    <xmp>.xxx{
-    @include yo-loading(c,default,#00afc7,default,rgba(0,0,0,.5));
-}</xmp>
-    <h3>使用方法：</h3>
-    <xmp><div class="xxx">
-    <div class="yo-loading yo-loading-c">
-        <div class="inner">加载中...</div>
-    </div>
-</div></xmp>
-    </code>
-</div>
-
-<div class="m-demo">
-    <div class="device">
-    <div class="stage">
-        <div class="yo-loading yo-loading-d">
-            <div class="inner">加载中...</div>
-        </div>
-    </div>
-    </div>
-    <code class="code">
-    <h2>假设你想要改变loading大小，那么你可以这样扩展：</h2>
-    <p>命名及颜色按照各自团队内部的FE/UI规范即可</p>
-    <h3>全局扩展方式：</h3>
-    <xmp>@include yo-loading(d,.7rem,#00afc7,default,rgba(0,0,0,.5));</xmp>
-    <h3>使用方法：</h3>
-    <xmp><div class="yo-loading yo-loading-d">
-    <div class="inner">加载中...</div>
-</div></xmp>
-    <h3>局部扩展方式：</h3>
-    <xmp>.xxx{
-    @include yo-loading(d,.7rem,#00afc7,default,rgba(0,0,0,.5));
-}</xmp>
-    <h3>使用方法：</h3>
-    <xmp><div class="xxx">
-    <div class="yo-loading yo-loading-d">
-        <div class="inner">加载中...</div>
-    </div>
-</div></xmp>
-    </code>
-</div>
-
 <pre class="m-code"><span class="method">@include yo-loading</span><span class="bracket">(</span>
     $name<span class="colon">:</span>default, <mark>//{String} yo-loading名称</mark>
-    $size<span class="colon">:</span>default, <mark>//{Length} yo-loading菊花大小</mark>
-    $color<span class="colon">:</span>default, <mark>//{Color} yo-loading菊花颜色</mark>
-    $mask-bgcolor<span class="colon">:</span>default, <mark>//{Color} yo-loading遮罩颜色</mark>
-    $bgcolor<span class="colon">:</span>default <mark>//{Color} yo-loading背景颜色</mark>
+    $ico-size<span class="colon">:</span>default, <mark>//{Length} 菊花大小</mark>
+    $ico-color<span class="colon">:</span>default, <mark>//{Color} 菊花颜色</mark>
+    $mask-bgcolor<span class="colon">:</span>default, <mark>//{Color} 遮罩颜色</mark>
+    $bgcolor<span class="colon">:</span>default, <mark>//{Color} 背景颜色</mark>
+    $font-size<span class="colon">:</span>default, <mark>//{Length} 文本字号</mark>
+    $color<span class="colon">:</span>default, <mark>//{Color} 文本颜色</mark>
+    $content<span class="colon">:</span>default <mark>//{String} loading形态，可传入webfonts编码</mark>
 <span class="bracket">)</span>
 </pre>
 
