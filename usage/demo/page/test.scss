@@ -1,0 +1,16 @@
+@charset "utf-8";
+@import "../layout/layout";
+
+/**
+ * list演示页面
+ * Author: joy.du(飘零雾雨)
+ * Time: 2014.4.1
+ */
+
+.demo {
+    @include flexbox;
+    @include flex-wrap(wrap);
+    li {
+        width: 50%;
+    }
+}
