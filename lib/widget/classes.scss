@@ -315,8 +315,6 @@
             content: "\0020";
         }
         color: map-get($tab, color);
-        &:active,
-        &.on,
         &-on {
             background-color: map-get($tab, on-bgcolor);
             color: map-get($tab, on-color);

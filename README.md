@@ -33,6 +33,9 @@
 
 ### Developing: v1.5.0
 
+* update: `yo-tab`
+    - 删除tab子项的:active状态
+    - 选中状态只保留 `item-on` 类名，删除 `on`
 * update: `yo-loading`
     - loading换成webfonts
     - `size` 参数改成 `ico-size`
