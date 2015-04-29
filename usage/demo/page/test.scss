@@ -13,12 +13,12 @@
         @include flex(3);
         background: red;
         // width: auto;
-        padding-left: .1rem;
+        width: .1rem;
     }
     .b {
         @include flex(2);
         background: #aaa;
         // width: auto;
-        padding-left: .1rem;
+        width: .1rem;
     }
 }
