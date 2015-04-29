@@ -72,15 +72,17 @@
             @if $font-size != map-get($loading, font-size) {
                 font-size: $font-size;
             }
-            &::before {
-                @if $content != map-get($loading, content) {
-                    content: $content;
-                }
-                @if $ico-color != map-get($loading, ico-color) {
-                    color: $ico-color;
-                }
-                @if $ico-size != map-get($loading, ico-size) {
-                    font-size: $ico-size;
+            > .yo-ico {
+                &::before {
+                    @if $content != map-get($loading, content) {
+                        content: $content;
+                    }
+                    @if $ico-color != map-get($loading, ico-color) {
+                        color: $ico-color;
+                    }
+                    @if $ico-size != map-get($loading, ico-size) {
+                        font-size: $ico-size;
+                    }
                 }
             }
         }

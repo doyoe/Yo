@@ -1055,17 +1055,19 @@ a {
   color: #212121;
   font-size: 14px;
 }
-.yo-loading > .inner::before {
+.yo-loading > .inner > .yo-ico {
   display: block;
   margin-bottom: .1rem;
-  content: "";
-  color: #333;
-  font-family: yofont;
-  font-size: 0.5rem;
   -webkit-animation: loading 1s infinite linear;
   animation: loading 1s infinite linear;
   -webkit-transform-origin: center;
   transform-origin: center;
+}
+.yo-loading > .inner > .yo-ico::before {
+  content: "";
+  color: #333;
+  font-family: yofont;
+  font-size: 0.5rem;
 }
 @-webkit-keyframes loading {
   from {
@@ -1095,7 +1097,7 @@ a {
   background-color: #666;
   color: #00afc7;
 }
-.yo-loading-b > .inner::before {
+.yo-loading-b > .inner > .yo-ico::before {
   color: #00afc7;
 }
 

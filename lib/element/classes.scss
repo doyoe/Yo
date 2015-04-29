@@ -88,15 +88,18 @@
         background-color: map-get($loading, bgcolor);
         color: map-get($loading, color);
         font-size: map-get($loading, font-size);
-        &::before {
+        // 增加 .yo-ico 这一级用以fix某些浏览器不支持伪元素动画
+        > .yo-ico {
             display: block;
             margin-bottom: .1rem;
-            content: map-get($loading, content);
-            color: map-get($loading, ico-color);
-            font-family: map-get($ico, font-name);
-            font-size: map-get($loading, ico-size);
             @include animation(loading 1s infinite linear);
             @include transform-origin(center);
+            &::before {
+                content: map-get($loading, content);
+                color: map-get($loading, ico-color);
+                font-family: map-get($ico, font-name);
+                font-size: map-get($loading, ico-size);
+            }
         }
     }
 }
