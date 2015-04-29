@@ -7,18 +7,21 @@
  * Time: 2014.4.1
  */
 
-.test {
-    @include flexbox;
+html,
+body {
+    height: 100%;
+}
+.yo-flex {
     .a {
         @include flex(3);
         background: red;
         // width: auto;
-        width: .1rem;
+        // width: .1rem;
     }
     .b {
         @include flex(2);
         background: #aaa;
         // width: auto;
-        width: .1rem;
+        // width: .1rem;
     }
 }
