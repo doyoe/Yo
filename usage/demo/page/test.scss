@@ -12,23 +12,21 @@ body {
     height: 100%;
 }
 .demo {
-    label {
-        display: block;
-        height: 50px;
-        background: red;
-        .xx {
+    display: block;
+    height: 50px;
+    background: red;
+    .xx {
+        display: inline-block;
+        .type {
             display: inline-block;
-            .type {
-                display: inline-block;
-                @include square(2rem);
-                background: #000;
-            }
-            input {
+            @include square(2rem);
+            background: #000;
+        }
+        input {
 
-            }
-            input:checked ~ .type {
-                background: #aaa;
-            }
+        }
+        input:checked ~ .type {
+            background: #aaa;
         }
     }
 }

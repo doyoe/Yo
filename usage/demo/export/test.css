@@ -502,20 +502,20 @@ body {
   height: 100%;
 }
 
-.demo label {
+.demo {
   display: block;
   height: 50px;
   background: red;
 }
-.demo label .xx {
+.demo .xx {
   display: inline-block;
 }
-.demo label .xx .type {
+.demo .xx .type {
   display: inline-block;
   width: 2rem;
   height: 2rem;
   background: #000;
 }
-.demo label .xx input:checked ~ .type {
+.demo .xx input:checked ~ .type {
   background: #aaa;
 }
