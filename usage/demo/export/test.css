@@ -497,14 +497,22 @@ a {
  * Author: joy.du(飘零雾雨)
  * Time: 2014.4.1
  */
-.demo {
+.test {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
-  -webkit-box-lines: multiple;
-  -webkit-flex-wrap: wrap;
-  flex-wrap: wrap;
 }
-.demo li {
-  width: 50%;
+.test .a {
+  -webkit-box-flex: 3;
+  -webkit-flex: 3;
+  flex: 3;
+  width: 100%;
+  background: red;
+}
+.test .b {
+  -webkit-box-flex: 2;
+  -webkit-flex: 2;
+  flex: 2;
+  width: 100%;
+  background: #aaa;
 }

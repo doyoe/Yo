@@ -7,10 +7,14 @@
  * Time: 2014.4.1
  */
 
-.demo {
+.test {
     @include flexbox;
-    @include flex-wrap(wrap);
-    li {
-        width: 50%;
+    .a {
+        @include flex(3);
+        background: red;
+    }
+    .b {
+        @include flex(2);
+        background: #aaa;
     }
 }
