@@ -12,9 +12,11 @@
     .a {
         @include flex(3);
         background: red;
+        width: auto;
     }
     .b {
         @include flex(2);
         background: #aaa;
+        width: auto;
     }
 }
