@@ -17,11 +17,13 @@ body {
         background: red;
         // width: auto;
         // width: .1rem;
+        height: .1rem;
     }
     .b {
         @include flex(1);
         background: #aaa;
         // width: auto;
         // width: .1rem;
+        height: .1rem;
     }
 }
