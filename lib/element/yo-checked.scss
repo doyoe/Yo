@@ -133,7 +133,7 @@
                 }
             }
         }
-        > input:checked ~ .type {
+        > input:checked + .type {
             // 如果$border-width不等于config设定，则重绘边框相关
             @if $border-width != map-get($checked, border-width) {
                 // 如果$border-width为null，重设置为0

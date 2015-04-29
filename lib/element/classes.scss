@@ -196,7 +196,7 @@
             color: map-get($checked, color);
         }
     }
-    > input:checked ~ .type {
+    > input:checked + .type {
         @if map-get($checked, border-width) != null and
             map-get($checked, border-width) != 0 {
             border-color: map-get($checked, on-bordercolor);
@@ -206,7 +206,7 @@
             color: map-get($checked, on-color);
         }
     }
-    > input:disabled ~ .type {
+    > input:disabled + .type {
         opacity: .4;
         @if map-get($checked, border-width) != null and
             map-get($checked, border-width) != 0 {

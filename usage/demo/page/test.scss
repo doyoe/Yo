@@ -15,18 +15,18 @@ body {
     display: block;
     height: 50px;
     background: red;
-    .xx {
-        display: inline-block;
-        .type {
-            display: inline-block;
-            @include square(2rem);
-            background: #000;
-        }
-        input {
-
-        }
-        input:checked ~ .type {
-            background: #aaa;
-        }
+    position: relative;
+    input {
+        position:absolute;
+    }
+    .type {
+        position: relative;
+        z-index: 2;
+        height: 100%;
+        background: #aaa;
+    }
+    input:checked + .type {
+        background: #000;
+        color: red;
     }
 }

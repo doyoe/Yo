@@ -506,16 +506,18 @@ body {
   display: block;
   height: 50px;
   background: red;
+  position: relative;
 }
-.demo .xx {
-  display: inline-block;
+.demo input {
+  position: absolute;
 }
-.demo .xx .type {
-  display: inline-block;
-  width: 2rem;
-  height: 2rem;
-  background: #000;
-}
-.demo .xx input:checked ~ .type {
+.demo .type {
+  position: relative;
+  z-index: 2;
+  height: 100%;
   background: #aaa;
+}
+.demo input:checked + .type {
+  background: #000;
+  color: red;
 }
