@@ -21,6 +21,7 @@ body {
             .type {
                 display: inline-block;
                 @include square(.2rem);
+                background: #000;
             }
             input:checked ~ .type {
                 background: #aaa;
