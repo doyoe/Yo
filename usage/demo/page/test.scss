@@ -13,13 +13,13 @@ body {
 }
 .yo-flex {
     .a {
-        @include flex(3);
+        @include flex(2);
         background: red;
         // width: auto;
         // width: .1rem;
     }
     .b {
-        @include flex(2);
+        @include flex(1);
         background: #aaa;
         // width: auto;
         // width: .1rem;

@@ -502,14 +502,14 @@ body {
 }
 
 .yo-flex .a {
-  -webkit-box-flex: 3;
-  -webkit-flex: 3;
-  flex: 3;
-  background: red;
-}
-.yo-flex .b {
   -webkit-box-flex: 2;
   -webkit-flex: 2;
   flex: 2;
+  background: red;
+}
+.yo-flex .b {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
   background: #aaa;
 }
