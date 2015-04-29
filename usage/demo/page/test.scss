@@ -11,19 +11,18 @@ html,
 body {
     height: 100%;
 }
-.yo-flex {
-    .a {
-        @include flex(2);
-        background: red;
-        // width: auto;
-        // width: .1rem;
-        height: .1rem;
-    }
-    .b {
-        @include flex(1);
-        background: #aaa;
-        // width: auto;
-        // width: .1rem;
-        height: .1rem;
+.demo {
+    label {
+        display: block;
+        .xx {
+            display: inline-block;
+            .type {
+                display: inline-block;
+                @include square(.2rem);
+            }
+            input:checked ~ .type {
+                background: #aaa;
+            }
+        }
     }
 }

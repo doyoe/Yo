@@ -59,7 +59,7 @@
         }
     }
     > .bd {
-        @include flex();
+        @include flex(1, column);
         @include overflow();
         padding: map-get($dialog, bd-padding);
         @if map-get($dialog, bd-font-size) != map-get($base, font-size) {
@@ -186,7 +186,7 @@
         .affirm {right: 10px;}
     }
     > .bd {
-        @include flex();
+        @include flex(1, column);
         @include overflow();
         padding: map-get($popup, bd-padding);
     }
@@ -252,7 +252,6 @@
         position: relative;
         z-index: 2;
         text-align: center;
-
     }
     &-item-list {
         ul {
@@ -499,7 +498,7 @@
         }
     }
     > .cont {
-        @include flex();
+        @include flex(1, column);
         display: none;
         position: absolute;
         top: .95rem;

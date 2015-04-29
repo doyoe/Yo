@@ -85,6 +85,7 @@
  * 定义伸缩盒子元素如何分配空间
  * @method flex
  * @param {String} $flex 默认值：1，取值与最新原生语法一致
+ * @param {String} $direction 默认值: row
  */
 /**
  * 定义伸缩盒子元素的排版顺序
@@ -475,13 +476,13 @@ a {
   -webkit-flex-direction: column;
   flex-direction: column;
 }
-.yo-flex,
 .yo-flex > .flex,
 .yo-flex > .flex-inherit,
 .yo-flex > .flex-inherit > .flex {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
+  width: auto;
   position: relative;
   overflow: hidden;
 }
@@ -501,17 +502,17 @@ body {
   height: 100%;
 }
 
-.yo-flex .a {
-  -webkit-box-flex: 2;
-  -webkit-flex: 2;
-  flex: 2;
-  background: red;
-  height: .1rem;
+.demo label {
+  display: block;
 }
-.yo-flex .b {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  flex: 1;
+.demo label .xx {
+  display: inline-block;
+}
+.demo label .xx .type {
+  display: inline-block;
+  width: 0.2rem;
+  height: 0.2rem;
+}
+.demo label .xx input:checked ~ .type {
   background: #aaa;
-  height: .1rem;
 }

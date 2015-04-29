@@ -90,6 +90,7 @@
  * 定义伸缩盒子元素如何分配空间
  * @method flex
  * @param {String} $flex 默认值：1，取值与最新原生语法一致
+ * @param {String} $direction 默认值: row
  */
 /**
  * 定义伸缩盒子元素的排版顺序
@@ -480,13 +481,13 @@ a {
   -webkit-flex-direction: column;
   flex-direction: column;
 }
-.yo-flex,
 .yo-flex > .flex,
 .yo-flex > .flex-inherit,
 .yo-flex > .flex-inherit > .flex {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
+  width: auto;
   position: relative;
   overflow: hidden;
 }
@@ -589,6 +590,7 @@ a {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
     flex: 1;
+    width: auto;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
   }
@@ -613,6 +615,8 @@ a {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
+  width: 100%;
+  height: auto;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   -webkit-user-select: text;
@@ -1143,6 +1147,8 @@ a {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
+  width: 100%;
+  height: auto;
   margin-left: .1rem;
 }
 .yo-loadtip > .text > .time {
@@ -1195,6 +1201,8 @@ a {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
+  width: 100%;
+  height: auto;
   overflow: hidden;
   height: .28rem;
   background-image: -webkit-linear-gradient(right, #ccc 0%, #ccc 100%);
@@ -1461,6 +1469,8 @@ a {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
+  width: 100%;
+  height: auto;
 }
 .yo-list > .label > .mark,
 .yo-list > .label > .yo-ico,
@@ -1681,6 +1691,8 @@ a {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
+  width: 100%;
+  height: auto;
 }
 
 /**
@@ -1757,6 +1769,7 @@ a {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
+  width: auto;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   padding: 0.16rem 0.1rem 0.15rem;
@@ -1783,6 +1796,8 @@ a {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
+  width: 100%;
+  height: auto;
 }
 .yo-dialog > .ft > .yo-btn:last-child:not(:only-child), .yo-dialog > .ft > .yo-btn:only-child {
   font-weight: bold;
@@ -1954,6 +1969,8 @@ a {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
+  width: 100%;
+  height: auto;
   border: 1px solid #ddd;
   border-width: 0 1px;
   box-shadow: inset 1px 1px 1px rgba(221, 221, 221, 0.1);
@@ -2081,6 +2098,7 @@ a {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
+  width: auto;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   padding: 0.1rem;
@@ -2310,6 +2328,7 @@ a {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
+  width: auto;
   display: none;
   position: absolute;
   top: .95rem;
@@ -2392,6 +2411,8 @@ a {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
+  width: 100%;
+  height: auto;
   position: relative;
   z-index: 2;
   text-align: center;
@@ -2695,6 +2716,8 @@ a {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
+  width: 100%;
+  height: auto;
   position: relative;
   color: #212121;
 }

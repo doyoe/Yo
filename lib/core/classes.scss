@@ -182,15 +182,22 @@
  * 定义伸缩盒子元素如何分配空间
  * @method flex
  * @param {String} $flex 默认值：1，取值与最新原生语法一致
+ * @param {String} $direction 默认值: row
  */
-@mixin flex($flex: 1) {
+@mixin flex($flex: 1, $direction: row) {
     -webkit-box-flex: $flex;
     -webkit-flex: $flex;
     flex: $flex;
     // iOS6要求所有的伸缩盒子元素需要为非inline，如果参与flex布局，请自行使用非inline元素
     // display: block;
-    // 修复iOS6下不均分bug，任意非auto的值
-    // width: 100%;
+    @if $direction == column {
+        width: auto;
+        // height: .1rem;
+    } @else {
+        // 修复iOS6下不均分bug，任意非auto的值
+        width: 100%;
+        height: auto;
+    }
 }
 
 /**

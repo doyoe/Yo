@@ -51,7 +51,7 @@
                 height: 5.68rem;
                 background-color: #fff;
                 .wrap {
-                    @include flex;
+                    @include flex(1, column);
                     @include overflow;
                 }
                 &,

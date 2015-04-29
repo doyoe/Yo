@@ -26,11 +26,12 @@
     > .flex-inherit {
         @include flexbox(map-get($flex, box));
         @include flex-direction(map-get($flex, direction));
-        &,
-        > .flex {
-            @include flex;
-            position: relative;
-            overflow: hidden;
-        }
+    }
+    > .flex,
+    > .flex-inherit,
+    > .flex-inherit > .flex {
+        @include flex(1, column);
+        position: relative;
+        overflow: hidden;
     }
 }

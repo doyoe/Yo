@@ -18,7 +18,7 @@
     @include flex-direction(column);
     height: 100%;
     > .stage {
-        @include flex;
+        @include flex(1, column);
         @include overflow;
     }
 }
