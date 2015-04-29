@@ -13310,9 +13310,18 @@ a {
     .pre-footer .col-b {
       padding-left: 70px; } }
 
+
+.test {display: -webkit-box;display: -webkit-flex;display: flex;}
+.test .a{-webkit-box-flex: 3;-webkit-flex:3; flex:3;background:red;}
+.test .b{-webkit-box-flex: 2;-webkit-flex:2; flex:2;background: #aaa;}
 </style>
 </head>
 <body>
+
+<div class="test">
+<div class="a">1</div>
+<div class="b">2</div>
+</div>
 <div class="ionic list">
 
         <label class="item item-radio">
