@@ -242,6 +242,9 @@ a {
     color: map-get($base, link-color);
 }
 
+// 1. fix Android Browser 4.2.* 及以下 input:checked ~ .xxx 失效的问题
+html + input {}
+
 // 1. 预设清除浮动
 .g-clear,
 .g-mod {
