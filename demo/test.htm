@@ -10,23 +10,31 @@
 <link rel="stylesheet" href="../usage/demo/export/test.css" />
 <style>
 .ionic .item {
+  border-color: #ddd;
+  background-color: #fff;
+  color: #444;
   position: relative;
   z-index: 2;
   display: block;
-  border: 1px solid #ddd;
-}
-.ionic .item-radio .item-content {
-  position: relative;
-  z-index: 2;
-  padding: 16px 49px 16px 16px;
-  background-color: white;
-}
-.ionic .item-radio:hover {
-  cursor: pointer;
+  margin: -1px;
+  padding: 16px;
+  border-width: 1px;
+  border-style: solid;
+  font-size: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .ionic .item-radio input {
   position: absolute;
   left: -9999px;
+}
+.ionic .item-complex .item-content, .ionic .item-radio .item-content {
+  position: relative;
+  z-index: 2;
+  padding: 16px 64px 16px 16px;
+  border: none;
+  background-color: white;
 }
 .ionic .item-radio input:checked ~ .item-content {
   background: #f7f7f7;
