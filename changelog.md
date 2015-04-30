@@ -2,6 +2,24 @@
 
 History Version and release time.
 
+<a name="v1-5-0"></a>
+## v1.5.0 (2015.4.30)
+
+[Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v1.5.0)
+
+* update: `yo-tab`
+    - 删除tab子项的:active状态
+    - 选中状态只保留 `item-on` 类名，删除 `on`
+* update: `yo-loading`
+    - loading换成webfonts
+    - `size` 参数改成 `ico-size`
+    - `color` 参数改成 `ico-color`
+    - 新增 `font-size` 参数用以控制文本大小
+    - 新增 `color` 参数用以控制文本颜色
+    - 新增 `content` 参数用以控制loading的形态，可传入webfonts编码
+* update:
+    - 删除元素 `yo-checkbox` 和 `yo-radio`，如已使用可以直接改用 `yo-checked`
+
 <a name="v1-4-0"></a>
 ## v1.4.0 (2015.4.16)
 
