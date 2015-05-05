@@ -7,26 +7,14 @@
  * Time: 2014.4.1
  */
 
-html,
-body {
-    height: 100%;
-}
 .demo {
-    display: block;
+    border: 2px solid red;
+    width: 50px;
     height: 50px;
-    background: red;
-    position: relative;
-    input {
-        position:absolute;
-    }
-    .type {
-        position: relative;
-        z-index: 2;
-        height: 100%;
-        background: #aaa;
-    }
-    input:checked + .type {
-        background: #000;
-        color: red;
-    }
+    margin: 30px;
+    overflow: hidden;
+    border-radius: 50%;
+    background-color: #000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
+    -webkit-transform: rotatez(0);
 }
