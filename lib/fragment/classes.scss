@@ -27,6 +27,8 @@
     .front {
         @include flexbox;
         @include align-items;
+        // 修复某些安卓版本开启了3D，yo-list当成滚动内容时出现的诡异问题
+        @include transform(translatez(0));
         > .mark:not(:last-child),
         > .yo-ico:not(:last-child) {
             margin-right: .1rem;
