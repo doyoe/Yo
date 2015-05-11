@@ -505,8 +505,13 @@
  */
 
 @mixin calc($property, $value) {
-  #{$property}: -webkit-calc(#{$value});
-  #{$property}: calc(#{$value});
+    @if map-get($setting, is-vendor-prefix) {
+        // 遍历输出厂商代码
+        @each $vendor in map-get($setting, vendor-prefix) {
+            #{$property}: #{$vendor}calc(#{$value});
+        }
+    }
+    #{$property}: calc(#{$value});
 }
 
 /**
@@ -516,6 +521,6 @@
  */
 
 @mixin filter($filters) {
-    -webkit-#{filter}: $filters;
+    @include prefix(filter,$filters);
 }
 
