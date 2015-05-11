@@ -157,8 +157,32 @@
  * @method transition
  * @param {String} $transition 取值与原生语法一致
  */
-@mixin transition($transition...) {
-    @include prefix(transition, $transition);
+@mixin transition($transition...){
+    $transitionable-prefixed-values: transform, transform-origin !default;
+    $vendor-list:();
+    $list:();
+
+    @if map-get($setting,is-vendor-prefix) {
+        @each $vendor in map-get($setting,vendor-prefix) {
+            @for $i from 1 through length($transition) {
+                @if type-of(nth($transition, $i)) == list {
+                    @if index($transitionable-prefixed-values, nth(nth($transition, $i),1)){
+                        $vendor-list:join($vendor-list, #{$vendor}#{nth($transition, $i)},$separator:comma);
+                    }@else{
+                        $vendor-list:join($vendor-list, #{nth($transition, $i)}, $separator:comma); 
+                    }
+                }
+            }
+            #{$vendor}transition:$vendor-list;
+            $vendor-list:();
+
+        }
+    }
+
+    @for $i from 1 through length($transition) {
+        $list:join($list, #{nth($transition, $i)},$separator:comma);
+    }
+    transition:$list;
 }
 
 /**
@@ -473,3 +497,25 @@
     margin-top: -$height/2;
     margin-left: -$width/2;
 }
+
+/**
+ * 计算
+ * @method calc
+ * capability Android 4.4+,chrome,ie9+
+ */
+
+@mixin calc($property, $value) {
+  #{$property}: -webkit-calc(#{$value});
+  #{$property}: calc(#{$value});
+}
+
+/**
+ * 滤镜
+ * @method filter
+ * capability Android 4.4+,chrome
+ */
+
+@mixin filter($filters) {
+    -webkit-#{filter}: $filters;
+}
+
