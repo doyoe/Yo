@@ -33,7 +33,8 @@
 
 ### Developing: v1.5.0
 
-* 开发中...
+* update: `yo-search`
+    - 去除 `非独占` 形态下的 `取消` 按钮
 
 ### Lastest: v1.4.0
 

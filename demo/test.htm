@@ -1,50 +1,30 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="zh-cmn-Hans">
 <head>
 <meta charset="utf-8" />
-<title>css 两端对齐</title>
-<meta name="description" content="CSS 两端对齐效果实现" />
-<meta name="keywords" content="css, css3, text-align, text-align-last, justify" />
+<title>word-wrap_CSS参考手册_web前端开发参考手册系列</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
 <meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com, www.doyoe.com" />
-<meta name="robots" content="all" />
-<link href="../../skin/demo.css" rel="stylesheet" />
 <style>
-#demo {
-    width:200px;
-    text-align:justify;
-    text-align-last:justify;
-    line-height: 1.5;
-    font-size:20px;
+.test {
+    width: 120px;
+    margin-top: 10px;
+    -webkit-text-decoration: underline;
+    -moz-text-decoration: underline;
+    text-decoration: underline;
+    padding: 0 50px;
 }
-#demo p{
-    overflow: hidden;
-    height:30px;
-    margin:10px auto 0;
-    border:1px solid #ddd;
+.test li {
+    -webkit-text-decoration-skip: objects;
+    -moz-text-decoration-skip: objects;
+    text-decoration-skip: objects;
 }
-#demo p:after{
+.test span {
     display: inline-block;
-    content: '';
-    overflow: hidden;
-    width: 99.9%;
-    height: 0;
-    vertical-align: top;
-    font: 0/0 arial;
 }
 </style>
 </head>
 <body>
-
-<div id="demo">
-    <p>世界末日2012</p>
-    <p>把钱都花了？</p>
-    <p>末 日 没 来</p>
-    <p>傻吧</p>
-</div>
-
-<div id="demo">
-    是第三方士大夫士大夫3242342<br>水电费水24234电费水电asd3费水电费啊实打实大师的
-</div>
-
+<div class="test">文本装饰将在<span>每一行</span>都出现</div>
 </body>
 </html>

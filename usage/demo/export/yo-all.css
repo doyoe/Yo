@@ -2305,9 +2305,6 @@ a {
   color: #00afc7;
   text-align: center;
 }
-.yo-search > .operate-on > .action {
-  margin-right: 0.7rem;
-}
 .yo-search > .operate-on > .action > .label {
   left: .1rem;
   -webkit-transform: translatex(0) translatez(0);
@@ -2364,6 +2361,9 @@ a {
   right: 0;
   left: 0;
   height: 100%;
+}
+.yo-search-modal > .operate-on > .action {
+  margin-right: 0.7rem;
 }
 .yo-search-modal > .cont {
   position: relative;

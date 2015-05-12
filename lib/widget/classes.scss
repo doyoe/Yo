@@ -461,7 +461,6 @@
         }
         &-on {
             > .action {
-                margin-right: map-get($search, cancel-width);
                 > .label {
                     left: .1rem;
                     @include transform(translatex(0) translatez(0));
@@ -522,7 +521,7 @@
             display: block;
         }
     }
-    // 模态搜索
+    // 独占形态搜索
     &-modal {
         position: fixed;
         z-index: map-get($z-index, search);
@@ -530,6 +529,14 @@
         right: 0;
         left: 0;
         height: 100%;
+        // 独占形态时，在foucs时显示取消按钮
+        > .operate {
+            &-on {
+                > .action {
+                    margin-right: map-get($search, cancel-width);
+                }
+            }
+        }
         > .cont {
             position: relative;
             top: 0;

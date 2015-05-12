@@ -8,13 +8,32 @@
  */
 
 .demo {
-    border: 2px solid red;
-    width: 50px;
-    height: 50px;
-    margin: 30px;
-    overflow: hidden;
-    border-radius: 50%;
-    background-color: #000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
-    -webkit-transform: rotatez(0);
+    // margin-top:100px;
+    // background-color: #aaa;
+    @include flexbox;
+    width: 100%;
+    padding: 50px;
+    background-image:
+                -webkit-gradient(linear, center top, center bottom, from(#1ba9ba), to(#1ba9ba)),
+                -webkit-gradient(linear, center top, center bottom, from(#1ba9ba), to(#1ba9ba));
+            background-image:
+                -webkit-linear-gradient(#1ba9ba,#1ba9ba),
+                -webkit-linear-gradient(#1ba9ba,#1ba9ba);
+            background-position:
+                0 .05rem,
+                .05rem 0;
+            background-size:
+                .12rem .02rem,
+                .02rem .12rem;
+            background-repeat: no-repeat;
+    .a {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        background-color: #aaa;
+    }
+    .b {
+        min-width: 20px;
+        background-color: #eee;
+    }
 }
