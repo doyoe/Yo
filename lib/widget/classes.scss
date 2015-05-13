@@ -392,10 +392,11 @@
 @mixin _search {
     @include flexbox();
     @include flex-direction(column);
+    position: relative;
+    z-index: map-get($z-index, search);
     > .operate {
         position: relative;
         overflow: hidden;
-        z-index: map-get($z-index, search);
         font-size: map-get($search, font-size);
         line-height: map-get($search, height);
         padding: map-get($search, op-padding);
@@ -406,41 +407,42 @@
             position: relative;
             z-index: 2;
             height: map-get($search, height);
-            > .input {
-                width: 100%;
-                height: 100%;
-                padding: 0 .3rem;
-                @include appearance;
-                border: 1px solid map-get($search, bordercolor);
-                border-radius: map-get($search, radius);
-                background-color: map-get($search, bgcolor);
-                color: map-get($search, color);
-                font-size: map-get($search, font-size);
-                line-height: map-get($base, line-height);
-            }
-            > .yo-ico-delete,
-            > .yo-ico-fresh,
-            > .yo-ico-stop {
-                display: none;
-                position: absolute;
-                top: 0;
-                right: 0;
-                height: 100%;
-                padding: 0 .08rem;
-                color: map-get($search, ico-color);
-            }
-            > .label {
-                @include flexbox;
-                position: absolute;
-                top: 0;
-                left: 50%;
-                @include transition(all .2s ease-in);
-                @include transform(translatex(-50%) translatez(0));
-                color: map-get($search, placeholder-color);
-                > .placeholder {
-                    margin-left: .08rem;
-                }
-            }
+        }
+        .input {
+            width: 100%;
+            height: 100%;
+            padding: 0 .3rem;
+            @include appearance;
+            border: 1px solid map-get($search, bordercolor);
+            border-radius: map-get($search, radius);
+            background-color: map-get($search, bgcolor);
+            color: map-get($search, color);
+            font-size: map-get($search, font-size);
+            line-height: map-get($base, line-height);
+        }
+        .yo-ico-delete,
+        .yo-ico-fresh,
+        .yo-ico-stop,
+        .yo-ico-loading {
+            display: none;
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            padding: 0 .08rem;
+            color: map-get($search, ico-color);
+        }
+        .label {
+            @include flexbox;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            @include transition(all .2s ease-in);
+            @include transform(translatex(-50%) translatez(0));
+            color: map-get($search, placeholder-color);
+        }
+        .placeholder {
+            margin-left: .08rem;
         }
         > .cancel {
             position: absolute;
@@ -450,50 +452,6 @@
             width: map-get($search, cancel-width);
             color: map-get($search, cancel-color);
             text-align: center;
-        }
-        &-on,
-        &-fresh,
-        &-stop {
-            > .action > .input {
-                border-color: map-get($search, on-bordercolor);
-                background-color: map-get($search, on-bgcolor);
-            }
-        }
-        &-on {
-            > .action {
-                > .label {
-                    left: .1rem;
-                    @include transform(translatex(0) translatez(0));
-                }
-                > .yo-ico-delete {
-                    display: inline-block;
-                }
-            }
-        }
-        &-fresh,
-        &-stop {
-            > .action {
-                > .input {
-                    text-align: center;
-                }
-                > .label {
-                    display: none;
-                }
-            }
-        }
-        &-fresh {
-            > .action {
-                > .yo-ico-fresh {
-                    display: inline-block;
-                }
-            }
-        }
-        &-stop {
-            > .action {
-                > .yo-ico-stop {
-                    display: inline-block;
-                }
-            }
         }
     }
     > .cont {
@@ -513,12 +471,9 @@
             left: 0;
             width: 100%;
             overflow: hidden;
-            > .yo-group {
-                top: 0;
-            }
         }
-        &-on {
-            display: block;
+        .yo-group {
+            top: 0;
         }
     }
     // 独占形态搜索
@@ -529,17 +484,36 @@
         right: 0;
         left: 0;
         height: 100%;
-        // 独占形态时，在foucs时显示取消按钮
-        > .operate {
-            &-on {
-                > .action {
-                    margin-right: map-get($search, cancel-width);
-                }
-            }
-        }
         > .cont {
             position: relative;
             top: 0;
+        }
+    }
+    // focus形态
+    &-on {
+        > .operate {
+            .input {
+                border-color: map-get($search, on-bordercolor);
+                background-color: map-get($search, on-bgcolor);
+            }
+            .label {
+                left: .1rem;
+                @include transform(translatex(0) translatez(0));
+            }
+            .yo-ico-delete {
+                display: inline-block;
+            }
+        }
+        > .cont {
+            display: block;
+        }
+        &.yo-search-modal {
+            // 独占形态时，在foucs时显示取消按钮
+            > .operate {
+                .action {
+                    margin-right: map-get($search, cancel-width);
+                }
+            }
         }
     }
 }
