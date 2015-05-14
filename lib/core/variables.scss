@@ -109,7 +109,7 @@ $loading: (
     // {Length} 菊花大小
     ico-size:     .5rem,
     // {Color} 菊花颜色
-    ico-color:    #333,
+    ico-color:    #212121,
     // {Color} mask颜色
     mask-bgcolor: rgba(0, 0, 0, .1),
     // {Color} 背景颜色
@@ -399,8 +399,8 @@ $group: (
     top: .95rem
 ) !default;
 
-// Widget search(15)
-$search: (
+// Widget suggest(15)
+$suggest: (
     // {Length} 输入框高度
     height:           .3rem,
     // {Length} 搜索区文字大小
@@ -590,7 +590,7 @@ $z-index: (
     // {Number} 浮层层级范围2001-2500
     popup:    2001,
     // {Number} 搜索层级范围2501-3000
-    search:   2501,
+    suggest:  2501,
     // {Number} 浮层层级范围3001-4000
     tip:      3001,
     // {Number} loading层级

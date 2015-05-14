@@ -34,6 +34,7 @@
 ### Developing: v1.5.0
 
 * update: `yo-search`
+    - `yo-search` 更名为 `yo-suggest`
     - 去除 `非独占` 形态下的 `取消` 按钮
     - 新增输入时loading状态
 * update: `ani`

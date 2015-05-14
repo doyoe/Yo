@@ -387,36 +387,36 @@
     }
 }
 
-// 定义search的基础构造
-// 使用方法请查看 yo-search.scss
-@mixin _search {
+// 定义suggest的基础构造
+// 使用方法请查看 yo-suggest.scss
+@mixin _suggest {
     @include flexbox();
     @include flex-direction(column);
     > .operate {
         position: relative;
-        z-index: map-get($z-index, search);
+        z-index: map-get($z-index, suggest);
         overflow: hidden;
-        font-size: map-get($search, font-size);
-        line-height: map-get($search, height);
-        padding: map-get($search, op-padding);
-        border-bottom: 1px solid map-get($search, bordercolor);
-        background-color: map-get($search, op-bgcolor);
+        font-size: map-get($suggest, font-size);
+        line-height: map-get($suggest, height);
+        padding: map-get($suggest, op-padding);
+        border-bottom: 1px solid map-get($suggest, bordercolor);
+        background-color: map-get($suggest, op-bgcolor);
         > .action {
             display: block;
             position: relative;
             z-index: 2;
-            height: map-get($search, height);
+            height: map-get($suggest, height);
         }
         .input {
             width: 100%;
             height: 100%;
             padding: 0 .3rem;
             @include appearance;
-            border: 1px solid map-get($search, bordercolor);
-            border-radius: map-get($search, radius);
-            background-color: map-get($search, bgcolor);
-            color: map-get($search, color);
-            font-size: map-get($search, font-size);
+            border: 1px solid map-get($suggest, bordercolor);
+            border-radius: map-get($suggest, radius);
+            background-color: map-get($suggest, bgcolor);
+            color: map-get($suggest, color);
+            font-size: map-get($suggest, font-size);
             line-height: map-get($base, line-height);
         }
         .yo-ico-delete,
@@ -429,7 +429,7 @@
             right: 0;
             height: 100%;
             padding: 0 .08rem;
-            color: map-get($search, ico-color);
+            color: map-get($suggest, ico-color);
         }
         .yo-ico-loading {
             @include animation(rotate 1s infinite linear);
@@ -442,7 +442,7 @@
             left: 50%;
             @include transition(all .2s ease-in);
             @include transform(translatex(-50%) translatez(0));
-            color: map-get($search, placeholder-color);
+            color: map-get($suggest, placeholder-color);
         }
         .placeholder {
             margin-left: .08rem;
@@ -452,8 +452,8 @@
             top: 50%;
             right: 0;
             @include transform(translatey(-50%));
-            width: map-get($search, cancel-width);
-            color: map-get($search, cancel-color);
+            width: map-get($suggest, cancel-width);
+            color: map-get($suggest, cancel-color);
             text-align: center;
         }
     }
@@ -461,12 +461,12 @@
         @include flex(1, column);
         display: none;
         position: absolute;
-        z-index: map-get($z-index, search);
+        z-index: map-get($z-index, suggest);
         top: .95rem;
         right: 0;
         bottom: 0;
         left: 0;
-        background-color: rgba(map-get($search, mask-bgcolor), .9);
+        background-color: rgba(map-get($suggest, mask-bgcolor), .9);
         > .recommend,
         > .result {
             position: absolute;
@@ -483,7 +483,7 @@
     // 独占形态搜索
     &-modal {
         position: fixed;
-        z-index: map-get($z-index, search);
+        z-index: map-get($z-index, suggest);
         top: 0;
         right: 0;
         left: 0;
@@ -497,8 +497,8 @@
     &-on {
         > .operate {
             .input {
-                border-color: map-get($search, on-bordercolor);
-                background-color: map-get($search, on-bgcolor);
+                border-color: map-get($suggest, on-bordercolor);
+                background-color: map-get($suggest, on-bgcolor);
             }
             .label {
                 left: .1rem;
@@ -511,11 +511,11 @@
         > .cont {
             display: block;
         }
-        &.yo-search-modal {
+        &.yo-suggest-modal {
             // 独占形态时，在foucs时显示取消按钮
             > .operate {
                 .action {
-                    margin-right: map-get($search, cancel-width);
+                    margin-right: map-get($suggest, cancel-width);
                 }
             }
         }
@@ -582,11 +582,11 @@
             @include killspace-item;
             width: 100%;
             background-color: #eee;
-            .img {
-                max-width: 100%;
-                max-height: 100%;
-                height: auto;
-            }
+        }
+        .img {
+            max-width: 100%;
+            max-height: 100%;
+            height: auto;
         }
     }
     > .index {
