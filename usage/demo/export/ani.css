@@ -1468,6 +1468,35 @@
  * @module Yo
  */
 /**
+ * 定义旋转动画
+ * @method rotate
+ */
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotatez(0);
+  }
+  to {
+    -webkit-transform: rotatez(360deg);
+  }
+}
+@keyframes rotate {
+  from {
+    transform: rotatez(0);
+  }
+  to {
+    transform: rotatez(360deg);
+  }
+}
+.ani.rotate {
+  -webkit-animation-name: rotate;
+  animation-name: rotate;
+}
+
+/**
+ * @class ani
+ * @module Yo
+ */
+/**
  * 定义旋转进入动画
  * @method rotate-in
  */

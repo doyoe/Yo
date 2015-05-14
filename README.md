@@ -35,6 +35,9 @@
 
 * update: `yo-search`
     - 去除 `非独占` 形态下的 `取消` 按钮
+    - 新增输入时loading状态
+* update: `ani`
+    - 新增 `rotate` 动画
 
 ### Lastest: v1.4.0
 

@@ -392,10 +392,9 @@
 @mixin _search {
     @include flexbox();
     @include flex-direction(column);
-    position: relative;
-    z-index: map-get($z-index, search);
     > .operate {
         position: relative;
+        z-index: map-get($z-index, search);
         overflow: hidden;
         font-size: map-get($search, font-size);
         line-height: map-get($search, height);
@@ -432,6 +431,10 @@
             padding: 0 .08rem;
             color: map-get($search, ico-color);
         }
+        .yo-ico-loading {
+            @include animation(rotate 1s infinite linear);
+            @include transform-origin(center);
+        }
         .label {
             @include flexbox;
             position: absolute;
@@ -458,6 +461,7 @@
         @include flex(1, column);
         display: none;
         position: absolute;
+        z-index: map-get($z-index, search);
         top: .95rem;
         right: 0;
         bottom: 0;

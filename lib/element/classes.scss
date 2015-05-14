@@ -92,7 +92,7 @@
         > .yo-ico {
             display: block;
             margin-bottom: .1rem;
-            @include animation(loading 1s infinite linear);
+            @include animation(rotate 1s infinite linear);
             @include transform-origin(center);
             &::before {
                 content: map-get($loading, content);
@@ -266,7 +266,7 @@
         }
     }
     > .yo-ico-loading {
-        @include animation(loadtip 1s infinite linear);
+        @include animation(rotate 1s infinite linear);
     }
     > .text {
         @include flex;

@@ -1013,6 +1013,55 @@ a {
  * Time: 2015.1.16
  */
 /**
+ * Yo框架动画解决方案
+ -----------------------
+ * Yo内置了超过60种动画形态，不同的动画可以任意组合
+ *
+ * @class ani
+ * @module Yo
+ */
+.ani {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.ani.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+/**
+ * @class ani
+ * @module Yo
+ */
+/**
+ * 定义旋转动画
+ * @method rotate
+ */
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotatez(0);
+  }
+  to {
+    -webkit-transform: rotatez(360deg);
+  }
+}
+@keyframes rotate {
+  from {
+    transform: rotatez(0);
+  }
+  to {
+    transform: rotatez(360deg);
+  }
+}
+.ani.rotate {
+  -webkit-animation-name: rotate;
+  animation-name: rotate;
+}
+
+/**
  * @class element
  */
 /**
@@ -1059,8 +1108,8 @@ a {
 .yo-loading > .inner > .yo-ico {
   display: block;
   margin-bottom: .1rem;
-  -webkit-animation: loading 1s infinite linear;
-  animation: loading 1s infinite linear;
+  -webkit-animation: rotate 1s infinite linear;
+  animation: rotate 1s infinite linear;
   -webkit-transform-origin: center;
   transform-origin: center;
 }
@@ -1070,22 +1119,7 @@ a {
   font-family: yofont;
   font-size: 0.5rem;
 }
-@-webkit-keyframes loading {
-  from {
-    -webkit-transform: rotatez(0);
-  }
-  to {
-    -webkit-transform: rotatez(360deg);
-  }
-}
-@keyframes loading {
-  from {
-    transform: rotatez(0);
-  }
-  to {
-    transform: rotatez(360deg);
-  }
-}
+
 /**
  * yo-loading扩展
  * Author: joy.du(飘零雾雨)
@@ -1142,8 +1176,8 @@ a {
   transform: rotatez(180deg);
 }
 .yo-loadtip > .yo-ico-loading {
-  -webkit-animation: loadtip 1s infinite linear;
-  animation: loadtip 1s infinite linear;
+  -webkit-animation: rotate 1s infinite linear;
+  animation: rotate 1s infinite linear;
 }
 .yo-loadtip > .text {
   -webkit-box-flex: 1;
@@ -2238,11 +2272,10 @@ a {
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
   flex-direction: column;
-  position: relative;
-  z-index: 2501;
 }
 .yo-search > .operate {
   position: relative;
+  z-index: 2501;
   overflow: hidden;
   font-size: 0.14rem;
   line-height: 0.3rem;
@@ -2281,6 +2314,12 @@ a {
   padding: 0 .08rem;
   color: #999;
 }
+.yo-search > .operate .yo-ico-loading {
+  -webkit-animation: rotate 1s infinite linear;
+  animation: rotate 1s infinite linear;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+}
 .yo-search > .operate .label {
   display: -webkit-box;
   display: -webkit-flex;
@@ -2314,6 +2353,7 @@ a {
   width: auto;
   display: none;
   position: absolute;
+  z-index: 2501;
   top: .95rem;
   right: 0;
   bottom: 0;
