@@ -774,10 +774,9 @@ a {
   padding: 0;
 }
 .yo-list > .label {
-  margin-top: -1px;
   padding: 0.03rem 0.1rem;
   border: 1px solid #eee;
-  border-width: 1px 0;
+  border-width: 0 0 .01rem 0;
   background-color: #fafafa;
   color: #9e9e9e;
   font-size: 0.13rem;
@@ -785,6 +784,11 @@ a {
 }
 .yo-list > .label > .col {
   padding: 0.03rem 0.1rem;
+}
+.yo-list > .label:not(:first-child) {
+  color: red;
+  border-width: 1px 0;
+  margin-top: -.01rem;
 }
 .yo-list > .item,
 .yo-list .front {
