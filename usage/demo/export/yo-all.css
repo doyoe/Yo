@@ -1925,6 +1925,49 @@ a {
  * Time: 2015.1.16
  */
 /**
+ * @class widget
+ */
+/**
+ * 构造列表的自定义使用方法
+ -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-panel.html)
+ * @method yo-panel
+ * @param {default | String} $name 定义yo-panel名称
+ * @param {default | Length} $top 定义yo-panel顶部偏移值
+ */
+.yo-panel {
+  position: absolute;
+  top: 0.95rem;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  height: 100%;
+}
+.yo-panel > .sticky,
+.yo-panel > .scroll-index {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.yo-panel > .sticky {
+  left: 0;
+  padding: 0.03rem 0.1rem;
+  background-color: #fafafa;
+  color: #9e9e9e;
+}
+.yo-panel .no-data {
+  height: 100%;
+  padding-top: 1rem;
+  text-align: center;
+}
+
+/**
+ * yo-panel扩展
+ * Author: joy.du(飘零雾雨)
+ * Time: 2015.1.16
+ */
+/**
  * yo-index扩展
  * Author: joy.du(飘零雾雨)
  * Time: 2015.1.16
@@ -2893,10 +2936,12 @@ a {
   -webkit-transform: translatey(-50%);
   transform: translatey(-50%);
 }
-.m-demo .stage > .yo-group:nth-child(2) {
+.m-demo .stage > .yo-group:nth-child(2),
+.m-demo .stage > .yo-panel:nth-child(2) {
   top: .44rem;
 }
-.m-demo .stage .yo-group > .scroll-index {
+.m-demo .stage .yo-group > .scroll-index,
+.m-demo .stage .yo-panel > .scroll-index {
   top: 50%;
   -webkit-transform: translatey(-50%);
   transform: translatey(-50%);

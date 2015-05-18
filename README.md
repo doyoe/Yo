@@ -33,6 +33,8 @@
 
 ### Developing: v1.5.0
 
+* add: `yo-panel`
+    - 新增 `yo-panel`，以后会缓步替代 `yo-group`
 * update: `yo-search`
     - `yo-search` 更名为 `yo-suggest`
     - 去除 `非独占` 形态下的 `取消` 按钮
