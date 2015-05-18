@@ -80,7 +80,7 @@
         margin: .1rem 0;
         border-width: .04rem 0 .04rem 0;
         border-style: solid;
-        border-color: #D7DBE4;
+        border-color: map-get($base, bordercolor);
         @include responsive(pc) {
             margin: .1rem;
             border-width: 0 0 0 .04rem;

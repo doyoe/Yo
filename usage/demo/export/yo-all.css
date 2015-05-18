@@ -624,7 +624,7 @@ a {
   margin: .1rem 0;
   border-width: .04rem 0 .04rem 0;
   border-style: solid;
-  border-color: #D7DBE4;
+  border-color: #ddd;
   padding: .1rem;
   background-color: #F0F3F8;
 }
@@ -899,8 +899,8 @@ a {
   line-height: 0.18rem;
 }
 .yo-checked-b > input:checked + .type {
-  border-color: #1ba9ba;
-  background-color: #1ba9ba;
+  border-color: #2b94ff;
+  background-color: #2b94ff;
 }
 .yo-checked-b > input:checked + .type::after {
   color: white;
@@ -914,8 +914,8 @@ a {
   line-height: 0.18rem;
 }
 .yo-checked-c > input:checked + .type {
-  border-color: #1ba9ba;
-  background-color: #1ba9ba;
+  border-color: #2b94ff;
+  background-color: #2b94ff;
 }
 .yo-checked-c > input:checked + .type::after {
   color: white;
@@ -948,8 +948,8 @@ a {
   content: "";
 }
 .yo-checked-f > input:checked + .type {
-  border-color: #1ba9ba;
-  background-color: #1ba9ba;
+  border-color: #2b94ff;
+  background-color: #2b94ff;
 }
 .yo-checked-f > input:checked + .type::after {
   color: white;
@@ -966,8 +966,8 @@ a {
   content: "";
 }
 .yo-checked-g > input:checked + .type {
-  border-color: #1ba9ba;
-  background-color: #1ba9ba;
+  border-color: #2b94ff;
+  background-color: #2b94ff;
 }
 .yo-checked-g > input:checked + .type::after {
   color: white;
@@ -1896,6 +1896,7 @@ a {
   bottom: 0;
   left: 0;
   overflow: hidden;
+  height: 100%;
 }
 .yo-group > .sticky,
 .yo-group > .scroll-index {
@@ -2766,8 +2767,7 @@ a {
   content: "\0020";
 }
 .yo-tab > .item-on {
-  background-color: #fff;
-  color: #000;
+  color: #2b94ff;
 }
 .yo-tab > .item-top-ico {
   padding-top: .04rem;
