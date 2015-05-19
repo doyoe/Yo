@@ -1899,7 +1899,6 @@ a {
   bottom: 0;
   left: 0;
   overflow: hidden;
-  height: 100%;
 }
 .yo-group > .sticky,
 .yo-group > .scroll-index {
@@ -1942,7 +1941,6 @@ a {
   bottom: 0;
   left: 0;
   overflow: hidden;
-  height: 100%;
 }
 .yo-panel > .sticky,
 .yo-panel > .scroll-index {
@@ -2415,9 +2413,6 @@ a {
   left: 0;
   width: 100%;
   overflow: hidden;
-}
-.yo-suggest > .cont .yo-group {
-  top: 0;
 }
 .yo-suggest-modal {
   position: fixed;
@@ -2939,6 +2934,9 @@ a {
 .m-demo .stage > .yo-group:nth-child(2),
 .m-demo .stage > .yo-panel:nth-child(2) {
   top: .44rem;
+}
+.m-demo .stage > .yo-group:nth-child(3) {
+  top: .95rem;
 }
 .m-demo .stage .yo-group > .scroll-index,
 .m-demo .stage .yo-panel > .scroll-index {
