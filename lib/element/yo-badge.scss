@@ -104,7 +104,7 @@
         }
         // 如果$radius不等于config设定，则重绘圆角
         @if $radius != map-get($badge, radius) {
-            border-radius: $radius;
+            @include border-radius($radius);
         }
         // 如果$font-size不等于config设定，则重绘字号
         @if $font-size != map-get($badge, font-size) {

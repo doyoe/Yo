@@ -699,7 +699,10 @@ a {
   border-width: 0.01rem;
   border-style: solid;
   border-color: #f00;
+  -webkit-border-radius: 0.1rem;
   border-radius: 0.1rem;
+  -webkit-background-clip: padding-box !important;
+  background-clip: padding-box !important;
   background-color: #f00;
   color: #fff;
   font-size: 0.12rem;
@@ -728,13 +731,19 @@ a {
   border-color: #666;
   background-color: white;
   color: #666;
+  -webkit-border-radius: 0.05rem;
   border-radius: 0.05rem;
+  -webkit-background-clip: padding-box !important;
+  background-clip: padding-box !important;
 }
 
 .yo-badge-tag {
   border-color: #aaa;
   background-color: #aaa;
+  -webkit-border-radius: 0.05rem;
   border-radius: 0.05rem;
+  -webkit-background-clip: padding-box !important;
+  background-clip: padding-box !important;
 }
 
 /**
@@ -767,7 +776,10 @@ a {
   border-style: solid;
   border-color: #e26704;
   box-shadow: inset 0.01rem 0.01rem rgba(255, 255, 255, 0.1);
+  -webkit-border-radius: 0.02rem;
   border-radius: 0.02rem;
+  -webkit-background-clip: padding-box !important;
+  background-clip: padding-box !important;
   background-color: #ff801a;
   color: #fff;
   text-align: center;
@@ -873,7 +885,10 @@ a {
   opacity: 0;
 }
 .yo-checked > .type {
+  -webkit-border-radius: 0.05rem;
   border-radius: 0.05rem;
+  -webkit-background-clip: padding-box !important;
+  background-clip: padding-box !important;
   background-color: transparent;
   line-height: 0.2rem;
 }
@@ -922,7 +937,10 @@ a {
 }
 
 .yo-checked-c > .type {
+  -webkit-border-radius: 50%;
   border-radius: 50%;
+  -webkit-background-clip: padding-box !important;
+  background-clip: padding-box !important;
   border-width: 0.01rem;
   border-color: #ddd;
   border-style: solid;
@@ -971,7 +989,10 @@ a {
 }
 
 .yo-checked-g > .type {
+  -webkit-border-radius: 50%;
   border-radius: 50%;
+  -webkit-background-clip: padding-box !important;
+  background-clip: padding-box !important;
   border-width: 0.01rem;
   border-color: #ddd;
   border-style: solid;
@@ -1011,7 +1032,10 @@ a {
   height: 0.44rem;
   padding: 0.1rem;
   border: 0.01rem solid #ddd;
+  -webkit-border-radius: 0.02rem;
   border-radius: 0.02rem;
+  -webkit-background-clip: padding-box !important;
+  background-clip: padding-box !important;
   background-color: transparent;
 }
 .yo-input, .yo-input::-webkit-inner-spin-button {
@@ -1116,7 +1140,10 @@ a {
   display: block;
   text-align: center;
   padding: .1rem .2rem;
-  border-radius: .05rem;
+  -webkit-border-radius: 0.05rem;
+  border-radius: 0.05rem;
+  -webkit-background-clip: padding-box !important;
+  background-clip: padding-box !important;
   color: #212121;
   font-size: 14px;
 }
@@ -1269,7 +1296,10 @@ a {
   height: 0.2rem;
   position: relative;
   border: 0;
+  -webkit-border-radius: 50%;
   border-radius: 50%;
+  -webkit-background-clip: padding-box !important;
+  background-clip: padding-box !important;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.5), 1px 1px 5px rgba(0, 0, 0, 0.25);
   background-color: #fff;
 }
@@ -1838,7 +1868,10 @@ a {
   text-align: center;
 }
 .yo-dialog > .ft .yo-btn {
+  -webkit-border-radius: 0;
   border-radius: 0;
+  -webkit-background-clip: padding-box !important;
+  background-clip: padding-box !important;
   border-width: 0.01rem 0 0 0;
   border-color: #ddd;
   background-color: #fff;

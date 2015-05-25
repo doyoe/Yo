@@ -686,7 +686,10 @@ a {
   border-style: solid;
   border-color: #e26704;
   box-shadow: inset 0.01rem 0.01rem rgba(255, 255, 255, 0.1);
+  -webkit-border-radius: 0.02rem;
   border-radius: 0.02rem;
+  -webkit-background-clip: padding-box !important;
+  background-clip: padding-box !important;
   background-color: #ff801a;
   color: #fff;
   text-align: center;

@@ -73,7 +73,7 @@
             padding: $padding;
         }
         @if $radius != map-get($input, radius) {
-            border-radius: $radius;
+            @include border-radius($radius);
         }
         @if $bordercolor != map-get($input, bordercolor) {
             border-color: $bordercolor;

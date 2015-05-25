@@ -98,7 +98,7 @@
         }
         // 如果$radius不等于config设定，则重绘圆角
         @if $radius != map-get($btn, radius) {
-            border-radius: $radius;
+            @include border-radius($radius);
         }
         // 如果$border-width不等于config设定，则重绘边框相关
         @if $border-width != map-get($btn, border-width) {
