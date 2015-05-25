@@ -2,6 +2,24 @@
 
 History Version and release time.
 
+<a name="v1-6-0"></a>
+## v1.6.0 (2015.5.25)
+
+[Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v1.6.0)
+
+* add:
+    - 新增了 `background-clip` global classes 方法
+    - 新增了 `background-origin` global classes 方法
+    - 新增了 `border-radius` global classes 方法，在其内部处理了某些Android Browser上“边框+背景”，背景溢出圆角的问题
+* add: `yo-panel`
+    - 新增 `yo-panel`，以后会缓步替代 `yo-group`
+* update: `yo-search`
+    - `yo-search` 更名为 `yo-suggest`
+    - 去除 `非独占` 形态下的 `取消` 按钮
+    - 新增输入时loading状态
+* update: `ani`
+    - 新增 `rotate` 动画
+
 <a name="v1-5-0"></a>
 ## v1.5.0 (2015.4.30)
 
