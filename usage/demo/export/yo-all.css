@@ -57,9 +57,24 @@
  * @param {String | Length} $background-size 指定背景图缩放值
  */
 /**
+ * 定义背景裁减（Android Browser2.3.*还需要厂商前缀）
+ * @method background-clip
+ * @param {String} $background-clip 指定背景图缩放值
+ */
+/**
+ * 定义背景显示区域（Android Browser2.3.*还需要厂商前缀）
+ * @method background-origin
+ * @param {String} $background-origin 指定背景图缩放值
+ */
+/**
  * 定义盒模型
  * @method box-sizing
  * @param {String} $box-sizing 的2个值分别为：content-box(标准盒模型) | border-box(怪异盒模型)
+ */
+/**
+ * 定义圆角
+ * @method border-radius
+ * @param {String} $border-radius 取值与原生语法一致
  */
 /**
  * 定义简单变换

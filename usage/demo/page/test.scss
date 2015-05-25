@@ -7,33 +7,8 @@
  * Time: 2014.4.1
  */
 
-.demo {
-    // margin-top:100px;
-    // background-color: #aaa;
-    @include flexbox;
-    width: 100%;
-    padding: 50px;
-    background-image:
-                -webkit-gradient(linear, center top, center bottom, from(#1ba9ba), to(#1ba9ba)),
-                -webkit-gradient(linear, center top, center bottom, from(#1ba9ba), to(#1ba9ba));
-            background-image:
-                -webkit-linear-gradient(#1ba9ba,#1ba9ba),
-                -webkit-linear-gradient(#1ba9ba,#1ba9ba);
-            background-position:
-                0 .05rem,
-                .05rem 0;
-            background-size:
-                .12rem .02rem,
-                .02rem .12rem;
-            background-repeat: no-repeat;
-    .a {
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        background-color: #aaa;
-    }
-    .b {
-        min-width: 20px;
-        background-color: #eee;
-    }
+.test {
+    @include circle(100px);
+    border: 1px solid blue;
+    background: gray;
 }

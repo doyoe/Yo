@@ -117,12 +117,42 @@
 }
 
 /**
+ * 定义背景裁减（Android Browser2.3.*还需要厂商前缀）
+ * @method background-clip
+ * @param {String} $background-clip 指定背景图缩放值
+ */
+@mixin background-clip($background-clip...) {
+    @include prefix(background-clip, $background-clip);
+}
+
+/**
+ * 定义背景显示区域（Android Browser2.3.*还需要厂商前缀）
+ * @method background-origin
+ * @param {String} $background-origin 指定背景图缩放值
+ */
+@mixin background-origin($background-origin...) {
+    @include prefix(background-origin, $background-origin);
+}
+
+/**
  * 定义盒模型
  * @method box-sizing
  * @param {String} $box-sizing 的2个值分别为：content-box(标准盒模型) | border-box(怪异盒模型)
  */
 @mixin box-sizing($box-sizing: border-box) {
     @include prefix(box-sizing, $box-sizing);
+}
+
+/**
+ * 定义圆角
+ * @method border-radius
+ * @param {String} $border-radius 取值与原生语法一致
+ */
+@mixin border-radius($border-radius...) {
+    @include prefix(border-radius, $border-radius);
+    // 修复某些安卓机型上“边框+背景”，背景溢出的情况
+    // 之所以会这样是因为这些机型的背景是从边框处开始渲染，所以只需要改成从padding处渲染即可
+    @include background-clip(padding-box!important);
 }
 
 /**
@@ -353,7 +383,7 @@
  */
 @mixin circle($size, $radius: 50%) {
     @include square($size);
-    border-radius: $radius;
+    @include border-radius($radius);
 }
 
 /**

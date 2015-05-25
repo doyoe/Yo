@@ -33,6 +33,10 @@
 
 ### Developing: v1.5.0
 
+* add:
+    - 新增了 `background-clip` global classes 方法
+    - 新增了 `background-origin` global classes 方法
+    - 新增了 `border-radius` global classes 方法，在其内部处理了某些Android Browser上“边框+背景”，背景溢出圆角的问题
 * add: `yo-panel`
     - 新增 `yo-panel`，以后会缓步替代 `yo-group`
 * update: `yo-search`

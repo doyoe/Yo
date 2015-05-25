@@ -52,9 +52,24 @@
  * @param {String | Length} $background-size 指定背景图缩放值
  */
 /**
+ * 定义背景裁减（Android Browser2.3.*还需要厂商前缀）
+ * @method background-clip
+ * @param {String} $background-clip 指定背景图缩放值
+ */
+/**
+ * 定义背景显示区域（Android Browser2.3.*还需要厂商前缀）
+ * @method background-origin
+ * @param {String} $background-origin 指定背景图缩放值
+ */
+/**
  * 定义盒模型
  * @method box-sizing
  * @param {String} $box-sizing 的2个值分别为：content-box(标准盒模型) | border-box(怪异盒模型)
+ */
+/**
+ * 定义圆角
+ * @method border-radius
+ * @param {String} $border-radius 取值与原生语法一致
  */
 /**
  * 定义简单变换
@@ -497,25 +512,13 @@ a {
  * Author: joy.du(飘零雾雨)
  * Time: 2014.4.1
  */
-.demo {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  width: 100%;
-  padding: 50px;
-  background-image: -webkit-gradient(linear, center top, center bottom, from(#1ba9ba), to(#1ba9ba)), -webkit-gradient(linear, center top, center bottom, from(#1ba9ba), to(#1ba9ba));
-  background-image: -webkit-linear-gradient(#1ba9ba, #1ba9ba), -webkit-linear-gradient(#1ba9ba, #1ba9ba);
-  background-position: 0 .05rem, .05rem 0;
-  background-size: .12rem .02rem, .02rem .12rem;
-  background-repeat: no-repeat;
-}
-.demo .a {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  background-color: #aaa;
-}
-.demo .b {
-  min-width: 20px;
-  background-color: #eee;
+.test {
+  width: 100px;
+  height: 100px;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-background-clip: padding-box !important;
+  background-clip: padding-box !important;
+  border: 1px solid blue;
+  background: gray;
 }
