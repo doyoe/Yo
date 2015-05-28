@@ -61,7 +61,7 @@
 // 调用本文件时载入气泡基础构造
 .yo-loadtip {
     @include _loadtip;
-    @at-root{
+    @at-root {
         @-webkit-keyframes loadtip {
             from{-webkit-transform: rotatez(0);}
             to{-webkit-transform: rotatez(360deg);}
