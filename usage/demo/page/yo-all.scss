@@ -127,3 +127,10 @@
         }
     }
 }
+
+@include yo-btn(
+    $name: light,
+    $bordercolor: red
+){
+    width: 300px;
+}

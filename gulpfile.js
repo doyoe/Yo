@@ -15,6 +15,7 @@ gulp.task('compass', function() {
         config_file: './config.rb',
         css: cssPath,
         sass: scssPath,
+        // nested, expanded, compact, compressed
         style: 'expanded'
     }))
     // 本行不能删除，否则只能编译不超过16个文件
