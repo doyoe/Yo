@@ -31,6 +31,8 @@
         @if $bgcolor != map-get($mask, bgcolor) {
             background-color: rgba($bgcolor, .5);
         }
+        // 增量扩展
+        @content;
     }
 }
 
