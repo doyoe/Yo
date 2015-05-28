@@ -55,6 +55,8 @@
                 @include square($font-size / 2);
             }
         }
+        // 增量扩展
+        @content;
     }
 }
 
