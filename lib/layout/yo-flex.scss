@@ -52,6 +52,8 @@
                 @include flex(1, $direction);
             }
         }
+        // 增量扩展
+        @content;
     }
 }
 
