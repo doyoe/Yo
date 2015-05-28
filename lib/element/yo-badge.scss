@@ -115,6 +115,8 @@
                 line-height: $font-size;
             }
         }
+        // 增量扩展
+        @content;
     }
 }
 

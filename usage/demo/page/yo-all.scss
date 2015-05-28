@@ -128,9 +128,10 @@
     }
 }
 
-@include yo-btn(
-    $name: light,
-    $bordercolor: red
+@include yo-badge(
+    $name: ident,
+    $border-width: 1px,
+    $bordercolor: blue
 ){
     width: 300px;
 }
