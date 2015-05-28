@@ -31,6 +31,8 @@
         @if $top != map-get($group, top) {
             top: $top;
         }
+        // 增量扩展
+        @content;
     }
 }
 
