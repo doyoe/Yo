@@ -41,6 +41,8 @@
                 background-color: $action-bgcolor;
             }
         }
+        // 增量扩展
+        @content;
     }
 }
 
