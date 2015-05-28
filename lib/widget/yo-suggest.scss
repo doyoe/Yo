@@ -181,6 +181,8 @@
                 background-color: rgba($mask-bgcolor, .9);
             }
         }
+        // 增量扩展
+        @content;
     }
 }
 
