@@ -89,6 +89,8 @@
                 color: $placeholder-color;
             }
         }
+        // 增量扩展
+        @content;
     }
 }
 
