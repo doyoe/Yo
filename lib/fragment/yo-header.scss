@@ -119,6 +119,8 @@
                     padding-right: $item-space;
             }
         }
+        // 增量扩展
+        @content;
     }
 }
 
