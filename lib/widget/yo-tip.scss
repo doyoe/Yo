@@ -55,6 +55,8 @@
         @if $color != map-get($tip, color) {
             color: $color;
         }
+        // 增量扩展
+        @content;
     }
 }
 
