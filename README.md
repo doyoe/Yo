@@ -33,7 +33,20 @@
 
 ### Developing: v1.7.0
 
-* 开发中
+* update:
+    - 给所有的 `yo-xxx` 方法增加了增量扩展的特性，当你自定义button时，可以这样写：
+```
+    @include yo-btn(
+        $name: test,
+        $border-width: .02rem
+        $bgcolor: red
+    ){
+        // 这里可以用来增量定义当前 `yo-btn` 方法没有提供的参数扩展
+        postion: absolute;
+        top: 0;
+        left: 0;
+    }
+```
 
 ### Lastest: v1.6.0
 

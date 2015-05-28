@@ -1233,22 +1233,7 @@ a {
   display: block;
   font-size: .12rem;
 }
-@-webkit-keyframes loadtip {
-  from {
-    -webkit-transform: rotatez(0);
-  }
-  to {
-    -webkit-transform: rotatez(360deg);
-  }
-}
-@keyframes loadtip {
-  from {
-    transform: rotatez(0);
-  }
-  to {
-    transform: rotatez(360deg);
-  }
-}
+
 /**
  * yo-loadtip扩展
  * Author: joy.du(飘零雾雨)
@@ -2991,9 +2976,4 @@ a {
   top: 50%;
   -webkit-transform: translatey(-50%);
   transform: translatey(-50%);
-}
-
-.yo-input {
-  border-color: blue;
-  width: 1.2rem;
 }
