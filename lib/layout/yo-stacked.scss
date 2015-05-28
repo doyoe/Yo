@@ -32,6 +32,8 @@
         @if $margin != map-get($stacked, margin) {
             margin: $margin;
         }
+        // 增量扩展
+        @content;
     }
 }
 
