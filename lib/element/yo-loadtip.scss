@@ -53,6 +53,8 @@
                 color: $ico-color;
             }
         }
+        // 增量扩展
+        @content;
     }
 }
 
