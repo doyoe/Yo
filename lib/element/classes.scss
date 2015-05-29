@@ -70,12 +70,7 @@
 
 @mixin _loading {
     @include flexbox;
-    position: absolute;
-    z-index: map-get($z-index, loading);
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    @include fullscreen(map-get($z-index, loading));
     @include justify-content;
     @include align-items;
     background-color: map-get($loading, mask-bgcolor);
