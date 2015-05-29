@@ -211,7 +211,6 @@
 // 使用方法请查看 yo-header.scss
 @mixin _header {
     position: relative;
-    overflow: hidden;
     height: map-get($header, height);
     line-height: map-get($header, height);
     border-bottom: 1px solid map-get($header, bordercolor);
