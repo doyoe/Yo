@@ -26,6 +26,38 @@
 }
 
 /**
+ * 四则运算
+ * @method calc
+ * @param {String} $property 指定需要进行计算的CSS属性
+ * @param {String} $value 与原生CSS语法一致，使用方式如：@include calc(width, #{100%} - #{.1rem});
+ */
+@mixin calc($property, $value) {
+    // 是否开启厂商前缀支持
+    @if map-get($setting, is-vendor-prefix) {
+        // 遍历输出厂商代码
+        @each $vendor in map-get($setting, vendor-prefix) {
+            #{$property}: #{$vendor}calc(#{$value});
+        }
+    }
+    #{$property}: calc(#{$value});
+}
+
+/**
+ * 定义渐变色值
+ * @method gradient
+ * @param {String} $type 指定渐变的4种类型：linear, repeating-linear, radial, repeating-radial
+ * @param {String} $gradient 指定渐变取值，与原生语法一致
+ */
+@mixin gradient($type, $gradient...) {
+    @if map-get($setting, is-vendor-prefix) {
+        @each $vendor in map-get($setting, vendor-prefix) {
+            background-image: #{$vendor}#{$type}-gradient($gradient);
+        }
+    }
+    background-image: #{$type}-gradient($gradient);
+}
+
+/**
  * 定义响应式方案
  * @method responsive
  * @param {String} $media 指定媒体查询条件
@@ -75,6 +107,15 @@
 }
 
 /**
+ * 滤镜
+ * @method filter
+ * @param {String} $filter 取值与原生语法一致
+ */
+@mixin filter($filter...) {
+    @include prefix(filter, $filter);
+}
+
+/**
  * 定义UA默认外观
  * @method appearance
  * @param {String} $appearance 指定UA外观类型
@@ -90,21 +131,6 @@
  */
 @mixin user-select($user-select: none) {
     @include prefix(user-select, $user-select);
-}
-
-/**
- * 定义渐变色值
- * @method gradient
- * @param {String} $type 指定渐变的4种类型：linear, repeating-linear, radial, repeating-radial
- * @param {String} $gradient 指定渐变取值，与原生语法一致
- */
-@mixin gradient($type, $gradient...) {
-    @if map-get($setting, is-vendor-prefix) {
-        @each $vendor in map-get($setting, vendor-prefix) {
-            background-image: #{$vendor}#{$type}-gradient($gradient);
-        }
-    }
-    background-image: #{$type}-gradient($gradient);
 }
 
 /**
@@ -189,30 +215,29 @@
  */
 @mixin transition($transition...){
     $transitionable-prefixed-values: transform, transform-origin !default;
-    $vendor-list:();
-    $list:();
+    $vendor-list: ();
+    $list: ();
 
-    @if map-get($setting,is-vendor-prefix) {
-        @each $vendor in map-get($setting,vendor-prefix) {
+    @if map-get($setting, is-vendor-prefix) {
+        @each $vendor in map-get($setting, vendor-prefix) {
             @for $i from 1 through length($transition) {
                 @if type-of(nth($transition, $i)) == list {
-                    @if index($transitionable-prefixed-values, nth(nth($transition, $i),1)){
-                        $vendor-list:join($vendor-list, #{$vendor}#{nth($transition, $i)},$separator:comma);
-                    }@else{
-                        $vendor-list:join($vendor-list, #{nth($transition, $i)}, $separator:comma); 
+                    @if index($transitionable-prefixed-values, nth(nth($transition, $i), 1)){
+                        $vendor-list: join($vendor-list, #{$vendor}#{nth($transition, $i)}, $separator: comma);
+                    } @else {
+                        $vendor-list: join($vendor-list, #{nth($transition, $i)}, $separator: comma);
                     }
                 }
             }
-            #{$vendor}transition:$vendor-list;
-            $vendor-list:();
-
+            #{$vendor}transition: $vendor-list;
+            $vendor-list: ();
         }
     }
 
     @for $i from 1 through length($transition) {
-        $list:join($list, #{nth($transition, $i)},$separator:comma);
+        $list: join($list, #{nth($transition, $i)}, $separator: comma);
     }
-    transition:$list;
+    transition: $list;
 }
 
 /**
@@ -527,30 +552,3 @@
     margin-top: -$height/2;
     margin-left: -$width/2;
 }
-
-/**
- * 计算
- * @method calc
- * capability Android 4.4+,chrome,ie9+
- */
-
-@mixin calc($property, $value) {
-    @if map-get($setting, is-vendor-prefix) {
-        // 遍历输出厂商代码
-        @each $vendor in map-get($setting, vendor-prefix) {
-            #{$property}: #{$vendor}calc(#{$value});
-        }
-    }
-    #{$property}: calc(#{$value});
-}
-
-/**
- * 滤镜
- * @method filter
- * capability Android 4.4+,chrome
- */
-
-@mixin filter($filters) {
-    @include prefix(filter,$filters);
-}
-
