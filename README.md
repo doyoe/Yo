@@ -46,10 +46,11 @@
         top: 0;
         left: 0;
     }
+```
 * add:
     - 新增了 `calc` global classes 方法
     - 修订了 `transition` global classes 方法
-```
+
 
 ### Lastest: v1.6.0
 
