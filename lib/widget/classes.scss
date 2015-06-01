@@ -18,7 +18,7 @@
     position: fixed;
     z-index: map-get($z-index, dialog);
     overflow: hidden;
-    border-radius: map-get($dialog, radius);
+    @include border-radius(map-get($dialog, radius));
     @if map-get($dialog, shadow-opacity) != null {
         box-shadow: 0 0 5px rgba(map-get($dialog, bordercolor), map-get($dialog, shadow-opacity));
     }
@@ -98,7 +98,7 @@
     @include flex-direction(column);
     position: absolute;
     z-index: map-get($z-index, popup);
-    border-radius: map-get($popup, radius);
+    @include border-radius(map-get($popup, radius));
     @if map-get($popup, shadow-opacity) != null {
         box-shadow: 0 0 5px rgba(map-get($popup, bordercolor), map-get($popup, shadow-opacity));
     }
@@ -205,7 +205,7 @@
     max-width: 90%;
     z-index: map-get($z-index, tip);
     padding: map-get($tip, padding);
-    border-radius: map-get($tip, radius);
+    @include border-radius(map-get($tip, radius));
     background-color: rgba(map-get($tip, bgcolor), .5);
     color: map-get($tip, color);
     text-align: center;
@@ -292,7 +292,7 @@
 @mixin _tab {
     @include flexbox();
     height: map-get($tab, height);
-    border-radius: map-get($tab, radius);
+    @include border-radius(map-get($tab, radius));
     border-width: map-get($tab, border-width);
     border-style: solid;
     border-color: map-get($tab, bordercolor);
@@ -348,7 +348,6 @@
     height: map-get($number, height);
     line-height: map-get($number, height);
     border: 1px solid map-get($number, bordercolor);
-    border-radius: 0;
     box-shadow: 1px 1px 1px rgba(map-get($number, bordercolor),.3);
     background-color: #fff;
     font-size: 0;
@@ -413,7 +412,7 @@
             padding: 0 .3rem;
             @include appearance;
             border: 1px solid map-get($suggest, bordercolor);
-            border-radius: map-get($suggest, radius);
+            @include border-radius(map-get($suggest, radius));
             background-color: map-get($suggest, bgcolor);
             color: map-get($suggest, color);
             font-size: map-get($suggest, font-size);
@@ -643,7 +642,7 @@
         margin: 0;
         cursor: pointer;
         border: .02rem solid map-get($switch, bordercolor);
-        border-radius: .16rem;
+        @include border-radius(.16rem);
         background-color: map-get($switch, bgcolor);
         vertical-align: middle;
         @include transition(border-color .1s ease-out, background-color .1s ease-out);
