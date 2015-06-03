@@ -15,10 +15,7 @@
     padding: 20px;
     background-color: gray;
     box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
-    -webkit-transform: translate(0, 0) translatez(0);
-    transform: translate(0, 0) translatez(0);
     border-radius: 100px;
-    background: url(http://source.qunarzz.com/common/hf/logo.png) no-repeat;
-    background-size: 100px 100px;
-    -webkit-background-clip: content-box;
+    background-clip: padding-box;
+    background: gray;
 }
