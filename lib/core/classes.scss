@@ -175,10 +175,10 @@
  * @param {String} $border-radius 取值与原生语法一致
  */
 @mixin border-radius($border-radius...) {
-    @include prefix(border-radius, $border-radius);
+    border-radius: $border-radius;
     // 修复某些安卓机型上“边框+背景”，背景溢出的情况
     // 之所以会这样是因为这些机型的背景是从边框处开始渲染，所以只需要改成从padding处渲染即可
-    @include background-clip(padding-box!important);
+    @include background-clip(padding-box !important);
 }
 
 /**

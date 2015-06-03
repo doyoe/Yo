@@ -73,7 +73,8 @@
             padding: $padding;
         }
         @if $radius != map-get($input, radius) {
-            @include border-radius($radius);
+            // 构造里已处理过边框+圆角+背景溢出的问题，所以这里写原生即可
+            border-radius: $radius;
         }
         @if $bordercolor != map-get($input, bordercolor) {
             border-color: $bordercolor;

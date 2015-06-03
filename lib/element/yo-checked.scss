@@ -86,7 +86,8 @@
         }
         > .type {
             @if $radius != map-get($checked, radius) {
-                @include border-radius($radius);
+                // 构造里已处理过边框+圆角+背景溢出的问题，所以这里写原生即可
+                border-radius: $radius;
             }
             // 如果$border-width不等于config设定，则重绘边框相关
             @if $border-width != map-get($checked, border-width) {
