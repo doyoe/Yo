@@ -2,6 +2,30 @@
 
 History Version and release time.
 
+<a name="v1-7-0"></a>
+## v1.7.0 (2015.6.3)
+
+[Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v1.7.0)
+
+* update:
+    - 修订了 `transition` global classes 方法
+    - 给所有的 `yo-xxx` 方法增加了增量扩展的特性，当你自定义button时，可以这样写：
+```
+    @include yo-btn(
+        $name: test,
+        $border-width: .02rem
+        $bgcolor: red
+    ){
+        // 这里可以用来增量定义当前 `yo-btn` 方法没有提供的参数扩展
+        postion: absolute;
+        top: 0;
+        left: 0;
+    }
+```
+* add:
+    - 新增了 `calc` global classes 方法
+    - 新增了 `fullscreen` global classes 方法，可传入 `z-index` 值
+
 <a name="v1-6-0"></a>
 ## v1.6.0 (2015.5.25)
 

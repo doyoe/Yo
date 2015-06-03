@@ -33,6 +33,11 @@
 
 ### Developing: v1.7.0
 
+* 开发中。。。
+
+
+### Lastest: v1.6.0
+
 * update:
     - 修订了 `transition` global classes 方法
     - 给所有的 `yo-xxx` 方法增加了增量扩展的特性，当你自定义button时，可以这样写：
@@ -51,22 +56,6 @@
 * add:
     - 新增了 `calc` global classes 方法
     - 新增了 `fullscreen` global classes 方法，可传入 `z-index` 值
-
-
-### Lastest: v1.6.0
-
-* add:
-    - 新增了 `background-clip` global classes 方法
-    - 新增了 `background-origin` global classes 方法
-    - 新增了 `border-radius` global classes 方法，在其内部处理了某些Android Browser上“边框+背景”，背景溢出圆角的问题
-* add: `yo-panel`
-    - 新增 `yo-panel`，以后会缓步替代 `yo-group`
-* update: `yo-search`
-    - `yo-search` 更名为 `yo-suggest`
-    - 去除 `非独占` 形态下的 `取消` 按钮
-    - 新增输入时loading状态
-* update: `ani`
-    - 新增 `rotate` 动画
 
 
 ### History
