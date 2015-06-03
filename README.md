@@ -31,12 +31,12 @@
 
 ## Versioning
 
-### Developing: v1.7.0
+### Developing: v1.8.0
 
 * 开发中。。。
 
 
-### Lastest: v1.6.0
+### Lastest: v1.7.0
 
 * update:
     - 修订了 `transition` global classes 方法
