@@ -471,7 +471,7 @@
 @mixin link($color: map-get($base, link-color)) {
     color: $color;
     cursor: pointer;
-    &:active{
+    &:active {
         opacity: .5;
     }
 }

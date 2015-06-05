@@ -33,7 +33,8 @@
 
 ### Developing: v1.8.0
 
-* 开发中。。。
+* update: `yo-header`
+    - 新增 `item-ico-color` 参数用以两侧ico颜色
 
 
 ### Lastest: v1.7.0

@@ -114,7 +114,8 @@
     $name: positive,
     $bordercolor: #145fd7,
     $bgcolor: #4a87ee,
-    $color: #fff
+    $color: #fff,
+    $item-ico-color: #7ff
 );</xmp>
     <h3>使用方法：</h3>
     <xmp><div class="yo-header yo-header-positive">
@@ -124,11 +125,12 @@
 </div></xmp>
     <h3>局部扩展方式：</h3>
     <xmp>.xxx {
-    @include yo-header(
+        @include yo-header(
         $name: positive,
         $bordercolor: #145fd7,
         $bgcolor: #4a87ee,
-        $color: #fff
+        $color: #fff,
+        $item-ico-color: #7ff
     );
 }</xmp>
     <h3>使用方法：</h3>
@@ -148,7 +150,7 @@
         <div class="yo-header yo-header-positive">
             <h2 class="title">Positive Header</h2>
             <span class="regret yo-ico">&#xf07d;</span>
-            <span class="affirm yo-ico">&#xf067;</span>
+            <span class="affirm">设置</span>
         </div>
         <ul class="yo-list">
             <li class="item">list item</li>
@@ -167,22 +169,22 @@
     $bordercolor: #145fd7,
     $bgcolor: #4a87ee,
     $color: #fff,
-    $item-ico-size: .2rem
+    $item-ico-color: #7ff
 );</xmp>
     <h3>使用方法：</h3>
     <xmp><div class="yo-header yo-header-positive">
     <h2 class="title">Positive Header</h2>
     <span class="regret yo-ico">&#xf07d;</span>
-    <span class="affirm yo-ico">&#xf067;</span>
+    <span class="affirm">设置</span>
 </div></xmp>
     <h3>局部扩展方式：</h3>
     <xmp>.xxx {
-    @include yo-header(
+        @include yo-header(
         $name: positive,
         $bordercolor: #145fd7,
         $bgcolor: #4a87ee,
         $color: #fff,
-        $item-ico-size: .2rem
+        $item-ico-color: #7ff
     );
 }</xmp>
     <h3>使用方法：</h3>
@@ -190,7 +192,7 @@
     <div class="yo-header yo-header-positive">
         <h2 class="title">Positive Header</h2>
         <span class="regret yo-ico">&#xf07d;</span>
-        <span class="affirm yo-ico">&#xf067;</span>
+        <span class="affirm">设置</span>
     </div>
 </div></xmp>
     </code>

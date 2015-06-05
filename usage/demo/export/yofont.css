@@ -662,7 +662,9 @@ a {
  * @param {Color} $color 定义yo-header文本色
  * @param {Length} $font-size 定义yo-header文本大小
  * @param {Color} $item-color 定义yo-header两侧的子项文本色
+ * @param {Color} $item-ico-color 定义yo-header两侧的ico色
  * @param {Length} $item-font-size 定义yo-header两侧的子项文本大小
+ * @param {Length} $item-ico-size 定义yo-header两侧的ico大小
  */
 .yo-header {
   position: relative;
@@ -687,9 +689,8 @@ a {
   position: absolute;
   top: 0;
   width: 0.6rem;
-  font-size: 0.14rem;
-  color: #00afc7;
   cursor: pointer;
+  font-size: 0.14rem;
 }
 .yo-header > .regret:active,
 .yo-header > .affirm:active {
@@ -728,6 +729,12 @@ a {
 }
 .yo-header-positive > .regret,
 .yo-header-positive > .affirm {
+  color: #fff;
+}
+.yo-header-positive > .regret.yo-ico,
+.yo-header-positive > .regret > .yo-ico,
+.yo-header-positive > .affirm.yo-ico,
+.yo-header-positive > .affirm > .yo-ico {
   color: #7ff;
 }
 

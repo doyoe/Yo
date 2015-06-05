@@ -129,7 +129,7 @@
             @if $color != map-get($tab, color) {
                 color: $color;
             }
-            &-on {
+            &.item-on {
                 @if $on-bgcolor != map-get($tab, on-bgcolor) {
                     background-color: $on-bgcolor;
                 }

@@ -19,34 +19,6 @@ $setting: (
     bgimg-domain:     "../../../bgimg/"
 ) !default;
 
-// Layout Stacked
-$stacked: (
-    // {Length} 区块外边距
-    margin: .2rem .1rem
-) !default;
-
-// Layout flex
-$flex: (
-    // {String} 定义弹性布局: flex |inline-flex
-    box: flex,
-    // {String} 定义是水平布局还是垂直布局: row | column
-    direction: column
-) !default;
-
-// responsive media types
-$media-types: (
-    // {String} 横屏
-    landscape: "screen and (orientation: landscape)",
-    // {String} 竖屏
-    portrait:  "screen and (orientation: portrait)",
-    // {String} 视网膜屏
-    retina:    "screen and (-webkit-min-device-pixel-ratio: 2)",
-    // {String} PC
-    pc:        "screen and (min-width: 800px)",
-    // {String} mobile
-    mobile:    "screen and (max-width: 799px)"
-) !default;
-
 // base
 $base: (
     // 响应式的类型：none | scaling
@@ -94,6 +66,20 @@ $base: (
     link-hover-color:     #f60
 ) !default;
 
+// responsive media types
+$media-types: (
+    // {String} 横屏
+    landscape: "screen and (orientation: landscape)",
+    // {String} 竖屏
+    portrait:  "screen and (orientation: portrait)",
+    // {String} 视网膜屏
+    retina:    "screen and (-webkit-min-device-pixel-ratio: 2)",
+    // {String} PC
+    pc:        "screen and (min-width: 800px)",
+    // {String} mobile
+    mobile:    "screen and (max-width: 799px)"
+) !default;
+
 // ico font
 $ico: (
     // {Boole} 是否使用图标字体
@@ -102,6 +88,20 @@ $ico: (
     font-name:  yofont,
     // {Url} 图标字体路径
     font-path:  "../../../font/"
+) !default;
+
+// Layout Stacked
+$stacked: (
+    // {Length} 区块外边距
+    margin: .2rem .1rem
+) !default;
+
+// Layout flex
+$flex: (
+    // {String} 定义弹性布局: flex |inline-flex
+    box: flex,
+    // {String} 定义是水平布局还是垂直布局: row | column
+    direction: column
 ) !default;
 
 // Element loading(7)
@@ -345,7 +345,7 @@ $table: (
     on-bgcolor:          null
 ) !default;
 
-// Fragment header(9)
+// Fragment header(11)
 $header: (
     // {Length} 高度
     height:         .44rem,
@@ -362,7 +362,9 @@ $header: (
     // {Length} 文本大小
     font-size:      .16rem,
     // {Color} 文本色
-    item-color:     map-get($base, color),
+    item-color:     null,
+    // {Length} 两侧的子项ico颜色
+    item-ico-color: null,
     // {Length} 两侧的子项文本大小
     item-font-size: .14rem,
     // {Length} 两侧的子项ico大小

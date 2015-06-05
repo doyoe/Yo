@@ -300,8 +300,8 @@
     font-size: map-get($tab, font-size);
     text-align: center;
     line-height: map-get($tab, height);
-    > .item{
-        @include flex();
+    > .item {
+        @include flex;
         position: relative;
         &:not(:last-child)::after {
             position: absolute;
@@ -314,7 +314,7 @@
             content: "\0020";
         }
         color: map-get($tab, color);
-        &-on {
+        &.item-on {
             background-color: map-get($tab, on-bgcolor);
             color: map-get($tab, on-color);
         }

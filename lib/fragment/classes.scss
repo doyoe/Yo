@@ -234,13 +234,21 @@
         position: absolute;
         top: 0;
         width: map-get($header, item-width);
+        // 如果config预设值不等于parent color，则重绘子项的color
+        @if map-get($header, item-color) != map-get($header, color) {
+            color: map-get($header, item-color);
+        }
+        cursor: pointer;
+        &:active {
+            opacity: .5;
+        }
         // 如果config预设值不等于parent font-size，则重绘子项的font-size
         @if map-get($header, item-font-size) != map-get($header, font-size) {
             font-size: map-get($header, item-font-size);
         }
-        @include link;
         &.yo-ico,
         > .yo-ico {
+            color: map-get($header, item-ico-color);
             font-size: map-get($header, item-ico-size);
         }
     }
