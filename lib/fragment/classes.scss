@@ -52,7 +52,7 @@
         // margin-top: -1px;
         padding: map-get($list, label-padding);
         border: 1px solid map-get($list, label-bordercolor);
-        border-width: 0 0 .01rem 0;
+        border-width: 0 0 1px 0;
         background-color: map-get($list, label-bgcolor);
         color: map-get($base, sub-color);
         font-size: map-get($list, label-font-size);
@@ -63,7 +63,7 @@
         }
         &:not(:first-child) {
             border-width: 1px 0;
-            margin-top: -.01rem;
+            margin-top: -1px;
         }
     }
     > .item,
@@ -71,12 +71,12 @@
         padding: map-get($list, item-padding);
     }
     > .item {
-        border-bottom: .01rem solid map-get($list, item-bordercolor);
+        border-bottom: 1px solid map-get($list, item-bordercolor);
         background-color: #fff;
         color: map-get($base, color);
         font-size: map-get($list, item-font-size);
         &:last-child {
-            margin-bottom: -.01rem;
+            margin-bottom: -1px;
             // 最后一根线的颜色与外边框颜色相同
             border-color: map-get($list, bordercolor);
         }

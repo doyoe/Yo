@@ -29,6 +29,13 @@
 
 待发布...
 
+## Notice
+
+Yo约束了2种项目所使用的长度单位
+
+* 所有涉及到 `border` 的长度单位都是用 `px`；
+* 除 `border` 外，所有的长度设置都是用 `rem` 单位；
+
 ## Versioning
 
 ### Developing: v1.8.0

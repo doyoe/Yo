@@ -23,15 +23,19 @@
 @mixin _flex {
     height: 100%;
     &,
-    > .flex-inherit {
+    .flex-inherit {
         @include flexbox(map-get($flex, box));
         @include flex-direction(map-get($flex, direction));
+        overflow: hidden;
     }
     > .flex,
-    > .flex-inherit,
-    > .flex-inherit > .flex {
+    .flex-inherit,
+    .flex-inherit > .flex {
         @include flex(1, column);
         position: relative;
-        overflow: hidden;
+    }
+    > .flex,
+    .flex-inherit > .flex {
+        @include overflow;
     }
 }

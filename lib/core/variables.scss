@@ -2,7 +2,8 @@
 /**
  * Yo框架全局Variables
  -----------------------
- * Yo基础变量map，如果不想定义某属性，将其value设置为null
+ * Yo基础变量map，如果不想定义某属性，将其value设置为null；
+ * Yo仅使用2种长度单位：px用于边框，rem用于除边框之外的所有地方
  *
  * @class variables
  * @module Yo
@@ -15,6 +16,8 @@ $setting: (
     is-vendor-prefix: true,
     // 厂商前缀
     vendor-prefix:    -webkit-,
+    // 是否开启iOS 1px方案
+    is-ios-thin:      true,
     // 背景图片服务器
     bgimg-domain:     "../../../bgimg/"
 ) !default;
@@ -35,14 +38,15 @@ $base: (
     font-size:            14px,
     // font-family
     // escape('微软雅黑').replace(/\%u/g,'\\').toLowerCase()
-    // 可参考http://alloyteam.github.io/Spirit/modules/Standard/index.html
     font-family:          #{"Helvetica Neue", Helvetica, STHeiTi, sans-serif},
     // lin-height
     line-height:          1.5,
     // 默认文档背景色
     doc-bgcolor:          #fafafa,
     // 默认边框色
-    bordercolor:          #ddd,
+    bordercolor:          #ccc,
+    // 默认次级边框色
+    sub-bordercolor:      #ddd,
     // 默认背景颜色
     bgcolor:              #fafafa,
     // 默认文本颜色
@@ -72,8 +76,18 @@ $media-types: (
     landscape: "screen and (orientation: landscape)",
     // {String} 竖屏
     portrait:  "screen and (orientation: portrait)",
-    // {String} 视网膜屏
-    retina:    "screen and (-webkit-min-device-pixel-ratio: 2)",
+    // {String} 视网膜屏2x
+    retina2x:  "(min--moz-device-pixel-ratio: 1.5),
+                (-webkit-min-device-pixel-ratio: 1.5),
+                (min-device-pixel-ratio: 1.5),
+                (min-resolution: 144dpi),
+                (min-resolution: 1.5dppx)",
+    // {String} 视网膜屏3x
+    retina3x:  "(min--moz-device-pixel-ratio: 2.5),
+                (-webkit-min-device-pixel-ratio: 2.5),
+                (min-device-pixel-ratio: 2.5),
+                (min-resolution: 240dpi),
+                (min-resolution: 2.5dppx)",
     // {String} PC
     pc:        "screen and (min-width: 800px)",
     // {String} mobile
@@ -87,7 +101,7 @@ $ico: (
     // {String} 图标字体文件名
     font-name:  yofont,
     // {Url} 图标字体路径
-    font-path:  "../../../font/"
+    font-path:  "../../font/"
 ) !default;
 
 // Layout Stacked
@@ -280,7 +294,7 @@ $list: (
     // {Color} 选中文本色
     on-color:          null,
     // {Color} 列表项边框色
-    item-bordercolor:  #eee,
+    item-bordercolor:  map-get($base, sub-bordercolor),
     // {Color} 列表项组名边框色
     label-bordercolor: #eee,
     // {Length} 列表项字号
@@ -292,11 +306,11 @@ $list: (
 // Widget tab(14)
 $tab: (
     // {Length} 组件高度
-    height:         .49rem,
+    height:         .44rem,
     // {Length} 圆角半径
     radius:         null,
     // {Length} 边框厚度
-    border-width:   .01rem 0 0 0,
+    border-width:   1px 0 0 0,
     // {Color} 边框色
     bordercolor:    map-get($base, bordercolor),
     // {Color} tab背景色
@@ -308,7 +322,7 @@ $tab: (
     // {Color} tab激活文本色
     on-color:       #2b94ff,
     // {Length} 文本大小
-    font-size:      null,
+    font-size:      .12rem,
     // {Length} 水平ico大小
     x-ico-size:     .24rem,
     // {Length} 垂直ico大小
@@ -364,7 +378,7 @@ $header: (
     // {Color} 文本色
     item-color:     null,
     // {Length} 两侧的子项ico颜色
-    item-ico-color: null,
+    item-ico-color: map-get($base, color),
     // {Length} 两侧的子项文本大小
     item-font-size: .14rem,
     // {Length} 两侧的子项ico大小

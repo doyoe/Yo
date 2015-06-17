@@ -5,8 +5,8 @@ var gulp = require('gulp');
 var compass = require('gulp-compass');
 
 // style path，由业务自己配置
-var scssPath = './usage/demo/page';
-var cssPath = './usage/demo/export';
+var scssPath = './usage/page';
+var cssPath = './usage/export';
 
 // 编译Sass
 gulp.task('compass', function() {

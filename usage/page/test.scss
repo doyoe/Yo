@@ -1,0 +1,26 @@
+@charset "utf-8";
+@import "../layout/layout";
+
+/**
+ * test演示页面
+ * Author: joy.du(飘零雾雨)
+ * Time: 2014.4.1
+ */
+.test {
+    > li {
+        height: .44rem;
+        border-bottom: 1px solid red;
+        font-size: .14rem;
+        @include responsive(retina2x) {
+            &::after {
+                // 超过3个字符，font-size计算值出错
+                content: "@2d";
+            }
+        }
+        @include responsive(retina3x) {
+            &::after {
+                content: "@3x";
+            }
+        }
+    }
+}
