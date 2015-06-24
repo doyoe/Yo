@@ -546,6 +546,35 @@ a {
 }
 
 /**
+ * @class layout
+ */
+/**
+ * 构造弹性布局内容对齐使用方法，可以是横向和纵向
+ -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/layout/yo-align.html)
+ * @method yo-align
+ * @param {String} $name 为新的扩展定义一个名称
+ * @param {String} $text-align 指定水平对齐方式
+ * @param {String} $vertical-align 指定垂直对齐方式
+ */
+.yo-align {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+/**
 * document layout
 * Author: joy.du(飘零雾雨)
 * Time: 2013.10.17

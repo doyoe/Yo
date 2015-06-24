@@ -42,6 +42,8 @@ Yo约束了2种项目所使用的长度单位
 
 * update: `yo-header`
     - 新增 `item-ico-color` 参数用以两侧ico颜色
+* add: `yo-align`
+    _ 新增 `yo-align` 布局方式，用于设置元素的水平及垂直对齐方式
 
 
 ### Lastest: v1.7.0

@@ -39,3 +39,12 @@
         @include overflow;
     }
 }
+
+// 定义常见水平垂直居中布局
+// 使用方法请查看 yo-align.scss
+@mixin _align {
+    @include flexbox;
+    @include fullscreen;
+    @include align-items;
+    @include justify-content;
+}

@@ -118,6 +118,14 @@ $flex: (
     direction: column
 ) !default;
 
+// Layout align
+$align: (
+    // {String} 定义弹性水平对齐方式
+    text-align: center,
+    // {String} 定义弹性垂直对齐方式
+    vertical-align: center
+) !default;
+
 // Element loading(7)
 $loading: (
     // {Length} 菊花大小
