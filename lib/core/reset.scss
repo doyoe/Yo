@@ -26,7 +26,7 @@ html {
     // 用于rem计算
     font-size: map-get($base, font-size-root);
     // 为不同屏幕质量定义对应的字体大小，用于匹配viewport缩放值
-    @if map-get($setting, is-ios-thin) {
+    @if map-get($setting, is-ios-1pixel) {
         &[ios="true"] {
             @include responsive(retina2x) {
                 font-size: map-get($base, font-size-root) * 2;
@@ -56,7 +56,7 @@ body {
 }
 
 // 为不同屏幕质量定义对应的字体大小，用于匹配viewport缩放值
-@if map-get($setting, is-ios-thin) {
+@if map-get($setting, is-ios-1pixel) {
     html[ios="true"] body {
         @include responsive(retina2x) {
             font-size: map-get($base, font-size) * 2;

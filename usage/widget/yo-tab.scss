@@ -8,14 +8,14 @@
  */
 
 @include yo-tab(
-    $name: test,
-    $border-width: .01rem,
-    $item-bordercolor: #ddd
+    $name: filter,
+    $height: .4rem,
+    $border-width: 0 0 1px 0,
+    $item-border-height: .2rem,
+    $item-bordercolor: map-get($base, sub-bordercolor)
 );
 
 @include yo-tab(
-    $name: filter,
-    $border-width: 0 0 1px 0,
-    $item-border-height: .2rem,
-    $item-bordercolor: #ddd
+    $name: view,
+    $font-size: .12rem
 );

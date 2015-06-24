@@ -583,9 +583,10 @@ a {
   position: relative;
   height: 0.44rem;
   line-height: 0.44rem;
-  border-bottom: 1px solid #ccc;
-  background-color: #fff;
-  font-size: 0.16rem;
+  border-bottom: 1px solid #1ba9ba;
+  background-color: #1ba9ba;
+  color: #fff;
+  font-size: 0.18rem;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -613,7 +614,7 @@ a {
 .yo-header > .regret > .yo-ico,
 .yo-header > .affirm.yo-ico,
 .yo-header > .affirm > .yo-ico {
-  color: #212121;
+  color: #7ff;
   font-size: 0.2rem;
 }
 .yo-header > .regret {
@@ -632,21 +633,9 @@ a {
  * Author: joy.du(飘零雾雨)
  * Time: 2015.1.16
  */
-.yo-header {
-  border-color: #ddd;
-  background-color: #fafafa;
-}
-
 .yo-header-positive {
   border-color: #145fd7;
   background-color: #4a87ee;
-  color: #fff;
-}
-.yo-header-positive > .regret.yo-ico,
-.yo-header-positive > .regret > .yo-ico,
-.yo-header-positive > .affirm.yo-ico,
-.yo-header-positive > .affirm > .yo-ico {
-  color: #7ff;
 }
 
 /**
@@ -726,7 +715,7 @@ a {
   border: 1px solid #eee;
   border-width: 0 0 1px 0;
   background-color: #fafafa;
-  color: #9e9e9e;
+  color: #666;
   font-size: 0.13rem;
   font-weight: normal;
 }
@@ -839,7 +828,7 @@ a {
   border-style: solid;
   border-color: #ccc;
   background-color: #fafafa;
-  font-size: 0.12rem;
+  font-size: 0.14rem;
   text-align: center;
   line-height: 0.44rem;
 }
@@ -850,7 +839,7 @@ a {
   width: 100%;
   height: auto;
   position: relative;
-  color: #212121;
+  color: #666;
 }
 .yo-tab > .item:not(:last-child)::after {
   position: absolute;
@@ -858,27 +847,27 @@ a {
   right: 0;
   -webkit-transform: translatey(-50%);
   transform: translatey(-50%);
-  width: .01rem;
+  width: 1px;
   height: 100%;
   background-color: transparent;
   content: "\0020";
 }
 .yo-tab > .item.item-on {
-  color: #2b94ff;
+  color: #00bec8;
 }
-.yo-tab > .item-top-ico {
+.yo-tab > .item-y-ico {
   padding-top: .04rem;
   line-height: .2rem;
 }
-.yo-tab > .item-top-ico .yo-ico {
+.yo-tab > .item-y-ico .yo-ico {
   display: block;
   font-size: 0.2rem;
 }
-.yo-tab > .item-left-ico .yo-ico {
-  font-size: 0.24rem;
+.yo-tab > .item-x-ico .yo-ico {
+  font-size: 0.12rem;
 }
 .yo-tab > .item-only-ico .yo-ico {
-  font-size: 0.32rem;
+  font-size: 0.28rem;
 }
 
 /**
@@ -886,19 +875,18 @@ a {
  * Author: joy.du(飘零雾雨)
  * Time: 2015.1.16
  */
-.yo-tab-test {
-  border-width: 0.01rem;
-}
-.yo-tab-test > .item:not(:last-child)::after {
-  background-color: #ddd;
-}
-
 .yo-tab-filter {
+  height: 0.4rem;
+  line-height: 0.4rem;
   border-width: 0 0 1px 0;
 }
 .yo-tab-filter > .item:not(:last-child)::after {
   height: 0.2rem;
   background-color: #ddd;
+}
+
+.yo-tab-view {
+  font-size: 0.12rem;
 }
 
 /**

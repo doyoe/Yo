@@ -583,9 +583,10 @@ a {
   position: relative;
   height: 0.44rem;
   line-height: 0.44rem;
-  border-bottom: 1px solid #ccc;
-  background-color: #fff;
-  font-size: 0.16rem;
+  border-bottom: 1px solid #1ba9ba;
+  background-color: #1ba9ba;
+  color: #fff;
+  font-size: 0.18rem;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -613,7 +614,7 @@ a {
 .yo-header > .regret > .yo-ico,
 .yo-header > .affirm.yo-ico,
 .yo-header > .affirm > .yo-ico {
-  color: #212121;
+  color: #7ff;
   font-size: 0.2rem;
 }
 .yo-header > .regret {
@@ -632,21 +633,9 @@ a {
  * Author: joy.du(飘零雾雨)
  * Time: 2015.1.16
  */
-.yo-header {
-  border-color: #ddd;
-  background-color: #fafafa;
-}
-
 .yo-header-positive {
   border-color: #145fd7;
   background-color: #4a87ee;
-  color: #fff;
-}
-.yo-header-positive > .regret.yo-ico,
-.yo-header-positive > .regret > .yo-ico,
-.yo-header-positive > .affirm.yo-ico,
-.yo-header-positive > .affirm > .yo-ico {
-  color: #7ff;
 }
 
 /**
@@ -726,7 +715,7 @@ a {
   border: 1px solid #eee;
   border-width: 0 0 1px 0;
   background-color: #fafafa;
-  color: #9e9e9e;
+  color: #666;
   font-size: 0.13rem;
   font-weight: normal;
 }

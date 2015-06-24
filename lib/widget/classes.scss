@@ -308,7 +308,7 @@
             top: 50%;
             right: 0;
             @include transform(translatey(-50%));
-            width: .01rem;
+            width: 1px;
             height: map-get($tab, item-border-height);
             background-color: map-get($tab, item-bordercolor);
             content: "\0020";
@@ -318,7 +318,7 @@
             background-color: map-get($tab, on-bgcolor);
             color: map-get($tab, on-color);
         }
-        &-top-ico {
+        &-y-ico {
             padding-top: .04rem;
             line-height: .2rem;
             .yo-ico {
@@ -326,7 +326,7 @@
                 font-size: map-get($tab, y-ico-size);
             }
         }
-        &-left-ico {
+        &-x-ico {
             .yo-ico {
                 font-size: map-get($tab, x-ico-size);
             }
@@ -341,7 +341,7 @@
 
 // 定义number的基础构造
 // 使用方法请查看 yo-number.scss
-@mixin _number{
+@mixin _number {
     @include flexbox(inline-flex);
     overflow: hidden;
     width: map-get($number, width);
@@ -354,11 +354,11 @@
     vertical-align: middle;
     > .minus,
     > .plus,
-    > .input{
+    > .input {
         text-align: center;
     }
     > .minus,
-    > .plus{
+    > .plus {
         display: block;
         width: .35rem;
         background-color: map-get($number, sign-bgcolor);
@@ -366,7 +366,7 @@
         font-size: 30px;
         font-family: arial;
         cursor: pointer;
-        &.disabled{
+        &.disabled {
             color: map-get($number, disabled-sign-color);
             cursor: not-allowed;
         }
