@@ -677,110 +677,6 @@ a {
 }
 
 /**
- * Yo框架widget基础构造
- -----------------------
- * Yo内置了常见的通用代码片段，如：列表，表格，按钮组，头
- *
- * @class widget
- * @module Yo
- */
-/**
- * @class widget
- */
-/**
- * 构造列表的自定义使用方法
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-tab.html)
- * @method yo-tab
- * @param {default | String} $name 扩展的名称
- * @param {default | Length} $height 组件高度
- * @param {default | Length} $radius 圆角半径
- * @param {default | Length} $border-width 边框厚度
- * @param {default | Color} $bordercolor 边框色
- * @param {default | Color} $bgcolor 背景色
- * @param {default | Color} $color 文本色
- * @param {default | Color} $on-bgcolor 激活时背景色
- * @param {default | Color} $on-color 激活时文本色
- * @param {default | Color} $font-size 文本字号
- * @param {default | Color} $x-ico-size 子项内容为水平ico时，ico的大小
- * @param {default | Color} $y-ico-size 子项内容为垂直ico时，ico的大小
- * @param {default | Color} $only-ico-size 子项内容仅有ico时，ico的大小
- * @param {default | Length} $item-border-height 子项的间隔线高度
- * @param {default | Color} $item-bordercolor 子项的间隔线颜色
- */
-.yo-tab {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  height: 0.44rem;
-  -webkit-background-clip: padding-box !important;
-  background-clip: padding-box !important;
-  border-width: 1px 0 0 0;
-  border-style: solid;
-  border-color: #ccc;
-  background-color: #fafafa;
-  font-size: 0.14rem;
-  text-align: center;
-  line-height: 0.44rem;
-}
-.yo-tab > .item {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  flex: 1;
-  width: 100%;
-  height: auto;
-  position: relative;
-  color: #666;
-}
-.yo-tab > .item:not(:last-child)::after {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  -webkit-transform: translatey(-50%);
-  transform: translatey(-50%);
-  width: 1px;
-  height: 100%;
-  background-color: transparent;
-  content: "\0020";
-}
-.yo-tab > .item.item-on {
-  color: #00bec8;
-}
-.yo-tab > .item-y-ico {
-  padding-top: .04rem;
-  line-height: .2rem;
-}
-.yo-tab > .item-y-ico .yo-ico {
-  display: block;
-  font-size: 0.2rem;
-}
-.yo-tab > .item-x-ico .yo-ico {
-  font-size: 0.12rem;
-}
-.yo-tab > .item-only-ico .yo-ico {
-  font-size: 0.28rem;
-}
-
-/**
- * yo-tab扩展
- * Author: joy.du(飘零雾雨)
- * Time: 2015.1.16
- */
-.yo-tab-filter {
-  height: 0.4rem;
-  line-height: 0.4rem;
-  border-width: 0 0 1px 0;
-}
-.yo-tab-filter > .item:not(:last-child)::after {
-  height: 0.2rem;
-  background-color: #ddd;
-}
-
-.yo-tab-view {
-  font-size: 0.12rem;
-}
-
-/**
  * @class fragment
  */
 /**
@@ -1026,17 +922,186 @@ a {
   background-color: #4a87ee;
 }
 
-.m-list > .yo-list-group .yo-btn:not(:first-child) {
-  margin-left: .1rem;
+/**
+ * @class element
+ */
+/**
+ * 构造输入框的自定义使用方法，可同时作用于 input 与 textarea
+ -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/element/yo-input.html)
+ * @method yo-input
+ * @param {String} $name 为新的扩展定义一个名称
+ * @param {Length} $width 宽度
+ * @param {Length} $height 高度
+ * @param {Length} $padding 内补白
+ * @param {Length} $radius 圆角半径长度
+ * @param {Color} $bordercolor 边框色
+ * @param {Color} $bgcolor 背景色
+ * @param {Color} $color 文本色
+ * @param {Color} $placeholder-color placeholder文本色
+ */
+.yo-input {
+  width: 100%;
+  height: 0.44rem;
+  padding: 0.1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.02rem;
+  -webkit-background-clip: padding-box !important;
+  background-clip: padding-box !important;
+  background-color: transparent;
+  vertical-align: top;
+}
+.yo-input, .yo-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+.yo-input::-webkit-input-placeholder {
+  color: #bbb;
 }
 
 /**
- * yo-flex演示
+ * yo-input扩展
  * Author: joy.du(飘零雾雨)
- * Time: 2014.4.1
+ * Time: 2015.1.16
  */
-html,
-body {
-  overflow: hidden;
-  height: 100%;
+/**
+ * module: m-demo
+ * Author: joy.du(飘零雾雨)
+ * Time: 2013.10.17
+ */
+@media screen and (min-width: 800px) {
+  .m-demo {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    margin: .1rem;
+  }
+}
+.m-demo .device .stage {
+  position: relative;
+  min-height: 2rem;
+  background-color: #f0f0f0;
+}
+@media screen and (min-width: 800px) {
+  .m-demo .device {
+    position: relative;
+    width: 3.66rem;
+    height: 7.83rem;
+    border: .05rem solid #505559;
+    border-radius: .55rem;
+    background-color: #313538;
+  }
+  .m-demo .device::before, .m-demo .device::after {
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translate(-50%);
+    transform: translate(-50%);
+    content: "\0020";
+  }
+  .m-demo .device::before {
+    top: .58rem;
+    width: .68rem;
+    height: .08rem;
+    border-radius: 4px;
+    background-color: #3e4243;
+  }
+  .m-demo .device::after {
+    bottom: .18rem;
+    width: 0.65rem;
+    height: 0.65rem;
+    border: .05rem solid #3e4243;
+    border-radius: 50%;
+  }
+  .m-demo .device .stage {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    top: .99rem;
+    left: .18rem;
+    overflow: hidden;
+    width: 3.20rem;
+    height: 5.68rem;
+  }
+  .m-demo .device .stage .wrap {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    width: auto;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .m-demo .device .stage, .m-demo .device .stage::before {
+    position: absolute;
+  }
+  .m-demo .device .stage::before {
+    top: -.68rem;
+    left: 50%;
+    -webkit-transform: translate(-50%);
+    transform: translate(-50%);
+    width: 0.1rem;
+    height: 0.1rem;
+    border-radius: 50%;
+    background-color: #3e4243;
+    box-shadow: -.5rem .26rem #3e4243;
+    content: "\0020";
+  }
+}
+.m-demo .code {
+  display: block;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  width: 100%;
+  height: auto;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  -webkit-user-select: text;
+  user-select: text;
+  margin: .1rem 0;
+  border-width: .04rem 0 .04rem 0;
+  border-style: solid;
+  border-color: #ccc;
+  padding: .1rem;
+  background-color: #F0F3F8;
+}
+@media screen and (min-width: 800px) {
+  .m-demo .code {
+    margin: .1rem;
+    border-width: 0 0 0 .04rem;
+  }
+}
+.m-demo .code h3 {
+  margin-top: .1rem;
+}
+
+/**
+ * module: m-code
+ * Author: joy.du(飘零雾雨)
+ * Time: 2013.10.17
+ */
+.m-code {
+  -webkit-user-select: text;
+  user-select: text;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  background: #272822;
+  color: #51bbe1;
+  font-size: .2rem;
+}
+.m-code .method {
+  color: #93de08;
+}
+.m-code .bracket,
+.m-code .colon {
+  padding-right: 5px;
+  color: #fff;
+}
+.m-code mark {
+  color: #ccc;
+  font-size: .14rem;
 }

@@ -20,6 +20,7 @@
     height: map-get($btn, height);
     line-height: map-get($btn, line-height);
     padding: map-get($btn, padding);
+    vertical-align: top;
     // 当边框厚度大于0时，才定义边框相关属性
     @if map-get($btn, border-width) != null and
         map-get($btn, border-width) != 0 {
@@ -36,7 +37,6 @@
     background-color: map-get($btn, bgcolor);
     color: map-get($btn, color);
     text-align: center;
-    vertical-align: middle;
     cursor: pointer;
     &:active {
         // 当边框厚度大于0时，才定义边框相关属性
@@ -59,9 +59,10 @@
     width: map-get($input, width);
     height: map-get($input, height);
     padding: map-get($input, padding);
-    border: .01rem solid map-get($input, bordercolor);
+    border: 1px solid map-get($input, bordercolor);
     @include border-radius(map-get($input, radius));
     background-color: map-get($input, bgcolor);
+    vertical-align: top;
     // 如果input颜色值与base相同，则不设置
     @if map-get($input, color) != map-get($base, color) {
         color: map-get($input, color);
