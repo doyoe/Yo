@@ -21,7 +21,7 @@
 
 // 1. 防止用户自定义网页背景及文字颜色、大小影响
 html {
-    background-color: map-get($base, bgcolor);
+    background-color: map-get($base, doc-bgcolor);
     color: map-get($base, color);
     // 用于rem计算
     font-size: map-get($base, font-size-root);

@@ -49,10 +49,9 @@
         }
     }
     > .label {
-        // margin-top: -1px;
         padding: map-get($list, label-padding);
         border: 1px solid map-get($list, label-bordercolor);
-        border-width: 0 0 1px 0;
+        border-width: 1px 0;
         background-color: map-get($list, label-bgcolor);
         color: map-get($base, sub-color);
         font-size: map-get($list, label-font-size);
@@ -71,15 +70,24 @@
         padding: map-get($list, item-padding);
     }
     > .item {
-        border-bottom: 1px solid map-get($list, item-bordercolor);
         background-color: #fff;
         color: map-get($base, color);
         font-size: map-get($list, item-font-size);
+
+        // 描述线条
+        @include gradient(linear, map-get($list, item-bordercolor), map-get($list, item-bordercolor));
+        @include background-size(100% 1px);
+        background-repeat: no-repeat;
+        background-position: left map-get($list, item-border-space) bottom;
+
         &:last-child {
             margin-bottom: -1px;
             // 最后一根线的颜色与外边框颜色相同
-            border-color: map-get($list, bordercolor);
+            @include gradient(linear, map-get($list, bordercolor), map-get($list, bordercolor));
+            // 最后一根线的左边不留间隙
+            background-position: left bottom;
         }
+
         &-stacked {
             display: block;
             > .mark {
@@ -93,12 +101,6 @@
                 padding: 0;
                 border: 0;
             }
-        }
-        &-input,
-        &-active,
-        &-on,
-        &-light {
-            cursor: pointer;
         }
         // 常规需要active的项目，没有使用到第3方组件的
         &.item-active:active,

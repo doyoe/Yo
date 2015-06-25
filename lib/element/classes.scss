@@ -16,6 +16,9 @@
 @mixin _btn {
     display: inline-block;
     overflow: hidden;
+    width: map-get($btn, width);
+    height: map-get($btn, height);
+    line-height: map-get($btn, line-height);
     padding: map-get($btn, padding);
     // 当边框厚度大于0时，才定义边框相关属性
     @if map-get($btn, border-width) != null and

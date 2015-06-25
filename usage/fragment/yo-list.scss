@@ -13,3 +13,10 @@
     $border-width: .01rem,
     $radius: .02rem
 );
+
+@include yo-list(
+    $name: group,
+    $label-padding: .18rem .1rem .03rem,
+    $label-bordercolor: map-get($base, bordercolor),
+    $label-bgcolor: transparent
+);

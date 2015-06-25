@@ -821,27 +821,240 @@ a {
   padding: 0.18rem 0.1rem 0.03rem;
 }
 
-.m-font {
-  -webkit-user-select: text;
-  user-select: text;
+/**
+ * Yo框架element基础构造
+ -----------------------
+ * Yo内置了包括按钮，输入框，单选，多选，区间，分值等基础元素
+ *
+ * @class element
+ * @module Yo
+ */
+/**
+ * @class element
+ */
+/**
+ * 构造按钮的自定义使用方法，可轻松自定义边框，尺寸，背景，文字等
+ -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/element/yo-btn.html)
+ * @method yo-btn
+ * @param {String} $name 为新的按钮扩展定义一个名称
+ * @param {Length} $border-width 按钮边框厚度
+ * @param {Color} $bordercolor 按钮边框色
+ * @param {Color} $bgcolor 按钮背景色
+ * @param {Color} $color 按钮文本色
+ * @param {Color} $active-bordercolor 触点（鼠标，手指或其它）按下时的按钮边框色
+ * @param {Color} $active-bgcolor 触点（鼠标，手指或其它）按下的按钮背景色
+ * @param {Color} $active-color 触点（鼠标，手指或其它）按下的按钮文本色
+ * @param {Length} $padding 按钮内补白
+ * @param {Length} $radius 按钮圆角半径长度
+ * @param {Length} $font-size 按钮字号大小
+ * @param {Length} $width 按钮宽度
+ * @param {Length} $height 按钮高度
+ */
+.yo-btn {
+  display: inline-block;
+  overflow: hidden;
+  padding: 0 1.2em;
+  border-width: 0.01rem;
+  border-style: solid;
+  border-color: #e26704;
+  box-shadow: inset 0.01rem 0.01rem rgba(255, 255, 255, 0.1);
+  border-radius: 0.02rem;
+  -webkit-background-clip: padding-box !important;
+  background-clip: padding-box !important;
+  background-color: #ff801a;
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
 }
-.m-font .flex::before, .m-font .flex::after {
-  color: #999;
+.yo-btn-s {
+  height: 0.28rem;
+  line-height: 0.28rem;
+  font-size: 0.12rem;
 }
-.m-font .flex::before {
-  content: "( ";
+.yo-btn-m {
+  height: 0.36rem;
+  line-height: 0.36rem;
+  font-size: 0.14rem;
 }
-.m-font .flex::after {
-  content: " )";
+.yo-btn-l {
+  height: 0.44rem;
+  line-height: 0.44rem;
+  font-size: 0.16rem;
+}
+.yo-btn-stacked {
+  display: block;
+  width: 100%;
+  clear: both;
+}
+
+.yo-btn-disabled {
+  border-color: #ccc;
+  background-color: #e0e0e0;
+  color: #bbb;
+  cursor: not-allowed;
+}
+.yo-btn-disabled, .yo-btn-disabled:focus, .yo-btn-disabled:active {
+  opacity: .4;
 }
 
 /**
- * yofont演示页面
+ * yo-btn扩展
  * Author: joy.du(飘零雾雨)
- * Time: 2014.4.1
+ * Time: 2015.1.16
  */
-html,
-body {
-  overflow: hidden;
-  height: 100%;
+.yo-btn-light {
+  border-color: #ddd;
+  background-color: #fff;
+  color: #212121;
+}
+
+.yo-btn-info {
+  border-color: #0456e2;
+  background-color: #4a87ee;
+}
+
+.m-list > .yo-list-group .yo-btn:not(:first-child) {
+  margin-left: .1rem;
+}
+
+/**
+ * module: m-demo
+ * Author: joy.du(飘零雾雨)
+ * Time: 2013.10.17
+ */
+@media screen and (min-width: 800px) {
+  .m-demo {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    margin: .1rem;
+  }
+}
+.m-demo .device .stage {
+  position: relative;
+  min-height: 2rem;
+  background-color: #f0f0f0;
+}
+@media screen and (min-width: 800px) {
+  .m-demo .device {
+    position: relative;
+    width: 3.66rem;
+    height: 7.83rem;
+    border: .05rem solid #505559;
+    border-radius: .55rem;
+    background-color: #313538;
+  }
+  .m-demo .device::before, .m-demo .device::after {
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translate(-50%);
+    transform: translate(-50%);
+    content: "\0020";
+  }
+  .m-demo .device::before {
+    top: .58rem;
+    width: .68rem;
+    height: .08rem;
+    border-radius: 4px;
+    background-color: #3e4243;
+  }
+  .m-demo .device::after {
+    bottom: .18rem;
+    width: 0.65rem;
+    height: 0.65rem;
+    border: .05rem solid #3e4243;
+    border-radius: 50%;
+  }
+  .m-demo .device .stage {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    top: .99rem;
+    left: .18rem;
+    overflow: hidden;
+    width: 3.20rem;
+    height: 5.68rem;
+  }
+  .m-demo .device .stage .wrap {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    width: auto;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .m-demo .device .stage, .m-demo .device .stage::before {
+    position: absolute;
+  }
+  .m-demo .device .stage::before {
+    top: -.68rem;
+    left: 50%;
+    -webkit-transform: translate(-50%);
+    transform: translate(-50%);
+    width: 0.1rem;
+    height: 0.1rem;
+    border-radius: 50%;
+    background-color: #3e4243;
+    box-shadow: -.5rem .26rem #3e4243;
+    content: "\0020";
+  }
+}
+.m-demo .code {
+  display: block;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  width: 100%;
+  height: auto;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  -webkit-user-select: text;
+  user-select: text;
+  margin: .1rem 0;
+  border-width: .04rem 0 .04rem 0;
+  border-style: solid;
+  border-color: #ccc;
+  padding: .1rem;
+  background-color: #F0F3F8;
+}
+@media screen and (min-width: 800px) {
+  .m-demo .code {
+    margin: .1rem;
+    border-width: 0 0 0 .04rem;
+  }
+}
+.m-demo .code h3 {
+  margin-top: .1rem;
+}
+
+/**
+ * module: m-code
+ * Author: joy.du(飘零雾雨)
+ * Time: 2013.10.17
+ */
+.m-code {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  background: #272822;
+  color: #51bbe1;
+  font-size: .2rem;
+}
+.m-code .method {
+  color: #93de08;
+}
+.m-code .bracket,
+.m-code .colon {
+  padding-right: 5px;
+  color: #fff;
+}
+.m-code mark {
+  color: #ccc;
+  font-size: .14rem;
 }

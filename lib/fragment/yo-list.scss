@@ -25,6 +25,7 @@
  * @param {Color} $label-bordercolor 定义list子项组头边框色
  * @param {Length} $item-font-size 定义list项字号
  * @param {Length} $label-font-size 定义list列表组头字号
+ * @param {Length} $item-border-space 列表项下边线距离左侧的间隙
  */
 
 @mixin yo-list(
@@ -42,7 +43,8 @@
     $item-bordercolor: default,
     $label-bordercolor: default,
     $item-font-size: default,
-    $label-font-size: default) {
+    $label-font-size: default,
+    $item-border-space: default) {
     // 区别是否新增实例还是修改本身
     @if $name == default {
         $name: "";
@@ -91,6 +93,9 @@
     }
     @if $item-font-size == default {
         $item-font-size: map-get($list, item-font-size);
+    }
+    @if $item-border-space == default {
+        $item-border-space: map-get($list, item-border-space);
     }
     .yo-list#{$name} {
         @if $margin != map-get($list, margin) {
@@ -159,7 +164,10 @@
         }
         > .item {
             @if $item-bordercolor != map-get($list, item-bordercolor) {
-                border-color: $item-bordercolor;
+                @include gradient(linear, $item-bordercolor, $item-bordercolor);
+            }
+            @if $item-border-space != map-get($list, item-border-space) {
+                background-position: left $item-border-space bottom;
             }
             @if $item-font-size != map-get($list, item-font-size) {
                 font-size: $item-font-size;
@@ -167,7 +175,7 @@
             &:last-child {
                 // 最后一根线的颜色与外边框颜色相同
                 @if $bordercolor != map-get($list, bordercolor) {
-                    border-color: $bordercolor;
+                    @include gradient(linear, $bordercolor, $bordercolor);
                 }
             }
             &.item-active:active,

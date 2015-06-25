@@ -13,6 +13,7 @@
         .stage {
             position: relative;
             min-height: 2rem;
+            background-color: map-get($base, doc-bgcolor);
         }
         @include responsive(pc) {
             position: relative;
@@ -49,7 +50,6 @@
                 overflow: hidden;
                 width: 3.20rem;
                 height: 5.68rem;
-                background-color: #fff;
                 .wrap {
                     @include flex(1, column);
                     @include overflow;

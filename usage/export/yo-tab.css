@@ -242,7 +242,7 @@
 }
 
 html {
-  background-color: #fafafa;
+  background-color: #f0f0f0;
   color: #212121;
   font-size: 100px;
   -webkit-user-select: none;
@@ -626,6 +626,7 @@ a {
 .m-demo .device .stage {
   position: relative;
   min-height: 2rem;
+  background-color: #f0f0f0;
 }
 @media screen and (min-width: 800px) {
   .m-demo .device {
@@ -670,7 +671,6 @@ a {
     overflow: hidden;
     width: 3.20rem;
     height: 5.68rem;
-    background-color: #fff;
   }
   .m-demo .device .stage .wrap {
     -webkit-box-flex: 1;

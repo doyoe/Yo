@@ -42,7 +42,7 @@ $base: (
     // lin-height
     line-height:          1.5,
     // 默认文档背景色
-    doc-bgcolor:          #fafafa,
+    doc-bgcolor:          #f0f0f0,
     // 默认边框色
     bordercolor:          #ccc,
     // 默认次级边框色
@@ -164,7 +164,7 @@ $input: (
     placeholder-color: #bbb
 ) !default;
 
-// Element Button(16)
+// Element Button(18)
 $btn: (
     // {Color} Length
     border-width:   .01rem,
@@ -186,6 +186,10 @@ $btn: (
     radius:         .02rem,
     // {Length} 字号
     font-size:      null,
+    // {Length} 宽度
+    width:      null,
+    // {Length} 高度
+    height:      null,
     // {Length} 默认预设3种尺寸按钮：
     // small
     s-height:       .28rem,
@@ -290,7 +294,7 @@ $list: (
     // {Color} 列表边框色
     bordercolor:       map-get($base, bordercolor),
     // {Length} 列表项内补白，列表项有最小高度.44rem
-    item-padding:      .11rem,
+    item-padding:      .11rem .1rem .12rem,
     // {Length} 列表组头内补白
     label-padding:     .03rem .1rem,
     // {Color} 列表组头背景色
@@ -308,7 +312,9 @@ $list: (
     // {Length} 列表项字号
     item-font-size:    .14rem,
     // {Length} 列表组头字号
-    label-font-size:   .13rem
+    label-font-size:   .13rem,
+    // {Length} 列表项下边线距离左侧的间隙
+    item-border-space: .1rem
 ) !default;
 
 // Widget tab(14)
