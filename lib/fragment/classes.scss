@@ -51,7 +51,7 @@
     > .label {
         padding: map-get($list, label-padding);
         border: 1px solid map-get($list, label-bordercolor);
-        border-width: 1px 0;
+        border-width: 0 0 1px 0;
         background-color: map-get($list, label-bgcolor);
         color: map-get($base, sub-color);
         font-size: map-get($list, label-font-size);
