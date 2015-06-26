@@ -1258,6 +1258,42 @@ a {
 }
 
 /**
+ * module: m-desc
+ * Author: joy.du(飘零雾雨)
+ * Time: 2015.6.17
+ */
+.m-desc {
+  margin: .1rem;
+  padding-bottom: .05rem;
+  border-radius: .05rem;
+  background-color: #ddd;
+}
+.m-desc > .title {
+  padding: .18rem .1rem .03rem;
+  border-bottom: 1px solid #ccc;
+}
+.m-desc > xmp {
+  margin: .1rem;
+  padding: .1rem;
+  background-color: #666;
+  color: #fff;
+}
+.m-desc .sub-title {
+  margin: 0 .1rem;
+  padding: .1rem 0 .03rem;
+  border-bottom: 1px solid #ccc;
+}
+.m-desc .sub-title::before {
+  margin-right: .05rem;
+  padding: 0 .03rem;
+  border-radius: .03rem;
+  content: "Note";
+  font-weight: normal;
+  background-color: #f9c027;
+  color: #fff;
+}
+
+/**
  * module: m-code
  * Author: joy.du(飘零雾雨)
  * Time: 2013.10.17
@@ -1265,8 +1301,8 @@ a {
 .m-code {
   -webkit-user-select: text;
   user-select: text;
-  margin: 10px;
-  padding: 10px;
+  margin: .1rem;
+  padding: .1rem;
   border-radius: 5px;
   background: #272822;
   color: #51bbe1;
@@ -1283,4 +1319,10 @@ a {
 .m-code mark {
   color: #ccc;
   font-size: .14rem;
+}
+
+html,
+body {
+  overflow: hidden;
+  height: 100%;
 }
