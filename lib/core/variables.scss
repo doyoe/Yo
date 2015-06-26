@@ -42,7 +42,7 @@ $base: (
     // lin-height
     line-height:          1.5,
     // 默认文档背景色
-    doc-bgcolor:          #f0f0f0,
+    doc-bgcolor:          #f9f9f9,
     // 默认边框色
     bordercolor:          #ccc,
     // 默认次级边框色
@@ -89,9 +89,9 @@ $media-types: (
                 (min-resolution: 240dpi),
                 (min-resolution: 2.5dppx)",
     // {String} PC
-    pc:        "screen and (min-width: 8rem)",
+    pc:        "(min-width: 8rem)",
     // {String} mobile
-    mobile:    "screen and (max-width: 7.99rem)"
+    mobile:    "(max-width: 7.99rem)"
 ) !default;
 
 // ico font

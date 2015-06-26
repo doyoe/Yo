@@ -5,17 +5,18 @@
  * Time: 2013.10.17
  */
 .m-demo {
-    @include responsive(pc) {
-        @include flexbox;
-        margin: .1rem;
-    }
     .device {
         .stage {
             position: relative;
             min-height: 2rem;
             background-color: map-get($base, doc-bgcolor);
         }
-        @include responsive(pc) {
+    }
+    // 如果是PC
+    @include responsive(pc) {
+        @include flexbox;
+        margin: .1rem;
+        .device {
             position: relative;
             width: 3.66rem;
             height: 7.83rem;

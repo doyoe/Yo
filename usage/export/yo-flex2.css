@@ -237,7 +237,7 @@
 }
 
 html {
-  background-color: #f0f0f0;
+  background-color: #f9f9f9;
   color: #212121;
   font-size: 100px;
   -webkit-user-select: none;
@@ -1080,6 +1080,169 @@ a {
   border-color: #aaa;
   background-color: #aaa;
   border-radius: 0.05rem;
+}
+
+/**
+ * @class element
+ */
+/**
+ * 构造单选多选的自定义使用方法，可同时作用于 checkbox 与 radio
+ -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/element/yo-checked.html)
+ * @method yo-checked
+ * @param {String} $name 为新的扩展定义一个名称
+ * @param {String} $content 标记（对勾，圆点或者任意字符，可以是webfonts的编码）
+ * @param {Length} $size 元件大小
+ * @param {Length} $font-size 标记大小
+ * @param {Length} $border-width 边框厚度
+ * @param {Color} $bordercolor 边框色
+ * @param {Color} $bgcolor 背景色
+ * @param {Color} $color 标记色
+ * @param {Color} $on-bordercolor 选中时的边框色
+ * @param {Color} $on-bgcolor 选中时的背景色
+ * @param {Color} $on-color 选中时的标记色
+ * @param {Length} $radius 圆角半径长度
+ */
+.yo-checked {
+  display: inline-block;
+  position: relative;
+  width: 0.2rem;
+  height: 0.2rem;
+  font-size: 0.12rem;
+  font-family: yofont;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.yo-checked > input,
+.yo-checked > .type {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.yo-checked > input {
+  z-index: 2;
+  opacity: 0;
+}
+.yo-checked > .type {
+  border-radius: 0.05rem;
+  -webkit-background-clip: padding-box !important;
+  background-clip: padding-box !important;
+  background-color: transparent;
+  line-height: 0.2rem;
+}
+.yo-checked > .type::after {
+  content: "";
+  color: transparent;
+}
+.yo-checked > input:checked + .type::after {
+  color: #2b94ff;
+}
+.yo-checked > input:disabled + .type {
+  opacity: .4;
+  background-color: #e0e0e0 !important;
+}
+.yo-checked > input:disabled + .type::after {
+  color: #bbb !important;
+}
+
+/**
+ * yo-checked扩展
+ * Author: joy.du(飘零雾雨)
+ * Time: 2015.1.16
+ */
+.yo-checked-a > .type {
+  border-width: 0.01rem;
+  border-color: #ccc;
+  border-style: solid;
+  line-height: 0.18rem;
+}
+.yo-checked-a > input:checked + .type {
+  border-color: #2b94ff;
+}
+
+.yo-checked-b > .type {
+  border-width: 0.01rem;
+  border-color: #ccc;
+  border-style: solid;
+  line-height: 0.18rem;
+}
+.yo-checked-b > input:checked + .type {
+  border-color: #2b94ff;
+  background-color: #2b94ff;
+}
+.yo-checked-b > input:checked + .type::after {
+  color: white;
+}
+
+.yo-checked-c > .type {
+  border-radius: 50%;
+  border-width: 0.01rem;
+  border-color: #ccc;
+  border-style: solid;
+  line-height: 0.18rem;
+}
+.yo-checked-c > input:checked + .type {
+  border-color: #2b94ff;
+  background-color: #2b94ff;
+}
+.yo-checked-c > input:checked + .type::after {
+  color: white;
+}
+
+.yo-checked-d > .type::after {
+  content: "";
+}
+
+.yo-checked-e > .type {
+  border-width: 0.01rem;
+  border-color: #ccc;
+  border-style: solid;
+  line-height: 0.18rem;
+}
+.yo-checked-e > .type::after {
+  content: "";
+}
+.yo-checked-e > input:checked + .type {
+  border-color: #2b94ff;
+}
+
+.yo-checked-f > .type {
+  border-width: 0.01rem;
+  border-color: #ccc;
+  border-style: solid;
+  line-height: 0.18rem;
+}
+.yo-checked-f > .type::after {
+  content: "";
+}
+.yo-checked-f > input:checked + .type {
+  border-color: #2b94ff;
+  background-color: #2b94ff;
+}
+.yo-checked-f > input:checked + .type::after {
+  color: white;
+}
+
+.yo-checked-g > .type {
+  border-radius: 50%;
+  border-width: 0.01rem;
+  border-color: #ccc;
+  border-style: solid;
+  line-height: 0.18rem;
+}
+.yo-checked-g > .type::after {
+  content: "";
+}
+.yo-checked-g > input:checked + .type {
+  border-color: #2b94ff;
+  background-color: #2b94ff;
+}
+.yo-checked-g > input:checked + .type::after {
+  color: white;
 }
 
 .m-list > .yo-list-group .yo-btn:not(:first-child) {

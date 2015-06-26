@@ -237,7 +237,7 @@
 }
 
 html {
-  background-color: #f0f0f0;
+  background-color: #f9f9f9;
   color: #212121;
   font-size: 100px;
   -webkit-user-select: none;
@@ -584,20 +584,18 @@ a {
  * Author: joy.du(飘零雾雨)
  * Time: 2013.10.17
  */
-@media screen and (min-width: 8rem) {
+.m-demo .device .stage {
+  position: relative;
+  min-height: 2rem;
+  background-color: #f9f9f9;
+}
+@media (min-width: 8rem) {
   .m-demo {
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;
     margin: .1rem;
   }
-}
-.m-demo .device .stage {
-  position: relative;
-  min-height: 2rem;
-  background-color: #f0f0f0;
-}
-@media screen and (min-width: 8rem) {
   .m-demo .device {
     position: relative;
     width: 3.66rem;
@@ -683,7 +681,7 @@ a {
   padding: .1rem;
   background-color: #F0F3F8;
 }
-@media screen and (min-width: 8rem) {
+@media (min-width: 8rem) {
   .m-demo .code {
     margin: .1rem;
     border-width: 0 0 0 .04rem;
@@ -802,7 +800,7 @@ a {
  * Author: joy.du(飘零雾雨)
  * Time: 2015.2.5
  */
-@media screen and (max-width: 7.99rem) {
+@media (max-width: 7.99rem) {
   .m-demo .device .stage {
     position: absolute;
     top: 0;
