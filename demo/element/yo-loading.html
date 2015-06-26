@@ -8,79 +8,54 @@
 <meta name="format-detection" content="telephone=no" />
 <title>loading - 菊花</title>
 <script src="../../js/viewport.js"></script>
-<link rel="stylesheet" href="../../usage/export/yo-all.css" />
+<link rel="stylesheet" href="../../usage/export/yo-loading.css" />
 </head>
 <body>
 
-<div class="m-demo">
-    <div class="device">
-    <div class="stage">
+<div class="yo-flex">
+    <header class="yo-header m-header">
+        <h2 class="title">yo-loading</h2>
+        <a href="../index.html" class="regret yo-ico">&#xf07d;</a>
+    </header>
+    <div class="flex">
         <div class="yo-loading">
             <span class="inner"><i class="yo-ico"></i></span>
         </div>
-    </div>
-    </div>
-    <code class="code"><xmp><div class="yo-loading">
+        <section class="m-desc">
+            <h3 class="title">示例描述：</h3>
+            <xmp><div class="yo-loading">
     <span class="inner"><i class="yo-ico"></i></span>
-</div></xmp></code>
-</div>
+</div></xmp>
+        </section>
 
-<div class="m-demo">
-    <div class="device">
-    <div class="stage">
         <div class="yo-loading">
             <span class="inner"><i class="yo-ico"></i>加载中...</span>
         </div>
-    </div>
-    </div>
-    <code class="code"><xmp><div class="yo-loading">
+        <section class="m-desc">
+            <h3 class="title">示例描述：</h3>
+            <xmp><div class="yo-loading">
     <span class="inner"><i class="yo-ico"></i>加载中...</span>
-</div></xmp></code>
-</div>
+</div></xmp>
+        </section>
 
-<div class="m-demo">
-    <div class="device">
-    <div class="stage">
         <div class="yo-loading yo-loading-b">
             <span class="inner"><i class="yo-ico"></i>加载中...</span>
         </div>
-    </div>
-    </div>
-    <code class="code">
-    <h2>假设你想要背景色，那么你可以这样扩展：</h2>
-    <p>命名及颜色按照各自团队内部的FE/UI规范即可</p>
-    <h3>全局扩展方式：</h3>
-    <xmp>@include yo-loading(
+        <section class="m-desc">
+            <h3 class="title">假设你想要背景色，那么你可以这样扩展：</h3>
+            <xmp>@include yo-loading(
     $name: b,
     $bgcolor: #666,
     $mask-bgcolor: rgba(0, 0, 0, .2),
     $ico-color: #00afc7,
     $color: #00afc7
 );</xmp>
-    <h3>使用方法：</h3>
+    <h3 class="sub-title">使用方法：</h3>
     <xmp><div class="yo-loading yo-loading-b">
     <span class="inner"><i class="yo-ico"></i>加载中...</span>
 </div></xmp>
-    <h3>局部扩展方式：</h3>
-    <xmp>.xxx{
-    @include yo-loading(
-        $name: b,
-        $bgcolor: #666,
-        $mask-bgcolor: rgba(0, 0, 0, .2),
-        $ico-color: #00afc7,
-        $color: #00afc7
-    );
-}</xmp>
-    <h3>使用方法：</h3>
-    <xmp><div class="xxx">
-    <div class="yo-loading yo-loading-b">
-        <div class="inner"><i class="yo-ico"></i>加载中...</div>
-    </div>
-</div></xmp>
-    </code>
-</div>
-
-<pre class="m-code"><span class="method">@include yo-loading</span><span class="bracket">(</span>
+        </section>
+        <pre class="m-code"><span class="method">@include yo-loading</span><span class="bracket">(</span>
     $name<span class="colon">:</span>default, <mark>//{String} yo-loading名称</mark>
     $ico-size<span class="colon">:</span>default, <mark>//{Length} 菊花大小</mark>
     $ico-color<span class="colon">:</span>default, <mark>//{Color} 菊花颜色</mark>
@@ -91,6 +66,9 @@
     $content<span class="colon">:</span>default <mark>//{String} loading形态，可传入webfonts编码</mark>
 <span class="bracket">)</span>
 </pre>
+    </div>
+</div>
+
 
 </body>
 </html>
