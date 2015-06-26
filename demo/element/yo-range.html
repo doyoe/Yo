@@ -9,84 +9,73 @@
 <link rel="apple-touch-icon-precomposed" href="/qunar-touch.png" />
 <title>range - 区间</title>
 <script src="../../js/viewport.js"></script>
-<link rel="stylesheet" href="../../usage/export/yo-all.css" />
+<link rel="stylesheet" href="../../usage/export/yo-range.css" />
 </head>
 <body>
-<div class="m-demo">
-    <div class="device">
-    <div class="stage">
-        <h2 class="yo-header">Range</h2>
-    	<ul class="yo-list">
-            <li class="label">常规：</li>
-            <li class="item yo-range">
-                <input type="range" />
-            </li>
-            <li class="label">禁用：</li>
-            <li class="item yo-range">
-                <input type="range" disabled />
-            </li>
-            <li class="label">扩展：</li>
-            <li class="item yo-range yo-range-a">
-                <input type="range" min="0" max="100" value="30" />
-            </li>
-            <li class="item yo-range yo-range-b">
-                <input type="range" min="0" max="100" value="40" />
-            </li>
-            <li class="item yo-range yo-range-c">
-                <input type="range" min="0" max="100" value="50" />
-            </li>
-            <li class="item yo-range yo-range-d">
-                <input type="range" min="0" max="100" value="60" />
-            </li>
-            <li class="item yo-range yo-range-e">
-                <input type="range" min="0" max="100" value="70" />
-            </li>
-            <li class="item yo-range yo-range-f">
-                <input type="range" min="0" max="100" value="80" />
-            </li>
-        </ul>
-    </div>
-    </div>
-    <code class="code">
-    <xmp><div class="yo-range">
+<div class="yo-flex">
+    <header class="yo-header m-header">
+        <h2 class="title">yo-range</h2>
+        <a href="../index.html" class="regret yo-ico">&#xf07d;</a>
+    </header>
+    <div class="flex">
+        <section class="m-list">
+        	<ul class="yo-list">
+                <li class="label">常规：</li>
+                <li class="item yo-range">
+                    <input type="range" />
+                </li>
+                <li class="label">禁用：</li>
+                <li class="item yo-range">
+                    <input type="range" disabled />
+                </li>
+                <li class="label">扩展：</li>
+                <li class="item yo-range yo-range-a">
+                    <input type="range" min="0" max="100" value="30" />
+                </li>
+                <li class="item yo-range yo-range-b">
+                    <input type="range" min="0" max="100" value="40" />
+                </li>
+                <li class="item yo-range yo-range-c">
+                    <input type="range" min="0" max="100" value="50" />
+                </li>
+                <li class="item yo-range yo-range-d">
+                    <input type="range" min="0" max="100" value="60" />
+                </li>
+                <li class="item yo-range yo-range-e">
+                    <input type="range" min="0" max="100" value="70" />
+                </li>
+                <li class="item yo-range yo-range-f">
+                    <input type="range" min="0" max="100" value="80" />
+                </li>
+            </ul>
+        </section>
+        <section class="m-desc">
+            <h3 class="title">示例描述：</h3>
+            <xmp><div class="yo-range">
     <input type="range" />
-</div>
-    </xmp>
-    <h2>假设你想要其他颜色，那么你可以这样扩展：</h2>
-    <p>命名及颜色按照各自团队内部的FE/UI规范即可</p>
-    <h3>全局扩展方式：</h3>
-    <xmp>@include yo-range(
+</div></xmp>
+            <h3 class="sub-title">假设你想要其他颜色，那么你可以这样扩展：</h3>
+            <xmp>@include yo-range(
     $name: test,
     $inner-bgcolor: #4a87ee
 );</xmp>
-    <h3>使用方法：</h3>
-    <xmp><div class="yo-range yo-range-test">
+            <h3 class="sub-title">使用方法：</h3>
+            <xmp><div class="yo-range yo-range-test">
     <input type="range" />
 </div></xmp>
-    <h3>局部扩展方式：</h3>
-    <xmp>.xxx {
-    @include yo-range(
-        $name: test,
-        $inner-bgcolor: #4a87ee
-    );
-}</xmp>
-    <h3>使用方法：</h3>
-    <xmp><div class="xxx">
-    <div class="yo-range yo-range-test">
-        <input type="range" />
-    </div>
-</div></xmp>
-    </code>
-</div>
+        </section>
 
-
-<pre class="m-code"><span class="method">@include yo-range</span><span class="bracket">(</span>
+        <pre class="m-code"><span class="method">@include yo-range</span><span class="bracket">(</span>
     $name<span class="colon">:</span>default, <mark>//{String} range名称</mark>
     $inner-bgcolor<span class="colon">:</span>default, <mark>//{Color} 定义range已选择区域滑条色</mark>
     $outer-bgcolor<span class="colon">:</span>default, <mark>//{Color} 定义range未选择区域滑条色</mark>
     $ball-color<span class="colon">:</span>default <mark>//{Color} 定义range滑块色</mark>
 <span class="bracket">)</span>
 </pre>
+    </div>
+</div>
+
+
 
 </body>
 </html>

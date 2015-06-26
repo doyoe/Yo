@@ -821,140 +821,10 @@ a {
   padding: 0.18rem 0.1rem 0.03rem;
 }
 
-/**
- * Yo框架element基础构造
- -----------------------
- * Yo内置了包括按钮，输入框，单选，多选，区间，分值等基础元素
- *
- * @class element
- * @module Yo
- */
-/**
- * @class element
- */
-/**
- * 构造按钮的自定义使用方法，可轻松自定义边框，尺寸，背景，文字等
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/element/yo-btn.html)
- * @method yo-btn
- * @param {String} $name 为新的按钮扩展定义一个名称
- * @param {Length} $border-width 按钮边框厚度
- * @param {Color} $bordercolor 按钮边框色
- * @param {Color} $bgcolor 按钮背景色
- * @param {Color} $color 按钮文本色
- * @param {Color} $active-bordercolor 触点（鼠标，手指或其它）按下时的按钮边框色
- * @param {Color} $active-bgcolor 触点（鼠标，手指或其它）按下的按钮背景色
- * @param {Color} $active-color 触点（鼠标，手指或其它）按下的按钮文本色
- * @param {Length} $padding 按钮内补白
- * @param {Length} $radius 按钮圆角半径长度
- * @param {Length} $font-size 按钮字号大小
- * @param {Length} $width 按钮宽度
- * @param {Length} $height 按钮高度
- */
-.yo-btn {
-  display: inline-block;
-  overflow: hidden;
-  padding: 0 1.2em;
-  vertical-align: top;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #e26704;
-  box-shadow: inset 0.01rem 0.01rem rgba(255, 255, 255, 0.1);
-  border-radius: 0.02rem;
-  -webkit-background-clip: padding-box !important;
-  background-clip: padding-box !important;
-  background-color: #ff801a;
-  color: #fff;
-  text-align: center;
-  cursor: pointer;
-}
-.yo-btn-s {
-  height: 0.28rem;
-  line-height: 0.28rem;
-  font-size: 0.12rem;
-}
-.yo-btn-m {
-  height: 0.36rem;
-  line-height: 0.36rem;
-  font-size: 0.14rem;
-}
-.yo-btn-l {
-  height: 0.44rem;
-  line-height: 0.44rem;
-  font-size: 0.16rem;
-}
-.yo-btn-stacked {
-  width: 100%;
+.m-list > .yo-list-group .yo-btn:not(:first-child) {
+  margin-left: .1rem;
 }
 
-.yo-btn-disabled {
-  border-color: #ccc;
-  background-color: #e0e0e0;
-  color: #bbb;
-  cursor: not-allowed;
-}
-.yo-btn-disabled, .yo-btn-disabled:focus, .yo-btn-disabled:active {
-  opacity: .4;
-}
-
-/**
- * yo-btn扩展
- * Author: joy.du(飘零雾雨)
- * Time: 2015.1.16
- */
-.yo-btn-light {
-  border-color: #ddd;
-  background-color: #fff;
-  color: #212121;
-}
-
-.yo-btn-info {
-  border-color: #0456e2;
-  background-color: #4a87ee;
-}
-
-/**
- * @class element
- */
-/**
- * 构造输入框的自定义使用方法，可同时作用于 input 与 textarea
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/element/yo-input.html)
- * @method yo-input
- * @param {String} $name 为新的扩展定义一个名称
- * @param {Length} $width 宽度
- * @param {Length} $height 高度
- * @param {Length} $padding 内补白
- * @param {Length} $radius 圆角半径长度
- * @param {Color} $bordercolor 边框色
- * @param {Color} $bgcolor 背景色
- * @param {Color} $color 文本色
- * @param {Color} $placeholder-color placeholder文本色
- */
-.yo-input {
-  width: 100%;
-  height: 0.44rem;
-  padding: 0.1rem;
-  border: 1px solid #ccc;
-  border-radius: 0.02rem;
-  -webkit-background-clip: padding-box !important;
-  background-clip: padding-box !important;
-  background-color: transparent;
-  vertical-align: top;
-}
-.yo-input, .yo-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  appearance: none;
-}
-.yo-input::-webkit-input-placeholder {
-  color: #bbb;
-}
-
-/**
- * yo-input扩展
- * Author: joy.du(飘零雾雨)
- * Time: 2015.1.16
- */
 /**
  * module: m-desc
  * Author: joy.du(飘零雾雨)
@@ -1019,6 +889,56 @@ a {
   font-size: .14rem;
 }
 
+/**
+ * Yo框架element基础构造
+ -----------------------
+ * Yo内置了包括按钮，输入框，单选，多选，区间，分值等基础元素
+ *
+ * @class element
+ * @module Yo
+ */
+/**
+ * @class element
+ */
+/**
+ * 构造输入框的自定义使用方法，可同时作用于 input 与 textarea
+ -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/element/yo-input.html)
+ * @method yo-input
+ * @param {String} $name 为新的扩展定义一个名称
+ * @param {Length} $width 宽度
+ * @param {Length} $height 高度
+ * @param {Length} $padding 内补白
+ * @param {Length} $radius 圆角半径长度
+ * @param {Color} $bordercolor 边框色
+ * @param {Color} $bgcolor 背景色
+ * @param {Color} $color 文本色
+ * @param {Color} $placeholder-color placeholder文本色
+ */
+.yo-input {
+  width: 100%;
+  height: 0.44rem;
+  padding: 0.1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.02rem;
+  -webkit-background-clip: padding-box !important;
+  background-clip: padding-box !important;
+  background-color: transparent;
+  vertical-align: top;
+}
+.yo-input, .yo-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+.yo-input::-webkit-input-placeholder {
+  color: #bbb;
+}
+
+/**
+ * yo-input扩展
+ * Author: joy.du(飘零雾雨)
+ * Time: 2015.1.16
+ */
 html,
 body {
   overflow: hidden;
