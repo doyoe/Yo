@@ -128,10 +128,10 @@
             background-color: map-get($range, ball-color);
             &::before {
                 position: absolute;
-                top: 8px;
+                top: .08rem;
                 left: -2001px;
                 width: 2000px;
-                height: 4px;
+                height: .04rem;
                 background-color: map-get($range, inner-bgcolor);
                 content: "\0020";
             }
