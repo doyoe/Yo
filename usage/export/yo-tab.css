@@ -14,15 +14,6 @@
  * @module Yo
  */
 /**
- * Yo框架全局Variables
- -----------------------
- * Yo基础变量map，如果不想定义某属性，将其value设置为null；
- * Yo仅使用2种长度单位：px用于边框，rem用于除边框之外的所有地方
- *
- * @class variables
- * @module Yo
- */
-/**
  * Yo框架全局基础方法
  -----------------------
  * Yo内置了包括响应式方案，CSS3兼容性方案，厂商前缀方案，iconfont方案，flex布局等全局方法
@@ -626,7 +617,7 @@ a {
  * Author: joy.du(飘零雾雨)
  * Time: 2013.10.17
  */
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 8rem) {
   .m-demo {
     display: -webkit-box;
     display: -webkit-flex;
@@ -639,7 +630,7 @@ a {
   min-height: 2rem;
   background-color: #f0f0f0;
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 8rem) {
   .m-demo .device {
     position: relative;
     width: 3.66rem;
@@ -725,7 +716,7 @@ a {
   padding: .1rem;
   background-color: #F0F3F8;
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 8rem) {
   .m-demo .code {
     margin: .1rem;
     border-width: 0 0 0 .04rem;

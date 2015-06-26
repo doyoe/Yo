@@ -9,15 +9,6 @@
  * @module Yo
  */
 /**
- * Yo框架全局Variables
- -----------------------
- * Yo基础变量map，如果不想定义某属性，将其value设置为null；
- * Yo仅使用2种长度单位：px用于边框，rem用于除边框之外的所有地方
- *
- * @class variables
- * @module Yo
- */
-/**
  * Yo框架全局基础方法
  -----------------------
  * Yo内置了包括响应式方案，CSS3兼容性方案，厂商前缀方案，iconfont方案，flex布局等全局方法
@@ -920,6 +911,71 @@ a {
 .yo-btn-info {
   border-color: #0456e2;
   background-color: #4a87ee;
+}
+
+/**
+ * @class element
+ */
+/**
+ * 构造提醒气泡的自定义使用方法，可以扩展为：tag, 文字ico等形态
+ -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/element/yo-btn.html)
+ * @method yo-badge
+ * @param {String} $name 为新的扩展定义一个名称，假设扩展了一个 `$name` 为 `tag` 的 `yo-badge`，那么你可以这样使用 `<span class="yo-badge yo-badge-tag">`
+ * @param {Length} $padding 内补白
+ * @param {Length} $border-width 边框厚度
+ * @param {Color} $bordercolor 边框色
+ * @param {Color} $bgcolor 背景色
+ * @param {Color} $color 文本色
+ * @param {Length} $radius 圆角半径长度
+ * @param {Length} $font-size 字号大小
+ */
+.yo-badge {
+  display: inline-block;
+  min-width: .16rem;
+  min-height: .16rem;
+  padding: 0 0.03rem;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #f00;
+  border-radius: 0.1rem;
+  -webkit-background-clip: padding-box !important;
+  background-clip: padding-box !important;
+  background-color: #f00;
+  color: #fff;
+  font-size: 0.12rem;
+  line-height: .14rem;
+  text-align: center;
+}
+
+/**
+ * yo-badge扩展
+ * Author: joy.du(飘零雾雨)
+ * Time: 2015.1.16
+ */
+.yo-badge-normal {
+  border-color: gray;
+  background-color: gray;
+}
+
+.yo-badge-hollow {
+  border-color: #666;
+  background-color: white;
+  color: #666;
+}
+
+.yo-badge-ident {
+  padding: 0;
+  border-color: #666;
+  background-color: white;
+  color: #666;
+  border-radius: 0.03rem;
+}
+
+.yo-badge-tag {
+  border-color: #aaa;
+  background-color: #aaa;
+  border-radius: 0.05rem;
 }
 
 .m-list > .yo-list-group .yo-btn:not(:first-child) {
