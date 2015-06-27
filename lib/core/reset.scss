@@ -4,13 +4,13 @@
 /**
  * Yo框架全局Reset
  -----------------------
- * Yo重置Mobile上常见的差异
+ * Yo重置Mobile及高级浏览器上常见的差异
  *
  * @class reset
  * @module Yo
  */
 
-// 1. 将元素的盒模型统一为：border-box
+// 1. 将元素的盒模型统一为: border-box
 // 2. 清除元素tap时出现的焦点框
 *,
 ::before,
@@ -21,10 +21,21 @@
 
 // 1. 防止用户自定义网页背景及文字颜色、大小影响
 html {
-    background-color: map-get($base, bgcolor);
+    background-color: map-get($base, doc-bgcolor);
     color: map-get($base, color);
     // 用于rem计算
     font-size: map-get($base, font-size-root);
+    // 为不同屏幕质量定义对应的字体大小，用于匹配viewport缩放值
+    @if map-get($setting, is-ios-1pixel) {
+        &[ios="true"] {
+            @include responsive(retina2x) {
+                font-size: map-get($base, font-size-root) * 2;
+            }
+            @include responsive(retina3x) {
+                font-size: map-get($base, font-size-root) * 3;
+            }
+        }
+    }
     // 如果是适配大小的场景
     @if map-get($base, responsive-type) == scaling {
         font-size: map-get($base, font-size-root-scaling);
@@ -38,9 +49,22 @@ html {
 // 4. 定义页面的默认字体
 body {
     margin: 0;
+    // 为不同屏幕质量定义对应的字体大小
     font-size: map-get($base, font-size);
     line-height: map-get($base, line-height);
     font-family: map-get($base, font-family);
+}
+
+// 为不同屏幕质量定义对应的字体大小，用于匹配viewport缩放值
+@if map-get($setting, is-ios-1pixel) {
+    html[ios="true"] body {
+        @include responsive(retina2x) {
+            font-size: map-get($base, font-size) * 2;
+        }
+        @include responsive(retina3x) {
+            font-size: map-get($base, font-size) * 3;
+        }
+    }
 }
 
 // 1. 清除某些元素在不同浏览器下内外补白不同造成的影响
@@ -103,7 +127,7 @@ select {
     font-size: inherit;
 }
 
-// 1. 重置斜体表现的元素为正常文本
+// 1. 重置斜体表现为正常文本
 address,
 cite,
 dfn,
@@ -190,7 +214,7 @@ a {
 }
 
 // 1. 让表单元素具有颜色继承
-// 2. iOS上当禁用时会设置opacity:.4
+// 2. iOS上当禁用时会设置opacity: .4
 input,
 textarea,
 button,
@@ -213,7 +237,7 @@ input[type="button"],
 input[type="submit"],
 input[type="reset"],
 input[type="file"]::-webkit-file-upload-button {
-    @include appearance(none);
+    @include appearance;
 }
 
 // 1. 重置mark元素的默认背景色
@@ -242,11 +266,14 @@ a {
     color: map-get($base, link-color);
 }
 
+// 1. fix Android Browser 4.2.* 及以下 input:checked ~ .xxx 失效的问题
+html + input {}
+
 // 1. 预设清除浮动
 .g-clear,
 .g-mod {
-    @include clearfix();
+    @include clearfix;
 }
 
 // 1. 使用字体图标
-@include yofont();
+@include yofont;

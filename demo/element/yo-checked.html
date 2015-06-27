@@ -2,22 +2,26 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <meta name="format-detection" content="telephone=no,email=no" />
 <link rel="apple-touch-icon-precomposed" href="/qunar-touch.png" />
 <title>yo-checked - 单选和多选</title>
-<link rel="stylesheet" href="../../usage/demo/export/yo-all.css" />
+<script src="../../js/viewport.js"></script>
+<link rel="stylesheet" href="../../usage/export/yo-checked.css" />
 </head>
 <body>
-<div class="m-demo">
-    <div class="device">
-    <div class="stage">
-        <h2 class="yo-header">Radio checked</h2>
-        <div class="wrap">
-            <div class="yo-list">
-                <h3 class="label">默认</h3>
+
+<div class="yo-flex">
+    <header class="yo-header m-header">
+        <h2 class="title">yo-checked</h2>
+        <a href="../index.html" class="regret yo-ico">&#xf07d;</a>
+    </header>
+    <div class="flex">
+        <section class="m-list">
+            <div class="yo-list yo-list-group">
+                <h3 class="label">单选框 - 默认</h3>
                 <label class="item item-active">
                     <span class="mark flex">Yo</span>
                     <div class="yo-checked">
@@ -32,7 +36,7 @@
                         <span class="type"></span>
                     </div>
                 </label>
-                <h3 class="label">扩展边框</h3>
+                <h3 class="label">单选框 - 扩展边框</h3>
                 <label class="item item-active">
                     <span class="mark flex">Yo</span>
                     <div class="yo-checked yo-checked-a">
@@ -47,7 +51,7 @@
                         <span class="type"></span>
                     </div>
                 </label>
-                <h3 class="label">扩展背景</h3>
+                <h3 class="label">单选框 - 扩展背景</h3>
                 <label class="item item-active">
                     <span class="mark flex">Yo</span>
                     <div class="yo-checked yo-checked-b">
@@ -62,7 +66,7 @@
                         <span class="type"></span>
                     </div>
                 </label>
-                <h3 class="label">扩展圆角</h3>
+                <h3 class="label">单选框 - 扩展圆角</h3>
                 <label class="item item-active">
                     <span class="mark flex">Yo</span>
                     <div class="yo-checked yo-checked-c">
@@ -77,7 +81,7 @@
                         <span class="type"></span>
                     </div>
                 </label>
-                <h3 class="label">圆点</h3>
+                <h3 class="label">单选框 - 圆点</h3>
                 <label class="item item-active">
                     <span class="mark flex">Yo</span>
                     <div class="yo-checked yo-checked-d">
@@ -92,7 +96,7 @@
                         <span class="type"></span>
                     </div>
                 </label>
-                <h3 class="label">扩展边框</h3>
+                <h3 class="label">单选框 - 扩展边框</h3>
                 <label class="item item-active">
                     <span class="mark flex">Yo</span>
                     <div class="yo-checked yo-checked-e">
@@ -107,7 +111,7 @@
                         <span class="type"></span>
                     </div>
                 </label>
-                <h3 class="label">扩展背景</h3>
+                <h3 class="label">单选框 - 扩展背景</h3>
                 <label class="item item-active">
                     <span class="mark flex">Yo</span>
                     <div class="yo-checked yo-checked-f">
@@ -122,7 +126,7 @@
                         <span class="type"></span>
                     </div>
                 </label>
-                <h3 class="label">扩展圆角</h3>
+                <h3 class="label">单选框 - 扩展圆角</h3>
                 <label class="item item-active">
                     <span class="mark flex">Yo</span>
                     <div class="yo-checked yo-checked-g">
@@ -138,53 +142,34 @@
                     </div>
                 </label>
             </div>
-        </div>
-    </div>
-    </div>
-    <code class="code">
-
-    <xmp><div class="yo-list">
-    <label class="item item-active">
-        <span class="mark flex">Yo</span>
-        <div class="yo-checked">
-            <input type="radio" name="project" checked />
-            <span class="type"></span>
-        </div>
-    </label>
-    <label class="item item-active">
-        <span class="mark flex">Mobile</span>
-        <div class="yo-checked">
-            <input type="radio" name="project" />
-            <span class="type"></span>
-        </div>
-    </label>
+        </section>
+        <section class="m-desc">
+            <h3 class="title">使用方法：</h3>
+            <xmp><div class="yo-checked">
+    <input type="radio" name="project" checked />
+    <span class="type"></span>
+</div>
+<div class="yo-checked">
+    <input type="radio" name="project" />
+    <span class="type"></span>
 </div></xmp>
 
-    <h2>假设你想要其他颜色，那么你可以这样扩展：</h2>
-    <p>命名及颜色按照各自团队内部的FE/UI规范即可</p>
-
-    <h3>全局扩展方式：</h3>
+    <h3 class="sub-title">假设你想要多种风格，只需这样扩展：</h3>
     <xmp>@include yo-checked(
     $name: test,
     $bordercolor: #4a87ee,
     $radius: 50%
 );</xmp>
-    <h3>使用方法：</h3>
+    <h3 class="sub-title">使用方法：</h3>
     <xmp><div class="yo-checked yo-checked-test">
     <input type="radio" name="project" />
     <span class="type"></span>
 </div></xmp>
-    </code>
-</div>
+        </section>
 
-
-<div class="m-demo">
-    <div class="device">
-    <div class="stage">
-        <h2 class="yo-header">Checkbox checked</h2>
-        <div class="wrap">
-            <div class="yo-list">
-                <h3 class="label">默认</h3>
+        <section class="m-list">
+            <div class="yo-list yo-list-group">
+                <h3 class="label">复选框 - 默认</h3>
                 <label class="item item-active">
                     <span class="mark flex">Yo</span>
                     <div class="yo-checked">
@@ -199,7 +184,7 @@
                         <span class="type"></span>
                     </div>
                 </label>
-                <h3 class="label">扩展边框</h3>
+                <h3 class="label">复选框 - 扩展边框</h3>
                 <label class="item item-active">
                     <span class="mark flex">Yo</span>
                     <div class="yo-checked yo-checked-a">
@@ -214,7 +199,7 @@
                         <span class="type"></span>
                     </div>
                 </label>
-                <h3 class="label">扩展背景</h3>
+                <h3 class="label">复选框 - 扩展背景</h3>
                 <label class="item item-active">
                     <span class="mark flex">Yo</span>
                     <div class="yo-checked yo-checked-b">
@@ -229,7 +214,7 @@
                         <span class="type"></span>
                     </div>
                 </label>
-                <h3 class="label">扩展圆角</h3>
+                <h3 class="label">复选框 - 扩展圆角</h3>
                 <label class="item item-active">
                     <span class="mark flex">Yo</span>
                     <div class="yo-checked yo-checked-c">
@@ -244,7 +229,7 @@
                         <span class="type"></span>
                     </div>
                 </label>
-                <h3 class="label">圆点</h3>
+                <h3 class="label">复选框 - 圆点</h3>
                 <label class="item item-active">
                     <span class="mark flex">Yo</span>
                     <div class="yo-checked yo-checked-d">
@@ -259,7 +244,7 @@
                         <span class="type"></span>
                     </div>
                 </label>
-                <h3 class="label">扩展边框</h3>
+                <h3 class="label">复选框 - 扩展边框</h3>
                 <label class="item item-active">
                     <span class="mark flex">Yo</span>
                     <div class="yo-checked yo-checked-e">
@@ -274,7 +259,7 @@
                         <span class="type"></span>
                     </div>
                 </label>
-                <h3 class="label">扩展背景</h3>
+                <h3 class="label">复选框 - 扩展背景</h3>
                 <label class="item item-active">
                     <span class="mark flex">Yo</span>
                     <div class="yo-checked yo-checked-f">
@@ -289,7 +274,7 @@
                         <span class="type"></span>
                     </div>
                 </label>
-                <h3 class="label">扩展圆角</h3>
+                <h3 class="label">复选框 - 扩展圆角</h3>
                 <label class="item item-active">
                     <span class="mark flex">Yo</span>
                     <div class="yo-checked yo-checked-g">
@@ -305,47 +290,34 @@
                     </div>
                 </label>
             </div>
-        </div>
-    </div>
-    </div>
-    <code class="code">
+        </section>
 
-    <xmp><div class="yo-list">
-    <label class="item item-active">
-        <span class="mark flex">Yo</span>
-        <div class="yo-checked">
-            <input type="radio" name="project" checked />
-            <span class="type"></span>
-        </div>
-    </label>
-    <label class="item item-active">
-        <span class="mark flex">Mobile</span>
-        <div class="yo-checked">
-            <input type="radio" name="project" />
-            <span class="type"></span>
-        </div>
-    </label>
+        <section class="m-desc">
+            <h3 class="title">使用方法：</h3>
+            <xmp><div class="yo-checked">
+    <input type="checkbox" name="project" checked />
+    <span class="type"></span>
+</div>
+<div class="yo-checked">
+    <input type="checkbox" name="project" />
+    <span class="type"></span>
 </div></xmp>
 
-    <h2>假设你想要其他颜色，那么你可以这样扩展：</h2>
-    <p>命名及颜色按照各自团队内部的FE/UI规范即可</p>
+            <h3 class="sub-title">假设你想要多种风格，只需这样扩展：</h3>
 
-    <h3>全局扩展方式：</h3>
-    <xmp>@include yo-checked(
+            <xmp>@include yo-checked(
     $name: test,
     $bordercolor: #4a87ee,
     $radius: 50%
 );</xmp>
-    <h3>使用方法：</h3>
-    <xmp><div class="yo-checked yo-checked-test">
+            <h3 class="sub-title">使用方法：</h3>
+            <xmp><div class="yo-checked yo-checked-test">
     <input type="checkbox" name="project" />
     <span class="type"></span>
 </div></xmp>
-    </code>
-</div>
+        </section>
 
-
-<pre class="m-code"><span class="method">@include yo-checked</span><span class="bracket">(</span>
+        <pre class="m-code"><span class="method">@include yo-checked</span><span class="bracket">(</span>
     $name<span class="colon">:</span>default, <mark>//{String} 定义名称</mark>
     $content<span class="colon">:</span>default, <mark>//{String} 选中时的标记内容</mark>
     $size<span class="colon">:</span>default, <mark>//{Length} 元件大小</mark>
@@ -360,6 +332,8 @@
     $radius<span class="colon">:</span>default <mark>//{Length} 定义圆角大小</mark>
 <span class="bracket">)</span>
 </pre>
+    </div>
+</div>
 
 </body>
 </html>

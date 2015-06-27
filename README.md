@@ -29,39 +29,47 @@
 
 待发布...
 
+## Notice
+
+Yo约束了2种项目所使用的长度单位
+
+* 所有涉及到 `border` 的长度单位都是用 `px`；
+* 除 `border` 外，所有的长度设置都是用 `rem` 单位；
+
 ## Versioning
 
-### Developing: v1.5.0
+### Developing: v1.8.0
 
-* TODO...
+* update: `yo-header`
+    - 新增 `item-ico-color` 参数用以两侧ico颜色
+* add: `yo-align`
+    - 新增 `yo-align` 布局方式，用于设置元素的水平及垂直对齐方式
+* update: `yo-btn`
+    - 新增 `width`, `height` 2个变量用于控制按钮大小
+* update: `yo-list`
+    - 新增 `item-border-space` 变量用于控制列表项底线距左边的间隙
 
-### Lastest: v1.4.0
+
+### Lastest: v1.7.0
 
 * update:
-    - 删除了 `layout.scss`，如果当前页面需要设置root是否允许滚动，使用 `root-scroll()` 方法
-    - 新增 `yo-flex` 弹性布局方法
-* update: `flex` 方法
-    - 删除 `flex` 方法的 `display: block` 设置，如果参与flex布局，请自行使用非inline元素
-* update: `yo-badge`
-    - 新增 `padding` 参数用于设置内补白
-    - 新增 `border-width` 参数用于设置边框厚度
-* update: `yo-btn`
-    - 新增 `border-width` 参数用于设置边框厚度
-* update: `yo-checked`
-    - 删除 `type` 参数，不再使用该参数设置来判定使用哪个标记
-    - 新增 `content` 参数用于设置标记，可以直接传字符或者iconfont
-    - 新增 `font-size` 参数用于标记大小
-    - 新增 `border-width` 参数用于设置边框厚度
-    - 新增 `color` 参数用于未选中状态时的标记颜色
-* add `background-size` 方法
-* update: `yo-header`
-    - 增加 `item-ico-size` 参数，用于设置两侧ico的大小
-* update: `yo-list`
-    - 删除 `is-outline` 参数，新增 `border-width` 参数用于设置外边框厚度
-    - 增加 `on-color` 参数，用于设置列表项选中时文本色
-    - 删除列表项的 `min-height` 定义
-* update: `yo-search`
-    - 增加 `cancel-width` 参数，用于设置取消按钮区域的宽度
+    - 修订了 `transition` global classes 方法
+    - 给所有的 `yo-xxx` 方法增加了增量扩展的特性，当你自定义button时，可以这样写：
+```
+    @include yo-btn(
+        $name: test,
+        $border-width: .02rem,
+        $bgcolor: red
+    ){
+        // 这里可以用来增量定义当前 `yo-btn` 方法没有提供的参数扩展
+        postion: absolute;
+        top: 0;
+        left: 0;
+    }
+```
+* add:
+    - 新增了 `calc` global classes 方法
+    - 新增了 `fullscreen` global classes 方法，可传入 `z-index` 值
 
 
 ### History

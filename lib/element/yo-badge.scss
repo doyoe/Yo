@@ -104,6 +104,7 @@
         }
         // 如果$radius不等于config设定，则重绘圆角
         @if $radius != map-get($badge, radius) {
+            // 构造里已处理过边框+圆角+背景溢出的问题，所以这里写原生即可
             border-radius: $radius;
         }
         // 如果$font-size不等于config设定，则重绘字号
@@ -115,6 +116,8 @@
                 line-height: $font-size;
             }
         }
+        // 增量扩展
+        @content;
     }
 }
 

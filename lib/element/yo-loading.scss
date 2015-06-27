@@ -1,5 +1,6 @@
 @charset "utf-8";
 @import "classes";
+@import "../ani/rotate";
 
 /**
  * @class element
@@ -11,18 +12,24 @@
  * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/element/yo-loading.html)
  * @method yo-loading
  * @param {String} $name 为新的扩展定义一个名称
- * @param {Length} $size loading的尺寸
- * @param {Color} $color loading的颜色
- * @param {Color} $mask-bgcolor 遮罩背景色
+ * @param {Length} $ico-size loading的尺寸
+ * @param {Color} $ico-color loading的颜色
  * @param {Color} $bgcolor 背景色
+ * @param {Color} $mask-bgcolor 遮罩背景色
+ * @param {Length} $font-size 文本字号
+ * @param {Color} $color 文本颜色
+ * @param {String} $content loading形态
  */
 
 @mixin yo-loading(
     $name: default,
-    $size: default,
-    $color: default,
+    $ico-size: default,
+    $ico-color: default,
+    $bgcolor: default,
     $mask-bgcolor: default,
-    $bgcolor: default) {
+    $font-size: default,
+    $color: default,
+    $content: default) {
     // 区别是否新增实例还是修改本身
     @if $name == default {
         $name: "";
@@ -30,68 +37,62 @@
         $name: "-#{$name}";
     }
     // 如果值为default，则取config的定义
-    @if $size == default {
-        $size: map-get($loading, size);
+    @if $ico-size == default {
+        $ico-size: map-get($loading, ico-size);
     }
-    @if $color == default {
-        $color: map-get($loading, color);
-    }
-    @if $mask-bgcolor == default {
-        $mask-bgcolor: map-get($loading, mask-bgcolor);
+    @if $ico-color == default {
+        $ico-color: map-get($loading, ico-color);
     }
     @if $bgcolor == default {
         $bgcolor: map-get($loading, bgcolor);
     }
+    @if $mask-bgcolor == default {
+        $mask-bgcolor: map-get($loading, mask-bgcolor);
+    }
+    @if $font-size == default {
+        $font-size: map-get($loading, font-size);
+    }
+    @if $color == default {
+        $color: map-get($loading, color);
+    }
+    @if $content == default {
+        $content: map-get($loading, content);
+    }
     .yo-loading#{$name} {
-        // 如果$size不等于config预设值时，则重设容器高度
-        @if $size != map-get($loading, size) {
-            min-width: $size + .2rem;
-            min-height: $size + .2rem;
-        }
         // 如果$bgcolor不等于config预设值时，则重写遮罩背景色
         @if $mask-bgcolor != map-get($loading, mask-bgcolor) {
             background-color: $mask-bgcolor;
         }
-
-        &:before{
-            @if $size != map-get($loading, size) {
-                @include square($size * 2);
-            }
+        > .inner {
             @if $bgcolor != map-get($loading, bgcolor) {
                 background-color: $bgcolor;
             }
-        }
-        &:after{
-            // 如果$size不等于config预设值时，则重设尺寸
-            @if $size != map-get($loading, size) {
-                font-size: $size;
-            }
             @if $color != map-get($loading, color) {
                 color: $color;
             }
-        }
-        > .inner{
-            @if $size != map-get($loading, size) {
-                margin-top: $size - .18rem;
+            @if $font-size != map-get($loading, font-size) {
+                font-size: $font-size;
             }
-            @if $color != map-get($loading, color) {
-                color: $color;
+            > .yo-ico {
+                &::before {
+                    @if $content != map-get($loading, content) {
+                        content: $content;
+                    }
+                    @if $ico-color != map-get($loading, ico-color) {
+                        color: $ico-color;
+                    }
+                    @if $ico-size != map-get($loading, ico-size) {
+                        font-size: $ico-size;
+                    }
+                }
             }
         }
+        // 增量扩展
+        @content;
     }
 }
 
 // 调用本文件时载入loading基础构造
 .yo-loading {
     @include _loading;
-    @at-root{
-        @-webkit-keyframes loading {
-            from{-webkit-transform: rotatez(0);}
-            to{-webkit-transform: rotatez(360deg);}
-        }
-        @keyframes loading {
-            from{transform: rotatez(0);}
-            to{transform: rotatez(360deg);}
-        }
-    }
 }

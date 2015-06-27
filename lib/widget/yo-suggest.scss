@@ -1,0 +1,192 @@
+@charset "utf-8";
+@import "classes";
+
+/**
+ * @class widget
+ */
+
+/**
+ * 构造列表的自定义使用方法
+ -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-suggest.html)
+ * @method yo-suggest
+ * @param {default | String} $name 定义yo-suggest名称
+ * @param {default | Length} $height 定义yo-suggest高度
+ * @param {default | Length} $font-size 定义yo-suggest文本大小
+ * @param {default | Length} $op-padding 定义yo-suggest内补白
+ * @param {default | Length} $radius 定义yo-suggest圆角
+ * @param {default | Color} $bordercolor 定义yo-suggest边框色
+ * @param {default | Color} $bgcolor 定义yo-suggest背景色
+ * @param {default | Color} $color 定义yo-suggest文本色
+ * @param {default | Color} $on-bordercolor 定义yo-suggest激活边框色
+ * @param {default | Color} $on-bgcolor 定义yo-suggest激活背景色
+ * @param {default | Color} $placeholder-color 定义yo-suggest占位背景色
+ * @param {default | Color} $ico-color 定义yo-suggest 操作区ico颜色
+ * @param {default | Color} $cancel-color 定义yo-suggest取消按钮颜色
+ * @param {default | Color} $op-bgcolor 定义yo-suggest搜索区域背景色
+ * @param {default | Color} $mask-bgcolor 定义yo-suggest遮罩背景色
+ * @param {default | Length} $cancel-width 取消按钮区域宽度
+ */
+
+@mixin yo-suggest(
+    $name: default,
+    $height: default,
+    $font-size: default,
+    $op-padding: default,
+    $radius: default,
+    $bordercolor: default,
+    $bgcolor: default,
+    $color: default,
+    $on-bordercolor: default,
+    $on-bgcolor: default,
+    $placeholder-color: default,
+    $ico-color: default,
+    $cancel-color: default,
+    $op-bgcolor: default,
+    $mask-bgcolor: default,
+    $cancel-width: default) {
+    // 区别是否新增实例还是修改本身
+    @if $name == default {
+        $name: "";
+    } @else {
+        $name: "-#{$name}";
+    }
+    // 如果值为default，则取config的定义
+    @if $height == default {
+        $height: map-get($suggest, height);
+    }
+    @if $font-size == default {
+        $font-size: map-get($suggest, font-size);
+    }
+    @if $op-padding == default {
+        $op-padding: map-get($suggest, op-padding);
+    }
+    @if $radius == default {
+        $radius: map-get($suggest, radius);
+    }
+    @if $bordercolor == default {
+        $bordercolor: map-get($suggest, bordercolor);
+    }
+    @if $bgcolor == default {
+        $bgcolor: map-get($suggest, bgcolor);
+    }
+    @if $color == default {
+        $color: map-get($suggest,color);
+    }
+    @if $on-bordercolor == default {
+        $on-bordercolor: map-get($suggest, on-bordercolor);
+    }
+    @if $on-bgcolor == default {
+        $on-bgcolor: map-get($suggest, on-bgcolor);
+    }
+    @if $placeholder-color == default {
+        $placeholder-color: map-get($suggest, placeholder-color);
+    }
+    @if $ico-color == default {
+        $ico-color: map-get($suggest, ico-color);
+    }
+    @if $cancel-color == default {
+        $cancel-color: map-get($suggest, cancel-color);
+    }
+    @if $op-bgcolor == default {
+        $op-bgcolor: map-get($suggest, op-bgcolor);
+    }
+    @if $mask-bgcolor == default {
+        $mask-bgcolor: map-get($suggest, mask-bgcolor);
+    }
+    @if $cancel-width == default {
+        $cancel-width: map-get($suggest, cancel-width);
+    }
+    .yo-suggest#{$name} {
+        > .operate {
+            @if $font-size != map-get($suggest, font-size) {
+                font-size: $font-size;
+            }
+            @if $height != map-get($suggest, height) {
+                line-height: $height;
+            }
+            @if $op-padding != map-get($suggest, op-padding) {
+                padding: $op-padding;
+            }
+            @if $bordercolor != map-get($suggest, bordercolor) {
+                border-bottom-color: $bordercolor;
+            }
+            @if $op-bgcolor != map-get($suggest, op-bgcolor) {
+                background-color: $op-bgcolor;
+            }
+            > .action {
+                @if $height != map-get($suggest, height) {
+                    height: $height;
+                }
+                > .input {
+                    @if $bordercolor != map-get($suggest, bordercolor) {
+                        border-color: $bordercolor;
+                    }
+                    @if $radius != map-get($suggest, radius) {
+                        border-radius: $radius;
+                    }
+                    @if $bgcolor != map-get($suggest, bgcolor) {
+                        background-color: $bgcolor;
+                    }
+                    @if $color != map-get($suggest, color) {
+                        color: $color;
+                    }
+                    @if $font-size != map-get($suggest, font-size) {
+                        font-size: $font-size;
+                    }
+                }
+                > .yo-ico-delete,
+                > .yo-ico-fresh,
+                > .yo-ico-stop {
+                    @if $ico-color != map-get($suggest, ico-color) {
+                        color: $ico-color;
+                    }
+                }
+                > .label {
+                    @if $placeholder-color != map-get($suggest, placeholder-color) {
+                        color: $placeholder-color;
+                    }
+                }
+            }
+            > .cancel {
+                @if $cancel-width != map-get($suggest, cancel-width) {
+                    width: $cancel-width;
+                }
+                @if $cancel-color != map-get($suggest, cancel-color) {
+                    color: $cancel-color;
+                }
+            }
+            &-on,
+            &-fresh,
+            &-stop {
+                > .action > .input {
+                    @if $on-bordercolor != map-get($suggest, on-bordercolor) {
+                        border-color: $on-bordercolor;
+                    }
+                    @if $on-bgcolor != map-get($suggest, on-bgcolor) {
+                        background-color: $on-bgcolor;
+                    }
+                }
+            }
+            &-on {
+                > .action {
+                    @if $cancel-width != map-get($suggest, cancel-width) {
+                        margin-right: $cancel-width;
+                    }
+                }
+            }
+        }
+        > .cont {
+            @if $mask-bgcolor != map-get($suggest, mask-bgcolor) {
+                background-color: rgba($mask-bgcolor, .9);
+            }
+        }
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入suggest基础构造
+.yo-suggest {
+    @include _suggest;
+}

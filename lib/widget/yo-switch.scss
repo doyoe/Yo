@@ -69,6 +69,8 @@
                 background-color: $checked-bgcolor;
             }
         }
+        // 增量扩展
+        @content;
     }
 }
 

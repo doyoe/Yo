@@ -19,7 +19,9 @@
  * @param {Color} $color 定义yo-header文本色
  * @param {Length} $font-size 定义yo-header文本大小
  * @param {Color} $item-color 定义yo-header两侧的子项文本色
+ * @param {Color} $item-ico-color 定义yo-header两侧的ico色
  * @param {Length} $item-font-size 定义yo-header两侧的子项文本大小
+ * @param {Length} $item-ico-size 定义yo-header两侧的ico大小
  */
 
 @mixin yo-header(
@@ -32,6 +34,7 @@
     $color: default,
     $font-size: default,
     $item-color: default,
+    $item-ico-color: default,
     $item-font-size: default,
     $item-ico-size: default) {
     // 区别是否新增实例还是修改本身
@@ -64,6 +67,9 @@
     }
     @if $item-color == default {
         $item-color: map-get($header, item-color);
+    }
+    @if $item-ico-color == default {
+        $item-ico-color: map-get($header, item-ico-color);
     }
     @if $item-font-size == default {
         $item-font-size: map-get($header, item-font-size);
@@ -106,6 +112,9 @@
             }
             &.yo-ico,
             > .yo-ico {
+                @if $item-ico-color != map-get($header, item-ico-color) {
+                    color: $item-ico-color;
+                }
                 @if $item-ico-size != map-get($header, item-ico-size) {
                     font-size: $item-ico-size;
                 }
@@ -119,6 +128,8 @@
                     padding-right: $item-space;
             }
         }
+        // 增量扩展
+        @content;
     }
 }
 

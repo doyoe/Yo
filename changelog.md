@@ -2,6 +2,66 @@
 
 History Version and release time.
 
+<a name="v1-7-0"></a>
+## v1.7.0 (2015.6.3)
+
+[Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v1.7.0)
+
+* update:
+    - 修订了 `transition` global classes 方法
+    - 给所有的 `yo-xxx` 方法增加了增量扩展的特性，当你自定义button时，可以这样写：
+```
+    @include yo-btn(
+        $name: test,
+        $border-width: .02rem
+        $bgcolor: red
+    ){
+        // 这里可以用来增量定义当前 `yo-btn` 方法没有提供的参数扩展
+        postion: absolute;
+        top: 0;
+        left: 0;
+    }
+```
+* add:
+    - 新增了 `calc` global classes 方法
+    - 新增了 `fullscreen` global classes 方法，可传入 `z-index` 值
+
+<a name="v1-6-0"></a>
+## v1.6.0 (2015.5.25)
+
+[Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v1.6.0)
+
+* add:
+    - 新增了 `background-clip` global classes 方法
+    - 新增了 `background-origin` global classes 方法
+    - 新增了 `border-radius` global classes 方法，在其内部处理了某些Android Browser上“边框+背景”，背景溢出圆角的问题
+* add: `yo-panel`
+    - 新增 `yo-panel`，以后会缓步替代 `yo-group`
+* update: `yo-search`
+    - `yo-search` 更名为 `yo-suggest`
+    - 去除 `非独占` 形态下的 `取消` 按钮
+    - 新增输入时loading状态
+* update: `ani`
+    - 新增 `rotate` 动画
+
+<a name="v1-5-0"></a>
+## v1.5.0 (2015.4.30)
+
+[Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v1.5.0)
+
+* update: `yo-tab`
+    - 删除tab子项的:active状态
+    - 选中状态只保留 `item-on` 类名，删除 `on`
+* update: `yo-loading`
+    - loading换成webfonts
+    - `size` 参数改成 `ico-size`
+    - `color` 参数改成 `ico-color`
+    - 新增 `font-size` 参数用以控制文本大小
+    - 新增 `color` 参数用以控制文本颜色
+    - 新增 `content` 参数用以控制loading的形态，可传入webfonts编码
+* update:
+    - 删除元素 `yo-checkbox` 和 `yo-radio`，如已使用可以直接改用 `yo-checked`
+
 <a name="v1-4-0"></a>
 ## v1.4.0 (2015.4.16)
 

@@ -23,14 +23,28 @@
 @mixin _flex {
     height: 100%;
     &,
-    > .flex-inherit {
+    .flex-inherit {
         @include flexbox(map-get($flex, box));
         @include flex-direction(map-get($flex, direction));
-        &,
-        > .flex {
-            @include flex;
-            position: relative;
-            overflow: hidden;
-        }
+        overflow: hidden;
     }
+    > .flex,
+    .flex-inherit,
+    .flex-inherit > .flex {
+        @include flex(1, column);
+        position: relative;
+    }
+    > .flex,
+    .flex-inherit > .flex {
+        @include overflow;
+    }
+}
+
+// 定义常见水平垂直居中布局
+// 使用方法请查看 yo-align.scss
+@mixin _align {
+    @include flexbox;
+    @include fullscreen;
+    @include align-items;
+    @include justify-content;
 }

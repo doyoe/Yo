@@ -2,7 +2,8 @@
 /**
  * Yo框架全局Variables
  -----------------------
- * Yo基础变量map，如果不想定义某属性，将其value设置为null
+ * Yo基础变量map，如果不想定义某属性，将其value设置为null；
+ * Yo仅使用2种长度单位：px用于边框，rem用于除边框之外的所有地方
  *
  * @class variables
  * @module Yo
@@ -10,41 +11,15 @@
 
 $setting: (
     // 版本号
-    version:          "1.0.0",
+    version:          "1.7.0",
     // 是否开启厂商前缀
     is-vendor-prefix: true,
     // 厂商前缀
     vendor-prefix:    -webkit-,
+    // 是否开启iOS 1px方案
+    is-ios-1pixel:    true,
     // 背景图片服务器
-    bgimg-domain:     "../../../bgimg/"
-) !default;
-
-// Layout Stacked
-$stacked: (
-    // {Length} 区块外边距
-    margin: .2rem .1rem
-) !default;
-
-// Layout flex
-$flex: (
-    // {String} 定义弹性布局是flex还是inline-flex
-    box: flex,
-    // {String} 定义是水平布局还是垂直布局
-    direction: column
-) !default;
-
-// responsive media types
-$media-types: (
-    // {String} 横屏
-    landscape: "screen and (orientation: landscape)",
-    // {String} 竖屏
-    portrait:  "screen and (orientation: portrait)",
-    // {String} 视网膜屏
-    retina:    "screen and (-webkit-min-device-pixel-ratio: 2)",
-    // {String} PC
-    pc:        "screen and (min-width: 800px)",
-    // {String} mobile
-    mobile:    "screen and (max-width: 799px)"
+    bgimg-domain:     "../../bgimg/"
 ) !default;
 
 // base
@@ -63,26 +38,27 @@ $base: (
     font-size:            14px,
     // font-family
     // escape('微软雅黑').replace(/\%u/g,'\\').toLowerCase()
-    // 可参考http://alloyteam.github.io/Spirit/modules/Standard/index.html
     font-family:          #{"Helvetica Neue", Helvetica, STHeiTi, sans-serif},
     // lin-height
     line-height:          1.5,
     // 默认文档背景色
-    doc-bgcolor:          #fafafa,
+    doc-bgcolor:          #f9f9f9,
     // 默认边框色
-    bordercolor:          #ddd,
+    bordercolor:          #ccc,
+    // 默认次级边框色
+    sub-bordercolor:      #ddd,
     // 默认背景颜色
     bgcolor:              #fafafa,
     // 默认文本颜色
     color:                #212121,
     // 默认次级文本颜色
-    sub-color:            #9e9e9e,
+    sub-color:            #666,
     // 默认边框色
-    disabled-bordercolor: #bbb,
+    disabled-bordercolor: #ccc,
     // 默认文档颜色
-    disabled-bgcolor:     #ccc,
+    disabled-bgcolor:     #e0e0e0,
     // 默认禁用文本颜色
-    disabled-color:       #f9f9f9,
+    disabled-color:       #bbb,
     // 高亮色
     light-color:          #FE0053,
     // 价格颜色
@@ -94,28 +70,78 @@ $base: (
     link-hover-color:     #f60
 ) !default;
 
+// responsive media types
+$media-types: (
+    // {String} 横屏
+    landscape: "screen and (orientation: landscape)",
+    // {String} 竖屏
+    portrait:  "screen and (orientation: portrait)",
+    // {String} 视网膜屏2x
+    retina2x:  "(min--moz-device-pixel-ratio: 1.5),
+                (-webkit-min-device-pixel-ratio: 1.5),
+                (min-device-pixel-ratio: 1.5),
+                (min-resolution: 144dpi),
+                (min-resolution: 1.5dppx)",
+    // {String} 视网膜屏3x
+    retina3x:  "(min--moz-device-pixel-ratio: 2.5),
+                (-webkit-min-device-pixel-ratio: 2.5),
+                (min-device-pixel-ratio: 2.5),
+                (min-resolution: 240dpi),
+                (min-resolution: 2.5dppx)",
+    // {String} PC
+    pc:        "(min-width: 8rem)",
+    // {String} mobile
+    mobile:    "(max-width: 7.99rem)"
+) !default;
+
 // ico font
 $ico: (
     // {Boole} 是否使用图标字体
     is-use:     true,
     // {String} 图标字体文件名
     font-name:  yofont,
-    // {String} 使用哪几种图标
-    font-types: eot,
     // {Url} 图标字体路径
-    font-path:  "../../../font/"
+    font-path:  "../../font/"
 ) !default;
 
-// Element loading(4)
+// Layout Stacked
+$stacked: (
+    // {Length} 区块外边距
+    margin: .2rem .1rem
+) !default;
+
+// Layout flex
+$flex: (
+    // {String} 定义弹性布局: flex |inline-flex
+    box: flex,
+    // {String} 定义是水平布局还是垂直布局: row | column
+    direction: column
+) !default;
+
+// Layout align
+$align: (
+    // {String} 定义弹性水平对齐方式
+    text-align: center,
+    // {String} 定义弹性垂直对齐方式
+    vertical-align: center
+) !default;
+
+// Element loading(7)
 $loading: (
     // {Length} 菊花大小
-    size:        .5rem,
+    ico-size:     .5rem,
     // {Color} 菊花颜色
-    color:       #333,
+    ico-color:    #212121,
     // {Color} mask颜色
-    mask-bgcolor:rgba(0, 0, 0, .1),
+    mask-bgcolor: rgba(0, 0, 0, .1),
     // {Color} 背景颜色
-    bgcolor:     null
+    bgcolor:      null,
+    // {Length} 字号
+    font-size:    .14rem,
+    // {Color} 文本颜色
+    color:        map-get($base, color),
+    // {String} loading的ico编码，自定义的webfont
+    content:      "\f089"
 ) !default;
 
 // Element Input(8)
@@ -138,10 +164,10 @@ $input: (
     placeholder-color: #bbb
 ) !default;
 
-// Element Button(16)
+// Element Button(18)
 $btn: (
     // {Color} Length
-    border-width:   .01rem,
+    border-width:   1px,
     // {Color} 边框色
     bordercolor:    #e26704,
     // {Color} 背景色
@@ -160,6 +186,10 @@ $btn: (
     radius:         .02rem,
     // {Length} 字号
     font-size:      null,
+    // {Length} 宽度
+    width:          null,
+    // {Length} 高度
+    height:         null,
     // {Length} 默认预设3种尺寸按钮：
     // small
     s-height:       .28rem,
@@ -177,7 +207,7 @@ $badge: (
     // {Length} 内补白
     padding:      0 .03rem,
     // {Color} 边框厚度
-    border-width: .01rem,
+    border-width: 1px,
     // {Color} 边框色
     bordercolor:  #f00,
     // {Color} 背景色
@@ -213,46 +243,6 @@ $checked: (
     // {Color} 激活标记颜色
     on-color:       #2b94ff,
     // {Length} 圆角
-    radius:         .05rem
-) !default;
-
-// Element radio(8)
-$radio: (
-    // {String} 选中标记类型: [circle | tick]
-    type:           circle,
-    // {Length} radio尺寸
-    size:           .2rem,
-    // {Color} radio边框色
-    bordercolor:    map-get($base, bordercolor),
-    // {Color} radio背景色
-    bgcolor:        #fff,
-    // {Color} radio选中背景色
-    on-bgcolor:     #2b94ff,
-    // {Color} radio选中边框色
-    on-bordercolor: #2b94ff,
-    // {Color} radio选中标记色
-    on-color:       #fff,
-    // {Length} 圆角
-    radius:         50%
-) !default;
-
-// Element checkbox(8)
-$checkbox: (
-    // {String} 选中标记类型: [circle | tick]
-    type:           tick,
-    // {Length} checkbox尺寸
-    size:           .2rem,
-    // {Color} checkbox边框色
-    bordercolor:    map-get($base, bordercolor),
-    // {Color} checkbox背景色
-    bgcolor:        #fff,
-    // {Color} checkbox选中背景色
-    on-bgcolor:     #2b94ff,
-    // {Color} checkbox选中边框色
-    on-bordercolor: #2b94ff,
-    // {Color} checkbox选中标记色
-    on-color:       #fff,
-    // {Length} checkbox圆角
     radius:         .05rem
 ) !default;
 
@@ -304,7 +294,7 @@ $list: (
     // {Color} 列表边框色
     bordercolor:       map-get($base, bordercolor),
     // {Length} 列表项内补白，列表项有最小高度.44rem
-    item-padding:      .11rem,
+    item-padding:      .11rem .1rem .12rem,
     // {Length} 列表组头内补白
     label-padding:     .03rem .1rem,
     // {Color} 列表组头背景色
@@ -316,41 +306,43 @@ $list: (
     // {Color} 选中文本色
     on-color:          null,
     // {Color} 列表项边框色
-    item-bordercolor:  #eee,
+    item-bordercolor:  map-get($base, sub-bordercolor),
     // {Color} 列表项组名边框色
     label-bordercolor: #eee,
     // {Length} 列表项字号
     item-font-size:    .14rem,
     // {Length} 列表组头字号
-    label-font-size:   .13rem
+    label-font-size:   .13rem,
+    // {Length} 列表项下边线距离左侧的间隙
+    item-border-space: .1rem
 ) !default;
 
 // Widget tab(14)
 $tab: (
     // {Length} 组件高度
-    height:         .49rem,
+    height:             .44rem,
     // {Length} 圆角半径
-    radius:         null,
+    radius:             null,
     // {Length} 边框厚度
-    border-width:   .01rem 0 0 0,
+    border-width:       1px 0 0 0,
     // {Color} 边框色
-    bordercolor:    map-get($base, bordercolor),
+    bordercolor:        map-get($base, bordercolor),
     // {Color} tab背景色
-    bgcolor:        #fafafa,
+    bgcolor:            #fafafa,
     // {Color} tab文本色
-    color:          map-get($base, color),
+    color:              map-get($base, sub-color),
     // {Color} tab激活背景色
-    on-bgcolor:     #fff,
+    on-bgcolor:         null,
     // {Color} tab激活文本色
-    on-color:       #000,
+    on-color:           #00bec8,
     // {Length} 文本大小
-    font-size:      null,
+    font-size:          .14rem,
     // {Length} 水平ico大小
-    x-ico-size:     .24rem,
+    x-ico-size:         .12rem,
     // {Length} 垂直ico大小
-    y-ico-size:     .2rem,
+    y-ico-size:         .2rem,
     // {Length} only ico大小
-    only-ico-size:  .32rem,
+    only-ico-size:      .28rem,
     // {Color} item间隔线高度
     item-border-height: 100%,
     // {Color} item间隔线颜色
@@ -381,7 +373,7 @@ $table: (
     on-bgcolor:          null
 ) !default;
 
-// Fragment header(9)
+// Fragment header(11)
 $header: (
     // {Length} 高度
     height:         .44rem,
@@ -390,15 +382,17 @@ $header: (
     // {Length} 两侧的子项离边界的间隙
     item-space:     .15rem,
     // {Color} 边框色
-    bordercolor:    map-get($base, bordercolor),
+    bordercolor:    #1ba9ba,
     // {Color} 背景色
-    bgcolor:        #fff,
+    bgcolor:        #1ba9ba,
     // {Color} 文本色
-    color:          map-get($base, color),
+    color:          #fff,
     // {Length} 文本大小
-    font-size:      .16rem,
+    font-size:      .18rem,
     // {Color} 文本色
-    item-color:     map-get($base, color),
+    item-color:     null,
+    // {Length} 两侧的子项ico颜色
+    item-ico-color: #7ff,
     // {Length} 两侧的子项文本大小
     item-font-size: .14rem,
     // {Length} 两侧的子项ico大小
@@ -432,11 +426,11 @@ $index: (
 // Widget group(1)
 $group: (
     // {Length} group顶部偏移值
-    top: .95rem
+    top: 0
 ) !default;
 
-// Widget search(15)
-$search: (
+// Widget suggest(15)
+$suggest: (
     // {Length} 输入框高度
     height:           .3rem,
     // {Length} 搜索区文字大小
@@ -625,8 +619,8 @@ $z-index: (
     dialog:   1001,
     // {Number} 浮层层级范围2001-2500
     popup:    2001,
-    // {Number} 浮层层级范围2501-3000
-    search:   2501,
+    // {Number} 搜索层级范围2501-3000
+    suggest:  2501,
     // {Number} 浮层层级范围3001-4000
     tip:      3001,
     // {Number} loading层级

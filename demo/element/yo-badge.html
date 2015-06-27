@@ -2,19 +2,23 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <meta name="format-detection" content="telephone=no" />
 <title>badge - 消息提示气泡</title>
-<link rel="stylesheet" href="../../usage/demo/export/yo-all.css" />
+<script src="../../js/viewport.js"></script>
+<link rel="stylesheet" href="../../usage/export/yo-badge.css" />
 </head>
 <body>
-<div class="m-demo">
-    <div class="device">
-    <div class="stage">
-        <h2 class="yo-header">Badge</h2>
-        <div class="wrap">
+
+<div class="yo-flex">
+    <header class="yo-header m-header">
+        <h2 class="title">yo-badge</h2>
+        <a href="../index.html" class="regret yo-ico">&#xf07d;</a>
+    </header>
+    <div class="flex">
+        <section class="m-list">
             <ul class="yo-list">
                 <li class="item">
                     <div class="cont flex">list item</div>
@@ -45,52 +49,21 @@
                     </div>
                 </li>
             </ul>
-        </div>
-    </div>
-    </div>
-    <code class="code">
-    <xmp><ul class="yo-list">
-    <li class="item">
-        <div class="cont flex">list item</div>
-        <span class="yo-badge">9</span>
-    </li>
-    <li class="item">
-        <div class="cont flex">list item</div>
-        <span class="yo-badge yo-badge-normal">11</span>
-    </li>
-    <li class="item">
-        <div class="cont flex">list item</div>
-        <span class="yo-badge">99</span>
-    </li>
-    ...
-</ul>
+        </section>
 
-</xmp>
-    <h2>假设你想要灰色的颜色，那么你可以这样扩展：</h2>
-    <p>命名及颜色按照各自团队内部的FE/UI规范即可</p>
-    <h3>全局扩展方式：</h3>
-    <xmp>@include yo-badge(
+        <section class="m-desc">
+            <h3 class="title">使用方法：</h3>
+            <xmp><span class="yo-badge">9</span></xmp>
+            <h3 class="sub-title">假设你想要多种风格，只需这样扩展：</h3>
+            <xmp>@include yo-badge(
     $name: normal,
     $bordercolor: gray
 );</xmp>
-    <h3>使用方法：</h3>
-    <xmp><span class="yo-badge">9</span></xmp>
-    <h3>局部扩展方式：</h3>
-    <xmp>.xxx {
-    @include yo-badge(
-        $name: normal,
-        $bordercolor: gray
-    );
-}</xmp>
-    <h3>使用方法：</h3>
-    <xmp><div class="xxx">
-    <span class="yo-badge yo-badge-normal">9</span>
-</div></xmp>
-    </code>
-</div>
+            <h3 class="sub-title">使用方法：</h3>
+            <xmp><span class="yo-badge yo-badge-normal">9</span></xmp>
+        </section>
 
-
-<pre class="m-code"><span class="method">@include yo-badge</span><span class="bracket">(</span>
+        <pre class="m-code"><span class="method">@include yo-badge</span><span class="bracket">(</span>
     $name<span class="colon">:</span>default, <mark>//{String} yo-badge名称</mark>
     $padding<span class="colon">:</span>default, <mark>//{Length} 内补白</mark>
     $border-width<span class="colon">:</span>default, <mark>//{Length} 边框厚度</mark>
@@ -101,6 +74,9 @@
     $font-size<span class="colon">:</span>default <mark>//{Length} 字号</mark>
 <span class="bracket">)</span>
 </pre>
+
+    </div>
+</div>
 
 </body>
 </html>

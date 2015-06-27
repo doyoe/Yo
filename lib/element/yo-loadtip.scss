@@ -1,5 +1,6 @@
 @charset "utf-8";
 @import "classes";
+@import "../ani/rotate";
 
 /**
  * @class element
@@ -53,20 +54,12 @@
                 color: $ico-color;
             }
         }
+        // 增量扩展
+        @content;
     }
 }
 
 // 调用本文件时载入气泡基础构造
 .yo-loadtip {
     @include _loadtip;
-    @at-root{
-        @-webkit-keyframes loadtip {
-            from{-webkit-transform: rotatez(0);}
-            to{-webkit-transform: rotatez(-360deg);}
-        }
-        @keyframes loadtip {
-            from{transform: rotatez(0);}
-            to{transform: rotatez(-360deg);}
-        }
-    }
 }

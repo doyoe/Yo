@@ -58,6 +58,8 @@
                 background-position: 0 -#{$item-height};
             }
         }
+        // 增量扩展
+        @content;
     }
 }
 

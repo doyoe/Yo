@@ -2,13 +2,14 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <meta name="format-detection" content="telephone=no" />
 <link rel="apple-touch-icon-precomposed" href="/qunar-touch.png" />
 <title>tab - 选项卡</title>
-<link rel="stylesheet" href="../../usage/demo/export/yo-all.css" />
+<script src="../../js/viewport.js"></script>
+<link rel="stylesheet" href="../../usage/export/yo-all.css" />
 </head>
 <body>
 <div class="m-demo">
@@ -16,14 +17,14 @@
     <div class="stage">
         <div class="yo-tab">
             <a href="#" class="item">Home</a>
-            <a href="#" class="item">Favorites</a>
+            <a href="#" class="item item-on">Favorites</a>
             <a href="#" class="item">Settings</a>
         </div>
     </div>
     </div>
     <code class="code"><xmp><div class="yo-tab">
     <a href="#" class="item">Home</a>
-    <a href="#" class="item">Favorites</a>
+    <a href="#" class="item item-on">Favorites</a>
     <a href="#" class="item">Settings</a>
 </div></xmp></code>
 </div>
@@ -33,14 +34,14 @@
     <div class="stage">
         <div class="yo-tab yo-tab-test">
             <a href="#" class="item">Home</a>
-            <a href="#" class="item">Favorites</a>
+            <a href="#" class="item item-on">Favorites</a>
             <a href="#" class="item">Settings</a>
         </div>
     </div>
     </div>
     <code class="code"><xmp><div class="yo-tab yo-tab-test">
     <a href="#" class="item">Home</a>
-    <a href="#" class="item">Favorites</a>
+    <a href="#" class="item item-on">Favorites</a>
     <a href="#" class="item">Settings</a>
 </div></xmp></code>
 </div>
@@ -48,25 +49,25 @@
 <div class="m-demo">
     <div class="device">
     <div class="stage">
-        <div class="yo-tab yo-tab-test2">
-            <a href="#" class="item">
+        <div class="yo-tab yo-tab-filter">
+            <a href="#" class="item item-x-ico">
                 综合排序
                 <i class="yo-ico">&#xf031;</i>
             </a>
-            <a href="#" class="item">
+            <a href="#" class="item item-x-ico item-on">
                 全部口味
                 <i class="yo-ico">&#xf031;</i>
             </a>
-            <a href="#" class="item">
+            <a href="#" class="item item-x-ico">
                 优惠活动
                 <i class="yo-ico">&#xf031;</i>
             </a>
         </div>
     </div>
     </div>
-    <code class="code"><xmp><div class="yo-tab yo-tab-test2">
+    <code class="code"><xmp><div class="yo-tab yo-tab-filter">
     <a href="#" class="item">综合排序<i class="yo-ico">&#xf031;</i></a>
-    <a href="#" class="item">全部口味<i class="yo-ico">&#xf031;</i></a>
+    <a href="#" class="item item-on">全部口味<i class="yo-ico">&#xf031;</i></a>
     <a href="#" class="item">优惠活动<i class="yo-ico">&#xf031;</i></a>
 </div></xmp></code>
 </div>
@@ -78,7 +79,7 @@
             <a href="#" class="item item-only-ico">
                 <i class="yo-ico">&#xf04a;</i>
             </a>
-            <a href="#" class="item item-only-ico">
+            <a href="#" class="item item-only-ico item-on">
                 <i class="yo-ico">&#xf04b;</i>
             </a>
             <a href="#" class="item item-only-ico">
@@ -91,7 +92,7 @@
     <a href="#" class="item item-only-ico">
         <i class="yo-ico">&#xf04a;</i>
     </a>
-    <a href="#" class="item item-only-ico">
+    <a href="#" class="item item-only-ico item-on">
         <i class="yo-ico">&#xf04b;</i>
     </a>
     <a href="#" class="item item-only-ico">
@@ -103,67 +104,32 @@
 <div class="m-demo">
     <div class="device">
     <div class="stage">
-        <div class="yo-tab">
-            <a href="#" class="item item-top-ico">
+        <div class="yo-tab yo-tab-view">
+            <a href="#" class="item item-y-ico">
                 <i class="yo-ico">&#xf04a;</i>
                 定位
             </a>
-            <a href="#" class="item item-top-ico">
+            <a href="#" class="item item-y-ico item-on">
                 <i class="yo-ico">&#xf04b;</i>
                 无线
             </a>
-            <a href="#" class="item item-top-ico">
+            <a href="#" class="item item-y-ico">
                 <i class="yo-ico">&#xf07a;</i>
                 刷新
             </a>
         </div>
     </div>
     </div>
-    <code class="code"><xmp><div class="yo-tab">
-    <a href="#" class="item item-top-ico">
+    <code class="code"><xmp><div class="yo-tab yo-tab-view">
+    <a href="#" class="item item-y-ico">
         <i class="yo-ico">&#xf04a;</i>
         定位
     </a>
-    <a href="#" class="item item-top-ico">
+    <a href="#" class="item item-y-ico item-on">
         <i class="yo-ico">&#xf04b;</i>
         无线
     </a>
-    <a href="#" class="item item-top-ico">
-        <i class="yo-ico">&#xf07a;</i>
-        刷新
-    </a>
-</div></xmp></code>
-</div>
-
-<div class="m-demo">
-    <div class="device">
-    <div class="stage">
-        <div class="yo-tab">
-            <a href="#" class="item item-left-ico">
-                <i class="yo-ico">&#xf04a;</i>
-                定位
-            </a>
-            <a href="#" class="item item-left-ico">
-                <i class="yo-ico">&#xf04b;</i>
-                无线
-            </a>
-            <a href="#" class="item item-left-ico">
-                <i class="yo-ico">&#xf07a;</i>
-                刷新
-            </a>
-        </div>
-    </div>
-    </div>
-    <code class="code"><xmp><div class="yo-tab">
-    <a href="#" class="item item-left-ico">
-        <i class="yo-ico">&#xf04a;</i>
-        定位
-    </a>
-    <a href="#" class="item item-left-ico">
-        <i class="yo-ico">&#xf04b;</i>
-        无线
-    </a>
-    <a href="#" class="item item-left-ico">
+    <a href="#" class="item item-y-ico">
         <i class="yo-ico">&#xf07a;</i>
         刷新
     </a>
@@ -185,7 +151,7 @@
     $y-ico-size<span class="colon">:</span>default, <mark>//{Length} 纵向图标大小</mark>
     $only-ico-size<span class="colon">:</span>default, <mark>//{Length} 仅有图标大小</mark>
     $item-border-height<span class="colon">:</span>default, <mark>//{Length} 子项间隔线高度</mark>
-    $item-border-color<span class="colon">:</span>default <mark>//{Length} 子项间隔线颜色</mark>
+    $item-bordercolor<span class="colon">:</span>default <mark>//{Length} 子项间隔线颜色</mark>
 <span class="bracket">)</span>
 </pre>
 

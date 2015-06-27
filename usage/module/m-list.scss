@@ -1,0 +1,11 @@
+@charset "utf-8";
+@import "../fragment/yo-list";
+
+.m-list {
+    // do something
+    > .yo-list-group {
+        .yo-btn:not(:first-child) {
+            margin-left: .1rem;
+        }
+    }
+}

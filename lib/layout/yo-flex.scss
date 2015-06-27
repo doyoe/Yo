@@ -37,13 +37,23 @@
         > .flex-inherit {
             // 如果$box不等于config预设，则重绘弹性盒类型
             @if $box != map-get($flex, box) {
-                @include box($box);
+                @include flexbox($box);
             }
             // 如果$direction不等于config预设，则重绘方向
             @if $direction != map-get($flex, direction) {
-                @include direction($direction);
+                @include flex-direction($direction);
             }
         }
+        > .flex,
+        > .flex-inherit,
+        > .flex-inherit > .flex {
+            // 如果$direction不等于config预设，则重绘方向
+            @if $direction != map-get($flex, direction) {
+                @include flex(1, $direction);
+            }
+        }
+        // 增量扩展
+        @content;
     }
 }
 

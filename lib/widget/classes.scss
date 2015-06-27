@@ -18,7 +18,7 @@
     position: fixed;
     z-index: map-get($z-index, dialog);
     overflow: hidden;
-    border-radius: map-get($dialog, radius);
+    @include border-radius(map-get($dialog, radius));
     @if map-get($dialog, shadow-opacity) != null {
         box-shadow: 0 0 5px rgba(map-get($dialog, bordercolor), map-get($dialog, shadow-opacity));
     }
@@ -59,7 +59,7 @@
         }
     }
     > .bd {
-        @include flex();
+        @include flex(1, column);
         @include overflow();
         padding: map-get($dialog, bd-padding);
         @if map-get($dialog, bd-font-size) != map-get($base, font-size) {
@@ -78,6 +78,7 @@
             $active-bgcolor: #f9f9f9
         );
         > .yo-btn {
+            display: block;
             @include flex();
             &:last-child:not(:only-child),
             &:only-child {
@@ -97,7 +98,7 @@
     @include flex-direction(column);
     position: absolute;
     z-index: map-get($z-index, popup);
-    border-radius: map-get($popup, radius);
+    @include border-radius(map-get($popup, radius));
     @if map-get($popup, shadow-opacity) != null {
         box-shadow: 0 0 5px rgba(map-get($popup, bordercolor), map-get($popup, shadow-opacity));
     }
@@ -185,7 +186,7 @@
         .affirm {right: 10px;}
     }
     > .bd {
-        @include flex();
+        @include flex(1, column);
         @include overflow();
         padding: map-get($popup, bd-padding);
     }
@@ -204,7 +205,7 @@
     max-width: 90%;
     z-index: map-get($z-index, tip);
     padding: map-get($tip, padding);
-    border-radius: map-get($tip, radius);
+    @include border-radius(map-get($tip, radius));
     background-color: rgba(map-get($tip, bgcolor), .5);
     color: map-get($tip, color);
     text-align: center;
@@ -251,7 +252,6 @@
         position: relative;
         z-index: 2;
         text-align: center;
-
     }
     &-item-list {
         ul {
@@ -292,7 +292,7 @@
 @mixin _tab {
     @include flexbox();
     height: map-get($tab, height);
-    border-radius: map-get($tab, radius);
+    @include border-radius(map-get($tab, radius));
     border-width: map-get($tab, border-width);
     border-style: solid;
     border-color: map-get($tab, bordercolor);
@@ -300,27 +300,25 @@
     font-size: map-get($tab, font-size);
     text-align: center;
     line-height: map-get($tab, height);
-    > .item{
-        @include flex();
+    > .item {
+        @include flex;
         position: relative;
         &:not(:last-child)::after {
             position: absolute;
             top: 50%;
             right: 0;
             @include transform(translatey(-50%));
-            width: .01rem;
+            width: 1px;
             height: map-get($tab, item-border-height);
             background-color: map-get($tab, item-bordercolor);
             content: "\0020";
         }
         color: map-get($tab, color);
-        &:active,
-        &.on,
-        &-on {
+        &.item-on {
             background-color: map-get($tab, on-bgcolor);
             color: map-get($tab, on-color);
         }
-        &-top-ico {
+        &-y-ico {
             padding-top: .04rem;
             line-height: .2rem;
             .yo-ico {
@@ -328,7 +326,7 @@
                 font-size: map-get($tab, y-ico-size);
             }
         }
-        &-left-ico {
+        &-x-ico {
             .yo-ico {
                 font-size: map-get($tab, x-ico-size);
             }
@@ -343,25 +341,24 @@
 
 // 定义number的基础构造
 // 使用方法请查看 yo-number.scss
-@mixin _number{
+@mixin _number {
     @include flexbox(inline-flex);
     overflow: hidden;
     width: map-get($number, width);
     height: map-get($number, height);
     line-height: map-get($number, height);
     border: 1px solid map-get($number, bordercolor);
-    border-radius: 0;
     box-shadow: 1px 1px 1px rgba(map-get($number, bordercolor),.3);
     background-color: #fff;
     font-size: 0;
     vertical-align: middle;
     > .minus,
     > .plus,
-    > .input{
+    > .input {
         text-align: center;
     }
     > .minus,
-    > .plus{
+    > .plus {
         display: block;
         width: .35rem;
         background-color: map-get($number, sign-bgcolor);
@@ -369,7 +366,7 @@
         font-size: 30px;
         font-family: arial;
         cursor: pointer;
-        &.disabled{
+        &.disabled {
             color: map-get($number, disabled-sign-color);
             cursor: not-allowed;
         }
@@ -389,125 +386,86 @@
     }
 }
 
-// 定义search的基础构造
-// 使用方法请查看 yo-search.scss
-@mixin _search {
+// 定义suggest的基础构造
+// 使用方法请查看 yo-suggest.scss
+@mixin _suggest {
     @include flexbox();
     @include flex-direction(column);
     > .operate {
         position: relative;
+        z-index: map-get($z-index, suggest);
         overflow: hidden;
-        z-index: map-get($z-index, search);
-        font-size: map-get($search, font-size);
-        line-height: map-get($search, height);
-        padding: map-get($search, op-padding);
-        border-bottom: 1px solid map-get($search, bordercolor);
-        background-color: map-get($search, op-bgcolor);
+        font-size: map-get($suggest, font-size);
+        line-height: map-get($suggest, height);
+        padding: map-get($suggest, op-padding);
+        border-bottom: 1px solid map-get($suggest, bordercolor);
+        background-color: map-get($suggest, op-bgcolor);
         > .action {
             display: block;
             position: relative;
             z-index: 2;
-            height: map-get($search, height);
-            > .input {
-                width: 100%;
-                height: 100%;
-                padding: 0 .3rem;
-                @include appearance;
-                border: 1px solid map-get($search, bordercolor);
-                border-radius: map-get($search, radius);
-                background-color: map-get($search, bgcolor);
-                color: map-get($search, color);
-                font-size: map-get($search, font-size);
-                line-height: map-get($base, line-height);
-            }
-            > .yo-ico-delete,
-            > .yo-ico-fresh,
-            > .yo-ico-stop {
-                display: none;
-                position: absolute;
-                top: 0;
-                right: 0;
-                height: 100%;
-                padding: 0 .08rem;
-                color: map-get($search, ico-color);
-            }
-            > .label {
-                @include flexbox;
-                position: absolute;
-                top: 0;
-                left: 50%;
-                @include transition(all .2s ease-in);
-                @include transform(translatex(-50%) translatez(0));
-                color: map-get($search, placeholder-color);
-                > .placeholder {
-                    margin-left: .08rem;
-                }
-            }
+            height: map-get($suggest, height);
+        }
+        .input {
+            width: 100%;
+            height: 100%;
+            padding: 0 .3rem;
+            @include appearance;
+            border: 1px solid map-get($suggest, bordercolor);
+            @include border-radius(map-get($suggest, radius));
+            background-color: map-get($suggest, bgcolor);
+            color: map-get($suggest, color);
+            font-size: map-get($suggest, font-size);
+            line-height: map-get($base, line-height);
+        }
+        .yo-ico-delete,
+        .yo-ico-fresh,
+        .yo-ico-stop,
+        .yo-ico-loading {
+            display: none;
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            padding: 0 .08rem;
+            color: map-get($suggest, ico-color);
+        }
+        .yo-ico-loading {
+            @include animation(rotate 1s infinite linear);
+            @include transform-origin(center);
+        }
+        .label {
+            @include flexbox;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            @include transition(all .2s ease-in);
+            @include transform(translatex(-50%) translatez(0));
+            color: map-get($suggest, placeholder-color);
+        }
+        .placeholder {
+            margin-left: .08rem;
         }
         > .cancel {
             position: absolute;
             top: 50%;
             right: 0;
             @include transform(translatey(-50%));
-            width: map-get($search, cancel-width);
-            color: map-get($search, cancel-color);
+            width: map-get($suggest, cancel-width);
+            color: map-get($suggest, cancel-color);
             text-align: center;
-        }
-        &-on,
-        &-fresh,
-        &-stop {
-            > .action > .input {
-                border-color: map-get($search, on-bordercolor);
-                background-color: map-get($search, on-bgcolor);
-            }
-        }
-        &-on {
-            > .action {
-                margin-right: map-get($search, cancel-width);
-                > .label {
-                    left: .1rem;
-                    @include transform(translatex(0) translatez(0));
-                }
-                > .yo-ico-delete {
-                    display: inline-block;
-                }
-            }
-        }
-        &-fresh,
-        &-stop {
-            > .action {
-                > .input {
-                    text-align: center;
-                }
-                > .label {
-                    display: none;
-                }
-            }
-        }
-        &-fresh {
-            > .action {
-                > .yo-ico-fresh {
-                    display: inline-block;
-                }
-            }
-        }
-        &-stop {
-            > .action {
-                > .yo-ico-stop {
-                    display: inline-block;
-                }
-            }
         }
     }
     > .cont {
-        @include flex();
+        @include flex(1, column);
         display: none;
         position: absolute;
+        z-index: map-get($z-index, suggest);
         top: .95rem;
         right: 0;
         bottom: 0;
         left: 0;
-        background-color: rgba(map-get($search, mask-bgcolor), .9);
+        background-color: rgba(map-get($suggest, mask-bgcolor), .9);
         > .recommend,
         > .result {
             position: absolute;
@@ -516,18 +474,12 @@
             left: 0;
             width: 100%;
             overflow: hidden;
-            > .yo-group {
-                top: 0;
-            }
-        }
-        &-on {
-            display: block;
         }
     }
-    // 模态搜索
+    // 独占形态搜索
     &-modal {
         position: fixed;
-        z-index: map-get($z-index, search);
+        z-index: map-get($z-index, suggest);
         top: 0;
         right: 0;
         left: 0;
@@ -535,6 +487,33 @@
         > .cont {
             position: relative;
             top: 0;
+        }
+    }
+    // focus形态
+    &-on {
+        > .operate {
+            .input {
+                border-color: map-get($suggest, on-bordercolor);
+                background-color: map-get($suggest, on-bgcolor);
+            }
+            .label {
+                left: .1rem;
+                @include transform(translatex(0) translatez(0));
+            }
+            .yo-ico-delete {
+                display: inline-block;
+            }
+        }
+        > .cont {
+            display: block;
+        }
+        &.yo-suggest-modal {
+            // 独占形态时，在foucs时显示取消按钮
+            > .operate {
+                .action {
+                    margin-right: map-get($suggest, cancel-width);
+                }
+            }
         }
     }
 }
@@ -599,12 +578,11 @@
             @include killspace-item;
             width: 100%;
             background-color: #eee;
-            min-height: .1rem;
-            .img {
-                max-width: 100%;
-                max-height: 100%;
-                height: auto;
-            }
+        }
+        .img {
+            max-width: 100%;
+            max-height: 100%;
+            height: auto;
         }
     }
     > .index {
@@ -664,7 +642,7 @@
         margin: 0;
         cursor: pointer;
         border: .02rem solid map-get($switch, bordercolor);
-        border-radius: .16rem;
+        @include border-radius(.16rem);
         background-color: map-get($switch, bgcolor);
         vertical-align: middle;
         @include transition(border-color .1s ease-out, background-color .1s ease-out);

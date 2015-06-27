@@ -5,8 +5,8 @@ var gulp = require('gulp');
 var compass = require('gulp-compass');
 
 // style path，由业务自己配置
-var scssPath = './usage/demo/page';
-var cssPath = './usage/demo/export';
+var scssPath = './usage/page';
+var cssPath = './usage/export';
 
 // 编译Sass
 gulp.task('compass', function() {
@@ -15,6 +15,7 @@ gulp.task('compass', function() {
         config_file: './config.rb',
         css: cssPath,
         sass: scssPath,
+        // nested, expanded, compact, compressed
         style: 'expanded'
     }))
     // 本行不能删除，否则只能编译不超过16个文件

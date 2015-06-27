@@ -170,6 +170,8 @@
                 border-color: $bordercolor;
             }
         }
+        // 增量扩展
+        @content;
     }
 }
 
