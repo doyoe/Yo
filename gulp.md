@@ -35,4 +35,11 @@
 
 * `-f, --file` : 选择 `usage/build` 目录下的的文件，默认 `yo.scss`
 
-### 默认： gulp = version + compile + watch
+### 默认
+
+gulp = version + compile + watch
+
+### 注意
+
+自行安装配置 `ruby`, `sass`, `compass` 环境。
+
