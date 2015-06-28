@@ -31,4 +31,8 @@
 
 比较编译结果，详细请查看 `diff/diff.css`
 
+参数:
+
+* `-f, --file` : 选择 `usage/build` 目录下的的文件，默认 `yo.scss`
+
 ### 默认： gulp = version + compile + watch

@@ -125,6 +125,44 @@ function endHandler() {
     gutil.log(gutil.colors.green('Completed!'));
 }
 
+function diffCss(compile1, compile2) {
+
+    var diff1 = css.parse(cssIsolate.diff(this[compile1], this[compile2])),
+        diff2 = css.parse(cssIsolate.diff(this[compile2], this[compile1]));
+
+    diff1.stylesheet.rules.forEach(function(rule) {
+        rule.declarations.forEach(function(declaration) {
+            declaration.value += ' /* ' + compile1 + ' */';
+        });
+    });
+
+    diff2.stylesheet.rules.forEach(function(rule) {
+        rule.declarations.forEach(function(declaration) {
+            declaration.value += ' /* ' + compile2 + ' */';
+        });
+    });
+
+    var addRules = [];
+
+    diff2.stylesheet.rules.forEach(function(rule2) {
+        var has = false;
+        diff1.stylesheet.rules.forEach(function(rule1) {
+            if (rule1.selectors.join(',') == rule2.selectors.join(',')) {
+                has = true;
+                rule1.declarations = rule1.declarations.concat(rule2.declarations);
+            }
+        });
+        if (!has) {
+            addRules.push(rule2);
+        }
+    });
+
+    diff1.stylesheet.rules = diff1.stylesheet.rules.concat(addRules);
+
+    return css.stringify(diff1);
+
+}
+
 // 构建 Compass Gulp
 function buildCompassGulp(scssPath, cssPath) {
     return gulp.src(scssPath + '/*.scss')
@@ -231,20 +269,17 @@ gulp.task('pre-diff', diffBuildTasks, function() {
 
 gulp.task('diff', ['pre-diff'], function() {
     var contents = {},
-        cssFile = '/* Diff with sass, compass, node-sass */';
+        cssFile = '/* Diff with sass, compass, node-sass */',
+        argv = optimist.argv,
+        file = argv.f || argv.file || 'yo.scss';
 
     Object.keys(compilers).forEach(function(compiler) {
-        contents[compiler] = fs.readFileSync(path.join(__dirname, diffBuildPath, compiler, '/yo.css'), 'UTF-8');
+        contents[compiler] = fs.readFileSync(path.join(__dirname, diffBuildPath, compiler, file.replace(/\.scss$/, '.css')), 'UTF-8');
     });
 
-    Object.keys(compilers).forEach(function(compiler1) {
-        Object.keys(compilers).forEach(function(compiler2) {
-            if (compiler1 != compiler2) {
-                cssFile += '\n\n/* ' + compiler1 + ' --> ' + compiler2 + ' */\n\n';
-                cssFile += cssIsolate.diff(contents[compiler1], contents[compiler2]);
-            }
-        });
-    });
+    cssFile += '\n\n/* ==================== Diff sass and node-sass ==================== */\n\n' + (diffCss.call(contents, 'sass', 'node-sass') || '/* No Difference */') + '\n\n';
+    cssFile += '\n\n/* ==================== Diff sass and compass ==================== */\n\n' + (diffCss.call(contents, 'sass', 'compass') || '/* No Difference */') + '\n\n';
+    cssFile += '\n\n/* ==================== Diff compass and node-ass ==================== */\n\n' + (diffCss.call(contents, 'compass', 'node-sass') || '/* No Difference */') + '\n\n';
 
     fs.writeFileSync(path.join(__dirname, diffBuildPath, 'diff.css'), cssFile, 'UTF-8');
 });

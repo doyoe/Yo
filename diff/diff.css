@@ -1,129 +1,84 @@
 /* Diff with sass, compass, node-sass */
 
-/* sass --> compass */
-
-
-
-/* sass --> node-sass */
+/* ==================== Diff sass and node-sass ==================== */
 
 .yo-loading > .inner {
-  padding: 0.1rem 0.2rem;
+  padding: 0.1rem 0.2rem /* sass */;
+  padding: .1rem .2rem /* node-sass */;
 }
 
 .yo-loadtip > .yo-ico {
-  -webkit-transition: -webkit-transform 0.3s;
-  transition: transform 0.3s;
+  -webkit-transition: -webkit-transform 0.3s /* sass */;
+  transition: transform 0.3s /* sass */;
+  -webkit-transition: -webkit-transform .3s /* node-sass */;
+  transition: transform .3s /* node-sass */;
 }
 
 .yo-range > input[type="range"] {
-  background-size: 100% 0.04rem;
+  background-size: 100% 0.04rem /* sass */;
+  background-size: 100% .04rem /* node-sass */;
 }
 
 .yo-suggest > .operate .input {
-  padding: 0 0.3rem;
+  padding: 0 0.3rem /* sass */;
+  padding: 0 .3rem /* node-sass */;
 }
 
 .yo-suggest > .operate .yo-ico-delete,
 .yo-suggest > .operate .yo-ico-fresh,
 .yo-suggest > .operate .yo-ico-stop,
 .yo-suggest > .operate .yo-ico-loading {
-  padding: 0 0.08rem;
+  padding: 0 0.08rem /* sass */;
+  padding: 0 .08rem /* node-sass */;
 }
 
 .yo-switchable > .index > li {
-  margin: 0 0.05rem;
+  margin: 0 0.05rem /* sass */;
+  margin: 0 .05rem /* node-sass */;
 }
 
-/* compass --> sass */
+
+
+/* ==================== Diff sass and compass ==================== */
+
+/* No Difference */
 
 
 
-/* compass --> node-sass */
+/* ==================== Diff compass and node-ass ==================== */
 
 .yo-loading > .inner {
-  padding: 0.1rem 0.2rem;
+  padding: 0.1rem 0.2rem /* compass */;
+  padding: .1rem .2rem /* node-sass */;
 }
 
 .yo-loadtip > .yo-ico {
-  -webkit-transition: -webkit-transform 0.3s;
-  transition: transform 0.3s;
+  -webkit-transition: -webkit-transform 0.3s /* compass */;
+  transition: transform 0.3s /* compass */;
+  -webkit-transition: -webkit-transform .3s /* node-sass */;
+  transition: transform .3s /* node-sass */;
 }
 
 .yo-range > input[type="range"] {
-  background-size: 100% 0.04rem;
+  background-size: 100% 0.04rem /* compass */;
+  background-size: 100% .04rem /* node-sass */;
 }
 
 .yo-suggest > .operate .input {
-  padding: 0 0.3rem;
+  padding: 0 0.3rem /* compass */;
+  padding: 0 .3rem /* node-sass */;
 }
 
 .yo-suggest > .operate .yo-ico-delete,
 .yo-suggest > .operate .yo-ico-fresh,
 .yo-suggest > .operate .yo-ico-stop,
 .yo-suggest > .operate .yo-ico-loading {
-  padding: 0 0.08rem;
+  padding: 0 0.08rem /* compass */;
+  padding: 0 .08rem /* node-sass */;
 }
 
 .yo-switchable > .index > li {
-  margin: 0 0.05rem;
+  margin: 0 0.05rem /* compass */;
+  margin: 0 .05rem /* node-sass */;
 }
 
-/* node-sass --> sass */
-
-.yo-loading > .inner {
-  padding: .1rem .2rem;
-}
-
-.yo-loadtip > .yo-ico {
-  -webkit-transition: -webkit-transform .3s;
-  transition: transform .3s;
-}
-
-.yo-range > input[type="range"] {
-  background-size: 100% .04rem;
-}
-
-.yo-suggest > .operate .input {
-  padding: 0 .3rem;
-}
-
-.yo-suggest > .operate .yo-ico-delete,
-.yo-suggest > .operate .yo-ico-fresh,
-.yo-suggest > .operate .yo-ico-stop,
-.yo-suggest > .operate .yo-ico-loading {
-  padding: 0 .08rem;
-}
-
-.yo-switchable > .index > li {
-  margin: 0 .05rem;
-}
-
-/* node-sass --> compass */
-
-.yo-loading > .inner {
-  padding: .1rem .2rem;
-}
-
-.yo-loadtip > .yo-ico {
-  -webkit-transition: -webkit-transform .3s;
-  transition: transform .3s;
-}
-
-.yo-range > input[type="range"] {
-  background-size: 100% .04rem;
-}
-
-.yo-suggest > .operate .input {
-  padding: 0 .3rem;
-}
-
-.yo-suggest > .operate .yo-ico-delete,
-.yo-suggest > .operate .yo-ico-fresh,
-.yo-suggest > .operate .yo-ico-stop,
-.yo-suggest > .operate .yo-ico-loading {
-  padding: 0 .08rem;
-}
-
-.yo-switchable > .index > li {
-  margin: 0 .05rem;
-}
