@@ -30,7 +30,7 @@ var cssBuildPath = './build';
 var diffBuildPath = './diff';
 
 // 默认编译器
-var defaultCompiler = 'compass';
+var defaultCompiler = JSON.parse(fs.readFileSync(path.join(__dirname, 'package.json'))).compiler;
 
 // 读取 Yo 版本号
 function getVersion() {
