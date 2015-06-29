@@ -277,9 +277,15 @@ gulp.task('diff', ['pre-diff'], function() {
         contents[compiler] = fs.readFileSync(path.join(__dirname, diffBuildPath, compiler, file.replace(/\.scss$/, '.css')), 'UTF-8');
     });
 
-    cssFile += '\n\n/* ==================== Diff sass and node-sass ==================== */\n\n' + (diffCss.call(contents, 'sass', 'node-sass') || '/* No Difference */') + '\n\n';
-    cssFile += '\n\n/* ==================== Diff sass and compass ==================== */\n\n' + (diffCss.call(contents, 'sass', 'compass') || '/* No Difference */') + '\n\n';
-    cssFile += '\n\n/* ==================== Diff compass and node-ass ==================== */\n\n' + (diffCss.call(contents, 'compass', 'node-sass') || '/* No Difference */') + '\n\n';
+    cssFile += '\n\n/**';
+    cssFile += '\n * Sass: ' + getSassVersion();
+    cssFile += '\n * Node-Sass: ' + getNodeSassVersion();
+    cssFile += '\n * Compass: ' + getCompassVersion();
+    cssFile += '\n */';
+
+    cssFile += '\n\n/* ==================== Diff sass and node-sass ==================== */\n\n' + (diffCss.call(contents, 'sass', 'node-sass') || '/* No Difference */');
+    cssFile += '\n\n/* ==================== Diff sass and compass ==================== */\n\n' + (diffCss.call(contents, 'sass', 'compass') || '/* No Difference */');
+    cssFile += '\n\n/* ==================== Diff compass and node-ass ==================== */\n\n' + (diffCss.call(contents, 'compass', 'node-sass') || '/* No Difference */');
 
     fs.writeFileSync(path.join(__dirname, diffBuildPath, 'diff.css'), cssFile, 'UTF-8');
 });
