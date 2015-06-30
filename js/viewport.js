@@ -8,32 +8,35 @@
         isIOS = ua.match(/iphone/gi),
         scale, dpr;
 
-    dpr = win.devicePixelRatio;
-    dpr = isIOS ? dpr >= 3 ? 3 : dpr >= 2 ? 2 : 1 : 1;
-    scale = (1 / dpr).toFixed(2);
-
-    docEl.setAttribute('data-dpr', dpr);
-
     if (isIOS) {
-        docEl.setAttribute('ios', 'true');
-    }
 
-    if (!metaA) {
-        metaA = doc.createElement('meta');
-    }
+        dpr = win.devicePixelRatio;
+        dpr = isIOS ? dpr >= 3 ? 3 : dpr >= 2 ? 2 : 1 : 1;
+        scale = (1 / dpr).toFixed(2);
 
-    metaA.setAttribute('name', 'viewport');
-    metaA.setAttribute('content', 'initial-scale=' + scale + ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', user-scalable=no');
+        docEl.setAttribute('data-dpr', dpr);
 
-    if (!metaA) {
-        if (docEl.firstElementChild) {
-            docEl.firstElementChild.appendChild(metaA);
-        } else {
-            var div = doc.createElement("div");
-            div.appendChild(metaA);
-            doc.write(div.innerHTML);
+        if (isIOS) {
+            docEl.setAttribute('ios', 'true');
         }
-    }
 
-    win.dpr = dpr;
+        if (!metaA) {
+            metaA = doc.createElement('meta');
+        }
+
+        metaA.setAttribute('name', 'viewport');
+        metaA.setAttribute('content', 'initial-scale=' + scale + ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', user-scalable=no');
+
+        if (!metaA) {
+            if (docEl.firstElementChild) {
+                docEl.firstElementChild.appendChild(metaA);
+            } else {
+                var div = doc.createElement("div");
+                div.appendChild(metaA);
+                doc.write(div.innerHTML);
+            }
+        }
+
+        win.dpr = dpr;
+    }
 })();
