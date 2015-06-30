@@ -32,8 +32,8 @@ var defaultCompiler = JSON.parse(fs.readFileSync(path.join(__dirname, 'package.j
 
 // 读取 Yo 版本号
 function getVersion() {
-    var config = JSON.parse(fs.readFileSync(path.join(__dirname, 'package.json')));
-    return config.version;
+    var config = fs.readFileSync(path.join(__dirname, 'lib', 'core', 'variables.scss'), 'UTF-8').match(/version:\s*"(\d+\.\d+\.\d+)"/);
+    return config ? config[1] : 'Not Found';
 }
 
 // Sass Version
