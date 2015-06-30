@@ -16,7 +16,6 @@ var path = require('path');
 var fs = require('fs');
 var optimist = require('optimist');
 var notifier = require('node-notifier');
-var uglifycss = require('uglifycss');
 var child_process = require('child_process');
 var execSync = child_process.execSync;
 var css = require('css');
@@ -26,7 +25,6 @@ var cssIsolate = require('css-isolate');
 var scssPath = './usage/page';
 var cssPath = './usage/export';
 var scssBuildPath = './usage/build';
-var cssBuildPath = './build';
 var diffBuildPath = './diff';
 
 // 默认编译器
