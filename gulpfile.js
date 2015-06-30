@@ -102,26 +102,6 @@ function errorHandler(e) {
 
 // End Handler
 function endHandler() {
-    var argv = optimist.argv,
-        min = argv.m || argv.min;
-    // 添加版本号
-    if (argv._ == 'build') {
-        var version = getVersion();
-        var list = fs.readdirSync(path.join(__dirname, scssBuildPath));
-        list.forEach(function(name) {
-            var cssFile = path.join(__dirname, cssBuildPath, name.replace(/.scss$/, '.css')),
-                cssVersionFile = path.join(__dirname, cssBuildPath, name.replace(/.scss$/, '-' + version + '.css'));
-            fs.writeFileSync(cssVersionFile, fs.readFileSync(cssFile, 'UTF-8'), 'UTF-8');
-            gutil.log(gutil.colors.blue('构建文件: ' + path.relative(__dirname, cssFile)));
-            gutil.log(gutil.colors.blue('构建文件: ' + path.relative(__dirname, cssVersionFile)));
-            if (min) {
-                fs.writeFileSync(cssFile.replace(/.css$/, '.min.css'), uglifycss.processFiles([cssFile]), 'UTF-8');
-                gutil.log(gutil.colors.blue('构建文件: ' + path.relative(__dirname, cssFile.replace(/.css$/, '.min.css'))));
-                fs.writeFileSync(cssVersionFile.replace(/.css$/, '.min.css'), uglifycss.processFiles([cssVersionFile]), 'UTF-8');
-                gutil.log(gutil.colors.blue('构建文件: ' + path.relative(__dirname, cssVersionFile.replace(/.css$/, '.min.css'))));
-            }
-        });
-    }
     gutil.log(gutil.colors.green('Completed!'));
 }
 
@@ -219,18 +199,6 @@ gulp.task('compile', function () {
     if (compilers[compiler]) {
         gutil.log(gutil.colors.yellow('使用编译器 ' + compiler + ' 编译...'));
         return compilers[compiler](scssPath, cssPath);
-    } else {
-        gutil.log(gutil.colors.red('找不到编译器 ' + compiler));
-    }
-});
-
-// 构建 yo.css
-gulp.task('build', function () {
-    var argv = optimist.argv,
-        compiler = argv.c || argv.compiler || defaultCompiler;
-    if (compilers[compiler]) {
-        gutil.log(gutil.colors.yellow('使用编译器 ' + compiler + ' 编译...'));
-        return compilers[compiler](scssBuildPath, cssBuildPath);
     } else {
         gutil.log(gutil.colors.red('找不到编译器 ' + compiler));
     }

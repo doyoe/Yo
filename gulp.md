@@ -14,15 +14,6 @@
 
 `watch` 文件进行 `comiple`
 
-> gulp build
-
-构建 `css`, 从 `usage/build` 到 `build`
-
-参数:
-
-* `-c, --compiler` : 选择编译器, 可设 `sass`, `node-sass`, `compass`, 默认是 `compass`
-* `-m, --min` : 生成压缩版本
-
 > gulp version
 
 输出版本, 包括 `yo`, `sass`, `node-sass(libsass)`, `compass` 的版本
