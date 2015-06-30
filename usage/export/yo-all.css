@@ -1513,13 +1513,20 @@ a {
 }
 
 /**
- * Fragment扩展: yo-header-normal, yo-header-positive
+ * Fragment扩展: yo-header-normal
  * Author: joy.du(飘零雾雨)
  * Time: 2015.1.16
  */
-.yo-header-positive {
-  border-color: #145fd7;
-  background-color: #4a87ee;
+.yo-header-normal {
+  border-color: #ddd;
+  background-color: #eee;
+  color: #212121;
+}
+.yo-header-normal > .regret.yo-ico,
+.yo-header-normal > .regret > .yo-ico,
+.yo-header-normal > .affirm.yo-ico,
+.yo-header-normal > .affirm > .yo-ico {
+  color: #212121;
 }
 
 /**
