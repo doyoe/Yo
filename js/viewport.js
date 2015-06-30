@@ -11,14 +11,11 @@
     if (isIOS) {
 
         dpr = win.devicePixelRatio;
-        dpr = isIOS ? dpr >= 3 ? 3 : dpr >= 2 ? 2 : 1 : 1;
+        dpr = dpr >= 3 ? 3 : dpr >= 2 ? 2 : 1;
         scale = (1 / dpr).toFixed(2);
 
         docEl.setAttribute('data-dpr', dpr);
-
-        if (isIOS) {
-            docEl.setAttribute('ios', 'true');
-        }
+        docEl.setAttribute('ios', 'true');
 
         if (!metaA) {
             metaA = doc.createElement('meta');
