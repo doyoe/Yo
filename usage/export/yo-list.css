@@ -684,110 +684,6 @@ a {
 }
 
 /**
- * Yo框架widget基础构造
- -----------------------
- * Yo内置了常见的通用代码片段，如：列表，表格，按钮组，头
- *
- * @class widget
- * @module Yo
- */
-/**
- * @class widget
- */
-/**
- * 构造列表的自定义使用方法
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-tab.html)
- * @method yo-tab
- * @param {default | String} $name 扩展的名称
- * @param {default | Length} $height 组件高度
- * @param {default | Length} $radius 圆角半径
- * @param {default | Length} $border-width 边框厚度
- * @param {default | Color} $bordercolor 边框色
- * @param {default | Color} $bgcolor 背景色
- * @param {default | Color} $color 文本色
- * @param {default | Color} $on-bgcolor 激活时背景色
- * @param {default | Color} $on-color 激活时文本色
- * @param {default | Color} $font-size 文本字号
- * @param {default | Color} $x-ico-size 子项内容为水平ico时，ico的大小
- * @param {default | Color} $y-ico-size 子项内容为垂直ico时，ico的大小
- * @param {default | Color} $only-ico-size 子项内容仅有ico时，ico的大小
- * @param {default | Length} $item-border-height 子项的间隔线高度
- * @param {default | Color} $item-bordercolor 子项的间隔线颜色
- */
-.yo-tab {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  height: 0.44rem;
-  -webkit-background-clip: padding-box !important;
-  background-clip: padding-box !important;
-  border-width: 1px 0 0 0;
-  border-style: solid;
-  border-color: #ccc;
-  background-color: #fafafa;
-  font-size: 0.14rem;
-  text-align: center;
-  line-height: 0.44rem;
-}
-.yo-tab > .item {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  flex: 1;
-  width: 100%;
-  height: auto;
-  position: relative;
-  color: #666;
-}
-.yo-tab > .item:not(:last-child)::after {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  -webkit-transform: translatey(-50%);
-  transform: translatey(-50%);
-  width: 1px;
-  height: 100%;
-  background-color: transparent;
-  content: "\0020";
-}
-.yo-tab > .item.item-on {
-  color: #00bec8;
-}
-.yo-tab > .item-y-ico {
-  padding-top: .04rem;
-  line-height: .2rem;
-}
-.yo-tab > .item-y-ico .yo-ico {
-  display: block;
-  font-size: 0.2rem;
-}
-.yo-tab > .item-x-ico .yo-ico {
-  font-size: 0.12rem;
-}
-.yo-tab > .item-only-ico .yo-ico {
-  font-size: 0.28rem;
-}
-
-/**
- * yo-tab扩展
- * Author: joy.du(飘零雾雨)
- * Time: 2015.1.16
- */
-.yo-tab-filter {
-  height: 0.4rem;
-  line-height: 0.4rem;
-  border-width: 0 0 1px 0;
-}
-.yo-tab-filter > .item:not(:last-child)::after {
-  height: 0.2rem;
-  background-color: #ddd;
-}
-
-.yo-tab-view {
-  font-size: 0.12rem;
-}
-
-/**
  * @class fragment
  */
 /**
@@ -950,10 +846,69 @@ a {
 }
 
 /**
- * yo-flex演示
+ * module: m-desc
  * Author: joy.du(飘零雾雨)
- * Time: 2014.4.1
+ * Time: 2015.6.17
  */
+.m-desc {
+  margin: .1rem;
+  padding-bottom: .05rem;
+  border-radius: .05rem;
+  background-color: #ddd;
+}
+.m-desc > .title {
+  padding: .18rem .1rem .03rem;
+  border-bottom: 1px solid #ccc;
+}
+.m-desc > xmp {
+  margin: .1rem;
+  padding: .1rem;
+  background-color: #666;
+  color: #fff;
+}
+.m-desc .sub-title {
+  margin: 0 .1rem;
+  padding: .1rem 0 .03rem;
+  border-bottom: 1px solid #ccc;
+}
+.m-desc .sub-title::before {
+  margin-right: .05rem;
+  padding: 0 .03rem;
+  border-radius: .03rem;
+  content: "Note";
+  font-weight: normal;
+  background-color: #f9c027;
+  color: #fff;
+}
+
+/**
+ * module: m-code
+ * Author: joy.du(飘零雾雨)
+ * Time: 2013.10.17
+ */
+.m-code {
+  -webkit-user-select: text;
+  user-select: text;
+  margin: .1rem;
+  padding: .1rem;
+  border-radius: 5px;
+  background: #272822;
+  color: #51bbe1;
+  font-size: .2rem;
+}
+.m-code .method {
+  color: #93de08;
+}
+.m-code .bracket,
+.m-code .colon {
+  padding-right: 5px;
+  color: #fff;
+}
+.m-code mark {
+  color: #ccc;
+  font-size: .14rem;
+}
+
 html,
 body {
   overflow: hidden;

@@ -9,267 +9,229 @@
 <link rel="apple-touch-icon-precomposed" href="/qunar-touch.png" />
 <title>list - 列表</title>
 <script src="../../js/viewport.js"></script>
-<link rel="stylesheet" href="../../usage/export/yo-all.css" />
+<link rel="stylesheet" href="../../usage/export/yo-list.css" />
 </head>
 <body>
 
-<div class="m-demo">
-    <div class="device">
-    <div class="stage">
-        <h2 class="yo-header">Default List</h2>
-        <ul class="yo-list">
-            <li class="item">list item</li>
-            <li class="item">list item</li>
-            <li class="item">list item</li>
-            <li class="item">list item</li>
-        </ul>
-    </div>
-    </div>
-    <code class="code"><xmp><h2 class="yo-header">Default List</h2>
-<ul class="yo-list">
+<div class="yo-flex">
+    <header class="yo-header m-header">
+        <h2 class="title">yo-list</h2>
+        <a href="../index.html" class="regret yo-ico">&#xf07d;</a>
+    </header>
+    <div class="flex">
+        <section class="m-list">
+            <div class="yo-list yo-list-group">
+                <h3 class="label">常规列表：</h3>
+                <div class="item">list item</div>
+                <div class="item">list item</div>
+                <div class="item">list item</div>
+                <div class="item">list item</div>
+            </div>
+        </section>
+        <section class="m-desc">
+            <h3 class="title">示例描述：</h3>
+            <xmp><ul class="yo-list">
     <li class="item">list item</li>
-    <li class="item">list item</li>
-    <li class="item">list item</li>
-    <li class="item">list item</li>
-</ul></xmp></code>
-</div>
+    ...
+</ul></xmp>
+        </section>
 
+        <section class="m-list">
+            <ul class="yo-list yo-list-group">
+                <li class="label">常规列表：</li>
+                <li class="item">
+                    <span class="mark">标题</span>
+                    <div class="flex">具体描述</div>
+                </li>
+                <li class="item">
+                    <span class="mark">标题</span>
+                    <div class="flex">具体描述</div>
+                </li>
+                <li class="item">
+                    <span class="mark">标题</span>
+                    <div class="flex">具体描述</div>
+                </li>
+                <li class="item">
+                    <span class="mark">标题</span>
+                    <div class="flex">具体描述</div>
+                </li>
+            </ul>
+        </section>
+        <section class="m-desc">
+            <h3 class="title">示例描述：</h3>
+            <xmp><ul class="yo-list">
+    <li class="item">
+        <span class="mark">标题</span>
+        <div class="flex">具体描述</div>
+    </li>
+    ...
+</ul></xmp>
+        </section>
 
-<div class="m-demo">
-    <div class="device">
-    <div class="stage">
-        <h2 class="yo-header">Default List</h2>
-        <ul class="yo-list">
-            <li class="item">
-                <span class="mark">标题</span>
-                <div class="cont flex">具体描述</div>
-            </li>
-            <li class="item">
-                <span class="mark">标题</span>
-                <div class="cont flex">具体描述</div>
-            </li>
-            <li class="item">
-                <span class="mark">标题</span>
-                <div class="cont flex">具体描述</div>
-            </li>
-            <li class="item">
-                <span class="mark">标题</span>
-                <div class="cont flex">具体描述</div>
-            </li>
-        </ul>
-    </div>
-    </div>
-    <code class="code"><xmp><h2 class="yo-header">Default List</h2>
-<ul class="yo-list">
-    <li class="item">
-        <span class="mark">标题</span>
-        <div class="cont flex">具体描述</div>
-    </li>
-    <li class="item">
-        <span class="mark">标题</span>
-        <div class="cont flex">具体描述</div>
-    </li>
-    <li class="item">
-        <span class="mark">标题</span>
-        <div class="cont flex">具体描述</div>
-    </li>
-    <li class="item">
-        <span class="mark">标题</span>
-        <div class="cont flex">具体描述</div>
-    </li>
-</ul></xmp></code>
-</div>
-
-<div class="m-demo">
-    <div class="device">
-    <div class="stage">
-        <h2 class="yo-header">Default Group List</h2>
-        <div class="yo-list">
-            <h3 class="label">list group</h3>
-            <a href="#" class="item item-active">list item</a>
-            <a href="#" class="item item-active">list item</a>
-            <h3 class="label">list group</h3>
-            <a href="#" class="item item-active">list item</a>
-            <a href="#" class="item item-active">list item</a>
-            <h3 class="label">list group</h3>
-            <a href="#" class="item item-active">list item</a>
-        </div>
-    </div>
-    </div>
-    <code class="code"><xmp><h2 class="yo-header">Default List</h2>
-<div class="yo-list">
+        <section class="m-list">
+            <div class="yo-list">
+                <h3 class="label">list group</h3>
+                <a href="#" class="item">list item</a>
+                <a href="#" class="item">list item</a>
+                <h3 class="label">list group</h3>
+                <a href="#" class="item">list item</a>
+                <a href="#" class="item">list item</a>
+                <h3 class="label">list group</h3>
+                <a href="#" class="item">list item</a>
+                <a href="#" class="item">list item</a>
+            </div>
+        </section>
+        <section class="m-desc">
+            <h3 class="title">示例描述：</h3>
+            <xmp><div class="yo-list">
     <h3 class="label">list group</h3>
-    <a href="#" class="item item-active">list item</a>
-    <a href="#" class="item item-active">list item</a>
-    <h3 class="label">list group</h3>
-    <a href="#" class="item item-active">list item</a>
-    <a href="#" class="item item-active">list item</a>
-    <h3 class="label">list group</h3>
-    <a href="#" class="item item-active">list item</a>
-</div></xmp></code>
-</div>
+    <a href="#" class="item">list item</a>
+    <a href="#" class="item">list item</a>
+    ...
+</div></xmp>
+        </section>
 
-<div class="m-demo">
-    <div class="device">
-    <div class="stage">
-        <h2 class="yo-header">Default Ico List</h2>
-        <ul class="yo-list">
-            <li class="item">
-                <i class="yo-ico">&#xf04a;</i>
-                <div class="cont flex">飞行模式</div>
-                <label class="yo-switch">
-                    <input type="checkbox" />
-                    <div class="track">
-                        <span class="handle"></span>
+        <section class="m-list">
+            <ul class="yo-list">
+                <li class="label">ico list</li>
+                <li class="item">
+                    <i class="yo-ico">&#xf04a;</i>
+                    <div class="flex">飞行模式</div>
+                    <label class="yo-switch">
+                        <input type="checkbox" />
+                        <div class="track">
+                            <span class="handle"></span>
+                        </div>
+                    </label>
+                </li>
+                <li class="item">
+                    <i class="yo-ico">&#xf04b;</i>
+                    <div class="flex">WIFI</div>
+                </li>
+                <li class="item">
+                    <i class="yo-ico">&#xf04a;</i>
+                    <div class="flex">蓝牙</div>
+                </li>
+                <li class="item item-active">
+                    <i class="yo-ico">&#xf063;</i>
+                    <div class="flex">运营商</div>
+                    <i class="yo-ico">&#xf03e;</i>
+                </li>
+            </ul>
+        </section>
+        <section class="m-desc">
+            <h3 class="title">示例描述：</h3>
+            <xmp><div class="yo-list">
+    <li class="item">
+        <i class="yo-ico">&#xf04a;</i>
+        <div class="flex">飞行模式</div>
+        <label class="yo-switch">
+            <input type="checkbox" />
+            <div class="track">
+                <span class="handle"></span>
+            </div>
+        </label>
+    </li>
+    <li class="item">
+        <i class="yo-ico">&#xf04b;</i>
+        <div class="flex">WIFI</div>
+    </li>
+</div></xmp>
+        </section>
+
+        <section class="m-list">
+            <div class="yo-list yo-list-group">
+                <h3 class="label">图片列表：</h3>
+                <a href="#" class="item item-active">
+                    <div class="mark">
+                        <img src="http://d.hiphotos.baidu.com/image/pic/item/9d82d158ccbf6c81037f3d5bbf3eb13533fa403c.jpg" alt="美女" />
                     </div>
-                </label>
-            </li>
-            <li class="item">
-                <i class="yo-ico">&#xf04b;</i>
-                <div class="cont flex">WIFI</div>
-            </li>
-            <li class="item">
-                <i class="yo-ico">&#xf04a;</i>
-                <div class="cont flex">蓝牙</div>
-            </li>
-            <li class="item item-active">
-                <i class="yo-ico">&#xf063;</i>
-                <div class="cont flex">运营商</div>
-                <i class="yo-ico">&#xf03e;</i>
-            </li>
-        </ul>
-    </div>
-    </div>
-    <code class="code"><xmp><h2 class="yo-header">Default Ico List</h2>
-<ul class="yo-list">
-    <li class="item">
-        <i class="yo-ico">&#xf072;</i>
-        <div class="cont flex">飞行模式</div>
-        <input type="checkbox" class="yo-switch" />
-    </li>
-    <li class="item">
-        <i class="yo-ico">&#xf086;</i>
-        <div class="cont flex">WIFI</div>
-    </li>
-    <li class="item">
-        <i class="yo-ico">&#xf11d;</i>
-        <div class="cont flex">蓝牙</div>
-    </li>
-    <li class="item item-active">
-        <i class="yo-ico">&#xf098;</i>
-        <div class="cont flex">运营商</div>
-        <i class="yo-ico">&#xf105;</i>
-    </li>
-</ul></xmp></code>
-</div>
-
-<div class="m-demo">
-    <div class="device">
-    <div class="stage">
-        <h2 class="yo-header">Default Img List</h2>
-        <div class="yo-list">
-            <a href="#" class="item item-active">
-                <div class="mark">
-                    <img src="http://d.hiphotos.baidu.com/image/pic/item/9d82d158ccbf6c81037f3d5bbf3eb13533fa403c.jpg" alt="美女" />
-                </div>
-                <div class="cont">
-                    <h3>高圆圆</h3>
-                    <p>这是一个我很喜欢的美女</p>
-                </div>
-            </a>
-            <a href="#" class="item item-active">
-                <div class="mark">
-                    <img src="http://b.hiphotos.baidu.com/image/pic/item/9f510fb30f2442a7186eec16d243ad4bd1130224.jpg" alt="美女" />
-                </div>
-                <div class="cont">
-                    <h3>高圆圆</h3>
-                    <p>这是一个我很喜欢的美女</p>
-                </div>
-            </a>
-            <a href="#" class="item item-active">
-                <div class="mark">
-                    <img src="http://e.hiphotos.baidu.com/image/pic/item/43a7d933c895d1436916f59070f082025aaf0724.jpg" alt="美女" />
-                </div>
-                <div class="cont">
-                    <h3>高圆圆</h3>
-                    <p>这是一个我很喜欢的美女</p>
-                </div>
-            </a>
-            <a href="#" class="item item-active">
-                <div class="mark">
-                    <img src="http://a.hiphotos.baidu.com/image/pic/item/a044ad345982b2b79808287732adcbef77099be9.jpg" alt="美女" />
-                </div>
-                <div class="cont">
-                    <h3>高圆圆</h3>
-                    <p>这是一个我很喜欢的美女</p>
-                </div>
-            </a>
-        </div>
-    </div>
-    </div>
-    <code class="code"><xmp><h2 class="yo-header">Default Img List</h2>
-<div class="yo-list">
+                    <div class="flex">
+                        <h3>高圆圆</h3>
+                        <p>这是一个我很喜欢的美女</p>
+                    </div>
+                </a>
+                <a href="#" class="item item-active">
+                    <div class="mark">
+                        <img src="http://b.hiphotos.baidu.com/image/pic/item/9f510fb30f2442a7186eec16d243ad4bd1130224.jpg" alt="美女" />
+                    </div>
+                    <div class="flex">
+                        <h3>高圆圆</h3>
+                        <p>这是一个我很喜欢的美女</p>
+                    </div>
+                </a>
+                <a href="#" class="item item-active">
+                    <div class="mark">
+                        <img src="http://e.hiphotos.baidu.com/image/pic/item/43a7d933c895d1436916f59070f082025aaf0724.jpg" alt="美女" />
+                    </div>
+                    <div class="flex">
+                        <h3>高圆圆</h3>
+                        <p>这是一个我很喜欢的美女</p>
+                    </div>
+                </a>
+                <a href="#" class="item item-active">
+                    <div class="mark">
+                        <img src="http://a.hiphotos.baidu.com/image/pic/item/a044ad345982b2b79808287732adcbef77099be9.jpg" alt="美女" />
+                    </div>
+                    <div class="flex">
+                        <h3>高圆圆</h3>
+                        <p>这是一个我很喜欢的美女</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+        <section class="m-desc">
+            <h3 class="title">示例描述：</h3>
+            <xmp><div class="yo-list">
     <a href="#" class="item item-active">
         <div class="mark">
-            <img src="../../../img/human.png" alt="美女" />
+            <img src="*.jpg" alt="美女" />
         </div>
-        <div class="cont">
-            <h3>高圆圆</h3>
-            <p>这是一个我很喜欢的美女</p>
-        </div>
-    </a>
-    <a href="#" class="item item-active">
-        <div class="mark">
-            <img src="../../../img/human.png" alt="美女" />
-        </div>
-        <div class="cont">
+        <div class="flex">
             <h3>高圆圆</h3>
             <p>这是一个我很喜欢的美女</p>
         </div>
     </a>
     ...
-</div></xmp></code>
-</div>
+</div></xmp>
+        </section>
 
-<div class="m-demo">
-    <div class="device">
-    <div class="stage">
-        <h2 class="yo-header">Default Tbale List</h2>
-        <ul class="yo-list">
-            <li class="label tr">
-                <div class="col c1">name</div>
-                <div class="col c2 flex">name</div>
-                <div class="col c3">name</div>
-                <div class="col c4">name</div>
-            </li>
-            <li class="item tr">
-                <div class="col c1">name</div>
-                <div class="col c2 flex">name</div>
-                <div class="col c3">name</div>
-                <div class="col c4">name</div>
-            </li>
-            <li class="item tr">
-                <div class="col c1">name</div>
-                <div class="col c2 flex">name</div>
-                <div class="col c3">name</div>
-                <div class="col c4">name</div>
-            </li>
-            <li class="item tr">
-                <div class="col c1">name</div>
-                <div class="col c2 flex">name</div>
-                <div class="col c3">name</div>
-                <div class="col c4">name</div>
-            </li>
-        </ul>
-    </div>
-    </div>
-    <code class="code"><xmp><h2 class="yo-header">Default Tbale List</h2>
-<ul class="yo-list">
+        <section class="m-list">
+            <ul class="yo-list">
+                <li class="label tr">
+                    <div class="col c1">第1列</div>
+                    <div class="col c2 flex">第2列</div>
+                    <div class="col c3">第3列</div>
+                    <div class="col c4">第4列</div>
+                </li>
+                <li class="item tr">
+                    <div class="col c1">name</div>
+                    <div class="col c2 flex">name</div>
+                    <div class="col c3">name</div>
+                    <div class="col c4">name</div>
+                </li>
+                <li class="item tr">
+                    <div class="col c1">name</div>
+                    <div class="col c2 flex">name</div>
+                    <div class="col c3">name</div>
+                    <div class="col c4">name</div>
+                </li>
+                <li class="item tr">
+                    <div class="col c1">name</div>
+                    <div class="col c2 flex">name</div>
+                    <div class="col c3">name</div>
+                    <div class="col c4">name</div>
+                </li>
+            </ul>
+        </section>
+        <section class="m-desc">
+            <h3 class="title">示例描述：</h3>
+            <xmp><ul class="yo-list">
     <li class="label tr">
-        <div class="col c1">name</div>
-        <div class="col c2 flex">name</div>
-        <div class="col c3">name</div>
-        <div class="col c4">name</div>
+        <div class="col c1">第1列</div>
+        <div class="col c2 flex">第2列</div>
+        <div class="col c3">第3列</div>
+        <div class="col c4">第4列</div>
     </li>
     <li class="item tr">
         <div class="col c1">name</div>
@@ -277,19 +239,10 @@
         <div class="col c3">name</div>
         <div class="col c4">name</div>
     </li>
-    <li class="item tr">
-        <div class="col c1">name</div>
-        <div class="col c2 flex">name</div>
-        <div class="col c3">name</div>
-        <div class="col c4">name</div>
-    </li>
-    <li class="item tr">
-        <div class="col c1">name</div>
-        <div class="col c2 flex">name</div>
-        <div class="col c3">name</div>
-        <div class="col c4">name</div>
-    </li>
-</ul></xmp></code>
+    ...
+</ul></xmp>
+        </section>
+    </div>
 </div>
 
 
