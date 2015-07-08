@@ -440,7 +440,8 @@ input::-moz-focus-inner {
 input[type="button"],
 input[type="submit"],
 input[type="reset"],
-input[type="file"]::-webkit-file-upload-button {
+input[type="file"]::-webkit-file-upload-button,
+input[type="search" i]::-webkit-search-cancel-button {
   -webkit-appearance: none;
   appearance: none;
 }

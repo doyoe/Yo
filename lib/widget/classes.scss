@@ -780,3 +780,27 @@
         }
     }
 }
+
+// 定义datepicker的基础构造
+// 使用方法请查看 yo-datepicker.scss
+@mixin _datepicker {
+    border: 1px solid map-get($base, bordercolor);
+    text-align: center;
+    > .weeks,
+    > .days {
+        @include flexbox();
+        width: 100%;
+        > li {
+            @include flex;
+        }
+        > .disabled {
+            color: gray;
+        }
+        > .today {
+            color: #f50;
+        }
+        > .holiday {
+            color: #f50;
+        }
+    }
+}

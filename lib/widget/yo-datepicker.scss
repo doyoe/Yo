@@ -1,0 +1,66 @@
+@charset "utf-8";
+@import "classes";
+
+/**
+ * @class widget
+ */
+
+/**
+ * 构造列表的自定义使用方法
+ -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-datepicker.html)
+ * @method yo-datepicker
+ * @param {default | String} $name 定义yo-datepicker名称
+ * @param {default | Length} $padding 定义yo-datepicker内补白
+ * @param {default | Length} $radius 定义yo-datepicker圆角
+ * @param {default | Color} $bgcolor 定义yo-datepicker背景色
+ * @param {default | Color} $color 定义yo-datepicker文本色
+ */
+
+@mixin yo-datepicker(
+    $name: default,
+    $padding: default,
+    $radius: default,
+    $bgcolor: default,
+    $color: default) {
+    // 区别是否新增实例还是修改本身
+    @if $name == default {
+        $name: "";
+    } @else {
+        $name: "-#{$name}";
+    }
+    // 如果值为default，则取config的定义
+    @if $padding == default {
+        $padding: map-get($datepicker, padding);
+    }
+    @if $radius == default {
+        $radius: map-get($datepicker, radius);
+    }
+    @if $bgcolor == default {
+        $bgcolor: map-get($datepicker, bgcolor);
+    }
+    @if $color == default {
+        $color: map-get($datepicker,color);
+    }
+    .yo-datepicker#{$name} {
+        @if $padding != map-get($datepicker, padding) {
+            padding: $padding;
+        }
+        @if $radius != map-get($datepicker, radius) {
+            border-radius: $radius;
+        }
+        @if $bgcolor != map-get($datepicker, bgcolor) {
+            background-color: rgba($bgcolor, .5);
+        }
+        @if $color != map-get($datepicker, color) {
+            color: $color;
+        }
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入datepicker基础构造
+.yo-datepicker {
+    @include _datepicker;
+}

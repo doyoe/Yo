@@ -40,7 +40,14 @@ Yo约束了2种项目所使用的长度单位
 
 ### Developing: v1.9.0
 
-* 开发中
+* update: `reset`
+    - 新增一条重置规则
+    ```
+    input[type="search" i]::-webkit-search-cancel-button {
+        @include appearance;
+    }
+    ```
+    用于抹平各浏览器差异，去除输入时的 `x` 按钮
 
 ### Lastest: v1.8.0
 
