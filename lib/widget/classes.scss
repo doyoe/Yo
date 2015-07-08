@@ -798,7 +798,8 @@
     > .days {
         > li {
             position: relative;
-            height: .44rem;
+            height: .54rem;
+            padding-top: .06rem;
         }
         > .disabled {
             color: gray;
@@ -815,18 +816,21 @@
             &::before,
             &::after {
                 display: block;
-                color: #090;
             }
             &::before {
                 position: absolute;
                 z-index: -1;
-                top: .02rem;
+                top: .04rem;
                 left: 50%;
                 @include transform(translate(-50%));
-                @include square(.2rem);
+                @include square(.24rem);
                 @include border-radius(50%);
                 background-color: red;
                 content: "\0020";
+            }
+            &::after {
+                margin-top: .02rem;
+                color: #090;
             }
         }
         > .start::after {
