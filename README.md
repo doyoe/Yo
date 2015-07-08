@@ -43,7 +43,7 @@ Yo约束了2种项目所使用的长度单位
 * update: `reset`
     - 新增一条重置规则
     ```
-    input[type="search" i]::-webkit-search-cancel-button {
+    input[type="search"]::-webkit-search-cancel-button {
         @include appearance;
     }
     ```
