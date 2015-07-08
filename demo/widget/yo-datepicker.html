@@ -20,68 +20,74 @@
     <div class="flex">
         <section class="m-list">
             <div class="yo-datepicker">
-                <ul class="weeks">
-                    <li>周一</li>
-                    <li>周二</li>
-                    <li>周三</li>
-                    <li>周四</li>
-                    <li>周五</li>
-                    <li>周六</li>
-                    <li>周日</li>
+                <ul class="week-title">
+                    <li class="weekend">日</li>
+                    <li>一</li>
+                    <li>二</li>
+                    <li>三</li>
+                    <li>四</li>
+                    <li>五</li>
+                    <li class="weekend">六</li>
                 </ul>
-                <ul class="days">
+                <ul class="week">
+                    <li class="weekend"></li>
                     <li></li>
                     <li></li>
                     <li></li>
                     <li></li>
-                    <li></li>
-                    <li class="disabled">1</li>
-                    <li>2</li>
+                    <li class="disabled"><span class="day">1</span></li>
+                    <li class="weekend"><span class="day">2</span></li>
                 </ul>
-                <ul class="days">
-                    <li>3</li>
-                    <li>4</li>
-                    <li class="today">今天</li>
-                    <li>6</li>
-                    <li>7</li>
-                    <li>8</li>
-                    <li>9</li>
+                <ul class="week">
+                    <li class="weekend"><span class="day">3</span></li>
+                    <li><span class="day">4</span></li>
+                    <li class="today">
+                        <span class="day">5</span>
+                        <ins class="special">今天</ins>
+                    </li>
+                    <li><span class="day">6</span></li>
+                    <li><span class="day">7</span></li>
+                    <li><span class="day">8</span></li>
+                    <li class="weekend"><span class="day">9</span></li>
                 </ul>
-                <ul class="days">
-                    <li>10</li>
-                    <li class="start">11</li>
-                    <li>12</li>
-                    <li>13</li>
-                    <li>14</li>
-                    <li class="end">15</li>
-                    <li>16</li>
+                <ul class="week">
+                    <li class="weekend"><span class="day">10</span></li>
+                    <li class="start"><span class="day">11</span></li>
+                    <li><span class="day">12</span></li>
+                    <li><span class="day">13</span></li>
+                    <li><span class="day">14</span></li>
+                    <li class="end"><span class="day">15</span></li>
+                    <li class="weekend"><span class="day">16</span></li>
                 </ul>
-                <ul class="days">
-                    <li>17</li>
-                    <li>18</li>
-                    <li>19</li>
-                    <li>20</li>
-                    <li>21</li>
-                    <li>22</li>
-                    <li>23</li>
+                <ul class="week">
+                    <li class="weekend"><span class="day">17</span></li>
+                    <li><span class="day">18</span></li>
+                    <li><span class="day">19</span></li>
+                    <li><span class="day">20</span></li>
+                    <li><span class="day">21</span></li>
+                    <li><span class="day">22</span></li>
+                    <li class="weekend"><span class="day">23</span></li>
                 </ul>
-                <ul class="days">
-                    <li>24</li>
-                    <li>25</li>
-                    <li>26</li>
-                    <li>27</li>
-                    <li class="holiday">28</li>
-                    <li>29</li>
-                    <li>30</li>
+                <ul class="week">
+                    <li class="weekend"><span class="day">24</span></li>
+                    <li><span class="day">25</span></li>
+                    <li><span class="day">26</span></li>
+                    <li><span class="day">27</span></li>
+                    <li class="holiday">
+                        <span class="day">28</span>
+                        <ins class="special">国庆节</ins>
+                    </li>
+                    <li><span class="day">29</span></li>
+                    <li class="weekend"><span class="day">30</span></li>
                 </ul>
-                <ul class="days">
-                    <li>31</li>
+                <ul class="week">
+                    <li class="weekend"><span class="day">31</span></li>
                     <li></li>
                     <li></li>
                     <li></li>
                     <li></li>
                     <li></li>
-                    <li></li>
+                    <li class="weekend"></li>
                 </ul>
             </div>
         </section>

@@ -934,71 +934,79 @@ a {
  */
 .yo-datepicker {
   text-align: center;
-  font-size: .14rem;
 }
-.yo-datepicker > .weeks,
-.yo-datepicker > .days {
+.yo-datepicker > .week-title,
+.yo-datepicker > .week {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
   width: 100%;
   border-bottom: 1px solid #ccc;
 }
-.yo-datepicker > .weeks > li,
-.yo-datepicker > .days > li {
+.yo-datepicker > .week-title > li,
+.yo-datepicker > .week > li {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
   width: 100%;
   height: auto;
 }
-.yo-datepicker > .days > li {
+.yo-datepicker > .week-title {
+  padding: .02rem 0;
+  background-color: #1ba9ba;
+  color: #fff;
+  font-size: .12rem;
+}
+.yo-datepicker > .week > li {
   position: relative;
   height: .54rem;
-  padding-top: .06rem;
+  padding: .05rem 0;
+  font-size: .14rem;
 }
-.yo-datepicker > .days > .disabled {
-  color: gray;
-}
-.yo-datepicker > .days > .today {
-  color: #f50;
-}
-.yo-datepicker > .days > .holiday {
-  color: #f50;
-}
-.yo-datepicker > .days > .start,
-.yo-datepicker > .days > .end {
-  color: #fff;
-}
-.yo-datepicker > .days > .start::before, .yo-datepicker > .days > .start::after,
-.yo-datepicker > .days > .end::before,
-.yo-datepicker > .days > .end::after {
-  display: block;
-}
-.yo-datepicker > .days > .start::before,
-.yo-datepicker > .days > .end::before {
-  position: absolute;
-  top: .04rem;
-  left: 50%;
-  -webkit-transform: translate(-50%);
-  transform: translate(-50%);
+.yo-datepicker .day {
+  display: inline-block;
   width: 0.24rem;
   height: 0.24rem;
   border-radius: 50%;
   -webkit-background-clip: padding-box !important;
   background-clip: padding-box !important;
-  background-color: red;
-  content: "\0020";
+  line-height: .24rem;
+  vertical-align: top;
 }
-.yo-datepicker > .days > .start::after,
-.yo-datepicker > .days > .end::after {
+.yo-datepicker .today,
+.yo-datepicker .holiday {
+  color: #f50;
+}
+.yo-datepicker .today > .day,
+.yo-datepicker .holiday > .day {
+  display: none;
+}
+.yo-datepicker .weekend {
+  color: #f00;
+}
+.yo-datepicker .disabled {
+  color: gray;
+}
+.yo-datepicker .start > .day,
+.yo-datepicker .end > .day {
+  display: inline-block;
+  background-color: #1ba9ba;
+  color: #fff;
+}
+.yo-datepicker .start > .special,
+.yo-datepicker .end > .special {
+  display: none;
+}
+.yo-datepicker .start::after,
+.yo-datepicker .end::after {
+  display: block;
   margin-top: .02rem;
-  color: #090;
+  color: #1ba9ba;
 }
-.yo-datepicker > .days > .start::after {
+.yo-datepicker .start::after {
   content: "入店";
 }
-.yo-datepicker > .days > .end::after {
+.yo-datepicker .end::after {
   content: "离店";
 }
 

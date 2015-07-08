@@ -785,9 +785,8 @@
 // 使用方法请查看 yo-datepicker.scss
 @mixin _datepicker {
     text-align: center;
-    font-size: .14rem;
-    > .weeks,
-    > .days {
+    > .week-title,
+    > .week {
         @include flexbox;
         width: 100%;
         border-bottom: 1px solid map-get($base, bordercolor);
@@ -795,50 +794,65 @@
             @include flex;
         }
     }
-    > .days {
+    > .week-title {
+        padding: .02rem 0;
+        background-color: #1ba9ba;
+        color: #fff;
+        font-size: .12rem;
+    }
+    > .week {
         > li {
             position: relative;
             height: .54rem;
-            padding-top: .06rem;
+            padding: .05rem 0;
+            font-size: .14rem;
         }
-        > .disabled {
-            color: gray;
+    }
+    // 每个单日定义
+    .day {
+        display: inline-block;
+        @include square(.24rem);
+        @include border-radius(50%);
+        line-height: .24rem;
+        vertical-align: top;
+    }
+    // 特殊的日子
+    .today,
+    .holiday {
+        color: #f50;
+        > .day {
+            display: none;
         }
-        > .today {
-            color: #f50;
-        }
-        > .holiday {
-            color: #f50;
-        }
-        > .start,
-        > .end {
+    }
+    // 周末
+    .weekend {
+        color: #f00;
+    }
+    // 不可选的日子
+    .disabled {
+        color: gray;
+    }
+    // 起始和结束日定义
+    .start,
+    .end {
+        > .day {
+            display: inline-block;
+            background-color: #1ba9ba;
             color: #fff;
-            &::before,
-            &::after {
-                display: block;
-            }
-            &::before {
-                position: absolute;
-                // z-index: -1;
-                top: .04rem;
-                left: 50%;
-                @include transform(translate(-50%));
-                @include square(.24rem);
-                @include border-radius(50%);
-                background-color: red;
-                content: "\0020";
-            }
-            &::after {
-                margin-top: .02rem;
-                color: #090;
-            }
         }
-        > .start::after {
-            content: "入店";
+        > .special {
+            display: none;
         }
-        > .end::after {
-            content: "离店";
+        &::after {
+            display: block;
+            margin-top: .02rem;
+            color: #1ba9ba;
         }
-
+    }
+    .start::after {
+        content: "入店";
+    }
+    .end::after {
+        content: "离店";
     }
 }
