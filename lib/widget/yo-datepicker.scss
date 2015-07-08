@@ -33,27 +33,9 @@
     @if $padding == default {
         $padding: map-get($datepicker, padding);
     }
-    @if $radius == default {
-        $radius: map-get($datepicker, radius);
-    }
-    @if $bgcolor == default {
-        $bgcolor: map-get($datepicker, bgcolor);
-    }
-    @if $color == default {
-        $color: map-get($datepicker,color);
-    }
     .yo-datepicker#{$name} {
         @if $padding != map-get($datepicker, padding) {
             padding: $padding;
-        }
-        @if $radius != map-get($datepicker, radius) {
-            border-radius: $radius;
-        }
-        @if $bgcolor != map-get($datepicker, bgcolor) {
-            background-color: rgba($bgcolor, .5);
-        }
-        @if $color != map-get($datepicker, color) {
-            color: $color;
         }
         .week-title {
             padding: .02rem 0;
