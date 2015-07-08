@@ -941,7 +941,6 @@ a {
   display: -webkit-flex;
   display: flex;
   width: 100%;
-  border-bottom: 1px solid #ccc;
 }
 .yo-datepicker .week-title > li,
 .yo-datepicker .week > li {
@@ -956,6 +955,9 @@ a {
   background-color: #1ba9ba;
   color: #fff;
   font-size: .12rem;
+}
+.yo-datepicker .week {
+  border-bottom: 1px solid #ccc;
 }
 .yo-datepicker .week > li {
   position: relative;

@@ -55,6 +55,68 @@
         @if $color != map-get($datepicker, color) {
             color: $color;
         }
+        .week-title {
+            padding: .02rem 0;
+            background-color: #1ba9ba;
+            color: #fff;
+            font-size: .12rem;
+        }
+        .week {
+            border-bottom: 1px solid map-get($base, bordercolor);
+            > li {
+                position: relative;
+                height: .54rem;
+                padding: .05rem 0;
+                font-size: .14rem;
+            }
+        }
+        // 每个单日定义
+        .day {
+            display: inline-block;
+            @include square(.24rem);
+            @include border-radius(50%);
+            line-height: .24rem;
+            vertical-align: top;
+        }
+        // 特殊的日子
+        .today,
+        .holiday {
+            color: #f50;
+            > .day {
+                display: none;
+            }
+        }
+        // 周末
+        .weekend {
+            color: #f00;
+        }
+        // 不可选的日子
+        .disabled {
+            color: gray;
+        }
+        // 起始和结束日定义
+        .start,
+        .end {
+            > .day {
+                display: inline-block;
+                background-color: #1ba9ba;
+                color: #fff;
+            }
+            > .special {
+                display: none;
+            }
+            &::after {
+                display: block;
+                margin-top: .02rem;
+                color: #1ba9ba;
+            }
+        }
+        .start::after {
+            content: "入店";
+        }
+        .end::after {
+            content: "离店";
+        }
         // 增量扩展
         @content;
     }

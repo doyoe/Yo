@@ -789,7 +789,6 @@
     .week {
         @include flexbox;
         width: 100%;
-        border-bottom: 1px solid map-get($base, bordercolor);
         > li {
             @include flex;
         }
@@ -801,6 +800,7 @@
         font-size: .12rem;
     }
     .week {
+        border-bottom: 1px solid map-get($base, bordercolor);
         > li {
             position: relative;
             height: .54rem;
