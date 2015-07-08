@@ -784,14 +784,21 @@
 // 定义datepicker的基础构造
 // 使用方法请查看 yo-datepicker.scss
 @mixin _datepicker {
-    border: 1px solid map-get($base, bordercolor);
     text-align: center;
+    font-size: .14rem;
     > .weeks,
     > .days {
-        @include flexbox();
+        @include flexbox;
         width: 100%;
+        border-bottom: 1px solid map-get($base, bordercolor);
         > li {
             @include flex;
+        }
+    }
+    > .days {
+        > li {
+            position: relative;
+            height: .44rem;
         }
         > .disabled {
             color: gray;
@@ -802,5 +809,32 @@
         > .holiday {
             color: #f50;
         }
+        > .start,
+        > .end {
+            color: #fff;
+            &::before,
+            &::after {
+                display: block;
+                color: #090;
+            }
+            &::before {
+                position: absolute;
+                z-index: -1;
+                top: .02rem;
+                left: 50%;
+                @include transform(translate(-50%));
+                @include square(.2rem);
+                @include border-radius(50%);
+                background-color: red;
+                content: "\0020";
+            }
+        }
+        > .start::after {
+            content: "入店";
+        }
+        > .end::after {
+            content: "离店";
+        }
+
     }
 }
