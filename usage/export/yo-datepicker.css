@@ -935,29 +935,29 @@ a {
 .yo-datepicker {
   text-align: center;
 }
-.yo-datepicker > .week-title,
-.yo-datepicker > .week {
+.yo-datepicker .week-title,
+.yo-datepicker .week {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
   width: 100%;
   border-bottom: 1px solid #ccc;
 }
-.yo-datepicker > .week-title > li,
-.yo-datepicker > .week > li {
+.yo-datepicker .week-title > li,
+.yo-datepicker .week > li {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
   width: 100%;
   height: auto;
 }
-.yo-datepicker > .week-title {
+.yo-datepicker .week-title {
   padding: .02rem 0;
   background-color: #1ba9ba;
   color: #fff;
   font-size: .12rem;
 }
-.yo-datepicker > .week > li {
+.yo-datepicker .week > li {
   position: relative;
   height: .54rem;
   padding: .05rem 0;

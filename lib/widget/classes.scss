@@ -785,8 +785,8 @@
 // 使用方法请查看 yo-datepicker.scss
 @mixin _datepicker {
     text-align: center;
-    > .week-title,
-    > .week {
+    .week-title,
+    .week {
         @include flexbox;
         width: 100%;
         border-bottom: 1px solid map-get($base, bordercolor);
@@ -794,13 +794,13 @@
             @include flex;
         }
     }
-    > .week-title {
+    .week-title {
         padding: .02rem 0;
         background-color: #1ba9ba;
         color: #fff;
         font-size: .12rem;
     }
-    > .week {
+    .week {
         > li {
             position: relative;
             height: .54rem;
