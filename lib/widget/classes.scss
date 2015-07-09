@@ -199,7 +199,7 @@
 
 // 定义浮层tip的基础构造
 // 使用方法请查看 yo-tip.scss
-@mixin _tip{
+@mixin _tip {
     position: fixed;
     min-width: 1rem;
     max-width: 90%;
@@ -213,7 +213,7 @@
 
 // 定义mask的基础构造
 // 使用方法请查看 yo-mask.scss
-@mixin _mask{
+@mixin _mask {
     position: absolute;
     top: 0;
     right: 0;
@@ -804,26 +804,26 @@
         }
     }
     .week-bar {
-        height: .22rem;
-        line-height: .22rem;
-        background-color: #1ba9ba;
-        color: #fff;
-        font-size: .12rem;
+        height: map-get($datepicker, week-bar-height);
+        line-height: map-get($datepicker, week-bar-height);
+        background-color: map-get($datepicker, week-bar-bgcolor);
+        color: map-get($datepicker, week-bar-color);
+        font-size: map-get($datepicker, week-bar-font-size);
     }
     .month-bar {
-        height: .25rem;
-        line-height: .25rem;
-        border-bottom: 1px solid map-get($base, bordercolor);
-        background-color: #f9f9f9;
-        color: #000;
-        font-size: .14rem;
+        height: map-get($datepicker, month-bar-height);
+        line-height: map-get($datepicker, month-bar-height);
+        border-bottom: 1px solid map-get($datepicker, month-bar-bordercolor);
+        background-color: map-get($datepicker, month-bar-bgcolor);
+        color: map-get($datepicker, month-bar-color);
+        font-size: map-get($datepicker, month-bar-font-size);
         font-weight: normal;
     }
     .week {
-        border-bottom: 1px solid map-get($base, bordercolor);
+        border-bottom: 1px solid map-get($datepicker, week-bordercolor);
         > li {
             position: relative;
-            height: .54rem;
+            height: map-get($datepicker, week-height);
         }
     }
     // 每个单日定义

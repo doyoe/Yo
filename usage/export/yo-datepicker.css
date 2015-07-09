@@ -749,27 +749,27 @@ a {
   height: auto;
 }
 .yo-datepicker .week-bar {
-  height: .22rem;
-  line-height: .22rem;
+  height: 0.22rem;
+  line-height: 0.22rem;
   background-color: #1ba9ba;
   color: #fff;
-  font-size: .12rem;
+  font-size: 0.12rem;
 }
 .yo-datepicker .month-bar {
-  height: .25rem;
-  line-height: .25rem;
-  border-bottom: 1px solid #ccc;
-  background-color: #f9f9f9;
+  height: 0.25rem;
+  line-height: 0.25rem;
+  border-bottom: 1px solid #ddd;
+  background-color: #1ba9ba;
   color: #000;
-  font-size: .14rem;
+  font-size: 0.14rem;
   font-weight: normal;
 }
 .yo-datepicker .week {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #ddd;
 }
 .yo-datepicker .week > li {
   position: relative;
-  height: .54rem;
+  height: 0.54rem;
 }
 .yo-datepicker .day {
   display: inline-block;
@@ -783,8 +783,7 @@ a {
   line-height: .24rem;
   vertical-align: top;
 }
-.yo-datepicker .today,
-.yo-datepicker .holiday {
+.yo-datepicker .special {
   color: #f50;
 }
 .yo-datepicker .today > .day,
@@ -860,9 +859,5 @@ body {
 }
 
 .m-datepicker {
-  height: 3.75rem;
-}
-
-.m-code {
-  margin-top: 4rem;
+  position: static;
 }
