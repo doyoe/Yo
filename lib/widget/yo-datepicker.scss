@@ -37,29 +37,36 @@
         @if $padding != map-get($datepicker, padding) {
             padding: $padding;
         }
-        .week-title {
-            padding: .02rem 0;
+        .week-bar {
+            height: .22rem;
+            line-height: .22rem;
             background-color: #1ba9ba;
             color: #fff;
             font-size: .12rem;
+        }
+        .month-bar {
+            height: .25rem;
+            line-height: .25rem;
+            border-bottom: 1px solid map-get($base, bordercolor);
+            background-color: #f9f9f9;
+            color: #000;
+            font-size: .14rem;
         }
         .week {
             border-bottom-color: map-get($base, bordercolor);
             > li {
                 height: .54rem;
-                padding: .05rem 0;
-                font-size: .14rem;
             }
         }
         // 每个单日定义
         .day {
             @include square(.24rem);
-            @include border-radius(50%);
+            border-radius: 50%;
+            font-size: .14rem;
             line-height: .24rem;
         }
         // 特殊的日子
-        .today,
-        .holiday {
+        .special {
             color: #f50;
         }
         // 周末
@@ -78,8 +85,8 @@
                 color: #fff;
             }
             &::after {
-                margin-top: .02rem;
                 color: #1ba9ba;
+                font-size: .14rem;
             }
         }
         .start::after {

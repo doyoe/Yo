@@ -609,6 +609,61 @@ $dblist: (
     aside-order: null
 ) !default;
 
+// Widget UI datepicker(23)
+$datepicker: (
+    // {Length} 星期bar高度
+    week-bar-height:      .22rem,
+    // {Color} 星期bar背景色
+    week-bar-bgcolor:     #1ba9ba,
+    // {Color} 星期bar文本色
+    week-bar-color:       #fff,
+    // {Length} 星期bar字号
+    week-bar-font-size:   .12rem,
+
+    // {Length} 月份bar高度
+    month-bar-height:     .25rem,
+    // {Color} 月份bar边线色
+    month-bar-bordercolor: #1ba9ba,
+    // {Color} 月份bar背景色
+    month-bar-bgcolor:     #1ba9ba,
+    // {Color} 月份bar文本色
+    month-bar-color:       #000,
+    // {Length} 月份bar字号
+    month-bar-font-size:   .14rem,
+
+    // {Length} 每行高度
+    week-height:           .54rem,
+
+    // {Length} 每日高度
+    day-height:            .24rem,
+    // {Length} 每日圆角
+    day-radius:            50%,
+    // {Color} 每日文本色
+    day-color:             #000,
+    // {Length} 每日字号
+    day-font-size:         .14rem,
+
+    // {color} 特殊日文本色
+    special-color:         #f50,
+    // {color} 周末文本色
+    weekend-color:         #f00,
+    // {color} 禁用日子文本色
+    disabled-color:        gray,
+
+    // {color} 选中日期背景色
+    on-bgcolor:            #1ba9ba,
+    // {color} 选中日期文本色
+    on-color:              #fff,
+    // {color} 选中日期提示语文本色
+    on-tip-color:          #1ba9ba,
+    // {Length} 选中日期提示语字号
+    on-tip-font-size:      .14rem,
+    // {color} 选中开始日期提示语
+    on-start-content:      "入店",
+    // {color} 选中结束日期提示语
+    on-end-content:        "离店"
+) !default;
+
 // z-index
 $z-index: (
     // {Number} 下拉菜单层级范围50-100

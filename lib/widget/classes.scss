@@ -795,7 +795,7 @@
         @include flex;
         @include overflow;
     }
-    .week-title,
+    .week-bar,
     .week {
         @include flexbox;
         width: 100%;
@@ -803,38 +803,45 @@
             @include flex;
         }
     }
-    .week-title {
-        padding: .02rem 0;
+    .week-bar {
+        height: .22rem;
+        line-height: .22rem;
         background-color: #1ba9ba;
         color: #fff;
         font-size: .12rem;
+    }
+    .month-bar {
+        height: .25rem;
+        line-height: .25rem;
+        border-bottom: 1px solid map-get($base, bordercolor);
+        background-color: #f9f9f9;
+        color: #000;
+        font-size: .14rem;
+        font-weight: normal;
     }
     .week {
         border-bottom: 1px solid map-get($base, bordercolor);
         > li {
             position: relative;
             height: .54rem;
-            padding: .05rem 0;
-            font-size: .14rem;
         }
-    }
-    .month {
-        padding: .02rem 0;
-        border-bottom: 1px solid map-get($base, bordercolor);
-        font-weight: normal;
     }
     // 每个单日定义
     .day {
         display: inline-block;
         @include square(.24rem);
         @include border-radius(50%);
+        font-size: .14rem;
+        margin: .05rem 0 .02rem;
         line-height: .24rem;
         vertical-align: top;
     }
     // 特殊的日子
+    .special {
+        color: #f50;
+    }
     .today,
     .holiday {
-        color: #f50;
         > .day {
             display: none;
         }
@@ -860,8 +867,8 @@
         }
         &::after {
             display: block;
-            margin-top: .02rem;
             color: #1ba9ba;
+            font-size: .14rem;
         }
     }
     .start::after {

@@ -733,14 +733,14 @@ a {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
-.yo-datepicker .week-title,
+.yo-datepicker .week-bar,
 .yo-datepicker .week {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
   width: 100%;
 }
-.yo-datepicker .week-title > li,
+.yo-datepicker .week-bar > li,
 .yo-datepicker .week > li {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
@@ -748,11 +748,21 @@ a {
   width: 100%;
   height: auto;
 }
-.yo-datepicker .week-title {
-  padding: .02rem 0;
+.yo-datepicker .week-bar {
+  height: .22rem;
+  line-height: .22rem;
   background-color: #1ba9ba;
   color: #fff;
   font-size: .12rem;
+}
+.yo-datepicker .month-bar {
+  height: .25rem;
+  line-height: .25rem;
+  border-bottom: 1px solid #ccc;
+  background-color: #f9f9f9;
+  color: #000;
+  font-size: .14rem;
+  font-weight: normal;
 }
 .yo-datepicker .week {
   border-bottom: 1px solid #ccc;
@@ -760,13 +770,6 @@ a {
 .yo-datepicker .week > li {
   position: relative;
   height: .54rem;
-  padding: .05rem 0;
-  font-size: .14rem;
-}
-.yo-datepicker .month {
-  padding: .02rem 0;
-  border-bottom: 1px solid #ccc;
-  font-weight: normal;
 }
 .yo-datepicker .day {
   display: inline-block;
@@ -775,6 +778,8 @@ a {
   border-radius: 50%;
   -webkit-background-clip: padding-box !important;
   background-clip: padding-box !important;
+  font-size: .14rem;
+  margin: .05rem 0 .02rem;
   line-height: .24rem;
   vertical-align: top;
 }
@@ -805,8 +810,8 @@ a {
 .yo-datepicker .start::after,
 .yo-datepicker .end::after {
   display: block;
-  margin-top: .02rem;
   color: #1ba9ba;
+  font-size: .14rem;
 }
 .yo-datepicker .start::after {
   content: "入店";
