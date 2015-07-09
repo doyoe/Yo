@@ -1,0 +1,12 @@
+@charset "utf-8";
+@import "../layout/layout";
+
+@import "../module/m-header";
+@import "../module/m-datepicker";
+@import "../module/m-code";
+
+@include root-scroll;
+
+.m-datepicker {
+    position: static;
+}

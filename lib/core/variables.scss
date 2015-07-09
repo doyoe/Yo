@@ -11,15 +11,15 @@
 
 $setting: (
     // 版本号
-    version:          "1.7.0",
+    version:          "1.8.1",
     // 是否开启厂商前缀
     is-vendor-prefix: true,
     // 厂商前缀
     vendor-prefix:    -webkit-,
     // 是否开启iOS 1px方案
-    is-ios-1pixel:    true,
+    is-ios-1pixel:    false,
     // 背景图片服务器
-    bgimg-domain:     "../../bgimg/"
+    bgimg-domain:     "http://source.qunarzz.com/yo/bgimg/"
 ) !default;
 
 // base
@@ -101,7 +101,7 @@ $ico: (
     // {String} 图标字体文件名
     font-name:  yofont,
     // {Url} 图标字体路径
-    font-path:  "../../font/"
+    font-path:  "http://source.qunarzz.com/fonts/yo/1.0.0/"
 ) !default;
 
 // Layout Stacked
@@ -607,6 +607,66 @@ $dblist: (
     aside-width: null,
     // {Length} 导航panel顺序，从0开始
     aside-order: null
+) !default;
+
+// Widget UI datepicker(23)
+$datepicker: (
+    // {Length} 星期bar高度
+    week-bar-height:      .22rem,
+    // {Color} 星期bar背景色
+    week-bar-bgcolor:     #1ba9ba,
+    // {Color} 星期bar文本色
+    week-bar-color:       #fff,
+    // {Length} 星期bar字号
+    week-bar-font-size:   .12rem,
+
+    // {Length} 月份bar高度
+    month-bar-height:     .25rem,
+    // {Color} 月份bar边线色
+    month-bar-bordercolor: #ddd,
+    // {Color} 月份bar背景色
+    month-bar-bgcolor:     #f9f9f9,
+    // {Color} 月份bar文本色
+    month-bar-color:       #000,
+    // {Length} 月份bar字号
+    month-bar-font-size:   .14rem,
+
+    // {Length} 每行高度
+    week-height:           .54rem,
+    // {Color} 每行边线色
+    week-bordercolor:       #ddd,
+    // {Color} 每行文本色
+    week-color:             #000,
+
+    // {Length} 每日高度
+    day-height:            .24rem,
+    // {Length} 每日间距
+    day-margin:            .05rem 0 .02rem,
+    // {Length} 每日圆角
+    day-radius:            50%,
+    // {Length} 每日字号
+    day-font-size:         .14rem,
+
+    // {color} 特殊日文本色
+    special-color:         #f50,
+    // {color} 周末文本色
+    weekend-color:         #f00,
+    // {color} 禁用日子文本色
+    disabled-color:        gray,
+
+    // {color} 选中日期背景色
+    on-bgcolor:            #1ba9ba,
+    // {color} 选中日期文本色
+    on-color:              #fff,
+    // {color} 选中日期提示语文本色
+    on-tip-color:          #1ba9ba,
+    // {Length} 选中日期提示语字号
+    on-tip-font-size:      .14rem,
+
+    // {String} 开始日期提示语
+    start-content:         "入店",
+    // {String} 结束日期提示语
+    end-content:           "离店"
 ) !default;
 
 // z-index

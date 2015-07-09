@@ -3,6 +3,20 @@
 History Version and release time.
 
 <a name="v1-7-0"></a>
+## v1.8.0 (2015.6.29)
+
+[Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v1.8.0)
+
+* update: `yo-header`
+    - 新增 `item-ico-color` 参数用以两侧ico颜色
+* add: `yo-align`
+    - 新增 `yo-align` 布局方式，用于设置元素的水平及垂直对齐方式
+* update: `yo-btn`
+    - 新增 `width`, `height` 2个变量用于控制按钮大小
+* update: `yo-list`
+    - 新增 `item-border-space` 变量用于控制列表项底线距左边的间隙
+
+<a name="v1-7-0"></a>
 ## v1.7.0 (2015.6.3)
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v1.7.0)

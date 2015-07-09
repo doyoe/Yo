@@ -8,4 +8,8 @@
             margin-left: .1rem;
         }
     }
+    // 图片大小
+    .mark img {
+        @include square(.6rem);
+    }
 }

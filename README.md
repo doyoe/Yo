@@ -38,7 +38,19 @@ Yo约束了2种项目所使用的长度单位
 
 ## Versioning
 
-### Developing: v1.8.0
+### Developing: v1.9.0
+
+* update: `reset`
+    - 新增一条重置规则
+    ```
+    input[type="search"]::-webkit-search-cancel-button {
+        @include appearance;
+    }
+    ```
+    用于抹平各浏览器差异，去除输入时的 `x` 按钮
+* add: `yo-datepicker`
+
+### Lastest: v1.8.0
 
 * update: `yo-header`
     - 新增 `item-ico-color` 参数用以两侧ico颜色
@@ -48,28 +60,6 @@ Yo约束了2种项目所使用的长度单位
     - 新增 `width`, `height` 2个变量用于控制按钮大小
 * update: `yo-list`
     - 新增 `item-border-space` 变量用于控制列表项底线距左边的间隙
-
-
-### Lastest: v1.7.0
-
-* update:
-    - 修订了 `transition` global classes 方法
-    - 给所有的 `yo-xxx` 方法增加了增量扩展的特性，当你自定义button时，可以这样写：
-```
-    @include yo-btn(
-        $name: test,
-        $border-width: .02rem,
-        $bgcolor: red
-    ){
-        // 这里可以用来增量定义当前 `yo-btn` 方法没有提供的参数扩展
-        postion: absolute;
-        top: 0;
-        left: 0;
-    }
-```
-* add:
-    - 新增了 `calc` global classes 方法
-    - 新增了 `fullscreen` global classes 方法，可传入 `z-index` 值
 
 
 ### History

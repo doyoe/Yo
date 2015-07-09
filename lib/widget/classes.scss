@@ -199,7 +199,7 @@
 
 // 定义浮层tip的基础构造
 // 使用方法请查看 yo-tip.scss
-@mixin _tip{
+@mixin _tip {
     position: fixed;
     min-width: 1rem;
     max-width: 90%;
@@ -213,7 +213,7 @@
 
 // 定义mask的基础构造
 // 使用方法请查看 yo-mask.scss
-@mixin _mask{
+@mixin _mask {
     position: absolute;
     top: 0;
     right: 0;
@@ -778,5 +778,111 @@
         &:not(:first-child) {
             @include flex;
         }
+    }
+}
+
+// 定义datepicker的基础构造
+// 使用方法请查看 yo-datepicker.scss
+@mixin _datepicker {
+    @include fullscreen;
+    @include flexbox;
+    @include flex-direction(column);
+    height: 100%;
+    background-color: #fff;
+    text-align: center;
+    // 多日历容器
+    .weeks {
+        position: relative;
+        @include flex;
+        @include overflow;
+    }
+    .week-bar,
+    .week {
+        @include flexbox;
+        width: 100%;
+        > li {
+            @include flex;
+        }
+    }
+    // 星期一，二...条（bar）
+    .week-bar {
+        height: map-get($datepicker, week-bar-height);
+        line-height: map-get($datepicker, week-bar-height);
+        background-color: map-get($datepicker, week-bar-bgcolor);
+        color: map-get($datepicker, week-bar-color);
+        font-size: map-get($datepicker, week-bar-font-size);
+    }
+    // 月份bar
+    .month-bar {
+        height: map-get($datepicker, month-bar-height);
+        line-height: map-get($datepicker, month-bar-height);
+        border-bottom: 1px solid map-get($datepicker, month-bar-bordercolor);
+        background-color: map-get($datepicker, month-bar-bgcolor);
+        color: map-get($datepicker, month-bar-color);
+        font-size: map-get($datepicker, month-bar-font-size);
+        font-weight: normal;
+    }
+    // 日期每行
+    .week {
+        border-bottom: 1px solid map-get($datepicker, week-bordercolor);
+        color: map-get($datepicker, week-color);
+        > li {
+            position: relative;
+            height: map-get($datepicker, week-height);
+        }
+    }
+    .day,
+    .special {
+        display: inline-block;
+        margin: map-get($datepicker, day-margin);
+        font-size: map-get($datepicker, day-font-size);
+        line-height: map-get($datepicker, day-height);
+        vertical-align: top;
+    }
+    // 每个单日定义
+    .day {
+        @include square(map-get($datepicker, day-height));
+        @include border-radius(map-get($datepicker, day-radius));
+    }
+    // 特殊的日子
+    .special {
+        color: map-get($datepicker, special-color);
+    }
+    .today,
+    .holiday {
+        > .day {
+            display: none;
+        }
+    }
+    // 周末
+    .weekend {
+        color: map-get($datepicker, weekend-color);
+    }
+    // 不可选的日子
+    .disabled {
+        color: map-get($datepicker, disabled-color);
+    }
+    // 起始和结束日定义
+    .start,
+    .end {
+        > .day {
+            display: inline-block;
+            background-color: map-get($datepicker, on-bgcolor);
+            color: map-get($datepicker, on-color);
+        }
+        > .special {
+            display: none;
+        }
+        &::after {
+            display: block;
+            color: map-get($datepicker, on-tip-color);
+            font-size: map-get($datepicker, on-tip-font-size);
+        }
+    }
+    .start::after {
+        content: map-get($datepicker, start-content);
+    }
+    .end::after {
+        content: map-get($datepicker, end-content);
     }
 }

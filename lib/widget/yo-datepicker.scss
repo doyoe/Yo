@@ -1,0 +1,115 @@
+@charset "utf-8";
+@import "classes";
+
+/**
+ * @class widget
+ */
+
+/**
+ * 构造列表的自定义使用方法
+ -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-datepicker.html)
+ * @method yo-datepicker
+ * @param {default | String} $name 定义yo-datepicker名称
+ * @param {default | Length} $padding 定义yo-datepicker内补白
+ * @param {default | Length} $radius 定义yo-datepicker圆角
+ * @param {default | Color} $bgcolor 定义yo-datepicker背景色
+ * @param {default | Color} $color 定义yo-datepicker文本色
+ */
+
+@mixin yo-datepicker(
+    $name: default,
+    $padding: default,
+    $radius: default,
+    $bgcolor: default,
+    $color: default) {
+    // 区别是否新增实例还是修改本身
+    @if $name == default {
+        $name: "";
+    } @else {
+        $name: "-#{$name}";
+    }
+    // 如果值为default，则取config的定义
+    @if $padding == default {
+        $padding: map-get($datepicker, padding);
+    }
+    .yo-datepicker#{$name} {
+        @if $padding != map-get($datepicker, padding) {
+            padding: $padding;
+        }
+        // 星期一，二...条（bar）
+        .week-bar {
+            height: map-get($datepicker, week-bar-height);
+            line-height: map-get($datepicker, week-bar-height);
+            background-color: map-get($datepicker, week-bar-bgcolor);
+            color: map-get($datepicker, week-bar-color);
+            font-size: map-get($datepicker, week-bar-font-size);
+        }
+        // 月份bar
+        .month-bar {
+            height: map-get($datepicker, month-bar-height);
+            line-height: map-get($datepicker, month-bar-height);
+            border-bottom: 1px solid map-get($datepicker, month-bar-bordercolor);
+            background-color: map-get($datepicker, month-bar-bgcolor);
+            color: map-get($datepicker, month-bar-color);
+            font-size: map-get($datepicker, month-bar-font-size);
+        }
+        // 日期每行
+        .week {
+            border-bottom: 1px solid map-get($datepicker, week-bordercolor);
+            color: map-get($datepicker, week-color);
+            > li {
+                height: map-get($datepicker, week-height);
+            }
+        }
+        .day,
+        .special {
+            margin: map-get($datepicker, day-margin);
+            font-size: map-get($datepicker, day-font-size);
+            line-height: map-get($datepicker, day-height);
+        }
+        // 每个单日定义
+        .day {
+            @include square(map-get($datepicker, day-height));
+            @include border-radius(map-get($datepicker, day-radius));
+        }
+        // 特殊的日子
+        .special {
+            color: map-get($datepicker, special-color);
+        }
+        // 周末
+        .weekend {
+            color: map-get($datepicker, weekend-color);
+        }
+        // 不可选的日子
+        .disabled {
+            color: map-get($datepicker, disabled-color);
+        }
+        // 起始和结束日定义
+        .start,
+        .end {
+            > .day {
+                background-color: map-get($datepicker, on-bgcolor);
+                color: map-get($datepicker, on-color);
+            }
+            &::after {
+                color: map-get($datepicker, on-tip-color);
+                font-size: map-get($datepicker, on-tip-font-size);
+            }
+        }
+        .start::after {
+            content: map-get($datepicker, start-content);
+        }
+        .end::after {
+            content: map-get($datepicker, end-content);
+        }
+
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入datepicker基础构造
+.yo-datepicker {
+    @include _datepicker;
+}
