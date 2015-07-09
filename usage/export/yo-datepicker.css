@@ -685,232 +685,6 @@ a {
 }
 
 /**
- * @class fragment
- */
-/**
- * 构造列表的自定义使用方法
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/fragment/yo-list.html)
- * @method yo-list
- * @param {String} $name 定义list名称
- * @param {Length} $margin 定义list外边距
- * @param {Length} $radius 定义list圆角
- * @param {Length} $border-width 定义list外边框厚度
- * @param {Color} $bordercolor 定义list边框色
- * @param {Length} $item-padding 定义list项的内补白
- * @param {Length} $label-padding 定义list分组标题内补白
- * @param {Color} $label-bgcolor 定义list分组标题背景色
- * @param {Color} $active-bgcolor 定义list点击反馈背景色
- * @param {Color} $on-bgcolor 定义list选中背景色
- * @param {Color} $on-color 定义list选中文本色
- * @param {Color} $item-bordercolor 定义list子项边框色
- * @param {Color} $label-bordercolor 定义list子项组头边框色
- * @param {Length} $item-font-size 定义list项字号
- * @param {Length} $label-font-size 定义list列表组头字号
- * @param {Length} $item-border-space 列表项下边线距离左侧的间隙
- */
-.yo-list > .label,
-.yo-list > .item,
-.yo-list .front {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-  -webkit-transform: translatez(0);
-  transform: translatez(0);
-}
-.yo-list > .label > .mark:not(:last-child),
-.yo-list > .label > .yo-ico:not(:last-child),
-.yo-list > .item > .mark:not(:last-child),
-.yo-list > .item > .yo-ico:not(:last-child),
-.yo-list .front > .mark:not(:last-child),
-.yo-list .front > .yo-ico:not(:last-child) {
-  margin-right: .1rem;
-}
-.yo-list > .label > .flex,
-.yo-list > .item > .flex,
-.yo-list .front > .flex {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  flex: 1;
-  width: 100%;
-  height: auto;
-}
-.yo-list > .label > .mark,
-.yo-list > .label > .yo-ico,
-.yo-list > .label > .col,
-.yo-list > .label > .flex,
-.yo-list > .item > .mark,
-.yo-list > .item > .yo-ico,
-.yo-list > .item > .col,
-.yo-list > .item > .flex,
-.yo-list .front > .mark,
-.yo-list .front > .yo-ico,
-.yo-list .front > .col,
-.yo-list .front > .flex {
-  display: block;
-}
-.yo-list > .label.tr,
-.yo-list > .item.tr,
-.yo-list .front.tr {
-  padding: 0;
-}
-.yo-list > .label {
-  padding: 0.03rem 0.1rem;
-  border: 1px solid #eee;
-  border-width: 0 0 1px 0;
-  background-color: #fafafa;
-  color: #666;
-  font-size: 0.13rem;
-  font-weight: normal;
-}
-.yo-list > .label > .col {
-  padding: 0.03rem 0.1rem;
-}
-.yo-list > .label:not(:first-child) {
-  border-width: 1px 0;
-  margin-top: -1px;
-}
-.yo-list > .item,
-.yo-list .front {
-  padding: 0.11rem 0.1rem 0.12rem;
-}
-.yo-list > .item {
-  background-color: #fff;
-  color: #212121;
-  font-size: 0.14rem;
-  background-image: -webkit-linear-gradient(#ddd, #ddd);
-  background-image: linear-gradient(#ddd, #ddd);
-  -webkit-background-size: 100% 1px;
-  background-size: 100% 1px;
-  background-repeat: no-repeat;
-  background-position: left 0.1rem bottom;
-}
-.yo-list > .item:last-child {
-  margin-bottom: -1px;
-  background-image: -webkit-linear-gradient(#ccc, #ccc);
-  background-image: linear-gradient(#ccc, #ccc);
-  background-position: left bottom;
-}
-.yo-list > .item-stacked {
-  display: block;
-}
-.yo-list > .item-stacked > .mark {
-  padding-bottom: .05rem;
-}
-.yo-list > .item-input > .yo-input {
-  height: auto;
-  padding: 0;
-  border: 0;
-}
-.yo-list > .item.item-active:active, .yo-list > .item.item-light {
-  background-color: #f8f8f8;
-}
-.yo-list > .item > .col {
-  padding: 0.11rem 0.1rem 0.12rem;
-}
-.yo-list > .yo-slidermenu {
-  display: block;
-  padding: 0 !important;
-}
-
-/**
- * yo-list扩展
- * Author: joy.du(飘零雾雨)
- * Time: 2015.1.16
- */
-.yo-list-inset {
-  margin: 0.2rem 0.1rem 0 0.1rem;
-  border-radius: 0.02rem;
-  border-width: 1px;
-  border-color: #ccc;
-  border-style: solid;
-}
-
-.yo-list-group > .label {
-  padding: 0.18rem 0.1rem 0.03rem;
-  border-color: #ccc;
-  background-color: transparent;
-}
-.yo-list-group > .label > .col {
-  padding: 0.18rem 0.1rem 0.03rem;
-}
-
-.m-list > .yo-list-group .yo-btn:not(:first-child) {
-  margin-left: .1rem;
-}
-.m-list .mark img {
-  width: 0.6rem;
-  height: 0.6rem;
-}
-
-/**
- * module: m-desc
- * Author: joy.du(飘零雾雨)
- * Time: 2015.6.17
- */
-.m-desc {
-  margin: .1rem;
-  padding-bottom: .05rem;
-  border-radius: .05rem;
-  background-color: #ddd;
-}
-.m-desc > .title {
-  padding: .18rem .1rem .03rem;
-  border-bottom: 1px solid #ccc;
-}
-.m-desc > xmp {
-  margin: .1rem;
-  padding: .1rem;
-  background-color: #666;
-  color: #fff;
-}
-.m-desc .sub-title {
-  margin: 0 .1rem;
-  padding: .1rem 0 .03rem;
-  border-bottom: 1px solid #ccc;
-}
-.m-desc .sub-title::before {
-  margin-right: .05rem;
-  padding: 0 .03rem;
-  border-radius: .03rem;
-  content: "Note";
-  font-weight: normal;
-  background-color: #f9c027;
-  color: #fff;
-}
-
-/**
- * module: m-code
- * Author: joy.du(飘零雾雨)
- * Time: 2013.10.17
- */
-.m-code {
-  -webkit-user-select: text;
-  user-select: text;
-  margin: .1rem;
-  padding: .1rem;
-  border-radius: 5px;
-  background: #272822;
-  color: #51bbe1;
-  font-size: .2rem;
-}
-.m-code .method {
-  color: #93de08;
-}
-.m-code .bracket,
-.m-code .colon {
-  padding-right: 5px;
-  color: #fff;
-}
-.m-code mark {
-  color: #ccc;
-  font-size: .14rem;
-}
-
-/**
  * Yo框架widget基础构造
  -----------------------
  * Yo内置了常见的通用代码片段，如：列表，表格，按钮组，头
@@ -1046,8 +820,44 @@ a {
  * Author: joy.du(飘零雾雨)
  * Time: 2015.1.16
  */
+/**
+ * module: m-code
+ * Author: joy.du(飘零雾雨)
+ * Time: 2013.10.17
+ */
+.m-code {
+  -webkit-user-select: text;
+  user-select: text;
+  margin: .1rem;
+  padding: .1rem;
+  border-radius: 5px;
+  background: #272822;
+  color: #51bbe1;
+  font-size: .2rem;
+}
+.m-code .method {
+  color: #93de08;
+}
+.m-code .bracket,
+.m-code .colon {
+  padding-right: 5px;
+  color: #fff;
+}
+.m-code mark {
+  color: #ccc;
+  font-size: .14rem;
+}
+
 html,
 body {
   overflow: hidden;
   height: 100%;
+}
+
+.m-datepicker {
+  height: 3.75rem;
+}
+
+.m-code {
+  margin-top: 4rem;
 }
