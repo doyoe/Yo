@@ -825,6 +825,7 @@
     // 日期每行
     .week {
         border-bottom: 1px solid map-get($datepicker, week-bordercolor);
+        color: map-get($datepicker, week-color);
         > li {
             position: relative;
             height: map-get($datepicker, week-height);
@@ -836,7 +837,6 @@
         @include square(map-get($datepicker, day-height));
         @include border-radius(map-get($datepicker, day-radius));
         margin: map-get($datepicker, day-margin);
-        color: map-get($datepicker, day-color);
         font-size: map-get($datepicker, day-font-size);
         line-height: map-get($datepicker, day-height);
         vertical-align: top;
