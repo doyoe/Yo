@@ -784,10 +784,15 @@
 // 定义datepicker的基础构造
 // 使用方法请查看 yo-datepicker.scss
 @mixin _datepicker {
+    @include fullscreen;
+    @include flexbox;
+    @include flex-direction(column);
     background-color: #fff;
     text-align: center;
     .weeks {
         position: relative;
+        @include flex;
+        @include overflow;
     }
     .week-title,
     .week {
