@@ -10,19 +10,61 @@
  -----------------------
  * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-datepicker.html)
  * @method yo-datepicker
- * @param {default | String} $name 定义yo-datepicker名称
- * @param {default | Length} $padding 定义yo-datepicker内补白
- * @param {default | Length} $radius 定义yo-datepicker圆角
- * @param {default | Color} $bgcolor 定义yo-datepicker背景色
- * @param {default | Color} $color 定义yo-datepicker文本色
+ * @param {String} $name 定义扩展名称
+ * @param {Length} $week-bar-height 定义星期bar高度
+ * @param {Color} $week-bar-bgcolor 定义星期bar背景色
+ * @param {Color} $week-bar-color 定义星期bar文本色
+ * @param {Length} $week-bar-font-size 定义星期bar字号
+ * @param {Length} $month-bar-height 定义月份bar高度
+ * @param {Color} $month-bar-bordercolor 定义月份bar边线色
+ * @param {Color} $month-bar-bgcolor 定义月份bar背景色
+ * @param {Color} $month-bar-color 定义月份bar文本色
+ * @param {Length} $month-bar-font-size 定义月份bar字号
+ * @param {Length} $week-height 定义每行高度
+ * @param {Color} $week-bordercolor 定义每行边线色
+ * @param {Color} $week-color 定义每行文本色
+ * @param {Length} $day-height 定义每日高度
+ * @param {Length} $day-margin 定义每日间距
+ * @param {Length} $day-radius 定义每日圆角
+ * @param {Length} $day-font-size 定义每日字号
+ * @param {Color} $special-color 定义特殊日文本色
+ * @param {Color} $weekend-color 定义周末文本色
+ * @param {Color} $disabled-color 定义禁用日子文本色
+ * @param {Color} $on-bgcolor 定义选中日期背景色
+ * @param {Color} $on-color 定义选中日期文本色
+ * @param {Color} $on-tip-color 定义选中日期提示语文本色
+ * @param {Length} $on-tip-font-size 定义选中日期提示语字号
+ * @param {String} $start-content 定义开始日期提示语
+ * @param {String} $end-content 定义结束日期提示语
  */
 
 @mixin yo-datepicker(
     $name: default,
-    $padding: default,
-    $radius: default,
-    $bgcolor: default,
-    $color: default) {
+    $week-bar-height: default,
+    $week-bar-bgcolor: default,
+    $week-bar-color: default,
+    $week-bar-font-size: default,
+    $month-bar-height: default,
+    $month-bar-bordercolor: default,
+    $month-bar-bgcolor: default,
+    $month-bar-color: default,
+    $month-bar-font-size: default,
+    $week-height: default,
+    $week-bordercolor: default,
+    $week-color: default,
+    $day-height: default,
+    $day-margin: default,
+    $day-radius: default,
+    $day-font-size: default,
+    $special-color: default,
+    $weekend-color: default,
+    $disabled-color: default,
+    $on-bgcolor: default,
+    $on-color: default,
+    $on-tip-color: default,
+    $on-tip-font-size: default,
+    $start-content: default,
+    $end-content: default) {
     // 区别是否新增实例还是修改本身
     @if $name == default {
         $name: "";
@@ -30,8 +72,80 @@
         $name: "-#{$name}";
     }
     // 如果值为default，则取config的定义
-    @if $padding == default {
-        $padding: map-get($datepicker, padding);
+    @if $week-bar-height == default {
+        $week-bar-height: map-get($datepicker, week-bar-height);
+    }
+    @if $week-bar-bgcolor == default {
+        $week-bar-bgcolor: map-get($datepicker, week-bar-bgcolor);
+    }
+    @if $week-bar-color == default {
+        $week-bar-color: map-get($datepicker, week-bar-color);
+    }
+    @if $week-bar-font-size == default {
+        $week-bar-font-size: map-get($datepicker, week-bar-font-size);
+    }
+    @if $month-bar-height == default {
+        $month-bar-height: map-get($datepicker, month-bar-height);
+    }
+    @if $month-bar-bordercolor == default {
+        $month-bar-bordercolor: map-get($datepicker, month-bar-bordercolor);
+    }
+    @if $month-bar-bgcolor == default {
+        $month-bar-bgcolor: map-get($datepicker, month-bar-bgcolor);
+    }
+    @if $month-bar-color == default {
+        $month-bar-color: map-get($datepicker, month-bar-color);
+    }
+    @if $month-bar-font-size == default {
+        $month-bar-font-size: map-get($datepicker, month-bar-font-size);
+    }
+    @if $week-height == default {
+        $week-height: map-get($datepicker, week-height);
+    }
+    @if $week-bordercolor == default {
+        $week-bordercolor: map-get($datepicker, week-bordercolor);
+    }
+    @if $week-color == default {
+        $week-color: map-get($datepicker, week-color);
+    }
+    @if $day-height == default {
+        $day-height: map-get($datepicker, day-height);
+    }
+    @if $day-margin == default {
+        $day-margin: map-get($datepicker, day-margin);
+    }
+    @if $day-radius == default {
+        $day-radius: map-get($datepicker, day-radius);
+    }
+    @if $day-font-size == default {
+        $day-font-size: map-get($datepicker, day-font-size);
+    }
+    @if $special-color == default {
+        $special-color: map-get($datepicker, special-color);
+    }
+    @if $weekend-color == default {
+        $weekend-color: map-get($datepicker, weekend-color);
+    }
+    @if $disabled-color == default {
+        $disabled-color: map-get($datepicker, disabled-color);
+    }
+    @if $on-bgcolor == default {
+        $on-bgcolor: map-get($datepicker, on-bgcolor);
+    }
+    @if $on-color == default {
+        $on-color: map-get($datepicker, on-color);
+    }
+    @if $on-tip-color == default {
+        $on-tip-color: map-get($datepicker, on-tip-color);
+    }
+    @if $on-tip-font-size == default {
+        $on-tip-font-size: map-get($datepicker, on-tip-font-size);
+    }
+    @if $start-content == default {
+        $start-content: map-get($datepicker, start-content);
+    }
+    @if $end-content == default {
+        $end-content: map-get($datepicker, end-content);
     }
     .yo-datepicker#{$name} {
         @if $padding != map-get($datepicker, padding) {
