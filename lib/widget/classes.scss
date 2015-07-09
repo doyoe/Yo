@@ -290,7 +290,7 @@
 // 定义tab的基础构造
 // 使用方法请查看 yo-tab.scss
 @mixin _tab {
-    @include flexbox();
+    @include flexbox;
     height: map-get($tab, height);
     @include border-radius(map-get($tab, radius));
     border-width: map-get($tab, border-width);
@@ -301,6 +301,7 @@
     text-align: center;
     line-height: map-get($tab, height);
     > .item {
+        display: block;
         @include flex;
         position: relative;
         &:not(:last-child)::after {

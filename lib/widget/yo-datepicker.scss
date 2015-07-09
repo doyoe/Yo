@@ -185,10 +185,16 @@
         }
         // 日期每行
         .week {
-            border-bottom: 1px solid map-get($datepicker, week-bordercolor);
-            color: map-get($datepicker, week-color);
+            @if $week-bordercolor != map-get($datepicker, week-bordercolor) {
+                border-bottom-color: $week-bordercolor;
+            }
+            @if $week-color != map-get($datepicker, week-color) {
+                color: $week-color;
+            }
             > li {
-                height: map-get($datepicker, week-height);
+                @if $week-height != map-get($datepicker, week-height) {
+                    height: $week-height;
+                }
             }
         }
         .day,
