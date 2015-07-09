@@ -199,44 +199,72 @@
         }
         .day,
         .special {
-            margin: map-get($datepicker, day-margin);
-            font-size: map-get($datepicker, day-font-size);
-            line-height: map-get($datepicker, day-height);
+            @if $day-margin != map-get($datepicker, day-margin) {
+                margin: $day-margin;
+            }
+            @if $day-font-size != map-get($datepicker, day-font-size) {
+                font-size: $font-size;
+            }
+            @if $day-height != map-get($datepicker, day-height) {
+                line-height: $height;
+            }
         }
         // 每个单日定义
         .day {
-            @include square(map-get($datepicker, day-height));
-            @include border-radius(map-get($datepicker, day-radius));
+            @if $day-height != map-get($datepicker, day-height) {
+                @include square($day-height);
+            }
+            @if $day-radius != map-get($datepicker, day-radius) {
+                border-radius: $day-radius;
+            }
         }
         // 特殊的日子
         .special {
-            color: map-get($datepicker, special-color);
+            @if $special-color != map-get($datepicker, special-color) {
+                color: $special-color;
+            }
         }
         // 周末
         .weekend {
-            color: map-get($datepicker, weekend-color);
+            @if $weekend-color != map-get($datepicker, weekend-color) {
+                color: $weekend-color;
+            }
         }
         // 不可选的日子
         .disabled {
-            color: map-get($datepicker, disabled-color);
+            @if $disabled-color != map-get($datepicker, disabled-color) {
+                color: $disabled-color;
+            }
         }
         // 起始和结束日定义
         .start,
         .end {
             > .day {
-                background-color: map-get($datepicker, on-bgcolor);
-                color: map-get($datepicker, on-color);
+                @if $on-bgcolor != map-get($datepicker, on-bgcolor) {
+                    background-color: $on-bgcolor;
+                }
+                @if $on-color != map-get($datepicker, on-color) {
+                    color: $on-color;
+                }
             }
             &::after {
-                color: map-get($datepicker, on-tip-color);
-                font-size: map-get($datepicker, on-tip-font-size);
+                @if $on-tip-color != map-get($datepicker, on-tip-color) {
+                    color: $on-tip-color;
+                }
+                @if $on-tip-font-size != map-get($datepicker, on-tip-font-size) {
+                    font-size: $on-tip-font-size;
+                }
             }
         }
         .start::after {
-            content: map-get($datepicker, start-content);
+            @if $start-content != map-get($datepicker, start-content) {
+                content: $start-content;
+            }
         }
         .end::after {
-            content: map-get($datepicker, end-content);
+            @if $end-content != map-get($datepicker, end-content) {
+                content: $end-content;
+            }
         }
 
         // 增量扩展
