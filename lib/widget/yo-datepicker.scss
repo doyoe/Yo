@@ -148,25 +148,40 @@
         $end-content: map-get($datepicker, end-content);
     }
     .yo-datepicker#{$name} {
-        @if $padding != map-get($datepicker, padding) {
-            padding: $padding;
-        }
         // 星期一，二...条（bar）
         .week-bar {
-            height: map-get($datepicker, week-bar-height);
-            line-height: map-get($datepicker, week-bar-height);
-            background-color: map-get($datepicker, week-bar-bgcolor);
-            color: map-get($datepicker, week-bar-color);
-            font-size: map-get($datepicker, week-bar-font-size);
+            @if $week-bar-height != map-get($datepicker, week-bar-height) {
+                height: $week-bar-height;
+                line-height: $week-bar-height;
+            }
+            @if $week-bar-bgcolor != map-get($datepicker, week-bar-bgcolor) {
+                background-color: $week-bar-bgcolor;
+            }
+            @if $week-bar-color != map-get($datepicker, week-bar-color) {
+                color: $week-bar-color;
+            }
+            @if $week-bar-font-size != map-get($datepicker, week-bar-font-size) {
+                font-size: $week-bar-font-size;
+            }
         }
         // 月份bar
         .month-bar {
-            height: map-get($datepicker, month-bar-height);
-            line-height: map-get($datepicker, month-bar-height);
-            border-bottom: 1px solid map-get($datepicker, month-bar-bordercolor);
-            background-color: map-get($datepicker, month-bar-bgcolor);
-            color: map-get($datepicker, month-bar-color);
-            font-size: map-get($datepicker, month-bar-font-size);
+            @if $month-bar-height != map-get($datepicker, month-bar-height) {
+                height: $month-bar-height;
+                line-height: $month-bar-height;
+            }
+            @if $month-bar-bordercolor != map-get($datepicker, month-bar-bordercolor) {
+                border-bottom-color: $month-bar-bordercolor;
+            }
+            @if $month-bar-bgcolor != map-get($datepicker, month-bar-bgcolor) {
+                background-color: $month-bar-bgcolor;
+            }
+            @if $month-bar-color != map-get($datepicker, month-bar-color) {
+                color: $month-bar-color;
+            }
+            @if $month-bar-font-size != map-get($datepicker, month-bar-font-size) {
+                font-size: $month-bar-font-size;
+            }
         }
         // 日期每行
         .week {
