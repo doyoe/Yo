@@ -784,7 +784,11 @@
 // 定义datepicker的基础构造
 // 使用方法请查看 yo-datepicker.scss
 @mixin _datepicker {
+    background-color: #fff;
     text-align: center;
+    .weeks {
+        position: relative;
+    }
     .week-title,
     .week {
         @include flexbox;
@@ -807,6 +811,11 @@
             padding: .05rem 0;
             font-size: .14rem;
         }
+    }
+    .month {
+        padding: .02rem 0;
+        border-bottom: 1px solid map-get($base, bordercolor);
+        font-weight: normal;
     }
     // 每个单日定义
     .day {

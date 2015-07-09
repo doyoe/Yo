@@ -933,7 +933,11 @@ a {
  * @param {default | Color} $color 定义yo-datepicker文本色
  */
 .yo-datepicker {
+  background-color: #fff;
   text-align: center;
+}
+.yo-datepicker .weeks {
+  position: relative;
 }
 .yo-datepicker .week-title,
 .yo-datepicker .week {
@@ -964,6 +968,11 @@ a {
   height: .54rem;
   padding: .05rem 0;
   font-size: .14rem;
+}
+.yo-datepicker .month {
+  padding: .02rem 0;
+  border-bottom: 1px solid #ccc;
+  font-weight: normal;
 }
 .yo-datepicker .day {
   display: inline-block;
