@@ -790,6 +790,7 @@
     height: 100%;
     background-color: #fff;
     text-align: center;
+    // 多日历容器
     .weeks {
         position: relative;
         @include flex;
@@ -803,6 +804,7 @@
             @include flex;
         }
     }
+    // 星期一，二...条（bar）
     .week-bar {
         height: map-get($datepicker, week-bar-height);
         line-height: map-get($datepicker, week-bar-height);
@@ -810,6 +812,7 @@
         color: map-get($datepicker, week-bar-color);
         font-size: map-get($datepicker, week-bar-font-size);
     }
+    // 月份bar
     .month-bar {
         height: map-get($datepicker, month-bar-height);
         line-height: map-get($datepicker, month-bar-height);
@@ -819,6 +822,7 @@
         font-size: map-get($datepicker, month-bar-font-size);
         font-weight: normal;
     }
+    // 日期每行
     .week {
         border-bottom: 1px solid map-get($datepicker, week-bordercolor);
         > li {
@@ -829,16 +833,17 @@
     // 每个单日定义
     .day {
         display: inline-block;
-        @include square(.24rem);
-        @include border-radius(50%);
-        font-size: .14rem;
-        margin: .05rem 0 .02rem;
-        line-height: .24rem;
+        @include square(map-get($datepicker, day-height));
+        @include border-radius(map-get($datepicker, day-radius));
+        margin: map-get($datepicker, day-margin);
+        color: map-get($datepicker, day-color);
+        font-size: map-get($datepicker, day-font-size);
+        line-height: map-get($datepicker, day-height);
         vertical-align: top;
     }
     // 特殊的日子
     .special {
-        color: #f50;
+        color: map-get($datepicker, special-color);
     }
     .today,
     .holiday {
@@ -848,33 +853,33 @@
     }
     // 周末
     .weekend {
-        color: #f00;
+        color: map-get($datepicker, weekend-color);
     }
     // 不可选的日子
     .disabled {
-        color: gray;
+        color: map-get($datepicker, disabled-color);
     }
     // 起始和结束日定义
     .start,
     .end {
         > .day {
             display: inline-block;
-            background-color: #1ba9ba;
-            color: #fff;
+            background-color: map-get($datepicker, on-bgcolor);
+            color: map-get($datepicker, on-color);
         }
         > .special {
             display: none;
         }
         &::after {
             display: block;
-            color: #1ba9ba;
-            font-size: .14rem;
+            color: map-get($datepicker, on-tip-color);
+            font-size: map-get($datepicker, on-tip-font-size);
         }
     }
     .start::after {
-        content: "入店";
+        content: map-get($datepicker, on-start-content);
     }
     .end::after {
-        content: "离店";
+        content: map-get($datepicker, on-end-content);
     }
 }

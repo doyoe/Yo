@@ -759,7 +759,7 @@ a {
   height: 0.25rem;
   line-height: 0.25rem;
   border-bottom: 1px solid #ddd;
-  background-color: #1ba9ba;
+  background-color: #f9f9f9;
   color: #000;
   font-size: 0.14rem;
   font-weight: normal;
@@ -778,9 +778,10 @@ a {
   border-radius: 50%;
   -webkit-background-clip: padding-box !important;
   background-clip: padding-box !important;
-  font-size: .14rem;
-  margin: .05rem 0 .02rem;
-  line-height: .24rem;
+  margin: 0.05rem 0 0.02rem;
+  color: #000;
+  font-size: 0.14rem;
+  line-height: 0.24rem;
   vertical-align: top;
 }
 .yo-datepicker .special {
@@ -810,7 +811,7 @@ a {
 .yo-datepicker .end::after {
   display: block;
   color: #1ba9ba;
-  font-size: .14rem;
+  font-size: 0.14rem;
 }
 .yo-datepicker .start::after {
   content: "入店";

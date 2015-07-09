@@ -625,7 +625,7 @@ $datepicker: (
     // {Color} 月份bar边线色
     month-bar-bordercolor: #ddd,
     // {Color} 月份bar背景色
-    month-bar-bgcolor:     #1ba9ba,
+    month-bar-bgcolor:     #f9f9f9,
     // {Color} 月份bar文本色
     month-bar-color:       #000,
     // {Length} 月份bar字号
@@ -638,6 +638,8 @@ $datepicker: (
 
     // {Length} 每日高度
     day-height:            .24rem,
+    // {Length} 每日间距
+    day-margin:            .05rem 0 .02rem,
     // {Length} 每日圆角
     day-radius:            50%,
     // {Color} 每日文本色
