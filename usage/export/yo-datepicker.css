@@ -772,17 +772,20 @@ a {
   position: relative;
   height: 0.54rem;
 }
-.yo-datepicker .day {
+.yo-datepicker .day,
+.yo-datepicker .special {
   display: inline-block;
+  margin: 0.05rem 0 0.02rem;
+  font-size: 0.14rem;
+  line-height: 0.24rem;
+  vertical-align: top;
+}
+.yo-datepicker .day {
   width: 0.24rem;
   height: 0.24rem;
   border-radius: 50%;
   -webkit-background-clip: padding-box !important;
   background-clip: padding-box !important;
-  margin: 0.05rem 0 0.02rem;
-  font-size: 0.14rem;
-  line-height: 0.24rem;
-  vertical-align: top;
 }
 .yo-datepicker .special {
   color: #f50;

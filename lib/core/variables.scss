@@ -662,10 +662,11 @@ $datepicker: (
     on-tip-color:          #1ba9ba,
     // {Length} 选中日期提示语字号
     on-tip-font-size:      .14rem,
-    // {color} 选中开始日期提示语
-    on-start-content:      "入店",
-    // {color} 选中结束日期提示语
-    on-end-content:        "离店"
+
+    // {String} 开始日期提示语
+    start-content:         "入店",
+    // {String} 结束日期提示语
+    end-content:           "离店"
 ) !default;
 
 // z-index

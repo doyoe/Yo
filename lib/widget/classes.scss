@@ -831,15 +831,18 @@
             height: map-get($datepicker, week-height);
         }
     }
-    // 每个单日定义
-    .day {
+    .day,
+    .special {
         display: inline-block;
-        @include square(map-get($datepicker, day-height));
-        @include border-radius(map-get($datepicker, day-radius));
         margin: map-get($datepicker, day-margin);
         font-size: map-get($datepicker, day-font-size);
         line-height: map-get($datepicker, day-height);
         vertical-align: top;
+    }
+    // 每个单日定义
+    .day {
+        @include square(map-get($datepicker, day-height));
+        @include border-radius(map-get($datepicker, day-radius));
     }
     // 特殊的日子
     .special {
@@ -877,9 +880,9 @@
         }
     }
     .start::after {
-        content: map-get($datepicker, on-start-content);
+        content: map-get($datepicker, start-content);
     }
     .end::after {
-        content: map-get($datepicker, on-end-content);
+        content: map-get($datepicker, end-content);
     }
 }
