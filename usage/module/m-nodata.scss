@@ -2,4 +2,6 @@
 
 .m-nodata {
     // do something
+    background: url(#{map-get($setting, bgimg-domain)}what.png) no-repeat;
+    text-align: center;
 }
