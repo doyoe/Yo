@@ -246,7 +246,7 @@
 }
 
 html {
-  background-color: #f9f9f9;
+  background-color: #fafafa;
   color: #212121;
   font-size: 100px;
   -webkit-user-select: none;
@@ -473,7 +473,7 @@ a {
 
 @font-face {
   font-family: yofont;
-  src: url("http://source.qunar.com/fonts/yo/1.0.0/yofont.woff") format("woff"), url("http://source.qunar.com/fonts/yo/1.0.0/yofont.ttf") format("truetype");
+  src: url("http://source.qunarzz.com/fonts/yo/1.0.0/yofont.woff") format("woff"), url("http://source.qunarzz.com/fonts/yo/1.0.0/yofont.ttf") format("truetype");
 }
 .yo-ico {
   font-family: yofont !important;
@@ -582,7 +582,6 @@ a {
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  text-align: center;
 }
 
 /**
@@ -685,9 +684,120 @@ a {
   color: #212121;
 }
 
-.m-nodata {
-  background: url(http://source.qunar.com/yo/bgimg/what.png) no-repeat;
+/**
+ * Yo框架element基础构造
+ -----------------------
+ * Yo内置了包括按钮，输入框，单选，多选，区间，分值等基础元素
+ *
+ * @class element
+ * @module Yo
+ */
+/**
+ * @class element
+ */
+/**
+ * 构造按钮的自定义使用方法，可轻松自定义边框，尺寸，背景，文字等
+ -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/element/yo-btn.html)
+ * @method yo-btn
+ * @param {String} $name 为新的按钮扩展定义一个名称
+ * @param {Length} $border-width 按钮边框厚度
+ * @param {Color} $bordercolor 按钮边框色
+ * @param {Color} $bgcolor 按钮背景色
+ * @param {Color} $color 按钮文本色
+ * @param {Color} $active-bordercolor 触点（鼠标，手指或其它）按下时的按钮边框色
+ * @param {Color} $active-bgcolor 触点（鼠标，手指或其它）按下的按钮背景色
+ * @param {Color} $active-color 触点（鼠标，手指或其它）按下的按钮文本色
+ * @param {Length} $padding 按钮内补白
+ * @param {Length} $radius 按钮圆角半径长度
+ * @param {Length} $font-size 按钮字号大小
+ * @param {Length} $width 按钮宽度
+ * @param {Length} $height 按钮高度
+ */
+.yo-btn {
+  display: inline-block;
+  overflow: hidden;
+  padding: 0 1.2em;
+  vertical-align: top;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #e26704;
+  box-shadow: inset 0.01rem 0.01rem rgba(255, 255, 255, 0.1);
+  border-radius: 0.02rem;
+  -webkit-background-clip: padding-box !important;
+  background-clip: padding-box !important;
+  background-color: #ff801a;
+  color: #fff;
   text-align: center;
+  cursor: pointer;
+}
+.yo-btn-s {
+  height: 0.28rem;
+  line-height: 0.28rem;
+  font-size: 0.12rem;
+}
+.yo-btn-m {
+  height: 0.36rem;
+  line-height: 0.36rem;
+  font-size: 0.14rem;
+}
+.yo-btn-l {
+  height: 0.44rem;
+  line-height: 0.44rem;
+  font-size: 0.16rem;
+}
+.yo-btn-stacked {
+  width: 100%;
+}
+
+.yo-btn-disabled {
+  border-color: #ccc;
+  background-color: #e0e0e0;
+  color: #bbb;
+  cursor: not-allowed;
+}
+.yo-btn-disabled, .yo-btn-disabled:focus, .yo-btn-disabled:active {
+  opacity: .4;
+}
+
+/**
+ * yo-btn扩展
+ * Author: joy.du(飘零雾雨)
+ * Time: 2015.1.16
+ */
+.yo-btn-light {
+  border-color: #ddd;
+  background-color: #fff;
+  color: #212121;
+}
+
+.yo-btn-info {
+  border-color: #0456e2;
+  background-color: #4a87ee;
+}
+
+.yo-btn-normal {
+  border-color: #1ba9ba;
+  background-color: #fff;
+  color: #1ba9ba;
+}
+.yo-btn-normal:active {
+  background-color: #1ba9ba;
+  color: #fff;
+}
+
+.m-nodata {
+  padding-top: .55rem;
+  background: url(http://source.qunarzz.com/yo/bgimg/what.png) no-repeat center 0;
+  text-align: center;
+}
+.m-nodata .info {
+  padding: .12rem 0;
+  color: #999;
+  font-size: .16rem;
+}
+.m-nodata .yo-btn-normal {
+  width: 1.35rem;
 }
 
 /**
