@@ -2975,6 +2975,163 @@ a {
  * Author: joy.du(飘零雾雨)
  * Time: 2015.1.16
  */
+/**
+ * @class widget
+ */
+/**
+ * 构造列表的自定义使用方法
+ -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-datepicker.html)
+ * @method yo-datepicker
+ * @param {String} $name 定义扩展名称
+ * @param {Length} $week-bar-height 定义星期bar高度
+ * @param {Color} $week-bar-bgcolor 定义星期bar背景色
+ * @param {Color} $week-bar-color 定义星期bar文本色
+ * @param {Length} $week-bar-font-size 定义星期bar字号
+ * @param {Length} $month-bar-height 定义月份bar高度
+ * @param {Color} $month-bar-bordercolor 定义月份bar边线色
+ * @param {Color} $month-bar-bgcolor 定义月份bar背景色
+ * @param {Color} $month-bar-color 定义月份bar文本色
+ * @param {Length} $month-bar-font-size 定义月份bar字号
+ * @param {Length} $week-height 定义每行高度
+ * @param {Color} $week-bordercolor 定义每行边线色
+ * @param {Color} $week-color 定义每行文本色
+ * @param {Length} $day-height 定义每日高度
+ * @param {Length} $day-margin 定义每日间距
+ * @param {Length} $day-radius 定义每日圆角
+ * @param {Length} $day-font-size 定义每日字号
+ * @param {Color} $special-color 定义特殊日文本色
+ * @param {Color} $weekend-color 定义周末文本色
+ * @param {Color} $disabled-color 定义禁用日子文本色
+ * @param {Color} $on-bgcolor 定义选中日期背景色
+ * @param {Color} $on-color 定义选中日期文本色
+ * @param {Color} $on-tip-color 定义选中日期提示语文本色
+ * @param {Length} $on-tip-font-size 定义选中日期提示语字号
+ * @param {String} $start-content 定义开始日期提示语
+ * @param {String} $end-content 定义结束日期提示语
+ */
+.yo-datepicker {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  background-color: #fff;
+  text-align: center;
+}
+.yo-datepicker .weeks {
+  position: relative;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  width: 100%;
+  height: auto;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.yo-datepicker .week-bar,
+.yo-datepicker .week {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  width: 100%;
+}
+.yo-datepicker .week-bar > li,
+.yo-datepicker .week > li {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  width: 100%;
+  height: auto;
+}
+.yo-datepicker .week-bar {
+  height: 0.22rem;
+  line-height: 0.22rem;
+  background-color: #1ba9ba;
+  color: #fff;
+  font-size: 0.12rem;
+}
+.yo-datepicker .month-bar {
+  height: 0.25rem;
+  line-height: 0.25rem;
+  border-bottom: 1px solid #ddd;
+  background-color: #f9f9f9;
+  color: #000;
+  font-size: 0.14rem;
+  font-weight: normal;
+}
+.yo-datepicker .week {
+  border-bottom: 1px solid #ddd;
+  color: #000;
+}
+.yo-datepicker .week > li {
+  position: relative;
+  height: 0.54rem;
+}
+.yo-datepicker .day,
+.yo-datepicker .special {
+  display: inline-block;
+  margin: 0.05rem 0 0.02rem;
+  font-size: 0.14rem;
+  line-height: 0.24rem;
+  vertical-align: top;
+}
+.yo-datepicker .day {
+  width: 0.24rem;
+  height: 0.24rem;
+  border-radius: 50%;
+  -webkit-background-clip: padding-box !important;
+  background-clip: padding-box !important;
+}
+.yo-datepicker .special {
+  color: #f50;
+}
+.yo-datepicker .today > .day,
+.yo-datepicker .holiday > .day {
+  display: none;
+}
+.yo-datepicker .weekend {
+  color: #f00;
+}
+.yo-datepicker .disabled {
+  color: gray;
+}
+.yo-datepicker .start > .day,
+.yo-datepicker .end > .day {
+  display: inline-block;
+  background-color: #1ba9ba;
+  color: #fff;
+}
+.yo-datepicker .start > .special,
+.yo-datepicker .end > .special {
+  display: none;
+}
+.yo-datepicker .start::after,
+.yo-datepicker .end::after {
+  display: block;
+  color: #1ba9ba;
+  font-size: 0.14rem;
+}
+.yo-datepicker .start::after {
+  content: "入店";
+}
+.yo-datepicker .end::after {
+  content: "离店";
+}
+
+/**
+ * yo-datepicker扩展
+ * Author: joy.du(飘零雾雨)
+ * Time: 2015.1.16
+ */
 .yo-list .mark img {
   width: 80px;
   height: 50px;
