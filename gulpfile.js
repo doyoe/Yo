@@ -7,7 +7,6 @@ var plumber = require('gulp-plumber');
 var compass = require('gulp-compass');
 var sass = require('gulp-ruby-sass');
 var nodeSass = require('gulp-sass');
-var importOnce = require('node-sass-import-once');
 var stripCssComments = require('gulp-strip-css-comments');
 var through = require('through2');
 
@@ -29,6 +28,44 @@ var diffBuildPath = './diff';
 
 // 默认编译器
 var defaultCompiler = JSON.parse(fs.readFileSync(path.join(__dirname, 'package.json'))).compiler;
+
+
+// 扩展名
+var extNames = ['sass', 'scss', 'css'];
+
+// fix 文件路径
+function fixFilePath(filePath) {
+    if (!path.extname(filePath)) {
+        for (var i = 0, l = extNames.length; i < l; i ++) {
+            if (fs.existsSync(filePath + '.' + extNames[i])) {
+                return filePath + '.' + extNames[i];
+            }
+        }
+    }
+    return filePath;
+}
+
+// 合并scss文件
+function getWholeScssFile(filePath, enc, imports) {
+    imports = imports || {};
+    filePath = fixFilePath(filePath);
+    if (fs.existsSync(filePath) && !imports[filePath]) {
+        imports[filePath] = true;
+        data = fs.readFileSync(filePath, enc);
+        data = data.replace(/@import.*"(.+)".*/g, function(a, b, c) {
+            return getWholeScssFile(path.join(path.dirname(filePath), b), enc, imports) + '\n';
+        });
+        return data;
+    } else {
+        return '';
+    }
+}
+
+// 合并Scss文件
+function combineScss(file, enc, cb) {
+    file.contents = new Buffer(getWholeScssFile(file.path, enc));
+    cb(null, file);
+}
 
 // 读取 Yo 版本号
 function getVersion() {
@@ -164,8 +201,8 @@ function buildNodeSassGulp(scssPath, cssPath) {
         .pipe(plumber({
             errorHandler: errorHandler
         }))
+        .pipe(through.obj(combineScss))
         .pipe(nodeSass({
-            importer: importOnce,
             outputStyle: 'expanded'
         }))
         .pipe(gulp.dest(cssPath))
