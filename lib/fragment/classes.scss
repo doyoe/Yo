@@ -85,7 +85,7 @@
             // 最后一根线的颜色与外边框颜色相同
             @include gradient(linear, map-get($list, bordercolor), map-get($list, bordercolor));
             // 最后一根线的左边不留间隙
-            background-position: left 0 bottom 0;
+            background-position: left 0 bottom;
         }
 
         &-stacked {

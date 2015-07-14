@@ -49,6 +49,8 @@ Yo约束了2种项目所使用的长度单位
     ```
     用于抹平各浏览器差异，去除输入时的 `x` 按钮
 * add: `yo-datepicker`
+* update: `yo-list`
+    - 修复item最后一根线在mate7上的重叠问题
 
 ### Lastest: v1.8.0
 
