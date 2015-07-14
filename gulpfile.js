@@ -51,7 +51,8 @@ function getWholeScssFile(filePath, enc, imports) {
     filePath = fixFilePath(filePath);
     if (fs.existsSync(filePath) && !imports[filePath]) {
         imports[filePath] = true;
-        data = fs.readFileSync(filePath, enc);
+        data = '\n' + fs.readFileSync(filePath, enc);
+        data = data.replace(/\/\*.+?\*\/|\n\s*\/\/.*(?=[\n\r])/gm, '');
         data = data.replace(/@import.*"(.+)".*/g, function(a, b, c) {
             return getWholeScssFile(path.join(path.dirname(filePath), b), enc, imports) + '\n';
         });
