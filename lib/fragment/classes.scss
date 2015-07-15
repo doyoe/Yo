@@ -78,6 +78,7 @@
         @include gradient(linear, map-get($list, item-bordercolor), map-get($list, item-bordercolor));
         @include background-size(100% 1px);
         background-repeat: no-repeat;
+        background-position: left bottom;
         background-position: left map-get($list, item-border-space) bottom;
 
         &:last-child {
