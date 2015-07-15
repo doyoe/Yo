@@ -51,6 +51,7 @@ Yo约束了2种项目所使用的长度单位
 * add: `yo-datepicker`
 * update: `yo-list`
     - 修复item最后一根线在mate7上的重叠问题
+    - 修复item底边线在QQ X5上不支持background-position取4个值的问题
 
 ### Lastest: v1.8.0
 
