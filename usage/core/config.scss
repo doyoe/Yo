@@ -306,7 +306,7 @@ $list: (
     // {Color} 选中文本色
     on-color:          null,
     // {Color} 列表项边框色
-    item-bordercolor:  red,
+    item-bordercolor:  map-get($base, sub-bordercolor),
     // {Color} 列表项组名边框色
     label-bordercolor: #eee,
     // {Length} 列表项字号
