@@ -78,7 +78,6 @@
         @include gradient(linear, map-get($list, item-bordercolor), map-get($list, item-bordercolor));
         @include background-size(100% 1px);
         background-repeat: no-repeat;
-        background-position: left bottom;
         background-position: left map-get($list, item-border-space) bottom;
 
         &:last-child {
@@ -86,6 +85,7 @@
             // 最后一根线的颜色与外边框颜色相同
             @include gradient(linear, map-get($list, bordercolor), map-get($list, bordercolor));
             // 最后一根线的左边不留间隙
+            background-position: left bottom;
             background-position: left 0 bottom;
         }
 

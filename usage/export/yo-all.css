@@ -1642,13 +1642,13 @@ a {
   -webkit-background-size: 100% 1px;
   background-size: 100% 1px;
   background-repeat: no-repeat;
-  background-position: left bottom;
   background-position: left 0.1rem bottom;
 }
 .yo-list > .item:last-child {
   margin-bottom: -1px;
   background-image: -webkit-linear-gradient(#ccc, #ccc);
   background-image: linear-gradient(#ccc, #ccc);
+  background-position: left bottom;
   background-position: left 0 bottom;
 }
 .yo-list > .item-stacked {
