@@ -781,8 +781,8 @@ a {
   background-color: #fff;
   color: #212121;
   font-size: 0.14rem;
-  background-image: -webkit-linear-gradient(#ddd, #ddd);
-  background-image: linear-gradient(#ddd, #ddd);
+  background-image: -webkit-linear-gradient(red, red);
+  background-image: linear-gradient(red, red);
   -webkit-background-size: 100% 1px;
   background-size: 100% 1px;
   background-repeat: no-repeat;
@@ -792,8 +792,6 @@ a {
   margin-bottom: -1px;
   background-image: -webkit-linear-gradient(#ccc, #ccc);
   background-image: linear-gradient(#ccc, #ccc);
-  background-position: left bottom;
-  background-position: left 0 bottom;
 }
 .yo-list > .item-stacked {
   display: block;
