@@ -81,14 +81,14 @@
         // for不支持background-position取4个值的浏览器，比如QQ X5
         background-position: left bottom;
         // 设置底边线的位置
-        background-position: left map-get($list, item-border-space) bottom;
+        background-position: map-get($list, item-border-space) bottom;
 
         &:last-child {
             margin-bottom: -1px;
             // 最后一根线的颜色与外边框颜色相同
             @include gradient(linear, map-get($list, bordercolor), map-get($list, bordercolor));
             // 最后一根线的左边不留间隙
-            background-position: left 0 bottom;
+            background-position: 0 bottom;
         }
 
         &-stacked {
