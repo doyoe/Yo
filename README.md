@@ -38,7 +38,11 @@ Yo约束了2种项目所使用的长度单位
 
 ## Versioning
 
-### Developing: v1.9.0
+### Developing: v1.8.2
+
+* 开发中。。。
+
+### Lastest: v1.8.1
 
 * update: `reset`
     - 新增一条重置规则
@@ -52,17 +56,6 @@ Yo约束了2种项目所使用的长度单位
 * update: `yo-list`
     - 修复item最后一根线在mate7上的重叠问题
     - 修复item底边线在QQ X5上不支持background-position取4个值的问题
-
-### Lastest: v1.8.0
-
-* update: `yo-header`
-    - 新增 `item-ico-color` 参数用以两侧ico颜色
-* add: `yo-align`
-    - 新增 `yo-align` 布局方式，用于设置元素的水平及垂直对齐方式
-* update: `yo-btn`
-    - 新增 `width`, `height` 2个变量用于控制按钮大小
-* update: `yo-list`
-    - 新增 `item-border-space` 变量用于控制列表项底线距左边的间隙
 
 
 ### History
