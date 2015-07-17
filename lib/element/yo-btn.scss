@@ -156,15 +156,6 @@
                 color: $active-color;
             }
         }
-        // 如果是禁用按钮，则不需要交互状态
-        @if $name == -disabled {
-            cursor: not-allowed;
-            &,
-            &:focus,
-            &:active {
-                opacity: .4;
-            }
-        }
         // 增量扩展
         @content;
     }
@@ -202,4 +193,11 @@
     $bordercolor: map-get($base, disabled-bordercolor),
     $bgcolor: map-get($base, disabled-bgcolor),
     $color: map-get($base, disabled-color)
-);
+){
+    cursor: not-allowed;
+    &,
+    &:focus,
+    &:active {
+        opacity: .4;
+    }
+}
