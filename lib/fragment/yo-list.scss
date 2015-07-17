@@ -167,7 +167,7 @@
                 @include gradient(linear, $item-bordercolor, $item-bordercolor);
             }
             @if $item-border-space != map-get($list, item-border-space) {
-                background-position: left $item-border-space bottom;
+                background-position: $item-border-space bottom;
             }
             @if $item-font-size != map-get($list, item-font-size) {
                 font-size: $item-font-size;
