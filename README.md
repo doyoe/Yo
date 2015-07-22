@@ -1,6 +1,6 @@
 # Yo
 
-一个基于 `Sass` 开发的 `CSS Framework`，Mobile First 的设计理念使得 Yo 的体积超轻量，同时又能延伸到支持PC端。
+`Yo` 是一款基于 `Mobile First` 设计理念的轻量，易用，强大且具备高度自定义能力的 `CSS Framework`。
 
 
 ## Quick start
