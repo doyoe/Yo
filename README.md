@@ -5,7 +5,7 @@
 
 ## Quick start
 
-* 克隆：`git@github.com:doyoe/Yo.git`
+* 克隆：`git clone git@github.com:doyoe/Yo.git`
 * Ruby环境：`如果是windows环境需要先安装ruby`
 * 安装Compass：`gem install compass`
 * 装gulp：`npm install gulp -g`
@@ -40,7 +40,8 @@ Yo约束了2种项目所使用的长度单位
 
 ### Developing: v1.8.2
 
-* 开发中。。。
+* update: `yo-list`
+    - 修复item底边线的问题
 
 ### Lastest: v1.8.1
 
