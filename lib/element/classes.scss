@@ -31,8 +31,6 @@
         // 当使用input和button时，默认有巨丑边框，需清除
         border-style: none;
     }
-    // 内阴影，用来描内部的1px白边
-    box-shadow: inset .01rem .01rem rgba(255, 255, 255, .1);
     @include border-radius(map-get($btn, radius));
     background-color: map-get($btn, bgcolor);
     color: map-get($btn, color);
@@ -46,6 +44,17 @@
         }
         background-color: map-get($btn, active-bgcolor);
         color: map-get($btn, active-color);
+    }
+    &-disabled {
+        opacity: 1;
+        cursor: not-allowed;
+        &,
+        &:focus,
+        &:active {
+            border-color: map-get($base, disabled-bordercolor);
+            background-color: map-get($base, disabled-bgcolor);
+            color: map-get($base, disabled-color);
+        }
     }
 }
 

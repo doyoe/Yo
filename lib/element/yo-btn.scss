@@ -186,18 +186,3 @@
         width: 100%;
     }
 }
-
-// 预设禁用按钮
-@include yo-btn(
-    $name: disabled,
-    $bordercolor: map-get($base, disabled-bordercolor),
-    $bgcolor: map-get($base, disabled-bgcolor),
-    $color: map-get($base, disabled-color)
-){
-    cursor: not-allowed;
-    &,
-    &:focus,
-    &:active {
-        opacity: .4;
-    }
-}

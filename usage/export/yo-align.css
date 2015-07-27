@@ -41,7 +41,7 @@
  * 定义渐变色值
  * @method gradient
  * @param {String} $type 指定渐变的4种类型：linear, repeating-linear, radial, repeating-radial
- * @param {String} $gradient 指定渐变取值，与原生语法一致
+ * @param {String} $gradient 指定渐变取值，与w3c最新原生语法一致
  */
 /**
  * 定义响应式方案
@@ -722,7 +722,6 @@ a {
   border-width: 1px;
   border-style: solid;
   border-color: #e26704;
-  box-shadow: inset 0.01rem 0.01rem rgba(255, 255, 255, 0.1);
   border-radius: 0.02rem;
   -webkit-background-clip: padding-box !important;
   background-clip: padding-box !important;
@@ -730,6 +729,15 @@ a {
   color: #fff;
   text-align: center;
   cursor: pointer;
+}
+.yo-btn-disabled {
+  opacity: 1;
+  cursor: not-allowed;
+}
+.yo-btn-disabled, .yo-btn-disabled:focus, .yo-btn-disabled:active {
+  border-color: #ccc;
+  background-color: #e0e0e0;
+  color: #bbb;
 }
 .yo-btn-s {
   height: 0.28rem;
@@ -749,16 +757,6 @@ a {
 .yo-btn-stacked {
   display: block;
   width: 100%;
-}
-
-.yo-btn-disabled {
-  border-color: #ccc;
-  background-color: #e0e0e0;
-  color: #bbb;
-  cursor: not-allowed;
-}
-.yo-btn-disabled, .yo-btn-disabled:focus, .yo-btn-disabled:active {
-  opacity: .4;
 }
 
 /**

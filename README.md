@@ -42,6 +42,9 @@ Yo约束了2种项目所使用的长度单位
 
 * update: `yo-list`
     - 修复item底边线的问题
+* update: `yo-btn`
+    - 移除按钮内1px高亮定义
+    - 更改 disabled 状态定义
 
 ### Lastest: v1.8.1
 
