@@ -18,14 +18,6 @@
 @include yo-btn(
     $name: info,
     $bordercolor: #0456e2,
-    $bgcolor: #4a87ee
-);
-// 预设常见按钮
-@include yo-btn(
-    $name: normal,
-    $bordercolor: #1ba9ba,
-    $bgcolor: #fff,
-    $color: #1ba9ba,
-    $active-bgcolor: #1ba9ba,
-    $active-color: #fff
+    $bgcolor: #4a87ee,
+    $active-bgcolor: #090
 );

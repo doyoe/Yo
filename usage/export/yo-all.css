@@ -845,6 +845,9 @@ a {
   text-align: center;
   cursor: pointer;
 }
+.yo-btn:active {
+  background-color: red;
+}
 .yo-btn-disabled {
   opacity: 1;
   cursor: not-allowed;
@@ -889,15 +892,8 @@ a {
   border-color: #0456e2;
   background-color: #4a87ee;
 }
-
-.yo-btn-normal {
-  border-color: #1ba9ba;
-  background-color: #fff;
-  color: #1ba9ba;
-}
-.yo-btn-normal:active {
-  background-color: #1ba9ba;
-  color: #fff;
+.yo-btn-info:active {
+  background-color: #090;
 }
 
 /**
