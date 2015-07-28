@@ -12,4 +12,10 @@
     .mark img {
         @include square(.6rem);
     }
+    // 类别标题
+    .title {
+        padding: .18rem .1rem .03rem;
+        border-bottom: 1px solid map-get($base, bordercolor);
+
+    }
 }
