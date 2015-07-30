@@ -506,13 +506,6 @@ a {
   display: block;
   margin: 0.2rem 0.1rem;
 }
-.yo-stacked::after {
-  display: block;
-  overflow: hidden;
-  clear: both;
-  height: 0;
-  content: "\0020";
-}
 
 /**
  * @class layout

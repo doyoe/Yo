@@ -7,28 +7,24 @@
  * Author: joy.du(飘零雾雨)
  * Time: 2014.4.1
  */
-.test {
-    > li {
-        height: .44rem;
-        border-bottom: 1px solid red;
-        font-size: .14rem;
-        @include responsive(retina2x) {
-            &::after {
-                // 超过3个字符，font-size计算值出错
-                content: "@2d";
-            }
-        }
-        @include responsive(retina3x) {
-            &::after {
-                content: "@3x";
-            }
-        }
+.demo {
+    @include flexbox;
+    .a {
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        flex: 1;
+        background: #eee;
     }
-}
-
-.yo-list .item {
-    font-size: .1rem;
-    &:last-child {
-        font-size: .12rem;
+    .b {
+        -webkit-box-flex: 2;
+        -webkit-flex: 2;
+        flex: 2;
+        background: #aaa;
+    }
+    .c {
+        -webkit-box-flex: 3;
+        -webkit-flex: 3;
+        flex: 3;
+        background: #999;
     }
 }

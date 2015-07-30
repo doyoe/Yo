@@ -506,13 +506,6 @@ a {
   display: block;
   margin: 0.2rem 0.1rem;
 }
-.yo-stacked::after {
-  display: block;
-  overflow: hidden;
-  clear: both;
-  height: 0;
-  content: "\0020";
-}
 
 /**
  * @class layout
@@ -756,25 +749,26 @@ a {
  * Author: joy.du(飘零雾雨)
  * Time: 2014.4.1
  */
-.test > li {
-  height: .44rem;
-  border-bottom: 1px solid red;
-  font-size: .14rem;
+.demo {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
 }
-@media (min--moz-device-pixel-ratio: 1.5), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
-  .test > li::after {
-    content: "@2d";
-  }
+.demo .a {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  background: #eee;
 }
-@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
-  .test > li::after {
-    content: "@3x";
-  }
+.demo .b {
+  -webkit-box-flex: 2;
+  -webkit-flex: 2;
+  flex: 2;
+  background: #aaa;
 }
-
-.yo-list .item {
-  font-size: .1rem;
-}
-.yo-list .item:last-child {
-  font-size: .12rem;
+.demo .c {
+  -webkit-box-flex: 3;
+  -webkit-flex: 3;
+  flex: 3;
+  background: #999;
 }
