@@ -755,20 +755,20 @@ a {
   display: flex;
 }
 .demo .a {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  flex: 1;
+  -webkit-box-flex: 1 1 0;
+  -webkit-flex: 1 1 0;
+  flex: 1 1 0;
   background: #eee;
 }
 .demo .b {
-  -webkit-box-flex: 2;
-  -webkit-flex: 2;
-  flex: 2;
+  -webkit-box-flex: 2 1 0;
+  -webkit-flex: 2 1 0;
+  flex: 2 1 0;
   background: #aaa;
 }
 .demo .c {
-  -webkit-box-flex: 3;
-  -webkit-flex: 3;
-  flex: 3;
+  -webkit-box-flex: 3 1 0;
+  -webkit-flex: 3 1 0;
+  flex: 3 1 0;
   background: #999;
 }
