@@ -755,23 +755,23 @@ a {
   display: flex;
 }
 .demo .a {
-  -webkit-box-flex: 1 1 auto;
-  -webkit-flex: 1 1 auto;
-  flex: 1 1 auto;
+  -webkit-box-flex: 1 0 auto;
+  -webkit-flex: 1 0 auto;
+  flex: 1 0 auto;
   background: #eee;
   width: 1px;
 }
 .demo .b {
-  -webkit-box-flex: 2 1 auto;
-  -webkit-flex: 2 1 auto;
-  flex: 2 1 auto;
+  -webkit-box-flex: 2 0 auto;
+  -webkit-flex: 2 0 auto;
+  flex: 2 0 auto;
   background: #aaa;
   width: 1px;
 }
 .demo .c {
-  -webkit-box-flex: 3 1 auto;
-  -webkit-flex: 3 1 auto;
-  flex: 3 1 auto;
+  -webkit-box-flex: 3 0 auto;
+  -webkit-flex: 3 0 auto;
+  flex: 3 0 auto;
   background: #999;
   width: 1px;
 }
