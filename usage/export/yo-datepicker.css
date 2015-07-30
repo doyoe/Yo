@@ -539,7 +539,7 @@ a {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
-  width: auto;
+  height: .1px;
   position: relative;
 }
 .yo-flex > .flex,
@@ -742,8 +742,7 @@ a {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
-  width: 100%;
-  height: auto;
+  width: .1px;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
@@ -759,8 +758,7 @@ a {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
-  width: 100%;
-  height: auto;
+  width: .1px;
 }
 .yo-datepicker .week-bar {
   height: 0.22rem;

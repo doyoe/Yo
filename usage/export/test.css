@@ -539,7 +539,7 @@ a {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
-  width: auto;
+  height: .1px;
   position: relative;
 }
 .yo-flex > .flex,
@@ -641,8 +641,7 @@ a {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
-  width: 100%;
-  height: auto;
+  width: .1px;
 }
 .yo-list > .label > .mark,
 .yo-list > .label > .yo-ico,
@@ -755,23 +754,17 @@ a {
   display: flex;
 }
 .demo .a {
+  background: #eee;
+  width: 100px;
+}
+.demo .b {
+  background: #aaa;
+  width: 100px;
+}
+.demo .c {
+  background: #999;
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
-  background: #eee;
-  width: .1px;
-}
-.demo .b {
-  -webkit-box-flex: 2;
-  -webkit-flex: 2;
-  flex: 2;
-  background: #aaa;
-  width: .1px;
-}
-.demo .c {
-  -webkit-box-flex: 3;
-  -webkit-flex: 3;
-  flex: 3;
-  background: #999;
   width: .1px;
 }

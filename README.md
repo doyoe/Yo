@@ -45,6 +45,15 @@ Yo约束了2种项目所使用的长度单位
 * update: `yo-btn`
     - 移除按钮内1px高亮定义
     - 更改 disabled 状态定义
+* update: `flex` mixin方法
+    - 如果横向排列时使用flex方法如下：
+    ```
+    @include flex(n);
+    ```
+    - 如果纵向排列时使用flex方法如下：
+    ```
+    @include flex(n, column);
+    ```
 
 ### Lastest: v1.8.1
 
