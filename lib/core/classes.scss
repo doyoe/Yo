@@ -46,7 +46,7 @@
  * 定义渐变色值
  * @method gradient
  * @param {String} $type 指定渐变的4种类型：linear, repeating-linear, radial, repeating-radial
- * @param {String} $gradient 指定渐变取值，与原生语法一致
+ * @param {String} $gradient 指定渐变取值，与w3c最新原生语法一致
  */
 @mixin gradient($type, $gradient...) {
     @if map-get($setting, is-vendor-prefix) {
@@ -267,15 +267,11 @@
     -webkit-box-flex: $flex;
     -webkit-flex: $flex;
     flex: $flex;
-    // iOS6要求所有的伸缩盒子元素需要为非inline，如果参与flex布局，请自行使用非inline元素
-    // display: block;
+    // 修复Android Browser4.3及以下，iOS Safari6.1及以下按比例分配错误的问题
     @if $direction == column {
-        width: auto;
-        // height: .1rem;
+        height: .1px;
     } @else {
-        // 修复iOS6下不均分bug，任意非auto的值
-        width: 100%;
-        height: auto;
+        width: .1px;
     }
 }
 

@@ -1,11 +1,11 @@
 # Yo
 
-一个基于 `Sass` 开发的 `CSS Framework`，Mobile First 的设计理念使得 Yo 的体积超轻量，同时又能延伸到支持PC端。
+`Yo` 是一款基于 `Mobile First` 理念而设计的 `CSS Framework`；轻量，易用，快速且具备高度强大的自定义能力。
 
 
 ## Quick start
 
-* 克隆：`git@github.com:doyoe/Yo.git`
+* 克隆：`git clone git@github.com:doyoe/Yo.git`
 * Ruby环境：`如果是windows环境需要先安装ruby`
 * 安装Compass：`gem install compass`
 * 装gulp：`npm install gulp -g`
@@ -40,7 +40,20 @@ Yo约束了2种项目所使用的长度单位
 
 ### Developing: v1.8.2
 
-* 开发中。。。
+* update: `yo-list`
+    - 修复item底边线的问题
+* update: `yo-btn`
+    - 移除按钮内1px高亮定义
+    - 更改 disabled 状态定义
+* update: `flex` mixin方法
+    - 如果横向排列时使用flex方法如下：
+    ```
+    @include flex(n);
+    ```
+    - 如果纵向排列时使用flex方法如下：
+    ```
+    @include flex(n, column);
+    ```
 
 ### Lastest: v1.8.1
 

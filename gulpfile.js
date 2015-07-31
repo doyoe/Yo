@@ -35,25 +35,45 @@ var extNames = ['sass', 'scss', 'css'];
 
 // fix 文件路径
 function fixFilePath(filePath) {
-    if (!path.extname(filePath)) {
-        for (var i = 0, l = extNames.length; i < l; i ++) {
-            if (fs.existsSync(filePath + '.' + extNames[i])) {
-                return filePath + '.' + extNames[i];
+
+    var extName = path.extname(filePath),
+        baseName = path.basename(filePath),
+        dirName = path.dirname(filePath),
+        privatePath;
+
+    if (extName && fs.existsSync(filePath)) {
+        return filePath;
+    }
+    if (!extName) {
+        for (var i = 0, len = extNames.length; i < len; i++) {
+            var eName = extNames[i];
+            if (fs.existsSync(filePath + '.' + eName)) {
+                return filePath + '.' + eName;
+            }
+            privatePath = path.join(dirName, '_' + baseName + '.' + eName);
+            if (fs.existsSync(privatePath)) {
+                return privatePath;
             }
         }
+    } else {
+        privatePath = path.join(dirName, '_' + baseName);
+        if (fs.existsSync(privatePath)) {
+            return privatePath;
+        }
     }
-    return filePath;
+    throw new Error('找不到import文件: ' + filePath);
 }
 
 // 合并scss文件
 function getWholeScssFile(filePath, enc, imports) {
     imports = imports || {};
     filePath = fixFilePath(filePath);
-    if (fs.existsSync(filePath) && !imports[filePath]) {
+    if (!imports[filePath]) {
         imports[filePath] = true;
         data = '\n' + fs.readFileSync(filePath, enc);
+        // 去除注释
         data = data.replace(/\/\*.+?\*\/|\n\s*\/\/.*(?=[\n\r])/gm, '');
-        data = data.replace(/@import.*"(.+)".*/g, function(a, b, c) {
+        data = data.replace(/@import.*[\'\"](.+)[\'\"].*/g, function (a, b, c) {
             return getWholeScssFile(path.join(path.dirname(filePath), b), enc, imports) + '\n';
         });
         return data;
@@ -83,7 +103,8 @@ function getSassVersion() {
         if (match) {
             version = match[1];
         }
-    } catch(e) {}
+    } catch (e) {
+    }
     return version;
 }
 
@@ -96,7 +117,8 @@ function getCompassVersion() {
         if (match) {
             version = match[1];
         }
-    } catch(e) {}
+    } catch (e) {
+    }
     return version;
 }
 
@@ -114,7 +136,8 @@ function getNodeSassVersion() {
         if (matchNodeSass && matchLibSass) {
             version = matchNodeSass[1] + ' ( libsass ' + matchLibSass[1] + ' )';
         }
-    } catch(e) {}
+    } catch (e) {
+    }
     return version;
 }
 
@@ -146,23 +169,23 @@ function diffCss(compile1, compile2) {
     var diff1 = css.parse(cssIsolate.diff(this[compile1], this[compile2])),
         diff2 = css.parse(cssIsolate.diff(this[compile2], this[compile1]));
 
-    diff1.stylesheet.rules.forEach(function(rule) {
-        rule.declarations.forEach(function(declaration) {
+    diff1.stylesheet.rules.forEach(function (rule) {
+        rule.declarations.forEach(function (declaration) {
             declaration.value += ' /* ' + compile1 + ' */';
         });
     });
 
-    diff2.stylesheet.rules.forEach(function(rule) {
-        rule.declarations.forEach(function(declaration) {
+    diff2.stylesheet.rules.forEach(function (rule) {
+        rule.declarations.forEach(function (declaration) {
             declaration.value += ' /* ' + compile2 + ' */';
         });
     });
 
     var addRules = [];
 
-    diff2.stylesheet.rules.forEach(function(rule2) {
+    diff2.stylesheet.rules.forEach(function (rule2) {
         var has = false;
-        diff1.stylesheet.rules.forEach(function(rule1) {
+        diff1.stylesheet.rules.forEach(function (rule1) {
             if (rule1.selectors.join(',') == rule2.selectors.join(',')) {
                 has = true;
                 rule1.declarations = rule1.declarations.concat(rule2.declarations);
@@ -246,7 +269,7 @@ gulp.task('watch', function () {
 });
 
 // 获取 Version
-gulp.task('version', function() {
+gulp.task('version', function () {
     gutil.log(gutil.colors.green('Yo: ' + getVersion()));
     gutil.log(gutil.colors.green('Sass: ' + getSassVersion()));
     gutil.log(gutil.colors.green('Node-sass: ' + getNodeSassVersion()));
@@ -257,27 +280,27 @@ gulp.task('version', function() {
 
 var diffBuildTasks = [];
 
-Object.keys(compilers).forEach(function(compiler) {
+Object.keys(compilers).forEach(function (compiler) {
     diffBuildTasks.push('compile:' + compiler);
     gulp.task('compile:' + compiler, function () {
         return compilers[compiler](scssBuildPath, path.join(diffBuildPath, compiler));
     });
 });
 
-gulp.task('pre-diff', diffBuildTasks, function() {
+gulp.task('pre-diff', diffBuildTasks, function () {
     return gulp.src(diffBuildPath + '/**/*.css')
         .pipe(stripCssComments())
         .pipe(through.obj(beautifyCss))
         .pipe(gulp.dest(diffBuildPath));
 });
 
-gulp.task('diff', ['pre-diff'], function() {
+gulp.task('diff', ['pre-diff'], function () {
     var contents = {},
         cssFile = '/* Diff with sass, compass, node-sass */',
         argv = optimist.argv,
         file = argv.f || argv.file || 'yo.scss';
 
-    Object.keys(compilers).forEach(function(compiler) {
+    Object.keys(compilers).forEach(function (compiler) {
         contents[compiler] = fs.readFileSync(path.join(__dirname, diffBuildPath, compiler, file.replace(/\.scss$/, '.css')), 'UTF-8');
     });
 

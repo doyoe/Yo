@@ -41,7 +41,7 @@
  * 定义渐变色值
  * @method gradient
  * @param {String} $type 指定渐变的4种类型：linear, repeating-linear, radial, repeating-radial
- * @param {String} $gradient 指定渐变取值，与原生语法一致
+ * @param {String} $gradient 指定渐变取值，与w3c最新原生语法一致
  */
 /**
  * 定义响应式方案
@@ -506,13 +506,6 @@ a {
   display: block;
   margin: 0.2rem 0.1rem;
 }
-.yo-stacked::after {
-  display: block;
-  overflow: hidden;
-  clear: both;
-  height: 0;
-  content: "\0020";
-}
 
 /**
  * @class layout
@@ -546,7 +539,7 @@ a {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
-  width: auto;
+  height: .1px;
   position: relative;
 }
 .yo-flex > .flex,
@@ -648,8 +641,7 @@ a {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
-  width: 100%;
-  height: auto;
+  width: .1px;
 }
 .yo-list > .label > .mark,
 .yo-list > .label > .yo-ico,
@@ -756,25 +748,22 @@ a {
  * Author: joy.du(飘零雾雨)
  * Time: 2014.4.1
  */
-.test > li {
-  height: .44rem;
-  border-bottom: 1px solid red;
-  font-size: .14rem;
-}
-@media (min--moz-device-pixel-ratio: 1.5), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
-  .test > li::after {
-    content: "@2d";
-  }
-}
-@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
-  .test > li::after {
-    content: "@3x";
-  }
+.flex {
+  display: flex;
+  width: 1500px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.yo-list .item {
-  font-size: .09rem;
+.flex :nth-child(1) {
+  flex: 1;
 }
-.yo-list .item:last-child {
-  font-size: .12rem;
+
+.flex :nth-child(2) {
+  flex: 2 2 200px;
+}
+
+.flex :nth-child(3) {
+  flex: 3 3 400px;
 }

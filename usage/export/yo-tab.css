@@ -46,7 +46,7 @@
  * 定义渐变色值
  * @method gradient
  * @param {String} $type 指定渐变的4种类型：linear, repeating-linear, radial, repeating-radial
- * @param {String} $gradient 指定渐变取值，与原生语法一致
+ * @param {String} $gradient 指定渐变取值，与w3c最新原生语法一致
  */
 /**
  * 定义响应式方案
@@ -511,13 +511,6 @@ a {
   display: block;
   margin: 0.2rem 0.1rem;
 }
-.yo-stacked::after {
-  display: block;
-  overflow: hidden;
-  clear: both;
-  height: 0;
-  content: "\0020";
-}
 
 /**
  * @class layout
@@ -551,7 +544,7 @@ a {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
-  width: auto;
+  height: .1px;
   position: relative;
 }
 .yo-flex > .flex,
@@ -686,7 +679,7 @@ a {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
     flex: 1;
-    width: auto;
+    height: .1px;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
   }
@@ -711,8 +704,7 @@ a {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
-  width: 100%;
-  height: auto;
+  width: .1px;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   -webkit-user-select: text;
@@ -786,8 +778,7 @@ a {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
-  width: 100%;
-  height: auto;
+  width: .1px;
   position: relative;
   color: #666;
 }

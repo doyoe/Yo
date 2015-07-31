@@ -15,7 +15,6 @@
 @mixin _stacked {
     display: block;
     margin: map-get($stacked, margin);
-    @include clearfix;
 }
 
 // 定义常见弹性布局
