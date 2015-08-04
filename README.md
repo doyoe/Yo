@@ -15,8 +15,8 @@
 
 ## Browser support
 
-* iOS6.x, iOS7.x, iOS8.x
-* Android4.x, Android5.x
+* iOS6.0+
+* Android4.0+
 * Latest Stable: Chrome, Safari
 
 
