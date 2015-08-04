@@ -7,37 +7,16 @@
  * Author: joy.du(飘零雾雨)
  * Time: 2014.4.1
  */
-<<<<<<< HEAD
-.flex{display:flex;width:1500px;margin:0;padding:0;list-style:none;}
-.flex :nth-child(1){flex: 1;}
-.flex :nth-child(2){flex:2 2 200px;}
-.flex :nth-child(3){flex:3 3 400px;}
-=======
-.demo {
-    @include flexbox;
-    .a {
-        // -webkit-box-flex: 1;
-        // -webkit-flex: 1;
-        // flex: 1;
-        background: #eee;
-        // width: .1px;
-        width: 100px;
-    }
-    .b {
-        // -webkit-box-flex: 2;
-        // -webkit-flex: 2;
-        // flex: 2;
-        background: #aaa;
-        // width: .1px;
-        width: 100px;
-    }
-    .c {
-        // -webkit-box-flex: auto;
-        // -webkit-flex: auto;
-        // flex: auto;
-        background: #999;
-        // width: .1px;
-        @include flex(1);
-    }
+
+.flex{display:flex;width:300px;height:100px;margin:0;padding:0;background:gray;list-style:none;}
+
+.flex :nth-child(1) {
+    background:red;
 }
->>>>>>> 023facb45129cb3d014370e8a3b95089f151bad7
+.flex :nth-child(2) {
+    background: #c30;
+}
+.flex :nth-child(3) {
+    position: absolute;
+    background: #999;
+}

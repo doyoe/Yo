@@ -2,6 +2,26 @@
 
 History Version and release time.
 
+<a name="v1-8-2"></a>
+## v1.8.2 (2015.8.4)
+
+[Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v1.8.2)
+
+* update: `yo-list`
+    - 修复item底边线的问题
+* update: `yo-btn`
+    - 移除按钮内1px高亮定义
+    - 更改 disabled 状态定义
+* update: `flex` mixin方法
+    - 如果横向排列时使用flex方法如下：
+    ```
+    @include flex(n);
+    ```
+    - 如果纵向排列时使用flex方法如下：
+    ```
+    @include flex(n, column);
+    ```
+
 <a name="v1-8-1"></a>
 ## v1.8.1 (2015.7.16)
 

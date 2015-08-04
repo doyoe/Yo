@@ -38,7 +38,11 @@ Yo约束了2种项目所使用的长度单位
 
 ## Versioning
 
-### Developing: v1.8.2
+### Developing: v1.8.3
+
+* 开发中...
+
+### Lastest: v1.8.2
 
 * update: `yo-list`
     - 修复item底边线的问题
@@ -54,21 +58,6 @@ Yo约束了2种项目所使用的长度单位
     ```
     @include flex(n, column);
     ```
-
-### Lastest: v1.8.1
-
-* update: `reset`
-    - 新增一条重置规则
-    ```
-    input[type="search"]::-webkit-search-cancel-button {
-        @include appearance;
-    }
-    ```
-    用于抹平各浏览器差异，去除输入时的 `x` 按钮
-* add: `yo-datepicker`
-* update: `yo-list`
-    - 修复item最后一根线在mate7上的重叠问题
-    - 修复item底边线在QQ X5上不支持background-position取4个值的问题
 
 
 ### History
