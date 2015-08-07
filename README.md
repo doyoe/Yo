@@ -42,6 +42,10 @@ Yo约束了2种项目所使用的长度单位
 
 * update: `yo-flex`
     - 调整内部实现
+* update: `yo-loadtip`
+    - 调整内部实现
+* update: `yo-dialog`
+    - 调整内部实现
 
 ### Lastest: v1.8.2
 

@@ -34,7 +34,6 @@
         height: map-get($dialog, hd-height);
         background: map-get($dialog, hd-bgcolor);
         line-height: map-get($dialog, hd-height);
-        margin-bottom: -.2rem;
         .title {
             overflow: hidden;
             height: 100%;
@@ -60,32 +59,32 @@
     }
     > .bd {
         @include flex(1, column);
-        @include overflow();
+        @include overflow;
+        min-height: .45rem;
         padding: map-get($dialog, bd-padding);
         @if map-get($dialog, bd-font-size) != map-get($base, font-size) {
             font-size: map-get($dialog, bd-font-size);
         }
     }
     > .ft {
-        @include flexbox();
+        @include flexbox;
         text-align: center;
         @include yo-btn(
-            $border-width: .01rem 0 0 0,
+            $border-width: 1px 0 0,
             $bordercolor: map-get($base, bordercolor),
             $bgcolor: #fff,
             $color: map-get($base, link-color),
             $radius: 0,
             $active-bgcolor: #f9f9f9
-        );
-        > .yo-btn {
+        ){
             display: block;
-            @include flex();
+            @include flex;
             &:last-child:not(:only-child),
             &:only-child {
                 font-weight: bold;
             }
             &:last-child:not(:only-child) {
-                border-left-width: .01rem;
+                border-left-width: 1px;
             }
         }
     }

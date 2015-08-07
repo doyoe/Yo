@@ -1257,10 +1257,6 @@ a {
   animation: rotate 1s infinite linear;
 }
 .yo-loadtip > .text {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  flex: 1;
-  width: .1px;
   margin-left: .1rem;
 }
 .yo-loadtip > .text > .time {
@@ -1863,7 +1859,6 @@ a {
   height: 0.44rem;
   background: white;
   line-height: 0.44rem;
-  margin-bottom: -.2rem;
 }
 .yo-dialog > .hd .title {
   overflow: hidden;
@@ -1889,7 +1884,8 @@ a {
   height: .1px;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
-  padding: 0.16rem 0.1rem 0.15rem;
+  min-height: .45rem;
+  padding: 0.1rem;
   font-size: 0.16rem;
 }
 .yo-dialog > .ft {
@@ -1900,26 +1896,24 @@ a {
 }
 .yo-dialog > .ft .yo-btn {
   border-radius: 0;
-  border-width: 0.01rem 0 0 0;
+  border-width: 1px 0 0;
   border-color: #ccc;
   background-color: #fff;
   color: #00afc7;
-}
-.yo-dialog > .ft .yo-btn:active {
-  background-color: #f9f9f9;
-}
-.yo-dialog > .ft > .yo-btn {
   display: block;
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
   width: .1px;
 }
-.yo-dialog > .ft > .yo-btn:last-child:not(:only-child), .yo-dialog > .ft > .yo-btn:only-child {
+.yo-dialog > .ft .yo-btn:active {
+  background-color: #f9f9f9;
+}
+.yo-dialog > .ft .yo-btn:last-child:not(:only-child), .yo-dialog > .ft .yo-btn:only-child {
   font-weight: bold;
 }
-.yo-dialog > .ft > .yo-btn:last-child:not(:only-child) {
-  border-left-width: .01rem;
+.yo-dialog > .ft .yo-btn:last-child:not(:only-child) {
+  border-left-width: 1px;
 }
 
 /**

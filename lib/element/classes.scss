@@ -277,7 +277,6 @@
         @include animation(rotate 1s infinite linear);
     }
     > .text {
-        @include flex;
         margin-left: .1rem;
         > .time {
             display: block;
