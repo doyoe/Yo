@@ -749,13 +749,20 @@ a {
  * Time: 2014.4.1
  */
 .flex {
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
-  width: 300px;
-  height: 100px;
+  -webkit-box-lines: multiple;
+  width: 3rem;
+  height: 1rem;
   margin: 0;
   padding: 0;
   background: gray;
   list-style: none;
+}
+
+.flex div {
+  width: 1rem;
 }
 
 .flex :nth-child(1) {
@@ -767,6 +774,9 @@ a {
 }
 
 .flex :nth-child(3) {
-  position: absolute;
   background: #999;
+}
+
+.flex :nth-child(4) {
+  background: #eee;
 }

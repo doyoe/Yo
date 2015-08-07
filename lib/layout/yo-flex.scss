@@ -34,7 +34,7 @@
     }
     .yo-flex#{$name} {
         &,
-        > .flex-inherit {
+        .flex-inherit {
             // 如果$box不等于config预设，则重绘弹性盒类型
             @if $box != map-get($flex, box) {
                 @include flexbox($box);
@@ -45,8 +45,8 @@
             }
         }
         > .flex,
-        > .flex-inherit,
-        > .flex-inherit > .flex {
+        .flex-inherit,
+        .flex-inherit > .flex {
             // 如果$direction不等于config预设，则重绘方向
             @if $direction != map-get($flex, direction) {
                 @include flex(1, $direction);

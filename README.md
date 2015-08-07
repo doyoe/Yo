@@ -40,7 +40,8 @@ Yo约束了2种项目所使用的长度单位
 
 ### Developing: v1.8.3
 
-* 开发中...
+* update: `yo-flex`
+    - 调整内部实现
 
 ### Lastest: v1.8.2
 
