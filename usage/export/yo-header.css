@@ -35,7 +35,7 @@
  * 四则运算
  * @method calc
  * @param {String} $property 指定需要进行计算的CSS属性
- * @param {String} $value 与原生CSS语法一致，使用方式如：@include calc(width, 100% - 0.1rem);
+ * @param {String} $value 与原生CSS语法一致，使用方式如：@include calc(width, 100% - .1rem);
  */
 /**
  * 定义渐变色值
@@ -252,11 +252,13 @@ html {
   -webkit-user-select: none;
   user-select: none;
 }
+
 @media (min--moz-device-pixel-ratio: 1.5), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
   html[ios="true"] {
     font-size: 200px;
   }
 }
+
 @media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
   html[ios="true"] {
     font-size: 300px;
@@ -275,6 +277,7 @@ body {
     font-size: 28px;
   }
 }
+
 @media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
   html[ios="true"] body {
     font-size: 42px;
@@ -419,6 +422,7 @@ button,
 select {
   color: inherit;
 }
+
 input:disabled,
 textarea:disabled,
 button:disabled,
@@ -475,6 +479,7 @@ a {
   font-family: yofont;
   src: url("http://source.qunarzz.com/fonts/yo/1.0.0/yofont.woff") format("woff"), url("http://source.qunarzz.com/fonts/yo/1.0.0/yofont.ttf") format("truetype");
 }
+
 .yo-ico {
   font-family: yofont !important;
   font-style: normal;
@@ -522,6 +527,7 @@ a {
 .yo-flex {
   height: 100%;
 }
+
 .yo-flex,
 .yo-flex .flex-inherit {
   display: -webkit-box;
@@ -533,6 +539,7 @@ a {
   flex-direction: column;
   overflow: hidden;
 }
+
 .yo-flex > .flex,
 .yo-flex .flex-inherit,
 .yo-flex .flex-inherit > .flex {
@@ -542,6 +549,7 @@ a {
   height: .1px;
   position: relative;
 }
+
 .yo-flex > .flex,
 .yo-flex .flex-inherit > .flex {
   overflow: auto;
@@ -624,12 +632,14 @@ a {
   text-overflow: ellipsis;
   text-align: center;
 }
+
 .yo-header > .title {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   margin: 0 0.6rem;
 }
+
 .yo-header > .regret,
 .yo-header > .affirm {
   position: absolute;
@@ -638,10 +648,12 @@ a {
   cursor: pointer;
   font-size: 0.14rem;
 }
+
 .yo-header > .regret:active,
 .yo-header > .affirm:active {
   opacity: .5;
 }
+
 .yo-header > .regret.yo-ico,
 .yo-header > .regret > .yo-ico,
 .yo-header > .affirm.yo-ico,
@@ -649,11 +661,13 @@ a {
   color: #7ff;
   font-size: 0.2rem;
 }
+
 .yo-header > .regret {
   left: 0;
   padding-left: 0.15rem;
   text-align: left;
 }
+
 .yo-header > .affirm {
   right: 0;
   padding-right: 0.15rem;
@@ -670,6 +684,7 @@ a {
   background-color: #eee;
   color: #212121;
 }
+
 .yo-header-normal > .regret.yo-ico,
 .yo-header-normal > .regret > .yo-ico,
 .yo-header-normal > .affirm.yo-ico,
@@ -688,30 +703,35 @@ a {
   border-radius: .05rem;
   background-color: #ddd;
 }
+
 .m-desc > .title {
-  padding: .18rem .1rem .03rem;
+  padding: 0.18rem 0.1rem 0.03rem;
   border-bottom: 1px solid #ccc;
 }
+
 .m-desc > xmp {
   margin: .1rem;
   padding: .1rem;
   background-color: #666;
   color: #fff;
 }
+
 .m-desc .sub-title {
-  margin: 0 .1rem;
-  padding: .1rem 0 .03rem;
+  margin: 0 0.1rem;
+  padding: 0.1rem 0 0.03rem;
   border-bottom: 1px solid #ccc;
 }
+
 .m-desc .sub-title::before {
   margin-right: .05rem;
-  padding: 0 .03rem;
+  padding: 0 0.03rem;
   border-radius: .03rem;
   content: "Note";
   font-weight: normal;
   background-color: #f9c027;
   color: #fff;
 }
+
 .m-desc .info {
   margin: .1rem;
 }
@@ -731,14 +751,17 @@ a {
   color: #51bbe1;
   font-size: .2rem;
 }
+
 .m-code .method {
   color: #93de08;
 }
+
 .m-code .bracket,
 .m-code .colon {
   padding-right: 5px;
   color: #fff;
 }
+
 .m-code mark {
   color: #ccc;
   font-size: .14rem;

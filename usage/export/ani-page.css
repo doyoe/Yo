@@ -35,7 +35,7 @@
  * 四则运算
  * @method calc
  * @param {String} $property 指定需要进行计算的CSS属性
- * @param {String} $value 与原生CSS语法一致，使用方式如：@include calc(width, 100% - 0.1rem);
+ * @param {String} $value 与原生CSS语法一致，使用方式如：@include calc(width, 100% - .1rem);
  */
 /**
  * 定义渐变色值
@@ -252,11 +252,13 @@ html {
   -webkit-user-select: none;
   user-select: none;
 }
+
 @media (min--moz-device-pixel-ratio: 1.5), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
   html[ios="true"] {
     font-size: 200px;
   }
 }
+
 @media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
   html[ios="true"] {
     font-size: 300px;
@@ -275,6 +277,7 @@ body {
     font-size: 28px;
   }
 }
+
 @media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
   html[ios="true"] body {
     font-size: 42px;
@@ -419,6 +422,7 @@ button,
 select {
   color: inherit;
 }
+
 input:disabled,
 textarea:disabled,
 button:disabled,
@@ -475,6 +479,7 @@ a {
   font-family: yofont;
   src: url("http://source.qunarzz.com/fonts/yo/1.0.0/yofont.woff") format("woff"), url("http://source.qunarzz.com/fonts/yo/1.0.0/yofont.ttf") format("truetype");
 }
+
 .yo-ico {
   font-family: yofont !important;
   font-style: normal;
@@ -522,6 +527,7 @@ a {
 .yo-flex {
   height: 100%;
 }
+
 .yo-flex,
 .yo-flex .flex-inherit {
   display: -webkit-box;
@@ -533,6 +539,7 @@ a {
   flex-direction: column;
   overflow: hidden;
 }
+
 .yo-flex > .flex,
 .yo-flex .flex-inherit,
 .yo-flex .flex-inherit > .flex {
@@ -542,6 +549,7 @@ a {
   height: .1px;
   position: relative;
 }
+
 .yo-flex > .flex,
 .yo-flex .flex-inherit > .flex {
   overflow: auto;
@@ -592,6 +600,7 @@ a {
   min-height: 2rem;
   background-color: #fafafa;
 }
+
 @media (min-width: 8rem) {
   .m-demo {
     display: -webkit-box;
@@ -607,7 +616,8 @@ a {
     border-radius: .55rem;
     background-color: #313538;
   }
-  .m-demo .device::before, .m-demo .device::after {
+  .m-demo .device::before,
+  .m-demo .device::after {
     position: absolute;
     left: 50%;
     -webkit-transform: translate(-50%);
@@ -650,7 +660,8 @@ a {
     overflow: auto;
     -webkit-overflow-scrolling: touch;
   }
-  .m-demo .device .stage, .m-demo .device .stage::before {
+  .m-demo .device .stage,
+  .m-demo .device .stage::before {
     position: absolute;
   }
   .m-demo .device .stage::before {
@@ -662,10 +673,11 @@ a {
     height: 0.1rem;
     border-radius: 50%;
     background-color: #3e4243;
-    box-shadow: -.5rem .26rem #3e4243;
+    box-shadow: -0.5rem 0.26rem #3e4243;
     content: "\0020";
   }
 }
+
 .m-demo .code {
   display: block;
   -webkit-box-flex: 1;
@@ -677,18 +689,20 @@ a {
   -webkit-user-select: text;
   user-select: text;
   margin: .1rem 0;
-  border-width: .04rem 0 .04rem 0;
+  border-width: 0.04rem 0 0.04rem 0;
   border-style: solid;
   border-color: #ccc;
   padding: .1rem;
   background-color: #F0F3F8;
 }
+
 @media (min-width: 8rem) {
   .m-demo .code {
     margin: .1rem;
-    border-width: 0 0 0 .04rem;
+    border-width: 0 0 0 0.04rem;
   }
 }
+
 .m-demo .code h3 {
   margin-top: .1rem;
 }
@@ -708,14 +722,17 @@ a {
   color: #51bbe1;
   font-size: .2rem;
 }
+
 .m-code .method {
   color: #93de08;
 }
+
 .m-code .bracket,
 .m-code .colon {
   padding-right: 5px;
   color: #fff;
 }
+
 .m-code mark {
   color: #ccc;
   font-size: .14rem;
@@ -767,30 +784,38 @@ a {
   text-align: center;
   cursor: pointer;
 }
+
 .yo-btn-disabled {
   opacity: 1;
   cursor: not-allowed;
 }
-.yo-btn-disabled, .yo-btn-disabled:focus, .yo-btn-disabled:active {
+
+.yo-btn-disabled,
+.yo-btn-disabled:focus,
+.yo-btn-disabled:active {
   border-color: #ccc;
   background-color: #e0e0e0;
   color: #bbb;
 }
+
 .yo-btn-s {
   height: 0.28rem;
   line-height: 0.28rem;
   font-size: 0.12rem;
 }
+
 .yo-btn-m {
   height: 0.36rem;
   line-height: 0.36rem;
   font-size: 0.14rem;
 }
+
 .yo-btn-l {
   height: 0.44rem;
   line-height: 0.44rem;
   font-size: 0.16rem;
 }
+
 .yo-btn-stacked {
   display: block;
   width: 100%;
@@ -811,12 +836,14 @@ a {
     height: auto;
   }
 }
+
 .pages {
   position: relative;
   overflow: hidden;
   width: 100%;
   height: 100%;
 }
+
 .pages .page {
   position: absolute;
   width: 100%;
@@ -826,28 +853,36 @@ a {
   overflow: hidden;
   visibility: hidden;
 }
+
 .pages .page.current {
   visibility: visible;
   z-index: 1;
 }
+
 .pages .page-1 {
   background: #0ac2d2;
 }
+
 .pages .page-2 {
   background: #7bb7fa;
 }
+
 .pages .page-3 {
   background: #60d7a9;
 }
+
 .pages .page-4 {
   background: #fdc162;
 }
+
 .pages .page-5 {
   background: #fd6a62;
 }
+
 .pages .page-6 {
   background: #f68dbb;
 }
+
 .pages .con {
   position: absolute;
   top: 50%;
@@ -858,24 +893,28 @@ a {
   margin-left: -1.4rem;
   z-index: 2;
 }
+
 .pages .con > h1 {
   color: rgba(255, 255, 255, 0.6);
   font-size: .64rem;
 }
+
 .pages .con > h2 {
   color: rgba(0, 0, 0, 0.2);
   font-size: .3rem;
 }
+
 .pages .con > p {
   color: rgba(255, 255, 255, 0.9);
   font-size: .36rem;
 }
+
 .pages .con > .yo-btn,
 .pages .con > select {
   width: 70%;
   height: .44rem;
   margin: .1rem 0;
-  padding: 0 .15rem;
+  padding: 0 0.15rem;
   border: 0;
   border-radius: .02rem;
   line-height: .44rem;
@@ -885,15 +924,17 @@ a {
   cursor: pointer;
   font-size: .16rem;
 }
+
 .pages .con > .yo-btn {
   font-weight: bold;
 }
+
 .pages .con > select {
   -webkit-appearance: none;
   appearance: none;
   text-transform: capitalize;
-  background-size: .1rem .1rem;
+  background-size: 0.1rem 0.1rem;
   background-repeat: no-repeat;
-  background-position: right .1rem center;
-  background-image: radial-gradient(circle, #0ac2d2, #0ac2d2 50%, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
+  background-position: right 0.1rem center;
+  background-image: radial-gradient(circle, #0ac2d2, #0ac2d2 50%, transparent, transparent);
 }
