@@ -10,42 +10,47 @@
 <link rel="apple-touch-icon" href="../../yo.png" />
 <link rel="shortcut icon" href="../../shortcut.png" />
 <script src="../../js/viewport.js"></script>
-<link rel="stylesheet" href="../../usage/export/yo-all.css" />
+<link rel="stylesheet" href="../../usage/export/yo-number.css" />
 </head>
 <body>
-<div class="m-demo">
-    <div class="device">
-    <div class="stage">
-        <h2 class="yo-header">Number</h2>
-        <ul class="yo-list">
-            <li href="#" class="item">
-                <span class="mark flex">签约房</span>
-                <div class="yo-number">
-                    <span class="minus disabled">-</span>
-                    <input class="input" type="text" value="0" />
-                    <span class="plus">+</span>
-                </div>
-            </li>
-            <li href="#" class="item">
-                <span class="mark flex">签约房</span>
-                <div class="yo-number">
-                    <span class="minus">-</span>
-                    <input class="input" type="text" value="5" />
-                    <span class="plus">+</span>
-                </div>
-            </li>
-            <li href="#" class="item">
-                <span class="mark flex">签约房</span>
-                <div class="yo-number">
-                    <span class="minus">-</span>
-                    <input class="input" type="text" value="9999" />
-                    <span class="plus disabled">+</span>
-                </div>
-            </li>
-        </ul>
-    </div>
-    </div>
-    <code class="code"><xmp><ul class="yo-list">
+<div class="yo-flex">
+    <header class="yo-header m-header">
+        <h2 class="title">yo-dialog</h2>
+        <a href="../index.html" class="regret yo-ico">&#xf07d;</a>
+    </header>
+    <div class="flex">
+        <section class="m-list">
+            <ul class="yo-list">
+                <li href="#" class="item">
+                    <span class="mark flex">签约房</span>
+                    <div class="yo-number">
+                        <span class="minus disabled">-</span>
+                        <input class="input" type="text" value="0" />
+                        <span class="plus">+</span>
+                    </div>
+                </li>
+                <li href="#" class="item">
+                    <span class="mark flex">签约房</span>
+                    <div class="yo-number">
+                        <span class="minus">-</span>
+                        <input class="input" type="text" value="5" />
+                        <span class="plus">+</span>
+                    </div>
+                </li>
+                <li href="#" class="item">
+                    <span class="mark flex">签约房</span>
+                    <div class="yo-number">
+                        <span class="minus">-</span>
+                        <input class="input" type="text" value="9999" />
+                        <span class="plus disabled">+</span>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <section class="m-desc">
+            <h3 class="title">示例描述：</h3>
+            <xmp><ul class="yo-list">
     <li href="#" class="item">
         <span class="mark flex">签约房</span>
         <div class="yo-number">
@@ -70,11 +75,10 @@
             <span class="plus disabled">+</span>
         </div>
     </li>
-</ul></xmp></code>
-</div>
+</ul></xmp>
+        </section>
 
-
-<pre class="m-code"><span class="method">@include yo-number</span><span class="bracket">(</span>
+        <pre class="m-code"><span class="method">@include yo-number</span><span class="bracket">(</span>
     $name<span class="colon">:</span>default, <mark>//{String} yo-number名称</mark>
     $width<span class="colon">:</span>default, <mark>//{Length} yo-number宽度</mark>
     $height<span class="colon">:</span>default, <mark>//{Length} yo-number高度</mark>
@@ -85,6 +89,8 @@
     $disabled-sign-color<span class="colon">:</span>default <mark>//{Color} yo-number禁用文本色</mark>
 <span class="bracket">)</span>
 </pre>
+    </div>
+</div>
 
 </body>
 </html>
