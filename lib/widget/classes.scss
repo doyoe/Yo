@@ -793,7 +793,7 @@
     // 多日历容器
     .weeks {
         position: relative;
-        @include flex;
+        @include flex(1, column);
         @include overflow;
     }
     .week-bar,
