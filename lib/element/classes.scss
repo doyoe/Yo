@@ -255,7 +255,6 @@
 @mixin _loadtip {
     @include flexbox(inline);
     @include align-items;
-    @include transform(rotatez(0));
     color: map-get($loadtip, color);
     font-size: map-get($loadtip, font-size);
     > .yo-ico {
