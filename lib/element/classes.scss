@@ -230,7 +230,7 @@
 // 定义badge的基础构造
 // 使用方法请查看 yo-badge.scss
 @mixin _badge {
-    display: inline-block;
+    @include flexbox(inline);
     min-width: .16rem;
     min-height: .16rem;
     padding: map-get($badge, padding);
@@ -245,13 +245,9 @@
     background-color: map-get($badge, bgcolor);
     color: map-get($badge, color);
     font-size: map-get($badge, font-size);
-    @if map-get($badge, font-size) == null or
-        map-get($badge, font-size) <= .14rem {
-        line-height: .14rem;
-    } @else {
-        line-height: map-get($badge, font-size);
-    }
-    text-align: center;
+    line-height: 1;
+    @include justify-content;
+    @include align-items;
 }
 
 // 定义loadtip的基础构造

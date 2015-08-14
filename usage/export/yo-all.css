@@ -1,247 +1,4 @@
 @charset "UTF-8";
-/**
- * Yo框架demo
- * Author: joy.du(飘零雾雨)
- * Time: 2015.2.11
- */
-/**
- * Yo框架全局Variables
- -----------------------
- * Yo基础变量map，如果不想定义某属性，将其value设置为null；
- * Yo仅使用2种长度单位：px用于边框，rem用于除边框之外的所有地方
- *
- * @class variables
- * @module Yo
- */
-/**
- * Yo框架全局Variables
- -----------------------
- * Yo基础变量map，如果不想定义某属性，将其value设置为null；
- * Yo仅使用2种长度单位：px用于边框，rem用于除边框之外的所有地方
- *
- * @class variables
- * @module Yo
- */
-/**
- * Yo框架全局基础方法
- -----------------------
- * Yo内置了包括响应式方案，CSS3兼容性方案，厂商前缀方案，iconfont方案，flex布局等全局方法
- *
- * @class classes
- * @module Yo
- */
-/**
- * 给需要的属性加厂家前缀
- * @method prefix
- * @param {String} $property 指定属性
- * @param {String} $value 指定属性值
- */
-/**
- * 四则运算
- * @method calc
- * @param {String} $property 指定需要进行计算的CSS属性
- * @param {String} $value 与原生CSS语法一致，使用方式如：@include calc(width, 100% - .1rem);
- */
-/**
- * 定义渐变色值
- * @method gradient
- * @param {String} $type 指定渐变的4种类型：linear, repeating-linear, radial, repeating-radial
- * @param {String} $gradient 指定渐变取值，与w3c最新原生语法一致
- */
-/**
- * 定义响应式方案
- * @method responsive
- * @param {String} $media 指定媒体查询条件
- */
-/**
- * 定义字体图标
- * @method yofont
- */
-/**
- * 滤镜
- * @method filter
- * @param {String} $filter 取值与原生语法一致
- */
-/**
- * 定义UA默认外观
- * @method appearance
- * @param {String} $appearance 指定UA外观类型
- */
-/**
- * 定义是否可以选中元素
- * @method user-select
- * @param {String} $user-select 指定是否可以选中
- */
-/**
- * 定义背景图像缩放（Android Browser2.3.*还需要厂商前缀）
- * @method background-size
- * @param {String | Length} $background-size 指定背景图缩放值
- */
-/**
- * 定义背景裁减（Android Browser2.3.*还需要厂商前缀）
- * @method background-clip
- * @param {String} $background-clip 指定背景图缩放值
- */
-/**
- * 定义背景显示区域（Android Browser2.3.*还需要厂商前缀）
- * @method background-origin
- * @param {String} $background-origin 指定背景图缩放值
- */
-/**
- * 定义盒模型
- * @method box-sizing
- * @param {String} $box-sizing 的2个值分别为：content-box(标准盒模型) | border-box(怪异盒模型)
- */
-/**
- * 定义圆角
- * @method border-radius
- * @param {String} $border-radius 取值与原生语法一致
- */
-/**
- * 定义简单变换
- * @method transform
- * @param {String} $transform 取值与原生语法一致
- */
-/**
- * 定义变换原点
- * @method transform-origin
- * @param {String} $transform-origin 取值与原生语法一致
- */
-/**
- * 定义动画
- * @method animation
- * @param {String} $animation 取值与原生语法一致
- */
-/**
- * 定义补间
- * @method transition
- * @param {String} $transition 取值与原生语法一致
- */
-/**
- * 定义显示类型为伸缩盒
- * @method flexbox
- * @param {String} $flexbox 默认值：flex，取值与最新原生语法一致
- */
-/**
- * 定义伸缩盒子元素如何分配空间
- * @method flex
- * @param {String} $flex 默认值：1，取值与最新原生语法一致
- * @param {String} $direction 默认值: row
- */
-/**
- * 定义伸缩盒子元素的排版顺序
- * @method order
- * @param {String} $order 默认值：1，取值与最新原生语法一致
- */
-/**
- * 定义伸缩盒子元素的流动方向
- * @method flex-direction
- * @param {String} $flex-direction 默认值：row，取值与最新原生语法一致
- */
-/**
- * 定义伸缩盒子元素溢出排版
- * @method flex-wrap
- * @param {String} $flex-wrap 默认值：nowrap，取值与最新原生语法一致
- */
-/**
- * 定义伸缩盒子元素的水平对齐方式
- * @method justify-content
- * @param {String} $justify-content 默认值：center，取值与最新原生语法一致
- */
-/**
- * 定义伸缩盒子元素的垂直对齐方式
- * @method align-items
- * @param {String} $align-items 默认值：center，取值与最新原生语法一致
- */
-/**
- * 定义伸缩盒子元素自身的垂直对齐方式
- * @method align-self
- * @param {String} $align-self 默认值：center，取值与最新原生语法一致
- */
-/**
- * 定义root root-scroll
- * @method root-scroll
- * @param {String} $root-scroll 指定scroll类型，取值overflow属性的标准值
- */
-/**
- * 定义是否有滚动条
- * @method overflow
- * @param {String} $overflow 默认值：auto，取值与最新原生语法一致
- */
-/**
- * 生成矩形方法
- * @method rect
- * @param {Length} $width 定义矩形的长度
- * @param {Length} $height 定义矩形的高度
- */
-/**
- * 生成正方形方法
- * @method square
- * @param {Length} $size 定义正方形的边长
- */
-/**
- * 生成圆形方法
- * @method circle
- * @param {Length} $size 定义圆的半径长度
- * @param {Length} $radius 定义圆的圆角半径长度
- */
-/**
- * 生成全屏方法
- * @method fullscreen
- * @param {Integer} $z-index 定义层叠级别
- */
-/**
- * 清除浮动方案
- * @method clearfix
- */
-/**
- * 链接处理方法
- * @method link
- * @param {Color} $color 定义链接颜色
- */
-/**
- * 强制换行方案
- * @method wrap
- */
-/**
- * 单行文本溢出显示方案
- * @method ellipsis
- * @param {Boolen} $ellipsis 定义是否需要省略号
- */
-/**
- * 文字隐藏方案
- * @method texthide
- */
-/**
- * 清除间隙方案-容器
- * @method killspace
- */
-/**
- * 清除间隙方案-子级
- * @method killspace-item
- */
-/**
- * 未知尺寸元素垂直居中解决方案-容器
- * @method valign
- */
-/**
- * 未知尺寸元素垂直居中解决方案-子级
- * @method valign-item
- */
-/**
- * 已经尺寸元素垂直居中解决方案
- * @method alignment
- * @param {Length} $width 居中元素的宽度
- * @param {Length} $height 居中元素的高度
- */
-/**
- * Yo框架全局Reset
- -----------------------
- * Yo重置Mobile及高级浏览器上常见的差异
- *
- * @class reset
- * @module Yo
- */
 *,
 ::before,
 ::after {
@@ -493,42 +250,11 @@ a {
   vertical-align: middle;
 }
 
-/**
- * Yo框架layout
- -----------------------
- * Yo内置的布局方式
- *
- * @class layout
- * @module Yo
- */
-/**
- * @class layout
- */
-/**
- * 构造独立区块布局
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/layout/yo-stacked.html)
- * @method yo-stacked
- * @param {defailt | String} $name 定义名称
- * @param {defailt | Color} $margin 定义外边距
- */
 .yo-stacked {
   display: block;
   margin: 0.2rem 0.1rem;
 }
 
-/**
- * @class layout
- */
-/**
- * 构造弹性布局使用方法，可以是横向和纵向
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/layout/yo-flex.html)
- * @method yo-flex
- * @param {String} $name 为新的扩展定义一个名称
- * @param {String} $box 指定块级或者行级弹性盒
- * @param {String} $direction 指定是水平或者垂直布局
- */
 .yo-flex {
   height: 100%;
 }
@@ -561,18 +287,6 @@ a {
   -webkit-overflow-scrolling: touch;
 }
 
-/**
- * @class layout
- */
-/**
- * 构造弹性布局内容对齐使用方法，可以是横向和纵向
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/layout/yo-align.html)
- * @method yo-align
- * @param {String} $name 为新的扩展定义一个名称
- * @param {String} $text-align 指定水平对齐方式
- * @param {String} $vertical-align 指定垂直对齐方式
- */
 .yo-align {
   display: -webkit-box;
   display: -webkit-flex;
@@ -590,16 +304,6 @@ a {
   justify-content: center;
 }
 
-/**
-* document layout
-* Author: joy.du(飘零雾雨)
-* Time: 2013.10.17
-*/
-/**
- * module: m-code
- * Author: joy.du(飘零雾雨)
- * Time: 2013.10.17
- */
 .m-code {
   -webkit-user-select: text;
   user-select: text;
@@ -626,11 +330,6 @@ a {
   font-size: .14rem;
 }
 
-/**
- * module: m-demo
- * Author: joy.du(飘零雾雨)
- * Time: 2013.10.17
- */
 .m-demo .device .stage {
   position: relative;
   min-height: 2rem;
@@ -743,33 +442,10 @@ a {
   margin-top: .1rem;
 }
 
-/**
- * Yo框架element基础构造
- -----------------------
- * Yo内置了包括按钮，输入框，单选，多选，区间，分值等基础元素
- *
- * @class element
- * @module Yo
- */
-/**
- * @class element
- */
-/**
- * 构造提醒气泡的自定义使用方法，可以扩展为：tag, 文字ico等形态
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/element/yo-btn.html)
- * @method yo-badge
- * @param {String} $name 为新的扩展定义一个名称，假设扩展了一个 `$name` 为 `tag` 的 `yo-badge`，那么你可以这样使用 `<span class="yo-badge yo-badge-tag">`
- * @param {Length} $padding 内补白
- * @param {Length} $border-width 边框厚度
- * @param {Color} $bordercolor 边框色
- * @param {Color} $bgcolor 背景色
- * @param {Color} $color 文本色
- * @param {Length} $radius 圆角半径长度
- * @param {Length} $font-size 字号大小
- */
 .yo-badge {
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: inline-flex;
   min-width: .16rem;
   min-height: .16rem;
   padding: 0 0.03rem;
@@ -782,15 +458,15 @@ a {
   background-color: #f00;
   color: #fff;
   font-size: 0.12rem;
-  line-height: .14rem;
-  text-align: center;
+  line-height: 1;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
 }
 
-/**
- * yo-badge扩展
- * Author: joy.du(飘零雾雨)
- * Time: 2015.1.16
- */
 .yo-badge-normal {
   border-color: gray;
   background-color: gray;
@@ -816,28 +492,6 @@ a {
   border-radius: 0.05rem;
 }
 
-/**
- * @class element
- */
-/**
- * 构造按钮的自定义使用方法，可轻松自定义边框，尺寸，背景，文字等
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/element/yo-btn.html)
- * @method yo-btn
- * @param {String} $name 为新的按钮扩展定义一个名称
- * @param {Length} $border-width 按钮边框厚度
- * @param {Color} $bordercolor 按钮边框色
- * @param {Color} $bgcolor 按钮背景色
- * @param {Color} $color 按钮文本色
- * @param {Color} $active-bordercolor 触点（鼠标，手指或其它）按下时的按钮边框色
- * @param {Color} $active-bgcolor 触点（鼠标，手指或其它）按下的按钮背景色
- * @param {Color} $active-color 触点（鼠标，手指或其它）按下的按钮文本色
- * @param {Length} $padding 按钮内补白
- * @param {Length} $radius 按钮圆角半径长度
- * @param {Length} $font-size 按钮字号大小
- * @param {Length} $width 按钮宽度
- * @param {Length} $height 按钮高度
- */
 .yo-btn {
   display: inline-block;
   overflow: hidden;
@@ -891,11 +545,6 @@ a {
   width: 100%;
 }
 
-/**
- * yo-btn扩展
- * Author: joy.du(飘零雾雨)
- * Time: 2015.1.16
- */
 .yo-btn-light {
   border-color: #ddd;
   background-color: #fff;
@@ -907,27 +556,6 @@ a {
   background-color: #4a87ee;
 }
 
-/**
- * @class element
- */
-/**
- * 构造单选多选的自定义使用方法，可同时作用于 checkbox 与 radio
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/element/yo-checked.html)
- * @method yo-checked
- * @param {String} $name 为新的扩展定义一个名称
- * @param {String} $content 标记（对勾，圆点或者任意字符，可以是webfonts的编码）
- * @param {Length} $size 元件大小
- * @param {Length} $font-size 标记大小
- * @param {Length} $border-width 边框厚度
- * @param {Color} $bordercolor 边框色
- * @param {Color} $bgcolor 背景色
- * @param {Color} $color 标记色
- * @param {Color} $on-bordercolor 选中时的边框色
- * @param {Color} $on-bgcolor 选中时的背景色
- * @param {Color} $on-color 选中时的标记色
- * @param {Length} $radius 圆角半径长度
- */
 .yo-checked {
   display: inline-block;
   position: relative;
@@ -981,11 +609,6 @@ a {
   color: #bbb !important;
 }
 
-/**
- * yo-checked扩展
- * Author: joy.du(飘零雾雨)
- * Time: 2015.1.16
- */
 .yo-checked-a > .type {
   border-width: 0.01rem;
   border-color: #ccc;
@@ -1090,24 +713,6 @@ a {
   color: white;
 }
 
-/**
- * @class element
- */
-/**
- * 构造输入框的自定义使用方法，可同时作用于 input 与 textarea
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/element/yo-input.html)
- * @method yo-input
- * @param {String} $name 为新的扩展定义一个名称
- * @param {Length} $width 宽度
- * @param {Length} $height 高度
- * @param {Length} $padding 内补白
- * @param {Length} $radius 圆角半径长度
- * @param {Color} $bordercolor 边框色
- * @param {Color} $bgcolor 背景色
- * @param {Color} $color 文本色
- * @param {Color} $placeholder-color placeholder文本色
- */
 .yo-input {
   width: 100%;
   height: 0.44rem;
@@ -1130,19 +735,6 @@ a {
   color: #bbb;
 }
 
-/**
- * yo-input扩展
- * Author: joy.du(飘零雾雨)
- * Time: 2015.1.16
- */
-/**
- * Yo框架动画解决方案
- -----------------------
- * Yo内置了超过60种动画形态，不同的动画可以任意组合
- *
- * @class ani
- * @module Yo
- */
 .ani {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
@@ -1155,14 +747,6 @@ a {
   animation-iteration-count: infinite;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义旋转动画
- * @method rotate
- */
 @-webkit-keyframes rotate {
   from {
     -webkit-transform: rotatez(0);
@@ -1186,23 +770,6 @@ a {
   animation-name: rotate;
 }
 
-/**
- * @class element
- */
-/**
- * 构造加载中的自定义使用方法
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/element/yo-loading.html)
- * @method yo-loading
- * @param {String} $name 为新的扩展定义一个名称
- * @param {Length} $ico-size loading的尺寸
- * @param {Color} $ico-color loading的颜色
- * @param {Color} $bgcolor 背景色
- * @param {Color} $mask-bgcolor 遮罩背景色
- * @param {Length} $font-size 文本字号
- * @param {Color} $color 文本颜色
- * @param {String} $content loading形态
- */
 .yo-loading {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1250,11 +817,6 @@ a {
   font-size: 0.5rem;
 }
 
-/**
- * yo-loading扩展
- * Author: joy.du(飘零雾雨)
- * Time: 2015.1.16
- */
 .yo-loading-b {
   background-color: rgba(0, 0, 0, 0.2);
 }
@@ -1268,19 +830,6 @@ a {
   color: #00afc7;
 }
 
-/**
- * @class element
- */
-/**
- * 构造加载提示的自定义使用方法
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/element/yo-loadtip.html)
- * @method yo-loadtip
- * @param {String} $name 为新的扩展定义一个名称
- * @param {Color} $color 文本色
- * @param {Length} $font-size 字号大小
- * @param {Color} $ico-color ico颜色
- */
 .yo-loadtip {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -1324,24 +873,6 @@ a {
   font-size: .12rem;
 }
 
-/**
- * yo-loadtip扩展
- * Author: joy.du(飘零雾雨)
- * Time: 2015.1.16
- */
-/**
- * @class element
- */
-/**
- * 构造区间选择的自定义使用方法
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/element/yo-range.html)
- * @method yo-range
- * @param {String} $name 为新的扩展定义一个名称
- * @param {Color} $inner-bgcolor 已选择区域滑条色
- * @param {Color} $outer-bgcolor 未选择区域滑条色
- * @param {Color} $ball-color 滑块色
- */
 .yo-range {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1409,11 +940,6 @@ a {
   margin-left: .1rem;
 }
 
-/**
- * yo-range扩展
- * Author: joy.du(飘零雾雨)
- * Time: 2015.1.16
- */
 .yo-range-a > input[type="range"]::-webkit-slider-thumb::before {
   background: #4a87ee;
 }
@@ -1438,19 +964,6 @@ a {
   background: #4bd763;
 }
 
-/**
- * @class element
- */
-/**
- * 构造评分展示的自定义使用方法
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/element/yo-score.html)
- * @method yo-score
- * @param {String} $name 为新的扩展定义一个名称
- * @param {Length} $item-width 单项宽度
- * @param {Length} $item-height 单项高度
- * @param {String} $url 背景图片url
- */
 .yo-score {
   position: relative;
   width: 0.8rem;
@@ -1472,11 +985,6 @@ a {
   vertical-align: top;
 }
 
-/**
- * yo-score扩展
- * Author: joy.du(飘零雾雨)
- * Time: 2015.1.16
- */
 .yo-score-test {
   width: 0.75rem;
   height: 0.15rem;
@@ -1492,35 +1000,6 @@ a {
   background-position: 0 -0.15rem;
 }
 
-/**
- * Yo框架fragment基础构造
- -----------------------
- * Yo内置了包括：dialog, popup, tip, tab, switch, rating等基础组件
- *
- * @class fragment
- * @module Yo
- */
-/**
- * @class fragment
- */
-/**
- * 构造头的自定义使用方法
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/fragment/yo-header.html)
- * @method yo-header
- * @param {String} $name 定义yo-header名称
- * @param {Length} $height 定义yo-header高度
- * @param {Length} $item-width 定义yo-header两侧子项宽度
- * @param {Length} $item-space 定义yo-header两侧子项离边界的间隙
- * @param {Color} $bordercolor 定义yo-header边框色
- * @param {Color} $bgcolor 定义yo-header背景色
- * @param {Color} $color 定义yo-header文本色
- * @param {Length} $font-size 定义yo-header文本大小
- * @param {Color} $item-color 定义yo-header两侧的子项文本色
- * @param {Color} $item-ico-color 定义yo-header两侧的ico色
- * @param {Length} $item-font-size 定义yo-header两侧的子项文本大小
- * @param {Length} $item-ico-size 定义yo-header两侧的ico大小
- */
 .yo-header {
   position: relative;
   height: 0.44rem;
@@ -1576,11 +1055,6 @@ a {
   text-align: right;
 }
 
-/**
- * Fragment扩展: yo-header-normal
- * Author: joy.du(飘零雾雨)
- * Time: 2015.1.16
- */
 .yo-header-normal {
   border-color: #ddd;
   background-color: #eee;
@@ -1594,31 +1068,6 @@ a {
   color: #212121;
 }
 
-/**
- * @class fragment
- */
-/**
- * 构造列表的自定义使用方法
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/fragment/yo-list.html)
- * @method yo-list
- * @param {String} $name 定义list名称
- * @param {Length} $margin 定义list外边距
- * @param {Length} $radius 定义list圆角
- * @param {Length} $border-width 定义list外边框厚度
- * @param {Color} $bordercolor 定义list边框色
- * @param {Length} $item-padding 定义list项的内补白
- * @param {Length} $label-padding 定义list分组标题内补白
- * @param {Color} $label-bgcolor 定义list分组标题背景色
- * @param {Color} $active-bgcolor 定义list点击反馈背景色
- * @param {Color} $on-bgcolor 定义list选中背景色
- * @param {Color} $on-color 定义list选中文本色
- * @param {Color} $item-bordercolor 定义list子项边框色
- * @param {Color} $label-bordercolor 定义list子项组头边框色
- * @param {Length} $item-font-size 定义list项字号
- * @param {Length} $label-font-size 定义list列表组头字号
- * @param {Length} $item-border-space 列表项下边线距离左侧的间隙
- */
 .yo-list > .label,
 .yo-list > .item,
 .yo-list .front {
@@ -1742,11 +1191,6 @@ a {
   padding: 0 !important;
 }
 
-/**
- * yo-list扩展
- * Author: joy.du(飘零雾雨)
- * Time: 2015.1.16
- */
 .yo-list-inset {
   margin: 0.2rem 0.1rem 0 0.1rem;
   border-radius: 0.02rem;
@@ -1765,26 +1209,6 @@ a {
   padding: 0.18rem 0.1rem 0.03rem;
 }
 
-/**
- * @class fragment
- */
-/**
- * 构造表格的自定义使用方法
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/fragment/yo-table.html)
- * @method yo-table
- * @param {String} $name 定义table名称
- * @param {String} $width 定义table长度
- * @param {Boole} $has-vertical-border 定义table是否需要纵向边框
- * @param {Length} $thead-padding 定义table头部内补白
- * @param {Length} $tbody-padding 定义table主体内补白
- * @param {Color} $bordercolor 定义table边框色
- * @param {Color} $thead-bgcolor 定义table头部背景色
- * @param {Color} $odd-bgcolor 定义table奇数行背景色
- * @param {Color} $even-bgcolor 定义table偶数行背景色
- * @param {Color} $active-bgcolor 定义table激活背景色
- * @param {Color} $on-bgcolor 定义table选中背景色
- */
 .yo-table {
   width: 100%;
   background-color: #fff;
@@ -1809,11 +1233,6 @@ a {
   border-color: #ccc;
 }
 
-/**
- * Fragment扩展
- * Author: joy.du(飘零雾雨)
- * Time: 2015.1.16
- */
 .yo-table-test th, .yo-table-test td {
   border-width: 1px;
 }
@@ -1822,17 +1241,6 @@ a {
   background-color: #f9f9f9;
 }
 
-/**
- * @class fragment
- */
-/**
- * 构造按钮组的自定义使用方法
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/fragment/yo-btnbar.html)
- * @method yo-btnbar
- * @param {String} $name 为新的扩展定义一个名称
- * @param {Length} $radius 圆角半径长度
- */
 .yo-btnbar {
   display: inline-block;
   vertical-align: middle;
@@ -1860,11 +1268,6 @@ a {
   border-radius: 0;
 }
 
-/**
- * yo-btnbar扩展
- * Author: joy.du(飘零雾雨)
- * Time: 2015.1.16
- */
 .yo-btnbar-test > .yo-btn:first-child {
   border-top-left-radius: 0.1rem;
   border-bottom-left-radius: 0.1rem;
@@ -1875,26 +1278,6 @@ a {
   border-bottom-right-radius: 0.1rem;
 }
 
-/**
- * Yo框架widget基础构造
- -----------------------
- * Yo内置了常见的通用代码片段，如：列表，表格，按钮组，头
- *
- * @class widget
- * @module Yo
- */
-/**
- * @class widget
- */
-/**
- * 构造列表的自定义使用方法
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-dblist.html)
- * @method yo-dblist
- * @param {default | String} $name 扩展的名称
- * @param {default | Length} $aside-width 侧边栏宽度
- * @param {default | Length} $aside-order 侧边栏顺序
- */
 .yo-dblist {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1915,32 +1298,6 @@ a {
   width: .1px;
 }
 
-/**
- * yo-dblist扩展
- * Author: joy.du(飘零雾雨)
- * Time: 2015.1.16
- */
-/**
- * @class widget
- */
-/**
- * 构造列表的自定义使用方法
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-dialog.html)
- * @method yo-dialog
- * @param {default | String} $name 定义dialog名称
- * @param {default | Length | null} $width 定义dialog宽度
- * @param {default | Length} $height 定义dialog高度
- * @param {default | Length} $radius 定义dialog圆角
- * @param {default | Number} $shadow-opacity 定义dialog阴影透明度
- * @param {default | Color} $bordercolor 定义dialog边框色
- * @param {default | Length} $hd-height 定义dialog头部高度
- * @param {default | Color} $hd-bgcolor 定义dialog头部背景色
- * @param {default | Color} $title-color 定义dialog标题文本色
- * @param {default | Length} $title-font-size 定义dialog标题字号
- * @param {default | Length} $bd-padding 定义dialog主体补白
- * @param {default | Length} $bd-font-size 定义dialog主体字号
- */
 .yo-dialog {
   display: -webkit-box;
   display: -webkit-flex;
@@ -2037,24 +1394,6 @@ a {
   border-left-width: 1px;
 }
 
-/**
- * yo-dialog扩展
- * Author: joy.du(飘零雾雨)
- * Time: 2015.1.16
- */
-/**
- * @class widget
- */
-/**
- * 构造列表的自定义使用方法
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-index.html)
- * @method yo-index
- * @param {default | String} $name 定义yo-index名称
- * @param {default | Length} $width 定义yo-index宽度
- * @param {default | Color} $color 定义yo-index文本色
- * @param {default | Length} $font-size 定义yo-index文本字号
- */
 .yo-index {
   width: 0.3rem;
   text-transform: uppercase;
@@ -2072,17 +1411,6 @@ a {
   background-color: #555;
 }
 
-/**
- * @class widget
- */
-/**
- * 构造列表的自定义使用方法
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-group.html)
- * @method yo-group
- * @param {default | String} $name 定义yo-group名称
- * @param {default | Length} $top 定义yo-group顶部偏移值
- */
 .yo-group {
   position: absolute;
   top: 0;
@@ -2112,22 +1440,6 @@ a {
   text-align: center;
 }
 
-/**
- * yo-group扩展
- * Author: joy.du(飘零雾雨)
- * Time: 2015.1.16
- */
-/**
- * @class widget
- */
-/**
- * 构造列表的自定义使用方法
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-panel.html)
- * @method yo-panel
- * @param {default | String} $name 定义yo-panel名称
- * @param {default | Length} $top 定义yo-panel顶部偏移值
- */
 .yo-panel {
   position: absolute;
   top: 0;
@@ -2157,27 +1469,6 @@ a {
   text-align: center;
 }
 
-/**
- * yo-panel扩展
- * Author: joy.du(飘零雾雨)
- * Time: 2015.1.16
- */
-/**
- * yo-index扩展
- * Author: joy.du(飘零雾雨)
- * Time: 2015.1.16
- */
-/**
- * @class widget
- */
-/**
- * 构造列表的自定义使用方法
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-mask.html)
- * @method yo-mask
- * @param {default | String} $name 定义yo-mask名称
- * @param {default | Color} $bgcolor 定义yo-mask背景色
- */
 .yo-mask {
   position: absolute;
   top: 0;
@@ -2188,28 +1479,6 @@ a {
   background-color: rgba(255, 255, 255, 0.5);
 }
 
-/**
- * yo-mask扩展
- * Author: joy.du(飘零雾雨)
- * Time: 2015.1.16
- */
-/**
- * @class widget
- */
-/**
- * 构造列表的自定义使用方法
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-number.html)
- * @method yo-number
- * @param {default | String} $name 定义yo-number名称
- * @param {default | Length} $width 定义yo-number宽度
- * @param {default | Length} $height 定义yo-number高度
- * @param {default | Color} $bordercolor 定义yo-number边框色
- * @param {default | Color} $color 定义yo-number输入框文本色
- * @param {default | Color} $sign-bgcolor 定义yo-number加减号背景色
- * @param {default | Color} $sign-color 定义yo-number加减号文本色
- * @param {default | Color} $disabled-sign-color 定义yo-number禁用文本色
- */
 .yo-number {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -2267,32 +1536,6 @@ a {
   appearance: none;
 }
 
-/**
- * Element扩展
- * Author: joy.du(飘零雾雨)
- * Time: 2015.1.16
- */
-/**
- * @class widget
- */
-/**
- * 构造列表的自定义使用方法
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-popup.html)
- * @method yo-popup
- * @param {default | String} $name 定义popup名称
- * @param {default | Length | null} $width 定义popup宽度
- * @param {default | Length} $height 定义popup高度
- * @param {default | Length} $radius 定义popup圆角
- * @param {default | Number} $shadow-opacity 定义popup阴影透明度
- * @param {default | Color} $bordercolor 定义popup边框色
- * @param {default | Length} $hd-height 定义popup头部高度
- * @param {default | Color} $hd-bgcolor 定义popup头部背景色
- * @param {default | Color} $title-color 定义popup标题文本色
- * @param {default | Length} $title-font-size 定义popup标题字号
- * @param {default | Length} $bd-padding 定义popup主体补白
- * @param {default | Length} $arrow-size 定义popup箭头高度
- */
 .yo-popup {
   display: -webkit-box;
   display: -webkit-flex;
@@ -2411,24 +1654,6 @@ a {
   text-align: center;
 }
 
-/**
- * Element扩展: yo-popup
- * Author: joy.du(飘零雾雨)
- * Time: 2015.1.16
- */
-/**
- * @class widget
- */
-/**
- * 构造列表的自定义使用方法
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-rating.html)
- * @method yo-rating
- * @param {default | String} $name 定义yo-rating名称
- * @param {default | Length} $item-width 定义yo-rating 单项宽度
- * @param {default | Length} $item-height 定义yo-rating 单项高度
- * @param {default | Color} $url 定义yo-rating 图片url
- */
 .yo-rating {
   display: inline-block;
   position: relative;
@@ -2502,11 +1727,6 @@ a {
   background-position: 0 -0.18rem;
 }
 
-/**
- * yo-rating扩展
- * Author: joy.du(飘零雾雨)
- * Time: 2015.1.16
- */
 .yo-rating-test {
   width: 0.9rem;
 }
@@ -2517,31 +1737,6 @@ a {
   background-image: url(http://source.qunarzz.com/yo/bgimg/star2.png);
 }
 
-/**
- * @class widget
- */
-/**
- * 构造列表的自定义使用方法
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-suggest.html)
- * @method yo-suggest
- * @param {default | String} $name 定义yo-suggest名称
- * @param {default | Length} $height 定义yo-suggest高度
- * @param {default | Length} $font-size 定义yo-suggest文本大小
- * @param {default | Length} $op-padding 定义yo-suggest内补白
- * @param {default | Length} $radius 定义yo-suggest圆角
- * @param {default | Color} $bordercolor 定义yo-suggest边框色
- * @param {default | Color} $bgcolor 定义yo-suggest背景色
- * @param {default | Color} $color 定义yo-suggest文本色
- * @param {default | Color} $on-bordercolor 定义yo-suggest激活边框色
- * @param {default | Color} $on-bgcolor 定义yo-suggest激活背景色
- * @param {default | Color} $placeholder-color 定义yo-suggest占位背景色
- * @param {default | Color} $ico-color 定义yo-suggest 操作区ico颜色
- * @param {default | Color} $cancel-color 定义yo-suggest取消按钮颜色
- * @param {default | Color} $op-bgcolor 定义yo-suggest搜索区域背景色
- * @param {default | Color} $mask-bgcolor 定义yo-suggest遮罩背景色
- * @param {default | Length} $cancel-width 取消按钮区域宽度
- */
 .yo-suggest {
   display: -webkit-box;
   display: -webkit-flex;
@@ -2692,24 +1887,6 @@ a {
   margin-right: 0.7rem;
 }
 
-/**
- * yo-suggest扩展
- * Author: joy.du(飘零雾雨)
- * Time: 2015.1.16
- */
-/**
- * @class widget
- */
-/**
- * 构造列表的自定义使用方法
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-select.html)
- * @method yo-select
- * @param {default | String} $name 定义select名称
- * @param {default | Length} $width 定义select显示的子项个数
- * @param {default | Length} $height 定义select子项高度
- * @param {default | Color} $bordercolor 定义select边框色
- */
 .yo-select {
   display: -webkit-box;
   display: -webkit-flex;
@@ -2782,23 +1959,6 @@ a {
   pointer-events: none;
 }
 
-/**
- * yo-select扩展
- * Author: joy.du(飘零雾雨)
- * Time: 2015.1.16
- */
-/**
- * @class widget
- */
-/**
- * 构造列表的自定义使用方法
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-slidermenu.html)
- * @method yo-slidermenu
- * @param {default | String} $name 扩展的名称
- * @param {default | Length} $action-width 定义action宽度
- * @param {default | Color} $action-bgcolor 定义action背景色
- */
 .yo-slidermenu,
 .yo-slidermenu .item {
   position: relative;
@@ -2820,26 +1980,6 @@ a {
   background-color: #eee;
 }
 
-/**
- * yo-slidermenu扩展
- * Author: joy.du(飘零雾雨)
- * Time: 2015.1.16
- */
-/**
- * @class widget
- */
-/**
- * 构造列表的自定义使用方法
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-switch.html)
- * @method yo-switch
- * @param {default | String} $name 定义switch名称
- * @param {default | Color} $checked-bordercolor 定义switch激活边框色
- * @param {default | Color} $checked-bgcolor 定义switch激活背景色
- * @param {default | Color} $bordercolor 定义switch边框色
- * @param {default | Color} $bgcolor 定义switch背景色
- * @param {default | Color} $ball-color 定义switch滑块色
- */
 .yo-switch {
   display: inline-block;
 }
@@ -2896,11 +2036,6 @@ a {
   background-color: #ccc;
 }
 
-/**
- * Element扩展: yo-switch
- * Author: joy.du(飘零雾雨)
- * Time: 2015.1.16
- */
 .yo-switch-a > input:checked + .track {
   border-color: #4a87ee;
   background-color: #4a87ee;
@@ -2931,25 +2066,6 @@ a {
   background-color: #444;
 }
 
-/**
- * @class widget
- */
-/**
- * 构造列表的自定义使用方法
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-switchable.html)
- * @method yo-switchable
- * @param {default | String} $name 扩展的名称
- * @param {default | Boolen} $has-btn 是否有按钮
- * @param {default | Length} $btn-size 按钮大小
- * @param {default | Length} $btn-bgcolor 按钮背景色
- * @param {default | Length} $btn-color 按钮文本色
- * @param {default | Color} $btn-active-bgcolor 按钮按下背景色
- * @param {default | Length} $btn-active-color 按钮按下文本色
- * @param {default | Length} $index-size 索引大小
- * @param {default | Color} $index-bgcolor 索引背景色
- * @param {default | Length} $index-on-bgcolor 索引当前项背景色
- */
 .yo-switchable {
   position: relative;
   overflow: hidden;
@@ -3026,35 +2142,6 @@ a {
   right: 0;
 }
 
-/**
- * yo-switchable扩展
- * Author: joy.du(飘零雾雨)
- * Time: 2015.1.16
- */
-/**
- * @class widget
- */
-/**
- * 构造列表的自定义使用方法
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-tab.html)
- * @method yo-tab
- * @param {default | String} $name 扩展的名称
- * @param {default | Length} $height 组件高度
- * @param {default | Length} $radius 圆角半径
- * @param {default | Length} $border-width 边框厚度
- * @param {default | Color} $bordercolor 边框色
- * @param {default | Color} $bgcolor 背景色
- * @param {default | Color} $color 文本色
- * @param {default | Color} $on-bgcolor 激活时背景色
- * @param {default | Color} $on-color 激活时文本色
- * @param {default | Color} $font-size 文本字号
- * @param {default | Color} $x-ico-size 子项内容为水平ico时，ico的大小
- * @param {default | Color} $y-ico-size 子项内容为垂直ico时，ico的大小
- * @param {default | Color} $only-ico-size 子项内容仅有ico时，ico的大小
- * @param {default | Length} $item-border-height 子项的间隔线高度
- * @param {default | Color} $item-bordercolor 子项的间隔线颜色
- */
 .yo-tab {
   display: -webkit-box;
   display: -webkit-flex;
@@ -3116,11 +2203,6 @@ a {
   font-size: 0.28rem;
 }
 
-/**
- * yo-tab扩展
- * Author: joy.du(飘零雾雨)
- * Time: 2015.1.16
- */
 .yo-tab-filter {
   height: 0.4rem;
   line-height: 0.4rem;
@@ -3136,20 +2218,6 @@ a {
   font-size: 0.12rem;
 }
 
-/**
- * @class widget
- */
-/**
- * 构造列表的自定义使用方法
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-tip.html)
- * @method yo-tip
- * @param {default | String} $name 定义yo-tip名称
- * @param {default | Length} $padding 定义yo-tip内补白
- * @param {default | Length} $radius 定义yo-tip圆角
- * @param {default | Color} $bgcolor 定义yo-tip背景色
- * @param {default | Color} $color 定义yo-tip文本色
- */
 .yo-tip {
   position: fixed;
   min-width: 1rem;
@@ -3164,46 +2232,6 @@ a {
   text-align: center;
 }
 
-/**
- * yo-tip扩展
- * Author: joy.du(飘零雾雨)
- * Time: 2015.1.16
- */
-/**
- * @class widget
- */
-/**
- * 构造列表的自定义使用方法
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-datepicker.html)
- * @method yo-datepicker
- * @param {String} $name 定义扩展名称
- * @param {Length} $week-bar-height 定义星期bar高度
- * @param {Color} $week-bar-bgcolor 定义星期bar背景色
- * @param {Color} $week-bar-color 定义星期bar文本色
- * @param {Length} $week-bar-font-size 定义星期bar字号
- * @param {Length} $month-bar-height 定义月份bar高度
- * @param {Color} $month-bar-bordercolor 定义月份bar边线色
- * @param {Color} $month-bar-bgcolor 定义月份bar背景色
- * @param {Color} $month-bar-color 定义月份bar文本色
- * @param {Length} $month-bar-font-size 定义月份bar字号
- * @param {Length} $week-height 定义每行高度
- * @param {Color} $week-bordercolor 定义每行边线色
- * @param {Color} $week-color 定义每行文本色
- * @param {Length} $day-height 定义每日高度
- * @param {Length} $day-margin 定义每日间距
- * @param {Length} $day-radius 定义每日圆角
- * @param {Length} $day-font-size 定义每日字号
- * @param {Color} $special-color 定义特殊日文本色
- * @param {Color} $weekend-color 定义周末文本色
- * @param {Color} $disabled-color 定义禁用日子文本色
- * @param {Color} $on-bgcolor 定义选中日期背景色
- * @param {Color} $on-color 定义选中日期文本色
- * @param {Color} $on-tip-color 定义选中日期提示语文本色
- * @param {Length} $on-tip-font-size 定义选中日期提示语字号
- * @param {String} $start-content 定义开始日期提示语
- * @param {String} $end-content 定义结束日期提示语
- */
 .yo-datepicker {
   position: absolute;
   top: 0;
@@ -3337,11 +2365,6 @@ a {
   content: "离店";
 }
 
-/**
- * yo-datepicker扩展
- * Author: joy.du(飘零雾雨)
- * Time: 2015.1.16
- */
 .yo-list .mark img {
   width: 80px;
   height: 50px;

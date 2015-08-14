@@ -1,242 +1,3 @@
-@charset "UTF-8";
-/**
- * Yo框架全局Variables
- -----------------------
- * Yo基础变量map，如果不想定义某属性，将其value设置为null；
- * Yo仅使用2种长度单位：px用于边框，rem用于除边框之外的所有地方
- *
- * @class variables
- * @module Yo
- */
-/**
- * Yo框架全局Variables
- -----------------------
- * Yo基础变量map，如果不想定义某属性，将其value设置为null；
- * Yo仅使用2种长度单位：px用于边框，rem用于除边框之外的所有地方
- *
- * @class variables
- * @module Yo
- */
-/**
- * Yo框架全局基础方法
- -----------------------
- * Yo内置了包括响应式方案，CSS3兼容性方案，厂商前缀方案，iconfont方案，flex布局等全局方法
- *
- * @class classes
- * @module Yo
- */
-/**
- * 给需要的属性加厂家前缀
- * @method prefix
- * @param {String} $property 指定属性
- * @param {String} $value 指定属性值
- */
-/**
- * 四则运算
- * @method calc
- * @param {String} $property 指定需要进行计算的CSS属性
- * @param {String} $value 与原生CSS语法一致，使用方式如：@include calc(width, 100% - .1rem);
- */
-/**
- * 定义渐变色值
- * @method gradient
- * @param {String} $type 指定渐变的4种类型：linear, repeating-linear, radial, repeating-radial
- * @param {String} $gradient 指定渐变取值，与w3c最新原生语法一致
- */
-/**
- * 定义响应式方案
- * @method responsive
- * @param {String} $media 指定媒体查询条件
- */
-/**
- * 定义字体图标
- * @method yofont
- */
-/**
- * 滤镜
- * @method filter
- * @param {String} $filter 取值与原生语法一致
- */
-/**
- * 定义UA默认外观
- * @method appearance
- * @param {String} $appearance 指定UA外观类型
- */
-/**
- * 定义是否可以选中元素
- * @method user-select
- * @param {String} $user-select 指定是否可以选中
- */
-/**
- * 定义背景图像缩放（Android Browser2.3.*还需要厂商前缀）
- * @method background-size
- * @param {String | Length} $background-size 指定背景图缩放值
- */
-/**
- * 定义背景裁减（Android Browser2.3.*还需要厂商前缀）
- * @method background-clip
- * @param {String} $background-clip 指定背景图缩放值
- */
-/**
- * 定义背景显示区域（Android Browser2.3.*还需要厂商前缀）
- * @method background-origin
- * @param {String} $background-origin 指定背景图缩放值
- */
-/**
- * 定义盒模型
- * @method box-sizing
- * @param {String} $box-sizing 的2个值分别为：content-box(标准盒模型) | border-box(怪异盒模型)
- */
-/**
- * 定义圆角
- * @method border-radius
- * @param {String} $border-radius 取值与原生语法一致
- */
-/**
- * 定义简单变换
- * @method transform
- * @param {String} $transform 取值与原生语法一致
- */
-/**
- * 定义变换原点
- * @method transform-origin
- * @param {String} $transform-origin 取值与原生语法一致
- */
-/**
- * 定义动画
- * @method animation
- * @param {String} $animation 取值与原生语法一致
- */
-/**
- * 定义补间
- * @method transition
- * @param {String} $transition 取值与原生语法一致
- */
-/**
- * 定义显示类型为伸缩盒
- * @method flexbox
- * @param {String} $flexbox 默认值：flex，取值与最新原生语法一致
- */
-/**
- * 定义伸缩盒子元素如何分配空间
- * @method flex
- * @param {String} $flex 默认值：1，取值与最新原生语法一致
- * @param {String} $direction 默认值: row
- */
-/**
- * 定义伸缩盒子元素的排版顺序
- * @method order
- * @param {String} $order 默认值：1，取值与最新原生语法一致
- */
-/**
- * 定义伸缩盒子元素的流动方向
- * @method flex-direction
- * @param {String} $flex-direction 默认值：row，取值与最新原生语法一致
- */
-/**
- * 定义伸缩盒子元素溢出排版
- * @method flex-wrap
- * @param {String} $flex-wrap 默认值：nowrap，取值与最新原生语法一致
- */
-/**
- * 定义伸缩盒子元素的水平对齐方式
- * @method justify-content
- * @param {String} $justify-content 默认值：center，取值与最新原生语法一致
- */
-/**
- * 定义伸缩盒子元素的垂直对齐方式
- * @method align-items
- * @param {String} $align-items 默认值：center，取值与最新原生语法一致
- */
-/**
- * 定义伸缩盒子元素自身的垂直对齐方式
- * @method align-self
- * @param {String} $align-self 默认值：center，取值与最新原生语法一致
- */
-/**
- * 定义root root-scroll
- * @method root-scroll
- * @param {String} $root-scroll 指定scroll类型，取值overflow属性的标准值
- */
-/**
- * 定义是否有滚动条
- * @method overflow
- * @param {String} $overflow 默认值：auto，取值与最新原生语法一致
- */
-/**
- * 生成矩形方法
- * @method rect
- * @param {Length} $width 定义矩形的长度
- * @param {Length} $height 定义矩形的高度
- */
-/**
- * 生成正方形方法
- * @method square
- * @param {Length} $size 定义正方形的边长
- */
-/**
- * 生成圆形方法
- * @method circle
- * @param {Length} $size 定义圆的半径长度
- * @param {Length} $radius 定义圆的圆角半径长度
- */
-/**
- * 生成全屏方法
- * @method fullscreen
- * @param {Integer} $z-index 定义层叠级别
- */
-/**
- * 清除浮动方案
- * @method clearfix
- */
-/**
- * 链接处理方法
- * @method link
- * @param {Color} $color 定义链接颜色
- */
-/**
- * 强制换行方案
- * @method wrap
- */
-/**
- * 单行文本溢出显示方案
- * @method ellipsis
- * @param {Boolen} $ellipsis 定义是否需要省略号
- */
-/**
- * 文字隐藏方案
- * @method texthide
- */
-/**
- * 清除间隙方案-容器
- * @method killspace
- */
-/**
- * 清除间隙方案-子级
- * @method killspace-item
- */
-/**
- * 未知尺寸元素垂直居中解决方案-容器
- * @method valign
- */
-/**
- * 未知尺寸元素垂直居中解决方案-子级
- * @method valign-item
- */
-/**
- * 已经尺寸元素垂直居中解决方案
- * @method alignment
- * @param {Length} $width 居中元素的宽度
- * @param {Length} $height 居中元素的高度
- */
-/**
- * Yo框架全局Reset
- -----------------------
- * Yo重置Mobile及高级浏览器上常见的差异
- *
- * @class reset
- * @module Yo
- */
 *,
 ::before,
 ::after {
@@ -488,42 +249,11 @@ a {
   vertical-align: middle;
 }
 
-/**
- * Yo框架layout
- -----------------------
- * Yo内置的布局方式
- *
- * @class layout
- * @module Yo
- */
-/**
- * @class layout
- */
-/**
- * 构造独立区块布局
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/layout/yo-stacked.html)
- * @method yo-stacked
- * @param {defailt | String} $name 定义名称
- * @param {defailt | Color} $margin 定义外边距
- */
 .yo-stacked {
   display: block;
   margin: 0.2rem 0.1rem;
 }
 
-/**
- * @class layout
- */
-/**
- * 构造弹性布局使用方法，可以是横向和纵向
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/layout/yo-flex.html)
- * @method yo-flex
- * @param {String} $name 为新的扩展定义一个名称
- * @param {String} $box 指定块级或者行级弹性盒
- * @param {String} $direction 指定是水平或者垂直布局
- */
 .yo-flex {
   height: 100%;
 }
@@ -556,18 +286,6 @@ a {
   -webkit-overflow-scrolling: touch;
 }
 
-/**
- * @class layout
- */
-/**
- * 构造弹性布局内容对齐使用方法，可以是横向和纵向
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/layout/yo-align.html)
- * @method yo-align
- * @param {String} $name 为新的扩展定义一个名称
- * @param {String} $text-align 指定水平对齐方式
- * @param {String} $vertical-align 指定垂直对齐方式
- */
 .yo-align {
   display: -webkit-box;
   display: -webkit-flex;
@@ -585,16 +303,6 @@ a {
   justify-content: center;
 }
 
-/**
-* document layout
-* Author: joy.du(飘零雾雨)
-* Time: 2013.10.17
-*/
-/**
- * module: m-demo
- * Author: joy.du(飘零雾雨)
- * Time: 2013.10.17
- */
 .m-demo .device .stage {
   position: relative;
   min-height: 2rem;
@@ -707,11 +415,6 @@ a {
   margin-top: .1rem;
 }
 
-/**
- * module: m-code
- * Author: joy.du(飘零雾雨)
- * Time: 2013.10.17
- */
 .m-code {
   -webkit-user-select: text;
   user-select: text;
@@ -738,36 +441,6 @@ a {
   font-size: .14rem;
 }
 
-/**
- * Yo框架element基础构造
- -----------------------
- * Yo内置了包括按钮，输入框，单选，多选，区间，分值等基础元素
- *
- * @class element
- * @module Yo
- */
-/**
- * @class element
- */
-/**
- * 构造按钮的自定义使用方法，可轻松自定义边框，尺寸，背景，文字等
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/element/yo-btn.html)
- * @method yo-btn
- * @param {String} $name 为新的按钮扩展定义一个名称
- * @param {Length} $border-width 按钮边框厚度
- * @param {Color} $bordercolor 按钮边框色
- * @param {Color} $bgcolor 按钮背景色
- * @param {Color} $color 按钮文本色
- * @param {Color} $active-bordercolor 触点（鼠标，手指或其它）按下时的按钮边框色
- * @param {Color} $active-bgcolor 触点（鼠标，手指或其它）按下的按钮背景色
- * @param {Color} $active-color 触点（鼠标，手指或其它）按下的按钮文本色
- * @param {Length} $padding 按钮内补白
- * @param {Length} $radius 按钮圆角半径长度
- * @param {Length} $font-size 按钮字号大小
- * @param {Length} $width 按钮宽度
- * @param {Length} $height 按钮高度
- */
 .yo-btn {
   display: inline-block;
   overflow: hidden;
@@ -821,11 +494,6 @@ a {
   width: 100%;
 }
 
-/**
- * Page Animation Switch 演示页面
- * Author: joy.du(飘零雾雨)
- * Time: 2015.2.5
- */
 @media (max-width: 7.99rem) {
   .m-demo .device .stage {
     position: absolute;

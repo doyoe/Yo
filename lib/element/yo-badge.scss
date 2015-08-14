@@ -110,11 +110,6 @@
         // 如果$font-size不等于config设定，则重绘字号
         @if $font-size != map-get($badge, font-size) {
             font-size: $font-size;
-            // 如果$font-size不等于config设定，并且不等于null，且大于.14rem时，重绘行高
-            @if $font-size != null and
-                $font-size > .14rem {
-                line-height: $font-size;
-            }
         }
         // 增量扩展
         @content;

@@ -1,12 +1,3 @@
-@charset "UTF-8";
-/**
- * Yo框架动画解决方案
- -----------------------
- * Yo内置了超过60种动画形态，不同的动画可以任意组合
- *
- * @class ani
- * @module Yo
- */
 .ani {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
@@ -19,14 +10,6 @@
   animation-iteration-count: infinite;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义淡入动画
- * @method fade-in
- */
 @-webkit-keyframes fade-in {
   0% {
     opacity: 0;
@@ -50,14 +33,6 @@
   animation-name: fade-in;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义淡入升起动画
- * @method fade-in-up
- */
 @-webkit-keyframes fade-in-up {
   0% {
     opacity: 0;
@@ -85,14 +60,6 @@
   animation-name: fade-in-up;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义从右侧淡入动画
- * @method fade-in-right
- */
 @-webkit-keyframes fade-in-right {
   0% {
     opacity: 0;
@@ -120,14 +87,6 @@
   animation-name: fade-in-right;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义淡入落下动画
- * @method fade-in-down
- */
 @-webkit-keyframes fade-in-down {
   0% {
     opacity: 0;
@@ -155,14 +114,6 @@
   animation-name: fade-in-down;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义从左侧淡入动画
- * @method fade-in-left
- */
 @-webkit-keyframes fade-in-left {
   0% {
     opacity: 0;
@@ -190,14 +141,6 @@
   animation-name: fade-in-left;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义淡出动画
- * @method fade-out
- */
 @-webkit-keyframes fade-out {
   0% {
     opacity: 1;
@@ -221,14 +164,6 @@
   animation-name: fade-out;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义从上面淡出动画
- * @method fade-out-up
- */
 @-webkit-keyframes fade-out-up {
   0% {
     opacity: 1;
@@ -256,14 +191,6 @@
   animation-name: fade-out-up;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义从右侧淡出动画
- * @method fade-out-right
- */
 @-webkit-keyframes fade-out-right {
   0% {
     opacity: 1;
@@ -291,14 +218,6 @@
   animation-name: fade-out-right;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义从下面淡出动画
- * @method fade-out-down
- */
 @-webkit-keyframes fade-out-down {
   0% {
     opacity: 1;
@@ -326,14 +245,6 @@
   animation-name: fade-out-down;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义从左侧淡出动画
- * @method fade-out-left
- */
 @-webkit-keyframes fade-out-left {
   0% {
     opacity: 1;
@@ -361,14 +272,6 @@
   animation-name: fade-out-left;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义X轴弹性动画
- * @method elastic-x
- */
 @-webkit-keyframes elastic-x {
   0%,
   20%,
@@ -420,14 +323,6 @@
   animation-name: elastic-x;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义Y轴弹性动画
- * @method elastic-y
- */
 @-webkit-keyframes elastic-y {
   0%,
   20%,
@@ -479,14 +374,6 @@
   animation-name: elastic-y;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义弹性进入动画
- * @method elastic-in
- */
 @-webkit-keyframes elastic-in {
   0% {
     opacity: 0;
@@ -540,15 +427,6 @@
   animation-name: elastic-in;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义弹性升起动画
- * @method elastic-in-up
-
- */
 @-webkit-keyframes elastic-in-up {
   0% {
     opacity: 0;
@@ -594,14 +472,6 @@
   animation-name: elastic-in-up;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义从右侧弹性进入动画
- * @method elastic-in-right
- */
 @-webkit-keyframes elastic-in-right {
   0% {
     opacity: 0;
@@ -647,14 +517,6 @@
   animation-name: elastic-in-right;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义弹性下落动画
- * @method elastic-in-down
- */
 @-webkit-keyframes elastic-in-down {
   0% {
     opacity: 0;
@@ -700,14 +562,6 @@
   animation-name: elastic-in-down;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义从左侧弹性进入动画
- * @method elastic-in-left
- */
 @-webkit-keyframes elastic-in-left {
   0% {
     opacity: 0;
@@ -753,14 +607,6 @@
   animation-name: elastic-in-left;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义弹性移出动画
- * @method elastic-out
- */
 @-webkit-keyframes elastic-out {
   20% {
     -webkit-transform: scale3d(0.9, 0.9, 0.9);
@@ -794,14 +640,6 @@
   animation-name: elastic-out;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义弹性向上移出动画
- * @method elastic-out-up
- */
 @-webkit-keyframes elastic-out-up {
   20% {
     -webkit-transform: translate3d(0, -10px, 0);
@@ -837,14 +675,6 @@
   animation-name: elastic-out-up;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义弹性向右移出动画
- * @method elastic-out-right
- */
 @-webkit-keyframes elastic-out-right {
   20% {
     -webkit-transform: translate3d(10px, 0, 0);
@@ -880,14 +710,6 @@
   animation-name: elastic-out-right;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义弹性向下移出动画
- * @method elastic-out-down
- */
 @-webkit-keyframes elastic-out-down {
   20% {
     -webkit-transform: translate3d(0, 10px, 0);
@@ -923,14 +745,6 @@
   animation-name: elastic-out-down;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义弹性向右移出动画
- * @method elastic-out-left
- */
 @-webkit-keyframes elastic-out-left {
   20% {
     -webkit-transform: translate3d(-10px, 0, 0);
@@ -966,14 +780,6 @@
   animation-name: elastic-out-left;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义翻转动画
- * @method flip
- */
 @-webkit-keyframes flip {
   0% {
     -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -360deg);
@@ -1017,14 +823,6 @@
   animation-name: flip;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义翻转动画
- * @method flip-in-x
- */
 @-webkit-keyframes flip-in-x {
   0% {
     -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
@@ -1076,14 +874,6 @@
   animation-name: flip-in-x;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义翻转动画
- * @method flip-in-y
- */
 @-webkit-keyframes flip-in-y {
   0% {
     -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
@@ -1135,14 +925,6 @@
   animation-name: flip-in-y;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义翻转动画
- * @method flip-out-x
- */
 @-webkit-keyframes flip-out-x {
   0% {
     -webkit-transform: perspective(400px);
@@ -1178,14 +960,6 @@
   animation-name: flip-out-x;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义翻转动画
- * @method flip-out-y
- */
 @-webkit-keyframes flip-out-y {
   0% {
     -webkit-transform: perspective(400px);
@@ -1221,14 +995,6 @@
   animation-name: flip-out-y;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义从右侧翻滚进入动画
- * @method roll-in-righ
- */
 @-webkit-keyframes roll-in-right {
   0% {
     opacity: 0;
@@ -1256,14 +1022,6 @@
   animation-name: roll-in-right;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义从左侧翻滚进入动画
- * @method roll-in-left
- */
 @-webkit-keyframes roll-in-left {
   0% {
     opacity: 0;
@@ -1291,14 +1049,6 @@
   animation-name: roll-in-left;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义从右侧翻滚出去动画
- * @method roll-out-right
- */
 @-webkit-keyframes roll-out-right {
   0% {
     opacity: 1;
@@ -1324,14 +1074,6 @@
   animation-name: roll-out-right;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义从左侧翻滚出去动画
- * @method roll-out-left
- */
 @-webkit-keyframes roll-out-left {
   0% {
     opacity: 1;
@@ -1357,14 +1099,6 @@
   animation-name: roll-out-left;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义从右侧快速进入动画
- * @method speed-in-right
- */
 @-webkit-keyframes speed-in-right {
   0% {
     -webkit-transform: translate3d(100%, 0, 0) skewX(-30deg);
@@ -1410,14 +1144,6 @@
   animation-name: speed-in-right;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义从右侧快速进入动画
- * @method speed-in-left
- */
 @-webkit-keyframes speed-in-left {
   0% {
     -webkit-transform: translate3d(-100%, 0, 0) skewX(30deg);
@@ -1463,14 +1189,6 @@
   animation-name: speed-in-left;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义从右侧快速出去动画
- * @method speed-out-right
- */
 @-webkit-keyframes speed-out-right {
   0% {
     opacity: 1;
@@ -1498,14 +1216,6 @@
   animation-name: speed-out-right;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义从左侧快速出去动画
- * @method speed-out-left
- */
 @-webkit-keyframes speed-out-left {
   0% {
     opacity: 1;
@@ -1533,14 +1243,6 @@
   animation-name: speed-out-left;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义旋转动画
- * @method rotate
- */
 @-webkit-keyframes rotate {
   from {
     -webkit-transform: rotatez(0);
@@ -1564,14 +1266,6 @@
   animation-name: rotate;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义旋转进入动画
- * @method rotate-in
- */
 @-webkit-keyframes rotate-in {
   0% {
     -webkit-transform-origin: center;
@@ -1603,14 +1297,6 @@
   animation-name: rotate-in;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义旋转从右向上进入动画
- * @method rotate-in-up-right
- */
 @-webkit-keyframes rotate-in-up-right {
   0% {
     -webkit-transform-origin: right bottom;
@@ -1642,14 +1328,6 @@
   animation-name: rotate-in-up-right;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义旋转从左向上进入动画
- * @method rotate-in-up-left
- */
 @-webkit-keyframes rotate-in-up-left {
   0% {
     -webkit-transform-origin: left bottom;
@@ -1681,14 +1359,6 @@
   animation-name: rotate-in-up-left;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义旋转从右向下进入动画
- * @method rotate-in-down-right
- */
 @-webkit-keyframes rotate-in-down-right {
   0% {
     -webkit-transform-origin: right bottom;
@@ -1720,14 +1390,6 @@
   animation-name: rotate-in-down-right;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义旋转从左向下进入动画
- * @method rotate-in-down-left
- */
 @-webkit-keyframes rotate-in-down-left {
   0% {
     -webkit-transform-origin: left bottom;
@@ -1759,14 +1421,6 @@
   animation-name: rotate-in-down-left;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义旋转退出动画
- * @method rotate-out
- */
 @-webkit-keyframes rotate-out {
   0% {
     -webkit-transform-origin: center;
@@ -1796,14 +1450,6 @@
   animation-name: rotate-out;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义旋转从右向上退出动画
- * @method rotate-out-up-right
- */
 @-webkit-keyframes rotate-out-up-right {
   0% {
     -webkit-transform-origin: right bottom;
@@ -1833,14 +1479,6 @@
   animation-name: rotate-out-up-right;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义旋转从左向上退出动画
- * @method rotate-out-up-left
- */
 @-webkit-keyframes rotate-out-up-left {
   0% {
     -webkit-transform-origin: left bottom;
@@ -1870,14 +1508,6 @@
   animation-name: rotate-out-up-left;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义旋转从右往下退出动画
- * @method rotate-out-down-right
- */
 @-webkit-keyframes rotate-out-down-right {
   0% {
     -webkit-transform-origin: right bottom;
@@ -1907,14 +1537,6 @@
   animation-name: rotate-out-down-right;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义旋转从左往下退出动画
- * @method rotate-out-down-left
- */
 @-webkit-keyframes rotate-out-down-left {
   0% {
     -webkit-transform-origin: left bottom;
@@ -1944,14 +1566,6 @@
   animation-name: rotate-out-down-left;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义放大进入动画
- * @method zoom-in
- */
 @-webkit-keyframes zoom-in {
   0% {
     opacity: 0;
@@ -1977,14 +1591,6 @@
   animation-name: zoom-in;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义放大上升进入动画
- * @method zoom-in-up
- */
 @-webkit-keyframes zoom-in-up {
   0% {
     opacity: 0;
@@ -2016,14 +1622,6 @@
   animation-name: zoom-in-up;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义从右侧放大进入动画
- * @method zoom-in-right
- */
 @-webkit-keyframes zoom-in-right {
   0% {
     opacity: 0;
@@ -2055,14 +1653,6 @@
   animation-name: zoom-in-right;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义放大下降进入动画
- * @method zoom-in-down
- */
 @-webkit-keyframes zoom-in-down {
   0% {
     opacity: 0;
@@ -2094,14 +1684,6 @@
   animation-name: zoom-in-down;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义从左侧放大进入动画
- * @method zoom-in-left
- */
 @-webkit-keyframes zoom-in-left {
   0% {
     opacity: 0;
@@ -2133,14 +1715,6 @@
   animation-name: zoom-in-left;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义缩小退出动画
- * @method zoom-out
- */
 @-webkit-keyframes zoom-out {
   0% {
     opacity: 1;
@@ -2172,14 +1746,6 @@
   animation-name: zoom-out;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义上升缩小退出动画
- * @method zoom-out-up
- */
 @-webkit-keyframes zoom-out-up {
   40% {
     opacity: 1;
@@ -2213,14 +1779,6 @@
   animation-name: zoom-out-up;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义从右往左缩小退出动画
- * @method zoom-out-right
- */
 @-webkit-keyframes zoom-out-right {
   40% {
     opacity: 1;
@@ -2250,14 +1808,6 @@
   animation-name: zoom-out-right;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义下降缩小退出动画
- * @method zoom-out-down
- */
 @-webkit-keyframes zoom-out-down {
   40% {
     opacity: 1;
@@ -2291,14 +1841,6 @@
   animation-name: zoom-out-down;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义从左往右缩小退出动画
- * @method zoom-out-left
- */
 @-webkit-keyframes zoom-out-left {
   40% {
     opacity: 1;
@@ -2328,14 +1870,6 @@
   animation-name: zoom-out-left;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义闪烁动画
- * @method flash
- */
 @-webkit-keyframes flash {
   0%,
   50%,
@@ -2365,14 +1899,6 @@
   animation-name: flash;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义摇动动画
- * @method shake
- */
 @-webkit-keyframes shake {
   0%,
   100% {
@@ -2418,14 +1944,6 @@
   animation-name: shake;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义脉冲动画
- * @method pulse
- */
 @-webkit-keyframes pulse {
   0% {
     -webkit-transform: scale3d(1, 1, 1);
@@ -2455,14 +1973,6 @@
   animation-name: pulse;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义橡皮圈挤压回弹动画
- * @method extrusion
- */
 @-webkit-keyframes extrusion {
   0% {
     -webkit-transform: scale3d(1, 1, 1);
@@ -2516,14 +2026,6 @@
   animation-name: extrusion;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义橡皮圈拉伸回弹动画
- * @method stretch
- */
 @-webkit-keyframes stretch {
   0% {
     -webkit-transform: scale3d(1, 1, 1);
@@ -2577,14 +2079,6 @@
   animation-name: stretch;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义晃动动画
- * @method swing
- */
 @-webkit-keyframes swing {
   20% {
     -webkit-transform: rotate3d(0, 0, 1, 15deg);
@@ -2626,14 +2120,6 @@
   animation-name: swing;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义吊索动画
- * @method sling
- */
 @-webkit-keyframes sling {
   0% {
     -webkit-transform: scale3d(1, 1, 1);
@@ -2687,14 +2173,6 @@
   animation-name: sling;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义摆动动画
- * @method wobble
- */
 @-webkit-keyframes wobble {
   0% {
     -webkit-transform: none;
@@ -2748,14 +2226,6 @@
   animation-name: wobble;
 }
 
-/**
- * @class ani
- * @module Yo
- */
-/**
- * 定义悬挂动画
- * @method hinge
- */
 @-webkit-keyframes hinge {
   0% {
     -webkit-transform-origin: top left;
@@ -2811,11 +2281,6 @@
   animation-name: hinge;
 }
 
-/**
-* ani演示页面
-* Author: joy.du(飘零雾雨)
-* Time: 2014.4.1
-*/
 .demo {
   margin: 20px 30px;
   text-align: center;
