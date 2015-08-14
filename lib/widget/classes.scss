@@ -775,7 +775,7 @@
             width: map-get($dblist, aside-width);
             @include order(map-get($dblist, aside-order));
         }
-        &:not(:first-child) {
+        &:last-child {
             @include flex;
         }
     }
