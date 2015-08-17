@@ -689,11 +689,22 @@
     .action {
         position: absolute;
         top: 0;
+        // 底部1px间隙用于不覆盖yo-list的item的底边线（因为底边线使用背景渐变色实现）
+        bottom: 1px;
         right: 0;
         overflow: hidden;
         width: map-get($slidermenu, action-width);
-        height: 100%;
         background-color: map-get($slidermenu, action-bgcolor);
+        @include flexbox;
+        > .item {
+            @include flex(auto);
+            width: auto;
+            text-align: center;
+            // 使用align-self实现垂直居中
+            // 通过垂直方法的大数值内补白变相让item充满父容器侧轴
+            @include align-self;
+            padding: 1rem 0;
+        }
     }
 }
 
