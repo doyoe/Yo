@@ -286,6 +286,15 @@ a {
   -webkit-overflow-scrolling: touch;
 }
 
+.yo-flex > .flex > .yo-flex,
+.yo-flex .flex-inherit > .flex > .yo-flex {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
 .yo-align {
   display: -webkit-box;
   display: -webkit-flex;
@@ -444,35 +453,8 @@ a {
   padding: 0.18rem 0.1rem 0.03rem;
 }
 
-.flex {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-lines: multiple;
-  width: 3rem;
-  height: 1rem;
-  margin: 0;
-  padding: 0;
-  background: gray;
-  list-style: none;
-}
-
-.flex div {
-  width: 1rem;
-}
-
-.flex :nth-child(1) {
-  background: red;
-}
-
-.flex :nth-child(2) {
-  background: #c30;
-}
-
-.flex :nth-child(3) {
-  background: #999;
-}
-
-.flex :nth-child(4) {
-  background: #eee;
+html,
+body {
+  overflow: hidden;
+  height: 100%;
 }

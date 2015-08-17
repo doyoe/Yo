@@ -287,6 +287,15 @@ a {
   -webkit-overflow-scrolling: touch;
 }
 
+.yo-flex > .flex > .yo-flex,
+.yo-flex .flex-inherit > .flex > .yo-flex {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
 .yo-align {
   display: -webkit-box;
   display: -webkit-flex;

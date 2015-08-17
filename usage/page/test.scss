@@ -8,25 +8,5 @@
  * Time: 2014.4.1
  */
 
-.flex{@include flexbox;-webkit-box-lines: multiple;width:3rem;height:1rem;margin:0;padding:0;background:gray;list-style:none;}
 
-.flex div {
-    width: 1rem;
-    // @include flex(auto);
-    // -webkit-box-flex: auto;
-    // -webkit-flex: auto;
-    // flex: auto;
-}
-.flex :nth-child(1) {
-    background:red;
-}
-.flex :nth-child(2) {
-    background: #c30;
-}
-.flex :nth-child(3) {
-    background: #999;
-}
-.flex :nth-child(4) {
-    background: #eee;
-    // @include flex(auto);
-}
+@include root-scroll;
