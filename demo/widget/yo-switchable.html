@@ -10,53 +10,58 @@
 <link rel="apple-touch-icon" href="../../yo.png" />
 <link rel="shortcut icon" href="../../shortcut.png" />
 <script src="../../js/viewport.js"></script>
-<link rel="stylesheet" href="../../usage/export/yo-all.css" />
+<link rel="stylesheet" href="../../usage/export/yo-switchable.css" />
 </head>
 <body>
 
-<div class="m-demo">
-    <div class="device">
-    <div class="stage">
-        <h2 class="yo-header">switchable</h2>
-        <div class="yo-switchable">
-            <ul class="cont">
-                <li class="item">
-                    <img class="img" src="http://d.hiphotos.baidu.com/image/pic/item/9d82d158ccbf6c81037f3d5bbf3eb13533fa403c.jpg" alt="美女" />
-                </li>
-                <li class="item">
-                    <img class="img" src="http://b.hiphotos.baidu.com/image/pic/item/9f510fb30f2442a7186eec16d243ad4bd1130224.jpg" alt="美女" />
-                </li>
-                <li class="item">
-                    <img class="img" src="http://e.hiphotos.baidu.com/image/pic/item/43a7d933c895d1436916f59070f082025aaf0724.jpg" alt="美女" />
-                </li>
-                <li class="item">
-                    <img class="img" src="http://a.hiphotos.baidu.com/image/pic/item/a044ad345982b2b79808287732adcbef77099be9.jpg" alt="美女" />
-                </li>
-            </ul>
-            <ul class="index">
-                <li class="on"></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-            <span class="yo-ico yo-ico-prev">&#xf053;</span>
-            <span class="yo-ico yo-ico-next">&#xf054;</span>
-        </div>
-    </div>
-    </div>
-    <code class="code"><xmp><div class="yo-switchable">
+<div class="yo-flex">
+    <header class="yo-header m-header">
+        <h2 class="title">yo-switchable</h2>
+        <a href="../index.html" class="regret yo-ico">&#xf07d;</a>
+    </header>
+    <div class="flex">
+        <section class="m-layer">
+            <div class="yo-switchable">
+                <ul class="cont">
+                    <li class="item">
+                        <img class="img" src="http://pic5.duowan.com/psp/1005/138297782616/138298560095.jpg" alt="美女" />
+                    </li>
+                    <li class="item">
+                        <img class="img" src="http://pic5.duowan.com/psp/1005/138297782616/138298560095.jpg" alt="美女" />
+                    </li>
+                    <li class="item">
+                        <img class="img" src="http://pic5.duowan.com/psp/1005/138297782616/138298560095.jpg" alt="美女" />
+                    </li>
+                    <li class="item">
+                        <img class="img" src="http://pic5.duowan.com/psp/1005/138297782616/138298560095.jpg" alt="美女" />
+                    </li>
+                </ul>
+                <ul class="index">
+                    <li class="on"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <span class="yo-ico yo-ico-prev">&#xf053;</span>
+                <span class="yo-ico yo-ico-next">&#xf054;</span>
+            </div>
+        </section>
+
+        <section class="m-desc">
+            <h3 class="title">示例描述：</h3>
+            <xmp><div class="yo-switchable">
     <ul class="cont">
         <li class="item">
-            <img class="img" src="1.jpg" alt="美女" />
+            <img class="img" src="http://pic5.duowan.com/psp/1005/138297782616/138298560095.jpg" alt="美女" />
         </li>
         <li class="item">
-            <img class="img" src="2.jpg" alt="美女" />
+            <img class="img" src="http://pic5.duowan.com/psp/1005/138297782616/138298560095.jpg" alt="美女" />
         </li>
         <li class="item">
-            <img class="img" src="3.jpg" alt="美女" />
+            <img class="img" src="http://pic5.duowan.com/psp/1005/138297782616/138298560095.jpg" alt="美女" />
         </li>
         <li class="item">
-            <img class="img" src="4.jpg" alt="美女" />
+            <img class="img" src="http://pic5.duowan.com/psp/1005/138297782616/138298560095.jpg" alt="美女" />
         </li>
     </ul>
     <ul class="index">
@@ -67,10 +72,10 @@
     </ul>
     <span class="yo-ico yo-ico-prev">&#xf053;</span>
     <span class="yo-ico yo-ico-next">&#xf054;</span>
-</div></xmp></code>
-</div>
+</div></xmp>
+        </section>
 
-<pre class="m-code"><span class="method">@include yo-switchable</span><span class="bracket">(</span>
+        <pre class="m-code"><span class="method">@include yo-switchable</span><span class="bracket">(</span>
     $name<span class="colon">:</span>default, <mark>//{String} 扩展的名称</mark>
     $has-btn<span class="colon">:</span>default, <mark>//{Length} 是否有按钮</mark>
     $btn-size<span class="colon">:</span>default, <mark>//{Color} 按钮大小</mark>
@@ -83,6 +88,8 @@
     $index-on-bgcolor<span class="colon">:</span>default <mark>//{Length} 索引当前项背景色</mark>
 <span class="bracket">)</span>
 </pre>
+    </div>
+</div>
 
 </body>
 </html>
