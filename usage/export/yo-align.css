@@ -808,22 +808,22 @@ a {
  -----------------------
  * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-tab.html)
  * @method yo-tab
- * @param {default | String} $name 扩展的名称
- * @param {default | Length} $width 组件宽度
- * @param {default | Length} $height 组件高度
- * @param {default | Length} $radius 圆角半径
- * @param {default | Length} $border-width 边框厚度
- * @param {default | Color} $bordercolor 边框色
- * @param {default | Color} $bgcolor 背景色
- * @param {default | Color} $color 文本色
- * @param {default | Color} $on-bgcolor 激活时背景色
- * @param {default | Color} $on-color 激活时文本色
- * @param {default | Color} $font-size 文本字号
- * @param {default | Color} $x-ico-size 子项内容为水平ico时，ico的大小
- * @param {default | Color} $y-ico-size 子项内容为垂直ico时，ico的大小
- * @param {default | Color} $only-ico-size 子项内容仅有ico时，ico的大小
- * @param {default | Length} $item-border-height 子项的间隔线高度
- * @param {default | Color} $item-bordercolor 子项的间隔线颜色
+ * @param {String} $name 扩展的名称
+ * @param {Length} {ver:1.8.3} $width 组件宽度
+ * @param {Length} $height 组件高度
+ * @param {Length} $radius 圆角半径
+ * @param {Length} $border-width 边框厚度
+ * @param {Color} $bordercolor 边框色
+ * @param {Color} $bgcolor 背景色
+ * @param {Color} $color 文本色
+ * @param {Color} $on-bgcolor 激活时背景色
+ * @param {Color} $on-color 激活时文本色
+ * @param {Color} $font-size 文本字号
+ * @param {Color} $x-ico-size 子项内容为水平ico时，ico的大小
+ * @param {Color} $y-ico-size 子项内容为垂直ico时，ico的大小
+ * @param {Color} $only-ico-size 子项内容仅有ico时，ico的大小
+ * @param {Length} $item-border-height 子项的间隔线高度
+ * @param {Color} $item-bordercolor 子项的间隔线颜色
  */
 .yo-tab {
   display: -webkit-box;
