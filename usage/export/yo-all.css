@@ -1951,35 +1951,6 @@ a {
 /**
  * 构造列表的自定义使用方法
  -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-index.html)
- * @method yo-index
- * @param {default | String} $name 定义yo-index名称
- * @param {default | Length} $width 定义yo-index宽度
- * @param {default | Color} $color 定义yo-index文本色
- * @param {default | Length} $font-size 定义yo-index文本字号
- */
-.yo-index {
-  width: 0.3rem;
-  text-transform: uppercase;
-  color: #555;
-  font-size: 0.12rem;
-  line-height: 1.1;
-  text-align: center;
-}
-.yo-index .ellipsis {
-  display: inline-block;
-  width: 0.06rem;
-  height: 0.06rem;
-  border-radius: 50%;
-  background-color: #555;
-}
-
-/**
- * @class widget
- */
-/**
- * 构造列表的自定义使用方法
- -----------------------
  * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-group.html)
  * @method yo-group
  * @param {default | String} $name 定义yo-group名称
@@ -1996,8 +1967,10 @@ a {
 .yo-group > .sticky,
 .yo-group > .scroll-index {
   position: absolute;
-  top: 0;
+  top: 50%;
   right: 0;
+  -webkit-transform: translatey(-50%);
+  transform: translatey(-50%);
 }
 .yo-group > .sticky {
   left: 0;
@@ -2038,8 +2011,10 @@ a {
 .yo-panel > .sticky,
 .yo-panel > .scroll-index {
   position: absolute;
-  top: 0;
+  top: 50%;
   right: 0;
+  -webkit-transform: translatey(-50%);
+  transform: translatey(-50%);
 }
 .yo-panel > .sticky {
   left: 0;
@@ -2058,6 +2033,35 @@ a {
  * Author: joy.du(飘零雾雨)
  * Time: 2015.1.16
  */
+/**
+ * @class widget
+ */
+/**
+ * 构造列表的自定义使用方法
+ -----------------------
+ * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-index.html)
+ * @method yo-index
+ * @param {default | String} $name 定义yo-index名称
+ * @param {default | Length} $width 定义yo-index宽度
+ * @param {default | Color} $color 定义yo-index文本色
+ * @param {default | Length} $font-size 定义yo-index文本字号
+ */
+.yo-index {
+  width: 0.3rem;
+  text-transform: uppercase;
+  color: #555;
+  font-size: 0.12rem;
+  line-height: 1.1;
+  text-align: center;
+}
+.yo-index .ellipsis {
+  display: inline-block;
+  width: 0.06rem;
+  height: 0.06rem;
+  border-radius: 50%;
+  background-color: #555;
+}
+
 /**
  * yo-index扩展
  * Author: joy.du(飘零雾雨)

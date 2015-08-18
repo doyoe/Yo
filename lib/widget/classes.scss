@@ -551,8 +551,9 @@
     > .sticky,
     > .scroll-index {
         position: absolute;
-        top: 0;
+        top: 50%;
         right: 0;
+        @include transform(translatey(-50%));
     }
     > .sticky {
         left: 0;
