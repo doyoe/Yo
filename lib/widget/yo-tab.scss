@@ -11,6 +11,7 @@
  * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-tab.html)
  * @method yo-tab
  * @param {default | String} $name 扩展的名称
+ * @param {default | Length} $width 组件宽度
  * @param {default | Length} $height 组件高度
  * @param {default | Length} $radius 圆角半径
  * @param {default | Length} $border-width 边框厚度
@@ -29,6 +30,7 @@
 
 @mixin yo-tab(
     $name: default,
+    $width: default,
     $height: default,
     $radius: default,
     $border-width: default,
@@ -51,6 +53,9 @@
         $name: "-#{$name}";
     }
     // 如果值为default，则取config的定义
+    @if $width == default {
+        $width: map-get($tab, width);
+    }
     @if $height == default {
         $height: map-get($tab, height);
     }
@@ -97,6 +102,9 @@
         $item-bordercolor: map-get($tab, item-bordercolor);
     }
     .yo-tab#{$name} {
+        @if $width != map-get($tab, width) {
+            width: $width;
+        }
         @if $height != map-get($tab, height) {
             height: $height;
             line-height: $height;

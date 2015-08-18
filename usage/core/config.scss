@@ -113,7 +113,7 @@ $stacked: (
 // Layout flex
 $flex: (
     // {String} 定义弹性布局: flex |inline-flex
-    box: flex,
+    box:       flex,
     // {String} 定义是水平布局还是垂直布局: row | column
     direction: column
 );
@@ -121,7 +121,7 @@ $flex: (
 // Layout align
 $align: (
     // {String} 定义弹性水平对齐方式
-    text-align: center,
+    text-align:     center,
     // {String} 定义弹性垂直对齐方式
     vertical-align: center
 );
@@ -259,7 +259,7 @@ $range: (
 // Element loadtip(3)
 $loadtip: (
     // {Color} 文本色
-    color: #666,
+    color:     #666,
     // {Length} 字号
     font-size: .14rem,
     // {Color} ico色
@@ -273,7 +273,7 @@ $score: (
     // {Length} 单项高度
     item-height: .12rem,
     // {String} 图片URL
-    url:    "star.png"
+    url:         "star.png"
 );
 
 // Fragment btnbar(1)
@@ -317,8 +317,10 @@ $list: (
     item-border-space: .1rem
 );
 
-// Widget tab(14)
+// Widget tab(15)
 $tab: (
+    // {Length} 组件宽度
+    width:              null,
     // {Length} 组件高度
     height:             .44rem,
     // {Length} 圆角半径

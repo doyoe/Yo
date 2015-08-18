@@ -8,6 +8,17 @@
  */
 
 @include yo-tab(
+    $name: test,
+    $width: 2rem,
+    $border-width: 1px,
+    $bordercolor: #1ba9ba,
+    $font-size: .12rem,
+    $radius: .05rem,
+    $on-bgcolor: #1ba9ba,
+    $on-color: #fff
+);
+
+@include yo-tab(
     $name: filter,
     $height: .4rem,
     $border-width: 0 0 1px 0,

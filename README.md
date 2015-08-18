@@ -42,6 +42,8 @@ Yo约束了2种项目所使用的长度单位
 
 * update: `yo-flex`, `yo-loadtip`, `yo-dialog`, `yo-badge`
     - 调整内部实现，升级时可以不用回归
+* update: `yo-tab`
+    - 新增 `width` 参数用以设置tab组件宽度
 
 ### Lastest: v1.8.2
 

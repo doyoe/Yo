@@ -291,7 +291,10 @@
 // 使用方法请查看 yo-tab.scss
 @mixin _tab {
     @include flexbox;
+    overflow: hidden;
+    width: map-get($tab, width);
     height: map-get($tab, height);
+    margin: auto;
     @include border-radius(map-get($tab, radius));
     border-width: map-get($tab, border-width);
     border-style: solid;

@@ -1,14 +1,13 @@
 @charset "utf-8";
-
-/**
- * Yo框架demo
- * Author: joy.du(飘零雾雨)
- * Time: 2015.2.11
- */
-
 @import "../layout/layout";
 
+@import "../module/m-header";
+@import "../module/m-layer";
+@import "../module/m-desc";
 @import "../module/m-code";
-@import "../module/m-demo";
 
+// 这个import应该放到具体使用了该widget的模块内
+// 此处只为简单描述一个demo，所以写法随意
 @import "../widget/yo-tab";
+
+@include root-scroll;
