@@ -2407,13 +2407,7 @@ a {
  * @param {default | Length} $cancel-width 取消按钮区域宽度
  */
 .yo-suggest {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  flex-direction: column;
+  position: relative;
 }
 .yo-suggest > .operate {
   position: relative;
@@ -2491,16 +2485,11 @@ a {
   text-align: center;
 }
 .yo-suggest > .cont {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  flex: 1;
-  height: .1px;
   display: none;
   position: absolute;
   z-index: 2501;
   top: .95rem;
   right: 0;
-  bottom: 0;
   left: 0;
   background-color: rgba(255, 255, 255, 0.9);
 }
@@ -2514,6 +2503,13 @@ a {
   overflow: hidden;
 }
 .yo-suggest-modal {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column;
   position: fixed;
   z-index: 2501;
   top: 0;
@@ -2522,6 +2518,10 @@ a {
   height: 100%;
 }
 .yo-suggest-modal > .cont {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  height: .1px;
   position: relative;
   top: 0;
 }

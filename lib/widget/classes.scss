@@ -392,9 +392,139 @@
 
 // 定义suggest的基础构造
 // 使用方法请查看 yo-suggest.scss
+// @mixin _suggest {
+//     @include flexbox();
+//     @include flex-direction(column);
+//     position: relative;
+//     > .operate {
+//         position: relative;
+//         z-index: map-get($z-index, suggest);
+//         overflow: hidden;
+//         font-size: map-get($suggest, font-size);
+//         line-height: map-get($suggest, height);
+//         padding: map-get($suggest, op-padding);
+//         border-bottom: 1px solid map-get($suggest, bordercolor);
+//         background-color: map-get($suggest, op-bgcolor);
+//         > .action {
+//             display: block;
+//             position: relative;
+//             z-index: 2;
+//             height: map-get($suggest, height);
+//         }
+//         .input {
+//             width: 100%;
+//             height: 100%;
+//             padding: 0 .3rem;
+//             @include appearance;
+//             border: 1px solid map-get($suggest, bordercolor);
+//             @include border-radius(map-get($suggest, radius));
+//             background-color: map-get($suggest, bgcolor);
+//             color: map-get($suggest, color);
+//             font-size: map-get($suggest, font-size);
+//             line-height: map-get($base, line-height);
+//         }
+//         .yo-ico-delete,
+//         .yo-ico-fresh,
+//         .yo-ico-stop,
+//         .yo-ico-loading {
+//             display: none;
+//             position: absolute;
+//             top: 0;
+//             right: 0;
+//             height: 100%;
+//             padding: 0 .08rem;
+//             color: map-get($suggest, ico-color);
+//         }
+//         .yo-ico-loading {
+//             @include animation(rotate 1s infinite linear);
+//             @include transform-origin(center);
+//         }
+//         .label {
+//             @include flexbox;
+//             position: absolute;
+//             top: 0;
+//             left: 50%;
+//             @include transition(all .2s ease-in);
+//             @include transform(translatex(-50%) translatez(0));
+//             color: map-get($suggest, placeholder-color);
+//         }
+//         .placeholder {
+//             margin-left: .08rem;
+//         }
+//         > .cancel {
+//             position: absolute;
+//             top: 50%;
+//             right: 0;
+//             @include transform(translatey(-50%));
+//             width: map-get($suggest, cancel-width);
+//             color: map-get($suggest, cancel-color);
+//             text-align: center;
+//         }
+//     }
+//     > .cont {
+//         @include flex(1, column);
+//         display: none;
+//         position: absolute;
+//         z-index: map-get($z-index, suggest);
+//         top: .95rem;
+//         right: 0;
+//         bottom: 0;
+//         left: 0;
+//         background-color: rgba(map-get($suggest, mask-bgcolor), .9);
+//         > .recommend,
+//         > .result {
+//             position: absolute;
+//             top: 0;
+//             bottom: 0;
+//             left: 0;
+//             width: 100%;
+//             overflow: hidden;
+//         }
+//     }
+//     // 独占形态搜索
+//     &-modal {
+//         position: fixed;
+//         z-index: map-get($z-index, suggest);
+//         top: 0;
+//         right: 0;
+//         left: 0;
+//         height: 100%;
+//         > .cont {
+//             position: relative;
+//             top: 0;
+//         }
+//     }
+//     // focus形态
+//     &-on {
+//         > .operate {
+//             .input {
+//                 border-color: map-get($suggest, on-bordercolor);
+//                 background-color: map-get($suggest, on-bgcolor);
+//             }
+//             .label {
+//                 left: .1rem;
+//                 @include transform(translatex(0) translatez(0));
+//             }
+//             .yo-ico-delete {
+//                 display: inline-block;
+//             }
+//         }
+//         > .cont {
+//             display: block;
+//         }
+//         &.yo-suggest-modal {
+//             // 独占形态时，在foucs时显示取消按钮
+//             > .operate {
+//                 .action {
+//                     margin-right: map-get($suggest, cancel-width);
+//                 }
+//             }
+//         }
+//     }
+// }
 @mixin _suggest {
-    @include flexbox();
-    @include flex-direction(column);
+
+    position: relative;
     > .operate {
         position: relative;
         z-index: map-get($z-index, suggest);
@@ -461,13 +591,12 @@
         }
     }
     > .cont {
-        @include flex(1, column);
         display: none;
         position: absolute;
         z-index: map-get($z-index, suggest);
         top: .95rem;
         right: 0;
-        bottom: 0;
+        // bottom: 0;
         left: 0;
         background-color: rgba(map-get($suggest, mask-bgcolor), .9);
         > .recommend,
@@ -482,6 +611,8 @@
     }
     // 独占形态搜索
     &-modal {
+        @include flexbox();
+        @include flex-direction(column);
         position: fixed;
         z-index: map-get($z-index, suggest);
         top: 0;
@@ -489,6 +620,7 @@
         left: 0;
         height: 100%;
         > .cont {
+            @include flex(1, column);
             position: relative;
             top: 0;
         }
