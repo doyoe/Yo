@@ -1955,8 +1955,10 @@ a {
 .yo-select-item-tag {
   position: absolute;
   top: 50%;
-  right: .1rem;
-  margin-top: -0.15rem;
+  left: 50%;
+  -webkit-transform: translatey(-50%);
+  transform: translatey(-50%);
+  margin-left: .12rem;
 }
 
 .yo-select > .mask {
@@ -1968,6 +1970,7 @@ a {
   left: 0;
   content: "\0020";
   pointer-events: none;
+  background: -webkit-linear-gradient(top, white, transparent 40%, transparent 40%, transparent 60%, transparent 60%, white);
 }
 
 .yo-slidermenu,

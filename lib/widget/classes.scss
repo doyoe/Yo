@@ -270,8 +270,9 @@
     &-item-tag {
         position: absolute;
         top: 50%;
-        right: .1rem;
-        margin-top: -#{map-get($select, item-height) / 2};
+        left: 50%;
+        @include transform(translatey(-50%));
+        margin-left: .12rem;
     }
     > .mask {
         position: absolute;
@@ -282,7 +283,7 @@
         left: 0;
         content: "\0020";
         pointer-events: none;
-        // background: -webkit-linear-gradient(top, white, transparent 40%, transparent 40%, transparent 60%, transparent 60%, white);
+        background: -webkit-linear-gradient(top, white, transparent 40%, transparent 40%, transparent 60%, transparent 60%, white);
     }
 }
 
