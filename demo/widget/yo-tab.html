@@ -37,82 +37,22 @@
         </section>
 
         <section class="m-layer">
-            <ul class="yo-tab yo-tab-test">
-                <li class="item">Home</li>
-                <li class="item item-on">Favorites</li>
+            <ul class="yo-tab">
+                <li class="item item-only-ico">
+                    <i class="yo-ico">&#xf04a;</i>
+                </li>
+                <li class="item item-only-ico item-on">
+                    <i class="yo-ico">&#xf04b;</i>
+                </li>
+                <li class="item item-only-ico">
+                    <i class="yo-ico">&#xf07a;</i>
+                </li>
             </ul>
         </section>
 
         <section class="m-desc">
-            <h3 class="title">示例描述：</h3>
-            <xmp><ul class="yo-tab yo-tab-test">
-    <li class="item">Home</li>
-    <li class="item item-on">Favorites</li>
-</ul></xmp>
-        </section>
-    </div>
-</div>
-
-<div class="m-demo">
-    <div class="device">
-    <div class="stage">
-        <ul class="yo-tab yo-tab-test">
-            <li class="item">Home</li>
-            <li class="item item-on">Favorites</li>
-            <li class="item">Settings</li>
-        </ul>
-    </div>
-    </div>
-    <code class="code"><xmp><ul class="yo-tab yo-tab-test">
-    <li class="item">Home</li>
-    <li class="item item-on">Favorites</li>
-    <li class="item">Settings</li>
-</ul></xmp></code>
-</div>
-
-<div class="m-demo">
-    <div class="device">
-    <div class="stage">
-        <ul class="yo-tab yo-tab-filter">
-            <li class="item item-x-ico">
-                综合排序
-                <i class="yo-ico">&#xf031;</i>
-            </li>
-            <li class="item item-x-ico item-on">
-                全部口味
-                <i class="yo-ico">&#xf031;</i>
-            </li>
-            <li class="item item-x-ico">
-                优惠活动
-                <i class="yo-ico">&#xf031;</i>
-            </li>
-        </ul>
-    </div>
-    </div>
-    <code class="code"><xmp><ul class="yo-tab yo-tab-filter">
-    <li class="item">综合排序<i class="yo-ico">&#xf031;</i></li>
-    <li class="item item-on">全部口味<i class="yo-ico">&#xf031;</i></li>
-    <li class="item">优惠活动<i class="yo-ico">&#xf031;</i></li>
-</ul></xmp></code>
-</div>
-
-<div class="m-demo">
-    <div class="device">
-    <div class="stage">
-        <ul class="yo-tab">
-            <li class="item item-only-ico">
-                <i class="yo-ico">&#xf04a;</i>
-            </li>
-            <li class="item item-only-ico item-on">
-                <i class="yo-ico">&#xf04b;</i>
-            </li>
-            <li class="item item-only-ico">
-                <i class="yo-ico">&#xf07a;</i>
-            </li>
-        </ul>
-    </div>
-    </div>
-    <code class="code"><xmp><ul class="yo-tab">
+            <h3 class="title">如果想仅使用图标作为子项内容：</h3>
+            <xmp><ul class="yo-tab">
     <li class="item item-only-ico">
         <i class="yo-ico">&#xf04a;</i>
     </li>
@@ -122,29 +62,34 @@
     <li class="item item-only-ico">
         <i class="yo-ico">&#xf07a;</i>
     </li>
-</ul></xmp></code>
-</div>
+</ul></xmp>
+            <h3 class="sub-title">并且可以自定义图标大小</h3>
+            <xmp>@include yo-tab(
+    $name: xxx,
+    $only-ico-size: .2rem
+);</xmp>
+        </section>
 
-<div class="m-demo">
-    <div class="device">
-    <div class="stage">
-        <ul class="yo-tab yo-tab-view">
-            <li class="item item-y-ico">
-                <i class="yo-ico">&#xf04a;</i>
-                定位
-            </li>
-            <li class="item item-y-ico item-on">
-                <i class="yo-ico">&#xf04b;</i>
-                无线
-            </li>
-            <li class="item item-y-ico">
-                <i class="yo-ico">&#xf07a;</i>
-                刷新
-            </li>
-        </ul>
-    </div>
-    </div>
-    <code class="code"><xmp><ul class="yo-tab yo-tab-view">
+        <section class="m-layer">
+            <ul class="yo-tab yo-tab-view">
+                <li class="item item-y-ico">
+                    <i class="yo-ico">&#xf04a;</i>
+                    定位
+                </li>
+                <li class="item item-y-ico item-on">
+                    <i class="yo-ico">&#xf04b;</i>
+                    无线
+                </li>
+                <li class="item item-y-ico">
+                    <i class="yo-ico">&#xf07a;</i>
+                    刷新
+                </li>
+            </ul>
+        </section>
+
+        <section class="m-desc">
+            <h3 class="title">纵向图标示例：</h3>
+            <xmp><ul class="yo-tab yo-tab-view">
     <li class="item item-y-ico">
         <i class="yo-ico">&#xf04a;</i>
         定位
@@ -157,10 +102,86 @@
         <i class="yo-ico">&#xf07a;</i>
         刷新
     </li>
-</ul></xmp></code>
-</div>
+</ul></xmp>
+        <h3 class="sub-title">并且可以自定义图标大小</h3>
+            <xmp>@include yo-tab(
+    $name: xxx,
+    $y-ico-size: .2rem
+);</xmp>
+        </section>
 
-<pre class="m-code"><span class="method">@include yo-tab</span><span class="bracket">(</span>
+        <section class="m-layer">
+            <ul class="yo-tab yo-tab-filter">
+                <li class="item item-x-ico">
+                    综合排序
+                    <i class="yo-ico">&#xf031;</i>
+                </li>
+                <li class="item item-x-ico item-on">
+                    全部口味
+                    <i class="yo-ico">&#xf031;</i>
+                </li>
+                <li class="item item-x-ico">
+                    优惠活动
+                    <i class="yo-ico">&#xf031;</i>
+                </li>
+            </ul>
+        </section>
+
+        <section class="m-desc">
+            <h3 class="title">横向图标示例：</h3>
+            <xmp><ul class="yo-tab yo-tab-filter">
+    <li class="item item-x-ico">
+        综合排序
+        <i class="yo-ico">&#xf031;</i>
+    </li>
+    <li class="item item-x-ico item-on">
+        全部口味
+        <i class="yo-ico">&#xf031;</i>
+    </li>
+    <li class="item item-x-ico">
+        优惠活动
+        <i class="yo-ico">&#xf031;</i>
+    </li>
+</ul></xmp>
+        <h3 class="sub-title">并且可以自定义图标大小</h3>
+            <xmp>@include yo-tab(
+    $name: xxx,
+    $x-ico-size: .12rem,
+    // 对子项间隔线的设置
+    $item-border-height: .2rem,
+    $item-bordercolor: map-get($base, sub-bordercolor)
+);</xmp>
+        </section>
+
+        <section class="m-layer">
+            <ul class="yo-tab yo-tab-test">
+                <li class="item">Home</li>
+                <li class="item item-on">Favorites</li>
+            </ul>
+        </section>
+
+        <section class="m-desc">
+            <h3 class="title">局部tab选项形态：</h3>
+            <xmp><ul class="yo-tab yo-tab-test">
+    <li class="item">Home</li>
+    <li class="item item-on">Favorites</li>
+</ul></xmp>
+            <h3 class="sub-title">可以这样扩展：</h3>
+            <xmp>@include yo-tab(
+    $name: test,
+    $width: 2rem,
+    $border-width: 1px,
+    $bordercolor: #1ba9ba,
+    $font-size: .12rem,
+    $radius: .05rem,
+    $on-bgcolor: #1ba9ba,
+    $on-color: #fff
+);</xmp>
+        </section>
+
+
+
+        <pre class="m-code"><span class="method">@include yo-tab</span><span class="bracket">(</span>
     $name<span class="colon">:</span>default, <mark>//{String} 扩展的名称</mark>
     $height<span class="colon">:</span>default, <mark>//{Length} 组件高度</mark>
     $radius<span class="colon">:</span>default, <mark>//{Length} 圆角半径</mark>
@@ -178,6 +199,9 @@
     $item-bordercolor<span class="colon">:</span>default <mark>//{Length} 子项间隔线颜色</mark>
 <span class="bracket">)</span>
 </pre>
+    </div>
+</div>
+
 
 </body>
 </html>
