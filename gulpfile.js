@@ -6,7 +6,7 @@ var plumber = require('gulp-plumber');
 // 引入组件
 var compass = require('gulp-compass');
 var sass = require('gulp-ruby-sass');
-var nodeSass = require('gulp-sass');
+var nodeSass = require('gulp-sass-china');
 var stripCssComments = require('gulp-strip-css-comments');
 var through = require('through2');
 
