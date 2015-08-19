@@ -268,11 +268,12 @@
     -webkit-flex: $flex;
     flex: $flex;
     // 修复Android Browser4.3及以下，iOS Safari6.1及以下按比例分配错误的问题
-    @if $direction == column {
-        height: .1px;
-    } @else {
+    @if $direction == row {
         width: .1px;
     }
+    // @else {
+    //     height: .1px;
+    // }
 }
 
 /**
@@ -436,8 +437,8 @@
  * @method fullscreen
  * @param {Integer} $z-index 定义层叠级别
  */
-@mixin fullscreen($z-index: null) {
-    position: absolute;
+@mixin fullscreen($z-index: null, $position: absolute) {
+    position: $position;
     z-index: $z-index;
     top: 0;
     right: 0;

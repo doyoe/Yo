@@ -523,7 +523,6 @@
 //     }
 // }
 @mixin _suggest {
-
     > .operate {
         position: relative;
         z-index: map-get($z-index, suggest);
@@ -550,6 +549,7 @@
             color: map-get($suggest, color);
             font-size: map-get($suggest, font-size);
             line-height: map-get($base, line-height);
+            vertical-align: top;
         }
         .yo-ico-delete,
         .yo-ico-fresh,
@@ -572,7 +572,7 @@
             position: absolute;
             top: 0;
             left: 50%;
-            @include transition(all .2s ease-in);
+            @include transition(left .2s ease-in);
             @include transform(translatex(-50%) translatez(0));
             color: map-get($suggest, placeholder-color);
         }
@@ -585,43 +585,17 @@
             right: 0;
             @include transform(translatey(-50%));
             width: map-get($suggest, cancel-width);
+            padding: .1rem 0;
             color: map-get($suggest, cancel-color);
             text-align: center;
         }
     }
     > .cont {
         display: none;
-        position: absolute;
-        z-index: map-get($z-index, suggest);
-        top: .95rem;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background-color: rgba(map-get($suggest, mask-bgcolor), .9);
+        background-color: map-get($suggest, mask-bgcolor);
         > .recommend,
         > .result {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            overflow: hidden;
-        }
-    }
-    // 独占形态搜索
-    &-modal {
-        @include flexbox();
-        @include flex-direction(column);
-        position: fixed;
-        z-index: map-get($z-index, suggest);
-        top: 0;
-        right: 0;
-        left: 0;
-        height: 100%;
-        > .cont {
-            @include flex(1, column);
-            position: relative;
-            top: 0;
+            @include fullscreen;
         }
     }
     // focus形态
@@ -639,16 +613,29 @@
                 display: inline-block;
             }
         }
+        // 非独占形态，激活时展开cont，并使用绝对定位拉伸获得高度
+        // 需要通过设置top值来确定cont区域
         > .cont {
             display: block;
+            @include fullscreen(map-get($z-index, suggest));
+            top: .88rem;
         }
-        &.yo-suggest-modal {
-            // 独占形态时，在foucs时显示取消按钮
-            > .operate {
-                .action {
-                    margin-right: map-get($suggest, cancel-width);
-                }
-            }
+    }
+    // 独占形态搜索
+    &-modal {
+        @include flexbox;
+        @include flex-direction(column);
+        @include fullscreen(map-get($z-index, suggest), fixed);
+        // 独占形态时，在foucs时显示取消按钮
+        > .operate {
+            padding-right: map-get($suggest, cancel-width) !important;
+        }
+        // 独占形态时自动展开cont，并使用flex获得高度
+        > .cont {
+            display: block;
+            position: relative;
+            top: 0;
+            @include flex(1, column);
         }
     }
 }

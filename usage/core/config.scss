@@ -434,11 +434,11 @@ $group: (
 // Widget suggest(15)
 $suggest: (
     // {Length} 输入框高度
-    height:           .3rem,
+    height:           .29rem,
     // {Length} 搜索区文字大小
     font-size:        .14rem,
     // {Length} 搜索区内补白
-    op-padding:       .1rem,
+    op-padding:       .07rem .1rem,
     // {Length} 输入框圆角
     radius:           .05rem,
     // {Color} 边框色
@@ -460,7 +460,7 @@ $suggest: (
     // {Color} 搜索区背景色
     op-bgcolor:       #fff,
     // {Color} mask背景色
-    mask-bgcolor:     #fff,
+    mask-bgcolor:     rgba(#fff, .9),
     // {Length} 取消按钮区域宽度
     cancel-width:     .7rem
 );
