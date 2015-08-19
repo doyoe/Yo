@@ -524,7 +524,6 @@
 // }
 @mixin _suggest {
 
-    position: relative;
     > .operate {
         position: relative;
         z-index: map-get($z-index, suggest);
@@ -596,7 +595,7 @@
         z-index: map-get($z-index, suggest);
         top: .95rem;
         right: 0;
-        // bottom: 0;
+        bottom: 0;
         left: 0;
         background-color: rgba(map-get($suggest, mask-bgcolor), .9);
         > .recommend,

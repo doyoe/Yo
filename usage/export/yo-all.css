@@ -2406,9 +2406,6 @@ a {
  * @param {default | Color} $mask-bgcolor 定义yo-suggest遮罩背景色
  * @param {default | Length} $cancel-width 取消按钮区域宽度
  */
-.yo-suggest {
-  position: relative;
-}
 .yo-suggest > .operate {
   position: relative;
   z-index: 2501;
@@ -2490,6 +2487,7 @@ a {
   z-index: 2501;
   top: .95rem;
   right: 0;
+  bottom: 0;
   left: 0;
   background-color: rgba(255, 255, 255, 0.9);
 }
