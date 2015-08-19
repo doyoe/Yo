@@ -134,6 +134,9 @@
                     @if $font-size != map-get($suggest, font-size) {
                         font-size: $font-size;
                     }
+                    @if $height != map-get($suggest, height) {
+                        line-height: $height;
+                    }
                 }
                 > .yo-ico-delete,
                 > .yo-ico-fresh,
@@ -156,10 +159,16 @@
                     color: $cancel-color;
                 }
             }
-            &-on,
-            &-fresh,
-            &-stop {
-                > .action > .input {
+        }
+        > .cont {
+            @if $mask-bgcolor != map-get($suggest, mask-bgcolor) {
+                background-color: $mask-bgcolor;
+            }
+        }
+        // focus时
+        &-on {
+            > .operate {
+                .input {
                     @if $on-bordercolor != map-get($suggest, on-bordercolor) {
                         border-color: $on-bordercolor;
                     }
@@ -168,17 +177,14 @@
                     }
                 }
             }
-            &-on {
-                > .action {
-                    @if $cancel-width != map-get($suggest, cancel-width) {
-                        margin-right: $cancel-width;
-                    }
-                }
-            }
         }
-        > .cont {
-            @if $mask-bgcolor != map-get($suggest, mask-bgcolor) {
-                background-color: rgba($mask-bgcolor, .9);
+        // 独占形态
+        &-modal {
+            // 独占形态时，在foucs时显示取消按钮
+            > .operate {
+                @if $cancel-width != map-get($suggest, cancel-width) {
+                    padding-right: #{$cancel-width} !important;
+                }
             }
         }
         // 增量扩展

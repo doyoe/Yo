@@ -236,6 +236,12 @@ a {
   content: "\0020";
 }
 
+html,
+body {
+  overflow: hidden;
+  height: 100%;
+}
+
 @font-face {
   font-family: yofont;
   src: url("http://source.qunarzz.com/fonts/yo/1.0.0/yofont.woff") format("woff"), url("http://source.qunarzz.com/fonts/yo/1.0.0/yofont.ttf") format("truetype");
@@ -626,10 +632,4 @@ a {
 
 .yo-index {
   margin: 0.3rem 0 0.3rem auto;
-}
-
-html,
-body {
-  overflow: hidden;
-  height: 100%;
 }

@@ -236,6 +236,12 @@ a {
   content: "\0020";
 }
 
+html,
+body {
+  overflow: hidden;
+  height: 100%;
+}
+
 @font-face {
   font-family: yofont;
   src: url("http://source.qunarzz.com/fonts/yo/1.0.0/yofont.woff") format("woff"), url("http://source.qunarzz.com/fonts/yo/1.0.0/yofont.ttf") format("truetype");
@@ -532,10 +538,4 @@ a {
 .m-list .title {
   padding: 0.18rem 0.1rem 0.03rem;
   border-bottom: 1px solid #ccc;
-}
-
-html,
-body {
-  overflow: hidden;
-  height: 100%;
 }

@@ -1,16 +1,5 @@
 @charset "utf-8";
 
-/**
- * Yo框架demo
- * Author: joy.du(飘零雾雨)
- * Time: 2015.2.11
- */
-
-@import "../layout/layout";
-
-@import "../module/m-code";
-@import "../module/m-demo";
-
 @import "../element/yo-badge";
 @import "../element/yo-btn";
 @import "../element/yo-checked";
@@ -25,6 +14,7 @@
 @import "../fragment/yo-table";
 @import "../fragment/yo-btnbar";
 
+@import "../widget/yo-datepicker";
 @import "../widget/yo-dblist";
 @import "../widget/yo-dialog";
 @import "../widget/yo-group";
@@ -34,96 +24,10 @@
 @import "../widget/yo-number";
 @import "../widget/yo-popup";
 @import "../widget/yo-rating";
-@import "../widget/yo-suggest";
 @import "../widget/yo-select";
 @import "../widget/yo-slidermenu";
+@import "../widget/yo-suggest";
 @import "../widget/yo-switch";
 @import "../widget/yo-switchable";
 @import "../widget/yo-tab";
 @import "../widget/yo-tip";
-@import "../widget/yo-datepicker";
-
-
-.yo-list {
-    .mark img {
-        width: 80px;
-        height: 50px;
-    }
-}
-
-.m-demo {
-    .yo-table {
-        .c1 {
-            width: .8rem;
-        }
-    }
-}
-
-.m-demo {
-    .stage {
-        // yo-btn
-        .yo-list .yo-btn:not(:first-child){
-            margin-left: .1rem;
-        }
-        // yo-dialog
-        .yo-dialog {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            @include transform(translate(-50%, -50%));
-        }
-        @include yo-dialog(
-            $name: test,
-            $height: auto
-        );
-        // yo-popup
-        .yo-popup {
-            top: 50%;
-            left: 50%;
-            @include transform(translate(-50%, -50%));
-        }
-        // yo-tab
-        .yo-tab {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            &-test {
-                bottom: 50%;
-            }
-            &-test2 {
-                top: 0;
-                bottom: auto;
-            }
-        }
-        // yo-tip
-        .yo-tip {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            @include transform(translate(-50%, -50%));
-        }
-        // yo-index
-        > .yo-index {
-            position: absolute;
-            top: 50%;
-            right: 0;
-            @include transform(translatey(-50%));
-        }
-        // yo-group/yo-panel
-        > .yo-group:nth-child(2),
-        > .yo-panel:nth-child(2) {
-            top: .44rem;
-        }
-        > .yo-group:nth-child(3) {
-            top: .95rem;
-        }
-        .yo-group,
-        .yo-panel {
-            > .scroll-index {
-                top: 50%;
-                @include transform(translatey(-50%));
-            }
-        }
-    }
-}

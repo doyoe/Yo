@@ -276,5 +276,8 @@ html + input {}
     @include clearfix;
 }
 
+// 1. 默认关闭页面滚动条
+@include root-scroll;
+
 // 1. 使用字体图标
 @include yofont;

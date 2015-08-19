@@ -236,6 +236,12 @@ a {
   content: "\0020";
 }
 
+html,
+body {
+  overflow: hidden;
+  height: 100%;
+}
+
 @font-face {
   font-family: yofont;
   src: url("http://source.qunarzz.com/fonts/yo/1.0.0/yofont.woff") format("woff"), url("http://source.qunarzz.com/fonts/yo/1.0.0/yofont.ttf") format("truetype");
@@ -691,10 +697,4 @@ a {
 .yo-switch-f > input:checked + .track {
   border-color: #444;
   background-color: #444;
-}
-
-html,
-body {
-  overflow: hidden;
-  height: 100%;
 }

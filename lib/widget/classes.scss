@@ -294,7 +294,6 @@
     overflow: hidden;
     width: map-get($tab, width);
     height: map-get($tab, height);
-    margin: auto;
     @include border-radius(map-get($tab, radius));
     border-width: map-get($tab, border-width);
     border-style: solid;
@@ -525,7 +524,6 @@
 @mixin _suggest {
     > .operate {
         position: relative;
-        z-index: map-get($z-index, suggest);
         overflow: hidden;
         font-size: map-get($suggest, font-size);
         line-height: map-get($suggest, height);
