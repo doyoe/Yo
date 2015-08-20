@@ -38,7 +38,11 @@ Yo约束了2种项目所使用的长度单位
 
 ## Versioning
 
-### Developing: v1.8.3
+### Developing: v1.8.4
+
+* 开发中
+
+### Lastest: v1.8.3
 
 * update: `yo-flex`, `yo-loadtip`, `yo-dialog`, `yo-badge`
     - 调整内部实现，升级时可以不用回归
@@ -46,22 +50,6 @@ Yo约束了2种项目所使用的长度单位
     - 新增 `width` 参数用以设置tab组件宽度
 * update: `fullscreen` mixin
     - 新增 `position` 参数用以定位方式，默认为 `absolute`
-
-### Lastest: v1.8.2
-
-* update: `yo-list`
-    - 修复item底边线的问题
-* update: `yo-btn`
-    - 移除按钮内1px高亮定义
-    - 更改 disabled 状态定义
-* update: `flex` mixin方法
-    - 如果横向排列时使用flex方法如下：
-    ```
-    @include flex(n);
-    ```
-    - 如果纵向排列时使用flex方法如下：
-    ```
-    @include flex(n, column);
     ```
 
 
