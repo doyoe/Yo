@@ -50,7 +50,6 @@ Yo约束了2种项目所使用的长度单位
     - 新增 `width` 参数用以设置tab组件宽度
 * update: `fullscreen` mixin
     - 新增 `position` 参数用以定位方式，默认为 `absolute`
-    ```
 
 
 ### History
