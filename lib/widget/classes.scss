@@ -892,6 +892,13 @@
             background-position: 0 -#{map-get($rating, item-height)};
         }
     }
+    &-readonly {
+        > .item {
+            &:hover {
+                background-position: 0 1rem !important;
+            }
+        }
+    }
 }
 
 // 定义dblist的基础构造

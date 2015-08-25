@@ -40,7 +40,8 @@ Yo约束了2种项目所使用的长度单位
 
 ### Developing: v1.8.4
 
-* 开发中
+* update: `yo-rating`
+    - 增加 `readonly` 状态用于只读
 
 ### Lastest: v1.8.3
 
