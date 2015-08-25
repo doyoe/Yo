@@ -149,7 +149,7 @@
     }
     .yo-datepicker#{$name} {
         // 星期一，二...条（bar）
-        .week-bar {
+        > .week-bar {
             @if $week-bar-height != map-get($datepicker, week-bar-height) {
                 height: $week-bar-height;
                 line-height: $week-bar-height;
@@ -184,7 +184,7 @@
             }
         }
         // 吸顶月份bar
-        .sticky-bar {
+        > .sticky-bar {
             @if $month-bar-height != map-get($datepicker, month-bar-height) {
                 top: $month-bar-height;
             }

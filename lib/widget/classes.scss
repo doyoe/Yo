@@ -924,18 +924,10 @@
 // 使用方法请查看 yo-datepicker.scss
 @mixin _datepicker {
     @include fullscreen;
-    @include flexbox;
-    @include flex-direction(column);
     height: 100%;
     background-color: #fff;
     text-align: center;
-    // 多日历容器
-    .weeks {
-        position: relative;
-        @include flex(1, column);
-        @include overflow;
-    }
-    .week-bar,
+    > .week-bar,
     .week {
         @include flexbox;
         width: 100%;
@@ -944,7 +936,9 @@
         }
     }
     // 星期一，二...条（bar）
-    .week-bar {
+    > .week-bar {
+        position: relative;
+        z-index: 2;
         height: map-get($datepicker, week-bar-height);
         line-height: map-get($datepicker, week-bar-height);
         background-color: map-get($datepicker, week-bar-bgcolor);
@@ -953,7 +947,7 @@
     }
     // 月份bar
     .month-bar,
-    .sticky-bar {
+    > .sticky-bar {
         height: map-get($datepicker, month-bar-height);
         line-height: map-get($datepicker, month-bar-height);
         border-bottom: 1px solid map-get($datepicker, month-bar-bordercolor);
@@ -963,8 +957,9 @@
         font-weight: normal;
     }
     // 吸顶月份bar
-    .sticky-bar {
+    > .sticky-bar {
         position: absolute;
+        z-index: 2;
         top: map-get($datepicker, week-bar-height);
         left: 0;
         right: 0;

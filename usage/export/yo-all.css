@@ -839,28 +839,12 @@
   right: 0;
   bottom: 0;
   left: 0;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  flex-direction: column;
   height: 100%;
   background-color: #fff;
   text-align: center;
 }
 
-.yo-datepicker .weeks {
-  position: relative;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  flex: 1;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-.yo-datepicker .week-bar,
+.yo-datepicker > .week-bar,
 .yo-datepicker .week {
   display: -webkit-box;
   display: -webkit-flex;
@@ -868,7 +852,7 @@
   width: 100%;
 }
 
-.yo-datepicker .week-bar > li,
+.yo-datepicker > .week-bar > li,
 .yo-datepicker .week > li {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
@@ -876,7 +860,9 @@
   width: .1px;
 }
 
-.yo-datepicker .week-bar {
+.yo-datepicker > .week-bar {
+  position: relative;
+  z-index: 2;
   height: 0.22rem;
   line-height: 0.22rem;
   background-color: #1ba9ba;
@@ -885,7 +871,7 @@
 }
 
 .yo-datepicker .month-bar,
-.yo-datepicker .sticky-bar {
+.yo-datepicker > .sticky-bar {
   height: 0.25rem;
   line-height: 0.25rem;
   border-bottom: 1px solid #ddd;
@@ -895,8 +881,9 @@
   font-weight: normal;
 }
 
-.yo-datepicker .sticky-bar {
+.yo-datepicker > .sticky-bar {
   position: absolute;
+  z-index: 2;
   top: 0.22rem;
   left: 0;
   right: 0;
