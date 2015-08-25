@@ -437,7 +437,8 @@ body {
   font-size: 0.12rem;
 }
 
-.yo-datepicker .month-bar {
+.yo-datepicker .month-bar,
+.yo-datepicker .sticky-bar {
   height: 0.25rem;
   line-height: 0.25rem;
   border-bottom: 1px solid #ddd;
@@ -445,6 +446,13 @@ body {
   color: #000;
   font-size: 0.14rem;
   font-weight: normal;
+}
+
+.yo-datepicker .sticky-bar {
+  position: absolute;
+  top: 0.22rem;
+  left: 0;
+  right: 0;
 }
 
 .yo-datepicker .week {

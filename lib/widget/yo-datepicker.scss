@@ -183,6 +183,12 @@
                 font-size: $month-bar-font-size;
             }
         }
+        // 吸顶月份bar
+        .sticky-bar {
+            @if $month-bar-height != map-get($datepicker, month-bar-height) {
+                top: $month-bar-height;
+            }
+        }
         // 日期每行
         .week {
             @if $week-bordercolor != map-get($datepicker, week-bordercolor) {
