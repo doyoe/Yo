@@ -959,7 +959,7 @@
     // 吸顶月份bar
     > .sticky-bar {
         position: absolute;
-        z-index: 2;
+        z-index: 1;
         top: map-get($datepicker, week-bar-height);
         left: 0;
         right: 0;
