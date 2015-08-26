@@ -1002,7 +1002,10 @@
     }
     // 不可选的日子
     .disabled {
-        color: map-get($datepicker, disabled-color);
+        &,
+        > .special {
+            color: map-get($datepicker, disabled-color);
+        }
     }
     // 起始和结束日定义
     .start,

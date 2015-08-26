@@ -654,7 +654,7 @@ $datepicker: (
     // {color} 周末文本色
     weekend-color:         #f00,
     // {color} 禁用日子文本色
-    disabled-color:        gray,
+    disabled-color:        map-get($base, disabled-color),
 
     // {color} 选中日期背景色
     on-bgcolor:            #1ba9ba,

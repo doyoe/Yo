@@ -482,8 +482,9 @@ body {
   color: #f00;
 }
 
-.yo-datepicker .disabled {
-  color: gray;
+.yo-datepicker .disabled,
+.yo-datepicker .disabled > .special {
+  color: #bbb;
 }
 
 .yo-datepicker .start > .day,

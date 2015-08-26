@@ -238,8 +238,11 @@
         }
         // 不可选的日子
         .disabled {
-            @if $disabled-color != map-get($datepicker, disabled-color) {
-                color: $disabled-color;
+            &,
+            > .special {
+                @if $disabled-color != map-get($datepicker, disabled-color) {
+                    color: $disabled-color;
+                }
             }
         }
         // 起始和结束日定义
