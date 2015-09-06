@@ -470,6 +470,7 @@ body {
   overflow: hidden;
   height: 1.5rem;
   line-height: 0.3rem;
+  background-color: white;
 }
 
 .yo-select::before {
@@ -534,7 +535,7 @@ body {
   left: 0;
   content: "\0020";
   pointer-events: none;
-  background: -webkit-linear-gradient(top, white, transparent 40%, transparent 40%, transparent 60%, transparent 60%, white);
+  background: -webkit-linear-gradient(top, white, rgba(255, 255, 255, 0.5) 40%, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0.5) 60%, white);
 }
 
 .m-layer .yo-select .item {
