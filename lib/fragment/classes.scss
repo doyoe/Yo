@@ -107,7 +107,10 @@
         &.item-active:active,
         // 为第3方组件提供active状态
         &.item-light {
-            background-color: map-get($list, active-bgcolor);
+            &,
+            .front {
+                background-color: map-get($list, active-bgcolor);
+            }
         }
         // 选中时背景和文本色
         &.item-on {
@@ -118,12 +121,6 @@
         > .col {
             padding: map-get($list, item-padding);
         }
-    }
-    > .yo-slidermenu {
-        display: block;
-        // 清除.item的内补白，交由yo-slidermenu的子项来处理
-        // 底部1px补白用于不覆盖yo-list的item的底边线（因为底边线使用背景渐变色实现）
-        padding: 0 0 1px 0 !important;
     }
 }
 

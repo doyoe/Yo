@@ -42,6 +42,10 @@ Yo约束了2种项目所使用的长度单位
 
 * update: `yo-rating`
     - 增加 `readonly` 状态用于只读
+* update: `yo-list`
+    - 增加 `yo-slidermenu` 在 `yo-list` 内部使用时，有按下反馈
+* update: `yo-datepicker`
+    - 移除该组件内部的flex布局
 
 ### Lastest: v1.8.3
 

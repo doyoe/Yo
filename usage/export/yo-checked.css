@@ -496,17 +496,14 @@ body {
 }
 
 .yo-list > .item.item-active:active,
-.yo-list > .item.item-light {
+.yo-list > .item.item-active:active .front,
+.yo-list > .item.item-light,
+.yo-list > .item.item-light .front {
   background-color: #f8f8f8;
 }
 
 .yo-list > .item > .col {
   padding: 0.11rem 0.1rem 0.12rem;
-}
-
-.yo-list > .yo-slidermenu {
-  display: block;
-  padding: 0 0 1px 0 !important;
 }
 
 .yo-list-inset {

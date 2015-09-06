@@ -180,8 +180,11 @@
             }
             &.item-active:active,
             &.item-light {
-                @if $active-bgcolor != map-get($list, active-bgcolor) {
-                    background-color: $active-bgcolor;
+                &,
+                .front {
+                    @if $active-bgcolor != map-get($list, active-bgcolor) {
+                        background-color: $active-bgcolor;
+                    }
                 }
             }
             &.item-on {
