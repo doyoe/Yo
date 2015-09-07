@@ -2,6 +2,20 @@
 
 History Version and release time.
 
+<a name="v1-8-4"></a>
+## v1.8.4 (2015.9.7)
+
+[Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v1.8.4)
+
+* update: `yo-rating`
+    - 增加 `readonly` 状态用于只读
+* update: `yo-list`
+    - 增加 `yo-slidermenu` 在 `yo-list` 内部使用时，有按下反馈
+* update: `yo-datepicker`
+    - 移除该组件内部的flex布局
+* add: `kami`
+    - 增加 `kami` 入口文件目录
+
 <a name="v1-8-3"></a>
 ## v1.8.3 (2015.8.20)
 
