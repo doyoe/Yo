@@ -622,17 +622,22 @@ body {
 .yo-group > .sticky,
 .yo-group > .scroll-index {
   position: absolute;
-  top: 50%;
+  z-index: 2;
   right: 0;
-  -webkit-transform: translatey(-50%);
-  transform: translatey(-50%);
 }
 
 .yo-group > .sticky {
+  top: 0;
   left: 0;
   padding: 0.03rem 0.1rem;
   background-color: #fafafa;
   color: #666;
+}
+
+.yo-group > .scroll-index {
+  top: 50%;
+  -webkit-transform: translatey(-50%);
+  transform: translatey(-50%);
 }
 
 .yo-group .no-data {

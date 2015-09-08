@@ -667,15 +667,19 @@
     > .sticky,
     > .scroll-index {
         position: absolute;
-        top: 50%;
+        z-index: 2;
         right: 0;
-        @include transform(translatey(-50%));
     }
     > .sticky {
+        top: 0;
         left: 0;
         padding: map-get($list, label-padding);
         background-color: map-get($list, label-bgcolor);
         color: map-get($base, sub-color);
+    }
+    > .scroll-index {
+        top: 50%;
+        @include transform(translatey(-50%));
     }
     .no-data {
         height: 100%;
@@ -910,6 +914,7 @@
 // 使用方法请查看 yo-dblist.scss
 @mixin _dblist {
     @include flexbox;
+    @include fullscreen;
     min-height: 2rem;
     height: 100%;
     > .item {
