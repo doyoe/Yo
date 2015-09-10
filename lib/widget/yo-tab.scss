@@ -1,15 +1,65 @@
 @charset "utf-8";
-@import "classes";
+@import "../core/variables";
+@import "../core/classes";
+
+// 定义tab的基础构造
+@mixin _tab {
+    @include flexbox;
+    overflow: hidden;
+    width: map-get($tab, width);
+    height: map-get($tab, height);
+    @include border-radius(map-get($tab, radius));
+    border-width: map-get($tab, border-width);
+    border-style: solid;
+    border-color: map-get($tab, bordercolor);
+    background-color: map-get($tab, bgcolor);
+    font-size: map-get($tab, font-size);
+    text-align: center;
+    line-height: map-get($tab, height);
+    > .item {
+        display: block;
+        @include flex;
+        position: relative;
+        &:not(:last-child)::after {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            @include transform(translatey(-50%));
+            width: 1px;
+            height: map-get($tab, item-border-height);
+            background-color: map-get($tab, item-bordercolor);
+            content: "\0020";
+        }
+        color: map-get($tab, color);
+        &.item-on {
+            background-color: map-get($tab, on-bgcolor);
+            color: map-get($tab, on-color);
+        }
+        &-y-ico {
+            padding-top: .04rem;
+            line-height: .2rem;
+            .yo-ico {
+                display: block;
+                font-size: map-get($tab, y-ico-size);
+            }
+        }
+        &-x-ico {
+            .yo-ico {
+                font-size: map-get($tab, x-ico-size);
+            }
+        }
+        &-only-ico {
+            .yo-ico {
+                font-size: map-get($tab, only-ico-size);
+            }
+        }
+    }
+}
 
 /**
- * @class widget
- */
-
-/**
- * 构造列表的自定义使用方法
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-tab.html)
  * @method yo-tab
+ * @desc 构造列表的自定义使用方法
+ * @demo 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-tab.html)
  * @param {String} $name 扩展的名称
  * @param {Length} {ver:1.8.3} $width 组件宽度
  * @param {Length} $height 组件高度

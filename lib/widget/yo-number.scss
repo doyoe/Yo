@@ -1,15 +1,57 @@
 @charset "utf-8";
-@import "classes";
+@import "../core/variables";
+@import "../core/classes";
+
+// 定义number的基础构造
+@mixin _number {
+    @include flexbox(inline-flex);
+    overflow: hidden;
+    width: map-get($number, width);
+    height: map-get($number, height);
+    line-height: map-get($number, height);
+    border: 1px solid map-get($number, bordercolor);
+    box-shadow: 1px 1px 1px rgba(map-get($number, bordercolor),.3);
+    background-color: #fff;
+    font-size: 0;
+    vertical-align: middle;
+    > .minus,
+    > .plus,
+    > .input {
+        text-align: center;
+    }
+    > .minus,
+    > .plus {
+        display: block;
+        width: .35rem;
+        background-color: map-get($number, sign-bgcolor);
+        color: map-get($number, sign-color);
+        font-size: .3rem;
+        font-family: arial;
+        cursor: pointer;
+        &.disabled {
+            color: map-get($number, disabled-sign-color);
+            cursor: not-allowed;
+        }
+    }
+    > .input{
+        @include flex();
+        border: 1px solid map-get($number, bordercolor);
+        border-width: 0 1px;
+        box-shadow: inset 1px 1px 1px rgba(map-get($number, bordercolor), .1);
+        border-radius: 0;
+        color: map-get($number, color);
+        font-size: .16rem;
+        &,
+        &::-webkit-inner-spin-button{
+            @include appearance();
+        }
+    }
+}
 
 /**
- * @class widget
- */
-
-/**
- * 构造列表的自定义使用方法
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-number.html)
  * @method yo-number
+ * @desc 构造列表的自定义使用方法
+ * @demp 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-number.html)
  * @param {default | String} $name 定义yo-number名称
  * @param {default | Length} $width 定义yo-number宽度
  * @param {default | Length} $height 定义yo-number高度

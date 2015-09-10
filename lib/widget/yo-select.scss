@@ -1,15 +1,75 @@
 @charset "utf-8";
-@import "classes";
+@import "../core/variables";
+@import "../core/classes";
+
+// 定义select的基础构造
+@mixin _select {
+    @include flexbox;
+    position: relative;
+    overflow: hidden;
+    height: map-get($select, item-height) * map-get($select, item);
+    line-height: map-get($select, item-height);
+    background-color: white;
+    &::before {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: map-get($select, item-height);
+        margin-top: -#{map-get($select, item-height) / 2};
+        content: "\0020";
+        border: 1px solid map-get($select, bordercolor);
+        border-width: 1px 0;
+    }
+    &-item,
+    &-item-list,
+    &-item ul {
+        height: 100%;
+    }
+    &-item {
+        @include flex();
+        position: relative;
+        z-index: 2;
+        text-align: center;
+    }
+    &-item-list {
+        ul {
+            position: relative;
+        }
+        li {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: map-get($select, item-height);
+            &.disabled {
+                opacity: .4;
+            }
+        }
+    }
+    &-item-tag {
+        position: absolute;
+        top: 50%;
+        right: .1rem;
+        @include transform(translatey(-50%));
+    }
+    > .mask {
+        position: absolute;
+        z-index: 3;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        content: "\0020";
+        pointer-events: none;
+        background: -webkit-linear-gradient(top, white, rgba(255, 255, 255, .4) 40%, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, .4) 60%, white);
+    }
+}
 
 /**
- * @class widget
- */
-
-/**
- * 构造列表的自定义使用方法
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-select.html)
  * @method yo-select
+ * @desc 构造yo-select的自定义使用方法
+ * @demo 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-select.html)
  * @param {default | String} $name 定义select名称
  * @param {default | Length} $width 定义select显示的子项个数
  * @param {default | Length} $height 定义select子项高度

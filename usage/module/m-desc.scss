@@ -9,6 +9,11 @@
     padding-bottom: .05rem;
     border-radius: .05rem;
     background-color: #ddd;
+    // 修复Webkit下由于 Text Autosizer(Font Boosting/Font Inflation) 引起的字号变大
+    > .title,
+    > .sub-title {
+        max-height: 100%;
+    }
     > .title {
         padding: .18rem .1rem .03rem;
         border-bottom: 1px solid map-get($base, bordercolor);

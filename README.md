@@ -42,6 +42,8 @@ Yo约束了2种项目所使用的长度单位
 
 * update: `yo-group`, `yo-dblist`
     - 调整内部实现
+* update:
+    - 拆分 `classes` 构造方法到各独立模块
 
 ### Lastest: v1.8.4
 

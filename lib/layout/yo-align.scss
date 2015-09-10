@@ -1,15 +1,19 @@
 @charset "utf-8";
-@import "classes";
+@import "../core/variables";
+@import "../core/classes";
+
+// 定义常见水平垂直居中布局
+@mixin _align {
+    @include flexbox;
+    @include fullscreen;
+    @include align-items;
+    @include justify-content;
+}
 
 /**
- * @class layout
- */
-
-/**
- * 构造弹性布局内容对齐使用方法，可以是横向和纵向
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/layout/yo-align.html)
  * @method yo-align
+ * @desc 构造弹性布局内容对齐使用方法，可以是横向和纵向
+ * @demo 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/layout/yo-align.html)
  * @param {String} $name 为新的扩展定义一个名称
  * @param {String} $text-align 指定水平对齐方式
  * @param {String} $vertical-align 指定垂直对齐方式

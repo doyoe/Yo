@@ -1,15 +1,124 @@
 @charset "utf-8";
-@import "classes";
+@import "../core/variables";
+@import "../core/classes";
+
+// 定义list的基础构造
+@mixin _list {
+    margin: map-get($list, margin);
+    border-radius: map-get($list, radius);
+    // 当边框厚度大于0时，才定义边框相关属性
+    @if map-get($list, border-width) != null and
+        map-get($list, border-width) != 0 {
+        border-width: map-get($list, border-width);
+        border-style: solid;
+        border-color: map-get($list, bordercolor);
+    }
+    > .label,
+    > .item,
+    .front {
+        @include flexbox;
+        @include align-items;
+        // 修复某些安卓版本开启了3D，yo-list当成滚动内容时出现的诡异问题
+        @include transform(translatez(0));
+        > .mark:not(:last-child),
+        > .yo-ico:not(:last-child) {
+            margin-right: .1rem;
+        }
+        // 定义需要自适应宽度的列
+        > .flex {
+            @include flex;
+        }
+        > .mark,
+        > .yo-ico,
+        > .col,
+        > .flex {
+            display: block;
+        }
+        &.tr {
+            // 当模式为table时，padding将设置到col上
+            padding: 0;
+        }
+    }
+    > .label {
+        padding: map-get($list, label-padding);
+        border: 1px solid map-get($list, label-bordercolor);
+        border-width: 0 0 1px 0;
+        background-color: map-get($list, label-bgcolor);
+        color: map-get($base, sub-color);
+        font-size: map-get($list, label-font-size);
+        font-weight: normal;
+        // 定义单元格的padding
+        > .col {
+            padding: map-get($list, label-padding);
+        }
+        &:not(:first-child) {
+            border-width: 1px 0;
+            margin-top: -1px;
+        }
+    }
+    > .item,
+    .front {
+        padding: map-get($list, item-padding);
+    }
+    > .item {
+        background-color: #fff;
+        color: map-get($base, color);
+        font-size: map-get($list, item-font-size);
+
+        // 描述线条
+        @include gradient(linear, map-get($list, item-bordercolor), map-get($list, item-bordercolor));
+        @include background-size(100% 1px);
+        background-repeat: no-repeat;
+        // 设置底边线的位置
+        background-position: map-get($list, item-border-space) bottom;
+
+        &:last-child {
+            margin-bottom: -1px;
+            // 最后一根线的颜色与外边框颜色相同
+            @include gradient(linear, map-get($list, bordercolor), map-get($list, bordercolor));
+            // 最后一根线的左边不留间隙
+            background-position: 0 bottom;
+        }
+
+        &-stacked {
+            display: block;
+            > .mark {
+                padding-bottom: .05rem;
+            }
+        }
+        &-input {
+            // 让输入框占满整个父容器
+            > .yo-input {
+                height: auto;
+                padding: 0;
+                border: 0;
+            }
+        }
+        // 常规需要active的项目，没有使用到第3方组件的
+        &.item-active:active,
+        // 为第3方组件提供active状态
+        &.item-light {
+            &,
+            .front {
+                background-color: map-get($list, active-bgcolor);
+            }
+        }
+        // 选中时背景和文本色
+        &.item-on {
+            background-color: map-get($list, on-bgcolor);
+            color: map-get($list, on-color);
+        }
+        // 定义单元格的padding
+        > .col {
+            padding: map-get($list, item-padding);
+        }
+    }
+}
 
 /**
- * @class fragment
- */
-
-/**
- * 构造列表的自定义使用方法
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/fragment/yo-list.html)
  * @method yo-list
+ * @desc 构造列表的自定义使用方法
+ * @demo 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/fragment/yo-list.html)
  * @param {String} $name 定义list名称
  * @param {Length} $margin 定义list外边距
  * @param {Length} $radius 定义list圆角

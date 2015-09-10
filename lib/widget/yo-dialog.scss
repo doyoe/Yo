@@ -1,16 +1,91 @@
 @charset "utf-8";
-@import "classes";
+@import "../core/variables";
+@import "../core/classes";
 @import "../element/yo-btn";
 
-/**
- * @class widget
- */
+// 定义dialog的基础构造
+@mixin _dialog {
+    @include flexbox;
+    @include flex-direction(column);
+    position: fixed;
+    z-index: map-get($z-index, dialog);
+    overflow: hidden;
+    @include border-radius(map-get($dialog, radius));
+    @if map-get($dialog, shadow-opacity) != null {
+        box-shadow: 0 0 5px rgba(map-get($dialog, bordercolor), map-get($dialog, shadow-opacity));
+    }
+    border: 1px solid map-get($dialog, bordercolor);
+    min-width: 2.8rem;
+    max-width: 90%;
+    width: map-get($dialog, width);
+    height: map-get($dialog, height);
+    background: #fff;
+    text-align: center;
+    > .hd {
+        position: relative;
+        height: map-get($dialog, hd-height);
+        background: map-get($dialog, hd-bgcolor);
+        line-height: map-get($dialog, hd-height);
+        .title {
+            overflow: hidden;
+            height: 100%;
+            margin: 0 60px;
+            @if map-get($dialog, title-color) != map-get($base, color) {
+                color: map-get($dialog, title-color);
+            }
+            @if map-get($dialog, title-font-size) != map-get($base, font-size) {
+                font-size: map-get($dialog, title-font-size);
+            }
+        }
+        .regret,
+        .affirm {
+            position: absolute;
+            top: 0;
+        }
+        .regret {
+            left: .1rem;
+        }
+        .affirm {
+            right: .1rem;
+        }
+    }
+    > .bd {
+        @include flex(1, column);
+        @include overflow;
+        min-height: .45rem;
+        padding: map-get($dialog, bd-padding);
+        @if map-get($dialog, bd-font-size) != map-get($base, font-size) {
+            font-size: map-get($dialog, bd-font-size);
+        }
+    }
+    > .ft {
+        @include flexbox;
+        text-align: center;
+        @include yo-btn(
+            $border-width: 1px 0 0,
+            $bordercolor: map-get($base, bordercolor),
+            $bgcolor: #fff,
+            $color: map-get($base, link-color),
+            $radius: 0,
+            $active-bgcolor: #f9f9f9
+        ){
+            display: block;
+            @include flex;
+            &:last-child:not(:only-child),
+            &:only-child {
+                font-weight: bold;
+            }
+            &:last-child:not(:only-child) {
+                border-left-width: 1px;
+            }
+        }
+    }
+}
 
 /**
- * 构造列表的自定义使用方法
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-dialog.html)
  * @method yo-dialog
+ * @desc 构造yo-dialog的自定义使用方法
+ * @demo 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-dialog.html)
  * @param {default | String} $name 定义dialog名称
  * @param {default | Length | null} $width 定义dialog宽度
  * @param {default | Length} $height 定义dialog高度

@@ -1,15 +1,116 @@
 @charset "utf-8";
-@import "classes";
+@import "../core/variables";
+@import "../core/classes";
+
+// 定义浮层popup的基础构造
+@mixin _popup {
+    @include flexbox;
+    @include flex-direction(column);
+    position: absolute;
+    z-index: map-get($z-index, popup);
+    @include border-radius(map-get($popup, radius));
+    @if map-get($popup, shadow-opacity) != null {
+        box-shadow: 0 0 5px rgba(map-get($popup, bordercolor), map-get($popup, shadow-opacity));
+    }
+    border: 1px solid map-get($popup, bordercolor);
+    min-width: 2.8rem;
+    min-height: 1rem;
+    width: map-get($popup, width);
+    height: map-get($popup, height);
+    background: #fff;
+    // 改用标签的方式，因为JS需要控制位置
+    > .arrow::after {
+        position: absolute;
+        content: "◆";
+        color: #fff;
+        font-size: map-get($popup, arrow-size) * 2;
+        line-height: 1;
+    }
+    // 控制箭头方向
+    .arrow-top,
+    .arrow-down {
+        &::after {
+            @include transform(translate(-50%));
+            left: 50%;
+        }
+    }
+    .arrow-top::after {
+        top: -#{map-get($popup, arrow-size) - .01rem};
+        // 箭头边框色
+        text-shadow: 0 -1px map-get($popup, bordercolor);
+    }
+    .arrow-down::after {
+        bottom: -#{map-get($popup, arrow-size) - .01rem};
+        // 箭头边框色
+        text-shadow: 0 1px map-get($popup, bordercolor);
+    }
+    .arrow-right,
+    .arrow-left {
+        &::after {
+            @include transform(translate(0, -50%));
+            top: 50%;
+        }
+    }
+    .arrow-right::after {
+        right: -#{map-get($popup, arrow-size) - .01rem};
+        // 箭头边框色
+        text-shadow: 1px 0 map-get($popup, bordercolor);
+    }
+    .arrow-left::after {
+        left: -#{map-get($popup, arrow-size) - .01rem};
+        // 箭头边框色
+        text-shadow: -1px 0 map-get($popup, bordercolor);
+    }
+    // 有hd或ft时，箭头的颜色应该和hd或ft相同
+    .arrow-extra.arrow::after {
+        color: map-get($popup, hd-bgcolor);
+    }
+    > .hd,
+    > .bd {
+        position: relative;
+        z-index: 2;
+    }
+    > .hd {
+        height: map-get($popup, hd-height);
+        border-bottom: 1px solid map-get($popup, bordercolor);
+        background: map-get($popup, hd-bgcolor);
+        line-height: map-get($popup, hd-height);
+        text-align: center;
+        .title {
+            overflow: hidden;
+            height: 100%;
+            margin: 0 60px;
+            @if map-get($popup, title-color) != map-get($base, color) {
+                color: map-get($popup, title-color);
+            }
+            @if map-get($popup, title-font-size) != map-get($base, font-size) {
+                font-size: map-get($popup, title-font-size);
+            }
+        }
+        .regret,
+        .affirm {
+            position: absolute;
+            top: 0;
+        }
+        .regret {left: 10px;}
+        .affirm {right: 10px;}
+    }
+    > .bd {
+        @include flex(1, column);
+        @include overflow();
+        padding: map-get($popup, bd-padding);
+    }
+    > .ft {
+        padding: .1rem 0;
+        border-top: 1px solid map-get($popup, bordercolor);
+        text-align: center;
+    }
+}
 
 /**
- * @class widget
- */
-
-/**
- * 构造列表的自定义使用方法
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-popup.html)
  * @method yo-popup
+ * @desc 构造yo-popup的自定义使用方法
+ * @demo 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-popup.html)
  * @param {default | String} $name 定义popup名称
  * @param {default | Length | null} $width 定义popup宽度
  * @param {default | Length} $height 定义popup高度

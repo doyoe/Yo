@@ -1,15 +1,33 @@
 @charset "utf-8";
-@import "classes";
+@import "../core/variables";
+@import "../core/classes";
+
+// 定义badge的基础构造
+@mixin _badge {
+    @include flexbox(inline);
+    min-width: .16rem;
+    min-height: .16rem;
+    padding: map-get($badge, padding);
+    // 当边框厚度大于0时，才定义边框相关属性
+    @if map-get($badge, border-width) != null and
+        map-get($badge, border-width) != 0 {
+        border-width: map-get($badge, border-width);
+        border-style: solid;
+        border-color: map-get($badge, bordercolor);
+    }
+    @include border-radius(map-get($badge, radius));
+    background-color: map-get($badge, bgcolor);
+    color: map-get($badge, color);
+    font-size: map-get($badge, font-size);
+    line-height: 1;
+    @include justify-content;
+    @include align-items;
+}
 
 /**
- * @class element
- */
-
-/**
- * 构造提醒气泡的自定义使用方法，可以扩展为：tag, 文字ico等形态
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/element/yo-btn.html)
  * @method yo-badge
+ * @desc 构造提醒气泡的自定义使用方法，可以扩展为：tag, 文字ico等形态
+ * @demo 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/element/yo-btn.html)
  * @param {String} $name 为新的扩展定义一个名称，假设扩展了一个 `$name` 为 `tag` 的 `yo-badge`，那么你可以这样使用 `<span class="yo-badge yo-badge-tag">`
  * @param {Length} $padding 内补白
  * @param {Length} $border-width 边框厚度

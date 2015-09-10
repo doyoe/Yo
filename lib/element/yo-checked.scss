@@ -1,15 +1,74 @@
 @charset "utf-8";
-@import "classes";
+@import "../core/variables";
+@import "../core/classes";
+
+// 定义checked的基础构造
+@mixin _checked {
+    display: inline-block;
+    position: relative;
+    @include square(map-get($checked, size));
+    font-size: map-get($checked, font-size);
+    font-family: map-get($ico, font-name);
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    > input,
+    > .type {
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        @include square(100%);
+    }
+    > input {
+        z-index: 2;
+        opacity: 0;
+    }
+    > .type {
+        @include border-radius(map-get($checked, radius));
+        background-color: transparent;
+        // 当边框厚度大于0时，才定义边框相关属性
+        @if map-get($checked, border-width) != null and
+            map-get($checked, border-width) != 0 {
+            border-width: map-get($checked, border-width);
+            border-style: solid;
+            border-color: map-get($checked, bordercolor);
+            line-height: map-get($checked, size) - nth(map-get($checked, border-width), 1) * 2;
+        } @else {
+            line-height: map-get($checked, size);
+        }
+        &::after {
+            content: map-get($checked, content);
+            color: map-get($checked, color);
+        }
+    }
+    > input:checked + .type {
+        @if map-get($checked, border-width) != null and
+            map-get($checked, border-width) != 0 {
+            border-color: map-get($checked, on-bordercolor);
+        }
+        background-color: map-get($checked, on-bgcolor);
+        &::after {
+            color: map-get($checked, on-color);
+        }
+    }
+    > input:disabled + .type {
+        opacity: .4;
+        @if map-get($checked, border-width) != null and
+            map-get($checked, border-width) != 0 {
+            border-color: map-get($base, disabled-bordercolor) !important;
+        }
+        background-color: map-get($base, disabled-bgcolor) !important;
+        &::after {
+            color: map-get($base, disabled-color) !important;
+        }
+    }
+}
 
 /**
- * @class element
- */
-
-/**
- * 构造单选多选的自定义使用方法，可同时作用于 checkbox 与 radio
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/element/yo-checked.html)
  * @method yo-checked
+ * @desc 构造单选多选的自定义使用方法，可同时作用于 checkbox 与 radio
+ * @demo 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/element/yo-checked.html)
  * @param {String} $name 为新的扩展定义一个名称
  * @param {String} $content 标记（对勾，圆点或者任意字符，可以是webfonts的编码）
  * @param {Length} $size 元件大小

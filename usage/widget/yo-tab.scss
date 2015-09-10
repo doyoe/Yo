@@ -16,7 +16,9 @@
     $radius: .05rem,
     $on-bgcolor: #1ba9ba,
     $on-color: #fff
-);
+){
+    margin: auto;
+}
 
 @include yo-tab(
     $name: filter,

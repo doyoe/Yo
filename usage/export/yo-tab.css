@@ -396,6 +396,11 @@ body {
   background-color: #ddd;
 }
 
+.m-desc > .title,
+.m-desc > .sub-title {
+  max-height: 100%;
+}
+
 .m-desc > .title {
   padding: 0.18rem 0.1rem 0.03rem;
   border-bottom: 1px solid #ccc;
@@ -530,6 +535,7 @@ body {
   border-width: 1px;
   border-color: #1ba9ba;
   font-size: 0.12rem;
+  margin: auto;
 }
 
 .yo-tab-test > .item.item-on {

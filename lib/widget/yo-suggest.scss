@@ -1,15 +1,129 @@
 @charset "utf-8";
-@import "classes";
+@import "../core/variables";
+@import "../core/classes";
+
+// 定义suggest的基础构造
+@mixin _suggest {
+    > .operate {
+        position: relative;
+        overflow: hidden;
+        font-size: map-get($suggest, font-size);
+        line-height: map-get($suggest, height);
+        padding: map-get($suggest, op-padding);
+        border-bottom: 1px solid map-get($suggest, bordercolor);
+        background-color: map-get($suggest, op-bgcolor);
+        > .action {
+            display: block;
+            position: relative;
+            z-index: 2;
+            height: map-get($suggest, height);
+        }
+        .input {
+            width: 100%;
+            height: 100%;
+            padding: 0 .3rem;
+            @include appearance;
+            border: 1px solid map-get($suggest, bordercolor);
+            @include border-radius(map-get($suggest, radius));
+            background-color: map-get($suggest, bgcolor);
+            color: map-get($suggest, color);
+            font-size: map-get($suggest, font-size);
+            line-height: map-get($base, line-height);
+            vertical-align: top;
+        }
+        .yo-ico-delete,
+        .yo-ico-fresh,
+        .yo-ico-stop,
+        .yo-ico-loading {
+            display: none;
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            padding: 0 .08rem;
+            color: map-get($suggest, ico-color);
+        }
+        .yo-ico-loading {
+            @include animation(rotate 1s infinite linear);
+            @include transform-origin(center);
+        }
+        .label {
+            @include flexbox;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            @include transition(left .2s ease-in);
+            @include transform(translatex(-50%) translatez(0));
+            color: map-get($suggest, placeholder-color);
+        }
+        .placeholder {
+            margin-left: .08rem;
+        }
+        > .cancel {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            @include transform(translatey(-50%));
+            width: map-get($suggest, cancel-width);
+            padding: .1rem 0;
+            color: map-get($suggest, cancel-color);
+            text-align: center;
+        }
+    }
+    > .cont {
+        display: none;
+        background-color: map-get($suggest, mask-bgcolor);
+        > .recommend,
+        > .result {
+            @include fullscreen;
+        }
+    }
+    // focus形态
+    &-on {
+        > .operate {
+            .input {
+                border-color: map-get($suggest, on-bordercolor);
+                background-color: map-get($suggest, on-bgcolor);
+            }
+            .label {
+                left: .1rem;
+                @include transform(translatex(0) translatez(0));
+            }
+            .yo-ico-delete {
+                display: inline-block;
+            }
+        }
+        // 非独占形态，激活时展开cont，并使用绝对定位拉伸获得高度
+        // 需要通过设置top值来确定cont区域
+        > .cont {
+            display: block;
+            @include fullscreen(map-get($z-index, suggest));
+            top: .88rem;
+        }
+    }
+    // 独占形态搜索
+    &-modal {
+        @include flexbox;
+        @include flex-direction(column);
+        @include fullscreen(map-get($z-index, suggest), fixed);
+        // 独占形态时，在foucs时显示取消按钮
+        > .operate {
+            padding-right: map-get($suggest, cancel-width) !important;
+        }
+        // 独占形态时自动展开cont，并使用flex获得高度
+        > .cont {
+            display: block;
+            position: relative;
+            top: 0;
+            @include flex(1, column);
+        }
+    }
+}
 
 /**
- * @class widget
- */
-
-/**
- * 构造列表的自定义使用方法
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-suggest.html)
  * @method yo-suggest
+ * @desc 构造yo-suggest的自定义使用方法
+ * @demo 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-suggest.html)
  * @param {default | String} $name 定义yo-suggest名称
  * @param {default | Length} $height 定义yo-suggest高度
  * @param {default | Length} $font-size 定义yo-suggest文本大小
