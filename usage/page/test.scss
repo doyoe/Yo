@@ -2,12 +2,13 @@
 @import "../layout/layout";
 
 .yo-cols {
-    @include flexbox(inline-flex);
+    height: 300px;
+    @include flexbox;
     @include flex-wrap(wrap);
-    @include flex-direction(column);
+    @include justify-content(space-around);
+    @include align-content(space-around);
     > .item {
-        @include flex;
-        margin: 10px;
+        width: 100px;
         background-color: gray;
     }
     > .item:nth-child(2) {
