@@ -15,7 +15,7 @@ $setting: (
     // 是否开启厂商前缀
     is-vendor-prefix: true,
     // 厂商前缀
-    vendor-prefix:    -webkit-,
+    vendor-prefix:    -webkit- -moz- -ms-,
     // 是否开启iOS 1px方案
     is-ios-1pixel:    true,
     // 背景图片服务器
@@ -112,7 +112,7 @@ $stacked: (
 
 // Layout flex
 $flex: (
-    // {String} 定义弹性布局: flex |inline-flex
+    // {String} 定义弹性布局: flex | inline-flex
     box:       flex,
     // {String} 定义是水平布局还是垂直布局: row | column
     direction: column

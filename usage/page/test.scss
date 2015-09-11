@@ -1,1 +1,16 @@
 @charset "utf-8";
+@import "../layout/layout";
+
+.yo-cols {
+    @include flexbox(inline-flex);
+    @include flex-wrap(wrap);
+    @include flex-direction(column);
+    > .item {
+        @include flex;
+        margin: 10px;
+        background-color: gray;
+    }
+    > .item:nth-child(2) {
+        @include order(1);
+    }
+}

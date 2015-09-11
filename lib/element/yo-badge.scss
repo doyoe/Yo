@@ -4,7 +4,7 @@
 
 // 定义badge的基础构造
 @mixin _badge {
-    @include flexbox(inline);
+    @include flexbox(inline-flex);
     min-width: .16rem;
     min-height: .16rem;
     padding: map-get($badge, padding);

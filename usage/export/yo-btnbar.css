@@ -2,6 +2,8 @@
 ::before,
 ::after {
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
 }
@@ -11,6 +13,8 @@ html {
   color: #212121;
   font-size: 100px;
   -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
 }
 
@@ -203,6 +207,8 @@ input[type="reset"],
 input[type="file"]::-webkit-file-upload-button,
 input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
   appearance: none;
 }
 
@@ -268,6 +274,9 @@ body {
 .yo-flex .flex-inherit {
   display: -webkit-box;
   display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -281,6 +290,9 @@ body {
 .yo-flex .flex-inherit > .flex {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
+  -moz-box-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
   flex: 1;
   position: relative;
 }
@@ -303,6 +315,9 @@ body {
 .yo-align {
   display: -webkit-box;
   display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
   display: flex;
   position: absolute;
   top: 0;
@@ -390,11 +405,16 @@ body {
 .yo-list .front {
   display: -webkit-box;
   display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
   -webkit-align-items: center;
   align-items: center;
   -webkit-transform: translatez(0);
+  -moz-transform: translatez(0);
+  -ms-transform: translatez(0);
   transform: translatez(0);
 }
 
@@ -412,6 +432,9 @@ body {
 .yo-list .front > .flex {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
+  -moz-box-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
   flex: 1;
   width: .1px;
 }
@@ -466,8 +489,12 @@ body {
   color: #212121;
   font-size: 0.14rem;
   background-image: -webkit-linear-gradient(#ddd, #ddd);
+  background-image: -moz-linear-gradient(#ddd, #ddd);
+  background-image: -ms-linear-gradient(#ddd, #ddd);
   background-image: linear-gradient(#ddd, #ddd);
   -webkit-background-size: 100% 1px;
+  -moz-background-size: 100% 1px;
+  -ms-background-size: 100% 1px;
   background-size: 100% 1px;
   background-repeat: no-repeat;
   background-position: 0.1rem bottom;
@@ -476,6 +503,8 @@ body {
 .yo-list > .item:last-child {
   margin-bottom: -1px;
   background-image: -webkit-linear-gradient(#ccc, #ccc);
+  background-image: -moz-linear-gradient(#ccc, #ccc);
+  background-image: -ms-linear-gradient(#ccc, #ccc);
   background-image: linear-gradient(#ccc, #ccc);
   background-position: 0 bottom;
 }
@@ -583,6 +612,8 @@ body {
 
 .m-code {
   -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
   user-select: text;
   margin: .1rem;
   padding: .1rem;
@@ -625,6 +656,8 @@ body {
   border-color: #e26704;
   border-radius: 0.02rem;
   -webkit-background-clip: padding-box !important;
+  -moz-background-clip: padding-box !important;
+  -ms-background-clip: padding-box !important;
   background-clip: padding-box !important;
   background-color: #ff801a;
   color: #fff;

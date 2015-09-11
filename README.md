@@ -44,6 +44,8 @@ Yo约束了2种项目所使用的长度单位
     - 调整内部实现
 * update:
     - 拆分 `classes` 构造方法到各独立模块
+* update: `core classes`
+    - 更新 `flexbox()` 方法，支持 `Firefox` and `IE`，方法只接受：flex | inline-flex两个值，会自动转化不同的弹性盒草案
 
 ### Lastest: v1.8.4
 

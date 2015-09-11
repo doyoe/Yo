@@ -3,6 +3,8 @@
 ::before,
 ::after {
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
 }
@@ -12,6 +14,8 @@ html {
   color: #212121;
   font-size: 100px;
   -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
 }
 
@@ -204,6 +208,8 @@ input[type="reset"],
 input[type="file"]::-webkit-file-upload-button,
 input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
   appearance: none;
 }
 
@@ -269,6 +275,9 @@ body {
 .yo-flex .flex-inherit {
   display: -webkit-box;
   display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -282,6 +291,9 @@ body {
 .yo-flex .flex-inherit > .flex {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
+  -moz-box-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
   flex: 1;
   position: relative;
 }
@@ -304,6 +316,9 @@ body {
 .yo-align {
   display: -webkit-box;
   display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
   display: flex;
   position: absolute;
   top: 0;
@@ -432,6 +447,8 @@ body {
 
 .m-code {
   -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
   user-select: text;
   margin: .1rem;
   padding: .1rem;
@@ -502,6 +519,9 @@ body {
 .yo-loading {
   display: -webkit-box;
   display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
   display: flex;
   position: absolute;
   z-index: 9999;
@@ -525,6 +545,8 @@ body {
   padding: 0.1rem 0.2rem;
   border-radius: 0.05rem;
   -webkit-background-clip: padding-box !important;
+  -moz-background-clip: padding-box !important;
+  -ms-background-clip: padding-box !important;
   background-clip: padding-box !important;
   color: #212121;
   font-size: 0.14rem;
@@ -534,8 +556,12 @@ body {
   display: block;
   margin-bottom: .1rem;
   -webkit-animation: rotate 1s infinite linear;
+  -moz-animation: rotate 1s infinite linear;
+  -ms-animation: rotate 1s infinite linear;
   animation: rotate 1s infinite linear;
   -webkit-transform-origin: center;
+  -moz-transform-origin: center;
+  -ms-transform-origin: center;
   transform-origin: center;
 }
 

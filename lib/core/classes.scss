@@ -243,18 +243,42 @@
 /**
  * 定义显示类型为伸缩盒
  * @method flexbox
- * @param {String} $flexbox 默认值：flex，取值与最新原生语法一致
+ * @param {String} $flexbox 默认值：flex，可选值：flex | inline-flex
  */
 @mixin flexbox($flexbox: flex) {
     @if $flexbox == flex {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: flex;
+        // 老式浏览器
+        @if map-get($setting, is-vendor-prefix) {
+            @each $vendor in map-get($setting, vendor-prefix) {
+                // 当厂商前缀不为`-ms-`时输出`20090723`和`20120612-20140925`厂商前缀版
+                // 当厂商前缀为`-ms-`时输出`20120322`厂商前缀版
+                @if $vendor != -ms- {
+                    display: #{$vendor}box;
+                    display: #{$vendor}flex;
+                } @else {
+                    display: #{$vendor}flexbox;
+                }
+            }
+        }
+    } @else if $flexbox == inline-flex {
+        // 老式浏览器
+        @if map-get($setting, is-vendor-prefix) {
+            @each $vendor in map-get($setting, vendor-prefix) {
+                // 当厂商前缀不为`-ms-`时输出`20090723`和`20120612-20140925`厂商前缀版
+                // 当厂商前缀为`-ms-`时输出`20120322`厂商前缀版
+                @if $vendor != -ms- {
+                    display: #{$vendor}inline-box;
+                    display: #{$vendor}inline-flex;
+                } @else {
+                    display: #{$vendor}inline-flexbox;
+                }
+            }
+        }
     } @else {
-        display: -webkit-inline-box;
-        display: -webkit-inline-flex;
-        display: inline-flex;
+        @warn "flexbox() method don't have a `#{$flexbox}` value. please check your usage code.";
     }
+    // 现代浏览器
+    display: $flexbox;
 }
 
 /**
@@ -264,8 +288,20 @@
  * @param {String} $direction 默认值: row
  */
 @mixin flex($flex: 1, $direction: row) {
-    -webkit-box-flex: $flex;
-    -webkit-flex: $flex;
+    // 老式浏览器
+    @if map-get($setting, is-vendor-prefix) {
+        @each $vendor in map-get($setting, vendor-prefix) {
+            // 当厂商前缀不为`-ms-`时输出`20090723`和`20120612-20140925`厂商前缀版
+            // 当厂商前缀为`-ms-`时输出`20120322`厂商前缀版
+            @if $vendor != -ms- {
+                #{$vendor}box-flex: $flex;
+                #{$vendor}flex: $flex;
+            } @else {
+                #{$vendor}flex: $flex;
+            }
+        }
+    }
+    // 现代浏览器
     flex: $flex;
     // 修复Android Browser4.3及以下，iOS Safari6.1及以下按比例分配错误的问题
     @if $direction == row {
@@ -282,8 +318,20 @@
  * @param {String} $order 默认值：1，取值与最新原生语法一致
  */
 @mixin order($order: 1) {
-    -webkit-box-ordinal-group: $order;
-    -webkit-order: $order;
+    // 老式浏览器
+    @if map-get($setting, is-vendor-prefix) {
+        @each $vendor in map-get($setting, vendor-prefix) {
+            // 当厂商前缀不为`-ms-`时输出`20090723`和`20120612-20140925`厂商前缀版
+            // 当厂商前缀为`-ms-`时输出`20120322`厂商前缀版
+            @if $vendor != -ms- {
+                #{$vendor}box-ordinal-group: $order;
+                #{$vendor}order: $order;
+            } @else {
+                #{$vendor}order: $order;
+            }
+        }
+    }
+    // 现代浏览器
     order: $order;
 }
 
@@ -293,6 +341,21 @@
  * @param {String} $flex-direction 默认值：row，取值与最新原生语法一致
  */
 @mixin flex-direction($flex-direction: row) {
+    // @if $flexbox == flex {
+    //     // 老式浏览器
+    //     @if map-get($setting, is-vendor-prefix) {
+    //         @each $vendor in map-get($setting, vendor-prefix) {
+    //             // 当厂商前缀不为`-ms-`时输出`20090723`和`20120612-20140925`厂商前缀版
+    //             // 当厂商前缀为`-ms-`时输出`20120322`厂商前缀版
+    //             @if $vendor != -ms- {
+    //                 #{$vendor}box-ordinal-group: $order;
+    //                 #{$vendor}order: $order;
+    //             } @else {
+    //                 #{$vendor}order: $order;
+    //             }
+    //         }
+    //     }
+    // }
     @if $flex-direction == row {
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
@@ -311,18 +374,15 @@
 }
 
 /**
- * 定义伸缩盒子元素溢出排版
+ * 定义弹性盒子元素溢出排版
  * @method flex-wrap
  * @param {String} $flex-wrap 默认值：nowrap，取值与最新原生语法一致
  */
 @mixin flex-wrap($flex-wrap: nowrap) {
-    @if $flex-wrap == nowrap {
-        -webkit-box-lines: single;
-    } @else {
-        -webkit-box-lines: multiple;
-    }
-    -webkit-flex-wrap: $flex-wrap;
-    flex-wrap: $flex-wrap;
+    // 20090723草案版本弹性盒模块的box-lines属性虽然被webkit实验性质支援，但却未被任何浏览器实现
+    // 20110322-20120322草案版本只有IE10实验性质支援
+    // 20120612草案之后版本，支持性请参阅：http://css.doyoe.com/properties/flex/flex-wrap.htm
+    @include prefix(flex-wrap, $flex-wrap);
 }
 
 /**

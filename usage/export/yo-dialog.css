@@ -2,6 +2,8 @@
 ::before,
 ::after {
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
 }
@@ -11,6 +13,8 @@ html {
   color: #212121;
   font-size: 100px;
   -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
 }
 
@@ -203,6 +207,8 @@ input[type="reset"],
 input[type="file"]::-webkit-file-upload-button,
 input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
   appearance: none;
 }
 
@@ -268,6 +274,9 @@ body {
 .yo-flex .flex-inherit {
   display: -webkit-box;
   display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -281,6 +290,9 @@ body {
 .yo-flex .flex-inherit > .flex {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
+  -moz-box-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
   flex: 1;
   position: relative;
 }
@@ -303,6 +315,9 @@ body {
 .yo-align {
   display: -webkit-box;
   display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
   display: flex;
   position: absolute;
   top: 0;
@@ -435,6 +450,8 @@ body {
 
 .m-code {
   -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
   user-select: text;
   margin: .1rem;
   padding: .1rem;
@@ -477,6 +494,8 @@ body {
   border-color: #e26704;
   border-radius: 0.02rem;
   -webkit-background-clip: padding-box !important;
+  -moz-background-clip: padding-box !important;
+  -ms-background-clip: padding-box !important;
   background-clip: padding-box !important;
   background-color: #ff801a;
   color: #fff;
@@ -523,6 +542,9 @@ body {
 .yo-dialog {
   display: -webkit-box;
   display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -533,6 +555,8 @@ body {
   overflow: hidden;
   border-radius: 0.05rem;
   -webkit-background-clip: padding-box !important;
+  -moz-background-clip: padding-box !important;
+  -ms-background-clip: padding-box !important;
   background-clip: padding-box !important;
   box-shadow: 0 0 5px rgba(204, 204, 204, 0.5);
   border: 1px solid #ccc;
@@ -574,6 +598,9 @@ body {
 .yo-dialog > .bd {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
+  -moz-box-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
   flex: 1;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
@@ -585,6 +612,9 @@ body {
 .yo-dialog > .ft {
   display: -webkit-box;
   display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
   display: flex;
   text-align: center;
 }
@@ -598,6 +628,9 @@ body {
   display: block;
   -webkit-box-flex: 1;
   -webkit-flex: 1;
+  -moz-box-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
   flex: 1;
   width: .1px;
 }
@@ -628,5 +661,7 @@ body {
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
