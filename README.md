@@ -45,7 +45,7 @@ Yo约束了2种项目所使用的长度单位
 * update:
     - 拆分 `classes` 构造方法到各独立模块
 * update: `core classes`
-    - 更新 `flexbox()` 方法，支持 `Firefox` and `IE`，方法只接受：flex | inline-flex两个值，会自动转化不同的弹性盒草案
+    - 更新弹性盒相关方法，支持 `Firefox` and `IE`
     - 新增 `align-content()`方法，用于支持多行弹性容器侧轴对齐方式
 
 ### Lastest: v1.8.4

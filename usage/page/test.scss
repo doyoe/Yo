@@ -2,16 +2,18 @@
 @import "../layout/layout";
 
 .yo-cols {
+    width: 500px;
     height: 300px;
-    @include flexbox;
-    @include flex-wrap(wrap);
-    @include justify-content(space-around);
-    @include align-content(space-around);
+    @include flexbox(inline-flex);
+    // @include flex-wrap(wrap);
+    // @include justify-content(space-around);
+    // @include align-content(center);
+    // @include align-items(center);
     > .item {
         width: 100px;
         background-color: gray;
     }
     > .item:nth-child(2) {
-        @include order(1);
+        width: -webkit-calc(100% - 100px);
     }
 }
