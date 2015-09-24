@@ -1,15 +1,13 @@
 @charset "utf-8";
 /**
  * Yo框架全局基础方法
- -----------------------
  * Yo内置了包括响应式方案，CSS3兼容性方案，厂商前缀方案，iconfont方案，flex布局等全局方法
- *
- * @class classes
- * @module Yo
  */
 
 /**
- * 给需要的属性加厂家前缀
+ * @module core
+ * @class 功能
+ * @description 给需要的属性加厂家前缀
  * @method prefix
  * @param {String} $property 指定属性
  * @param {String} $value 指定属性值
@@ -28,7 +26,9 @@
 }
 
 /**
- * 四则运算
+ * @module core
+ * @class 功能
+ * @description 四则运算
  * @method calc
  * @param {String} $property 指定需要进行计算的CSS属性
  * @param {String} $value 与原生CSS语法一致，使用方式如：@include calc(width, #{100%} - #{.1rem});
@@ -48,22 +48,9 @@
 }
 
 /**
- * 定义渐变色值
- * @method gradient
- * @param {String} $type 指定渐变的4种类型：linear, repeating-linear, radial, repeating-radial
- * @param {String} $gradient 指定渐变取值，与w3c最新原生语法一致
- */
-@mixin gradient($type, $gradient...) {
-    @if map-get($setting, is-vendor-prefix) {
-        @each $vendor in map-get($setting, vendor-prefix) {
-            background-image: #{$vendor}#{$type}-gradient($gradient);
-        }
-    }
-    background-image: #{$type}-gradient($gradient);
-}
-
-/**
- * 定义响应式方案
+ * @module core
+ * @class 功能
+ * @description 定义响应式方案
  * @method responsive
  * @param {String} $media 指定媒体查询条件
  */
@@ -78,7 +65,9 @@
 }
 
 /**
- * 定义字体图标
+ * @module core
+ * @class 功能
+ * @description 定义字体图标
  * @method yofont
  */
 @mixin yofont() {
@@ -86,18 +75,11 @@
     @if map-get($ico, is-use) {
         @font-face {
             font-family: map-get($ico, font-name);
-            // 如果只需要其中的某种字体，其它的几种字体可以使用空文件（不会请求），但必须存在
-            // IE9 - 不考虑IE9
-            // src: url("#{map-get($ico,font-path)}#{map-get($ico,font-name)}.eot");
             src:
-                // IE6-8 - 不考虑
-                // url("#{map-get($ico,font-path)}#{map-get($ico,font-name)}.eot?#iefix") format("embedded-opentype"),
-                // chrome、firefox
+                // 现代浏览器
                 url("#{map-get($ico,font-path)}#{map-get($ico,font-name)}.woff") format("woff"),
-                // chrome、firefox、opera、Safari, Android, iOS 4.2+
+                // Android2.2+
                 url("#{map-get($ico,font-path)}#{map-get($ico,font-name)}.ttf") format("truetype");
-                // iOS 4.1- - 不考虑
-                // url("#{map-get($ico,font-path)}#{map-get($ico,font-name)}.svg#iconfont") format("svg");
         }
         .yo-ico {
             font-family: map-get($ico, font-name) !important;
@@ -112,7 +94,142 @@
 }
 
 /**
- * 滤镜
+ * @module core
+ * @class 功能
+ * @description 清除浮动方案
+ * @method clearfix
+ */
+@mixin clearfix() {
+    &::after{
+        display: block;
+        overflow: hidden;
+        clear: both;
+        height: 0;
+        content: "\0020";
+    }
+}
+
+/**
+ * @module core
+ * @class 功能
+ * @description 清除间隙方案-容器
+ * @method killspace
+ */
+@mixin killspace() {
+    font-size: 0;
+    font-family: arial;
+}
+
+/**
+ * @module core
+ * @class 功能
+ * @description 清除间隙方案-子级
+ * @method killspace-item
+ */
+@mixin killspace-item() {
+    display: inline-block;
+    font-size: map-get($base, font-size);
+    font-family: map-get($base, font-family);
+}
+
+/**
+ * @module core
+ * @class 功能
+ * @description 未知尺寸元素垂直居中解决方案-容器
+ * @method valign
+ */
+@mixin valign() {
+    @include killspace();
+    &::after{
+        overflow: hidden;
+        width: 0;
+        height: 100%;
+        content: "\0020";
+        vertical-align: middle;
+    }
+}
+
+/**
+ * @module core
+ * @class 功能
+ * @description 未知尺寸元素垂直居中解决方案-子级
+ * @method valign-item
+ */
+@mixin valign-item() {
+    @include killspace-item();
+    vertical-align: middle;
+}
+
+/**
+ * @module core
+ * @class 功能
+ * @description 已知尺寸元素垂直居中解决方案
+ * @method alignment
+ * @param {Length} $width 居中元素的宽度
+ * @param {Length} $height 居中元素的高度
+ */
+@mixin alignment($width: 2rem, $height: 2rem) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: $width;
+    height: $height;
+    margin-top: -$height/2;
+    margin-left: -$width/2;
+}
+
+/**
+ * @module core
+ * @class 功能
+ * @description 定义根节点 root-scroll
+ * @method root-scroll
+ * @param {String} $root-scroll 指定scroll类型，取值overflow属性的标准值
+ */
+@mixin root-scroll($root-scroll: hidden) {
+    html,
+    body {
+        overflow: $root-scroll;
+        height: 100%;
+    }
+}
+
+/**
+ * @module core
+ * @class 功能
+ * @description 定义是否有滚动条
+ * @method overflow
+ * @param {String} $overflow 默认值：auto，取值与最新原生语法一致
+ */
+@mixin overflow($overflow: auto) {
+    @if $overflow == auto {
+        overflow: auto;
+        // 移除此条规则，防止iOS webview崩溃
+        // -webkit-overflow-scrolling: touch;
+    } @else {
+        overflow: $overflow;
+    }
+}
+
+/**
+ * @module core
+ * @class 功能
+ * @description 生成全屏方法
+ * @method fullscreen
+ * @param {Integer} $z-index 定义层叠级别
+ */
+@mixin fullscreen($z-index: null, $position: absolute) {
+    position: $position;
+    z-index: $z-index;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+/**
+ * @module core
+ * @class 用户界面
+ * @description 滤镜
  * @method filter
  * @param {String} $filter 取值与原生语法一致
  */
@@ -121,7 +238,9 @@
 }
 
 /**
- * 定义UA默认外观
+ * @module core
+ * @class 用户界面
+ * @description 定义UA默认外观
  * @method appearance
  * @param {String} $appearance 指定UA外观类型
  */
@@ -130,7 +249,9 @@
 }
 
 /**
- * 定义是否可以选中元素
+ * @module core
+ * @class 用户界面
+ * @description 定义是否可以选中元素
  * @method user-select
  * @param {String} $user-select 指定是否可以选中
  */
@@ -139,34 +260,9 @@
 }
 
 /**
- * 定义背景图像缩放（Android Browser2.3.*还需要厂商前缀）
- * @method background-size
- * @param {String | Length} $background-size 指定背景图缩放值
- */
-@mixin background-size($background-size...) {
-    @include prefix(background-size, $background-size);
-}
-
-/**
- * 定义背景裁减（Android Browser2.3.*还需要厂商前缀）
- * @method background-clip
- * @param {String} $background-clip 指定背景图缩放值
- */
-@mixin background-clip($background-clip...) {
-    @include prefix(background-clip, $background-clip);
-}
-
-/**
- * 定义背景显示区域（Android Browser2.3.*还需要厂商前缀）
- * @method background-origin
- * @param {String} $background-origin 指定背景图缩放值
- */
-@mixin background-origin($background-origin...) {
-    @include prefix(background-origin, $background-origin);
-}
-
-/**
- * 定义盒模型
+ * @module core
+ * @class 用户界面
+ * @description 定义盒模型
  * @method box-sizing
  * @param {String} $box-sizing 的2个值分别为：content-box(标准盒模型) | border-box(怪异盒模型)
  */
@@ -175,7 +271,59 @@
 }
 
 /**
- * 定义圆角
+ * @module core
+ * @class 背景与边框
+ * @description 定义渐变色值
+ * @method gradient
+ * @param {String} $type 指定渐变的4种类型：linear, repeating-linear, radial, repeating-radial
+ * @param {String} $gradient 指定渐变取值，与w3c最新原生语法一致
+ */
+@mixin gradient($type, $gradient...) {
+    @if map-get($setting, is-vendor-prefix) {
+        @each $vendor in map-get($setting, vendor-prefix) {
+            background-image: #{$vendor}#{$type}-gradient($gradient);
+        }
+    }
+    background-image: #{$type}-gradient($gradient);
+}
+
+/**
+ * @module core
+ * @class 背景与边框
+ * @description 定义背景图像缩放（Android Browser2.3.*还需要厂商前缀）
+ * @method background-size
+ * @param {String | Length} $background-size 指定背景图缩放值
+ */
+@mixin background-size($background-size...) {
+    @include prefix(background-size, $background-size);
+}
+
+/**
+ * @module core
+ * @class 背景与边框
+ * @description 定义背景裁减（Android Browser2.3.*还需要厂商前缀）
+ * @method background-clip
+ * @param {String} $background-clip 指定背景图缩放值
+ */
+@mixin background-clip($background-clip...) {
+    @include prefix(background-clip, $background-clip);
+}
+
+/**
+ * @module core
+ * @class 背景与边框
+ * @description 定义背景显示区域（Android Browser2.3.*还需要厂商前缀）
+ * @method background-origin
+ * @param {String} $background-origin 指定背景图缩放值
+ */
+@mixin background-origin($background-origin...) {
+    @include prefix(background-origin, $background-origin);
+}
+
+/**
+ * @module core
+ * @class 背景与边框
+ * @description 定义圆角
  * @method border-radius
  * @param {String} $border-radius 取值与原生语法一致
  */
@@ -187,7 +335,8 @@
 }
 
 /**
- * 定义简单变换
+ * @module core
+ * @description 定义简单变换
  * @method transform
  * @param {String} $transform 取值与原生语法一致
  */
@@ -196,7 +345,8 @@
 }
 
 /**
- * 定义变换原点
+ * @module core
+ * @description 定义变换原点
  * @method transform-origin
  * @param {String} $transform-origin 取值与原生语法一致
  */
@@ -205,7 +355,8 @@
 }
 
 /**
- * 定义动画
+ * @module core
+ * @description 定义动画
  * @method animation
  * @param {String} $animation 取值与原生语法一致
  */
@@ -214,7 +365,8 @@
 }
 
 /**
- * 定义补间
+ * @module core
+ * @description 定义补间
  * @method transition
  * @param {String} $transition 取值与原生语法一致
  */
@@ -246,7 +398,9 @@
 }
 
 /**
- * 定义显示类型为伸缩盒
+ * @module core
+ * @class 弹性盒
+ * @description 定义显示类型为伸缩盒
  * @method flexbox
  * @param {String} $flexbox 默认值：flex，可选值：flex | inline-flex
  */
@@ -277,7 +431,9 @@
 }
 
 /**
- * 定义伸缩盒子元素如何分配空间
+ * @module core
+ * @class 弹性盒
+ * @description 定义伸缩盒子元素如何分配空间
  * @method flex
  * @param {String} $flex 默认值：1，取值与最新原生语法一致
  * @param {String} $direction 默认值: row
@@ -308,7 +464,9 @@
 }
 
 /**
- * 定义伸缩盒子元素的排版顺序
+ * @module core
+ * @class 弹性盒
+ * @description 定义伸缩盒子元素的排版顺序
  * @method order
  * @param {String} $order 默认值：1，取值范围与最新草案语法一致
  */
@@ -331,7 +489,9 @@
 }
 
 /**
- * 定义伸缩盒子元素的流动方向
+ * @module core
+ * @class 弹性盒
+ * @description 定义伸缩盒子元素的流动方向
  * @method flex-direction
  * @param {String} $flex-direction 默认值：row，取值范围与最新草案语法一致
  */
@@ -387,7 +547,9 @@
 }
 
 /**
- * 定义弹性盒子元素溢出排版
+ * @module core
+ * @class 弹性盒
+ * @description 定义弹性盒子元素溢出排版
  * @method flex-wrap
  * @param {String} $flex-wrap 默认值：nowrap，取值范围与最新草案语法一致
  */
@@ -398,7 +560,9 @@
 }
 
 /**
- * 定义弹性容器主轴对齐方式
+ * @module core
+ * @class 弹性盒
+ * @description 定义弹性容器主轴对齐方式
  * @method justify-content
  * @param {String} $justify-content 默认值：center，取值范围与最新草案语法一致
  */
@@ -476,7 +640,9 @@
 }
 
 /**
- * 定义多行弹性容器侧轴对齐方式
+ * @module core
+ * @class 弹性盒
+ * @description 定义多行弹性容器侧轴对齐方式
  * @method align-content
  * @version 1.8.5
  * @param {String} $align-content 默认值：center，取值范围与最新草案语法一致
@@ -549,7 +715,9 @@
 }
 
 /**
- * 定义单行弹性容器侧轴对齐方式
+ * @module core
+ * @class 弹性盒
+ * @description 定义单行弹性容器侧轴对齐方式
  * @method align-items
  * @param {String} $align-items 默认值：center，取值与最新原生语法一致
  */
@@ -600,7 +768,9 @@
 }
 
 /**
- * 定义弹性容器中子元素自身的在侧轴对齐方式
+ * @module core
+ * @class 弹性盒
+ * @description 定义弹性容器中子元素自身的在侧轴对齐方式
  * @method align-self
  * @param {String} $align-self 默认值：center，取值与最新原生语法一致
  */
@@ -648,34 +818,9 @@
 }
 
 /**
- * 定义root root-scroll
- * @method root-scroll
- * @param {String} $root-scroll 指定scroll类型，取值overflow属性的标准值
- */
-@mixin root-scroll($root-scroll: hidden) {
-    html,
-    body {
-        overflow: $root-scroll;
-        height: 100%;
-    }
-}
-
-/**
- * 定义是否有滚动条
- * @method overflow
- * @param {String} $overflow 默认值：auto，取值与最新原生语法一致
- */
-@mixin overflow($overflow: auto) {
-    @if $overflow == auto {
-        overflow: auto;
-        -webkit-overflow-scrolling: touch;
-    } @else {
-        overflow: $overflow;
-    }
-}
-
-/**
- * 生成矩形方法
+ * @module core
+ * @class 形状
+ * @description 生成矩形方法
  * @method rect
  * @param {Length} $width 定义矩形的长度
  * @param {Length} $height 定义矩形的高度
@@ -686,7 +831,9 @@
 }
 
 /**
- * 生成正方形方法
+ * @module core
+ * @class 形状
+ * @description 生成正方形方法
  * @method square
  * @param {Length} $size 定义正方形的边长
  */
@@ -696,7 +843,9 @@
 }
 
 /**
- * 生成圆形方法
+ * @module core
+ * @class 形状
+ * @description 生成圆形方法
  * @method circle
  * @param {Length} $size 定义圆的半径长度
  * @param {Length} $radius 定义圆的圆角半径长度
@@ -707,35 +856,9 @@
 }
 
 /**
- * 生成全屏方法
- * @method fullscreen
- * @param {Integer} $z-index 定义层叠级别
- */
-@mixin fullscreen($z-index: null, $position: absolute) {
-    position: $position;
-    z-index: $z-index;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-}
-
-/**
- * 清除浮动方案
- * @method clearfix
- */
-@mixin clearfix() {
-    &::after{
-        display: block;
-        overflow: hidden;
-        clear: both;
-        height: 0;
-        content: "\0020";
-    }
-}
-
-/**
- * 链接处理方法
+ * @module core
+ * @class 文本
+ * @description 链接处理方法
  * @method link
  * @param {Color} $color 定义链接颜色
  */
@@ -748,7 +871,9 @@
 }
 
 /**
- * 强制换行方案
+ * @module core
+ * @class 文本
+ * @description 强制换行方案
  * @method wrap
  */
 @mixin wrap() {
@@ -757,7 +882,9 @@
 }
 
 /**
- * 单行文本溢出显示方案
+ * @module core
+ * @class 文本
+ * @description 单行文本溢出显示方案
  * @method ellipsis
  * @param {Boolen} $ellipsis 定义是否需要省略号
  */
@@ -770,70 +897,13 @@
 }
 
 /**
- * 文字隐藏方案
+ * @module core
+ * @class 文本
+ * @description 文字隐藏方案
  * @method texthide
  */
 @mixin texthide() {
     overflow: hidden;
     white-space: nowrap;
     text-indent: 100%;
-}
-
-/**
- * 清除间隙方案-容器
- * @method killspace
- */
-@mixin killspace() {
-    font-size: 0;
-    font-family: arial;
-}
-
-/**
- * 清除间隙方案-子级
- * @method killspace-item
- */
-@mixin killspace-item() {
-    display: inline-block;
-    font-size: map-get($base, font-size);
-    font-family: map-get($base, font-family);
-}
-
-/**
- * 未知尺寸元素垂直居中解决方案-容器
- * @method valign
- */
-@mixin valign() {
-    @include killspace();
-    &::after{
-        overflow: hidden;
-        width: 0;
-        height: 100%;
-        content: "\0020";
-        vertical-align: middle;
-    }
-}
-
-/**
- * 未知尺寸元素垂直居中解决方案-子级
- * @method valign-item
- */
-@mixin valign-item() {
-    @include killspace-item();
-    vertical-align: middle;
-}
-
-/**
- * 已知尺寸元素垂直居中解决方案
- * @method alignment
- * @param {Length} $width 居中元素的宽度
- * @param {Length} $height 居中元素的高度
- */
-@mixin alignment($width: 2rem, $height: 2rem) {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: $width;
-    height: $height;
-    margin-top: -$height/2;
-    margin-left: -$width/2;
 }

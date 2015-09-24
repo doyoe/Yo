@@ -121,25 +121,26 @@
 }
 
 /**
+ * @module widget
  * @method yo-suggest
- * @desc 构造yo-suggest的自定义使用方法
+ * @description 构造yo-suggest的自定义使用方法
  * @demo 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-suggest.html)
- * @param {default | String} $name 定义yo-suggest名称
- * @param {default | Length} $height 定义yo-suggest高度
- * @param {default | Length} $font-size 定义yo-suggest文本大小
- * @param {default | Length} $op-padding 定义yo-suggest内补白
- * @param {default | Length} $radius 定义yo-suggest圆角
- * @param {default | Color} $bordercolor 定义yo-suggest边框色
- * @param {default | Color} $bgcolor 定义yo-suggest背景色
- * @param {default | Color} $color 定义yo-suggest文本色
- * @param {default | Color} $on-bordercolor 定义yo-suggest激活边框色
- * @param {default | Color} $on-bgcolor 定义yo-suggest激活背景色
- * @param {default | Color} $placeholder-color 定义yo-suggest占位背景色
- * @param {default | Color} $ico-color 定义yo-suggest 操作区ico颜色
- * @param {default | Color} $cancel-color 定义yo-suggest取消按钮颜色
- * @param {default | Color} $op-bgcolor 定义yo-suggest搜索区域背景色
- * @param {default | Color} $mask-bgcolor 定义yo-suggest遮罩背景色
- * @param {default | Length} $cancel-width 取消按钮区域宽度
+ * @param {String} $name 定义yo-suggest名称
+ * @param {Length} $height 定义yo-suggest高度
+ * @param {Length} $font-size 定义yo-suggest文本大小
+ * @param {Length} $op-padding 定义yo-suggest内补白
+ * @param {Length} $radius 定义yo-suggest圆角
+ * @param {Color} $bordercolor 定义yo-suggest边框色
+ * @param {Color} $bgcolor 定义yo-suggest背景色
+ * @param {Color} $color 定义yo-suggest文本色
+ * @param {Color} $on-bordercolor 定义yo-suggest激活边框色
+ * @param {Color} $on-bgcolor 定义yo-suggest激活背景色
+ * @param {Color} $placeholder-color 定义yo-suggest占位背景色
+ * @param {Color} $ico-color 定义yo-suggest 操作区ico颜色
+ * @param {Color} $cancel-color 定义yo-suggest取消按钮颜色
+ * @param {Color} $op-bgcolor 定义yo-suggest搜索区域背景色
+ * @param {Color} $mask-bgcolor 定义yo-suggest遮罩背景色
+ * @param {Length} $cancel-width 取消按钮区域宽度
  */
 
 @mixin yo-suggest(

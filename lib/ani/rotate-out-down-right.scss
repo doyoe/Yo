@@ -2,15 +2,11 @@
 @import "classes";
 
 /**
- * @class ani
- * @module Yo
- */
-
-/**
- * 定义旋转从右往下退出动画
+ * @module animate
+ * @class rotate
+ * @description 定义旋转从右往下退出动画
  * @method rotate-out-down-right
  */
-
 @-webkit-keyframes rotate-out-down-right {
 	0% {
 		-webkit-transform-origin: right bottom;

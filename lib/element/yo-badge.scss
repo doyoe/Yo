@@ -25,8 +25,9 @@
 }
 
 /**
+ * @module element
  * @method yo-badge
- * @desc 构造提醒气泡的自定义使用方法，可以扩展为：tag, 文字ico等形态
+ * @description 构造提醒气泡的自定义使用方法，可以扩展为：tag, 文字ico等形态
  * @demo 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/element/yo-btn.html)
  * @param {String} $name 为新的扩展定义一个名称，假设扩展了一个 `$name` 为 `tag` 的 `yo-badge`，那么你可以这样使用 `<span class="yo-badge yo-badge-tag">`
  * @param {Length} $padding 内补白

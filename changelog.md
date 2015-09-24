@@ -2,7 +2,6 @@
 
 History Version and release time.
 
-<a name="v1-8-4"></a>
 ## v1.8.4 (2015.9.7)
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v1.8.4)
@@ -16,7 +15,6 @@ History Version and release time.
 * add: `kami`
     - 增加 `kami` 入口文件目录
 
-<a name="v1-8-3"></a>
 ## v1.8.3 (2015.8.20)
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v1.8.3)
@@ -28,7 +26,6 @@ History Version and release time.
 * update: `fullscreen` mixin
     - 新增 `position` 参数用以定位方式，默认为 `absolute`
 
-<a name="v1-8-2"></a>
 ## v1.8.2 (2015.8.4)
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v1.8.2)
@@ -48,7 +45,6 @@ History Version and release time.
     @include flex(n, column);
     ```
 
-<a name="v1-8-1"></a>
 ## v1.8.1 (2015.7.16)
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v1.8.1)
@@ -66,7 +62,6 @@ History Version and release time.
     - 修复item最后一根线在mate7上的重叠问题
     - 修复item底边线在QQ X5上不支持background-position取4个值的问题
 
-<a name="v1-8-0"></a>
 ## v1.8.0 (2015.6.29)
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v1.8.0)
@@ -80,7 +75,6 @@ History Version and release time.
 * update: `yo-list`
     - 新增 `item-border-space` 变量用于控制列表项底线距左边的间隙
 
-<a name="v1-7-0"></a>
 ## v1.7.0 (2015.6.3)
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v1.7.0)
@@ -104,7 +98,6 @@ History Version and release time.
     - 新增了 `calc` global classes 方法
     - 新增了 `fullscreen` global classes 方法，可传入 `z-index` 值
 
-<a name="v1-6-0"></a>
 ## v1.6.0 (2015.5.25)
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v1.6.0)
@@ -122,7 +115,6 @@ History Version and release time.
 * update: `ani`
     - 新增 `rotate` 动画
 
-<a name="v1-5-0"></a>
 ## v1.5.0 (2015.4.30)
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v1.5.0)
@@ -140,7 +132,6 @@ History Version and release time.
 * update:
     - 删除元素 `yo-checkbox` 和 `yo-radio`，如已使用可以直接改用 `yo-checked`
 
-<a name="v1-4-0"></a>
 ## v1.4.0 (2015.4.16)
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v1.4.0)
@@ -171,7 +162,6 @@ History Version and release time.
 * update: `yo-search`
     - 增加 `cancel-width` 参数，用于设置取消按钮区域的宽度
 
-<a name="v1-3-1"></a>
 ## v1.3.1 (2015.3.27)
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v1.3.1)
@@ -197,7 +187,6 @@ History Version and release time.
 * update: yo-rating 外观
     - 增加 `url` 参数用于改变 yo-rating 的外观；
 
-<a name="v1-2-0"></a>
 ## v1.2.0 (2015.3.20)
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v1.2.0)
@@ -215,7 +204,6 @@ History Version and release time.
 * add yo-panel；
 * fixed: fixed yo-switch handle bug on samsung s4；
 
-<a name="v1-1-0"></a>
 ## v1.1.0 (2015.3.12)
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v1.1.0)
@@ -226,7 +214,6 @@ History Version and release time.
 * update: add border for yo-badge
 * update: add width 100% for yo-switchable wrap
 
-<a name="v1-0-0"></a>
 ## v1.0.0 (2015.3.9)
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v1.0.0)

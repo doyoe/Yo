@@ -2,15 +2,11 @@
 @import "classes";
 
 /**
- * @class ani
- * @module Yo
- */
-
-/**
- * 定义旋转退出动画
+ * @module animate
+ * @class rotate
+ * @description 定义旋转退出动画
  * @method rotate-out
  */
-
 @-webkit-keyframes rotate-out {
 	0% {
 		-webkit-transform-origin: center;

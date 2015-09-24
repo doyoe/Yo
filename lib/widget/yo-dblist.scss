@@ -11,6 +11,7 @@
     > .item {
         position: relative;
         min-width: .1rem;
+        height: 100%;
         &:first-child {
             width: map-get($dblist, aside-width);
             @include order(map-get($dblist, aside-order));
@@ -22,8 +23,9 @@
 }
 
 /**
+ * @module widget
  * @method yo-dblist
- * @desc 构造yo-dblist的自定义使用方法
+ * @description 构造yo-dblist的自定义使用方法
  * @demo 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-dblist.html)
  * @param {String} $name 扩展的名称
  * @param {Length} $aside-width 侧边栏宽度

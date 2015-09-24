@@ -2,15 +2,11 @@
 @import "classes";
 
 /**
- * @class ani
- * @module Yo
- */
-
-/**
- * 定义弹性下落动画
+ * @module animate
+ * @class elastic
+ * @description 定义弹性下落动画
  * @method elastic-in-down
  */
-
 @-webkit-keyframes elastic-in-down {
 	0% {
 		opacity: 0;

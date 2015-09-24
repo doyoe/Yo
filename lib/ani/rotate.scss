@@ -2,15 +2,11 @@
 @import "classes";
 
 /**
- * @class ani
- * @module Yo
- */
-
-/**
- * 定义旋转动画
+ * @module animate
+ * @class rotate
+ * @description 定义旋转动画
  * @method rotate
  */
-
 @-webkit-keyframes rotate {
     from {
         -webkit-transform: rotatez(0);

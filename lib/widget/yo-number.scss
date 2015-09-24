@@ -49,17 +49,18 @@
 }
 
 /**
+ * @module widget
  * @method yo-number
- * @desc 构造列表的自定义使用方法
+ * @description 构造列表的自定义使用方法
  * @demp 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-number.html)
- * @param {default | String} $name 定义yo-number名称
- * @param {default | Length} $width 定义yo-number宽度
- * @param {default | Length} $height 定义yo-number高度
- * @param {default | Color} $bordercolor 定义yo-number边框色
- * @param {default | Color} $color 定义yo-number输入框文本色
- * @param {default | Color} $sign-bgcolor 定义yo-number加减号背景色
- * @param {default | Color} $sign-color 定义yo-number加减号文本色
- * @param {default | Color} $disabled-sign-color 定义yo-number禁用文本色
+ * @param {String} $name 定义yo-number名称
+ * @param {Length} $width 定义yo-number宽度
+ * @param {Length} $height 定义yo-number高度
+ * @param {Color} $bordercolor 定义yo-number边框色
+ * @param {Color} $color 定义yo-number输入框文本色
+ * @param {Color} $sign-bgcolor 定义yo-number加减号背景色
+ * @param {Color} $sign-color 定义yo-number加减号文本色
+ * @param {Color} $disabled-sign-color 定义yo-number禁用文本色
  */
 
 @mixin yo-number(

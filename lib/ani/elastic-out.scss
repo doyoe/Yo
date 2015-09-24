@@ -2,20 +2,17 @@
 @import "classes";
 
 /**
- * @class ani
- * @module Yo
- */
-
-/**
- * 定义弹性移出动画
+ * @module animate
+ * @class elastic
+ * @description 定义弹性移出动画
  * @method elastic-out
  */
-
 @-webkit-keyframes elastic-out {
 	20% {
 		-webkit-transform: scale3d(.9, .9, .9);
 	}
-	50%, 55% {
+	50%,
+	55% {
 		opacity: 1;
 		-webkit-transform: scale3d(1.1, 1.1, 1.1);
 	}
@@ -28,7 +25,8 @@
 	20% {
 		transform: scale3d(.9, .9, .9);
 	}
-	50%, 55% {
+	50%,
+	55% {
 		opacity: 1;
 		transform: scale3d(1.1, 1.1, 1.1);
 	}
@@ -37,7 +35,6 @@
 		transform: scale3d(.3, .3, .3);
 	}
 }
-
 
 .ani.elastic-out {
 	-webkit-animation-name: elastic-out;

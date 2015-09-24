@@ -1,19 +1,33 @@
 @charset "utf-8";
 @import "../layout/layout";
 
-.yo-cols {
-    width: 500px;
-    height: 300px;
-    @include flexbox(inline-flex);
-    // @include flex-wrap(wrap);
-    // @include justify-content(space-around);
-    // @include align-content(center);
-    // @include align-items(center);
+.yo-nav {
+    // 构造一个横纵向参数，用来配置nav的流向
+    @include flexbox;
+    height: 100px;
     > .item {
-        width: 100px;
+        @include flex;
+        margin: .1rem;
         background-color: gray;
     }
-    > .item:nth-child(2) {
-        width: -webkit-calc(100% - 100px);
+    > .item:nth-child(3) {
+        @include order(1);
     }
+    > div {
+        color: red;
+        &::after {
+            content: "\0020";
+        }
+    }
+}
+// OPPO,VIVO等手机上图片圆角问题
+.test {
+    display: inline-block;
+    overflow: hidden;
+    @include border-radius(50%);
+    border: 10px solid red;
+    background-color: blue;
+}
+.img {
+    @include border-radius(50%);
 }

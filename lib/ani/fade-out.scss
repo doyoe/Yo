@@ -2,15 +2,11 @@
 @import "classes";
 
 /**
- * @class ani
- * @module Yo
- */
-
-/**
- * 定义淡出动画
+ * @module animate
+ * @class fade
+ * @description 定义淡出动画
  * @method fade-out
  */
-
 @-webkit-keyframes fade-out {
 	0% {
 		opacity: 1;

@@ -2,16 +2,11 @@
 @import "classes";
 
 /**
- * @class ani
- * @module Yo
- */
-
-/**
- * 定义弹性升起动画
+ * @module animate
+ * @class elastic
+ * @description 定义弹性升起动画
  * @method elastic-in-up
-
  */
-
 @-webkit-keyframes elastic-in-up {
 	0% {
 		opacity: 0;
@@ -50,7 +45,6 @@
 		transform: translate3d(0, 0, 0);
 	}
 }
-
 
 .ani.elastic-in-up {
 	-webkit-animation-name: elastic-in-up;

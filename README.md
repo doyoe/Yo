@@ -47,6 +47,8 @@ Yo约束了2种项目所使用的长度单位
 * update: `core classes`
     - 更新弹性盒相关方法，支持 `Firefox` and `IE`
     - 新增 `align-content()`方法，用于支持多行弹性容器侧轴对齐方式
+* update: `yo-datepicker`
+    - 恢复该组件内部的flex布局
 
 ### Lastest: v1.8.4
 

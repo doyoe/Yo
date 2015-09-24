@@ -2,15 +2,11 @@
 @import "classes";
 
 /**
- * @class ani
- * @module Yo
- */
-
-/**
- * 定义从上面淡出动画
+ * @module animate
+ * @class fade
+ * @description 定义从上面淡出动画
  * @method fade-out-up
  */
-
 @-webkit-keyframes fade-out-up {
 	0% {
 		opacity: 1;

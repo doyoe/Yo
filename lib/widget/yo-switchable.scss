@@ -66,19 +66,20 @@
 }
 
 /**
+ * @module widget
  * @method yo-switchable
- * @desc 构造yo-switchable的自定义使用方法
+ * @description 构造yo-switchable的自定义使用方法
  * @demo 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-switchable.html)
- * @param {default | String} $name 扩展的名称
- * @param {default | Boolen} $has-btn 是否有按钮
- * @param {default | Length} $btn-size 按钮大小
- * @param {default | Length} $btn-bgcolor 按钮背景色
- * @param {default | Length} $btn-color 按钮文本色
- * @param {default | Color} $btn-active-bgcolor 按钮按下背景色
- * @param {default | Length} $btn-active-color 按钮按下文本色
- * @param {default | Length} $index-size 索引大小
- * @param {default | Color} $index-bgcolor 索引背景色
- * @param {default | Length} $index-on-bgcolor 索引当前项背景色
+ * @param {String} $name 扩展的名称
+ * @param {Boolen} $has-btn 是否有按钮
+ * @param {Length} $btn-size 按钮大小
+ * @param {Length} $btn-bgcolor 按钮背景色
+ * @param {Length} $btn-color 按钮文本色
+ * @param {Color} $btn-active-bgcolor 按钮按下背景色
+ * @param {Length} $btn-active-color 按钮按下文本色
+ * @param {Length} $index-size 索引大小
+ * @param {Color} $index-bgcolor 索引背景色
+ * @param {Length} $index-on-bgcolor 索引当前项背景色
  */
 
 @mixin yo-switchable(

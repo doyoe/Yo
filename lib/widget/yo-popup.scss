@@ -108,21 +108,22 @@
 }
 
 /**
+ * @module widget
  * @method yo-popup
- * @desc 构造yo-popup的自定义使用方法
+ * @description 构造yo-popup的自定义使用方法
  * @demo 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-popup.html)
- * @param {default | String} $name 定义popup名称
- * @param {default | Length | null} $width 定义popup宽度
- * @param {default | Length} $height 定义popup高度
- * @param {default | Length} $radius 定义popup圆角
- * @param {default | Number} $shadow-opacity 定义popup阴影透明度
- * @param {default | Color} $bordercolor 定义popup边框色
- * @param {default | Length} $hd-height 定义popup头部高度
- * @param {default | Color} $hd-bgcolor 定义popup头部背景色
- * @param {default | Color} $title-color 定义popup标题文本色
- * @param {default | Length} $title-font-size 定义popup标题字号
- * @param {default | Length} $bd-padding 定义popup主体补白
- * @param {default | Length} $arrow-size 定义popup箭头高度
+ * @param {String} $name 定义popup名称
+ * @param {Length | null} $width 定义popup宽度
+ * @param {Length} $height 定义popup高度
+ * @param {Length} $radius 定义popup圆角
+ * @param {Number} $shadow-opacity 定义popup阴影透明度
+ * @param {Color} $bordercolor 定义popup边框色
+ * @param {Length} $hd-height 定义popup头部高度
+ * @param {Color} $hd-bgcolor 定义popup头部背景色
+ * @param {Color} $title-color 定义popup标题文本色
+ * @param {Length} $title-font-size 定义popup标题字号
+ * @param {Length} $bd-padding 定义popup主体补白
+ * @param {Length} $arrow-size 定义popup箭头高度
  */
 
 @mixin yo-popup(

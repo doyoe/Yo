@@ -2,15 +2,11 @@
 @import "classes";
 
 /**
- * @class ani
- * @module Yo
- */
-
-/**
- * 定义从右侧翻滚出去动画
+ * @module animate
+ * @class roll
+ * @description 定义从右侧翻滚出去动画
  * @method roll-out-right
  */
-
 @-webkit-keyframes roll-out-right {
 	0% {
 		opacity: 1;

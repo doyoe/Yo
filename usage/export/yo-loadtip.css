@@ -2,10 +2,14 @@
 ::before,
 ::after {
   -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  overflow: hidden;
+  height: 100%;
 }
 
 html {
@@ -13,8 +17,6 @@ html {
   color: #212121;
   font-size: 100px;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
 }
 
@@ -166,7 +168,6 @@ textarea,
 pre,
 xmp {
   overflow: auto;
-  -webkit-overflow-scrolling: touch;
 }
 
 textarea {
@@ -207,8 +208,6 @@ input[type="reset"],
 input[type="file"]::-webkit-file-upload-button,
 input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
-  -moz-appearance: none;
-  -ms-appearance: none;
   appearance: none;
 }
 
@@ -242,12 +241,6 @@ a {
   content: "\0020";
 }
 
-html,
-body {
-  overflow: hidden;
-  height: 100%;
-}
-
 @font-face {
   font-family: yofont;
   src: url("http://source.qunarzz.com/fonts/yo/1.0.0/yofont.woff") format("woff"), url("http://source.qunarzz.com/fonts/yo/1.0.0/yofont.ttf") format("truetype");
@@ -274,17 +267,10 @@ body {
 .yo-flex .flex-inherit {
   display: -webkit-box;
   display: -webkit-flex;
-  display: -moz-box;
-  display: -moz-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -moz-box-orient: vertical;
-  -moz-box-direction: normal;
   -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
   overflow: hidden;
 }
@@ -294,9 +280,6 @@ body {
 .yo-flex .flex-inherit > .flex {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
-  -moz-box-flex: 1;
-  -moz-flex: 1;
-  -ms-flex: 1;
   flex: 1;
   position: relative;
 }
@@ -304,7 +287,6 @@ body {
 .yo-flex > .flex,
 .yo-flex .flex-inherit > .flex {
   overflow: auto;
-  -webkit-overflow-scrolling: touch;
 }
 
 .yo-flex > .flex > .yo-flex,
@@ -319,9 +301,6 @@ body {
 .yo-align {
   display: -webkit-box;
   display: -webkit-flex;
-  display: -moz-box;
-  display: -moz-flex;
-  display: -ms-flexbox;
   display: flex;
   position: absolute;
   top: 0;
@@ -330,15 +309,9 @@ body {
   left: 0;
   -webkit-box-align: center;
   -webkit-align-items: center;
-  -moz-box-align: center;
-  -moz-align-items: center;
-  -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
-  -moz-box-pack: center;
-  -moz-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
 }
 
@@ -415,19 +388,11 @@ body {
 .yo-list .front {
   display: -webkit-box;
   display: -webkit-flex;
-  display: -moz-box;
-  display: -moz-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
   -webkit-align-items: center;
-  -moz-box-align: center;
-  -moz-align-items: center;
-  -ms-flex-align: center;
   align-items: center;
   -webkit-transform: translatez(0);
-  -moz-transform: translatez(0);
-  -ms-transform: translatez(0);
   transform: translatez(0);
 }
 
@@ -445,9 +410,6 @@ body {
 .yo-list .front > .flex {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
-  -moz-box-flex: 1;
-  -moz-flex: 1;
-  -ms-flex: 1;
   flex: 1;
   width: .1px;
 }
@@ -502,12 +464,8 @@ body {
   color: #212121;
   font-size: 0.14rem;
   background-image: -webkit-linear-gradient(#ddd, #ddd);
-  background-image: -moz-linear-gradient(#ddd, #ddd);
-  background-image: -ms-linear-gradient(#ddd, #ddd);
   background-image: linear-gradient(#ddd, #ddd);
   -webkit-background-size: 100% 1px;
-  -moz-background-size: 100% 1px;
-  -ms-background-size: 100% 1px;
   background-size: 100% 1px;
   background-repeat: no-repeat;
   background-position: 0.1rem bottom;
@@ -516,8 +474,6 @@ body {
 .yo-list > .item:last-child {
   margin-bottom: -1px;
   background-image: -webkit-linear-gradient(#ccc, #ccc);
-  background-image: -moz-linear-gradient(#ccc, #ccc);
-  background-image: -ms-linear-gradient(#ccc, #ccc);
   background-image: linear-gradient(#ccc, #ccc);
   background-position: 0 bottom;
 }
@@ -625,8 +581,6 @@ body {
 
 .m-code {
   -webkit-user-select: text;
-  -moz-user-select: text;
-  -ms-user-select: text;
   user-select: text;
   margin: .1rem;
   padding: .1rem;
@@ -697,15 +651,9 @@ body {
 .yo-loadtip {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
-  display: -moz-inline-box;
-  display: -moz-inline-flex;
-  display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-align: center;
   -webkit-align-items: center;
-  -moz-box-align: center;
-  -moz-align-items: center;
-  -ms-flex-align: center;
   align-items: center;
   color: #666;
   font-size: 0.14rem;
@@ -714,29 +662,21 @@ body {
 .yo-loadtip > .yo-ico {
   display: block;
   -webkit-transform-origin: center;
-  -moz-transform-origin: center;
-  -ms-transform-origin: center;
   transform-origin: center;
   color: #00afc7;
   -webkit-transition: -webkit-transform 0.3s;
   transition: transform 0.3s;
   -webkit-transform: rotatez(0deg);
-  -moz-transform: rotatez(0deg);
-  -ms-transform: rotatez(0deg);
   transform: rotatez(0deg);
 }
 
 .yo-loadtip > .yo-ico-flip {
   -webkit-transform: rotatez(180deg);
-  -moz-transform: rotatez(180deg);
-  -ms-transform: rotatez(180deg);
   transform: rotatez(180deg);
 }
 
 .yo-loadtip > .yo-ico-loading {
   -webkit-animation: rotate 1s infinite linear;
-  -moz-animation: rotate 1s infinite linear;
-  -ms-animation: rotate 1s infinite linear;
   animation: rotate 1s infinite linear;
 }
 

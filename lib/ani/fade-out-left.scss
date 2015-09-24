@@ -2,15 +2,11 @@
 @import "classes";
 
 /**
- * @class ani
- * @module Yo
- */
-
-/**
- * 定义从左侧淡出动画
+ * @module animate
+ * @class fade
+ * @description 定义从左侧淡出动画
  * @method fade-out-left
  */
-
 @-webkit-keyframes fade-out-left {
 	0% {
 		opacity: 1;

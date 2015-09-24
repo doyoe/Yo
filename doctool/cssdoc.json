@@ -1,0 +1,51 @@
+{
+  "title": "YO Document",
+  "footer": "Made By Qunar Hotel FE Mobile Team. © 2014 - 2015<br /> Style Build By <a href='http://bootcss.com'>Bootstrap</a>",
+  "dest": "docs",
+  "template": "./tasks/template.html",
+  "url": "http://doc.doyoe.com/",
+  "options": {
+    "paths": "../lib",
+    "outdir": "../cssdoc",
+    "template": "./tasks/template.html",
+    "statictemplate": "./tasks/static.html"
+  },
+  "pages":[{
+    "name":"index",
+    "title":"简介",
+    "banner": {
+      "title": "YO 简介",
+      "description": "一个基于 Sass 开发的 CSS Framework，Mobile First 的设计理念使得 Yo 的体积超轻量，同时又能延伸到支持PC端。",
+      "version": "1.3.1"
+    },
+    "content":"../README.md"
+  },
+    {
+      "name": "api",
+      "title": "API",
+      "banner": {
+        "title": "Yo api",
+        "description": "一个基于 Sass 开发的 CSS Framework，Mobile First 的设计理念使得 Yo 的体积超轻量，同时又能延伸到支持PC端。",
+        "version": "1.3.1"
+      },
+      "blocks": [
+        {
+          "type":"scss",
+          "content": "../lib/"
+        }]
+    },{
+      "name":"changelog",
+      "title":"changelog",
+      "content":"../changelog.md"
+    },{
+      "name":"doc",
+      "title":"注释规范",
+      "banner": {
+        "title": "YO 简介",
+        "description": "一个基于 Sass 开发的 CSS Framework，Mobile First 的设计理念使得 Yo 的体积超轻量，同时又能延伸到支持PC端。",
+        "version": "1.3.1"
+      },
+      "content":"./tasks/cssdoc.md"
+    }],
+  "repository": "https://github.com/doyoe/Yo"
+}

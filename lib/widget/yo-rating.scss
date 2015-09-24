@@ -74,13 +74,14 @@
 }
 
 /**
+ * @module widget
  * @method yo-rating
- * @desc 构造yo-rating的自定义使用方法
+ * @description 构造yo-rating的自定义使用方法
  * @demo 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-rating.html)
- * @param {default | String} $name 定义yo-rating名称
- * @param {default | Length} $item-width 定义yo-rating 单项宽度
- * @param {default | Length} $item-height 定义yo-rating 单项高度
- * @param {default | Color} $url 定义yo-rating 图片url
+ * @param {String} $name 定义yo-rating名称
+ * @param {Length} $item-width 定义yo-rating 单项宽度
+ * @param {Length} $item-height 定义yo-rating 单项高度
+ * @param {Color} $url 定义yo-rating 图片url
  */
 
 @mixin yo-rating(

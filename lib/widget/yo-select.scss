@@ -67,13 +67,14 @@
 }
 
 /**
+ * @module widget
  * @method yo-select
- * @desc 构造yo-select的自定义使用方法
+ * @description 构造yo-select的自定义使用方法
  * @demo 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-select.html)
- * @param {default | String} $name 定义select名称
- * @param {default | Length} $width 定义select显示的子项个数
- * @param {default | Length} $height 定义select子项高度
- * @param {default | Color} $bordercolor 定义select边框色
+ * @param {String} $name 定义select名称
+ * @param {Length} $width 定义select显示的子项个数
+ * @param {Length} $height 定义select子项高度
+ * @param {Color} $bordercolor 定义select边框色
  */
 
 @mixin yo-select(

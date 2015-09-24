@@ -5,9 +5,13 @@
 // 定义datepicker的基础构造
 @mixin _datepicker {
     @include fullscreen;
-    height: 100%;
+    @include flexbox;
+    @include flex-direction(column);
     background-color: #fff;
     text-align: center;
+    > .weeks {
+        @include flex(1, column);
+    }
     > .week-bar,
     .week {
         @include flexbox;
@@ -114,8 +118,9 @@
 }
 
 /**
+ * @module widget
  * @method yo-datepicker
- * @desc 构造yo-datepicker的自定义使用方法
+ * @description 构造yo-datepicker的自定义使用方法
  * @demo 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-datepicker.html)
  * @param {String} $name 定义扩展名称
  * @param {Length} $week-bar-height 定义星期bar高度

@@ -2,15 +2,11 @@
 @import "classes";
 
 /**
- * @class ani
- * @module Yo
- */
-
-/**
- * 定义从左侧弹性进入动画
+ * @module animate
+ * @class elastic
+ * @description 定义从左侧弹性进入动画
  * @method elastic-in-left
  */
-
 @-webkit-keyframes elastic-in-left {
 	0% {
 		opacity: 0;
@@ -49,7 +45,6 @@
 		transform: translate3d(0, 0, 0);
 	}
 }
-
 
 .ani.elastic-in-left {
 	-webkit-animation-name: elastic-in-left;

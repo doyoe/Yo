@@ -2,15 +2,11 @@
 @import "classes";
 
 /**
- * @class ani
- * @module Yo
- */
-
-/**
- * 定义X轴弹性动画
+ * @module animate
+ * @class elastic
+ * @description 定义X轴弹性动画
  * @method elastic-x
  */
-
 @-webkit-keyframes elastic-x {
 	0%,
 	20%,
@@ -55,7 +51,6 @@
 		transform: translate3d(5px, 0, 0);
 	}
 }
-
 
 .ani.elastic-x {
 	-webkit-animation-name: elastic-x;

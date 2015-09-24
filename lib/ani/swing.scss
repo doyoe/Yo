@@ -2,15 +2,11 @@
 @import "classes";
 
 /**
- * @class ani
- * @module Yo
- */
-
-/**
- * 定义晃动动画
+ * @module animate
+ * @class other
+ * @description 定义晃动动画
  * @method swing
  */
-
 @-webkit-keyframes swing {
 	20% {
 		-webkit-transform: rotate3d(0, 0, 1, 15deg);

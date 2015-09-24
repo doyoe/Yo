@@ -16,14 +16,15 @@
 }
 
 /**
+ * @module widget
  * @method yo-tip
- * @desc 构造列表的自定义使用方法
+ * @description 构造列表的自定义使用方法
  * @demo 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-tip.html)
- * @param {default | String} $name 定义yo-tip名称
- * @param {default | Length} $padding 定义yo-tip内补白
- * @param {default | Length} $radius 定义yo-tip圆角
- * @param {default | Color} $bgcolor 定义yo-tip背景色
- * @param {default | Color} $color 定义yo-tip文本色
+ * @param {String} $name 定义yo-tip名称
+ * @param {Length} $padding 定义yo-tip内补白
+ * @param {Length} $radius 定义yo-tip圆角
+ * @param {Color} $bgcolor 定义yo-tip背景色
+ * @param {Color} $color 定义yo-tip文本色
  */
 
 @mixin yo-tip(

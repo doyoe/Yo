@@ -2,15 +2,11 @@
 @import "classes";
 
 /**
- * @class ani
- * @module Yo
- */
-
-/**
- * 定义放大下降进入动画
+ * @module animate
+ * @class zoom
+ * @description 定义放大下降进入动画
  * @method zoom-in-down
  */
-
 @-webkit-keyframes zoom-in-down {
 	0% {
 		opacity: 0;
