@@ -6,11 +6,11 @@
 ## Quick start
 
 * 克隆：`git clone git@github.com:doyoe/Yo.git`
-* Ruby环境：`如果是windows环境需要先安装ruby`
-* 安装Compass：`gem install compass`
 * 装gulp：`npm install gulp -g`
 * 安装依赖模块，`npm install`
 * 编译命令：`gulp`
+
+> **提示：**想了解更多gulp命令，请查看**gulp.md**。
 
 
 ## Browser support
