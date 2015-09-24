@@ -4,10 +4,9 @@
 
 // 定义dblist的基础构造
 @mixin _dblist {
-    @include flexbox;
     @include fullscreen;
+    @include flexbox;
     min-height: 2rem;
-    height: 100%;
     > .item {
         position: relative;
         min-width: .1rem;
