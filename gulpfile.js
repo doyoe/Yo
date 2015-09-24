@@ -242,7 +242,7 @@ var compilers = {
     'node-sass': buildNodeSassGulp
 };
 
-// 编译 Sass
+// 命令: gulp compile ，进行node-sass编译
 gulp.task('compile', function () {
     var compiler = defaultCompiler;
 
@@ -254,18 +254,17 @@ gulp.task('compile', function () {
     }
 });
 
-// watch变更
+// 命令: gulp watch ，监听工程中scss文件变化时，执行compile操作
 gulp.task('watch', function () {
     gulp.watch('./**/*.scss', ['compile']);
 });
 
-// 获取 Version
+// 命令: gulp version ，获取Yo、Sass和Node-sass的版本信息
 gulp.task('version', function () {
     gutil.log(gutil.colors.green('Yo: ' + getVersion()));
     gutil.log(gutil.colors.green('Sass: ' + getSassVersion()));
     gutil.log(gutil.colors.green('Node-sass: ' + getNodeSassVersion()));
 });
-
 
 // 默认任务
 gulp.task('default', ['version', 'compile', 'watch']);
