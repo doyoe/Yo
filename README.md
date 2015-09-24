@@ -5,13 +5,11 @@
 
 ## Quick start
 
-* NodeJs： 去[NodeJs官网](http://nodejs.org)下载安装包并安装到本地
+* 安装Nodejs：从[NodeJs官网](http://nodejs.org)下载安装包并安装到本地
 * 克隆：`git clone git@github.com:doyoe/Yo.git`
 * 装gulp：`npm install gulp -g --registry=https://registry.npm.taobao.org`
 * 安装依赖模块，`npm install --registry=https://registry.npm.taobao.org`
 * 编译命令：`gulp`
-
-> **提示：**想了解更多gulp命令，请查看**gulp.md**。
 
 
 ## Browser support
