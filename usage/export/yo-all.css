@@ -1337,21 +1337,15 @@ a {
 .yo-group > .scroll-index {
   position: absolute;
   z-index: 2;
+  top: 0;
   right: 0;
 }
 
 .yo-group > .sticky {
-  top: 0;
   left: 0;
   padding: 0.03rem 0.1rem;
   background-color: #fafafa;
   color: #666;
-}
-
-.yo-group > .scroll-index {
-  top: 50%;
-  -webkit-transform: translatey(-50%);
-  transform: translatey(-50%);
 }
 
 .yo-group .no-data {
@@ -1373,21 +1367,15 @@ a {
 .yo-panel > .scroll-index {
   position: absolute;
   z-index: 2;
+  top: 0;
   right: 0;
 }
 
 .yo-panel > .sticky {
-  top: 0;
   left: 0;
   padding: 0.03rem 0.1rem;
   background-color: #fafafa;
   color: #666;
-}
-
-.yo-panel > .scroll-index {
-  top: 50%;
-  -webkit-transform: translatey(-50%);
-  transform: translatey(-50%);
 }
 
 .yo-panel .no-data {

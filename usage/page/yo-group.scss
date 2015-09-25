@@ -10,3 +10,8 @@
 // 此处只为简单描述一个demo，所以写法随意
 @import "../widget/yo-group";
 @import "../widget/yo-index";
+
+.yo-group > .scroll-index {
+    top: 50%;
+    @include transform(translatey(-50%));
+}
