@@ -17,11 +17,8 @@
 </head>
 <body>
 
-<!-- <a id="skippy" class="sr-only sr-only-focusable" href="#content"><div class="container"><span class="skiplink-text">Skip to main content</span></div></a> -->
-
-
 <!-- Docs master nav -->
-<header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
+<header class="navbar navbar-static-top docs-nav" id="top" role="banner">
     <div class="container">
         <div class="navbar-header">
           <a href="http://ued.qunar.com/mobile/" class="navbar-brand">X1</a>
@@ -50,7 +47,7 @@
 
 <!-- Docs page layout -->
 {{if banner}}
-<div class="bs-docs-header" id="content" style="margin-bottom:0">
+<div class="docs-header" id="content" style="margin-bottom:0">
     <div class="container">
         <h1>{{banner.title}}</h1>
         <p>{{banner.description}}</p>
@@ -60,7 +57,7 @@
 <hr style="border-color: #6f5499; margin: 0"/>
 {{/if}}
 {{if doc}}
-<header class="navbar navbar-static-top bs-docs-nav">
+<header class="navbar navbar-static-top docs-nav docs-second-nav">
     <div class="container">
         <nav class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
@@ -77,7 +74,7 @@
     </div>
 </header>
 {{else}}
-<header class="navbar navbar-static-top bs-docs-nav">
+<header class="navbar navbar-static-top docs-nav">
     <div class="container">
         <nav class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
@@ -89,15 +86,19 @@
 </header>
 {{/if}}
 
-<div class="container bs-docs-container">
+<div class="container docs-container">
     {{if html}}
-    {{html}}
+        <div id="readme">
+            <article class="markdown-body">
+                {{html}}
+            </article>
+        </div>
     {{else}}
     <div class="row">
         <div class="col-md-9" role="main" id="templateCon">
             {{each content as c index}}
             {{if c.type == 'html'}}
-            <div class="bs-docs-section">
+            <div class="docs-section">
                 {{if c.sub}}
                 <h2 id="{{c.tag | anchor}}" class="page-header">{{c.name}}</h2>
                 {{else}}
@@ -111,9 +112,9 @@
             {{/each}}
         </div>
         <div class="col-md-3" role="complementary">
-            <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm">
-                <h1>YO</h1>
-                <ul class="nav bs-docs-sidenav" id="templateTree">
+            <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
+                <h1>Yo</h1>
+                <ul class="nav docs-sidenav" id="templateTree">
                     {{if html}}
                          html
                     {{else}}
@@ -136,7 +137,7 @@
 </div>
 
 <!-- Footer -->
-<footer class="bs-docs-footer" role="contentinfo">
+<footer class="docs-footer" role="contentinfo">
     <div class="container">
         <p>Made By Qunar Hotel FE Mobile Team. © 2014 - 2015</p>
     </div>

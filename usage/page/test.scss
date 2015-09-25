@@ -1,5 +1,7 @@
 @charset "utf-8";
 @import "../layout/layout";
+@import "../fragment/yo-list";
+@import "../element/yo-checked";
 
 .yo-nav {
     // 构造一个横纵向参数，用来配置nav的流向
@@ -30,4 +32,13 @@
 }
 .img {
     @include border-radius(50%);
+}
+
+@include yo-list{
+    .row {
+        @include flexbox;
+        div:first-child {
+            @include flex;
+        }
+    }
 }

@@ -69,6 +69,7 @@
  * @class 功能
  * @description 定义字体图标
  * @method yofont
+ * @skip
  */
 @mixin yofont() {
     // 是否开启图标字体
@@ -216,6 +217,7 @@
  * @description 生成全屏方法
  * @method fullscreen
  * @param {Integer} $z-index 定义层叠级别
+ * @param {Keywords} $position 定义定位方式
  */
 @mixin fullscreen($z-index: null, $position: absolute) {
     position: $position;
@@ -264,7 +266,7 @@
  * @class 用户界面
  * @description 定义盒模型
  * @method box-sizing
- * @param {String} $box-sizing 的2个值分别为：content-box(标准盒模型) | border-box(怪异盒模型)
+ * @param {String} $box-sizing 取值与`box-sizing`属性一致
  */
 @mixin box-sizing($box-sizing: border-box) {
     @include prefix(box-sizing, $box-sizing);
@@ -290,9 +292,9 @@
 /**
  * @module core
  * @class 背景与边框
- * @description 定义背景图像缩放（Android Browser2.3.*还需要厂商前缀）
+ * @description 定义背景图像缩放（AndroidBrowser2.3.*还需要厂商前缀）
  * @method background-size
- * @param {String | Length} $background-size 指定背景图缩放值
+ * @param {Keywords | Length} $background-size 指定背景图缩放值，取值与`background-size`属性一致
  */
 @mixin background-size($background-size...) {
     @include prefix(background-size, $background-size);
@@ -301,9 +303,9 @@
 /**
  * @module core
  * @class 背景与边框
- * @description 定义背景裁减（Android Browser2.3.*还需要厂商前缀）
+ * @description 定义背景裁减（AndroidBrowser2.3.*还需要厂商前缀）
  * @method background-clip
- * @param {String} $background-clip 指定背景图缩放值
+ * @param {Keywords} $background-clip 指定背景图缩放值，取值与`background-clip`属性一致
  */
 @mixin background-clip($background-clip...) {
     @include prefix(background-clip, $background-clip);
@@ -312,9 +314,9 @@
 /**
  * @module core
  * @class 背景与边框
- * @description 定义背景显示区域（Android Browser2.3.*还需要厂商前缀）
+ * @description 定义背景显示区域（AndroidBrowser2.3.*还需要厂商前缀）
  * @method background-origin
- * @param {String} $background-origin 指定背景图缩放值
+ * @param {Keywords} $background-origin 指定背景图`background-position`属性计算相对的参考点，取值与`background-origin`属性一致
  */
 @mixin background-origin($background-origin...) {
     @include prefix(background-origin, $background-origin);
@@ -325,7 +327,7 @@
  * @class 背景与边框
  * @description 定义圆角
  * @method border-radius
- * @param {String} $border-radius 取值与原生语法一致
+ * @param {Length} $border-radius 指定元素的圆角半径，取值与`border-radius`属性一致
  */
 @mixin border-radius($border-radius...) {
     border-radius: $border-radius;

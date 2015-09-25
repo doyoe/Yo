@@ -18,6 +18,9 @@
         z-index: 2;
         background-color: #fff;
     }
+    .transition {
+        @include transition(transform .3s);
+    }
     .action {
         position: absolute;
         top: 0;
@@ -44,7 +47,7 @@
  * @module widget
  * @method yo-slidermenu
  * @description 构造yo-slidermenu的自定义使用方法
- * @demo 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-slidermenu.html)
+ * @demo http://doyoe.github.io/Yo/demo/widget/yo-slidermenu.html
  * @param {String} $name 扩展的名称
  * @param {Length} $action-width 定义action宽度
  * @param {Color} $action-bgcolor 定义action背景色

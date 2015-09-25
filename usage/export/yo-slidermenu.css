@@ -626,6 +626,11 @@ a {
   background-color: #fff;
 }
 
+.yo-slidermenu .transition {
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+}
+
 .yo-slidermenu .action {
   position: absolute;
   top: 0;

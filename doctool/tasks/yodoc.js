@@ -195,6 +195,8 @@ function formattData(dirPath){
     // 所有元素变为同级 
     var exp01 = [];
     var curdata = fileListSync(dirPath);
+    //console.log("======curdata======");
+    //console.log(curdata);
     curdata.data.forEach(function(item){
         if(item.length)
         {
@@ -212,7 +214,6 @@ function formattData(dirPath){
            exp02.push(item);
         }
     });
-    //TODO 处理有moudle 数据  有class按class分类 无class
     //module01 分类
     var m_group01={};
     module01.forEach(function(item){
@@ -305,7 +306,7 @@ function buildData(data){
                 //othersleftHTML .push('<div>module module '+i+'</div>');
             for(var j in data[i]){
                  othersleftHTML .push('<div id="'+j+'" class="groupVisible"> 第一级'+j+'</div>');
-                 otherrightHTML.push('<li class="active"><a href="#'+j+'">'+j.replace("module","")+'</a><ul class="nav">')
+                 otherrightHTML.push('<li><a href="#'+j+'">'+j.replace("module","")+'</a><ul class="nav">')
                 for(var k in data[i][j]){
                     //othersleftHTML .push('<h6 style="color:#ff5050;border-bottom:1px solid #ff5050;">第二级'+k+'</h6>');
                     if(k == "mcOther")
@@ -314,7 +315,7 @@ function buildData(data){
                         otherrightHTML.push(joinrightHTML(data[i][j][k]));
                     }else if(k == "mclass"){
                          for(var z in data[i][j][k]){
-                             otherrightHTML.push('<li class="active"><a href="#'+z+'">'+z+'</a><ul class="nav">');
+                             otherrightHTML.push('<li><a href="#'+z+'">'+z+'</a><ul class="nav">');
                              //othersleftHTML .push('<h6 id="'+z+'" style="color:#ff5050;border-bottom:1px solid #ff5050;">第三级'+z+'</h6>');
                              othersleftHTML .push('<div id="'+z+'" class="groupVisible">第三级'+z+'</div>');
                              othersleftHTML.push(joinleftHTML(data[i][j][k][z]));
@@ -372,15 +373,19 @@ function joinrightHTML(dataobj){
 function joinleftHTML(dataobj){
     var singleHTML =[];
     dataobj.forEach(function(dataitem){
-        singleHTML.push('<div class="bs-docs-section" id = "dataitem-'+dataitem.name+'">');
+        singleHTML.push('<div class="docs-section">');
         if(dataitem.name){ 
-            singleHTML.push('<h1 id="main" class="page-header">'+dataitem.name);
+            singleHTML.push('<h1 id="dataitem-'+dataitem.name+'" class="page-header">'+dataitem.name);
             if(dataitem.methodParams){
-                singleHTML.push('<span class="text-muted text-extend"> ( '+dataitem.methodParams+' ) </span>');
+                // singleHTML.push('<span class="text-muted text-extend"> ( '+dataitem.methodParams+' ) </span>');
+                singleHTML.push('<span class="yo-badge yo-badge-success">Method</span>');
             }
             singleHTML.push('</h1>');
         }
         singleHTML.push('<div>');
+        if(dataitem.curPath){
+            singleHTML.push('<p class="source-file"><small class="text-muted">源文件：</small> <a href="'+dataitem.defindin+'#doc'+dataitem.line+'" target="_blank">'+dataitem.curPath+':'+dataitem.line+'</a></p>');
+        }
         if(dataitem.version){
             singleHTML.push('<p><small class="text-muted">版本号：</small><i>'+dataitem.version+'</i></p>');
         }
@@ -391,18 +396,14 @@ function joinleftHTML(dataobj){
        if(dataitem.description){
             singleHTML.push('<p><small class="text-muted">描述信息：</small>'+dataitem.description+'</p>');
        }
-       if(dataitem.curPath){
-            singleHTML.push('<p><small class="text-muted">Defined in：</small> <a href="'+dataitem.defindin+'#doc'+dataitem.line+'">'+dataitem.curPath+':'+dataitem.line+'</a></p>');
-       }
        if(dataitem.demo){
-           singleHTML.push('<p><small class="text-muted">demo：</small></p>');
-           singleHTML.push('<p>使用方法，详见 Demo <a href="'+dataitem.demo+'" target="_blank">'+dataitem.demo+'</a></p>');
+           singleHTML.push('<p><small class="text-muted">demo：</small><a href="'+dataitem.demo+'" target="_blank">查看示例</a></p>');
        }
        if(dataitem.params.length>0){
             singleHTML.push('    <p>');
             singleHTML.push('        <small class="text-muted">参数:</small>');
             singleHTML.push('    </p>');
-            singleHTML.push('<div class="bs-docs-table">');
+            singleHTML.push('<div class="docs-table">');
             singleHTML.push(' <table class="yo-table yo-table-border">');
             singleHTML.push('    <colgroup>');
             singleHTML.push('       <col class="c1">');
@@ -425,8 +426,8 @@ function joinleftHTML(dataobj){
               singleHTML.push('        <td>'+param.type+'</td>');
               singleHTML.push('        <td>'+param.description+'</td>');
               singleHTML.push('        <td>');
-              if(param.verison){
-                   singleHTML.push(param.verison);
+              if(param.version){
+                   singleHTML.push(param.version);
               }
               if(param.delversion){
                    singleHTML.push(' <del> '+param.delversion+' </del>');
@@ -462,7 +463,7 @@ function joinleftHTML(dataobj){
               // singleHTML.push('</table></div>');
        }
        if(dataitem.example){
-            singleHTML.push('<div class="bs-docs-section"><p><small class="text-muted">示例（代码形式）:</small></p>');
+            singleHTML.push('<div class="docs-section"><p><small class="text-muted">示例（代码形式）:</small></p>');
         
                 singleHTML.push('<div class="example-code">');
                 if(dataitem.example.name){
@@ -533,7 +534,6 @@ function getSingleData(filePath,staticdir) {
     // singleData.methods= [];
     // 获取本页注释块
     var ret = parser(docFile);
-    // console.log(yotestPath);
     // 本页有几处注释块
     if (ret.length) {
         ret.forEach(function(comment) {
@@ -543,8 +543,10 @@ function getSingleData(filePath,staticdir) {
                 tags = comment.tags,
                 description = comment.description;
             try{
-                if(tags.length) {
+                if(tags.length > 0) {
                     tags.forEach(function (tag) {
+                        // console.log('tag=========');
+                        // console.log(tag);
                         switch (tag.tag) {
                             case 'module':
                                 result.moduleid = "module"+tag.name;
@@ -561,7 +563,7 @@ function getSingleData(filePath,staticdir) {
                                 result['description'] = tag.name;
                                 break;
                             case 'demo':
-                                result['demo'] = tag.description;
+                                result['demo'] = tag.name;
                                 break;
                             case 'version':
                                 result['version'] = tag.name;
@@ -583,87 +585,56 @@ function getSingleData(filePath,staticdir) {
                                 result['line'] = tag.line;
                                 break;
                             case 'param':
-                                // console.log('tag description========');
-                                // console.log(tag.description);
-
-                                if(tag.description.indexOf('&')>0 && tag.description.indexOf('#')>0) {
-
-                                    // console.log(tag.description.indexOf('&'));
-                                    // console.log(tag.description.indexOf('#'));
-                                    if(tag.description.indexOf('&')>tag.description.indexOf('#')){
-                                        var desc = tag.description.split('#');
-                                        var desc01 = desc[1].split('&');
-                                        paramlist.push({
-                                            name: tag.name,
-                                            type: tag.type,
-                                            optional: tag.optional,
-                                            description: desc[0],
-                                            verison:desc01[1],
-                                            delversion: desc01[0]
-                                        });
-                                    }else{
-                                        var desc = tag.description.split('&');
-                                        var desc01 = desc[1].split('#');
-                                        paramlist.push({
-                                            name: tag.name,
-                                            type: tag.type, optional: tag.optional,
-                                            description: desc[0],
-                                            verison:desc01[0],
-                                            delversion: desc01[1]
-                                        });
+                                var desc,sversion,delversion;
+                                if(/([^{}]*)/.test(tag.description)){
+                                     desc =  tag.description.match(/([^{}]*)/)[1];
+                                    if(/\{add\:([^{}]+)\}/.test(tag.description)){
+                                        sversion = tag.description.match(/\{add\:([^{}]+)\}/)[1];
                                     }
-                                } else {
-                                    //console.log('&====='+tag.description.indexOf('&'));
-                                    //console.log('#====='+tag.description.indexOf('#'));
-                                    //console.log('tag.description====='+tag.description);
-                                    if(tag.description.indexOf('&')>0){
-                                        var desc = tag.description.split('&');
-                                        paramlist.push({
-                                            name: tag.name,
-                                            type: tag.type,
-                                            optional: tag.optional,
-                                            description: desc[0],
-                                            verison:desc[1]
-                                        });
-                                    }else if (tag.description.indexOf('#')>0){
-                                        var desc = tag.description.split('#');
-                                        paramlist.push({
-                                            name: tag.name,
-                                            type: tag.type,
-                                            optional: tag.optional,
-                                            description: desc[0],
-                                            delverison:desc[1]
-                                        });
-                                    }else{
-                                        paramlist.push({
-                                            name: tag.name,
-                                            type: tag.type,
-                                            optional: tag.optional,
-                                            description: tag.description
-                                        });
+                                    if(/\{del\:([^{}]+)\}/.test(tag.description)){
+                                        delversion = tag.description.match(/\{del\:([^{}]+)\}/)[1];
                                     }
                                 }
+                                paramlist.push({
+                                    name: tag.name,
+                                    type: tag.type,
+                                    optional: tag.optional,
+                                    description: desc,
+                                    version: sversion,
+                                    delversion: delversion
+                                }); 
                                 methodparams.push(tag.name);
                                 break;
                             case 'example':
+                                var example = tag.source,examplename,examplecode;
+                                if(tag.source.replace("@example","").indexOf("|")>0){
+                                    examplename = tag.source.replace("@example","").split("|")[0]
+                                    examplecode = tag.source.replace("@example","").split("|")[1]
+                                }else{
+                                    examplecode = tag.source.replace("@example","");
+                                }
                                 result['example']={
-                                    name:tag.name,
-                                    code:tag.source.substring(tag.source.indexOf('|') + 1)
+                                    name: examplename,
+                                    code: examplecode
                                 };
                                 break;
                         }
                     });
+                    
+                    result.methodParams = methodparams.join(', ');
+                    result['params'] = paramlist;
+                    result.curPath = filePath;
+                    result.defindin =  defindin || "";
+                    result.basename = sysPath.basename(filePath).split('.')[0];
+                    // console.log("result tag =========");
+                    // console.log(result);
+                    if(!result.skip){
+                        singleData.push(result); 
+                    }
                 }
             } catch(e) {
                 console.log('Error', description, e);
             }
-        
-            result.methodParams = methodparams.join(', ');
-            result['params'] = paramlist;
-            result.curPath = filePath;
-            result.defindin =  defindin || "";
-            result.basename = sysPath.basename(filePath).split('.')[0];
-            singleData.push(result);
         });
     }
     return singleData;
