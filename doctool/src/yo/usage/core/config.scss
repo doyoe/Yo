@@ -42,7 +42,7 @@ $base: (
     // lin-height
     line-height:          1.5,
     // 默认文档背景色
-    doc-bgcolor:          #fafafa,
+    doc-bgcolor:          #fff,
     // 默认边框色
     bordercolor:          #ccc,
     // 默认次级边框色
@@ -65,7 +65,7 @@ $base: (
     price-color:          #f60,
     // Link Colors
     // 默认链接色
-    link-color:           #00afc7,
+    link-color:           #337ab7,
     // 链接经过色
     link-hover-color:     #f60
 );
@@ -88,10 +88,12 @@ $media-types: (
                 (min-device-pixel-ratio: 2.5),
                 (min-resolution: 240dpi),
                 (min-resolution: 2.5dppx)",
-    // {String} PC
-    pc:        "(min-width: 7.68rem)",
+    // {String} l-screen
+    l-screen:  "(min-width: 1280px)",
+    // {String} m-screen
+    m-screen:  "(min-width: 1024px) and (max-width: 1279px)",
     // {String} mobile
-    mobile:    "(max-width: 7.67rem)"
+    mobile:    "(max-width: 768px)"
 );
 
 // ico font

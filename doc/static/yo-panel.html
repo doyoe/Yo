@@ -45,18 +45,14 @@
     > .scroll-index {
         position: absolute;
         z-index: 2;
+        top: 0;
         right: 0;
     }
     > .sticky {
-        top: 0;
         left: 0;
         padding: map-get($list, label-padding);
         background-color: map-get($list, label-bgcolor);
         color: map-get($base, sub-color);
-    }
-    > .scroll-index {
-        top: 50%;
-        @include transform(translatey(-50%));
     }
     .no-data {
         height: 100%;

@@ -9,81 +9,39 @@
     $has-vertical-border: true,
     $active-bgcolor: #eee
 );
+@include yo-badge{
+	vertical-align: super;
+	margin-left: 10px;
+	font-size: 10px;
+	padding: .2em .6em;
+};
 @include yo-badge(
 	$name: success,
-	$bgcolor:#5cb85c,
-	$border-width:0,
-	$radius:.05rem
-){
-	vertical-align: super;
-	margin-left: 10px;
-	font-size: 10px;
-	padding: .2em .6em;
-};
+	$bgcolor: #5cb85c,
+	$border-width: 0,
+	$radius: .05rem
+);
 @include yo-badge(
 	$name: info,
-	$bgcolor:#5bc0de,
-	$border-width:0,
-	$radius:.05rem
-){
-	vertical-align: super;
-	margin-left: 10px;
-	font-size: 10px;
-	padding: .2em .6em;
-};
+	$bgcolor: #5bc0de,
+	$border-width: 0,
+	$radius: .05rem
+);
 @include yo-badge(
 	$name: danger,
-	$bgcolor:#d9534f,
-	$border-width:0,
-	$radius:.05rem
-){
-	vertical-align: super;
-	margin-left: 10px;
-	font-size: 10px;
-	padding: .2em .6em;
-};
-
-/*.label-success {
-  	background-color: #5cb85c;
-	vertical-align: super;
-	margin-left: 10px;
-}
-.label-info {
-  background-color: #5bc0de;
-}
-.label-danger {
-  background-color: #d9534f;
-}*/
-
-html, body {
+	$bgcolor: #d9534f,
+	$border-width: 0,
+	$radius: .05rem
+);
+html,
+body {
 	overflow: auto;
 	height: auto;
-	background: #fff;
-}
-html {
- /* font-size: 10px;*/
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.42857143;
-  color: #333333;
-  background-color: #ffffff;
 }
 
-a {
-	color: #337ab7;
-	text-decoration: none;
-}
 a:hover, a:focus {
 	color: #23527c;
 	text-decoration: underline;
-}
-a:focus {
-	outline: thin dotted;
-	outline: 5px auto -webkit-focus-ring-color;
-	outline-offset: -2px;
 }
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	font-family: inherit;
@@ -131,7 +89,7 @@ h6, .h6 {
 p {
 	margin: 0 0 10px;
 }
-h1[id]{    
+h1[id]{
 	padding-top: 20px;
     margin-top: 0;
 }
@@ -165,7 +123,6 @@ blockquote small:before,
 blockquote .small:before {
   content: '\2014 \00A0';
 }
-*{ box-sizing:border-box;}
 .syntaxhighlighter table td.code{ width: 90% !important; line-height: 1.5em;}
 table>thead>tr>th{
 	vertical-align: bottom;
@@ -218,7 +175,7 @@ del{ text-decoration:line-through;}
   font-size: 30px;
   line-height: 20px;
   height: 50px;
- 
+
 }
 .navbar-brand a:hover{
 	text-decoration: none;
@@ -417,8 +374,8 @@ del{ text-decoration:line-through;}
 	font-weight: 500
 }
 */
-.docs-sidenav>li>.nav>li>.nav>li>a,.docs-sidenav>li>.nav>li>.nav>li>a:hover{ 
-	padding-left:38px ;	
+.docs-sidenav>li>.nav>li>.nav>li>a,.docs-sidenav>li>.nav>li>.nav>li>a:hover{
+	padding-left:38px ;
 }
 .docs-sidenav>li.active>.nav>li.active>.nav>li.active>a,.docs-sidenav>li.active>.nav>li.active>.nav>li.active>a:hover{
 	padding-left: 36px;
@@ -457,7 +414,7 @@ del{ text-decoration:line-through;}
 	/*border: 1px solid #ddd;
 	border-radius: 4px 4px 0 0;*/
     background-color: #fff;
-   
+
 }
 /*.docs-table:after{
 	content:"参数信息：";
@@ -1380,9 +1337,58 @@ del{ text-decoration:line-through;}
 		display: block
 	}
 }
-@include responsive(pc) {
+// 屏幕大于1280时
+@include responsive(m-screen) {
 	.container {
 		width: 970px
+	}
+	.docs-header {
+		text-align: left;
+		padding-top: 60px;
+		padding-bottom: 60px;
+		font-size: 24px;
+		text-align: left;
+	}
+	.docs-header h1 {
+		font-size: .6rem;
+	}
+	.docs-header h1, .docs-header p {
+		margin-right: 280px
+	}
+	.col-md-3, .col-md-9 {
+		float: left;
+	}
+	.col-md-9 {
+		width: 75%;
+	}
+	.col-md-3 {
+		width: 25%;
+	}
+	.docs-sidebar .nav>.active>ul {
+		display: block
+	}
+	.docs-sidebar.affix, .docs-sidebar.affix-bottom {
+		width: 213px
+	}
+	.docs-sidebar.affix {
+		position: fixed;
+		top: 20px
+	}
+	.docs-sidebar.affix-bottom {
+		position: absolute
+	}
+	.docs-sidebar.affix .docs-sidenav, .docs-sidebar.affix-bottom .docs-sidenav {
+		margin-top: 0;
+		margin-bottom: 0
+	}
+	.docs-sidebar.affix, .docs-sidebar.affix-bottom {
+		width: 263px
+	}
+}
+// 屏幕大于1280时
+@include responsive(l-screen) {
+	.container {
+		width: 12rem;
 	}
 	.docs-header {
 		text-align: left;
