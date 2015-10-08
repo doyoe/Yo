@@ -34,11 +34,8 @@
     @include border-radius(50%);
 }
 
-@include yo-list{
-    .row {
-        @include flexbox;
-        div:first-child {
-            @include flex;
-        }
-    }
+.demo {
+    @include square(3rem);
+    background-color: gray;
+    @include valign;
 }

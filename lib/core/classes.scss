@@ -28,10 +28,11 @@
 /**
  * @module core
  * @class 功能
- * @description 四则运算
+ * @description 四则运算，安卓需要使用该方法，需要Android4.4及以上
  * @method calc
  * @param {String} $property 指定需要进行计算的CSS属性
- * @param {String} $value 与原生CSS语法一致，使用方式如：@include calc(width, #{100%} - #{.1rem});
+ * @param {String} $value 与原生CSS语法一致，区别在于需要使用引号包裹表达式
+ * @example @include calc(width, "100% - 100px");
  */
 @mixin calc($property, $value) {
     // 是否开启厂商前缀支持
@@ -120,52 +121,39 @@
 /**
  * @module core
  * @class 功能
- * @description 清除间隙方案-容器
+ * @description 清除行内级元素间间隙方案
  * @method killspace
  */
 @mixin killspace() {
     font-size: 0;
     font-family: arial;
-}
-
-/**
- * @module core
- * @class 功能
- * @description 清除间隙方案-子级
- * @method killspace-item
- */
-@mixin killspace-item() {
-    display: inline-block;
-    font-size: map-get($base, font-size);
-    font-family: map-get($base, font-family);
-}
-
-/**
- * @module core
- * @class 功能
- * @description 未知尺寸元素垂直居中解决方案-容器
- * @method valign
- */
-@mixin valign() {
-    @include killspace();
-    &::after{
-        overflow: hidden;
-        width: 0;
-        height: 100%;
-        content: "\0020";
-        vertical-align: middle;
+    > .item {
+        display: inline-block;
+        font-size: map-get($base, font-size);
+        font-family: map-get($base, font-family);
     }
 }
 
 /**
  * @module core
  * @class 功能
- * @description 未知尺寸元素垂直居中解决方案-子级
- * @method valign-item
+ * @description 未知尺寸元素垂直居中解决方案
+ * @method valign
+ * @example .demo {@include valign;} <div class="demo"><img src="*.jpg" alt="未知尺寸图片居中" class="item" /></div>
  */
-@mixin valign-item() {
-    @include killspace-item();
-    vertical-align: middle;
+@mixin valign() {
+    @include killspace;
+    &::after {
+        display: inline-block;
+        overflow: hidden;
+        width: 0;
+        height: 100%;
+        content: "\0020";
+        vertical-align: middle;
+    }
+    > .item {
+        vertical-align: middle;
+    }
 }
 
 /**

@@ -13,7 +13,6 @@
         white-space: nowrap;
         @include killspace;
         > .item {
-            @include killspace-item;
             width: 100%;
             background-color: #eee;
         }
