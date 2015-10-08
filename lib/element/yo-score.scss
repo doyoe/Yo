@@ -1,15 +1,34 @@
 @charset "utf-8";
-@import "classes";
+@import "../core/variables";
+@import "../core/classes";
+
+// 定义score的基础构造
+@mixin _score {
+    position: relative;
+    width: map-get($score, item-width) * 5;
+    height: map-get($score, item-height);
+    overflow: hidden;
+    &,
+    > .index {
+        display: inline-block;
+        background: url(#{map-get($setting, bgimg-domain)}#{map-get($score, url)}) repeat-x;
+        @if map-get($score, item-height) != null {
+            background-size: auto map-get($score, item-height) * 2;
+        }
+    }
+    > .index {
+        height: 100%;
+        background-position: 0 -#{map-get($score, item-height)};
+        line-height: 10;
+        vertical-align: top;
+    }
+}
 
 /**
- * @class element
- */
-
-/**
- * 构造评分展示的自定义使用方法
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/element/yo-score.html)
+ * @module element
  * @method yo-score
+ * @description 构造评分展示的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/element/yo-score.html
  * @param {String} $name 为新的扩展定义一个名称
  * @param {Length} $item-width 单项宽度
  * @param {Length} $item-height 单项高度
@@ -58,6 +77,8 @@
                 background-position: 0 -#{$item-height};
             }
         }
+        // 增量扩展
+        @content;
     }
 }
 

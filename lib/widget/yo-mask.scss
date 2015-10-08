@@ -1,17 +1,25 @@
 @charset "utf-8";
-@import "classes";
+@import "../core/variables";
+@import "../core/classes";
+
+// 定义mask的基础构造
+@mixin _mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: map-get($z-index, mask);
+    background-color: map-get($mask, bgcolor);
+}
 
 /**
- * @class widget
- */
-
-/**
- * 构造列表的自定义使用方法
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-mask.html)
+ * @module widget
  * @method yo-mask
- * @param {default | String} $name 定义yo-mask名称
- * @param {default | Color} $bgcolor 定义yo-mask背景色
+ * @description 构造yo-mask的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/widget/yo-mask.html
+ * @param {String} $name 定义yo-mask名称
+ * @param {Color} $bgcolor 定义yo-mask背景色
  */
 
 @mixin yo-mask(
@@ -31,6 +39,8 @@
         @if $bgcolor != map-get($mask, bgcolor) {
             background-color: rgba($bgcolor, .5);
         }
+        // 增量扩展
+        @content;
     }
 }
 

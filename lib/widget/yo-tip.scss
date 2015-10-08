@@ -1,20 +1,30 @@
 @charset "utf-8";
-@import "classes";
+@import "../core/variables";
+@import "../core/classes";
+
+// 定义浮层tip的基础构造
+@mixin _tip {
+    position: fixed;
+    min-width: 1rem;
+    max-width: 90%;
+    z-index: map-get($z-index, tip);
+    padding: map-get($tip, padding);
+    @include border-radius(map-get($tip, radius));
+    background-color: rgba(map-get($tip, bgcolor), .5);
+    color: map-get($tip, color);
+    text-align: center;
+}
 
 /**
- * @class widget
- */
-
-/**
- * 构造列表的自定义使用方法
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-tip.html)
+ * @module widget
  * @method yo-tip
- * @param {default | String} $name 定义yo-tip名称
- * @param {default | Length} $padding 定义yo-tip内补白
- * @param {default | Length} $radius 定义yo-tip圆角
- * @param {default | Color} $bgcolor 定义yo-tip背景色
- * @param {default | Color} $color 定义yo-tip文本色
+ * @description 构造列表的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/widget/yo-tip.html
+ * @param {String} $name 定义yo-tip名称
+ * @param {Length} $padding 定义yo-tip内补白
+ * @param {Length} $radius 定义yo-tip圆角
+ * @param {Color} $bgcolor 定义yo-tip背景色
+ * @param {Color} $color 定义yo-tip文本色
  */
 
 @mixin yo-tip(
@@ -55,6 +65,8 @@
         @if $color != map-get($tip, color) {
             color: $color;
         }
+        // 增量扩展
+        @content;
     }
 }
 

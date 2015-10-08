@@ -2,15 +2,11 @@
 @import "classes";
 
 /**
- * @class ani
- * @module Yo
- */
-
-/**
- * 定义翻转动画
+ * @module animate
+ * @class flip
+ * @description 定义翻转动画
  * @method flip-out-x
  */
-
 @-webkit-keyframes flip-out-x {
 	0% {
 		-webkit-transform: perspective(400px);

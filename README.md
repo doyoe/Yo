@@ -1,23 +1,22 @@
 # Yo
 
-一个基于 `Sass` 开发的 `CSS Framework`，Mobile First 的设计理念使得 Yo 的体积超轻量，同时又能延伸到支持PC端。
+`Yo` 是一款基于 `Mobile First` 理念而设计的 `CSS Framework`，当然，你使用在PC高级浏览器中也完全没有问题；其具备轻量，易用，快速且高度强大的自定义能力。
 
 
 ## Quick start
 
-* 克隆：`git@github.com:doyoe/Yo.git`
-* Ruby环境：`如果是windows环境需要先安装ruby`
-* 安装Compass：`gem install compass`
-* 装gulp：`npm install gulp -g`
-* 安装依赖模块，`npm install`
+* 安装Nodejs：从[NodeJs官网](http://nodejs.org)下载安装包并安装到本地
+* 克隆：`git clone git@github.com:doyoe/Yo.git`
+* 装gulp：`npm install gulp -g --registry=https://registry.npm.taobao.org`
+* 安装依赖模块，`npm install --registry=https://registry.npm.taobao.org`
 * 编译命令：`gulp`
 
 
 ## Browser support
 
-* iOS6.x, iOS7.x, iOS8.x
-* Android4.x, Android5.x
-* Latest Stable: Chrome, Safari
+* iOS6.0+
+* Android4.0+
+* Latest Stable: Chrome, Safari, Opera, IE10+
 
 
 ## Bugs and feature requests
@@ -29,47 +28,30 @@
 
 待发布...
 
+## Notice
+
+Yo约束了2种项目所使用的长度单位
+
+* 所有涉及到 `border` 的长度单位都是用 `px`；
+* 除 `border` 外，所有的长度设置都是用 `rem` 单位；
+
 ## Versioning
 
-### Developing: v1.5.0
+### Developing: v1.8.6
 
-* update: `yo-loading`
-    - loading换成webfonts
-    - `size` 参数改成 `ico-size`
-    - `color` 参数改成 `ico-color`
-    - 新增 `font-size` 参数用以控制文本大小
-    - 新增 `color` 参数用以控制文本颜色
-    - 新增 `content` 参数用以控制loading的形态，可传入webfonts编码
+* 开发中。。。
+
+### Lastest: v1.8.5
+
+* update: `yo-group`, `yo-dblist`
+    - 调整内部实现
 * update:
-    - 删除元素 `yo-checkbox` 和 `yo-radio`，如已使用可以直接改用 `yo-checked`
-
-### Lastest: v1.4.0
-
-* update:
-    - 删除了 `layout.scss`，如果当前页面需要设置root是否允许滚动，使用 `root-scroll()` 方法
-    - 新增 `yo-flex` 弹性布局方法
-* update: `flex` 方法
-    - 删除 `flex` 方法的 `display: block` 设置，如果参与flex布局，请自行使用非inline元素
-* update: `yo-badge`
-    - 新增 `padding` 参数用于设置内补白
-    - 新增 `border-width` 参数用于设置边框厚度
-* update: `yo-btn`
-    - 新增 `border-width` 参数用于设置边框厚度
-* update: `yo-checked`
-    - 删除 `type` 参数，不再使用该参数设置来判定使用哪个标记
-    - 新增 `content` 参数用于设置标记，可以直接传字符或者iconfont
-    - 新增 `font-size` 参数用于标记大小
-    - 新增 `border-width` 参数用于设置边框厚度
-    - 新增 `color` 参数用于未选中状态时的标记颜色
-* add `background-size` 方法
-* update: `yo-header`
-    - 增加 `item-ico-size` 参数，用于设置两侧ico的大小
-* update: `yo-list`
-    - 删除 `is-outline` 参数，新增 `border-width` 参数用于设置外边框厚度
-    - 增加 `on-color` 参数，用于设置列表项选中时文本色
-    - 删除列表项的 `min-height` 定义
-* update: `yo-search`
-    - 增加 `cancel-width` 参数，用于设置取消按钮区域的宽度
+    - 拆分 `classes` 构造方法到各独立模块
+* update: `core classes`
+    - 更新弹性盒相关方法，支持 `Firefox` and `IE`
+    - 新增 `align-content()`方法，用于支持多行弹性容器侧轴对齐方式
+* update: `yo-datepicker`
+    - 恢复该组件内部的flex布局
 
 
 ### History

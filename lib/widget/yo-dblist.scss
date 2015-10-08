@@ -1,18 +1,34 @@
 @charset "utf-8";
-@import "classes";
+@import "../core/variables";
+@import "../core/classes";
+
+// 定义dblist的基础构造
+@mixin _dblist {
+    @include fullscreen;
+    @include flexbox;
+    min-height: 2rem;
+    > .item {
+        position: relative;
+        min-width: .1rem;
+        height: 100%;
+        &:first-child {
+            width: map-get($dblist, aside-width);
+            @include order(map-get($dblist, aside-order));
+        }
+        &:last-child {
+            @include flex;
+        }
+    }
+}
 
 /**
- * @class widget
- */
-
-/**
- * 构造列表的自定义使用方法
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-dblist.html)
+ * @module widget
  * @method yo-dblist
- * @param {default | String} $name 扩展的名称
- * @param {default | Length} $aside-width 侧边栏宽度
- * @param {default | Length} $aside-order 侧边栏顺序
+ * @description 构造yo-dblist的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/widget/yo-dblist.html
+ * @param {String} $name 扩展的名称
+ * @param {Length} $aside-width 侧边栏宽度
+ * @param {Length} $aside-order 侧边栏顺序
  */
 
 @mixin yo-dblist(
@@ -43,6 +59,8 @@
                 }
             }
         }
+        // 增量扩展
+        @content;
     }
 }
 

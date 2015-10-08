@@ -1,17 +1,20 @@
 @charset "utf-8";
-@import "classes";
+@import "../core/variables";
+@import "../core/classes";
+
+// 定义区块的基础构造
+@mixin _stacked {
+    display: block;
+    margin: map-get($stacked, margin);
+}
 
 /**
- * @class layout
- */
-
-/**
- * 构造独立区块布局
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/layout/yo-stacked.html)
+ * @module layout
  * @method yo-stacked
- * @param {defailt | String} $name 定义名称
- * @param {defailt | Color} $margin 定义外边距
+ * @description 构造独立区块布局
+ * @demo http://doyoe.github.io/Yo/demo/layout/yo-stacked.html
+ * @param {String} $name 定义名称
+ * @param {Color} $margin 定义外边距
  */
 
 @mixin yo-stacked(
@@ -32,6 +35,8 @@
         @if $margin != map-get($stacked, margin) {
             margin: $margin;
         }
+        // 增量扩展
+        @content;
     }
 }
 

@@ -2,15 +2,11 @@
 @import "classes";
 
 /**
- * @class ani
- * @module Yo
- */
-
-/**
- * 定义上升缩小退出动画
+ * @module animate
+ * @class zoom
+ * @description 定义上升缩小退出动画
  * @method zoom-out-up
  */
-
 @-webkit-keyframes zoom-out-up {
 	40% {
 		opacity: 1;

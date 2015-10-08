@@ -2,15 +2,11 @@
 @import "classes";
 
 /**
- * @class ani
- * @module Yo
- */
-
-/**
- * 定义从左侧快速出去动画
+ * @module animate
+ * @class speed
+ * @description 定义从左侧快速出去动画
  * @method speed-out-left
  */
-
 @-webkit-keyframes speed-out-left {
 	0% {
 		opacity: 1;

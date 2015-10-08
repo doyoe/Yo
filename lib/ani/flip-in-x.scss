@@ -2,15 +2,11 @@
 @import "classes";
 
 /**
- * @class ani
- * @module Yo
- */
-
-/**
- * 定义翻转动画
+ * @module animate
+ * @class flip
+ * @description 定义翻转动画
  * @method flip-in-x
  */
-
 @-webkit-keyframes flip-in-x {
 	0% {
 		-webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);

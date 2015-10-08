@@ -1,15 +1,58 @@
 @charset "utf-8";
-@import "classes";
+@import "../core/variables";
+@import "../core/classes";
+
+// 定义按钮的基础构造
+@mixin _btn {
+    display: inline-block;
+    overflow: hidden;
+    width: map-get($btn, width);
+    height: map-get($btn, height);
+    line-height: map-get($btn, line-height);
+    padding: map-get($btn, padding);
+    vertical-align: top;
+    // 当边框厚度大于0时，才定义边框相关属性
+    @if map-get($btn, border-width) != null and
+        map-get($btn, border-width) != 0 {
+        border-width: map-get($btn, border-width);
+        border-style: solid;
+        border-color: map-get($btn, bordercolor);
+    } @else {
+        // 当使用input和button时，清除默认带有的外边框
+        border-style: none;
+    }
+    @include border-radius(map-get($btn, radius));
+    background-color: map-get($btn, bgcolor);
+    color: map-get($btn, color);
+    text-align: center;
+    cursor: pointer;
+    &:active {
+        // 当边框厚度大于0时，才定义边框相关属性
+        @if map-get($btn, border-width) != null and
+            map-get($btn, border-width) != 0 {
+            border-color: map-get($btn, active-bordercolor);
+        }
+        background-color: map-get($btn, active-bgcolor);
+        color: map-get($btn, active-color);
+    }
+    &-disabled {
+        opacity: 1;
+        cursor: not-allowed;
+        &,
+        &:focus,
+        &:active {
+            border-color: map-get($base, disabled-bordercolor);
+            background-color: map-get($base, disabled-bgcolor);
+            color: map-get($base, disabled-color);
+        }
+    }
+}
 
 /**
- * @class element
- */
-
-/**
- * 构造按钮的自定义使用方法，可轻松自定义边框，尺寸，背景，文字等
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/element/yo-btn.html)
+ * @module element
  * @method yo-btn
+ * @description 构造按钮的自定义使用方法，可轻松自定义边框，尺寸，背景，文字等
+ * @demo http://doyoe.github.io/Yo/demo/element/yo-btn.html
  * @param {String} $name 为新的按钮扩展定义一个名称
  * @param {Length} $border-width 按钮边框厚度
  * @param {Color} $bordercolor 按钮边框色
@@ -98,6 +141,7 @@
         }
         // 如果$radius不等于config设定，则重绘圆角
         @if $radius != map-get($btn, radius) {
+            // 构造里已处理过边框+圆角+背景溢出的问题，所以这里写原生即可
             border-radius: $radius;
         }
         // 如果$border-width不等于config设定，则重绘边框相关
@@ -155,15 +199,8 @@
                 color: $active-color;
             }
         }
-        // 如果是禁用按钮，则不需要交互状态
-        @if $name == -disabled {
-            cursor: not-allowed;
-            &,
-            &:focus,
-            &:active {
-                opacity: .4;
-            }
-        }
+        // 增量扩展
+        @content;
     }
 }
 
@@ -190,14 +227,5 @@
     &-stacked {
         display: block;
         width: 100%;
-        clear: both;
     }
 }
-
-// 预设禁用按钮
-@include yo-btn(
-    $name: disabled,
-    $bordercolor: map-get($base, disabled-bordercolor),
-    $bgcolor: map-get($base, disabled-bgcolor),
-    $color: map-get($base, disabled-color)
-);

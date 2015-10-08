@@ -2,15 +2,11 @@
 @import "classes";
 
 /**
- * @class ani
- * @module Yo
- */
-
-/**
- * 定义吊索动画
+ * @module animate
+ * @class other
+ * @description 定义吊索动画
  * @method sling
  */
-
 @-webkit-keyframes sling {
 	0% {
 		-webkit-transform: scale3d(1, 1, 1);

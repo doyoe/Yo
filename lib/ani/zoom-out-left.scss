@@ -2,15 +2,11 @@
 @import "classes";
 
 /**
- * @class ani
- * @module Yo
- */
-
-/**
- * 定义从左往右缩小退出动画
+ * @module animate
+ * @class zoom
+ * @description 定义从左往右缩小退出动画
  * @method zoom-out-left
  */
-
 @-webkit-keyframes zoom-out-left {
 	40% {
 		opacity: 1;

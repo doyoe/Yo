@@ -2,15 +2,11 @@
 @import "classes";
 
 /**
- * @class ani
- * @module Yo
- */
-
-/**
- * 定义脉冲动画
+ * @module animate
+ * @class other
+ * @description 定义脉冲动画
  * @method pulse
  */
-
 @-webkit-keyframes pulse {
 	0% {
 		-webkit-transform: scale3d(1, 1, 1);

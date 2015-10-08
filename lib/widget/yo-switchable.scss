@@ -1,25 +1,84 @@
 @charset "utf-8";
-@import "classes";
+@import "../core/variables";
+@import "../core/classes";
+
+// 定义switchable的基础构造
+@mixin _switchable {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    text-align: center;
+    > .cont {
+        position: relative;
+        white-space: nowrap;
+        @include killspace;
+        > .item {
+            width: 100%;
+            background-color: #eee;
+        }
+        .img {
+            max-width: 100%;
+            max-height: 100%;
+            height: auto;
+        }
+    }
+    > .index {
+        position: absolute;
+        bottom: .05rem;
+        left: 50%;
+        @include transform(translate(-50%, 0) translatez(0));
+        > li {
+            float: left;
+            margin: 0 .05rem;
+            @include square(map-get($switchable, index-size));
+            border-radius: 50%;
+            background-color: map-get($switchable, index-bgcolor);
+            &.on {
+                background-color: map-get($switchable, index-on-bgcolor);
+            }
+        }
+    }
+    > .yo-ico {
+        @if map-get($switchable, has-btn) == false {
+            display: none;
+        }
+        position: absolute;
+        top: 50%;
+        @include transform(translate(0, -50%) translatez(0));
+        @include square(map-get($switchable, btn-size));
+        border-radius: 50%;
+        background-color: map-get($switchable, btn-bgcolor);
+        color: map-get($switchable, btn-color);
+        line-height: map-get($switchable, btn-size);
+        cursor: pointer;
+        &:active {
+            background-color: map-get($switchable, btn-active-bgcolor);
+            color: map-get($switchable, btn-active-color);
+        }
+    }
+    > .yo-ico-prev {
+        left: 0;
+    }
+    > .yo-ico-next {
+        right: 0;
+    }
+}
 
 /**
- * @class widget
- */
-
-/**
- * 构造列表的自定义使用方法
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-switchable.html)
+ * @module widget
  * @method yo-switchable
- * @param {default | String} $name 扩展的名称
- * @param {default | Boolen} $has-btn 是否有按钮
- * @param {default | Length} $btn-size 按钮大小
- * @param {default | Length} $btn-bgcolor 按钮背景色
- * @param {default | Length} $btn-color 按钮文本色
- * @param {default | Color} $btn-active-bgcolor 按钮按下背景色
- * @param {default | Length} $btn-active-color 按钮按下文本色
- * @param {default | Length} $index-size 索引大小
- * @param {default | Color} $index-bgcolor 索引背景色
- * @param {default | Length} $index-on-bgcolor 索引当前项背景色
+ * @description 构造yo-switchable的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/widget/yo-switchable.html
+ * @param {String} $name 扩展的名称
+ * @param {Boolen} $has-btn 是否有按钮
+ * @param {Length} $btn-size 按钮大小
+ * @param {Length} $btn-bgcolor 按钮背景色
+ * @param {Length} $btn-color 按钮文本色
+ * @param {Color} $btn-active-bgcolor 按钮按下背景色
+ * @param {Length} $btn-active-color 按钮按下文本色
+ * @param {Length} $index-size 索引大小
+ * @param {Color} $index-bgcolor 索引背景色
+ * @param {Length} $index-on-bgcolor 索引当前项背景色
  */
 
 @mixin yo-switchable(
@@ -110,6 +169,8 @@
                 }
             }
         }
+        // 增量扩展
+        @content;
     }
 }
 

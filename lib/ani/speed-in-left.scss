@@ -2,15 +2,11 @@
 @import "classes";
 
 /**
- * @class ani
- * @module Yo
- */
-
-/**
- * 定义从右侧快速进入动画
+ * @module animate
+ * @class speed
+ * @description 定义从左侧快速进入动画
  * @method speed-in-left
  */
-
 @-webkit-keyframes speed-in-left {
 	0% {
 		-webkit-transform: translate3d(-100%, 0, 0) skewX(30deg);

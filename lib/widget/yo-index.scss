@@ -1,19 +1,32 @@
 @charset "utf-8";
-@import "classes";
+@import "../core/variables";
+@import "../core/classes";
+
+// 定义index的基础构造
+@mixin _index {
+    width: map-get($index, width);
+    text-transform: uppercase;
+    color: map-get($index, color);
+    font-size: map-get($index, font-size);
+    line-height: 1.1;
+    text-align: center;
+    .ellipsis {
+        display: inline-block;
+        @include square(map-get($index, font-size) / 2);
+        border-radius: 50%;
+        background-color: map-get($index, color);
+    }
+}
 
 /**
- * @class widget
- */
-
-/**
- * 构造列表的自定义使用方法
- -----------------------
- * 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-index.html)
+ * @module widget
  * @method yo-index
- * @param {default | String} $name 定义yo-index名称
- * @param {default | Length} $width 定义yo-index宽度
- * @param {default | Color} $color 定义yo-index文本色
- * @param {default | Length} $font-size 定义yo-index文本字号
+ * @description 构造yo-index的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/widget/yo-index.html
+ * @param {String} $name 定义yo-index名称
+ * @param {Length} $width 定义yo-index宽度
+ * @param {Color} $color 定义yo-index文本色
+ * @param {Length} $font-size 定义yo-index文本字号
  */
 
 @mixin yo-index(
@@ -55,6 +68,8 @@
                 @include square($font-size / 2);
             }
         }
+        // 增量扩展
+        @content;
     }
 }
 
