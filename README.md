@@ -37,7 +37,11 @@ Yo约束了2种项目所使用的长度单位
 
 ## Versioning
 
-### Developing: v1.8.5
+### Developing: v1.8.6
+
+* 开发中。。。
+
+### Lastest: v1.8.5
 
 * update: `yo-group`, `yo-dblist`
     - 调整内部实现
@@ -48,17 +52,6 @@ Yo约束了2种项目所使用的长度单位
     - 新增 `align-content()`方法，用于支持多行弹性容器侧轴对齐方式
 * update: `yo-datepicker`
     - 恢复该组件内部的flex布局
-
-### Lastest: v1.8.4
-
-* update: `yo-rating`
-    - 增加 `readonly` 状态用于只读
-* update: `yo-list`
-    - 增加 `yo-slidermenu` 在 `yo-list` 内部使用时，有按下反馈
-* update: `yo-datepicker`
-    - 移除该组件内部的flex布局
-* add: `kami`
-    - 增加 `kami` 入口文件目录
 
 
 ### History

@@ -2,6 +2,20 @@
 
 History Version and release time.
 
+### v1.8.5 (2015.10.8)
+
+[Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v1.8.5)
+
+* update: `yo-group`, `yo-dblist`
+    - 调整内部实现
+* update:
+    - 拆分 `classes` 构造方法到各独立模块
+* update: `core classes`
+    - 更新弹性盒相关方法，支持 `Firefox` and `IE`
+    - 新增 `align-content()`方法，用于支持多行弹性容器侧轴对齐方式
+* update: `yo-datepicker`
+    - 恢复该组件内部的flex布局
+
 ## v1.8.4 (2015.9.7)
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v1.8.4)
