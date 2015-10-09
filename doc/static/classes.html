@@ -180,8 +180,8 @@
         width: 0;
         height: 100%;
         content: "\0020";
-        vertical-align: middle;
     }
+    &::after,
     > .item {
         vertical-align: middle;
     }
@@ -208,15 +208,20 @@
 /**
  * @module core
  * @class 功能
- * @description 定义根节点 root-scroll
+ * @description 定义文档根节点是否允许滚动
  * @method root-scroll
- * @param {String} $root-scroll 指定scroll类型，取值overflow属性的标准值
+ * @param {Boolean} $is-scroll 指定是否有滚动，默认值：false {add: 1.8.6}
  */
-@mixin root-scroll($root-scroll: hidden) {
+@mixin root-scroll($is-scroll: false) {
     html,
     body {
-        overflow: $root-scroll;
-        height: 100%;
+        @if $is-scroll {
+            overflow: visible;
+            height: auto;
+        } @else {
+            overflow: hidden;
+            height: 100%;
+        }
     }
 }
 
@@ -225,7 +230,7 @@
  * @class 功能
  * @description 定义是否有滚动条
  * @method overflow
- * @param {String} $overflow 默认值：auto，取值与最新原生语法一致
+ * @param {String} $overflow 取值与最新原生语法一致，默认值：auto
  */
 @mixin overflow($overflow: auto) {
     @if $overflow == auto {
@@ -257,9 +262,9 @@
 /**
  * @module core
  * @class 用户界面
- * @description 滤镜
+ * @description 定义使用何种滤镜
  * @method filter
- * @param {String} $filter 取值与原生语法一致
+ * @param {String} $filter 取值与`filter`属性一致
  */
 @mixin filter($filter...) {
     @include prefix(filter, $filter);
@@ -270,7 +275,7 @@
  * @class 用户界面
  * @description 定义UA默认外观
  * @method appearance
- * @param {String} $appearance 指定UA外观类型
+ * @param {String} $appearance 取值与`appearance`属性一致，默认值：none
  */
 @mixin appearance($appearance: none) {
     @include prefix(appearance, $appearance);
@@ -279,9 +284,9 @@
 /**
  * @module core
  * @class 用户界面
- * @description 定义是否可以选中元素
+ * @description 定义如何选中内容
  * @method user-select
- * @param {String} $user-select 指定是否可以选中
+ * @param {String} $user-select 取值与`user-select`属性一致，默认值：none
  */
 @mixin user-select($user-select: none) {
     @include prefix(user-select, $user-select);
@@ -292,7 +297,7 @@
  * @class 用户界面
  * @description 定义盒模型
  * @method box-sizing
- * @param {String} $box-sizing 取值与`box-sizing`属性一致
+ * @param {String} $box-sizing 指定盒模型类型，取值与`box-sizing`属性一致，默认值：border-box
  */
 @mixin box-sizing($box-sizing: border-box) {
     @include prefix(box-sizing, $box-sizing);
