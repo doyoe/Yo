@@ -216,8 +216,8 @@
  * @class 功能
  * @description 生成全屏方法
  * @method fullscreen
- * @param {Integer} $z-index 定义层叠级别
- * @param {Keywords} $position 定义定位方式，除 static | relative 之外的值
+ * @param {Integer} $z-index 指定层叠级别
+ * @param {Keywords} $position 指定定位方式，取除`static | relative`之外的值，默认值：absolute
  */
 @mixin fullscreen($z-index: null, $position: absolute) {
     position: $position;
