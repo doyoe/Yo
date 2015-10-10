@@ -683,3 +683,24 @@ a {
 .demo > .item {
   vertical-align: middle;
 }
+
+.yo-flex {
+  height: auto;
+}
+
+.yo-flex,
+.yo-flex .flex-inherit {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+
+.yo-flex > .flex,
+.yo-flex .flex-inherit,
+.yo-flex .flex-inherit > .flex {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  width: .1px;
+}

@@ -12,14 +12,24 @@
 <script src="../js/viewport.js"></script>
 <link rel="stylesheet" href="../usage/export/test.css" />
 <style>
-input::-webkit-textfield-decoration-container {
-    padding: 0;
-    margin: 0;
+.test2 {
+    overflow: hidden;
+    -webkit-filter: blur(5px);
+    /*-webkit-backdrop-filter: blur(10px);*/
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255, 255, 255, .5);
+    margin-top: -200px;
 }
 </style>
 </head>
 <body>
-<input type="search" style="border:1px solid #aaa" />
+<div class="yo-flex">
+    <div>1</div>
+    <div class="flex">2</div>
+    <div>3</div>
+</div>
 <div class="demo"><span class="item">对方水电费水电费对方水电费水电费对方水电费水电费对方水电费水电费</span></div>
+<div class="test2">asd</div>
 </body>
 </html>

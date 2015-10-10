@@ -57,6 +57,9 @@
         $direction: map-get($flex, direction);
     }
     .yo-flex#{$name} {
+        @if $direction == row {
+            height: auto;
+        }
         &,
         .flex-inherit {
             // 如果$box不等于config预设，则重绘弹性盒类型

@@ -39,3 +39,7 @@
     background-color: gray;
     @include valign;
 }
+
+@include yo-flex(
+    $direction: row
+);
