@@ -22,24 +22,28 @@
         }
     }
 }
-// OPPO,VIVO等手机上图片圆角问题
+// Android4.3及以下
+.img {
+    display: inline-block;
+    overflow: hidden;
+    @include border-radius(20px);
+    border: 10px solid blue;
+    background-color: blue;
+}
+.img > img {
+    // border-radius: 50%;
+}
+
 .test {
     display: inline-block;
     overflow: hidden;
+    zoom:1;
     @include border-radius(50%);
-    border: 10px solid red;
-    background-color: blue;
+    border: 1px solid blue;
+    background-color: red;
+    padding: 10px;
+    > div {
+        @include square(100px);
+        background-color: #fff;
+    }
 }
-.img {
-    @include border-radius(50%);
-}
-
-.demo {
-    @include square(3rem);
-    background-color: gray;
-    @include valign;
-}
-
-@include yo-flex(
-    $direction: row
-);
