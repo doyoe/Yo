@@ -8,7 +8,7 @@
     overflow: hidden;
     width: map-get($btn, width);
     height: map-get($btn, height);
-    line-height: map-get($btn, line-height);
+    line-height: map-get($btn, height);
     padding: map-get($btn, padding);
     vertical-align: top;
     // 当边框厚度大于0时，才定义边框相关属性
@@ -126,12 +126,12 @@
         $height: map-get($btn, height);
     }
     .yo-btn#{$name} {
-        // 如果$width不等于default，则重绘宽度
-        @if $width != default {
+        // 如果$width不等于config设定，则重绘宽度
+        @if $width != map-get($btn, width) {
             width: $width;
         }
-        // 如果$height不等于default，则重绘高度和行高
-        @if $height != default {
+        // 如果$height不等于config设定，则重绘高度和行高
+        @if $height != map-get($btn, height) {
             height: $height;
             line-height: $height;
         }
