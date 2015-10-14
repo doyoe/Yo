@@ -585,7 +585,7 @@ a {
   text-align: center;
 }
 
-.yo-dialog > .ft .yo-btn {
+.yo-dialog > .ft .yo-btn-dialog {
   border-radius: 0;
   border-width: 1px 0 0;
   border-color: #ccc;
@@ -598,16 +598,16 @@ a {
   width: .1px;
 }
 
-.yo-dialog > .ft .yo-btn:active {
+.yo-dialog > .ft .yo-btn-dialog:active {
   background-color: #f9f9f9;
 }
 
-.yo-dialog > .ft .yo-btn:last-child:not(:only-child),
-.yo-dialog > .ft .yo-btn:only-child {
+.yo-dialog > .ft .yo-btn-dialog:last-child:not(:only-child),
+.yo-dialog > .ft .yo-btn-dialog:only-child {
   font-weight: bold;
 }
 
-.yo-dialog > .ft .yo-btn:last-child:not(:only-child) {
+.yo-dialog > .ft .yo-btn-dialog:last-child:not(:only-child) {
   border-left-width: 1px;
 }
 

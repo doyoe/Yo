@@ -2,6 +2,15 @@
 
 History Version and release time.
 
+### v1.8.6（2016.10.14）
+
+[Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v1.8.6)
+
+* update: `yo-btn`
+    - 更新`config`对于`yo-btn`的高度和字号设置
+* rename: `yo-dblist`
+    - 重命名 `yo-dblist` 为 `yo-doublelist`。**业务回归请注意**
+
 ### v1.8.5 (2015.10.8)
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v1.8.5)

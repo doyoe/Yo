@@ -62,6 +62,7 @@
         @include flexbox;
         text-align: center;
         @include yo-btn(
+            $name: dialog,
             $border-width: 1px 0 0,
             $bordercolor: map-get($base, bordercolor),
             $bgcolor: #fff,
