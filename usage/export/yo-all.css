@@ -1202,7 +1202,7 @@ a {
   content: "离店";
 }
 
-.yo-dblist {
+.yo-doublelist {
   position: absolute;
   top: 0;
   right: 0;
@@ -1211,16 +1211,16 @@ a {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
-  min-height: 2rem;
 }
 
-.yo-dblist > .item {
+.yo-doublelist > .item {
   position: relative;
   min-width: .1rem;
+  min-height: 2rem;
   height: 100%;
 }
 
-.yo-dblist > .item:last-child {
+.yo-doublelist > .item:last-child {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;

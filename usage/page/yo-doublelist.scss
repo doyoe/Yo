@@ -8,9 +8,9 @@
 
 // 这个import应该放到具体使用了该widget的模块内
 // 此处只为简单描述一个demo，所以写法随意
-@import "../widget/yo-dblist";
+@import "../widget/yo-doublelist";
 
-.yo-dblist {
+.yo-doublelist {
     position: static;
     > .item:nth-child(1) {
         background-color: #ccc;

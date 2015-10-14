@@ -44,6 +44,8 @@ Yo约束了2种项目所使用的长度单位
 
 * update: `yo-btn`
     - 更新`config`对于`yo-btn`的高度和字号设置
+* rename: `yo-dblist`
+    - 重命名 `yo-dblist` 为 `yo-doublelist`。**业务回归请注意**
 
 ### Lastest: v1.8.5
 

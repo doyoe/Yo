@@ -465,7 +465,7 @@ a {
   padding: 0 0.02rem;
 }
 
-.yo-dblist {
+.yo-doublelist {
   position: absolute;
   top: 0;
   right: 0;
@@ -474,30 +474,30 @@ a {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
-  min-height: 2rem;
 }
 
-.yo-dblist > .item {
+.yo-doublelist > .item {
   position: relative;
   min-width: .1rem;
+  min-height: 2rem;
   height: 100%;
 }
 
-.yo-dblist > .item:last-child {
+.yo-doublelist > .item:last-child {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
   width: .1px;
 }
 
-.yo-dblist {
+.yo-doublelist {
   position: static;
 }
 
-.yo-dblist > .item:nth-child(1) {
+.yo-doublelist > .item:nth-child(1) {
   background-color: #ccc;
 }
 
-.yo-dblist > .item:not(:nth-child(1)) {
+.yo-doublelist > .item:not(:nth-child(1)) {
   background-color: #eee;
 }

@@ -42,8 +42,9 @@
         @include flex;
         overflow: hidden;
         height: .28rem;
-        background-image: -webkit-linear-gradient(right, map-get($range, outer-bgcolor) 0%, map-get($range, outer-bgcolor) 100%);
-        background-image: linear-gradient(to right, map-get($range, outer-bgcolor) 0%, map-get($range, outer-bgcolor) 100%);
+        @include gradient(linear, top, map-get($range, outer-bgcolor), map-get($range, outer-bgcolor));
+        // background-image: -webkit-linear-gradient(right, map-get($range, outer-bgcolor) 0%, map-get($range, outer-bgcolor) 100%);
+        // background-image: linear-gradient(to right, map-get($range, outer-bgcolor) 0%, map-get($range, outer-bgcolor) 100%);
         background-size: 100% .04rem;
         background-repeat: no-repeat;
         background-position: center;
