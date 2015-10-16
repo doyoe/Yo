@@ -40,24 +40,16 @@ Yo约束了2种项目所使用的长度单位
 
 ## Versioning
 
-### Developing: v1.8.6
+### Developing: v1.8.7
+
+* 开发中
+
+### Lastest: v1.8.6
 
 * update: `yo-btn`
     - 更新`config`对于`yo-btn`的高度和字号设置
 * rename: `yo-dblist`
     - 重命名 `yo-dblist` 为 `yo-doublelist`。**业务回归请注意**
-
-### Lastest: v1.8.5
-
-* update: `yo-group`, `yo-dblist`
-    - 调整内部实现
-* update:
-    - 拆分 `classes` 构造方法到各独立模块
-* update: `core classes`
-    - 更新弹性盒相关方法，支持 `Firefox` and `IE`
-    - 新增 `align-content()`方法，用于支持多行弹性容器侧轴对齐方式
-* update: `yo-datepicker`
-    - 恢复该组件内部的flex布局
 
 
 ### History

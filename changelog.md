@@ -2,7 +2,7 @@
 
 History Version and release time.
 
-### v1.8.6（2016.10.14）
+### v1.8.6（2016.10.16）
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v1.8.6)
 
