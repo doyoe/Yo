@@ -42,7 +42,8 @@ Yo约束了2种项目所使用的长度单位
 
 ### Developing: v1.8.7
 
-* 开发中
+* update: `yo-datepicker`
+    - 为`weeks`容器添加`relative`
 
 ### Lastest: v1.8.6
 
