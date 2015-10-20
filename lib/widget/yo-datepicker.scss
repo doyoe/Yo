@@ -11,6 +11,7 @@
     text-align: center;
     > .weeks {
         @include flex(1, column);
+        position: relative;
     }
     > .week-bar,
     .week {
