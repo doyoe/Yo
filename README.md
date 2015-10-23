@@ -40,18 +40,15 @@ Yo约束了2种项目所使用的长度单位
 
 ## Versioning
 
-### Developing: v1.8.7
+### Developing: v1.8.8
+
+* 开发中
+
+### Lastest: v1.8.7
 
 * update: `yo-datepicker`
     - 为`weeks`容器添加`relative`
     - 解决`disabled`状态被扩展覆盖的问题
-
-### Lastest: v1.8.6
-
-* update: `yo-btn`
-    - 更新`config`对于`yo-btn`的高度和字号设置
-* rename: `yo-dblist`
-    - 重命名 `yo-dblist` 为 `yo-doublelist`。**业务回归请注意**
 
 
 ### History
