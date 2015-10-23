@@ -49,6 +49,7 @@ Yo约束了2种项目所使用的长度单位
 * update: `yo-datepicker`
     - 为`weeks`容器添加`relative`
     - 解决`disabled`状态被扩展覆盖的问题
+    - 引入`panel`依赖
 
 
 ### History
