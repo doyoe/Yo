@@ -42,7 +42,8 @@ Yo约束了2种项目所使用的长度单位
 
 ### Developing: v1.8.8
 
-* 开发中
+* add: `yo-vcode`
+    - 新增`yo-vcode`用于验证码或者密码输入组件
 
 ### Lastest: v1.8.7
 

@@ -668,6 +668,22 @@ $datepicker: (
     end-content:           "离店"
 ) !default;
 
+// Widget UI vcode(6)
+$vcode: (
+    // {Length} 输入框高度
+    height:       .44rem,
+    // {Color} 输入框背景色
+    bgcolor:      #fff,
+    // {Length} 输入框圆角半径
+    radius:       .05rem,
+    // {Length} 输入框字号
+    font-size:    .16rem,
+    // {Length} 输入框边框厚度
+    border-width: 1px,
+    // {Color} 输入框边框色
+    bordercolor:  #000
+) !default;
+
 // z-index
 $z-index: (
     // {Number} 下拉菜单层级范围50-100

@@ -34,16 +34,43 @@
     // border-radius: 50%;
 }
 
-.test {
-    display: inline-block;
-    overflow: hidden;
-    zoom:1;
-    @include border-radius(50%);
-    border: 1px solid blue;
-    background-color: red;
-    padding: 10px;
-    > div {
-        @include square(100px);
-        background-color: #fff;
+// .test {
+//     display: inline-block;
+//     overflow: hidden;
+//     zoom:1;
+//     @include border-radius(50%);
+//     border: 1px solid blue;
+//     background-color: red;
+//     padding: 10px;
+//     > div {
+//         @include square(100px);
+//         background-color: #fff;
+//     }
+// }
+
+
+.yo-vcode {
+    margin: .1rem;
+    @include flexbox;
+    position: relative;
+    height: .4rem;
+    line-height: .4rem;
+    background-color: gray;
+    @include border-radius(.03rem);
+    text-align: center;
+    font-size: .16rem;
+    font-weight: bold;
+    &,
+    & > .value:not(:last-child) {
+        border-right: 1px solid #000;
+    }
+    > .value {
+        display: block;
+        @include flex;
+    }
+    > .input {
+        position: absolute;
+        left: -100%;
+        opacity: 0;
     }
 }
