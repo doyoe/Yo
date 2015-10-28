@@ -38,7 +38,7 @@
 
 $setting: (
     // 版本号
-    version:          "1.8.6",
+    version:          "1.8.8",
     // 是否开启厂商前缀
     is-vendor-prefix: true,
     // 厂商前缀
@@ -429,6 +429,20 @@ $header: (
     item-ico-size:  .2rem
 ) !default;
 
+// Fragment breadcrumb(5)
+$breadcrumb: (
+    // {Length} 面包屑高度
+    height:       .44rem,
+    // {Color} 面包屑背景色
+    bgcolor:      #f0f0f0,
+    // {Color} 面包屑文本色
+    color:        map-get($base, color),
+    // {Color} 面包屑间隔色
+    arrow-color:  #ccc,
+    // {Length} 面包屑子项间隙
+    item-space:   .05rem
+) !default;
+
 // Widget switch(5)
 $switch: (
     // {Color} 激活边框色
@@ -631,8 +645,8 @@ $rating: (
     url:    "star.png"
 ) !default;
 
-// Widget UI dblist(1)
-$dblist: (
+// Widget UI doublelist(1)
+$doublelist: (
     // {Length} 导航panel宽度
     aside-width: null,
     // {Length} 导航panel顺序，从0开始
@@ -697,6 +711,22 @@ $datepicker: (
     start-content:         "入店",
     // {String} 结束日期提示语
     end-content:           "离店"
+) !default;
+
+// Widget UI vcode(6)
+$vcode: (
+    // {Length} 输入框高度
+    height:       .44rem,
+    // {Color} 输入框背景色
+    bgcolor:      #fff,
+    // {Length} 输入框圆角半径
+    radius:       .05rem,
+    // {Length} 输入框字号
+    font-size:    .16rem,
+    // {Length} 输入框边框厚度
+    border-width: 1px,
+    // {Color} 输入框边框色
+    bordercolor:  #000
 ) !default;
 
 // z-index

@@ -42,6 +42,7 @@
     text-align: center;
     > .weeks {
         @include flex(1, column);
+        position: relative;
     }
     > .week-bar,
     .week {
@@ -120,7 +121,7 @@
     .disabled {
         &,
         > .special {
-            color: map-get($datepicker, disabled-color);
+            color: map-get($datepicker, disabled-color) !important;
         }
     }
     // 起始和结束日定义
@@ -384,7 +385,7 @@
             &,
             > .special {
                 @if $disabled-color != map-get($datepicker, disabled-color) {
-                    color: $disabled-color;
+                    color: $disabled-color !important;
                 }
             }
         }

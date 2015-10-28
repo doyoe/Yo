@@ -37,10 +37,10 @@
 @mixin _doublelist {
     @include fullscreen;
     @include flexbox;
-    min-height: 2rem;
     > .item {
         position: relative;
         min-width: .1rem;
+        min-height: 2rem;
         height: 100%;
         &:first-child {
             width: map-get($doublelist, aside-width);
