@@ -55,7 +55,7 @@ Yo约束了2种项目所使用的长度单位
 
 ### History
 
-For more information on History Version, Please visit [changelog](changelog.md).
+更多历史版本信息，请查看[changelog](changelog.md)。
 
 
 ### Version Number Description

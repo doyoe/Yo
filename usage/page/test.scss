@@ -6,19 +6,21 @@
 .yo-nav {
     // 构造一个横纵向参数，用来配置nav的流向
     @include flexbox;
-    height: 100px;
+    height: .44rem;
+    line-height: .44rem;
+    padding: 0 .05rem;
+    background-color: #f0f0f0;
     > .item {
-        @include flex;
-        margin: .1rem;
-        background-color: gray;
-    }
-    > .item:nth-child(3) {
-        @include order(1);
-    }
-    > div {
-        color: red;
-        &::after {
-            content: "\0020";
+        overflow: hidden;
+        height: 100%;
+        padding-left: .05rem;
+        &:not(:last-child)::after {
+            display: inline-block;
+            overflow: hidden;
+            font-family: yofont;
+            content: "\f07f";
+            vertical-align: top;
+            color: #ccc;
         }
     }
 }
@@ -32,45 +34,4 @@
 }
 .img > img {
     // border-radius: 50%;
-}
-
-// .test {
-//     display: inline-block;
-//     overflow: hidden;
-//     zoom:1;
-//     @include border-radius(50%);
-//     border: 1px solid blue;
-//     background-color: red;
-//     padding: 10px;
-//     > div {
-//         @include square(100px);
-//         background-color: #fff;
-//     }
-// }
-
-
-.yo-vcode {
-    margin: .1rem;
-    @include flexbox;
-    position: relative;
-    height: .4rem;
-    line-height: .4rem;
-    background-color: gray;
-    @include border-radius(.03rem);
-    text-align: center;
-    font-size: .16rem;
-    font-weight: bold;
-    &,
-    & > .value:not(:last-child) {
-        border-right: 1px solid #000;
-    }
-    > .value {
-        display: block;
-        @include flex;
-    }
-    > .input {
-        position: absolute;
-        left: -100%;
-        opacity: 0;
-    }
 }

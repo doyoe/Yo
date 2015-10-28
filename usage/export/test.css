@@ -615,30 +615,25 @@ a {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
-  height: 100px;
+  height: .44rem;
+  line-height: .44rem;
+  padding: 0 0.05rem;
+  background-color: #f0f0f0;
 }
 
 .yo-nav > .item {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  flex: 1;
-  width: .1px;
-  margin: .1rem;
-  background-color: gray;
+  overflow: hidden;
+  height: 100%;
+  padding-left: .05rem;
 }
 
-.yo-nav > .item:nth-child(3) {
-  -webkit-box-ordinal-group: 1;
-  -webkit-order: 1;
-  order: 1;
-}
-
-.yo-nav > div {
-  color: red;
-}
-
-.yo-nav > div::after {
-  content: "\0020";
+.yo-nav > .item:not(:last-child)::after {
+  display: inline-block;
+  overflow: hidden;
+  font-family: yofont;
+  content: "\f07f";
+  vertical-align: top;
+  color: #ccc;
 }
 
 .img {
@@ -649,40 +644,4 @@ a {
   background-clip: padding-box !important;
   border: 10px solid blue;
   background-color: blue;
-}
-
-.yo-vcode {
-  margin: .1rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  position: relative;
-  height: .4rem;
-  line-height: .4rem;
-  background-color: gray;
-  border-radius: 0.03rem;
-  -webkit-background-clip: padding-box !important;
-  background-clip: padding-box !important;
-  text-align: center;
-  font-size: .16rem;
-  font-weight: bold;
-}
-
-.yo-vcode,
-.yo-vcode > .value:not(:last-child) {
-  border-right: 1px solid #000;
-}
-
-.yo-vcode > .value {
-  display: block;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  flex: 1;
-  width: .1px;
-}
-
-.yo-vcode > .input {
-  position: absolute;
-  left: -100%;
-  opacity: 0;
 }
