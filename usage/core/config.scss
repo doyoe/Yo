@@ -88,7 +88,9 @@ $media-types: (
     // {String} PC
     pc:        "(min-width: 8rem)",
     // {String} mobile
-    mobile:    "(max-width: 7.99rem)"
+    mobile:    "(max-width: 7.99rem)",
+    // xs, s, m, l, xl
+    xs:        ""
 ) !default;
 
 // ico font

@@ -44,6 +44,8 @@ Yo约束了2种项目所使用的长度单位
 
 * add: `yo-vcode`
     - 新增`yo-vcode`用于验证码或者密码输入组件
+* add: `yo-breadcrumb`
+    - 新增`yo-breadcrumb`面包屑
 
 ### Lastest: v1.8.7
 
@@ -55,7 +57,7 @@ Yo约束了2种项目所使用的长度单位
 
 ### History
 
-更多历史版本信息，请查看[changelog](changelog.md)。
+更多历史版本信息，请查看[ChangeLog](changelog.md)。
 
 
 ### Version Number Description

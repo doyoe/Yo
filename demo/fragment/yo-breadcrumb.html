@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+<title>yo-breadcrumb</title>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no,email=no" />
+<link rel="apple-touch-icon" href="../../yo.png" />
+<link rel="shortcut icon" href="../../shortcut.png" />
+<script src="../../js/viewport.js"></script>
+<link rel="stylesheet" href="../../usage/export/yo-breadcrumb.css" />
+</head>
+<body>
+
+<div class="yo-flex">
+    <header class="yo-header m-header">
+        <h2 class="title">yo-breadcrumb</h2>
+        <a href="../index.html" class="regret yo-ico">&#xf07d;</a>
+    </header>
+    <div class="flex">
+        <section class="m-layer">
+            <ul class="yo-breadcrumb">
+                <li class="item">首页</li>
+                <li class="item">栏目</li>
+                <li class="item">...</li>
+                <li class="item">当前页</li>
+            </ul>
+        </section>
+
+        <section class="m-desc">
+            <h3 class="title">示例描述：</h3>
+            <xmp><ul class="yo-breadcrumb">
+    <li class="item">首页</li>
+    <li class="item">栏目</li>
+    <li class="item">...</li>
+    <li class="item">当前页</li>
+</ul></xmp>
+        </section>
+
+
+        <pre class="m-code"><span class="method">@include yo-breadcrumb</span><span class="bracket">(</span>
+    $name<span class="colon">:</span>default, <mark>//{String} 为新的扩展定义一个名称</mark>
+    $height<span class="colon">:</span>default, <mark>//{Length} 面包屑高度</mark>
+    $bgcolor<span class="colon">:</span>default, <mark>//{Color} 面包屑背景色</mark>
+    $color<span class="colon">:</span>default, <mark>//{Color} 面包屑文本色</mark>
+    $arrow-color<span class="colon">:</span>default, <mark>//{Color} 面包屑间隔色</mark>
+    $item-space<span class="colon">:</span>default <mark>//{Length} 面包屑子项间隙</mark>
+<span class="bracket">)</span>
+</pre>
+    </div>
+</div>
+
+</body>
+</html>
