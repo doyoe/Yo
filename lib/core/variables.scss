@@ -12,9 +12,6 @@ $setting: (
     is-vendor-prefix: true,
     // 厂商前缀
     vendor-prefix:    -webkit-,
-    // 是否开启iOS 1px方案
-    // Android4.3及以下不支持initial-scale除1之外的设置，暂不考虑
-    is-ios-1pixel:    false,
     // 背景图片服务器
     bgimg-domain:     "http://source.qunarzz.com/yo/bgimg/"
 ) !default;
