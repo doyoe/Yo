@@ -443,18 +443,9 @@ a {
   width: .1px;
 }
 
-.yo-list > .label > .mark,
-.yo-list > .label > .yo-ico,
-.yo-list > .label > .col,
-.yo-list > .label > .flex,
-.yo-list > .item > .mark,
-.yo-list > .item > .yo-ico,
-.yo-list > .item > .col,
-.yo-list > .item > .flex,
-.yo-list .front > .mark,
-.yo-list .front > .yo-ico,
-.yo-list .front > .col,
-.yo-list .front > .flex {
+.yo-list > .label > *,
+.yo-list > .item > *,
+.yo-list .front > * {
   display: block;
 }
 
@@ -641,7 +632,6 @@ a {
 .yo-list-group > .label {
   padding: 0.18rem 0.1rem 0.03rem;
   border-color: #ccc;
-  background-color: transparent;
 }
 
 .yo-list-group > .label > .col {

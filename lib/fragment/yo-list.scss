@@ -25,10 +25,7 @@
         > .flex {
             @include flex;
         }
-        > .mark,
-        > .yo-ico,
-        > .col,
-        > .flex {
+        > * {
             display: block;
         }
         &.tr {
