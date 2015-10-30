@@ -26,16 +26,19 @@
  * @class 背景与边框
  * @description 为元素添加边框（包括1px边框）
  * @method border
- * @param {String} $type 指定边框类型，默认值：top，可选值：all | top | right | bottom | left
+ * @param {String} $type 指定边框类型，默认值：all，可选值：all | top | right | bottom | left
  * @param {String} $border-width 指定边框厚度，单位为px，默认值：1px
  * @param {String} $bordercolor 指定边框颜色
- * @param {String} $radius 指定边框圆角半径，默认值：0
+ * @param {String} $radius 指定边框圆角半径，默认值：null
  */
-@mixin border($type: top, $border-width: 1px, $bordercolor: map-get($base, bordercolor), $radius: 0) {
+@mixin border($type: all, $border-width: 1px, $bordercolor: map-get($base, bordercolor), $radius: 0) {
     // 为边框位置提供定位参考
     position: relative;
     // 适配dpr进行缩放
     @mixin _scale {
+        @include responsive(retina1x) {
+            border-radius: $radius;
+        }
         @include responsive(retina2x) {
             @include transform(scale(0.5));
             border-radius: $radius * 2;
@@ -54,6 +57,9 @@
         @include transform-origin(0 0);
 
         @if $direction == horizontal {
+            @include responsive(retina1x) {
+                width: 100%;
+            }
             @include responsive(retina2x) {
                 width: 200%;
             }
@@ -62,6 +68,9 @@
             }
             left: 0;
         } @else if $direction == vertical {
+            @include responsive(retina1x) {
+                height: 100%;
+            }
             @include responsive(retina2x) {
                 height: 200%;
             }
@@ -70,6 +79,10 @@
             }
             top: 0;
         } @else {
+            @include responsive(retina1x) {
+                width: 100%;
+                height: 100%;
+            }
             @include responsive(retina2x) {
                 width: 200%;
                 height: 200%;
@@ -117,6 +130,7 @@
             left: 0;
         }
     }
+    //
     @if $type == top {
         @include _top;
     } @else if $type == right {
@@ -133,10 +147,13 @@
 .yo-list2 {
     margin: .1rem;
     > .item {
-        height: .44rem;
         margin: .1rem;
-        @include border($type:all,$radius:.05rem);
-        border-radius: .05rem;
+        @include border;
         background-color: #eee;
     }
+}
+
+.a{
+    @include border(top);
+    @include border(bottom);
 }

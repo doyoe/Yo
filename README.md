@@ -40,12 +40,14 @@ Yo约束了2种项目所使用的长度单位
 
 ## Versioning
 
-### Developing: v1.8.8
+### Developing: v2.0.0
 
 * add: `yo-vcode`
     - 新增`yo-vcode`用于验证码或者密码输入组件
 * add: `yo-breadcrumb`
     - 新增`yo-breadcrumb`面包屑
+* add: `border`
+    - 新增`border`方法用于处理retina屏1px边框，移除原`viewport scale`方案（因为该方案影响响应式设计实现）
 
 ### Lastest: v1.8.7
 

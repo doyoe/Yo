@@ -7,7 +7,7 @@
 
 $setting: (
     // 版本号
-    version:          "1.8.8",
+    version:          "2.0.0",
     // 是否开启厂商前缀
     is-vendor-prefix: true,
     // 厂商前缀
@@ -73,12 +73,22 @@ $media-types: (
     landscape: "screen and (orientation: landscape)",
     // {String} 竖屏
     portrait:  "screen and (orientation: portrait)",
+    // 视网膜屏定义，这里不做非常细节的界定，比如完全一致的整数倍
+    // retina1x：< 1.5dppx；
+    // retina2x：1.5dppx ~ 2.49dppx
+    // retina3x：>= 2.5dppx
+    // {String} 非视网膜屏
+    retina1x:  "(max--moz-device-pixel-ratio: 1.49),
+                (-webkit-max-device-pixel-ratio: 1.49),
+                (max-device-pixel-ratio: 1.49),
+                (max-resolution: 143dpi),
+                (max-resolution: 1.49dppx)",
     // {String} 视网膜屏2x
-    retina2x:  "(min--moz-device-pixel-ratio: 1.5),
-                (-webkit-min-device-pixel-ratio: 1.5),
-                (min-device-pixel-ratio: 1.5),
-                (min-resolution: 144dpi),
-                (min-resolution: 1.5dppx)",
+    retina2x:  "(min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49),
+                (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49),
+                (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49),
+                (min-resolution: 144dpi) and (max-resolution: 239dpi),
+                (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx)",
     // {String} 视网膜屏3x
     retina3x:  "(min--moz-device-pixel-ratio: 2.5),
                 (-webkit-min-device-pixel-ratio: 2.5),
