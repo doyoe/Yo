@@ -470,23 +470,28 @@ a {
 .yo-list2 > .item {
   margin: .1rem;
   position: relative;
-  background-color: #eee;
+  border-radius: 0.05rem;
+  -webkit-background-clip: padding-box !important;
+  background-clip: padding-box !important;
+  background-color: #999;
 }
 
 .yo-list2 > .item::after {
   position: absolute;
   overflow: hidden;
   content: "\0020";
+  border-color: red;
+  border-style: solid;
   -webkit-transform-origin: 0 0;
   transform-origin: 0 0;
   top: 0;
-  border: 1px solid #ccc;
+  border-width: 1px;
   left: 0;
 }
 
 @media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
   .yo-list2 > .item::after {
-    border-radius: 0;
+    border-radius: 0.05rem;
   }
 }
 
@@ -494,7 +499,7 @@ a {
   .yo-list2 > .item::after {
     -webkit-transform: scale(0.5);
     transform: scale(0.5);
-    border-radius: 0;
+    border-radius: 0.1rem;
   }
 }
 
@@ -502,7 +507,7 @@ a {
   .yo-list2 > .item::after {
     -webkit-transform: scale(0.33333);
     transform: scale(0.33333);
-    border-radius: 0;
+    border-radius: 0.15rem;
   }
 }
 
@@ -524,112 +529,5 @@ a {
   .yo-list2 > .item::after {
     width: 300%;
     height: 300%;
-  }
-}
-
-.a {
-  position: relative;
-  position: relative;
-}
-
-.a::before {
-  position: absolute;
-  overflow: hidden;
-  content: "\0020";
-  -webkit-transform-origin: 0 0;
-  transform-origin: 0 0;
-  left: 0;
-  border-top: 1px solid #ccc;
-  top: 0;
-}
-
-@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
-  .a::before {
-    border-radius: 0;
-  }
-}
-
-@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
-  .a::before {
-    -webkit-transform: scale(0.5);
-    transform: scale(0.5);
-    border-radius: 0;
-  }
-}
-
-@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
-  .a::before {
-    -webkit-transform: scale(0.33333);
-    transform: scale(0.33333);
-    border-radius: 0;
-  }
-}
-
-@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
-  .a::before {
-    width: 100%;
-  }
-}
-
-@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
-  .a::before {
-    width: 200%;
-  }
-}
-
-@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
-  .a::before {
-    width: 300%;
-  }
-}
-
-.a::after {
-  position: absolute;
-  overflow: hidden;
-  content: "\0020";
-  -webkit-transform-origin: 0 0;
-  transform-origin: 0 0;
-  left: 0;
-  border-bottom: 1px solid #ccc;
-  bottom: 0;
-}
-
-@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
-  .a::after {
-    border-radius: 0;
-  }
-}
-
-@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
-  .a::after {
-    -webkit-transform: scale(0.5);
-    transform: scale(0.5);
-    border-radius: 0;
-  }
-}
-
-@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
-  .a::after {
-    -webkit-transform: scale(0.33333);
-    transform: scale(0.33333);
-    border-radius: 0;
-  }
-}
-
-@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
-  .a::after {
-    width: 100%;
-  }
-}
-
-@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
-  .a::after {
-    width: 200%;
-  }
-}
-
-@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
-  .a::after {
-    width: 300%;
   }
 }
