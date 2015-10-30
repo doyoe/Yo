@@ -375,108 +375,53 @@
  * @description 为元素添加边框（包括1px边框）
  * @method border
  * @version 2.0.0
- * @param {String} $type 指定边框类型，默认值：border，可选值：border | border-top | border-right | border-bottom | border-left
- * @param {String} $border-width 指定边框厚度（单位为px），默认值：1px
+ * @param {String} $border-width 指定边框厚度（单位为px），默认值：1px，取值与`border-width`属性一致，不同方向代表边框位置
  * @param {String} $border-color 指定边框颜色
  * @param {String} $border-style 指定边框样式
  * @param {String} $radius 指定边框圆角半径，默认值：null
  */
-@mixin border($type: all, $border-width: 1px, $border-color: map-get($base, bordercolor), $border-style: solid, $radius: 0) {
+@mixin border($border-width: 1px, $border-color: map-get($base, border-color), $border-style: solid, $radius: 0) {
     // 为边框位置提供定位参考
     position: relative;
-    // 适配dpr进行缩放
-    @mixin _scale {
-        @include responsive(retina1x) {
-            border-radius: $radius;
-        }
-        @include responsive(retina2x) {
-            @include transform(scale(0.5));
-            border-radius: $radius * 2;
-        }
-        @include responsive(retina3x) {
-            @include transform(scale(1/3));
-            border-radius: $radius * 3;
-        }
+    @if $radius == null {
+        $radius: 0;
     }
-    // 通用定义
-    @mixin _base($direction: all) {
+    @if $border-width == null {
+        $border-width: 0;
+    }
+    @include border-radius($radius);
+    // 避免子元素被边框层级覆盖
+    > * {
+        position: relative;
+    }
+    &::before {
         position: absolute;
+        top: 0;
+        left: 0;
         overflow: hidden;
         content: "\0020";
         border-color: $border-color;
         border-style: $border-style;
-        @include _scale;
+        border-width: $border-width;
+        // 适配dpr进行缩放
+        @include responsive(retina1x) {
+            width: 100%;
+            height: 100%;
+            border-radius: $radius;
+        }
+        @include responsive(retina2x) {
+            width: 200%;
+            height: 200%;
+            @include transform(scale(0.5));
+            border-radius: $radius * 2;
+        }
+        @include responsive(retina3x) {
+            width: 300%;
+            height: 300%;
+            @include transform(scale(1/3));
+            border-radius: $radius * 3;
+        }
         @include transform-origin(0 0);
-
-        @if $direction == horizontal {
-            @include responsive(retina1x) {
-                width: 100%;
-            }
-            @include responsive(retina2x) {
-                width: 200%;
-            }
-            @include responsive(retina3x) {
-                width: 300%;
-            }
-            left: 0;
-        } @else if $direction == vertical {
-            @include responsive(retina1x) {
-                height: 100%;
-            }
-            @include responsive(retina2x) {
-                height: 200%;
-            }
-            @include responsive(retina3x) {
-                height: 300%;
-            }
-            top: 0;
-        } @else {
-            @include responsive(retina1x) {
-                width: 100%;
-                height: 100%;
-            }
-            @include responsive(retina2x) {
-                width: 200%;
-                height: 200%;
-            }
-            @include responsive(retina3x) {
-                width: 300%;
-                height: 300%;
-            }
-            top: 0;
-        }
-    }
-    // 定义上，右，下，左，全这5种边线
-    @if $type == top {
-        &::before {
-            @include _base(horizontal);
-            border-top-width: $border-width;
-            top: 0;
-        }
-    } @else if $type == right {
-        &::after {
-            @include _base(vertical);
-            border-right-width: $border-width;
-            right: 0;
-        }
-    } @else if $type == bottom {
-        &::after {
-            @include _base(horizontal);
-            border-bottom-width: $border-width;
-            bottom: 0;
-        }
-    } @else if $type == left {
-        &::before {
-            @include _base(vertical);
-            border-left-width: $border-width;
-            left: 0;
-        }
-    } @else {
-        &::after {
-            @include _base(all);
-            border-width: $border-width;
-            left: 0;
-        }
     }
 }
 

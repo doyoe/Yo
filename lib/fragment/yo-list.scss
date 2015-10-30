@@ -5,14 +5,11 @@
 // 定义list的基础构造
 @mixin _list {
     margin: map-get($list, margin);
-    border-radius: map-get($list, radius);
-    // 当边框厚度大于0时，才定义边框相关属性
-    @if map-get($list, border-width) != null and
-        map-get($list, border-width) != 0 {
-        border-width: map-get($list, border-width);
-        border-style: solid;
-        border-color: map-get($list, border-color);
-    }
+    @include border(
+        $border-width: map-get($list, border-width),
+        $border-color: map-get($list, border-color),
+        $radius: map-get($list, radius)
+    );
     > .label,
     > .item,
     .front {
@@ -41,8 +38,18 @@
     }
     > .label {
         padding: map-get($list, label-padding);
-        border: 1px solid map-get($list, label-border-color);
-        border-width: 0 0 1px 0;
+        @include border(
+            $border-width: 0 0 1px,
+            $border-color: map-get($list, label-border-color)
+        );
+        &:not(:first-child) {
+            margin-top: -1px;
+            // 除第一个.label外，其他.label都需要top,bottom2条线
+            // top线用于补全上一组的最后一根线
+            &::before {
+                border-width: 1px 0;
+            }
+        }
         background-color: map-get($list, label-bgcolor);
         color: map-get($base, sub-color);
         font-size: map-get($list, label-font-size);
@@ -50,10 +57,6 @@
         // 定义单元格的padding
         > .col {
             padding: map-get($list, label-padding);
-        }
-        &:not(:first-child) {
-            border-width: 1px 0;
-            margin-top: -1px;
         }
     }
     > .item,
@@ -64,22 +67,21 @@
         background-color: #fff;
         color: map-get($base, color);
         font-size: map-get($list, item-font-size);
-
-        // 描述线条
-        @include gradient(linear, map-get($list, item-border-color), map-get($list, item-border-color));
-        @include background-size(100% 1px);
-        background-repeat: no-repeat;
-        // 设置底边线的位置
-        background-position: map-get($list, item-border-space) bottom;
-
+        @include border(
+            $border-width: 0 0 1px,
+            $border-color: map-get($list, item-border-color)
+        );
+        // 除最后一项子项外边线内陷
+        &:not(:last-child)::before {
+            left: map-get($list, item-border-space);
+        }
         &:last-child {
             margin-bottom: -1px;
             // 最后一根线的颜色与外边框颜色相同
-            @include gradient(linear, map-get($list, border-color), map-get($list, border-color));
-            // 最后一根线的左边不留间隙
-            background-position: 0 bottom;
+            &::before {
+                border-color: map-get($list, border-color);
+            }
         }
-
         &-stacked {
             display: block;
             > .mark {

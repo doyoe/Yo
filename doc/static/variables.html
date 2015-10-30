@@ -43,9 +43,6 @@ $setting: (
     is-vendor-prefix: true,
     // 厂商前缀
     vendor-prefix:    -webkit-,
-    // 是否开启iOS 1px方案
-    // Android4.3及以下不支持initial-scale除1之外的设置，暂不考虑
-    is-ios-1pixel:    false,
     // 背景图片服务器
     bgimg-domain:     "http://source.qunarzz.com/yo/bgimg/"
 ) !default;
@@ -72,9 +69,9 @@ $base: (
     // 默认文档背景色
     doc-bgcolor:          #fafafa,
     // 默认边框色
-    bordercolor:          #ccc,
+    border-color:          #ccc,
     // 默认次级边框色
-    sub-bordercolor:      #ddd,
+    sub-border-color:      #ddd,
     // 默认背景颜色
     bgcolor:              #fafafa,
     // 默认文本颜色
@@ -82,7 +79,7 @@ $base: (
     // 默认次级文本颜色
     sub-color:            #666,
     // 默认边框色
-    disabled-bordercolor: #ccc,
+    disabled-border-color: #ccc,
     // 默认文档颜色
     disabled-bgcolor:     #e0e0e0,
     // 默认禁用文本颜色
@@ -193,7 +190,7 @@ $input: (
     // {Length} 输入框圆角
     radius:            .02rem,
     // {Color} 输入框边框色
-    bordercolor:       map-get($base, bordercolor),
+    border-color:       map-get($base, border-color),
     // {Color} 输入框背景色
     bgcolor:           transparent,
     // {Color} 文本色
@@ -207,13 +204,13 @@ $btn: (
     // {Color} Length
     border-width:   1px,
     // {Color} 边框色
-    bordercolor:    #e26704,
+    border-color:    #e26704,
     // {Color} 背景色
     bgcolor:        #ff801a,
     // {Color} 文本色
     color:          #fff,
     // {Color} 激活时边框色
-    active-bordercolor: null,
+    active-border-color: null,
     // {Color} 激活时背景色
     active-bgcolor:     null,
     // {Color} 激活时文本色
@@ -247,7 +244,7 @@ $badge: (
     // {Color} 边框厚度
     border-width: 1px,
     // {Color} 边框色
-    bordercolor:  #f00,
+    border-color:  #f00,
     // {Color} 背景色
     bgcolor:      #f00,
     // {Color} 文本色
@@ -269,13 +266,13 @@ $checked: (
     // {Length} 边框厚度
     border-width:   null,
     // {Color} 未选中时的边框色
-    bordercolor:    null,
+    border-color:    null,
     // {Color} 未选中时的背景色
     bgcolor:        null,
     // {Color} 未选中时的标记颜色
     color:          transparent,
     // {Color} 激活边框色
-    on-bordercolor: null,
+    on-border-color: null,
     // {Color} 激活背景色
     on-bgcolor:     null,
     // {Color} 激活标记颜色
@@ -330,7 +327,7 @@ $list: (
     // {Length} 列表边框厚度
     border-width:      null,
     // {Color} 列表边框色
-    bordercolor:       map-get($base, bordercolor),
+    border-color:       map-get($base, border-color),
     // {Length} 列表项内补白，列表项有最小高度.44rem
     item-padding:      .11rem .1rem .12rem,
     // {Length} 列表组头内补白
@@ -344,9 +341,9 @@ $list: (
     // {Color} 选中文本色
     on-color:          null,
     // {Color} 列表项边框色
-    item-bordercolor:  map-get($base, sub-bordercolor),
+    item-border-color:  map-get($base, sub-border-color),
     // {Color} 列表项组名边框色
-    label-bordercolor: #eee,
+    label-border-color: #eee,
     // {Length} 列表项字号
     item-font-size:    .14rem,
     // {Length} 列表组头字号
@@ -366,7 +363,7 @@ $tab: (
     // {Length} 边框厚度
     border-width:       1px 0 0 0,
     // {Color} 边框色
-    bordercolor:        map-get($base, bordercolor),
+    border-color:        map-get($base, border-color),
     // {Color} tab背景色
     bgcolor:            #fafafa,
     // {Color} tab文本色
@@ -386,7 +383,7 @@ $tab: (
     // {Color} item间隔线高度
     item-border-height: 100%,
     // {Color} item间隔线颜色
-    item-bordercolor:   transparent
+    item-border-color:   transparent
 ) !default;
 
 // Fragment Table(10)
@@ -400,7 +397,7 @@ $table: (
     // {Length} 表主体内补白
     tbody-padding:       .1rem,
     // {Color} table边框色，表格必须有边框，所以不能有null值
-    bordercolor:         map-get($base, bordercolor),
+    border-color:         map-get($base, border-color),
     // {Color} 表头部背景色
     thead-bgcolor:       #eee,
     // {Color} 表主体奇数行背景色
@@ -422,7 +419,7 @@ $header: (
     // {Length} 两侧的子项离边界的间隙
     item-space:     .15rem,
     // {Color} 边框色
-    bordercolor:    #1ba9ba,
+    border-color:    #1ba9ba,
     // {Color} 背景色
     bgcolor:        #1ba9ba,
     // {Color} 文本色
@@ -456,11 +453,11 @@ $breadcrumb: (
 // Widget switch(5)
 $switch: (
     // {Color} 激活边框色
-    checked-bordercolor: #4bd763,
+    checked-border-color: #4bd763,
     // {Color} 激活背景色
     checked-bgcolor:     #4bd763,
     // {Color} 边框色
-    bordercolor:         map-get($base, bordercolor),
+    border-color:         map-get($base, border-color),
     // {Color} 背景色
     bgcolor:             map-get($base, bgcolor),
     // {Color} 滑块色
@@ -494,13 +491,13 @@ $suggest: (
     // {Length} 输入框圆角
     radius:           .05rem,
     // {Color} 边框色
-    bordercolor:      map-get($base, bordercolor),
+    border-color:      map-get($base, border-color),
     // {Color} 输入框背景色
-    bgcolor:          map-get($base, bordercolor),
+    bgcolor:          map-get($base, border-color),
     // {Color} 输入框文本色
     color:            map-get($base, color),
     // {Color} 激活边框色
-    on-bordercolor:   null,
+    on-border-color:   null,
     // {Color} 激活背景色
     on-bgcolor:       null,
     // {Color} placeholder文本色
@@ -528,7 +525,7 @@ $dialog: (
     // {Number} 阴影透明度(如果不想使用阴影，值为0)
     shadow-opacity:  .5,
     // {Color} 边框色
-    bordercolor:     map-get($base, bordercolor),
+    border-color:     map-get($base, border-color),
     // {Length} 头部高度
     hd-height:       .44rem,
     // {Color} 头部背景色
@@ -554,7 +551,7 @@ $popup: (
     // {Number} 阴影透明度(如果不想使用阴影，值为0)
     shadow-opacity:  .5,
     // {Color} 边框色
-    bordercolor:     map-get($base, bordercolor),
+    border-color:     map-get($base, border-color),
     // {Length} 头部高度
     hd-height:       .5rem,
     // {Color} 头部背景色
@@ -588,7 +585,7 @@ $select: (
     // {Length} 每个列表项的高度
     item-height: .3rem,
     // {Color} 边框色
-    bordercolor: map-get($base, bordercolor),
+    border-color: map-get($base, border-color),
 ) !default;
 
 // Widget UI number(7)
@@ -598,7 +595,7 @@ $number: (
     // {Length} 高度
     height:              .36rem,
     // {Color} 边框色
-    bordercolor:         map-get($base, bordercolor),
+    border-color:         map-get($base, border-color),
     // {color} 输入框文本色
     color:               map-get($base, color),
     // {Color} 加减号背景色
@@ -677,7 +674,7 @@ $datepicker: (
     // {Length} 月份bar高度
     month-bar-height:     .25rem,
     // {Color} 月份bar边线色
-    month-bar-bordercolor: #ddd,
+    month-bar-border-color: #ddd,
     // {Color} 月份bar背景色
     month-bar-bgcolor:     #f9f9f9,
     // {Color} 月份bar文本色
@@ -688,7 +685,7 @@ $datepicker: (
     // {Length} 每行高度
     week-height:           .54rem,
     // {Color} 每行边线色
-    week-bordercolor:       #ddd,
+    week-border-color:       #ddd,
     // {Color} 每行文本色
     week-color:             #000,
 
@@ -736,7 +733,7 @@ $vcode: (
     // {Length} 输入框边框厚度
     border-width: 1px,
     // {Color} 输入框边框色
-    bordercolor:  #000
+    border-color:  #000
 ) !default;
 
 // z-index

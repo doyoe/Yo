@@ -20,14 +20,11 @@
 //     }
 // }
 
-
-
-
 .yo-list2 {
-    margin: .1rem;
     > .item {
-        margin: .1rem;
-        @include border(border, 1px, red, solid, .05rem);
-        background-color: #999;
+        border-bottom: 1px solid;
+    }
+    > .label ~ > .item {
+        border-color: red;
     }
 }

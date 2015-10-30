@@ -38,7 +38,7 @@
     position: relative;
     height: map-get($header, height);
     line-height: map-get($header, height);
-    border-bottom: 1px solid map-get($header, bordercolor);
+    border-bottom: 1px solid map-get($header, border-color);
     background-color: map-get($header, bgcolor);
     // 如果config预设值不等于base color，则重绘color
     @if map-get($header, color) != map-get($base, color) {
@@ -98,7 +98,7 @@
  * @param {Length} $height 定义yo-header高度
  * @param {Length} $item-width 定义yo-header两侧子项宽度
  * @param {Length} $item-space 定义yo-header两侧子项离边界的间隙
- * @param {Color} $bordercolor 定义yo-header边框色
+ * @param {Color} $border-color 定义yo-header边框色
  * @param {Color} $bgcolor 定义yo-header背景色
  * @param {Color} $color 定义yo-header文本色
  * @param {Length} $font-size 定义yo-header文本大小
@@ -113,7 +113,7 @@
     $height: default,
     $item-width: default,
     $item-space: default,
-    $bordercolor: default,
+    $border-color: default,
     $bgcolor: default,
     $color: default,
     $font-size: default,
@@ -137,8 +137,8 @@
     @if $item-space == default {
         $item-space: map-get($header, item-space);
     }
-    @if $bordercolor == default {
-        $bordercolor: map-get($header, bordercolor);
+    @if $border-color == default {
+        $border-color: map-get($header, border-color);
     }
     @if $bgcolor == default {
         $bgcolor: map-get($header, bgcolor);
@@ -166,8 +166,8 @@
             height: $height;
             line-height: $height;
         }
-        @if $bordercolor != map-get($header, bordercolor) {
-            border-color: $bordercolor;
+        @if $border-color != map-get($header, border-color) {
+            border-color: $border-color;
         }
         @if $bgcolor != map-get($header, bgcolor) {
             background-color: $bgcolor;

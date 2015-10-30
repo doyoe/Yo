@@ -41,9 +41,9 @@
     z-index: map-get($z-index, popup);
     @include border-radius(map-get($popup, radius));
     @if map-get($popup, shadow-opacity) != null {
-        box-shadow: 0 0 5px rgba(map-get($popup, bordercolor), map-get($popup, shadow-opacity));
+        box-shadow: 0 0 5px rgba(map-get($popup, border-color), map-get($popup, shadow-opacity));
     }
-    border: 1px solid map-get($popup, bordercolor);
+    border: 1px solid map-get($popup, border-color);
     min-width: 2.8rem;
     min-height: 1rem;
     width: map-get($popup, width);
@@ -68,12 +68,12 @@
     .arrow-top::after {
         top: -#{map-get($popup, arrow-size) - .01rem};
         // 箭头边框色
-        text-shadow: 0 -1px map-get($popup, bordercolor);
+        text-shadow: 0 -1px map-get($popup, border-color);
     }
     .arrow-down::after {
         bottom: -#{map-get($popup, arrow-size) - .01rem};
         // 箭头边框色
-        text-shadow: 0 1px map-get($popup, bordercolor);
+        text-shadow: 0 1px map-get($popup, border-color);
     }
     .arrow-right,
     .arrow-left {
@@ -85,12 +85,12 @@
     .arrow-right::after {
         right: -#{map-get($popup, arrow-size) - .01rem};
         // 箭头边框色
-        text-shadow: 1px 0 map-get($popup, bordercolor);
+        text-shadow: 1px 0 map-get($popup, border-color);
     }
     .arrow-left::after {
         left: -#{map-get($popup, arrow-size) - .01rem};
         // 箭头边框色
-        text-shadow: -1px 0 map-get($popup, bordercolor);
+        text-shadow: -1px 0 map-get($popup, border-color);
     }
     // 有hd或ft时，箭头的颜色应该和hd或ft相同
     .arrow-extra.arrow::after {
@@ -103,7 +103,7 @@
     }
     > .hd {
         height: map-get($popup, hd-height);
-        border-bottom: 1px solid map-get($popup, bordercolor);
+        border-bottom: 1px solid map-get($popup, border-color);
         background: map-get($popup, hd-bgcolor);
         line-height: map-get($popup, hd-height);
         text-align: center;
@@ -133,7 +133,7 @@
     }
     > .ft {
         padding: .1rem 0;
-        border-top: 1px solid map-get($popup, bordercolor);
+        border-top: 1px solid map-get($popup, border-color);
         text-align: center;
     }
 }
@@ -148,7 +148,7 @@
  * @param {Length} $height 定义popup高度
  * @param {Length} $radius 定义popup圆角
  * @param {Number} $shadow-opacity 定义popup阴影透明度
- * @param {Color} $bordercolor 定义popup边框色
+ * @param {Color} $border-color 定义popup边框色
  * @param {Length} $hd-height 定义popup头部高度
  * @param {Color} $hd-bgcolor 定义popup头部背景色
  * @param {Color} $title-color 定义popup标题文本色
@@ -163,7 +163,7 @@
     $height: default,
     $radius: default,
     $shadow-opacity: default,
-    $bordercolor: default,
+    $border-color: default,
     $hd-height: default,
     $hd-bgcolor: default,
     $title-color: default,
@@ -186,8 +186,8 @@
     @if $radius == default {
         $radius: map-get($popup, radius);
     }
-    @if $bordercolor == default {
-        $bordercolor: map-get($popup, bordercolor);
+    @if $border-color == default {
+        $border-color: map-get($popup, border-color);
     }
     @if $shadow-opacity == default {
         $shadow-opacity: map-get($popup, shadow-opacity);
@@ -220,32 +220,32 @@
             @if $arrow-size != map-get($popup, arrow-size) {
                 top: -$arrow-size + .01rem;
             }
-            @if $bordercolor != map-get($popup, bordercolor) {
-                text-shadow: 0 -1px $bordercolor;
+            @if $border-color != map-get($popup, border-color) {
+                text-shadow: 0 -1px $border-color;
             }
         }
         .arrow-down::after {
             @if $arrow-size != map-get($popup, arrow-size) {
                 bottom: -$arrow-size + .01rem;
             }
-            @if $bordercolor != map-get($popup, bordercolor) {
-                text-shadow: 0 1px $bordercolor;
+            @if $border-color != map-get($popup, border-color) {
+                text-shadow: 0 1px $border-color;
             }
         }
         .arrow-right::after {
             @if $arrow-size != map-get($popup, arrow-size) {
                 right: -$arrow-size + .01rem;
             }
-            @if $bordercolor != map-get($popup, bordercolor) {
-                text-shadow: 1px 0 $bordercolor;
+            @if $border-color != map-get($popup, border-color) {
+                text-shadow: 1px 0 $border-color;
             }
         }
         .arrow-left::after {
             @if $arrow-size != map-get($popup, arrow-size) {
                 left: -$arrow-size + .01rem;
             }
-            @if $bordercolor != map-get($popup, bordercolor) {
-                text-shadow: -1px 0 $bordercolor;
+            @if $border-color != map-get($popup, border-color) {
+                text-shadow: -1px 0 $border-color;
             }
         }
         .arrow-extra.arrow::after {
@@ -256,12 +256,12 @@
         @if $radius != map-get($popup, radius) {
             border-radius: $radius;
         }
-        @if $bordercolor != map-get($popup, bordercolor) {
-            border-color: $bordercolor;
-            box-shadow: 0 0 5px rgba($bordercolor, $shadow-opacity);
+        @if $border-color != map-get($popup, border-color) {
+            border-color: $border-color;
+            box-shadow: 0 0 5px rgba($border-color, $shadow-opacity);
         } @else {
             @if $shadow-opacity != map-get($popup, shadow-opacity) {
-                box-shadow: 0 0 5px rgba($bordercolor, $shadow-opacity);
+                box-shadow: 0 0 5px rgba($border-color, $shadow-opacity);
             }
         }
         @if $width != map-get($popup, width) {
@@ -278,8 +278,8 @@
                 height: $hd-height;
                 line-height: $hd-height;
             }
-            @if $bordercolor != map-get($popup, bordercolor) {
-                border-bottom-color: $bordercolor;
+            @if $border-color != map-get($popup, border-color) {
+                border-bottom-color: $border-color;
             }
             @if $hd-bgcolor != map-get($popup, hd-bgcolor) {
                 background: $hd-bgcolor;
@@ -299,8 +299,8 @@
             }
         }
         > .ft {
-            @if $bordercolor != map-get($popup, bordercolor) {
-                border-color: $bordercolor;
+            @if $border-color != map-get($popup, border-color) {
+                border-color: $border-color;
             }
         }
         // 增量扩展

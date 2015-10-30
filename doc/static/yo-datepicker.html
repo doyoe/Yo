@@ -67,7 +67,7 @@
     > .sticky-bar {
         height: map-get($datepicker, month-bar-height);
         line-height: map-get($datepicker, month-bar-height);
-        border-bottom: 1px solid map-get($datepicker, month-bar-bordercolor);
+        border-bottom: 1px solid map-get($datepicker, month-bar-border-color);
         background-color: map-get($datepicker, month-bar-bgcolor);
         color: map-get($datepicker, month-bar-color);
         font-size: map-get($datepicker, month-bar-font-size);
@@ -83,7 +83,7 @@
     }
     // 日期每行
     .week {
-        border-bottom: 1px solid map-get($datepicker, week-bordercolor);
+        border-bottom: 1px solid map-get($datepicker, week-border-color);
         color: map-get($datepicker, week-color);
         > li {
             position: relative;
@@ -160,12 +160,12 @@
  * @param {Color} $week-bar-color 定义星期bar文本色
  * @param {Length} $week-bar-font-size 定义星期bar字号
  * @param {Length} $month-bar-height 定义月份bar高度
- * @param {Color} $month-bar-bordercolor 定义月份bar边线色
+ * @param {Color} $month-bar-border-color 定义月份bar边线色
  * @param {Color} $month-bar-bgcolor 定义月份bar背景色
  * @param {Color} $month-bar-color 定义月份bar文本色
  * @param {Length} $month-bar-font-size 定义月份bar字号
  * @param {Length} $week-height 定义每行高度
- * @param {Color} $week-bordercolor 定义每行边线色
+ * @param {Color} $week-border-color 定义每行边线色
  * @param {Color} $week-color 定义每行文本色
  * @param {Length} $day-height 定义每日高度
  * @param {Length} $day-margin 定义每日间距
@@ -189,12 +189,12 @@
     $week-bar-color: default,
     $week-bar-font-size: default,
     $month-bar-height: default,
-    $month-bar-bordercolor: default,
+    $month-bar-border-color: default,
     $month-bar-bgcolor: default,
     $month-bar-color: default,
     $month-bar-font-size: default,
     $week-height: default,
-    $week-bordercolor: default,
+    $week-border-color: default,
     $week-color: default,
     $day-height: default,
     $day-margin: default,
@@ -231,8 +231,8 @@
     @if $month-bar-height == default {
         $month-bar-height: map-get($datepicker, month-bar-height);
     }
-    @if $month-bar-bordercolor == default {
-        $month-bar-bordercolor: map-get($datepicker, month-bar-bordercolor);
+    @if $month-bar-border-color == default {
+        $month-bar-border-color: map-get($datepicker, month-bar-border-color);
     }
     @if $month-bar-bgcolor == default {
         $month-bar-bgcolor: map-get($datepicker, month-bar-bgcolor);
@@ -246,8 +246,8 @@
     @if $week-height == default {
         $week-height: map-get($datepicker, week-height);
     }
-    @if $week-bordercolor == default {
-        $week-bordercolor: map-get($datepicker, week-bordercolor);
+    @if $week-border-color == default {
+        $week-border-color: map-get($datepicker, week-border-color);
     }
     @if $week-color == default {
         $week-color: map-get($datepicker, week-color);
@@ -314,8 +314,8 @@
                 height: $month-bar-height;
                 line-height: $month-bar-height;
             }
-            @if $month-bar-bordercolor != map-get($datepicker, month-bar-bordercolor) {
-                border-bottom-color: $month-bar-bordercolor;
+            @if $month-bar-border-color != map-get($datepicker, month-bar-border-color) {
+                border-bottom-color: $month-bar-border-color;
             }
             @if $month-bar-bgcolor != map-get($datepicker, month-bar-bgcolor) {
                 background-color: $month-bar-bgcolor;
@@ -335,8 +335,8 @@
         }
         // 日期每行
         .week {
-            @if $week-bordercolor != map-get($datepicker, week-bordercolor) {
-                border-bottom-color: $week-bordercolor;
+            @if $week-border-color != map-get($datepicker, week-border-color) {
+                border-bottom-color: $week-border-color;
             }
             @if $week-color != map-get($datepicker, week-color) {
                 color: $week-color;
