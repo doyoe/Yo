@@ -74,11 +74,11 @@ $media-types: (
     // {String} 竖屏
     portrait:  "screen and (orientation: portrait)",
     // {String} 视网膜屏2x
-    retina2x:  "(min--moz-device-pixel-ratio: 1.5),
-                (-webkit-min-device-pixel-ratio: 1.5),
-                (min-device-pixel-ratio: 1.5),
-                (min-resolution: 144dpi),
-                (min-resolution: 1.5dppx)",
+    retina2x:  "(min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49),
+                (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49),
+                (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49),
+                (min-resolution: 144dpi) and (max-resolution: 239dpi),
+                (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx)",
     // {String} 视网膜屏3x
     retina3x:  "(min--moz-device-pixel-ratio: 2.5),
                 (-webkit-min-device-pixel-ratio: 2.5),
@@ -88,7 +88,8 @@ $media-types: (
     // {String} PC
     pc:        "(min-width: 8rem)",
     // {String} mobile
-    mobile:    "(max-width: 7.99rem)"
+    mobile:    "(max-width: 7.99rem)",
+    xs:        "(max-width: 320px)"
 );
 
 // ico font
