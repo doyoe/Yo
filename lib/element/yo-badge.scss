@@ -13,7 +13,7 @@
         map-get($badge, border-width) != 0 {
         border-width: map-get($badge, border-width);
         border-style: solid;
-        border-color: map-get($badge, bordercolor);
+        border-color: map-get($badge, border-color);
     }
     @include border-radius(map-get($badge, radius));
     background-color: map-get($badge, bgcolor);
@@ -32,7 +32,7 @@
  * @param {String} $name 为新的扩展定义一个名称
  * @param {Length} $padding 内补白
  * @param {Length} $border-width 边框厚度
- * @param {Color} $bordercolor 边框色
+ * @param {Color} $border-color 边框色
  * @param {Color} $bgcolor 背景色
  * @param {Color} $color 文本色
  * @param {Length} $radius 圆角半径长度
@@ -43,7 +43,7 @@
     $name: default,
     $padding: default,
     $border-width: default,
-    $bordercolor: default,
+    $border-color: default,
     $bgcolor: default,
     $color: default,
     $radius: default,
@@ -61,8 +61,8 @@
     @if $border-width == default {
         $border-width: map-get($badge, border-width);
     }
-    @if $bordercolor == default {
-        $bordercolor: map-get($badge, bordercolor);
+    @if $border-color == default {
+        $border-color: map-get($badge, border-color);
     }
     @if $bgcolor == default {
         $bgcolor: map-get($badge, bgcolor);
@@ -88,16 +88,16 @@
                 $border-width: 0;
             }
             border-width: $border-width;
-            // 如果$bordercolor不等于config设定，则重绘边框色
-            @if $bordercolor != map-get($badge, bordercolor) {
+            // 如果$border-color不等于config设定，则重绘边框色
+            @if $border-color != map-get($badge, border-color) {
                 @if $border-width != 0 {
-                    border-color: $bordercolor;
+                    border-color: $border-color;
                 }
             } @else {
                 // 如果config的边框厚度定义为null或者0，在扩展时，加上边框色
                 @if map-get($badge, border-width) == null or
                     map-get($badge, border-width) == 0 {
-                    border-color: map-get($badge, bordercolor);
+                    border-color: map-get($badge, border-color);
                 }
             }
             // 如果config的边框厚度定义为null或者0，在扩展时，加上border-style
@@ -109,8 +109,8 @@
             // 如果扩展的边框厚度大于0且边框色和config边框色不同，在扩展时，重绘边框色
             @if $border-width != null and
                 $border-width != 0 and
-                $bordercolor != map-get($badge, bordercolor) {
-                border-color: $bordercolor;
+                $border-color != map-get($badge, border-color) {
+                border-color: $border-color;
             }
         }
         // 如果$bgcolor不等于config设定，则重绘背景色

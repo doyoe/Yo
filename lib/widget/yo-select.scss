@@ -18,7 +18,7 @@
         height: map-get($select, item-height);
         margin-top: -#{map-get($select, item-height) / 2};
         content: "\0020";
-        border: 1px solid map-get($select, bordercolor);
+        border: 1px solid map-get($select, border-color);
         border-width: 1px 0;
     }
     &-item,
@@ -74,14 +74,14 @@
  * @param {String} $name 定义select名称
  * @param {Length} $width 定义select显示的子项个数
  * @param {Length} $height 定义select子项高度
- * @param {Color} $bordercolor 定义select边框色
+ * @param {Color} $border-color 定义select边框色
  */
 
 @mixin yo-select(
     $name: default,
     $item: default,
     $item-height: default,
-    $bordercolor: default) {
+    $border-color: default) {
     // 区别是否新增实例还是修改本身
     @if $name == default {
         $name: "";
@@ -95,8 +95,8 @@
     @if $item-height == default {
         $item-height: map-get($select, item-height);
     }
-    @if $bordercolor == default {
-        $bordercolor: map-get($select, bordercolor);
+    @if $border-color == default {
+        $border-color: map-get($select, border-color);
     }
     .yo-select#{$name} {
         @if $item-height != map-get($select, item-height) or $item != map-get($select, item) {
@@ -108,8 +108,8 @@
                 height: $item-height;
                 margin-top: -#{$item-height / 2};
             }
-            @if $bordercolor != map-get($select, bordercolor) {
-                border-color: $bordercolor;
+            @if $border-color != map-get($select, border-color) {
+                border-color: $border-color;
             }
         }
         &-item-tag {

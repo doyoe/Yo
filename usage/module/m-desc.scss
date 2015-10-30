@@ -16,7 +16,7 @@
     }
     > .title {
         padding: .18rem .1rem .03rem;
-        border-bottom: 1px solid map-get($base, bordercolor);
+        border-bottom: 1px solid map-get($base, border-color);
     }
     > xmp {
         margin: .1rem;
@@ -27,7 +27,7 @@
     .sub-title {
         margin: 0 .1rem;
         padding: .1rem 0 .03rem;
-        border-bottom: 1px solid map-get($base, bordercolor);
+        border-bottom: 1px solid map-get($base, border-color);
         &::before {
             margin-right: .05rem;
             padding: 0 .03rem;

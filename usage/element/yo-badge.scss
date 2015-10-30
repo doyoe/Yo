@@ -10,14 +10,14 @@
 // 预设常规气泡
 @include yo-badge(
     $name: normal,
-    $bordercolor: gray,
+    $border-color: gray,
     $bgcolor: gray
 );
 
 // 预设镂空气泡
 @include yo-badge(
     $name: hollow,
-    $bordercolor: #666,
+    $border-color: #666,
     $bgcolor: white,
     $color: #666
 );
@@ -25,7 +25,7 @@
 // 预设标识气泡
 @include yo-badge(
     $name: ident,
-    $bordercolor: #666,
+    $border-color: #666,
     $bgcolor: white,
     $color: #666,
     $radius: .03rem,
@@ -37,7 +37,7 @@
 // 预设标签气泡
 @include yo-badge(
     $name: tag,
-    $bordercolor: #aaa,
+    $border-color: #aaa,
     $bgcolor: #aaa,
     $radius: .05rem,
     $font-size: .12rem

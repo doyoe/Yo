@@ -16,7 +16,7 @@
         map-get($btn, border-width) != 0 {
         border-width: map-get($btn, border-width);
         border-style: solid;
-        border-color: map-get($btn, bordercolor);
+        border-color: map-get($btn, border-color);
     } @else {
         // 当使用input和button时，清除默认带有的外边框
         border-style: none;
@@ -30,7 +30,7 @@
         // 当边框厚度大于0时，才定义边框相关属性
         @if map-get($btn, border-width) != null and
             map-get($btn, border-width) != 0 {
-            border-color: map-get($btn, active-bordercolor);
+            border-color: map-get($btn, active-border-color);
         }
         background-color: map-get($btn, active-bgcolor);
         color: map-get($btn, active-color);
@@ -41,7 +41,7 @@
         &,
         &:focus,
         &:active {
-            border-color: map-get($base, disabled-bordercolor);
+            border-color: map-get($base, disabled-border-color);
             background-color: map-get($base, disabled-bgcolor);
             color: map-get($base, disabled-color);
         }
@@ -55,10 +55,10 @@
  * @demo http://doyoe.github.io/Yo/demo/element/yo-btn.html
  * @param {String} $name 为新的按钮扩展定义一个名称
  * @param {Length} $border-width 按钮边框厚度
- * @param {Color} $bordercolor 按钮边框色
+ * @param {Color} $border-color 按钮边框色
  * @param {Color} $bgcolor 按钮背景色
  * @param {Color} $color 按钮文本色
- * @param {Color} $active-bordercolor 触点（鼠标，手指或其它）按下时的按钮边框色
+ * @param {Color} $active-border-color 触点（鼠标，手指或其它）按下时的按钮边框色
  * @param {Color} $active-bgcolor 触点（鼠标，手指或其它）按下的按钮背景色
  * @param {Color} $active-color 触点（鼠标，手指或其它）按下的按钮文本色
  * @param {Length} $padding 按钮内补白
@@ -71,10 +71,10 @@
 @mixin yo-btn(
     $name: default,
     $border-width: default,
-    $bordercolor: default,
+    $border-color: default,
     $bgcolor: default,
     $color: default,
-    $active-bordercolor: default,
+    $active-border-color: default,
     $active-bgcolor: default,
     $active-color: default,
     $padding: default,
@@ -92,8 +92,8 @@
     @if $border-width == default {
         $border-width: map-get($btn, border-width);
     }
-    @if $bordercolor == default {
-        $bordercolor: map-get($btn, bordercolor);
+    @if $border-color == default {
+        $border-color: map-get($btn, border-color);
     }
     @if $bgcolor == default {
         $bgcolor: map-get($btn, bgcolor);
@@ -101,8 +101,8 @@
     @if $color == default {
         $color: map-get($btn, color);
     }
-    @if $active-bordercolor == default {
-        $active-bordercolor: map-get($btn, active-bordercolor);
+    @if $active-border-color == default {
+        $active-border-color: map-get($btn, active-border-color);
     }
     @if $active-bgcolor == default {
         $active-bgcolor: map-get($btn, active-bgcolor);
@@ -151,16 +151,16 @@
                 $border-width: 0;
             }
             border-width: $border-width;
-            // 如果$bordercolor不等于config设定，则重绘边框色
-            @if $bordercolor != map-get($btn, bordercolor) {
+            // 如果$border-color不等于config设定，则重绘边框色
+            @if $border-color != map-get($btn, border-color) {
                 @if $border-width != 0 {
-                    border-color: $bordercolor;
+                    border-color: $border-color;
                 }
             } @else {
                 // 如果config的边框厚度定义为null或者0，在扩展时，加上边框色
                 @if map-get($btn, border-width) == null or
                     map-get($btn, border-width) == 0 {
-                    border-color: map-get($btn, bordercolor);
+                    border-color: map-get($btn, border-color);
                 }
             }
             // 如果config的边框厚度定义为null或者0，在扩展时，加上border-style
@@ -172,8 +172,8 @@
             // 如果扩展的边框厚度大于0且边框色和config边框色不同，在扩展时，重绘边框色
             @if $border-width != null and
                 $border-width != 0 and
-                $bordercolor != map-get($btn, bordercolor) {
-                border-color: $bordercolor;
+                $border-color != map-get($btn, border-color) {
+                border-color: $border-color;
             }
         }
         // 如果$bgcolor不等于config设定，则重绘背景色
@@ -189,8 +189,8 @@
             font-size: $font-size;
         }
         &:active {
-            @if $active-bordercolor != map-get($btn, active-bordercolor) {
-                border-color: $active-bordercolor;
+            @if $active-border-color != map-get($btn, active-border-color) {
+                border-color: $active-border-color;
             }
             @if $active-bgcolor != map-get($btn, active-bgcolor) {
                 background-color: $active-bgcolor;

@@ -350,7 +350,7 @@
  * @param {String} $border-style 指定边框样式
  * @param {String} $radius 指定边框圆角半径，默认值：null
  */
-@mixin border($type: border, $border-width: 1px, $border-color: map-get($base, bordercolor), $border-style: solid, $radius: 0) {
+@mixin border($type: border, $border-width: 1px, $border-color: map-get($base, border-color), $border-style: solid, $radius: 0) {
     // 为边框位置提供定位参考
     position: relative;
     @include border-radius($radius);

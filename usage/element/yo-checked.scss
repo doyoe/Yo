@@ -10,15 +10,15 @@
 @include yo-checked(
     $name: a,
     $border-width: .01rem,
-    $bordercolor: map-get($base, bordercolor),
-    $on-bordercolor: map-get($checked, on-color)
+    $border-color: map-get($base, border-color),
+    $on-border-color: map-get($checked, on-color)
 );
 
 @include yo-checked(
     $name: b,
     $border-width: .01rem,
-    $bordercolor: map-get($base, bordercolor),
-    $on-bordercolor: map-get($checked, on-color),
+    $border-color: map-get($base, border-color),
+    $on-border-color: map-get($checked, on-color),
     $on-bgcolor: map-get($checked, on-color),
     $on-color: white
 );
@@ -26,8 +26,8 @@
 @include yo-checked(
     $name: c,
     $border-width: .01rem,
-    $bordercolor: map-get($base, bordercolor),
-    $on-bordercolor: map-get($checked, on-color),
+    $border-color: map-get($base, border-color),
+    $on-border-color: map-get($checked, on-color),
     $on-bgcolor: map-get($checked, on-color),
     $on-color: white,
     $radius: 50%
@@ -42,16 +42,16 @@
     $name: e,
     $content: "\f083",
     $border-width: .01rem,
-    $bordercolor: map-get($base, bordercolor),
-    $on-bordercolor: map-get($checked, on-color)
+    $border-color: map-get($base, border-color),
+    $on-border-color: map-get($checked, on-color)
 );
 
 @include yo-checked(
     $name: f,
     $content: "\f083",
     $border-width: .01rem,
-    $bordercolor: map-get($base, bordercolor),
-    $on-bordercolor: map-get($checked, on-color),
+    $border-color: map-get($base, border-color),
+    $on-border-color: map-get($checked, on-color),
     $on-bgcolor: map-get($checked, on-color),
     $on-color: white
 );
@@ -60,8 +60,8 @@
     $name: g,
     $content: "\f083",
     $border-width: .01rem,
-    $bordercolor: map-get($base, bordercolor),
-    $on-bordercolor: map-get($checked, on-color),
+    $border-color: map-get($base, border-color),
+    $on-border-color: map-get($checked, on-color),
     $on-bgcolor: map-get($checked, on-color),
     $on-color: white,
     $radius: 50%

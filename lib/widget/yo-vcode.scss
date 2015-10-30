@@ -21,7 +21,7 @@
         border-width: 0;
     }
     border-style: solid;
-    border-color: map-get($vcode, bordercolor);
+    border-color: map-get($vcode, border-color);
     > .value {
         &:not(:last-child) {
             // 当边框厚度大于0时，才定义边框相关属性
@@ -56,7 +56,7 @@
  * @param {Length} $radius 定义yo-vcode圆角半径
  * @param {Length} $font-size 定义yo-vcode字号
  * @param {Length} $border-width 定义yo-vcode边框厚度
- * @param {Color} $bordercolor 定义yo-vcode边框色
+ * @param {Color} $border-color 定义yo-vcode边框色
  */
 
 @mixin yo-vcode(
@@ -66,7 +66,7 @@
     $radius: default,
     $font-size: default,
     $border-width: default,
-    $bordercolor: default) {
+    $border-color: default) {
     // 区别是否新增实例还是修改本身
     @if $name == default {
         $name: "";
@@ -89,8 +89,8 @@
     @if $border-width == default {
         $border-width: map-get($vcode, border-width);
     }
-    @if $bordercolor == default {
-        $bordercolor: map-get($vcode, bordercolor);
+    @if $border-color == default {
+        $border-color: map-get($vcode, border-color);
     }
 
     .yo-vcode#{$name} {
@@ -113,9 +113,9 @@
                 border-right-width: $border-width;
             }
         }
-        // 如果$bordercolor不等于config设定，则重绘边框色
-        @if $bordercolor != map-get($vcode, bordercolor) {
-            border-color: $bordercolor;
+        // 如果$border-color不等于config设定，则重绘边框色
+        @if $border-color != map-get($vcode, border-color) {
+            border-color: $border-color;
         }
         // 增量扩展
         @content;

@@ -24,7 +24,7 @@
             border-width: 1px;
         }
         border-style: solid;
-        border-color: map-get($table, bordercolor);
+        border-color: map-get($table, border-color);
     }
     tbody {
         tr:nth-child(odd) {
@@ -53,7 +53,7 @@
  * @param {Boole} $has-vertical-border 定义table是否需要纵向边框
  * @param {Length} $thead-padding 定义table头部内补白
  * @param {Length} $tbody-padding 定义table主体内补白
- * @param {Color} $bordercolor 定义table边框色
+ * @param {Color} $border-color 定义table边框色
  * @param {Color} $thead-bgcolor 定义table头部背景色
  * @param {Color} $odd-bgcolor 定义table奇数行背景色
  * @param {Color} $even-bgcolor 定义table偶数行背景色
@@ -67,7 +67,7 @@
     $has-vertical-border: default,
     $thead-padding: default,
     $tbody-padding: default,
-    $bordercolor: default,
+    $border-color: default,
     $thead-bgcolor: default,
     $odd-bgcolor: default,
     $even-bgcolor: default,
@@ -89,8 +89,8 @@
     @if $tbody-padding == default {
         $tbody-padding: map-get($table, tbody-padding);
     }
-    @if $bordercolor == default {
-        $bordercolor: map-get($table, bordercolor);
+    @if $border-color == default {
+        $border-color: map-get($table, border-color);
     }
     @if $thead-bgcolor == default {
         $thead-bgcolor: map-get($table, thead-bgcolor);
@@ -136,8 +136,8 @@
                     border-width: 1px;
                 }
             }
-            @if $bordercolor != map-get($table, bordercolor) {
-                border-color: $bordercolor;
+            @if $border-color != map-get($table, border-color) {
+                border-color: $border-color;
             }
         }
         tbody {

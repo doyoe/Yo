@@ -47,8 +47,11 @@ Yo约束了2种项目所使用的长度单位
     - 新增`yo-vcode`用于验证码或者密码输入组件
 * add: `yo-breadcrumb`
     - 新增`yo-breadcrumb`面包屑
-* add: `border`
+* update: `1px边框方法`
     - 新增`border`方法用于处理retina屏1px边框，移除原`viewport scale`方案（因为该方案影响响应式设计实现）
+    - 移除原始用于`1px`方案的`$setting is-ios-1pixel`设置
+* change: `bordercolor`变量
+    - 将所有的`bordercolor`变量都重命名为`border-color`
 
 ### Lastest: v1.8.7
 

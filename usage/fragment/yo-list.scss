@@ -17,6 +17,6 @@
 @include yo-list(
     $name: group,
     $label-padding: .18rem .1rem .03rem,
-    $label-bordercolor: map-get($base, bordercolor),
+    $label-border-color: map-get($base, border-color),
     $label-bgcolor: transparent
 );

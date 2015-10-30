@@ -11,7 +11,7 @@
         map-get($list, border-width) != 0 {
         border-width: map-get($list, border-width);
         border-style: solid;
-        border-color: map-get($list, bordercolor);
+        border-color: map-get($list, border-color);
     }
     > .label,
     > .item,
@@ -41,7 +41,7 @@
     }
     > .label {
         padding: map-get($list, label-padding);
-        border: 1px solid map-get($list, label-bordercolor);
+        border: 1px solid map-get($list, label-border-color);
         border-width: 0 0 1px 0;
         background-color: map-get($list, label-bgcolor);
         color: map-get($base, sub-color);
@@ -66,7 +66,7 @@
         font-size: map-get($list, item-font-size);
 
         // 描述线条
-        @include gradient(linear, map-get($list, item-bordercolor), map-get($list, item-bordercolor));
+        @include gradient(linear, map-get($list, item-border-color), map-get($list, item-border-color));
         @include background-size(100% 1px);
         background-repeat: no-repeat;
         // 设置底边线的位置
@@ -75,7 +75,7 @@
         &:last-child {
             margin-bottom: -1px;
             // 最后一根线的颜色与外边框颜色相同
-            @include gradient(linear, map-get($list, bordercolor), map-get($list, bordercolor));
+            @include gradient(linear, map-get($list, border-color), map-get($list, border-color));
             // 最后一根线的左边不留间隙
             background-position: 0 bottom;
         }
@@ -124,15 +124,15 @@
  * @param {Length} $margin 定义list外边距
  * @param {Length} $radius 定义list圆角
  * @param {Length} $border-width 定义list外边框厚度
- * @param {Color} $bordercolor 定义list边框色
+ * @param {Color} $border-color 定义list边框色
  * @param {Length} $item-padding 定义list项的内补白
  * @param {Length} $label-padding 定义list分组标题内补白
  * @param {Color} $label-bgcolor 定义list分组标题背景色
  * @param {Color} $active-bgcolor 定义list点击反馈背景色
  * @param {Color} $on-bgcolor 定义list选中背景色
  * @param {Color} $on-color 定义list选中文本色
- * @param {Color} $item-bordercolor 定义list子项边框色
- * @param {Color} $label-bordercolor 定义list子项组头边框色
+ * @param {Color} $item-border-color 定义list子项边框色
+ * @param {Color} $label-border-color 定义list子项组头边框色
  * @param {Length} $item-font-size 定义list项字号
  * @param {Length} $label-font-size 定义list列表组头字号
  * @param {Length} $item-border-space 列表项下边线距离左侧的间隙
@@ -143,15 +143,15 @@
     $margin: default,
     $radius: default,
     $border-width: default,
-    $bordercolor: default,
+    $border-color: default,
     $item-padding: default,
     $label-padding: default,
     $label-bgcolor: default,
     $active-bgcolor: default,
     $on-bgcolor: default,
     $on-color: default,
-    $item-bordercolor: default,
-    $label-bordercolor: default,
+    $item-border-color: default,
+    $label-border-color: default,
     $item-font-size: default,
     $label-font-size: default,
     $item-border-space: default) {
@@ -171,8 +171,8 @@
     @if $border-width == default {
         $border-width: map-get($list, border-width);
     }
-    @if $bordercolor == default {
-        $bordercolor: map-get($list, bordercolor);
+    @if $border-color == default {
+        $border-color: map-get($list, border-color);
     }
     @if $item-padding == default {
         $item-padding: map-get($list, item-padding);
@@ -192,11 +192,11 @@
     @if $on-color == default {
         $on-color: map-get($list, on-color);
     }
-    @if $item-bordercolor == default {
-        $item-bordercolor: map-get($list, item-bordercolor);
+    @if $item-border-color == default {
+        $item-border-color: map-get($list, item-border-color);
     }
-    @if $label-bordercolor == default {
-        $label-bordercolor: map-get($list, label-bordercolor);
+    @if $label-border-color == default {
+        $label-border-color: map-get($list, label-border-color);
     }
     @if $label-font-size == default {
         $label-font-size: map-get($list, label-font-size);
@@ -221,16 +221,16 @@
                 $border-width: 0;
             }
             border-width: $border-width;
-            // 如果$bordercolor不等于config设定，则重绘边框色
-            @if $bordercolor != map-get($list, bordercolor) {
+            // 如果$border-color不等于config设定，则重绘边框色
+            @if $border-color != map-get($list, border-color) {
                 @if $border-width != 0 {
-                    border-color: $bordercolor;
+                    border-color: $border-color;
                 }
             } @else {
                 // 如果config的边框厚度定义为null或者0，在扩展时，加上边框色
                 @if map-get($list, border-width) == null or
                     map-get($list, border-width) == 0 {
-                    border-color: map-get($list, bordercolor);
+                    border-color: map-get($list, border-color);
                 }
             }
             // 如果config的边框厚度定义为null或者0，在扩展时，加上border-style
@@ -242,8 +242,8 @@
             // 如果扩展的边框厚度大于0且边框色和config边框色不同，在扩展时，重绘边框色
             @if $border-width != null and
                 $border-width != 0 and
-                $bordercolor != map-get($list, bordercolor) {
-                border-color: $bordercolor;
+                $border-color != map-get($list, border-color) {
+                border-color: $border-color;
             }
         }
         > .label {
@@ -253,8 +253,8 @@
                     padding: $label-padding;
                 }
             }
-            @if $label-bordercolor != map-get($list, label-bordercolor) {
-                border-color: $label-bordercolor;
+            @if $label-border-color != map-get($list, label-border-color) {
+                border-color: $label-border-color;
             }
             @if $label-bgcolor != map-get($list, label-bgcolor) {
                 background-color: $label-bgcolor;
@@ -273,8 +273,8 @@
             }
         }
         > .item {
-            @if $item-bordercolor != map-get($list, item-bordercolor) {
-                @include gradient(linear, $item-bordercolor, $item-bordercolor);
+            @if $item-border-color != map-get($list, item-border-color) {
+                @include gradient(linear, $item-border-color, $item-border-color);
             }
             @if $item-border-space != map-get($list, item-border-space) {
                 background-position: $item-border-space bottom;
@@ -284,8 +284,8 @@
             }
             &:last-child {
                 // 最后一根线的颜色与外边框颜色相同
-                @if $bordercolor != map-get($list, bordercolor) {
-                    @include gradient(linear, $bordercolor, $bordercolor);
+                @if $border-color != map-get($list, border-color) {
+                    @include gradient(linear, $border-color, $border-color);
                 }
             }
             &.item-active:active,

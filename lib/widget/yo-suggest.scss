@@ -10,7 +10,7 @@
         font-size: map-get($suggest, font-size);
         line-height: map-get($suggest, height);
         padding: map-get($suggest, op-padding);
-        border-bottom: 1px solid map-get($suggest, bordercolor);
+        border-bottom: 1px solid map-get($suggest, border-color);
         background-color: map-get($suggest, op-bgcolor);
         > .action {
             display: block;
@@ -23,7 +23,7 @@
             height: 100%;
             padding: 0 .3rem;
             @include appearance;
-            border: 1px solid map-get($suggest, bordercolor);
+            border: 1px solid map-get($suggest, border-color);
             @include border-radius(map-get($suggest, radius));
             background-color: map-get($suggest, bgcolor);
             color: map-get($suggest, color);
@@ -82,7 +82,7 @@
     &-on {
         > .operate {
             .input {
-                border-color: map-get($suggest, on-bordercolor);
+                border-color: map-get($suggest, on-border-color);
                 background-color: map-get($suggest, on-bgcolor);
             }
             .label {
@@ -130,10 +130,10 @@
  * @param {Length} $font-size 定义yo-suggest文本大小
  * @param {Length} $op-padding 定义yo-suggest内补白
  * @param {Length} $radius 定义yo-suggest圆角
- * @param {Color} $bordercolor 定义yo-suggest边框色
+ * @param {Color} $border-color 定义yo-suggest边框色
  * @param {Color} $bgcolor 定义yo-suggest背景色
  * @param {Color} $color 定义yo-suggest文本色
- * @param {Color} $on-bordercolor 定义yo-suggest激活边框色
+ * @param {Color} $on-border-color 定义yo-suggest激活边框色
  * @param {Color} $on-bgcolor 定义yo-suggest激活背景色
  * @param {Color} $placeholder-color 定义yo-suggest占位背景色
  * @param {Color} $ico-color 定义yo-suggest 操作区ico颜色
@@ -149,10 +149,10 @@
     $font-size: default,
     $op-padding: default,
     $radius: default,
-    $bordercolor: default,
+    $border-color: default,
     $bgcolor: default,
     $color: default,
-    $on-bordercolor: default,
+    $on-border-color: default,
     $on-bgcolor: default,
     $placeholder-color: default,
     $ico-color: default,
@@ -179,8 +179,8 @@
     @if $radius == default {
         $radius: map-get($suggest, radius);
     }
-    @if $bordercolor == default {
-        $bordercolor: map-get($suggest, bordercolor);
+    @if $border-color == default {
+        $border-color: map-get($suggest, border-color);
     }
     @if $bgcolor == default {
         $bgcolor: map-get($suggest, bgcolor);
@@ -188,8 +188,8 @@
     @if $color == default {
         $color: map-get($suggest,color);
     }
-    @if $on-bordercolor == default {
-        $on-bordercolor: map-get($suggest, on-bordercolor);
+    @if $on-border-color == default {
+        $on-border-color: map-get($suggest, on-border-color);
     }
     @if $on-bgcolor == default {
         $on-bgcolor: map-get($suggest, on-bgcolor);
@@ -223,8 +223,8 @@
             @if $op-padding != map-get($suggest, op-padding) {
                 padding: $op-padding;
             }
-            @if $bordercolor != map-get($suggest, bordercolor) {
-                border-bottom-color: $bordercolor;
+            @if $border-color != map-get($suggest, border-color) {
+                border-bottom-color: $border-color;
             }
             @if $op-bgcolor != map-get($suggest, op-bgcolor) {
                 background-color: $op-bgcolor;
@@ -234,8 +234,8 @@
                     height: $height;
                 }
                 > .input {
-                    @if $bordercolor != map-get($suggest, bordercolor) {
-                        border-color: $bordercolor;
+                    @if $border-color != map-get($suggest, border-color) {
+                        border-color: $border-color;
                     }
                     @if $radius != map-get($suggest, radius) {
                         border-radius: $radius;
@@ -284,8 +284,8 @@
         &-on {
             > .operate {
                 .input {
-                    @if $on-bordercolor != map-get($suggest, on-bordercolor) {
-                        border-color: $on-bordercolor;
+                    @if $on-border-color != map-get($suggest, on-border-color) {
+                        border-color: $on-border-color;
                     }
                     @if $on-bgcolor != map-get($suggest, on-bgcolor) {
                         background-color: $on-bgcolor;

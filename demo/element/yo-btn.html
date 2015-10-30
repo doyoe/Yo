@@ -121,7 +121,7 @@
             <xmp>// 自定义一个 `yo-btn-light` 按钮
 @include yo-btn(
 $name: light,
-$bordercolor: #ddd,
+$border-color: #ddd,
 $bgcolor: #fff,
 $color: map-get($base, color)
 );
@@ -129,7 +129,7 @@ $color: map-get($base, color)
 // 自定义一个 `yo-btn-info` 按钮
 @include yo-btn(
 $name: info,
-$bordercolor: #0456e2,
+$border-color: #0456e2,
 $bgcolor: #4a87ee
 );</xmp>
             <h3 class="sub-title">使用方法：</h3>
@@ -170,10 +170,10 @@ $bgcolor: #4a87ee
 <pre class="m-code"><span class="method">@include yo-btn</span><span class="bracket">(</span>
     $name<span class="colon">:</span>default, <mark>//{String} 扩展的名称</mark>
     $border-width<span class="colon">:</span>default, <mark>//{Length} 边框厚度</mark>
-    $bordercolor<span class="colon">:</span>default, <mark>//{Color} 边框色</mark>
+    $border-color<span class="colon">:</span>default, <mark>//{Color} 边框色</mark>
     $bgcolor<span class="colon">:</span>default, <mark>//{Color} 背景色</mark>
     $color<span class="colon">:</span>default, <mark>//{Color} 文本色</mark>
-    $active-bordercolor<span class="colon">:</span>default, <mark>//{Color} 激活时边框色</mark>
+    $active-border-color<span class="colon">:</span>default, <mark>//{Color} 激活时边框色</mark>
     $active-bgcolor<span class="colon">:</span>default, <mark>//{Color} 激活时背景色</mark>
     $active-color<span class="colon">:</span>default, <mark>//{Color} 激活时文本色</mark>
     $padding<span class="colon">:</span>default, <mark>//{Length} 内补白</mark>
