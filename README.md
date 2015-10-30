@@ -48,7 +48,7 @@ Yo约束了2种项目所使用的长度单位
 * add: `yo-breadcrumb`
     - 新增`yo-breadcrumb`面包屑
 * update: `1px边框方法`
-    - 新增`border`方法用于处理retina屏1px边框，移除原`viewport scale`方案（因为该方案影响响应式设计实现）
+    - 新增`border`方法用于处理retina屏1px边框，移除原`viewport scale`方案（因为该方案影响响应式设计实现，并且因为Android4.3及以下不支持initial-scale除1之外的设置，所以安卓都未实现）
     - 移除原始用于`1px`方案的`$setting is-ios-1pixel`设置
 * change: `bordercolor`变量
     - 将所有的`bordercolor`变量都重命名为`border-color`，因为早期的时候命名不严谨导致吐槽激烈，特在此大版本中全部修正
