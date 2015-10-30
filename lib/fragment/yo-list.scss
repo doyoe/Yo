@@ -61,6 +61,7 @@
         padding: map-get($list, item-padding);
     }
     > .item {
+        overflow: hidden;
         background-color: #fff;
         color: map-get($base, color);
         font-size: map-get($list, item-font-size);
