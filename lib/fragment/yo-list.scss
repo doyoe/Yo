@@ -26,7 +26,7 @@
         > .flex {
             @include flex;
         }
-        > * {
+        > .yo-ico {
             display: block;
         }
         &.tr {
@@ -34,12 +34,15 @@
             padding: 0;
         }
     }
-    > .label {
-        padding: map-get($list, label-padding);
+    > .label,
+    > .item {
         @include border(
             $border-width: 0 0 1px,
             $border-color: map-get($list, label-border-color)
         );
+    }
+    > .label {
+        padding: map-get($list, label-padding);
         &:not(:first-child) {
             margin-top: -1px;
             // 除第一个.label外，其他.label都需要top,bottom2条线
@@ -66,10 +69,6 @@
         background-color: #fff;
         color: map-get($base, color);
         font-size: map-get($list, item-font-size);
-        @include border(
-            $border-width: 0 0 1px,
-            $border-color: map-get($list, item-border-color)
-        );
         // 除最后一项子项外边线内陷
         &:not(:last-child)::after {
             left: map-get($list, item-border-space);

@@ -57,6 +57,8 @@ Yo约束了2种项目所使用的长度单位
 * change: `bordercolor`变量
     - 将所有的`bordercolor`变量都重命名为`border-color`，因为早期的时候命名不严谨导致吐槽激烈，特在此大版本中全部修正
 
+**再次重申：将你的`flex子项`设置为`非行内级元素`，Yo会缓步移除对这种内部容错的代码**
+
 ### Lastest: v1.8.7
 
 * update: `yo-datepicker`
