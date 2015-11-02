@@ -4,7 +4,6 @@
 
 // 定义list的基础构造
 @mixin _list {
-    overflow: hidden;
     margin: map-get($list, margin);
     @include border(
         $border-width: map-get($list, border-width),
