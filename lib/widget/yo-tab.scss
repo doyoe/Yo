@@ -8,10 +8,11 @@
     overflow: hidden;
     width: map-get($tab, width);
     height: map-get($tab, height);
-    @include border-radius(map-get($tab, radius));
-    border-width: map-get($tab, border-width);
-    border-style: solid;
-    border-color: map-get($tab, border-color);
+    @include border(
+        $border-width: map-get($tab, border-width),
+        $border-color: map-get($tab, border-color),
+        $radius: map-get($tab, radius)
+    );
     background-color: map-get($tab, bgcolor);
     font-size: map-get($tab, font-size);
     text-align: center;
@@ -24,11 +25,10 @@
             position: absolute;
             top: 50%;
             right: 0;
-            @include transform(translatey(-50%));
-            width: 1px;
+            border-right: 1px solid map-get($tab, item-border-color);
             height: map-get($tab, item-border-height);
-            background-color: map-get($tab, item-border-color);
             content: "\0020";
+            @include transform(translatey(-50%));
         }
         color: map-get($tab, color);
         &.item-on {
@@ -160,15 +160,30 @@
             height: $height;
             line-height: $height;
         }
-        // 如果边框色与config值不同，则重设边框色
         @if $radius != map-get($tab, radius) {
             border-radius: $radius;
         }
-        @if $border-width != map-get($tab, border-width) {
-            border-width: $border-width;
-        }
-        @if $border-color != map-get($tab, border-color) {
-            border-color: $border-color;
+        &::after {
+            // 如果$border-width不等于config设定，则重绘边框相关
+            @if $border-width != map-get($tab, border-width) {
+                border-width: $border-width;
+            }
+            // 如果$border-color不等于config设定，则重绘边框颜色
+            @if $border-color != map-get($tab, border-color) {
+                border-color: $border-color;
+            }
+            // 如果$radius不等于config设定，则重绘边框圆角
+            @if $radius != map-get($tab, radius) {
+                @include responsive(retina1x) {
+                    border-radius: $radius;
+                }
+                @include responsive(retina2x) {
+                    border-radius: $radius * 2;
+                }
+                @include responsive(retina3x) {
+                    border-radius: $radius * 3;
+                }
+            }
         }
         @if $bgcolor != map-get($tab, bgcolor) {
             background-color: $bgcolor;
@@ -182,7 +197,7 @@
                     height: $item-border-height;
                 }
                 @if $item-border-color != map-get($tab, item-border-color) {
-                    background-color: $item-border-color;
+                    border-color: $item-border-color;
                 }
             }
             @if $color != map-get($tab, color) {

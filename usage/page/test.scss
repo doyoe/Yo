@@ -1,6 +1,7 @@
 @charset "utf-8";
 @import "../layout/layout";
 @import "../fragment/yo-list";
+@import "../widget/yo-tab";
 
 // Android4.3及以下
 .img {
@@ -19,12 +20,3 @@
 //         color: red;
 //     }
 // }
-
-.yo-list2 {
-    > .item {
-        border-bottom: 1px solid;
-    }
-    > .label ~ > .item {
-        border-color: red;
-    }
-}

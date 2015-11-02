@@ -332,7 +332,7 @@ $tab: (
     // {Length} 边框厚度
     border-width:       1px 0 0 0,
     // {Color} 边框色
-    border-color:        map-get($base, border-color),
+    border-color:       map-get($base, border-color),
     // {Color} tab背景色
     bgcolor:            #fafafa,
     // {Color} tab文本色
@@ -352,7 +352,7 @@ $tab: (
     // {Color} item间隔线高度
     item-border-height: 100%,
     // {Color} item间隔线颜色
-    item-border-color:   transparent
+    item-border-color:  transparent
 ) !default;
 
 // Fragment Table(10)
