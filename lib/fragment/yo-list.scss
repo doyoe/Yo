@@ -213,6 +213,7 @@
         }
         @if $radius != map-get($list, radius) {
             border-radius: $radius;
+            overflow: hidden;
         }
         &::after {
             // 如果$border-width不等于config设定，则重绘边框相关
