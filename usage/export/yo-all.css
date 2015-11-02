@@ -856,17 +856,15 @@ a {
 }
 
 .yo-list {
+  overflow: hidden;
   position: relative;
   border-radius: 0;
   -webkit-background-clip: padding-box !important;
   background-clip: padding-box !important;
 }
 
-.yo-list > * {
-  position: relative;
-}
-
-.yo-list::before {
+.yo-list::after {
+  pointer-events: none;
   position: absolute;
   top: 0;
   left: 0;
@@ -880,7 +878,7 @@ a {
 }
 
 @media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
-  .yo-list::before {
+  .yo-list::after {
     width: 100%;
     height: 100%;
     border-radius: 0;
@@ -888,7 +886,7 @@ a {
 }
 
 @media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
-  .yo-list::before {
+  .yo-list::after {
     width: 200%;
     height: 200%;
     -webkit-transform: scale(0.5);
@@ -898,7 +896,7 @@ a {
 }
 
 @media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
-  .yo-list::before {
+  .yo-list::after {
     width: 300%;
     height: 300%;
     -webkit-transform: scale(0.33333);
@@ -962,11 +960,8 @@ a {
   font-weight: normal;
 }
 
-.yo-list > .label > * {
-  position: relative;
-}
-
-.yo-list > .label::before {
+.yo-list > .label::after {
+  pointer-events: none;
   position: absolute;
   top: 0;
   left: 0;
@@ -980,7 +975,7 @@ a {
 }
 
 @media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
-  .yo-list > .label::before {
+  .yo-list > .label::after {
     width: 100%;
     height: 100%;
     border-radius: 0;
@@ -988,7 +983,7 @@ a {
 }
 
 @media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
-  .yo-list > .label::before {
+  .yo-list > .label::after {
     width: 200%;
     height: 200%;
     -webkit-transform: scale(0.5);
@@ -998,7 +993,7 @@ a {
 }
 
 @media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
-  .yo-list > .label::before {
+  .yo-list > .label::after {
     width: 300%;
     height: 300%;
     -webkit-transform: scale(0.33333);
@@ -1011,7 +1006,7 @@ a {
   margin-top: -1px;
 }
 
-.yo-list > .label:not(:first-child)::before {
+.yo-list > .label:not(:first-child)::after {
   border-width: 1px 0;
 }
 
@@ -1035,11 +1030,8 @@ a {
   background-clip: padding-box !important;
 }
 
-.yo-list > .item > * {
-  position: relative;
-}
-
-.yo-list > .item::before {
+.yo-list > .item::after {
+  pointer-events: none;
   position: absolute;
   top: 0;
   left: 0;
@@ -1053,7 +1045,7 @@ a {
 }
 
 @media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
-  .yo-list > .item::before {
+  .yo-list > .item::after {
     width: 100%;
     height: 100%;
     border-radius: 0;
@@ -1061,7 +1053,7 @@ a {
 }
 
 @media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
-  .yo-list > .item::before {
+  .yo-list > .item::after {
     width: 200%;
     height: 200%;
     -webkit-transform: scale(0.5);
@@ -1071,7 +1063,7 @@ a {
 }
 
 @media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
-  .yo-list > .item::before {
+  .yo-list > .item::after {
     width: 300%;
     height: 300%;
     -webkit-transform: scale(0.33333);
@@ -1080,7 +1072,7 @@ a {
   }
 }
 
-.yo-list > .item:not(:last-child)::before {
+.yo-list > .item:not(:last-child)::after {
   left: 0.1rem;
 }
 
@@ -1088,7 +1080,7 @@ a {
   margin-bottom: -1px;
 }
 
-.yo-list > .item:last-child::before {
+.yo-list > .item:last-child::after {
   border-color: #ccc;
 }
 
@@ -1120,14 +1112,32 @@ a {
 .yo-list-inset {
   margin: 0.2rem 0.1rem 0 0.1rem;
   border-radius: 0.02rem;
+}
+
+.yo-list-inset::after {
   border-width: 1px;
-  border-color: #ccc;
-  border-style: solid;
+}
+
+@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
+  .yo-list-inset::after {
+    border-radius: 0.02rem;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
+  .yo-list-inset::after {
+    border-radius: 0.04rem;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
+  .yo-list-inset::after {
+    border-radius: 0.06rem;
+  }
 }
 
 .yo-list-group > .label {
   padding: 0.18rem 0.1rem 0.03rem;
-  border-color: #ccc;
 }
 
 .yo-list-group > .label > .col {

@@ -359,11 +359,9 @@
         $border-width: 0;
     }
     @include border-radius($radius);
-    // 避免子元素被边框层级覆盖
-    > * {
-        position: relative;
-    }
-    &::before {
+    &::after {
+        // 用以解决边框layer遮盖内容
+        pointer-events: none;
         position: absolute;
         top: 0;
         left: 0;
