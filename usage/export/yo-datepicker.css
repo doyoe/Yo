@@ -411,14 +411,71 @@ a {
 }
 
 .yo-datepicker .month-bar,
+.yo-datepicker .sticky-bar,
+.yo-datepicker .week {
+  position: relative;
+}
+
+.yo-datepicker .month-bar::after,
+.yo-datepicker .sticky-bar::after,
+.yo-datepicker .week::after {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  content: "\0020";
+  border-color: #ccc;
+  border-style: solid;
+  border-width: 0 0 1px;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+
+@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
+  .yo-datepicker .month-bar::after,
+  .yo-datepicker .sticky-bar::after,
+  .yo-datepicker .week::after {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
+  .yo-datepicker .month-bar::after,
+  .yo-datepicker .sticky-bar::after,
+  .yo-datepicker .week::after {
+    width: 200%;
+    height: 200%;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
+  .yo-datepicker .month-bar::after,
+  .yo-datepicker .sticky-bar::after,
+  .yo-datepicker .week::after {
+    width: 200%;
+    height: 200%;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+}
+
+.yo-datepicker .month-bar,
 .yo-datepicker .sticky-bar {
   height: 0.25rem;
   line-height: 0.25rem;
-  border-bottom: 1px solid #ddd;
   background-color: #f9f9f9;
   color: #000;
   font-size: 0.14rem;
   font-weight: normal;
+}
+
+.yo-datepicker .month-bar::after,
+.yo-datepicker .sticky-bar::after {
+  border-color: #ddd;
 }
 
 .yo-datepicker .sticky-bar {
@@ -430,8 +487,11 @@ a {
 }
 
 .yo-datepicker .week {
-  border-bottom: 1px solid #ddd;
   color: #000;
+}
+
+.yo-datepicker .week::after {
+  border-color: #ddd;
 }
 
 .yo-datepicker .week > li {
