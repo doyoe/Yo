@@ -80,19 +80,21 @@
                 border-color: map-get($list, border-color);
             }
         }
-        &-stacked {
+        .yo-input {
             display: block;
-            > .mark {
-                padding-bottom: .05rem;
-            }
         }
         &-input {
             // 让输入框占满整个父容器
             > .yo-input {
-                display: block;
                 height: auto;
                 padding: 0;
                 border: 0;
+            }
+        }
+        &-stacked {
+            display: block;
+            > .mark {
+                padding-bottom: .05rem;
             }
         }
         // 常规需要active的项目，没有使用到第3方组件的

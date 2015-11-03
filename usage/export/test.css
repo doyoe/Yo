@@ -501,19 +501,22 @@ a {
   border-color: #ccc;
 }
 
+.yo-list > .item .yo-input {
+  display: block;
+}
+
+.yo-list > .item-input > .yo-input {
+  height: auto;
+  padding: 0;
+  border: 0;
+}
+
 .yo-list > .item-stacked {
   display: block;
 }
 
 .yo-list > .item-stacked > .mark {
   padding-bottom: .05rem;
-}
-
-.yo-list > .item-input > .yo-input {
-  display: block;
-  height: auto;
-  padding: 0;
-  border: 0;
 }
 
 .yo-list > .item.item-active:active,
