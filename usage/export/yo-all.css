@@ -891,10 +891,10 @@ a {
 
 @media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
   .yo-list::after {
-    width: 300%;
-    height: 300%;
-    -webkit-transform: scale(0.33333);
-    transform: scale(0.33333);
+    width: 200%;
+    height: 200%;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
   }
 }
 
@@ -982,10 +982,10 @@ a {
 
 @media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
   .yo-list > .label::after {
-    width: 300%;
-    height: 300%;
-    -webkit-transform: scale(0.33333);
-    transform: scale(0.33333);
+    width: 200%;
+    height: 200%;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
   }
 }
 
@@ -1046,10 +1046,10 @@ a {
 
 @media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
   .yo-list > .item::after {
-    width: 300%;
-    height: 300%;
-    -webkit-transform: scale(0.33333);
-    transform: scale(0.33333);
+    width: 200%;
+    height: 200%;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
   }
 }
 
@@ -1246,7 +1246,7 @@ a {
 }
 
 .yo-datepicker .month-bar,
-.yo-datepicker > .sticky-bar {
+.yo-datepicker .sticky-bar {
   height: 0.25rem;
   line-height: 0.25rem;
   border-bottom: 1px solid #ddd;
@@ -1256,10 +1256,10 @@ a {
   font-weight: normal;
 }
 
-.yo-datepicker > .sticky-bar {
+.yo-datepicker .sticky-bar {
   position: absolute;
   z-index: 1;
-  top: 0.22rem;
+  top: 0;
   left: 0;
   right: 0;
 }
@@ -2285,10 +2285,10 @@ a {
 
 @media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
   .yo-tab::after {
-    width: 300%;
-    height: 300%;
-    -webkit-transform: scale(0.33333);
-    transform: scale(0.33333);
+    width: 200%;
+    height: 200%;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
   }
 }
 

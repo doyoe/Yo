@@ -411,7 +411,7 @@ a {
 }
 
 .yo-datepicker .month-bar,
-.yo-datepicker > .sticky-bar {
+.yo-datepicker .sticky-bar {
   height: 0.25rem;
   line-height: 0.25rem;
   border-bottom: 1px solid #ddd;
@@ -421,10 +421,10 @@ a {
   font-weight: normal;
 }
 
-.yo-datepicker > .sticky-bar {
+.yo-datepicker .sticky-bar {
   position: absolute;
   z-index: 1;
-  top: 0.22rem;
+  top: 0;
   left: 0;
   right: 0;
 }

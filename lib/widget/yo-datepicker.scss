@@ -33,7 +33,7 @@
     }
     // 月份bar
     .month-bar,
-    > .sticky-bar {
+    .sticky-bar {
         height: map-get($datepicker, month-bar-height);
         line-height: map-get($datepicker, month-bar-height);
         border-bottom: 1px solid map-get($datepicker, month-bar-border-color);
@@ -43,10 +43,10 @@
         font-weight: normal;
     }
     // 吸顶月份bar
-    > .sticky-bar {
+    .sticky-bar {
         position: absolute;
         z-index: 1;
-        top: map-get($datepicker, week-bar-height);
+        top: 0;
         left: 0;
         right: 0;
     }
