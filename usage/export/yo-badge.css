@@ -733,12 +733,8 @@ a {
   min-width: .16rem;
   min-height: .16rem;
   padding: 0 0.03rem;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #f00;
+  position: relative;
   border-radius: 0.1rem;
-  -webkit-background-clip: padding-box !important;
-  background-clip: padding-box !important;
   background-color: #f00;
   color: #fff;
   font-size: 0.12rem;
@@ -751,27 +747,117 @@ a {
   align-items: center;
 }
 
+.yo-badge::after {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  content: "\0020";
+  border-color: #f00;
+  border-style: solid;
+  border-width: 1px;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+
+@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
+  .yo-badge::after {
+    width: 100%;
+    height: 100%;
+    border-radius: 0.1rem;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
+  .yo-badge::after {
+    width: 200%;
+    height: 200%;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    border-radius: 0.2rem;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
+  .yo-badge::after {
+    width: 300%;
+    height: 300%;
+    -webkit-transform: scale(0.33333);
+    transform: scale(0.33333);
+    border-radius: 0.3rem;
+  }
+}
+
 .yo-badge-normal {
-  border-color: gray;
   background-color: gray;
 }
 
+.yo-badge-normal::after {
+  border-color: gray;
+}
+
 .yo-badge-hollow {
-  border-color: #666;
   background-color: white;
   color: #666;
+}
+
+.yo-badge-hollow::after {
+  border-color: #666;
 }
 
 .yo-badge-ident {
   padding: 0;
-  border-color: #666;
+  border-radius: 0.03rem;
   background-color: white;
   color: #666;
-  border-radius: 0.03rem;
+}
+
+.yo-badge-ident::after {
+  border-color: #666;
+}
+
+@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
+  .yo-badge-ident::after {
+    border-radius: 0.03rem;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
+  .yo-badge-ident::after {
+    border-radius: 0.06rem;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
+  .yo-badge-ident::after {
+    border-radius: 0.09rem;
+  }
 }
 
 .yo-badge-tag {
-  border-color: #aaa;
-  background-color: #aaa;
   border-radius: 0.05rem;
+  background-color: #aaa;
+}
+
+.yo-badge-tag::after {
+  border-color: #aaa;
+}
+
+@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
+  .yo-badge-tag::after {
+    border-radius: 0.05rem;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
+  .yo-badge-tag::after {
+    border-radius: 0.1rem;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
+  .yo-badge-tag::after {
+    border-radius: 0.15rem;
+  }
 }

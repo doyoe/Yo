@@ -497,7 +497,7 @@
  * @description 定义伸缩盒子元素如何分配空间
  * @method flex
  * @param {String} $flex 默认值：1，取值与最新原生语法一致
- * @param {String} $direction 默认值: row
+ * @param {String} $direction 默认值: row，可选值：row | column
  */
 @mixin flex($flex: 1, $direction: row) {
     // 老式浏览器（实验性质支持3个阶段草案）
