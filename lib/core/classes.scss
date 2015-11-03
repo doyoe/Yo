@@ -384,9 +384,9 @@
             }
         }
         @include responsive(retina3x) {
-            width: 200%;
-            height: 200%;
-            @include transform(scale(0.5));
+            width: 300%;
+            height: 300%;
+            @include transform(scale(1/3));
             @if $radius != null {
                 border-radius: $radius * 3;
             }

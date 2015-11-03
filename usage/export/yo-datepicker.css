@@ -456,10 +456,10 @@ a {
   .yo-datepicker .month-bar::after,
   .yo-datepicker .sticky-bar::after,
   .yo-datepicker .week::after {
-    width: 200%;
-    height: 200%;
-    -webkit-transform: scale(0.5);
-    transform: scale(0.5);
+    width: 300%;
+    height: 300%;
+    -webkit-transform: scale(0.33333);
+    transform: scale(0.33333);
   }
 }
 

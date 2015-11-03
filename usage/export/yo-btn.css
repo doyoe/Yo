@@ -395,10 +395,10 @@ a {
 
 @media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
   .yo-list::after {
-    width: 200%;
-    height: 200%;
-    -webkit-transform: scale(0.5);
-    transform: scale(0.5);
+    width: 300%;
+    height: 300%;
+    -webkit-transform: scale(0.33333);
+    transform: scale(0.33333);
   }
 }
 
@@ -486,10 +486,10 @@ a {
 
 @media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
   .yo-list > .label::after {
-    width: 200%;
-    height: 200%;
-    -webkit-transform: scale(0.5);
-    transform: scale(0.5);
+    width: 300%;
+    height: 300%;
+    -webkit-transform: scale(0.33333);
+    transform: scale(0.33333);
   }
 }
 
@@ -550,10 +550,10 @@ a {
 
 @media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
   .yo-list > .item::after {
-    width: 200%;
-    height: 200%;
-    -webkit-transform: scale(0.5);
-    transform: scale(0.5);
+    width: 300%;
+    height: 300%;
+    -webkit-transform: scale(0.33333);
+    transform: scale(0.33333);
   }
 }
 
@@ -724,19 +724,57 @@ a {
 
 .yo-btn {
   display: inline-block;
-  overflow: hidden;
   padding: 0 1.2em;
   vertical-align: top;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #e26704;
-  border-radius: 0.02rem;
-  -webkit-background-clip: padding-box !important;
-  background-clip: padding-box !important;
+  position: relative;
+  border-radius: 0.05rem;
+  border: 0 none;
   background-color: #ff801a;
   color: #fff;
   text-align: center;
   cursor: pointer;
+}
+
+.yo-btn::after {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  content: "\0020";
+  border-color: #d36105;
+  border-style: solid;
+  border-width: 1px;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+
+@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
+  .yo-btn::after {
+    width: 100%;
+    height: 100%;
+    border-radius: 0.05rem;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
+  .yo-btn::after {
+    width: 200%;
+    height: 200%;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    border-radius: 0.1rem;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
+  .yo-btn::after {
+    width: 300%;
+    height: 300%;
+    -webkit-transform: scale(0.33333);
+    transform: scale(0.33333);
+    border-radius: 0.15rem;
+  }
 }
 
 .yo-btn-disabled {
@@ -745,11 +783,14 @@ a {
 }
 
 .yo-btn-disabled,
-.yo-btn-disabled:focus,
 .yo-btn-disabled:active {
-  border-color: #ccc;
-  background-color: #e0e0e0;
-  color: #bbb;
+  background-color: #ffaa66;
+  color: white;
+}
+
+.yo-btn-disabled::after,
+.yo-btn-disabled:active::after {
+  border-color: #fa7f1c;
 }
 
 .yo-btn-s {
@@ -776,12 +817,39 @@ a {
 }
 
 .yo-btn-light {
-  border-color: #ddd;
   background-color: #fff;
   color: #212121;
 }
 
+.yo-btn-light::after {
+  border-color: #ccc;
+}
+
+.yo-btn-light.yo-btn-disabled,
+.yo-btn-light.yo-btn-disabled:active {
+  background-color: white;
+  color: #878787;
+}
+
+.yo-btn-light.yo-btn-disabled::after,
+.yo-btn-light.yo-btn-disabled:active::after {
+  border-color: #ebebeb;
+}
+
 .yo-btn-info {
-  border-color: #0456e2;
   background-color: #4a87ee;
+}
+
+.yo-btn-info::after {
+  border-color: #0456e2;
+}
+
+.yo-btn-info.yo-btn-disabled,
+.yo-btn-info.yo-btn-disabled:active {
+  background-color: #90b5f5;
+}
+
+.yo-btn-info.yo-btn-disabled::after,
+.yo-btn-info.yo-btn-disabled:active::after {
+  border-color: #2876fb;
 }
