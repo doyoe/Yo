@@ -11,10 +11,38 @@
 <link rel="apple-touch-startup-image" href="../startup.png" />
 <link rel="shortcut icon" href="../shortcut.png" />
 <link rel="stylesheet" href="../usage/export/test.css" />
+<style>
+#box{
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #d3d3d3;
+}
+#box div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+#box img {
+    position: relative;
+    top: -50%;
+    left: -50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+:root #box img {
+    position: static;
+}
+</style>
 </head>
 <body>
-<div class="demo">
-<div>asdasd</div>
+<div id="box">
+    <div>
+        <img src="http://ued.qunar.com/mobile/blog/mfe.png" />
+    </div>
 </div>
 </body>
 </html>
