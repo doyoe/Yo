@@ -379,7 +379,7 @@ $table: (
     on-bgcolor:          null
 ) !default;
 
-// Fragment header(11)
+// Fragment header(12)
 $header: (
     // {Length} 高度
     height:         .44rem,
@@ -387,6 +387,8 @@ $header: (
     item-width:     .6rem,
     // {Length} 两侧的子项离边界的间隙
     item-space:     .15rem,
+    // {Length} 边框厚度
+    border-width:    0 0 1px,
     // {Color} 边框色
     border-color:    #1ba9ba,
     // {Color} 背景色
