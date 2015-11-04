@@ -15,10 +15,7 @@
     @include border-radius(map-get($input, radius));
     background-color: map-get($input, bgcolor);
     vertical-align: top;
-    // 如果input颜色值与base相同，则不设置
-    @if map-get($input, color) != map-get($base, color) {
-        color: map-get($input, color);
-    }
+    color: map-get($input, color);
     &::-webkit-input-placeholder {
         color: map-get($input, placeholder-color);
     }
@@ -34,7 +31,8 @@
  * @param {Length} $height 高度
  * @param {Length} $padding 内补白
  * @param {Length} $radius 圆角半径长度
- * @param {Color} $border-color 边框色
+ * @param {Color} $bordercolor 边框色 {del:2.0.0}
+ * @param {Color} $border-color 边框色 {add:2.0.0}
  * @param {Color} $bgcolor 背景色
  * @param {Color} $color 文本色
  * @param {Color} $placeholder-color placeholder文本色
