@@ -47,7 +47,7 @@
         }
     }
     > input:disabled + .type {
-        opacity: .4;
+        opacity: .6;
         &::after {
             border-color: map-get($base, disabled-border-color) !important;
         }
