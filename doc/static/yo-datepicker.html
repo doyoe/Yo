@@ -62,29 +62,41 @@
         color: map-get($datepicker, week-bar-color);
         font-size: map-get($datepicker, week-bar-font-size);
     }
+    // 底边线设置
+    .month-bar,
+    .sticky-bar,
+    .week {
+        @include border(
+            $border-width: 0 0 1px
+        );
+    }
     // 月份bar
     .month-bar,
-    > .sticky-bar {
+    .sticky-bar {
         height: map-get($datepicker, month-bar-height);
         line-height: map-get($datepicker, month-bar-height);
-        border-bottom: 1px solid map-get($datepicker, month-bar-border-color);
         background-color: map-get($datepicker, month-bar-bgcolor);
         color: map-get($datepicker, month-bar-color);
         font-size: map-get($datepicker, month-bar-font-size);
         font-weight: normal;
+        &::after {
+            border-color: map-get($datepicker, month-bar-border-color);
+        }
     }
     // 吸顶月份bar
-    > .sticky-bar {
+    .sticky-bar {
         position: absolute;
         z-index: 1;
-        top: map-get($datepicker, week-bar-height);
+        top: 0;
         left: 0;
         right: 0;
     }
     // 日期每行
     .week {
-        border-bottom: 1px solid map-get($datepicker, week-border-color);
         color: map-get($datepicker, week-color);
+        &::after {
+            border-color: map-get($datepicker, week-border-color);
+        }
         > li {
             position: relative;
             height: map-get($datepicker, week-height);
@@ -308,14 +320,19 @@
                 font-size: $week-bar-font-size;
             }
         }
+        .month-bar,
+        .sticky-bar {
+            &::after {
+                @if $month-bar-border-color != map-get($datepicker, month-bar-border-color) {
+                    border-color: $month-bar-border-color;
+                }
+            }
+        }
         // 月份bar
         .month-bar {
             @if $month-bar-height != map-get($datepicker, month-bar-height) {
                 height: $month-bar-height;
                 line-height: $month-bar-height;
-            }
-            @if $month-bar-border-color != map-get($datepicker, month-bar-border-color) {
-                border-bottom-color: $month-bar-border-color;
             }
             @if $month-bar-bgcolor != map-get($datepicker, month-bar-bgcolor) {
                 background-color: $month-bar-bgcolor;
@@ -335,8 +352,10 @@
         }
         // 日期每行
         .week {
-            @if $week-border-color != map-get($datepicker, week-border-color) {
-                border-bottom-color: $week-border-color;
+            &::after {
+                @if $week-border-color != map-get($datepicker, week-border-color) {
+                    border-color: $week-border-color;
+                }
             }
             @if $week-color != map-get($datepicker, week-color) {
                 color: $week-color;

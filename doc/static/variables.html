@@ -69,9 +69,9 @@ $base: (
     // 默认文档背景色
     doc-bgcolor:          #fafafa,
     // 默认边框色
-    border-color:          #ccc,
+    border-color:         #ccc,
     // 默认次级边框色
-    sub-border-color:      #ddd,
+    sub-border-color:     #ddd,
     // 默认背景颜色
     bgcolor:              #fafafa,
     // 默认文本颜色
@@ -79,7 +79,7 @@ $base: (
     // 默认次级文本颜色
     sub-color:            #666,
     // 默认边框色
-    disabled-border-color: #ccc,
+    disabled-border-color:#ccc,
     // 默认文档颜色
     disabled-bgcolor:     #e0e0e0,
     // 默认禁用文本颜色
@@ -204,7 +204,7 @@ $btn: (
     // {Color} Length
     border-width:   1px,
     // {Color} 边框色
-    border-color:    #e26704,
+    border-color:   #d36105,
     // {Color} 背景色
     bgcolor:        #ff801a,
     // {Color} 文本色
@@ -212,13 +212,13 @@ $btn: (
     // {Color} 激活时边框色
     active-border-color: null,
     // {Color} 激活时背景色
-    active-bgcolor:     null,
+    active-bgcolor:      null,
     // {Color} 激活时文本色
-    active-color:       null,
+    active-color:        null,
     // {Length} 内补白(使用em让根据字号动态调整)
     padding:        0 1.2em,
     // {Length} 圆角半径
-    radius:         .02rem,
+    radius:         .05rem,
     // {Length} 字号
     font-size:      null,
     // {Length} 宽度
@@ -266,13 +266,13 @@ $checked: (
     // {Length} 边框厚度
     border-width:   null,
     // {Color} 未选中时的边框色
-    border-color:    null,
+    border-color:   null,
     // {Color} 未选中时的背景色
     bgcolor:        null,
     // {Color} 未选中时的标记颜色
     color:          transparent,
     // {Color} 激活边框色
-    on-border-color: null,
+    on-border-color:null,
     // {Color} 激活背景色
     on-bgcolor:     null,
     // {Color} 激活标记颜色
@@ -318,7 +318,7 @@ $btnbar: (
     radius: auto
 ) !default;
 
-// Fragment list(14)
+// Fragment list(15)
 $list: (
     // {Length} 列表外边距
     margin:            null,
@@ -363,7 +363,7 @@ $tab: (
     // {Length} 边框厚度
     border-width:       1px 0 0 0,
     // {Color} 边框色
-    border-color:        map-get($base, border-color),
+    border-color:       map-get($base, border-color),
     // {Color} tab背景色
     bgcolor:            #fafafa,
     // {Color} tab文本色
@@ -383,7 +383,7 @@ $tab: (
     // {Color} item间隔线高度
     item-border-height: 100%,
     // {Color} item间隔线颜色
-    item-border-color:   transparent
+    item-border-color:  transparent
 ) !default;
 
 // Fragment Table(10)
@@ -410,7 +410,7 @@ $table: (
     on-bgcolor:          null
 ) !default;
 
-// Fragment header(11)
+// Fragment header(12)
 $header: (
     // {Length} 高度
     height:         .44rem,
@@ -418,6 +418,8 @@ $header: (
     item-width:     .6rem,
     // {Length} 两侧的子项离边界的间隙
     item-space:     .15rem,
+    // {Length} 边框厚度
+    border-width:    0 0 1px,
     // {Color} 边框色
     border-color:    #1ba9ba,
     // {Color} 背景色

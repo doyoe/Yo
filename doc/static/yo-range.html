@@ -43,8 +43,6 @@
         overflow: hidden;
         height: .28rem;
         @include gradient(linear, top, map-get($range, outer-bgcolor), map-get($range, outer-bgcolor));
-        // background-image: -webkit-linear-gradient(right, map-get($range, outer-bgcolor) 0%, map-get($range, outer-bgcolor) 100%);
-        // background-image: linear-gradient(to right, map-get($range, outer-bgcolor) 0%, map-get($range, outer-bgcolor) 100%);
         background-size: 100% .04rem;
         background-repeat: no-repeat;
         background-position: center;
@@ -87,7 +85,7 @@
 /**
  * @module element
  * @method yo-range
- * @description 构造区间选择的自定义使用方法
+ * @description 构造区间选择的自定义使用方法（安卓4.3及以下有点问题）
  * @demo http://doyoe.github.io/Yo/demo/element/yo-range.html
  * @param {String} $name 为新的扩展定义一个名称
  * @param {Color} $inner-bgcolor 已选择区域滑条色

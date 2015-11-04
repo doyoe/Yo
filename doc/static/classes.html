@@ -380,21 +380,16 @@
  * @param {String} $border-style 指定边框样式
  * @param {String} $radius 指定边框圆角半径，默认值：null
  */
-@mixin border($border-width: 1px, $border-color: map-get($base, border-color), $border-style: solid, $radius: 0) {
+@mixin border($border-width: 1px, $border-color: map-get($base, border-color), $border-style: solid, $radius: null) {
     // 为边框位置提供定位参考
     position: relative;
-    @if $radius == null {
-        $radius: 0;
-    }
     @if $border-width == null {
         $border-width: 0;
     }
-    @include border-radius($radius);
-    // 避免子元素被边框层级覆盖
-    > * {
-        position: relative;
-    }
-    &::before {
+    border-radius: $radius;
+    &::after {
+        // 用以解决边框layer遮盖内容
+        pointer-events: none;
         position: absolute;
         top: 0;
         left: 0;
@@ -407,19 +402,25 @@
         @include responsive(retina1x) {
             width: 100%;
             height: 100%;
-            border-radius: $radius;
+            @if $radius != null {
+                border-radius: $radius;
+            }
         }
         @include responsive(retina2x) {
             width: 200%;
             height: 200%;
             @include transform(scale(0.5));
-            border-radius: $radius * 2;
+            @if $radius != null {
+                border-radius: $radius * 2;
+            }
         }
         @include responsive(retina3x) {
             width: 300%;
             height: 300%;
             @include transform(scale(1/3));
-            border-radius: $radius * 3;
+            @if $radius != null {
+                border-radius: $radius * 3;
+            }
         }
         @include transform-origin(0 0);
     }
@@ -527,7 +528,7 @@
  * @description 定义伸缩盒子元素如何分配空间
  * @method flex
  * @param {String} $flex 默认值：1，取值与最新原生语法一致
- * @param {String} $direction 默认值: row
+ * @param {String} $direction 默认值: row，可选值：row | column
  */
 @mixin flex($flex: 1, $direction: row) {
     // 老式浏览器（实验性质支持3个阶段草案）
