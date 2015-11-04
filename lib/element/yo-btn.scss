@@ -49,10 +49,12 @@
  * @demo http://doyoe.github.io/Yo/demo/element/yo-btn.html
  * @param {String} $name 为新的按钮扩展定义一个名称
  * @param {Length} $border-width 按钮边框厚度
- * @param {Color} $border-color 按钮边框色
+ * @param {Color} $bordercolor 按钮边框色 {del:2.0.0}
+ * @param {Color} $border-color 按钮边框色 {add:2.0.0}
  * @param {Color} $bgcolor 按钮背景色
  * @param {Color} $color 按钮文本色
- * @param {Color} $active-border-color 触点（鼠标，手指或其它）按下时的按钮边框色
+ * @param {Color} $active-bordercolor 触点（鼠标，手指或其它）按下时的按钮边框色 {del:2.0.0}
+ * @param {Color} $active-border-color 触点（鼠标，手指或其它）按下时的按钮边框色 {add:2.0.0}
  * @param {Color} $active-bgcolor 触点（鼠标，手指或其它）按下的按钮背景色
  * @param {Color} $active-color 触点（鼠标，手指或其它）按下的按钮文本色
  * @param {Length} $padding 按钮内补白
