@@ -828,16 +828,13 @@ a {
   display: block;
   text-align: center;
   padding: 0.1rem 0.2rem;
-  border-radius: 0.05rem;
-  -webkit-background-clip: padding-box !important;
-  background-clip: padding-box !important;
+  border-radius: .05rem;
   color: #212121;
   font-size: 0.14rem;
 }
 
 .yo-loading > .inner > .yo-ico {
   display: block;
-  margin-bottom: .1rem;
   -webkit-animation: rotate 1s infinite linear;
   animation: rotate 1s infinite linear;
   -webkit-transform-origin: center;
@@ -849,6 +846,10 @@ a {
   color: #212121;
   font-family: yofont;
   font-size: 0.5rem;
+}
+
+.yo-loading > .inner > .yo-ico:not(:only-child) {
+  margin-bottom: .1rem;
 }
 
 .yo-loading-b {
@@ -913,7 +914,6 @@ a {
 }
 
 .yo-range > input[type="range"] {
-  display: block;
   -webkit-appearance: none;
   appearance: none;
   -webkit-box-flex: 1;

@@ -7,7 +7,6 @@
     @include flexbox;
     line-height: 1;
     > input[type="range"] {
-        display: block;
         @include appearance(none);
         @include flex;
         overflow: hidden;
@@ -55,7 +54,7 @@
 /**
  * @module element
  * @method yo-range
- * @description 构造区间选择的自定义使用方法
+ * @description 构造区间选择的自定义使用方法（安卓4.3及以下有点问题）
  * @demo http://doyoe.github.io/Yo/demo/element/yo-range.html
  * @param {String} $name 为新的扩展定义一个名称
  * @param {Color} $inner-bgcolor 已选择区域滑条色
