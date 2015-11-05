@@ -125,11 +125,14 @@
 
 <h4>新增：</h4>
 
-<ul><li>add: <code>yo-vcode</code><ul><li>新增<code>yo-vcode</code>用于验证码或者密码输入组件</li></ul></li><li>add: <code>yo-breadcrumb</code><ul><li>新增<code>yo-breadcrumb</code>面包屑</li></ul></li></ul>
+<ul><li>add: <code>yo-vcode</code><ul><li>新增<code>yo-vcode</code>用于验证码或者密码输入组件</li></ul></li><li>add: <code>yo-breadcrumb</code><ul><li>新增<code>yo-breadcrumb</code>面包屑</li></ul></li><li>add: <code>响应式断点</code><ul><li>新增<code>xs, s, m, l, xl</code>5类响应式断点，用于支持响应式设计</li></ul></li></ul>
 
 <h4>变更：</h4>
 
-<ul><li>change: <code>1px边框方法</code><ul><li>新增<code>border</code>方法用于处理retina屏1px边框，移除原<code>viewport scale</code>方案（因为该方案影响响应式设计实现，并且因为Android4.3及以下不支持initial-scale除1之外的设置，所以安卓都未实现）</li><li>移除原始用于<code>1px</code>方案的<code>$setting is-ios-1pixel</code>设置</li></ul></li><li>change: <code>bordercolor</code>变量<ul><li>将所有的<code>bordercolor</code>变量都重命名为<code>border-color</code>，因为早期的时候命名不严谨导致吐槽激烈，特在此大版本中全部修正</li></ul></li><li>change: <code>yo-btn</code><ul><li>将原来统一的灰色禁用按钮更改为每个按钮的禁用外观取决于自身的本来颜色</li></ul></li></ul>
+<ul><li><p>change: <code>1px边框方法</code></p><ul><li>新增<code>border</code>方法用于处理retina屏1px边框，移除原<code>viewport scale</code>方案</li><li><p>移除原始用于<code>1px</code>方案的<code>$setting is-ios-1pixel</code>设置</p><p>&gt; 原因：
+&gt;
+&gt; 1. 原方案利用viewport缩放（需引入额外的js），这会改变layout viewport尺寸，进而影响响应式设计；
+&gt; 2. 原方案安卓未实现，因为Android4.3及以下不支持initial-scale除1之外的设置；</p></li></ul></li><li>change: <code>bordercolor</code>变量<ul><li>将所有的<code>bordercolor</code>变量都重命名为<code>border-color</code>，因为早期的时候命名不严谨导致吐槽激烈，特在此大版本中全部修正</li></ul></li><li>change: <code>yo-btn</code><ul><li>将原来统一的灰色禁用按钮更改为每个按钮的禁用外观取决于自身的本来颜色</li></ul></li></ul>
 
 <p><strong>再次重申：将你的<code>flex子项</code>设置为<code>非行内级元素</code>，Yo会缓步移除对这种内部容错的代码</strong></p>
 

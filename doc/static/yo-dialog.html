@@ -41,11 +41,13 @@
     position: fixed;
     z-index: map-get($z-index, dialog);
     overflow: hidden;
-    @include border-radius(map-get($dialog, radius));
     @if map-get($dialog, shadow-opacity) != null {
         box-shadow: 0 0 5px rgba(map-get($dialog, border-color), map-get($dialog, shadow-opacity));
     }
-    border: 1px solid map-get($dialog, border-color);
+    @include border(
+        $border-color: map-get($dialog, border-color),
+        $radius: map-get($dialog, radius)
+    );
     min-width: 2.8rem;
     max-width: 90%;
     width: map-get($dialog, width);
@@ -94,7 +96,7 @@
         text-align: center;
         @include yo-btn(
             $name: dialog,
-            $border-width: 1px 0 0,
+            $border-width: 1px 1px 0 0,
             $border-color: map-get($base, border-color),
             $bgcolor: #fff,
             $color: map-get($base, link-color),
@@ -103,12 +105,11 @@
         ){
             display: block;
             @include flex;
-            &:last-child:not(:only-child),
-            &:only-child {
+            &:last-child {
                 font-weight: bold;
-            }
-            &:last-child:not(:only-child) {
-                border-left-width: 1px;
+                &::after {
+                    border-right-width: 0;
+                }
             }
         }
     }
@@ -124,7 +125,8 @@
  * @param {Length} $height 定义dialog高度
  * @param {Length} $radius 定义dialog圆角
  * @param {Number} $shadow-opacity 定义dialog阴影透明度
- * @param {Color} $border-color 定义dialog边框色
+ * @param {Color} $bordercolor 定义dialog边框色 {del:2.0.0}
+ * @param {Color} $border-color 定义dialog边框色 {add:2.0.0}
  * @param {Length} $hd-height 定义dialog头部高度
  * @param {Color} $hd-bgcolor 定义dialog头部背景色
  * @param {Color} $title-color 定义dialog标题文本色
@@ -190,13 +192,27 @@
         @if $radius != map-get($dialog, radius) {
             border-radius: $radius;
         }
-        @if $border-color != map-get($dialog, border-color) {
-            border-color: $border-color;
-            box-shadow: 0 0 5px rgba($border-color, $shadow-opacity);
-        } @else {
-            @if $shadow-opacity != map-get($dialog, shadow-opacity) {
-                box-shadow: 0 0 5px rgba($border-color, $shadow-opacity);
+        &::after {
+            // 如果$border-color不等于config设定，则重绘边框颜色
+            @if $border-color != map-get($dialog, border-color) {
+                border-color: $border-color;
             }
+            // 如果$radius不等于config设定，则重绘边框圆角
+            @if $radius != map-get($dialog, radius) {
+                @include responsive(retina1x) {
+                    border-radius: $radius;
+                }
+                @include responsive(retina2x) {
+                    border-radius: $radius * 2;
+                }
+                @include responsive(retina3x) {
+                    border-radius: $radius * 3;
+                }
+            }
+        }
+        // 如果$border-color或者$shadow-opacity不等于config设定，都重绘边框颜色
+        @if $border-color != map-get($dialog, border-color) or $shadow-opacity != map-get($dialog, shadow-opacity) {
+            box-shadow: 0 0 5px rgba($border-color, $shadow-opacity);
         }
         @if $width != map-get($dialog, width) {
             width: $width;

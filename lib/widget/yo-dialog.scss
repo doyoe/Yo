@@ -161,13 +161,27 @@
         @if $radius != map-get($dialog, radius) {
             border-radius: $radius;
         }
-        @if $border-color != map-get($dialog, border-color) {
-            border-color: $border-color;
-            box-shadow: 0 0 5px rgba($border-color, $shadow-opacity);
-        } @else {
-            @if $shadow-opacity != map-get($dialog, shadow-opacity) {
-                box-shadow: 0 0 5px rgba($border-color, $shadow-opacity);
+        &::after {
+            // 如果$border-color不等于config设定，则重绘边框颜色
+            @if $border-color != map-get($dialog, border-color) {
+                border-color: $border-color;
             }
+            // 如果$radius不等于config设定，则重绘边框圆角
+            @if $radius != map-get($dialog, radius) {
+                @include responsive(retina1x) {
+                    border-radius: $radius;
+                }
+                @include responsive(retina2x) {
+                    border-radius: $radius * 2;
+                }
+                @include responsive(retina3x) {
+                    border-radius: $radius * 3;
+                }
+            }
+        }
+        // 如果$border-color或者$shadow-opacity不等于config设定，都重绘边框颜色
+        @if $border-color != map-get($dialog, border-color) or $shadow-opacity != map-get($dialog, shadow-opacity) {
+            box-shadow: 0 0 5px rgba($border-color, $shadow-opacity);
         }
         @if $width != map-get($dialog, width) {
             width: $width;
