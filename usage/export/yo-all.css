@@ -1844,7 +1844,7 @@ a {
 }
 
 .yo-dialog > .ft .yo-btn-dialog::after {
-  border-width: 1px 0 0;
+  border-width: 1px 1px 0 0;
   border-color: #ccc;
 }
 
@@ -1881,13 +1881,12 @@ a {
   border-color: #ebebeb;
 }
 
-.yo-dialog > .ft .yo-btn-dialog:last-child:not(:only-child),
-.yo-dialog > .ft .yo-btn-dialog:only-child {
+.yo-dialog > .ft .yo-btn-dialog:last-child {
   font-weight: bold;
 }
 
-.yo-dialog > .ft .yo-btn-dialog:last-child:not(:only-child) {
-  border-left-width: 1px;
+.yo-dialog > .ft .yo-btn-dialog:last-child::after {
+  border-right-width: 0;
 }
 
 .yo-dialog-test {

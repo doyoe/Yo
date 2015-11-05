@@ -455,40 +455,6 @@ a {
   margin: .1rem;
 }
 
-.m-code {
-  -webkit-user-select: text;
-  user-select: text;
-  margin: .1rem;
-  padding: .1rem;
-  border-radius: 5px;
-  background: #272822;
-  color: #51bbe1;
-  font-size: .2rem;
-}
-
-.m-code .method {
-  color: #93de08;
-}
-
-.m-code .bracket,
-.m-code .colon {
-  padding-right: 5px;
-  color: #fff;
-}
-
-.m-code mark {
-  color: #ccc;
-  font-size: .14rem;
-}
-
-.m-code .version {
-  background-color: #fff;
-  color: red;
-  font-size: .12rem;
-  border-radius: .02rem;
-  padding: 0 0.02rem;
-}
-
 .yo-btn {
   display: inline-block;
   padding: 0 1.2em;
@@ -662,7 +628,7 @@ a {
 }
 
 .yo-dialog > .ft .yo-btn-dialog::after {
-  border-width: 1px 0 0;
+  border-width: 1px 1px 0 0;
   border-color: #ccc;
 }
 
@@ -699,17 +665,26 @@ a {
   border-color: #ebebeb;
 }
 
-.yo-dialog > .ft .yo-btn-dialog:last-child:not(:only-child),
-.yo-dialog > .ft .yo-btn-dialog:only-child {
+.yo-dialog > .ft .yo-btn-dialog:last-child {
   font-weight: bold;
 }
 
-.yo-dialog > .ft .yo-btn-dialog:last-child:not(:only-child) {
-  border-left-width: 1px;
+.yo-dialog > .ft .yo-btn-dialog:last-child::after {
+  border-right-width: 0;
 }
 
 .yo-dialog-test {
   height: 3rem;
+}
+
+.yo-mask {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .m-layer {

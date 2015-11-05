@@ -63,7 +63,7 @@
         text-align: center;
         @include yo-btn(
             $name: dialog,
-            $border-width: 1px 0 0,
+            $border-width: 1px 1px 0 0,
             $border-color: map-get($base, border-color),
             $bgcolor: #fff,
             $color: map-get($base, link-color),
@@ -72,12 +72,11 @@
         ){
             display: block;
             @include flex;
-            &:last-child:not(:only-child),
-            &:only-child {
+            &:last-child {
                 font-weight: bold;
-            }
-            &:last-child:not(:only-child) {
-                border-left-width: 1px;
+                &::after {
+                    border-right-width: 0;
+                }
             }
         }
     }
