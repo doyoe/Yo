@@ -1138,6 +1138,11 @@ a {
   border-color: #ddd;
 }
 
+.yo-header-normal > .regret,
+.yo-header-normal > .affirm {
+  color: #212121;
+}
+
 .yo-header-normal > .regret.yo-ico,
 .yo-header-normal > .regret > .yo-ico,
 .yo-header-normal > .affirm.yo-ico,
@@ -1465,17 +1470,20 @@ a {
   margin-left: -.01rem !important;
 }
 
-.yo-btnbar > .yo-btn:first-child {
+.yo-btnbar > .yo-btn:first-child,
+.yo-btnbar > .yo-btn:first-child::after {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-.yo-btnbar > .yo-btn:last-child {
+.yo-btnbar > .yo-btn:last-child,
+.yo-btnbar > .yo-btn:last-child::after {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-.yo-btnbar > .yo-btn:not(:first-child):not(:last-child) {
+.yo-btnbar > .yo-btn:not(:first-child):not(:last-child),
+.yo-btnbar > .yo-btn:not(:first-child):not(:last-child)::after {
   border-radius: 0;
 }
 
@@ -1484,9 +1492,51 @@ a {
   border-bottom-left-radius: 0.1rem;
 }
 
+@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
+  .yo-btnbar-test > .yo-btn:first-child::after {
+    border-top-left-radius: 0.1rem;
+    border-bottom-left-radius: 0.1rem;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
+  .yo-btnbar-test > .yo-btn:first-child::after {
+    border-top-left-radius: 0.2rem;
+    border-bottom-left-radius: 0.2rem;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
+  .yo-btnbar-test > .yo-btn:first-child::after {
+    border-top-left-radius: 0.3rem;
+    border-bottom-left-radius: 0.3rem;
+  }
+}
+
 .yo-btnbar-test > .yo-btn:last-child {
   border-top-right-radius: 0.1rem;
   border-bottom-right-radius: 0.1rem;
+}
+
+@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
+  .yo-btnbar-test > .yo-btn:last-child::after {
+    border-top-right-radius: 0.1rem;
+    border-bottom-right-radius: 0.1rem;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
+  .yo-btnbar-test > .yo-btn:last-child::after {
+    border-top-right-radius: 0.2rem;
+    border-bottom-right-radius: 0.2rem;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
+  .yo-btnbar-test > .yo-btn:last-child::after {
+    border-top-right-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+  }
 }
 
 .yo-datepicker {

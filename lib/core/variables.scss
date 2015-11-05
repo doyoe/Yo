@@ -282,9 +282,9 @@ $score: (
 
 // Fragment btnbar(1)
 $btnbar: (
-    // {auto | Length} 工具栏圆角
-    // 当值为auto时，btnbar的圆角半径取决于按钮的圆角定义
-    radius: auto
+    // {Length} 工具栏圆角
+    // 当值为null时，btnbar的圆角半径取决于按钮的圆角定义
+    radius: null
 ) !default;
 
 // Fragment list(15)
