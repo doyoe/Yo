@@ -10,11 +10,13 @@
     position: fixed;
     z-index: map-get($z-index, dialog);
     overflow: hidden;
-    @include border-radius(map-get($dialog, radius));
     @if map-get($dialog, shadow-opacity) != null {
         box-shadow: 0 0 5px rgba(map-get($dialog, border-color), map-get($dialog, shadow-opacity));
     }
-    border: 1px solid map-get($dialog, border-color);
+    @include border(
+        $border-color: map-get($dialog, border-color),
+        $radius: map-get($dialog, radius)
+    );
     min-width: 2.8rem;
     max-width: 90%;
     width: map-get($dialog, width);
@@ -92,7 +94,8 @@
  * @param {Length} $height 定义dialog高度
  * @param {Length} $radius 定义dialog圆角
  * @param {Number} $shadow-opacity 定义dialog阴影透明度
- * @param {Color} $border-color 定义dialog边框色
+ * @param {Color} $bordercolor 定义dialog边框色 {del:2.0.0}
+ * @param {Color} $border-color 定义dialog边框色 {add:2.0.0}
  * @param {Length} $hd-height 定义dialog头部高度
  * @param {Color} $hd-bgcolor 定义dialog头部背景色
  * @param {Color} $title-color 定义dialog标题文本色

@@ -60,6 +60,8 @@ Yo约束了2种项目所使用的长度单位
     > 1. 原方案利用viewport缩放（需引入额外的js），这会改变layout viewport尺寸，进而影响响应式设计；
     > 2. 原方案安卓未实现，因为Android4.3及以下不支持initial-scale除1之外的设置；
 
+* add: `响应式断点`
+    - 新增`xs, s, m, l, xl`5类响应式断点，用于支持响应式设计
 * change: `bordercolor`变量
     - 将所有的`bordercolor`变量都重命名为`border-color`，因为早期的时候命名不严谨导致吐槽激烈，特在此大版本中全部修正
 * change: `yo-btn`

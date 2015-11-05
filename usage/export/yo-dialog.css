@@ -560,15 +560,55 @@ a {
   position: fixed;
   z-index: 1001;
   overflow: hidden;
-  border-radius: 0.05rem;
-  -webkit-background-clip: padding-box !important;
-  background-clip: padding-box !important;
   box-shadow: 0 0 5px rgba(204, 204, 204, 0.5);
-  border: 1px solid #ccc;
+  position: relative;
+  border-radius: 0.05rem;
   min-width: 2.8rem;
   max-width: 90%;
   background: #fff;
   text-align: center;
+}
+
+.yo-dialog::after {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  content: "\0020";
+  border-color: #ccc;
+  border-style: solid;
+  border-width: 1px;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+
+@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
+  .yo-dialog::after {
+    width: 100%;
+    height: 100%;
+    border-radius: 0.05rem;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
+  .yo-dialog::after {
+    width: 200%;
+    height: 200%;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    border-radius: 0.1rem;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
+  .yo-dialog::after {
+    width: 300%;
+    height: 300%;
+    -webkit-transform: scale(0.33333);
+    transform: scale(0.33333);
+    border-radius: 0.15rem;
+  }
 }
 
 .yo-dialog > .hd {
@@ -675,16 +715,6 @@ a {
 
 .yo-dialog-test {
   height: 3rem;
-}
-
-.yo-mask {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1000;
-  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .m-layer {
