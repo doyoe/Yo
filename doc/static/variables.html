@@ -98,9 +98,9 @@ $base: (
 // responsive media types
 $media-types: (
     // {String} 横屏
-    landscape: "screen and (orientation: landscape)",
+    landscape: "(orientation: landscape)",
     // {String} 竖屏
-    portrait:  "screen and (orientation: portrait)",
+    portrait:  "(orientation: portrait)",
     // 视网膜屏定义，这里不做非常细节的界定，比如完全一致的整数倍
     // retina1x：< 1.5dppx；
     // retina2x：1.5dppx ~ 2.49dppx
@@ -122,11 +122,8 @@ $media-types: (
                 (-webkit-min-device-pixel-ratio: 2.5),
                 (min-device-pixel-ratio: 2.5),
                 (min-resolution: 240dpi),
-                (min-resolution: 2.5dppx)",
-    // {String} PC
-    pc:        "(min-width: 8rem)",
-    // {String} mobile
-    mobile:    "(max-width: 7.99rem)"
+                (min-resolution: 2.5dppx)"
+    // 待添加stop-points
 ) !default;
 
 // ico font

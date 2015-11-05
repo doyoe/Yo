@@ -245,6 +245,14 @@
                 font-size: $bd-font-size;
             }
         }
+        > .ft {
+            .yo-btn-dialog::after {
+                // 如果$border-color不等于config设定，则重绘边框颜色
+                @if $border-color != map-get($dialog, border-color) {
+                    border-color: $border-color;
+                }
+            }
+        }
         // 增量扩展
         @content;
     }

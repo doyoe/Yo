@@ -308,6 +308,7 @@ a {
 .yo-header::after {
   pointer-events: none;
   position: absolute;
+  z-index: 999;
   top: 0;
   left: 0;
   overflow: hidden;
@@ -423,6 +424,7 @@ a {
 .yo-tab::after {
   pointer-events: none;
   position: absolute;
+  z-index: 999;
   top: 0;
   left: 0;
   overflow: hidden;
@@ -562,6 +564,7 @@ a {
 .yo-list::after {
   pointer-events: none;
   position: absolute;
+  z-index: 999;
   top: 0;
   left: 0;
   overflow: hidden;
@@ -653,6 +656,7 @@ a {
 .yo-list > .label::after {
   pointer-events: none;
   position: absolute;
+  z-index: 999;
   top: 0;
   left: 0;
   overflow: hidden;
@@ -717,6 +721,7 @@ a {
 .yo-list > .item::after {
   pointer-events: none;
   position: absolute;
+  z-index: 999;
   top: 0;
   left: 0;
   overflow: hidden;

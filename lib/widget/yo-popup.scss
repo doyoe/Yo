@@ -8,19 +8,22 @@
     @include flex-direction(column);
     position: absolute;
     z-index: map-get($z-index, popup);
-    @include border-radius(map-get($popup, radius));
     @if map-get($popup, shadow-opacity) != null {
         box-shadow: 0 0 5px rgba(map-get($popup, border-color), map-get($popup, shadow-opacity));
     }
-    border: 1px solid map-get($popup, border-color);
+    @include border(
+        $border-color: map-get($popup, border-color),
+        $radius: map-get($popup, radius)
+    );
     min-width: 2.8rem;
     min-height: 1rem;
     width: map-get($popup, width);
     height: map-get($popup, height);
-    background: #fff;
+    background-color: #fff;
     // 改用标签的方式，因为JS需要控制位置
     > .arrow::after {
         position: absolute;
+        z-index: 1000;
         content: "◆";
         color: #fff;
         font-size: map-get($popup, arrow-size) * 2;
@@ -72,8 +75,12 @@
     }
     > .hd {
         height: map-get($popup, hd-height);
-        border-bottom: 1px solid map-get($popup, border-color);
-        background: map-get($popup, hd-bgcolor);
+        @include border(
+            $border-width: 0 0 1px,
+            $border-color: map-get($popup, border-color)
+        );
+        border-radius: map-get($popup, radius) map-get($popup, radius) 0 0;
+        background-color: map-get($popup, hd-bgcolor);
         line-height: map-get($popup, hd-height);
         text-align: center;
         .title {
@@ -97,12 +104,16 @@
     }
     > .bd {
         @include flex(1, column);
-        @include overflow();
+        @include overflow;
         padding: map-get($popup, bd-padding);
     }
     > .ft {
         padding: .1rem 0;
-        border-top: 1px solid map-get($popup, border-color);
+        @include border(
+            $border-width: 1px 0 0,
+            $border-color: map-get($popup, border-color)
+        );
+        border-radius: 0 0 map-get($popup, radius) map-get($popup, radius);
         text-align: center;
     }
 }
@@ -117,7 +128,8 @@
  * @param {Length} $height 定义popup高度
  * @param {Length} $radius 定义popup圆角
  * @param {Number} $shadow-opacity 定义popup阴影透明度
- * @param {Color} $border-color 定义popup边框色
+ * @param {Color} $bordercolor 定义popup边框色 {del:2.0.0}
+ * @param {Color} $border-color 定义popup边框色 {add:2.0.0}
  * @param {Length} $hd-height 定义popup头部高度
  * @param {Color} $hd-bgcolor 定义popup头部背景色
  * @param {Color} $title-color 定义popup标题文本色
@@ -225,13 +237,27 @@
         @if $radius != map-get($popup, radius) {
             border-radius: $radius;
         }
-        @if $border-color != map-get($popup, border-color) {
-            border-color: $border-color;
-            box-shadow: 0 0 5px rgba($border-color, $shadow-opacity);
-        } @else {
-            @if $shadow-opacity != map-get($popup, shadow-opacity) {
-                box-shadow: 0 0 5px rgba($border-color, $shadow-opacity);
+        &::after {
+            // 如果$border-color不等于config设定，则重绘边框颜色
+            @if $border-color != map-get($popup, border-color) {
+                border-color: $border-color;
             }
+            // 如果$radius不等于config设定，则重绘边框圆角
+            @if $radius != map-get($popup, radius) {
+                @include responsive(retina1x) {
+                    border-radius: $radius;
+                }
+                @include responsive(retina2x) {
+                    border-radius: $radius * 2;
+                }
+                @include responsive(retina3x) {
+                    border-radius: $radius * 3;
+                }
+            }
+        }
+        // 如果$border-color或者$shadow-opacity不等于config设定，都重绘边框颜色
+        @if $border-color != map-get($popup, border-color) or $shadow-opacity != map-get($popup, shadow-opacity) {
+            box-shadow: 0 0 5px rgba($border-color, $shadow-opacity);
         }
         @if $width != map-get($popup, width) {
             width: $width;
@@ -247,11 +273,14 @@
                 height: $hd-height;
                 line-height: $hd-height;
             }
-            @if $border-color != map-get($popup, border-color) {
-                border-bottom-color: $border-color;
+            &::after {
+                // 如果$border-color不等于config设定，则重绘边框颜色
+                @if $border-color != map-get($popup, border-color) {
+                    border-color: $border-color;
+                }
             }
             @if $hd-bgcolor != map-get($popup, hd-bgcolor) {
-                background: $hd-bgcolor;
+                background-color: $hd-bgcolor;
             }
             .title {
                 @if $title-color != map-get($popup, title-color) and $title-color != map-get($base, color) {
@@ -268,8 +297,14 @@
             }
         }
         > .ft {
-            @if $border-color != map-get($popup, border-color) {
-                border-color: $border-color;
+            &::after {
+                // 如果$border-color不等于config设定，则重绘边框颜色
+                @if $border-color != map-get($popup, border-color) {
+                    border-color: $border-color;
+                }
+            }
+            @if $radius != map-get($popup, radius) {
+                border-radius: 0 0 $radius $radius;
             }
         }
         // 增量扩展

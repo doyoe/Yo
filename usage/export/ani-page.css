@@ -297,7 +297,7 @@ a {
   background-color: #fafafa;
 }
 
-@media (min-width: 8rem) {
+@media (orientation: portrait) {
   .m-demo {
     display: -webkit-box;
     display: -webkit-flex;
@@ -389,7 +389,7 @@ a {
   background-color: #F0F3F8;
 }
 
-@media (min-width: 8rem) {
+@media (orientation: portrait) {
   .m-demo .code {
     margin: .1rem;
     border-width: 0 0 0 0.04rem;
@@ -450,6 +450,7 @@ a {
 .yo-btn::after {
   pointer-events: none;
   position: absolute;
+  z-index: 999;
   top: 0;
   left: 0;
   overflow: hidden;
@@ -528,7 +529,7 @@ a {
   width: 100%;
 }
 
-@media (max-width: 7.99rem) {
+@media (orientation: portrait) {
   .m-demo .device .stage {
     position: absolute;
     top: 0;
