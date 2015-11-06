@@ -10,15 +10,11 @@
     height: map-get($number, height);
     line-height: map-get($number, height);
     border: 1px solid map-get($number, border-color);
-    box-shadow: 1px 1px 1px rgba(map-get($number, border-color),.3);
+    box-shadow: 1px 1px 1px rgba(map-get($number, border-color), .3);
     background-color: #fff;
     font-size: 0;
+    text-align: center;
     vertical-align: middle;
-    > .minus,
-    > .plus,
-    > .input {
-        text-align: center;
-    }
     > .minus,
     > .plus {
         display: block;
@@ -34,13 +30,14 @@
         }
     }
     > .input{
-        @include flex();
+        @include flex;
         border: 1px solid map-get($number, border-color);
         border-width: 0 1px;
         box-shadow: inset 1px 1px 1px rgba(map-get($number, border-color), .1);
         border-radius: 0;
         color: map-get($number, color);
         font-size: .16rem;
+        text-align: inherit;
         &,
         &::-webkit-inner-spin-button{
             @include appearance();
@@ -56,7 +53,8 @@
  * @param {String} $name 定义yo-number名称
  * @param {Length} $width 定义yo-number宽度
  * @param {Length} $height 定义yo-number高度
- * @param {Color} $border-color 定义yo-number边框色
+ * @param {Color} $bordercolor 定义yo-number边框色 {del:2.0.0}
+ * @param {Color} $border-color 定义yo-number边框色 {add:2.0.0}
  * @param {Color} $color 定义yo-number输入框文本色
  * @param {Color} $sign-bgcolor 定义yo-number加减号背景色
  * @param {Color} $sign-color 定义yo-number加减号文本色

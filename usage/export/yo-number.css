@@ -790,13 +790,8 @@ a {
   box-shadow: 1px 1px 1px rgba(204, 204, 204, 0.3);
   background-color: #fff;
   font-size: 0;
-  vertical-align: middle;
-}
-
-.yo-number > .minus,
-.yo-number > .plus,
-.yo-number > .input {
   text-align: center;
+  vertical-align: middle;
 }
 
 .yo-number > .minus,
@@ -827,6 +822,7 @@ a {
   border-radius: 0;
   color: #212121;
   font-size: .16rem;
+  text-align: inherit;
 }
 
 .yo-number > .input,
