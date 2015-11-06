@@ -13,12 +13,8 @@
     cursor: pointer;
     > input,
     > .type {
-        @include flexbox;
-        @include justify-content;
-        @include align-items;
-        position: absolute;
-        top: 0;
-        left: 0;
+        @include valign;
+        @include fullscreen;
         @include square(100%);
     }
     > input {
