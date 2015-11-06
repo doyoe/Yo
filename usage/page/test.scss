@@ -16,7 +16,11 @@
 }
 
 .test {
-    background-color: gray;
-    @include flexbox;
-    @include justify-content(space-between);
+    @include killspace;
+    > .item {
+        width: 12.5%;
+        margin: .1rem 0 .1rem 3.5%;
+        background-color: gray;
+        text-align: center;
+    }
 }

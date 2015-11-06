@@ -2163,7 +2163,7 @@ a {
   width: .1px;
   border: 0 none;
   color: #212121;
-  font-size: .16rem;
+  font-size: 0.16rem;
   text-align: inherit;
 }
 
@@ -2174,6 +2174,7 @@ a {
 }
 
 .yo-number-test {
+  width: 1rem;
   height: 0.25rem;
   line-height: 0.25rem;
   border-radius: 0;
@@ -2247,6 +2248,10 @@ a {
 .yo-number-test > .minus.disabled::after,
 .yo-number-test > .plus.disabled::after {
   border-color: #31cee1;
+}
+
+.yo-number-test > .input {
+  font-size: 0.14rem;
 }
 
 .yo-popup {

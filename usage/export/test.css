@@ -729,11 +729,19 @@ a {
 }
 
 .test {
+  font-size: 0;
+  font-family: arial;
+}
+
+.test > .item {
+  display: inline-block;
+  font-size: 14px;
+  font-family: Helvetica Neue, Helvetica, STHeiTi, sans-serif;
+}
+
+.test > .item {
+  width: 12.5%;
+  margin: 0.1rem 0 0.1rem 3.5%;
   background-color: gray;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  justify-content: space-between;
+  text-align: center;
 }
