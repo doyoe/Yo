@@ -30,6 +30,7 @@
         }
     }
     > .input{
+        display: block;
         @include flex;
         border: 1px solid map-get($number, border-color);
         border-width: 0 1px;
@@ -40,7 +41,7 @@
         text-align: inherit;
         &,
         &::-webkit-inner-spin-button{
-            @include appearance();
+            @include appearance;
         }
     }
 }
