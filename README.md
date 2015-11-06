@@ -61,10 +61,18 @@ Yo约束了2种项目所使用的长度单位
     >
     > 1. 原方案利用viewport缩放（需引入额外的js），这会改变layout viewport尺寸，进而影响响应式设计；
     > 2. 原方案安卓未实现，因为Android4.3及以下不支持initial-scale除1之外的设置；
-* change: `bordercolor`变量
-    - 将所有的`bordercolor`变量都重命名为`border-color`，因为早期的时候命名不严谨导致吐槽激烈，特在此大版本中全部修正
+* change: `$bordercolor`变量
+    - 将所有的`$bordercolor`变量都重命名为`$border-color`，因为早期的时候命名不严谨导致吐槽激烈，特在此大版本中全部修正
 * change: `yo-btn`
     - 将原来统一的灰色禁用按钮更改为每个按钮的禁用外观取决于自身的本来颜色
+* change: `yo-number`
+    - 将`$bordercolor`更改为`$border-color`;
+    - 移除`$disabled-sign-color`；
+    - 新增`$outer-radius`参数；
+    - 新增`$outer-border-width`参数；
+    - 新增`$inner-radius`参数；
+    - 新增`$inner-border-width`参数；
+    - 新增`$font-size`参数；
 
 **再次重申：将你的`flex子项`设置为`非行内级元素`，Yo会缓步移除对这种内部容错的代码**
 
