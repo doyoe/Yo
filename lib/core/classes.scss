@@ -11,6 +11,7 @@
  * @method prefix
  * @param {String} $property 指定属性
  * @param {String} $value 指定属性值
+ * @skip
  */
 @mixin prefix($property, $value) {
     // 老式浏览器
@@ -23,6 +24,36 @@
     }
     // 现代浏览器（支持最新草案）
     #{$property}: $value;
+}
+
+/**
+ * @module core
+ * @class 功能
+ * @description 定义字体图标
+ * @method yofont
+ * @skip
+ */
+@mixin yofont() {
+    // 是否开启图标字体
+    @if map-get($ico, is-use) {
+        @font-face {
+            font-family: map-get($ico, font-name);
+            src:
+                // 现代浏览器
+                url("#{map-get($ico,font-path)}#{map-get($ico,font-name)}.woff") format("woff"),
+                // Android2.2+
+                url("#{map-get($ico,font-path)}#{map-get($ico,font-name)}.ttf") format("truetype");
+        }
+        .yo-ico {
+            font-family: map-get($ico, font-name) !important;
+            font-style: normal;
+            -webkit-font-smoothing: antialiased;
+            // PC端chrome有锯齿问题，Mobile不需要
+            // -webkit-text-stroke-width: .1px;
+            -moz-osx-font-smoothing: grayscale;
+            vertical-align: middle;
+        }
+    }
 }
 
 /**
@@ -54,7 +85,7 @@
  * @class 功能
  * @description 定义响应式方案
  * @method responsive
- * @param {String} $media 指定媒体查询条件
+ * @param {String} $media 指定媒体查询条件，取值为`variable`文件map `media-types`中的值
  */
 @mixin responsive($media) {
     @if not map-has-key($media-types, $media) {
@@ -63,36 +94,6 @@
     }
     @media #{map-get($media-types, $media)} {
         @content;
-    }
-}
-
-/**
- * @module core
- * @class 功能
- * @description 定义字体图标
- * @method yofont
- * @skip
- */
-@mixin yofont() {
-    // 是否开启图标字体
-    @if map-get($ico, is-use) {
-        @font-face {
-            font-family: map-get($ico, font-name);
-            src:
-                // 现代浏览器
-                url("#{map-get($ico,font-path)}#{map-get($ico,font-name)}.woff") format("woff"),
-                // Android2.2+
-                url("#{map-get($ico,font-path)}#{map-get($ico,font-name)}.ttf") format("truetype");
-        }
-        .yo-ico {
-            font-family: map-get($ico, font-name) !important;
-            font-style: normal;
-            -webkit-font-smoothing: antialiased;
-            // PC端chrome有锯齿问题，Mobile不需要
-            // -webkit-text-stroke-width: .1px;
-            -moz-osx-font-smoothing: grayscale;
-            vertical-align: middle;
-        }
     }
 }
 
@@ -140,6 +141,7 @@
  * @class 功能
  * @description 元素在包含块中的对齐方式，默认为水平垂直对齐
  * @method align
+ * @version 2.0.0
  * @param {String} $flexbox 指定包含块布局方式，可选值：flex | inline-flex，默认值：flex
  * @param {String} $type 指定居中元素类型，可选值：image | text，默认值：image
  * @param {Keywords} $justify-content 指定元素水平对齐方式，取值与`justify-content`属性一致，默认值：center
