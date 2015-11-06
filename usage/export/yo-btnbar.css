@@ -886,6 +886,10 @@ a {
   margin-left: -.01rem !important;
 }
 
+.yo-btnbar > .yo-btn::after {
+  z-index: auto;
+}
+
 .yo-btnbar > .yo-btn:first-child,
 .yo-btnbar > .yo-btn:first-child::after {
   border-top-right-radius: 0;
