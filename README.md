@@ -51,6 +51,8 @@ Yo约束了2种项目所使用的长度单位
     - 新增`yo-breadcrumb`面包屑
 * add: `响应式断点`
     - 新增`xs, s, m, l, xl`5类响应式断点，用于支持响应式设计
+* add: `align` mixin
+    - 新增`align`方法用于处理元素水平及垂直对齐方式，默认为居中
 
 #### 变更：
 * change: `1px边框方法`
@@ -74,6 +76,10 @@ Yo约束了2种项目所使用的长度单位
     - 新增`$font-size`参数；
 * change: `valign` mixin
     -
+
+#### 删除
+* del: `alignment` mixin
+* del: `valign` mixin
 
 **再次重申：将你的`flex子项`设置为`非行内级元素`，Yo会缓步移除对这种内部容错的代码**
 

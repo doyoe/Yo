@@ -13,7 +13,7 @@
     cursor: pointer;
     > input,
     > .type {
-        @include valign;
+        @include align;
         @include fullscreen;
         @include square(100%);
     }

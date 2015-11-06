@@ -18,5 +18,5 @@
 .test {
     border: 1px solid #ddd;
     @include square(2rem);
-    @include valign;
+    @include align;
 }

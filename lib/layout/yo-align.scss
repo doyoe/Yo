@@ -4,10 +4,8 @@
 
 // 定义常见水平垂直居中布局
 @mixin _align {
-    @include flexbox;
+    @include align;
     @include fullscreen;
-    @include align-items;
-    @include justify-content;
 }
 
 /**
