@@ -19,7 +19,7 @@
     > .minus,
     > .plus {
         display: block;
-        width: .35rem;
+        @include square(map-get($number, height));
         @include border(
             $border-width: map-get($number, inner-border-width),
             $border-color: map-get($number, border-color),
@@ -27,12 +27,17 @@
         );
         background-color: map-get($number, sign-bgcolor);
         color: map-get($number, sign-color);
-        font-size: .3rem;
+        font-size: map-get($number, height) - .05rem;
         font-family: arial;
         cursor: pointer;
         &.disabled {
             color: map-get($number, disabled-sign-color);
             cursor: not-allowed;
+            &::after {
+                border-color: lighten(map-get($number, border-color), 12%);
+            }
+            background-color: lighten(map-get($number, sign-bgcolor), 15%);
+            color: lighten(map-get($number, sign-color), 30%);
         }
     }
     > .input {
@@ -66,7 +71,7 @@
  * @param {Color} $color 定义yo-number输入框文本色
  * @param {Color} $sign-bgcolor 定义yo-number加减号背景色
  * @param {Color} $sign-color 定义yo-number加减号文本色
- * @param {Color} $disabled-sign-color 定义yo-number加减号禁用文本色
+ * @param {Color} $disabled-sign-color 定义yo-number加减号禁用文本色 {del:2.0.0}
  */
 
 @mixin yo-number(
@@ -158,6 +163,10 @@
         }
         > .minus,
         > .plus {
+            @if $height != map-get($number, height) {
+                @include square($height);
+                font-size: $height - .05rem;
+            }
             // 如果$inner-radius不等于config设定，则重绘内边框圆角
             @if $inner-radius != map-get($number, inner-radius) {
                 border-radius: $inner-radius;
@@ -191,8 +200,16 @@
                 color: $sign-color;
             }
             &.disabled{
-                @if $disabled-sign-color != map-get($number, disabled-sign-color) {
-                    color: $disabled-sign-color;
+                &::after {
+                    @if $border-color != map-get($number, border-color) {
+                        border-color: lighten($border-color, 12%);
+                    }
+                }
+                @if $sign-bgcolor != map-get($number, sign-bgcolor) {
+                    background-color: lighten($sign-bgcolor, 15%);
+                }
+                @if $sign-color != map-get($number, sign-color) {
+                    color: lighten($sign-color, 30%);
                 }
             }
         }

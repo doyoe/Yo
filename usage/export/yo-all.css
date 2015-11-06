@@ -2089,11 +2089,12 @@ a {
 .yo-number > .minus,
 .yo-number > .plus {
   display: block;
-  width: .35rem;
+  width: 0.36rem;
+  height: 0.36rem;
   position: relative;
   background-color: #fafafa;
   color: #999;
-  font-size: .3rem;
+  font-size: 0.31rem;
   font-family: arial;
   cursor: pointer;
 }
@@ -2144,8 +2145,14 @@ a {
 
 .yo-number > .minus.disabled,
 .yo-number > .plus.disabled {
-  color: #bbb;
   cursor: not-allowed;
+  background-color: white;
+  color: #e6e6e6;
+}
+
+.yo-number > .minus.disabled::after,
+.yo-number > .plus.disabled::after {
+  border-color: #ebebeb;
 }
 
 .yo-number > .input {
@@ -2164,6 +2171,82 @@ a {
 .yo-number > .input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   appearance: none;
+}
+
+.yo-number-test {
+  height: 0.25rem;
+  line-height: 0.25rem;
+  border-radius: 0;
+}
+
+.yo-number-test::after {
+  border-width: 0;
+  border-color: #1ba9ba;
+}
+
+@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
+  .yo-number-test::after {
+    border-radius: 0;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
+  .yo-number-test::after {
+    border-radius: 0;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
+  .yo-number-test::after {
+    border-radius: 0;
+  }
+}
+
+.yo-number-test > .minus,
+.yo-number-test > .plus {
+  width: 0.25rem;
+  height: 0.25rem;
+  font-size: 0.2rem;
+  border-radius: 50%;
+  background-color: #1ba9ba;
+  color: #eee;
+}
+
+.yo-number-test > .minus::after,
+.yo-number-test > .plus::after {
+  border-color: #1ba9ba;
+}
+
+@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
+  .yo-number-test > .minus::after,
+  .yo-number-test > .plus::after {
+    border-radius: 50%;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
+  .yo-number-test > .minus::after,
+  .yo-number-test > .plus::after {
+    border-radius: 100%;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
+  .yo-number-test > .minus::after,
+  .yo-number-test > .plus::after {
+    border-radius: 150%;
+  }
+}
+
+.yo-number-test > .minus.disabled,
+.yo-number-test > .plus.disabled {
+  background-color: #3ed1e3;
+  color: white;
+}
+
+.yo-number-test > .minus.disabled::after,
+.yo-number-test > .plus.disabled::after {
+  border-color: #31cee1;
 }
 
 .yo-popup {

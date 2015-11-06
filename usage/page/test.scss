@@ -18,5 +18,5 @@
 .test {
     background-color: gray;
     @include flexbox;
-    @include justify-content(space-around);
+    @include justify-content(space-between);
 }

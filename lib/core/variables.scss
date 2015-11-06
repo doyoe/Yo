@@ -556,7 +556,7 @@ $select: (
     border-color: map-get($base, border-color),
 ) !default;
 
-// Widget UI number(11)
+// Widget UI number(10)
 $number: (
     // {Length} 宽度
     width:               1.2rem,
@@ -577,9 +577,7 @@ $number: (
     // {Color} 加减号背景色
     sign-bgcolor:        map-get($base, bgcolor),
     // {Color} 加减号文本色
-    sign-color:          #999,
-    // {Color} 禁用加减号文本色
-    disabled-sign-color: map-get($base, disabled-color)
+    sign-color:          #999
 ) !default;
 
 // Widget UI switchable(9)
