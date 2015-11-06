@@ -74,8 +74,6 @@ Yo约束了2种项目所使用的长度单位
     - 新增`$inner-radius`参数；
     - 新增`$inner-border-width`参数；
     - 新增`$font-size`参数；
-* change: `valign` mixin
-    -
 
 #### 删除
 * del: `alignment` mixin
