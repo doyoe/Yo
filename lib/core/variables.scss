@@ -11,7 +11,7 @@ $setting: (
     // 是否开启厂商前缀
     is-vendor-prefix: true,
     // 厂商前缀
-    vendor-prefix:    -webkit-,
+    vendor-prefix:    -webkit- -moz- -ms-,
     // 背景图片服务器
     bgimg-domain:     "http://source.qunarzz.com/yo/bgimg/"
 ) !default;

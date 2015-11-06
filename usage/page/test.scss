@@ -15,8 +15,9 @@
     // border-radius: 50%;
 }
 
-.test {
-    border: 1px solid #ddd;
-    @include square(2rem);
-    @include align;
+.demo {
+    @include flex-direction;
+    @include order;
+    @include justify-content;
+    @include align-content;
 }

@@ -484,7 +484,7 @@
  * @class 弹性盒
  * @description 定义伸缩盒子元素如何分配空间
  * @method flex
- * @param {String} $flex 默认值：1，取值与最新原生语法一致
+ * @param {String} $flex 取值与`flex`属性一致，默认值：1
  * @param {String} $direction 默认值: row，可选值：row | column
  */
 @mixin flex($flex: 1, $direction: row) {
@@ -517,7 +517,7 @@
  * @class 弹性盒
  * @description 定义伸缩盒子元素的排版顺序
  * @method order
- * @param {String} $order 默认值：1，取值范围与最新草案语法一致
+ * @param {String} $order 取值与`order`属性一致，默认值：1
  */
 @mixin order($order: 1) {
     // 老式浏览器（实验性质支持3个阶段草案）
@@ -542,7 +542,7 @@
  * @class 弹性盒
  * @description 定义伸缩盒子元素的流动方向
  * @method flex-direction
- * @param {String} $flex-direction 默认值：row，取值范围与最新草案语法一致
+ * @param {String} $flex-direction 取值与`flex-direction`属性一致，默认值：row
  */
 @mixin flex-direction($flex-direction: row) {
     // 老式浏览器（实验性质支持原始草案）
@@ -598,9 +598,9 @@
 /**
  * @module core
  * @class 弹性盒
- * @description 定义弹性盒子元素溢出排版
+ * @description 定义弹性盒子元素溢出后排版(iOS7.0+,Android4.4+)
  * @method flex-wrap
- * @param {String} $flex-wrap 默认值：nowrap，取值范围与最新草案语法一致
+ * @param {String} $flex-wrap 取值与`flex-wrap`属性一致，默认值：nowrap
  */
 @mixin flex-wrap($flex-wrap: nowrap) {
     // 老式浏览器（实验性质支持过渡和最新2个阶段草案）+ 现代浏览器
@@ -611,9 +611,9 @@
 /**
  * @module core
  * @class 弹性盒
- * @description 定义弹性容器主轴对齐方式
+ * @description 定义弹性容器主轴对齐方式(其中`space-around`值需要iOS7.0+,Android4.4+)
  * @method justify-content
- * @param {String} $justify-content 默认值：center，取值范围与最新草案语法一致
+ * @param {String} $justify-content 取值与`justify-content`属性一致，默认值：center
  */
 @mixin justify-content($justify-content: center) {
     // 老式浏览器（实验性质支持3个阶段草案）
@@ -691,10 +691,10 @@
 /**
  * @module core
  * @class 弹性盒
- * @description 定义多行弹性容器侧轴对齐方式
+ * @description 定义多行弹性容器侧轴对齐方式(iOS7.0+,Android4.4+)
  * @method align-content
  * @version 1.8.5
- * @param {String} $align-content 默认值：center，取值范围与最新草案语法一致
+ * @param {String} $align-content 取值与`align-content`属性一致，默认值：center
  */
 @mixin align-content($align-content: center) {
     // 老式浏览器（实验性质支持2个阶段草案）
@@ -768,7 +768,7 @@
  * @class 弹性盒
  * @description 定义单行弹性容器侧轴对齐方式
  * @method align-items
- * @param {String} $align-items 默认值：center，取值与最新原生语法一致
+ * @param {String} $align-items 取值与`align-items`属性一致，默认值：center
  */
 @mixin align-items($align-items: center) {
     // 老式浏览器（实验性质支持3个阶段草案）
@@ -822,7 +822,7 @@
  * @class 弹性盒
  * @description 定义弹性容器中子元素自身的在侧轴对齐方式
  * @method align-self
- * @param {String} $align-self 默认值：center，取值与最新原生语法一致
+ * @param {String} $align-self 取值与`align-self`属性一致，默认值：center
  */
 @mixin align-self($align-self: center) {
     // 老式浏览器（实验性质支持3个阶段草案）
