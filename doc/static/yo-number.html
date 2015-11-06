@@ -40,12 +40,14 @@
     width: map-get($number, width);
     height: map-get($number, height);
     line-height: map-get($number, height);
-    border: 1px solid map-get($number, border-color);
-    box-shadow: 1px 1px 1px rgba(map-get($number, border-color), .3);
+    // border: 1px solid map-get($number, border-color);
+    @include border(
+        $border-width: map-get($number, outer-border-width),
+        $border-color: map-get($number, border-color),
+        $radius: map-get($number, outer-radius)
+    );
     background-color: #fff;
-    font-size: 0;
     text-align: center;
-    vertical-align: middle;
     > .minus,
     > .plus {
         display: block;
@@ -61,6 +63,7 @@
         }
     }
     > .input{
+        display: block;
         @include flex;
         border: 1px solid map-get($number, border-color);
         border-width: 0 1px;
@@ -71,7 +74,7 @@
         text-align: inherit;
         &,
         &::-webkit-inner-spin-button{
-            @include appearance();
+            @include appearance;
         }
     }
 }
@@ -84,12 +87,14 @@
  * @param {String} $name 定义yo-number名称
  * @param {Length} $width 定义yo-number宽度
  * @param {Length} $height 定义yo-number高度
- * @param {Color} $bordercolor 定义yo-number边框色 {del:2.0.0}
- * @param {Color} $border-color 定义yo-number边框色 {add:2.0.0}
+ * @param {Color} $outer-border-width 定义yo-number外边框厚度 {add:2.0.0}
+ * @param {Color} $bordercolor 定义yo-number外边框色 {del:2.0.0}
+ * @param {Color} $border-color 定义yo-number外边框色 {add:2.0.0}
+ * @param {Color} $outer-radius 定义yo-number外边框圆角半径 {add:2.0.0}
  * @param {Color} $color 定义yo-number输入框文本色
  * @param {Color} $sign-bgcolor 定义yo-number加减号背景色
  * @param {Color} $sign-color 定义yo-number加减号文本色
- * @param {Color} $disabled-sign-color 定义yo-number禁用文本色
+ * @param {Color} $disabled-sign-color 定义yo-number加减号禁用文本色
  */
 
 @mixin yo-number(
@@ -139,7 +144,6 @@
         }
         @if $border-color != map-get($number, border-color) {
             border-color: $border-color;
-            box-shadow: 1px 1px 1px rgba($border-color,.3);
         }
         > .minus,
         > .plus {

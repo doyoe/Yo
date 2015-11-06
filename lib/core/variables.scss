@@ -562,8 +562,12 @@ $number: (
     width:               1.2rem,
     // {Length} 高度
     height:              .36rem,
-    // {Color} 边框色
-    border-color:         map-get($base, border-color),
+    // {Length} 外边框圆角半径
+    outer-radius:        .05rem,
+    // {Color} 外边框厚度
+    outer-border-width:  1px,
+    // {Color} 外边框色
+    border-color:        map-get($base, border-color),
     // {color} 输入框文本色
     color:               map-get($base, color),
     // {Color} 加减号背景色
