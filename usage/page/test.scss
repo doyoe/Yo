@@ -16,11 +16,7 @@
 }
 
 .test {
-    @include killspace;
-    > .item {
-        width: 12.5%;
-        margin: .1rem 0 .1rem 3.5%;
-        background-color: gray;
-        text-align: center;
-    }
+    border: 1px solid #ddd;
+    @include square(2rem);
+    @include valign;
 }

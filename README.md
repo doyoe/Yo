@@ -72,6 +72,8 @@ Yo约束了2种项目所使用的长度单位
     - 新增`$inner-radius`参数；
     - 新增`$inner-border-width`参数；
     - 新增`$font-size`参数；
+* change: `valign` mixin
+    -
 
 **再次重申：将你的`flex子项`设置为`非行内级元素`，Yo会缓步移除对这种内部容错的代码**
 
