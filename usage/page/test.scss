@@ -14,3 +14,9 @@
 .img > img {
     // border-radius: 50%;
 }
+
+.test {
+    background-color: gray;
+    @include flexbox;
+    @include justify-content(space-around);
+}

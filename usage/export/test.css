@@ -727,3 +727,12 @@ a {
   border: 10px solid blue;
   background-color: blue;
 }
+
+.test {
+  background-color: gray;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+}

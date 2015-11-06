@@ -73,6 +73,10 @@
     $name: default,
     $width: default,
     $height: default,
+    $outer-radius: default,
+    $outer-border-width: default,
+    $inner-radius: default,
+    $inner-border-width: default,
     $border-color: default,
     $color: default,
     $sign-bgcolor: default,
@@ -90,6 +94,18 @@
     }
     @if $height == default {
         $height: map-get($number, height);
+    }
+    @if $outer-radius == default {
+        $outer-radius: map-get($number, outer-radius);
+    }
+    @if $outer-border-width == default {
+        $outer-border-width: map-get($number, outer-border-width);
+    }
+    @if $inner-radius == default {
+        $inner-radius: map-get($number, inner-radius);
+    }
+    @if $inner-border-width == default {
+        $inner-border-width: map-get($number, inner-border-width);
     }
     @if $border-color == default {
         $border-color: map-get($number, border-color);
@@ -114,12 +130,60 @@
             height: $height;
             line-height: $height;
         }
-        @if $border-color != map-get($number, border-color) {
-            border-color: $border-color;
+        // 如果$outer-radius不等于config设定，则重绘外边框圆角
+        @if $outer-radius != map-get($number, outer-radius) {
+            border-radius: $outer-radius;
+        }
+        &::after {
+            // 如果$outer-border-width不等于config设定，则重绘外边框相关
+            @if $outer-border-width != map-get($number, outer-border-width) {
+                border-width: $outer-border-width;
+            }
+            // 如果$border-color不等于config设定，则重绘边框颜色
+            @if $border-color != map-get($number, border-color) {
+                border-color: $border-color;
+            }
+            // 如果$outer-radius不等于config设定，则重绘外边框圆角
+            @if $outer-radius != map-get($number, outer-radius) {
+                @include responsive(retina1x) {
+                    border-radius: $outer-radius;
+                }
+                @include responsive(retina2x) {
+                    border-radius: $outer-radius * 2;
+                }
+                @include responsive(retina3x) {
+                    border-radius: $outer-radius * 3;
+                }
+            }
         }
         > .minus,
         > .plus {
-            width: .35rem;
+            // 如果$inner-radius不等于config设定，则重绘内边框圆角
+            @if $inner-radius != map-get($number, inner-radius) {
+                border-radius: $inner-radius;
+            }
+            &::after {
+                // 如果$inner-border-width不等于config设定，则重绘内边框相关
+                @if $inner-border-width != map-get($number, inner-border-width) {
+                    border-width: $inner-border-width;
+                }
+                // 如果$border-color不等于config设定，则重绘边框颜色
+                @if $border-color != map-get($number, border-color) {
+                    border-color: $border-color;
+                }
+                // 如果$inner-radius不等于config设定，则重绘内边框圆角
+                @if $inner-radius != map-get($number, inner-radius) {
+                    @include responsive(retina1x) {
+                        border-radius: $inner-radius;
+                    }
+                    @include responsive(retina2x) {
+                        border-radius: $inner-radius * 2;
+                    }
+                    @include responsive(retina3x) {
+                        border-radius: $inner-radius * 3;
+                    }
+                }
+            }
             @if $sign-bgcolor != map-get($number, sign-bgcolor) {
                 background-color: $sign-bgcolor;
             }
@@ -133,10 +197,6 @@
             }
         }
         > .input {
-            @if $border-color != map-get($number, border-color) {
-                border-color: $border-color;
-                box-shadow: inset 1px 1px 1px rgba($border-color,.2);
-            }
             @if $color != map-get($number, color) {
                 color: $color;
             }

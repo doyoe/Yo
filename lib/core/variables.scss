@@ -556,14 +556,14 @@ $select: (
     border-color: map-get($base, border-color),
 ) !default;
 
-// Widget UI number(7)
+// Widget UI number(11)
 $number: (
     // {Length} 宽度
     width:               1.2rem,
     // {Length} 高度
     height:              .36rem,
     // {Length} 外边框圆角半径
-    outer-radius:        .05rem,
+    outer-radius:        .03rem,
     // {Color} 外边框厚度
     outer-border-width:  1px,
     // {Length} 内边框圆角半径
