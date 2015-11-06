@@ -566,6 +566,10 @@ $number: (
     outer-radius:        .05rem,
     // {Color} 外边框厚度
     outer-border-width:  1px,
+    // {Length} 内边框圆角半径
+    inner-radius:        null,
+    // {Color} 内外边框厚度
+    inner-border-width:  1px,
     // {Color} 外边框色
     border-color:        map-get($base, border-color),
     // {color} 输入框文本色
