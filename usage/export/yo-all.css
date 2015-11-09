@@ -2998,17 +2998,63 @@ a {
   position: relative;
   overflow: hidden;
   font-size: 0.14rem;
-  line-height: 0.29rem;
+  line-height: 0.3rem;
   padding: 0.07rem 0.1rem;
-  border-bottom: 1px solid #ccc;
+  position: relative;
   background-color: #fff;
+}
+
+.yo-suggest > .operate::after {
+  pointer-events: none;
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  content: "\0020";
+  border-color: #ccc;
+  border-style: solid;
+  border-width: 0 0 1px;
+  -webkit-transform-origin: 0 0;
+  -moz-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+
+@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
+  .yo-suggest > .operate::after {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
+  .yo-suggest > .operate::after {
+    width: 200%;
+    height: 200%;
+    -webkit-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
+  .yo-suggest > .operate::after {
+    width: 300%;
+    height: 300%;
+    -webkit-transform: scale(0.33333);
+    -moz-transform: scale(0.33333);
+    -ms-transform: scale(0.33333);
+    transform: scale(0.33333);
+  }
 }
 
 .yo-suggest > .operate > .action {
   display: block;
   position: relative;
   z-index: 2;
-  height: 0.29rem;
+  height: 0.3rem;
 }
 
 .yo-suggest > .operate .input {

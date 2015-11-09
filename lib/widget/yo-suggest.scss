@@ -10,7 +10,10 @@
         font-size: map-get($suggest, font-size);
         line-height: map-get($suggest, height);
         padding: map-get($suggest, op-padding);
-        border-bottom: 1px solid map-get($suggest, border-color);
+        @include border(
+            $border-width: 0 0 1px,
+            $border-color: map-get($suggest, border-color)
+        );
         background-color: map-get($suggest, op-bgcolor);
         > .action {
             display: block;
@@ -223,11 +226,13 @@
             @if $op-padding != map-get($suggest, op-padding) {
                 padding: $op-padding;
             }
-            @if $border-color != map-get($suggest, border-color) {
-                border-bottom-color: $border-color;
-            }
             @if $op-bgcolor != map-get($suggest, op-bgcolor) {
                 background-color: $op-bgcolor;
+            }
+            &::after {
+                @if $border-color != map-get($suggest, border-color) {
+                    border-color: $border-color;
+                }
             }
             > .action {
                 @if $height != map-get($suggest, height) {
