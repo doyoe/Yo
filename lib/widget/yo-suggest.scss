@@ -133,10 +133,12 @@
  * @param {Length} $font-size 定义yo-suggest文本大小
  * @param {Length} $op-padding 定义yo-suggest内补白
  * @param {Length} $radius 定义yo-suggest圆角
- * @param {Color} $border-color 定义yo-suggest边框色
+ * @param {Color} $bordercolor 定义yo-suggest边框色 {del:2.0.0}
+ * @param {Color} $border-color 定义yo-suggest边框色 {add:2.0.0}
  * @param {Color} $bgcolor 定义yo-suggest背景色
  * @param {Color} $color 定义yo-suggest文本色
- * @param {Color} $on-border-color 定义yo-suggest激活边框色
+ * @param {Color} $on-bordercolor 定义yo-suggest激活边框色 {del:2.0.0}
+ * @param {Color} $on-border-color 定义yo-suggest激活边框色 {add:2.0.0}
  * @param {Color} $on-bgcolor 定义yo-suggest激活背景色
  * @param {Color} $placeholder-color 定义yo-suggest占位背景色
  * @param {Color} $ico-color 定义yo-suggest 操作区ico颜色
