@@ -41,7 +41,10 @@
         font-size: map-get($suggest, font-size);
         line-height: map-get($suggest, height);
         padding: map-get($suggest, op-padding);
-        border-bottom: 1px solid map-get($suggest, border-color);
+        @include border(
+            $border-width: 0 0 1px,
+            $border-color: map-get($suggest, border-color)
+        );
         background-color: map-get($suggest, op-bgcolor);
         > .action {
             display: block;
@@ -161,10 +164,12 @@
  * @param {Length} $font-size 定义yo-suggest文本大小
  * @param {Length} $op-padding 定义yo-suggest内补白
  * @param {Length} $radius 定义yo-suggest圆角
- * @param {Color} $border-color 定义yo-suggest边框色
+ * @param {Color} $bordercolor 定义yo-suggest边框色 {del:2.0.0}
+ * @param {Color} $border-color 定义yo-suggest边框色 {add:2.0.0}
  * @param {Color} $bgcolor 定义yo-suggest背景色
  * @param {Color} $color 定义yo-suggest文本色
- * @param {Color} $on-border-color 定义yo-suggest激活边框色
+ * @param {Color} $on-bordercolor 定义yo-suggest激活边框色 {del:2.0.0}
+ * @param {Color} $on-border-color 定义yo-suggest激活边框色 {add:2.0.0}
  * @param {Color} $on-bgcolor 定义yo-suggest激活背景色
  * @param {Color} $placeholder-color 定义yo-suggest占位背景色
  * @param {Color} $ico-color 定义yo-suggest 操作区ico颜色
@@ -254,11 +259,13 @@
             @if $op-padding != map-get($suggest, op-padding) {
                 padding: $op-padding;
             }
-            @if $border-color != map-get($suggest, border-color) {
-                border-bottom-color: $border-color;
-            }
             @if $op-bgcolor != map-get($suggest, op-bgcolor) {
                 background-color: $op-bgcolor;
+            }
+            &::after {
+                @if $border-color != map-get($suggest, border-color) {
+                    border-color: $border-color;
+                }
             }
             > .action {
                 @if $height != map-get($suggest, height) {

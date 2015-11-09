@@ -54,9 +54,11 @@
  * @description 构造yo-switch的自定义使用方法
  * @demo http://doyoe.github.io/Yo/demo/widget/yo-switch.html
  * @param {String} $name 定义switch名称
- * @param {Color} $checked-border-color 定义switch激活边框色
+ * @param {Color} $checked-bordercolor 定义switch激活边框色 {del:2.0.0}
+ * @param {Color} $checked-border-color 定义switch激活边框色 {add:2.0.0}
  * @param {Color} $checked-bgcolor 定义switch激活背景色
- * @param {Color} $border-color 定义switch边框色
+ * @param {Color} $bordercolor 定义switch边框色 {del:2.0.0}
+ * @param {Color} $border-color 定义switch边框色 {add:2.0.0}
  * @param {Color} $bgcolor 定义switch背景色
  * @param {Color} $ball-color 定义switch滑块色
  */
