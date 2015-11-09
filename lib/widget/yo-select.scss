@@ -14,12 +14,25 @@
         position: absolute;
         top: 50%;
         left: 0;
-        width: 100%;
-        height: map-get($select, item-height);
         margin-top: -#{map-get($select, item-height) / 2};
         content: "\0020";
         border: 1px solid map-get($select, border-color);
         border-width: 1px 0;
+        @include responsive(retina1x) {
+            width: 100%;
+            height: map-get($select, item-height);
+        }
+        @include responsive(retina2x) {
+            width: 200%;
+            height: map-get($select, item-height) * 2;
+            @include transform(scale(0.5));
+        }
+        @include responsive(retina3x) {
+            width: 300%;
+            height: map-get($select, item-height) * 3;
+            @include transform(scale(1/3));
+        }
+        @include transform-origin(0 0);
     }
     &-item,
     &-item-list,
@@ -62,7 +75,7 @@
         left: 0;
         content: "\0020";
         pointer-events: none;
-        background: -webkit-linear-gradient(top, white, rgba(255, 255, 255, .4) 40%, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, .4) 60%, white);
+        background: -webkit-linear-gradient(top, white, rgba(255, 255, 255, .4) 40%, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 60.5%, rgba(255, 255, 255, .4) 60.5%, white);
     }
 }
 
