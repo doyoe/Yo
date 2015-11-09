@@ -58,7 +58,7 @@ html {
     @if map-get($base, responsive-type) == scaling {
         font-size: map-get($base, font-size-root-scaling);
     }
-    @include user-select();
+    @include user-select;
 }
 
 // 1. 清除body的默认margin
