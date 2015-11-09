@@ -969,14 +969,13 @@
  * @class 文本
  * @description 单行文本溢出显示方案
  * @method ellipsis
- * @param {Boolen} $ellipsis 定义是否需要省略号
+ * @param {Length} $width 定义包含块宽度，默认值：null
  */
-@mixin ellipsis($ellipsis: true) {
+@mixin ellipsis($ellipsis: null) {
     overflow: hidden;
     white-space: nowrap;
-    @if $ellipsis {
-        text-overflow: ellipsis;
-    }
+    text-overflow: ellipsis;
+    width: $width;
 }
 
 /**
