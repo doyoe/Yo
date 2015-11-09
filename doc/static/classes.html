@@ -116,7 +116,7 @@
  * @class 功能
  * @description 定义响应式方案
  * @method responsive
- * @param {String} $media 指定媒体查询条件，取值为`variable`文件map `media-types`中的值
+ * @param {String} $media 指定媒体查询条件，取值为`config`文件map `media-types`中的值
  */
 @mixin responsive($media) {
     @if not map-has-key($media-types, $media) {
@@ -156,7 +156,7 @@
  * @class 功能
  * @description 清除行内级元素间间隙方案
  * @method killspace
- * @param {Length} $font-size 指定子元素字号，默认值：map-get($base, font-size) {add: 2.0.0}
+ * @param {Length} $font-size 指定子元素字号，默认值：config基准字号 {add: 2.0.0}
  */
 @mixin killspace($font-size: map-get($base, font-size)) {
     font-size: 0;
@@ -348,13 +348,12 @@
 /**
  * @module core
  * @class 背景与边框
- * @description 定义圆角
+ * @description 定义圆角，用于修复某些安卓机型上“圆角+边框+背景”，背景溢出的情况
  * @method border-radius
  * @param {Length} $border-radius 指定元素的圆角半径，取值与`border-radius`属性一致
  */
 @mixin border-radius($border-radius...) {
     border-radius: $border-radius;
-    // 修复某些安卓机型上“边框+背景”，背景溢出的情况
     // 之所以会这样是因为这些机型的背景是从边框处开始渲染，所以只需要改成从padding处渲染即可
     @include background-clip(padding-box !important);
 }
