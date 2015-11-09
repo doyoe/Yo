@@ -10,7 +10,6 @@
     font-size: map-get($checked, font-size);
     font-family: map-get($ico, font-name);
     vertical-align: middle;
-    cursor: pointer;
     > input,
     > .type {
         @include align;
@@ -43,13 +42,35 @@
         }
     }
     > input:disabled + .type {
-        opacity: .6;
-        &::after {
-            border-color: map-get($base, disabled-border-color) !important;
+        // lighten()第一个参数必须为color，所以只有值不为null时，才编译
+        @if map-get($checked, border-color) != null {
+            &::after {
+                border-color: lighten(map-get($checked, border-color), 12%);
+            }
         }
-        background-color: map-get($base, disabled-bgcolor) !important;
-        &::before {
-            color: map-get($base, disabled-color) !important;
+        @if map-get($checked, bgcolor) != null {
+            background-color: lighten(map-get($checked, bgcolor), 15%);
+        }
+        @if map-get($checked, color) != null {
+            &::before {
+                color: lighten(map-get($checked, color), 30%);
+            }
+        }
+    }
+    > input:checked:disabled + .type {
+        // lighten()第一个参数必须为color，所以只有值不为null时，才编译
+        @if map-get($checked, on-border-color) != null {
+            &::after {
+                border-color: lighten(map-get($checked, on-border-color), 12%);
+            }
+        }
+        @if map-get($checked, on-bgcolor) != null {
+            background-color: lighten(map-get($checked, on-bgcolor), 15%);
+        }
+        @if map-get($checked, on-color) != null {
+            &::before {
+                color: lighten(map-get($checked, on-color), 30%);
+            }
         }
     }
 }
@@ -57,22 +78,23 @@
 /**
  * @module element
  * @method yo-checked
+ * @version 1.0.0
  * @description 构造单选多选的自定义使用方法，可同时作用于 checkbox 与 radio
  * @demo http://doyoe.github.io/Yo/demo/element/yo-checked.html
- * @param {String} $name 为新的扩展定义一个名称
- * @param {String} $content 标记（使用webfonts编码，可以是对勾，圆点或任意字符）
- * @param {Length} $size 元件大小
- * @param {Length} $font-size 标记大小
- * @param {Length} $border-width 边框厚度
- * @param {Color} $bordercolor 边框色 {del:2.0.0}
+ * @param {String} $name 为新的扩展定义一个名称 {add: 1.0.0}
+ * @param {String} $content 标记（使用webfonts编码，可以是对勾，圆点或任意字符） {add: 1.4.0}
+ * @param {Length} $size 元件大小 {add: 1.0.0}
+ * @param {Length} $font-size 标记大小 {add: 1.4.0}
+ * @param {Length} $border-width 边框厚度 {add: 1.4.0}
+ * @param {Color} $bordercolor 边框色 {add: 1.0.0}{del:2.0.0}
  * @param {Color} $border-color 边框色 {add:2.0.0}
- * @param {Color} $bgcolor 背景色
- * @param {Color} $color 标记色
- * @param {Color} $on-bordercolor 选中时的边框色 {del:2.0.0}
+ * @param {Color} $bgcolor 背景色 {add: 1.0.0}
+ * @param {Color} $color 标记色 {add: 1.4.0}
+ * @param {Color} $on-bordercolor 选中时的边框色  {add: 1.3.1}{del:2.0.0}
  * @param {Color} $on-border-color 选中时的边框色 {add:2.0.0}
- * @param {Color} $on-bgcolor 选中时的背景色
- * @param {Color} $on-color 选中时的标记色
- * @param {Length} $radius 圆角半径长度
+ * @param {Color} $on-bgcolor 选中时的背景色 {add: 1.3.1}
+ * @param {Color} $on-color 选中时的标记色 {add: 1.0.0}
+ * @param {Length} $radius 圆角半径长度 {add: 1.3.1}
  */
 
 @mixin yo-checked(
@@ -175,18 +197,48 @@
             }
         }
         > input:checked + .type {
-            &::after {
-                // 如果$border-color不等于config设定，则重绘边框颜色
-                @if $on-border-color != map-get($checked, on-border-color) {
+            // 如果$border-color不等于config设定，则重绘边框颜色
+            @if $on-border-color != map-get($checked, on-border-color) {
+                &::after {
                     border-color: $on-border-color;
                 }
             }
             @if $on-bgcolor != map-get($checked, on-bgcolor) {
                 background-color: $on-bgcolor;
             }
-            &::before {
-                @if $on-color != map-get($checked, on-color) {
+            @if $on-color != map-get($checked, on-color) {
+                &::before {
                     color: $on-color;
+                }
+            }
+        }
+        > input:disabled + .type {
+            @if $border-color != map-get($checked, border-color) {
+                &::after {
+                    border-color: lighten($border-color, 12%);
+                }
+            }
+            @if $bgcolor != map-get($checked, bgcolor) {
+                background-color: lighten($bgcolor, 15%);
+            }
+            @if $color != map-get($checked, color) {
+                &::before {
+                    color: lighten($color, 30%);
+                }
+            }
+        }
+        > input:checked:disabled + .type {
+            @if $on-border-color != map-get($checked, on-border-color) {
+                &::after {
+                    border-color: lighten($on-border-color, 12%);
+                }
+            }
+            @if $on-bgcolor != map-get($checked, on-bgcolor) {
+                background-color: lighten($on-bgcolor, 15%);
+            }
+            @if $on-color != map-get($checked, on-color) {
+                &::before {
+                    color: lighten($on-color, 30%);
                 }
             }
         }
