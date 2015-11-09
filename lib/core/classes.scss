@@ -144,7 +144,7 @@
  * @method align
  * @version 2.0.0
  * @param {String} $flexbox 指定包含块布局方式，可选值：flex | inline-flex，默认值：flex
- * @param {String} $type 指定居中元素类型，可选值：image | text，默认值：image
+ * @param {String} $type 指定居中元素类型，可选值：image | text，默认值：text
  * @param {Keywords} $justify-content 指定元素水平对齐方式，取值与`justify-content`属性一致，默认值：center
  * @param {Keywords} $align-items 指定元素垂直对齐方式，取值与`align-items`属性一致，默认值：center
  * @example
@@ -153,7 +153,7 @@
  * </div>
  * .demo {@include align;}
  */
-@mixin align($flexbox: flex, $type: image, $justify-content: center, $align-items: center) {
+@mixin align($flexbox: flex, $type: text, $justify-content: center, $align-items: center) {
     @include flexbox($flexbox);
     @include justify-content($justify-content);
     @include align-items($align-items);
