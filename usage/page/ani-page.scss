@@ -1,7 +1,5 @@
 @charset "utf-8";
 @import "../layout/layout";
-@import "../module/m-demo";
-@import "../module/m-code";
 @import "../../lib/element/yo-btn";
 
 /**
@@ -9,18 +7,14 @@
  * Author: joy.du(飘零雾雨)
  * Time: 2015.2.5
  */
-// layout
-@include responsive(mobile) {
-    .m-demo .device .stage {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        height: auto;
-    }
-}
 
+html,
+body {
+    background-color: #0ac2d2;
+}
+.m-animate {
+    height: 100%;
+}
 
 //背景颜色
 $bgcolor:#0ac2d2 #7bb7fa #60d7a9 #fdc162 #fd6a62 #f68dbb;
@@ -49,15 +43,19 @@ $bgcolor:#0ac2d2 #7bb7fa #60d7a9 #fdc162 #fd6a62 #f68dbb;
         }
     }
     .con {
-        // @include alignment(2.8rem, 3.8rem);
+        position: absolute;
         z-index: 2;
+        top: 50%;
+        left: 50%;
+        margin: -1.9rem 0 0 -1.7rem;
         > h1 {
             color: rgba(255, 255, 255, .6);
             font-size: .64rem;
         }
         > h2 {
+            margin-top: -.2rem;
             color: rgba(0, 0, 0, .2);
-            font-size: .3rem;
+            font-size: .25rem;
         }
         > p {
             color: rgba(255, 255, 255, .9);
@@ -78,7 +76,9 @@ $bgcolor:#0ac2d2 #7bb7fa #60d7a9 #fdc162 #fd6a62 #f68dbb;
             cursor: pointer;
             font-size: .16rem;
         }
-        > .yo-btn {
+        @include yo-btn(
+            $border-width: 0
+        ){
             font-weight: bold;
         }
         > select {
