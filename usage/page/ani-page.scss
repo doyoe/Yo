@@ -47,7 +47,8 @@ $bgcolor:#0ac2d2 #7bb7fa #60d7a9 #fdc162 #fd6a62 #f68dbb;
         z-index: 2;
         top: 50%;
         left: 50%;
-        margin: -1.9rem 0 0 -1.7rem;
+        width: 3rem;
+        margin: -1.9rem 0 0 -1.5rem;
         > h1 {
             color: rgba(255, 255, 255, .6);
             font-size: .64rem;
@@ -63,7 +64,7 @@ $bgcolor:#0ac2d2 #7bb7fa #60d7a9 #fdc162 #fd6a62 #f68dbb;
         }
         > .yo-btn,
         > select {
-            width: 70%;
+            width: 100%;
             height: .44rem;
             margin: .1rem 0;
             padding: 0 .15rem;
