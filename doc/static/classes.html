@@ -156,13 +156,14 @@
  * @class 功能
  * @description 清除行内级元素间间隙方案
  * @method killspace
+ * @param {Length} $font-size 指定子元素字号，默认值：map-get($base, font-size) {add: 2.0.0}
  */
-@mixin killspace() {
+@mixin killspace($font-size: map-get($base, font-size)) {
     font-size: 0;
     font-family: arial;
     > .item {
         display: inline-block;
-        font-size: map-get($base, font-size);
+        font-size: $font-size;
         font-family: map-get($base, font-family);
     }
 }
@@ -969,9 +970,9 @@
  * @class 文本
  * @description 单行文本溢出显示方案
  * @method ellipsis
- * @param {Length} $width 定义包含块宽度，默认值：null
+ * @param {Length} $width 定义包含块宽度，默认值：null {add:2.0.0}
  */
-@mixin ellipsis($ellipsis: null) {
+@mixin ellipsis($width: null) {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
