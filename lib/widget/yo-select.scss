@@ -54,7 +54,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: map-get($select, item-height);
+            // height: map-get($select, item-height);
             &.disabled {
                 opacity: .4;
             }
@@ -87,7 +87,8 @@
  * @param {String} $name 定义select名称
  * @param {Length} $width 定义select显示的子项个数
  * @param {Length} $height 定义select子项高度
- * @param {Color} $border-color 定义select边框色
+ * @param {Color} $bordercolor 定义select边框色 {del:2.0.0}
+ * @param {Color} $border-color 定义select边框色 {add:2.0.0}
  */
 
 @mixin yo-select(
@@ -118,8 +119,16 @@
         }
         &::before {
             @if $item-height != map-get($select, item-height) {
-                height: $item-height;
                 margin-top: -#{$item-height / 2};
+                @include responsive(retina1x) {
+                    height: $item-height;
+                }
+                @include responsive(retina2x) {
+                    height: $item-height * 2;
+                }
+                @include responsive(retina3x) {
+                    height: $item-height * 3;
+                }
             }
             @if $border-color != map-get($select, border-color) {
                 border-color: $border-color;
