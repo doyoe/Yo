@@ -51,8 +51,9 @@ Yo约束了2种项目所使用的长度单位
     - 新增`yo-breadcrumb`面包屑
 * add: `响应式断点`
     - 新增`xs, s, m, l, xl`5类响应式断点，用于支持响应式设计
-* add: `align` mixin
+* add: `global classes`
     - 新增`align`方法用于处理元素水平及垂直对齐方式，默认为居中
+    - 新增`transform-style`,`perspective`,`perspective-origin`,`backface-visibility`方法
 
 #### 变更：
 * change: `1px边框方法`

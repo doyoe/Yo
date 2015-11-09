@@ -811,42 +811,6 @@ a {
   margin: .1rem;
 }
 
-.m-code {
-  -webkit-user-select: text;
-  -moz-user-select: text;
-  -ms-user-select: text;
-  user-select: text;
-  margin: .1rem;
-  padding: .1rem;
-  border-radius: 5px;
-  background: #272822;
-  color: #51bbe1;
-  font-size: .2rem;
-}
-
-.m-code .method {
-  color: #93de08;
-}
-
-.m-code .bracket,
-.m-code .colon {
-  padding-right: 5px;
-  color: #fff;
-}
-
-.m-code mark {
-  color: #ccc;
-  font-size: .14rem;
-}
-
-.m-code .version {
-  background-color: #fff;
-  color: red;
-  font-size: .12rem;
-  border-radius: .02rem;
-  padding: 0 0.02rem;
-}
-
 .yo-tip {
   position: fixed;
   min-width: 1rem;
@@ -854,10 +818,6 @@ a {
   z-index: 3001;
   padding: 0.06rem 0.15rem;
   border-radius: 0.05rem;
-  -webkit-background-clip: padding-box !important;
-  -moz-background-clip: padding-box !important;
-  -ms-background-clip: padding-box !important;
-  background-clip: padding-box !important;
   background-color: rgba(0, 0, 0, 0.5);
   color: #fff;
   text-align: center;
