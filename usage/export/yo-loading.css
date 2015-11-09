@@ -3,8 +3,6 @@
 ::before,
 ::after {
   -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
 }
@@ -20,8 +18,6 @@ html {
   color: #212121;
   font-size: 100px;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
 }
 
@@ -189,8 +185,6 @@ input[type="reset"],
 input[type="file"]::-webkit-file-upload-button,
 input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
-  -moz-appearance: none;
-  -ms-appearance: none;
   appearance: none;
 }
 
@@ -250,17 +244,10 @@ a {
 .yo-flex .flex-inherit {
   display: -webkit-box;
   display: -webkit-flex;
-  display: -moz-box;
-  display: -moz-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -moz-box-orient: vertical;
-  -moz-box-direction: normal;
   -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
   overflow: hidden;
 }
@@ -270,9 +257,6 @@ a {
 .yo-flex .flex-inherit > .flex {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
-  -moz-box-flex: 1;
-  -moz-flex: 1;
-  -ms-flex: 1;
   flex: 1;
   position: relative;
 }
@@ -294,21 +278,12 @@ a {
 .yo-align {
   display: -webkit-box;
   display: -webkit-flex;
-  display: -moz-box;
-  display: -moz-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
-  -moz-box-pack: center;
-  -moz-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
   -webkit-box-align: center;
   -webkit-align-items: center;
-  -moz-box-align: center;
-  -moz-align-items: center;
-  -ms-flex-align: center;
   align-items: center;
   word-wrap: break-word;
   word-break: break-all;
@@ -350,8 +325,6 @@ a {
   border-style: solid;
   border-width: 0 0 1px;
   -webkit-transform-origin: 0 0;
-  -moz-transform-origin: 0 0;
-  -ms-transform-origin: 0 0;
   transform-origin: 0 0;
 }
 
@@ -367,8 +340,6 @@ a {
     width: 200%;
     height: 200%;
     -webkit-transform: scale(0.5);
-    -moz-transform: scale(0.5);
-    -ms-transform: scale(0.5);
     transform: scale(0.5);
   }
 }
@@ -378,8 +349,6 @@ a {
     width: 300%;
     height: 300%;
     -webkit-transform: scale(0.33333);
-    -moz-transform: scale(0.33333);
-    -ms-transform: scale(0.33333);
     transform: scale(0.33333);
   }
 }
@@ -529,9 +498,6 @@ a {
 .yo-loading {
   display: -webkit-box;
   display: -webkit-flex;
-  display: -moz-box;
-  display: -moz-flex;
-  display: -ms-flexbox;
   display: flex;
   position: absolute;
   z-index: 9999;
@@ -541,15 +507,9 @@ a {
   left: 0;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
-  -moz-box-pack: center;
-  -moz-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
   -webkit-box-align: center;
   -webkit-align-items: center;
-  -moz-box-align: center;
-  -moz-align-items: center;
-  -ms-flex-align: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.1);
   line-height: 1;
@@ -567,12 +527,8 @@ a {
 .yo-loading > .inner > .yo-ico {
   display: block;
   -webkit-animation: rotate 1s infinite linear;
-  -moz-animation: rotate 1s infinite linear;
-  -ms-animation: rotate 1s infinite linear;
   animation: rotate 1s infinite linear;
   -webkit-transform-origin: center;
-  -moz-transform-origin: center;
-  -ms-transform-origin: center;
   transform-origin: center;
 }
 
