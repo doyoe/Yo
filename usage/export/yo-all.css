@@ -1961,7 +1961,6 @@ a {
   flex-direction: column;
   position: fixed;
   z-index: 1001;
-  overflow: hidden;
   box-shadow: 0 0 5px rgba(204, 204, 204, 0.5);
   position: relative;
   border-radius: 0.05rem;
@@ -2016,6 +2015,7 @@ a {
 
 .yo-dialog > .hd {
   position: relative;
+  overflow: hidden;
   height: 0.44rem;
   background: white;
   line-height: 0.44rem;
@@ -2056,6 +2056,7 @@ a {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
+  overflow: hidden;
   text-align: center;
 }
 
