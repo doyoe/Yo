@@ -30,7 +30,7 @@
         background-color: map-get($slidermenu, action-bgcolor);
         @include flexbox;
         > .item {
-            @include flex(auto);
+            @include flex(1);
             width: auto;
             text-align: center;
             // 使用align-self实现垂直居中
