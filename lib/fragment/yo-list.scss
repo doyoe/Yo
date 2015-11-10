@@ -121,27 +121,28 @@
 /**
  * @module fragment
  * @method yo-list
+ * @version 1.0.0
  * @description 构造列表的自定义使用方法
  * @demo http://doyoe.github.io/Yo/demo/fragment/yo-list.html
- * @param {String} $name 定义list名称
- * @param {Length} $margin 定义list外边距
- * @param {Length} $radius 定义list圆角
- * @param {Length} $border-width 定义list外边框厚度
- * @param {Color} $bordercolor 定义list边框色 {del:2.0.0}
- * @param {Color} $border-color 定义list边框色 {add:2.0.0}
- * @param {Length} $item-padding 定义list项的内补白
- * @param {Length} $label-padding 定义list分组标题内补白
- * @param {Color} $label-bgcolor 定义list分组标题背景色
- * @param {Color} $active-bgcolor 定义list点击反馈背景色
- * @param {Color} $on-bgcolor 定义list选中背景色
- * @param {Color} $on-color 定义list选中文本色
- * @param {Color} $item-bordercolor 定义list子项边框色 {del:2.0.0}
- * @param {Color} $item-border-color 定义list子项边框色 {add:2.0.0}
- * @param {Color} $label-bordercolor 定义list子项组头边框色 {del:2.0.0}
- * @param {Color} $label-border-color 定义list子项组头边框色 {add:2.0.0}
- * @param {Length} $item-font-size 定义list项字号
- * @param {Length} $label-font-size 定义list列表组头字号
- * @param {Length} $item-border-space 列表项下边线距离左侧的间隙
+ * @param {String} $name 定义扩展名称 {add:1.0.0}
+ * @param {Length} $margin 外边距 {add:1.0.0}
+ * @param {Length} $radius 圆角半径长度 {add:1.0.0}
+ * @param {Length} $border-width 外边框厚度 {add:1.4.0}
+ * @param {Color} $bordercolor 边框色 {add:1.0.0}{del:2.0.0}
+ * @param {Color} $border-color 边框色 {add:2.0.0}
+ * @param {Length} $item-padding 子项的内补白 {add:1.0.0}
+ * @param {Length} $label-padding 列表组头内补白 {add:1.0.0}
+ * @param {Color} $label-bgcolor 列表组头背景色 {add:1.0.0}
+ * @param {Color} $active-bgcolor 子项点击反馈背景色 {add:1.0.0}
+ * @param {Color} $on-bgcolor 子项选中背景色 {add:1.0.0}
+ * @param {Color} $on-color 子项选中文本色 {add:1.4.0}
+ * @param {Color} $item-bordercolor 子项边框色 {add:1.2.0}{del:2.0.0}
+ * @param {Color} $item-border-color 子项边框色 {add:2.0.0}
+ * @param {Color} $label-bordercolor 列表组头边框色 {add:1.2.0}{del:2.0.0}
+ * @param {Color} $label-border-color 列表组头边框色 {add:2.0.0}
+ * @param {Length} $item-font-size 子项字号 {add:1.2.0}
+ * @param {Length} $label-font-size 列表组头字号 {add:1.2.0}
+ * @param {Length} $item-border-space 子项下边线距离左侧的间隙 {add:1.8.0}
  */
 
 @mixin yo-list(

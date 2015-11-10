@@ -730,17 +730,6 @@ a {
   background-color: blue;
 }
 
-.demo {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-ordinal-group: 1;
-  -webkit-order: 1;
-  order: 1;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-align-content: center;
-  align-content: center;
+.demo div + div:last-child {
+  color: red;
 }

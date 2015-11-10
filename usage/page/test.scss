@@ -16,8 +16,7 @@
 }
 
 .demo {
-    @include flex-direction;
-    @include order;
-    @include justify-content;
-    @include align-content;
+    div + div:last-child {
+        color: red;
+    }
 }
