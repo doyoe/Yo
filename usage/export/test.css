@@ -730,6 +730,20 @@ a {
   background-color: blue;
 }
 
-.demo div + div:last-child {
-  color: red;
+@media (max-width: 767px) {
+  .demo {
+    color: red;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .demo {
+    color: blue;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .demo {
+    color: yellow;
+  }
 }
