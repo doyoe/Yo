@@ -69,12 +69,14 @@ Yo约束了2种项目所使用的长度单位
 * change: `yo-btn`
     - 将原来统一的灰色禁用按钮更改为每个按钮的禁用外观取决于自身的本来颜色
 * change: `yo-number`
-    - 移除`$disabled-sign-color`；
+    - 移除`$disabled-sign-color`参数；
     - 新增`$outer-radius`参数；
     - 新增`$outer-border-width`参数；
     - 新增`$inner-radius`参数；
     - 新增`$inner-border-width`参数；
     - 新增`$font-size`参数；
+* change: `yo-flex`
+    - 移除`$box`参数；
 
 #### 删除
 * del: `alignment` mixin
