@@ -24,8 +24,7 @@
         color: map-get($base, sub-color);
     }
     .no-data {
-        height: 100%;
-        padding-top: 1rem;
+        @include align;
         text-align: center;
     }
 }
@@ -33,10 +32,11 @@
 /**
  * @module widget
  * @method yo-group
+ * @version 1.0.0
  * @description 构造yo-group自定义使用方法
  * @demo http://doyoe.github.io/Yo/demo/widget/yo-group.html
- * @param {String} $name 定义yo-group名称
- * @param {Length} $top 定义yo-group顶部偏移值
+ * @param {String} $name 定义扩展名称 {add:1.0.0}
+ * @param {Length} $top 顶部偏移值 {add:1.0.0}
  */
 
 @mixin yo-group(
