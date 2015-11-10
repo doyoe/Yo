@@ -2909,15 +2909,12 @@ a {
 }
 
 .yo-slidermenu .action > .item {
+  display: block;
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
   width: .1px;
-  width: auto;
   text-align: center;
-  -webkit-align-self: center;
-  align-self: center;
-  padding: 1rem 0;
 }
 
 .yo-suggest > .operate {
