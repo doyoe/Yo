@@ -24,11 +24,12 @@
 /**
  * @module widget
  * @method yo-doublelist
+ * @version 1.8.6
  * @description 构造yo-doublelist的自定义使用方法（原yo-dblist）
  * @demo http://doyoe.github.io/Yo/demo/widget/yo-doublelist.html
- * @param {String} $name 扩展的名称
- * @param {Length} $aside-width 侧边栏宽度
- * @param {Length} $aside-order 侧边栏顺序
+ * @param {String} $name 定义扩展名称 {add:1.3.1}
+ * @param {Length} $aside-width 侧边栏宽度 {add:1.3.1}
+ * @param {Length} $aside-order 侧边栏顺序 {add:1.3.1}
  */
 
 @mixin yo-doublelist(

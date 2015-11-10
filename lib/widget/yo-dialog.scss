@@ -87,21 +87,22 @@
 /**
  * @module widget
  * @method yo-dialog
+ * @version 1.0.0
  * @description 构造yo-dialog的自定义使用方法
  * @demo http://doyoe.github.io/Yo/demo/widget/yo-dialog.html
- * @param {String} $name 定义dialog名称
- * @param {Length | null} $width 定义dialog宽度
- * @param {Length} $height 定义dialog高度
- * @param {Length} $radius 定义dialog圆角
- * @param {Number} $shadow-opacity 定义dialog阴影透明度
- * @param {Color} $bordercolor 定义dialog边框色 {del:2.0.0}
- * @param {Color} $border-color 定义dialog边框色 {add:2.0.0}
- * @param {Length} $hd-height 定义dialog头部高度
- * @param {Color} $hd-bgcolor 定义dialog头部背景色
- * @param {Color} $title-color 定义dialog标题文本色
- * @param {Length} $title-font-size 定义dialog标题字号
- * @param {Length} $bd-padding 定义dialog主体补白
- * @param {Length} $bd-font-size 定义dialog主体字号
+ * @param {String} $name 定义扩展名称 {add:1.0.0}
+ * @param {Length} $width 宽度 {add:1.0.0}
+ * @param {Length} $height 高度 {add:1.0.0}
+ * @param {Length} $radius 圆角半径长度 {add:1.0.0}
+ * @param {Number} $shadow-opacity 阴影透明度 {add:1.0.0}
+ * @param {Color} $bordercolor 边框色  {add:1.0.0}{del:2.0.0}
+ * @param {Color} $border-color 边框色 {add:2.0.0}
+ * @param {Length} $hd-height 头部高度 {add:1.0.0}
+ * @param {Color} $hd-bgcolor 头部背景色 {add:1.0.0}
+ * @param {Color} $title-color 标题文本色 {add:1.0.0}
+ * @param {Length} $title-font-size 标题字号 {add:1.0.0}
+ * @param {Length} $bd-padding 主体内补白 {add:1.0.0}
+ * @param {Length} $bd-font-size 主体字号 {add:1.0.0}
  */
 
 @mixin yo-dialog(
