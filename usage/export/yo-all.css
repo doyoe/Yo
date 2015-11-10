@@ -2880,7 +2880,7 @@ a {
 .yo-slidermenu > .item {
   position: relative;
   display: block !important;
-  padding: 0 0 1px 0 !important;
+  padding: 0 !important;
 }
 
 .yo-slidermenu .front {
@@ -2897,7 +2897,7 @@ a {
 .yo-slidermenu .action {
   position: absolute;
   top: 0;
-  bottom: 1px;
+  bottom: 0;
   right: 0;
   overflow: hidden;
   width: 1rem;

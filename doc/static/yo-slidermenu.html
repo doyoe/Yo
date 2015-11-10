@@ -41,8 +41,7 @@
         // 当yo-slidermenu被应用到yo-list里时，需要重置yo-list item的flex定义
         display: block !important;
         // 清除.item的内补白，交由yo-slidermenu的子项来处理
-        // 底部1px补白用于不覆盖yo-list的item的底边线（因为底边线使用背景渐变色实现）
-        padding: 0 0 1px 0 !important;
+        padding: 0 !important;
     }
     .front {
         position: relative;
@@ -55,8 +54,7 @@
     .action {
         position: absolute;
         top: 0;
-        // 底部1px间隙用于不覆盖yo-list的item的底边线（因为底边线使用背景渐变色实现）
-        bottom: 1px;
+        bottom: 0;
         right: 0;
         overflow: hidden;
         width: map-get($slidermenu, action-width);
@@ -77,11 +75,12 @@
 /**
  * @module widget
  * @method yo-slidermenu
+ * @version 1.4.0
  * @description 构造yo-slidermenu的自定义使用方法
  * @demo http://doyoe.github.io/Yo/demo/widget/yo-slidermenu.html
- * @param {String} $name 扩展的名称
- * @param {Length} $action-width 定义action宽度
- * @param {Color} $action-bgcolor 定义action背景色
+ * @param {String} $name 定义扩展名称 {add:1.4.0}
+ * @param {Length} $action-width action宽度 {add:1.4.0}
+ * @param {Color} $action-bgcolor action背景色 {add:1.4.0}
  */
 
 @mixin yo-slidermenu(
