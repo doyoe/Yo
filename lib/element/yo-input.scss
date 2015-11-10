@@ -24,18 +24,19 @@
 /**
  * @module element
  * @method yo-input
+ * @version 1.0.0
  * @description 构造输入框的自定义使用方法，可同时作用于 input 与 textarea
  * @demo http://doyoe.github.io/Yo/demo/element/yo-input.html
- * @param {String} $name 为新的扩展定义一个名称
- * @param {Length} $width 宽度
- * @param {Length} $height 高度
- * @param {Length} $padding 内补白
- * @param {Length} $radius 圆角半径长度
- * @param {Color} $bordercolor 边框色 {del:2.0.0}
+ * @param {String} $name 定义扩展名称 {add:1.0.0}
+ * @param {Length} $width 宽度 {add:1.0.0}
+ * @param {Length} $height 高度 {add:1.0.0}
+ * @param {Length} $padding 内补白 {add:1.0.0}
+ * @param {Length} $radius 圆角半径长度 {add:1.0.0}
+ * @param {Color} $bordercolor 边框色  {add:1.0.0}{del:2.0.0}
  * @param {Color} $border-color 边框色 {add:2.0.0}
- * @param {Color} $bgcolor 背景色
- * @param {Color} $color 文本色
- * @param {Color} $placeholder-color placeholder文本色
+ * @param {Color} $bgcolor 背景色 {add:1.0.0}
+ * @param {Color} $color 文本色 {add:1.0.0}
+ * @param {Color} $placeholder-color placeholder文本色 {add:1.0.0}
  */
 
 @mixin yo-input(
@@ -90,7 +91,6 @@
             padding: $padding;
         }
         @if $radius != map-get($input, radius) {
-            // 构造里已处理过边框+圆角+背景溢出的问题，所以这里写原生即可
             border-radius: $radius;
         }
         @if $border-color != map-get($input, border-color) {
