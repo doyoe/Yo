@@ -8,6 +8,7 @@
     @include flexbox;
     @include flex-direction(column);
     position: fixed;
+    overflow: hidden;
     z-index: map-get($z-index, dialog);
     @if map-get($dialog, shadow-opacity) != null {
         box-shadow: 0 0 5px rgba(map-get($dialog, border-color), map-get($dialog, shadow-opacity));
@@ -62,8 +63,6 @@
     }
     > .ft {
         @include flexbox;
-        position: relative;
-        overflow: hidden;
         text-align: center;
         @include yo-btn(
             $name: dialog,

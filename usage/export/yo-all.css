@@ -1960,6 +1960,7 @@ a {
   -webkit-flex-direction: column;
   flex-direction: column;
   position: fixed;
+  overflow: hidden;
   z-index: 1001;
   box-shadow: 0 0 5px rgba(204, 204, 204, 0.5);
   position: relative;
@@ -2056,8 +2057,6 @@ a {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
-  position: relative;
-  overflow: hidden;
   text-align: center;
 }
 
