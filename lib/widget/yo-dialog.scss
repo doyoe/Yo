@@ -62,6 +62,7 @@
     }
     > .ft {
         @include flexbox;
+        position: relative;
         overflow: hidden;
         text-align: center;
         @include yo-btn(
