@@ -642,8 +642,7 @@ a {
 }
 
 .yo-list > .item.item-active:active,
-.yo-list > .item.item-active:active .front,
-.yo-list > .item.item-light,
+.yo-list > .item.item-active:active .front, .yo-list > .item.item-light,
 .yo-list > .item.item-light .front {
   background-color: #f8f8f8;
 }
@@ -693,8 +692,7 @@ a {
   user-select: text;
 }
 
-.m-font .flex::before,
-.m-font .flex::after {
+.m-font .flex::before, .m-font .flex::after {
   color: #999;
 }
 

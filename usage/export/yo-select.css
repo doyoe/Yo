@@ -427,7 +427,7 @@ a {
 }
 
 .m-desc > .title {
-  padding: 0.18rem 0.1rem 0.03rem;
+  padding: .18rem .1rem .03rem;
   border-bottom: 1px solid #ccc;
 }
 
@@ -439,14 +439,14 @@ a {
 }
 
 .m-desc .sub-title {
-  margin: 0 0.1rem;
-  padding: 0.1rem 0 0.03rem;
+  margin: 0 .1rem;
+  padding: .1rem 0 .03rem;
   border-bottom: 1px solid #ccc;
 }
 
 .m-desc .sub-title::before {
   margin-right: .05rem;
-  padding: 0 0.03rem;
+  padding: 0 .03rem;
   border-radius: .03rem;
   content: "Note";
   font-weight: normal;
@@ -506,8 +506,7 @@ a {
   }
 }
 
-.yo-select-item,
-.yo-select-item-list,
+.yo-select-item, .yo-select-item-list,
 .yo-select-item ul {
   height: 100%;
 }

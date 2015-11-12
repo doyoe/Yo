@@ -18,7 +18,7 @@
     }
     > .index {
         height: 100%;
-        background-position: 0 -#{map-get($score, item-height)};
+        background-position: 0 unquote(-#{map-get($score, item-height)});
         line-height: 10;
         vertical-align: top;
     }
@@ -75,7 +75,7 @@
         }
         > .index {
             @if $item-height != map-get($score, item-height) {
-                background-position: 0 -#{$item-height};
+                background-position: 0 unquote(-#{$item-height});
             }
         }
         // 增量扩展

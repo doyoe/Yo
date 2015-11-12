@@ -26,7 +26,7 @@
         line-height: 10;
     }
     > .index {
-        background-position: 0 -#{map-get($rating, item-height)};
+        background-position: 0 unquote(-#{map-get($rating, item-height)});
     }
     > .item {
         z-index: 3;
@@ -61,7 +61,7 @@
         &:hover {
             z-index: 2;
             left: 0 !important;
-            background-position: 0 -#{map-get($rating, item-height)};
+            background-position: 0 unquote(-#{map-get($rating, item-height)});
         }
     }
     &-readonly {
@@ -127,13 +127,13 @@
         }
         > .index {
             @if $item-height != map-get($rating, item-height) {
-                background-position: 0 -#{$item-height};
+                background-position: 0 unquote(-#{$item-height});
             }
         }
         > .item {
             &:hover {
                 @if $item-height != map-get($rating, item-height) {
-                    background-position: 0 -#{$item-height};
+                    background-position: 0 unquote(-#{$item-height});
                 }
             }
         }

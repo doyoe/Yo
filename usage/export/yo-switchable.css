@@ -642,8 +642,7 @@ a {
 }
 
 .yo-list > .item.item-active:active,
-.yo-list > .item.item-active:active .front,
-.yo-list > .item.item-light,
+.yo-list > .item.item-active:active .front, .yo-list > .item.item-light,
 .yo-list > .item.item-light .front {
   background-color: #f8f8f8;
 }
@@ -698,7 +697,7 @@ a {
 }
 
 .m-list .title {
-  padding: 0.18rem 0.1rem 0.03rem;
+  padding: .18rem .1rem .03rem;
   border-bottom: 1px solid #ccc;
 }
 
@@ -715,7 +714,7 @@ a {
 }
 
 .m-desc > .title {
-  padding: 0.18rem 0.1rem 0.03rem;
+  padding: .18rem .1rem .03rem;
   border-bottom: 1px solid #ccc;
 }
 
@@ -727,14 +726,14 @@ a {
 }
 
 .m-desc .sub-title {
-  margin: 0 0.1rem;
-  padding: 0.1rem 0 0.03rem;
+  margin: 0 .1rem;
+  padding: .1rem 0 .03rem;
   border-bottom: 1px solid #ccc;
 }
 
 .m-desc .sub-title::before {
   margin-right: .05rem;
-  padding: 0 0.03rem;
+  padding: 0 .03rem;
   border-radius: .03rem;
   content: "Note";
   font-weight: normal;
@@ -787,7 +786,7 @@ a {
 
 .yo-switchable > .index > li {
   float: left;
-  margin: 0 0.05rem;
+  margin: 0 .05rem;
   width: 0.1rem;
   height: 0.1rem;
   border-radius: 50%;

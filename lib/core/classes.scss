@@ -275,10 +275,10 @@
 @mixin gradient($type, $gradient...) {
     @if map-get($setting, is-vendor-prefix) {
         @each $vendor in map-get($setting, vendor-prefix) {
-            background-image: #{$vendor}#{$type}-gradient($gradient);
+            background-image: $vendor$type#{-gradient($gradient)};
         }
     }
-    background-image: #{$type}-gradient($gradient);
+    background-image: $type#{-gradient($gradient)};
 }
 
 /**

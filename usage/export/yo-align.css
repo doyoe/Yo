@@ -471,14 +471,12 @@ a {
   cursor: not-allowed;
 }
 
-.yo-btn-disabled,
-.yo-btn-disabled:active {
-  background-color: #ffaa66;
+.yo-btn-disabled, .yo-btn-disabled:active {
+  background-color: #ffaa67;
   color: white;
 }
 
-.yo-btn-disabled::after,
-.yo-btn-disabled:active::after {
+.yo-btn-disabled::after, .yo-btn-disabled:active::after {
   border-color: #fa7f1c;
 }
 
@@ -514,14 +512,12 @@ a {
   border-color: #ccc;
 }
 
-.yo-btn-light.yo-btn-disabled,
-.yo-btn-light.yo-btn-disabled:active {
+.yo-btn-light.yo-btn-disabled, .yo-btn-light.yo-btn-disabled:active {
   background-color: white;
   color: #878787;
 }
 
-.yo-btn-light.yo-btn-disabled::after,
-.yo-btn-light.yo-btn-disabled:active::after {
+.yo-btn-light.yo-btn-disabled::after, .yo-btn-light.yo-btn-disabled:active::after {
   border-color: #ebebeb;
 }
 
@@ -533,13 +529,11 @@ a {
   border-color: #0456e2;
 }
 
-.yo-btn-info.yo-btn-disabled,
-.yo-btn-info.yo-btn-disabled:active {
+.yo-btn-info.yo-btn-disabled, .yo-btn-info.yo-btn-disabled:active {
   background-color: #90b5f5;
 }
 
-.yo-btn-info.yo-btn-disabled::after,
-.yo-btn-info.yo-btn-disabled:active::after {
+.yo-btn-info.yo-btn-disabled::after, .yo-btn-info.yo-btn-disabled:active::after {
   border-color: #2876fb;
 }
 

@@ -427,7 +427,7 @@ a {
 }
 
 .m-desc > .title {
-  padding: 0.18rem 0.1rem 0.03rem;
+  padding: .18rem .1rem .03rem;
   border-bottom: 1px solid #ccc;
 }
 
@@ -439,14 +439,14 @@ a {
 }
 
 .m-desc .sub-title {
-  margin: 0 0.1rem;
-  padding: 0.1rem 0 0.03rem;
+  margin: 0 .1rem;
+  padding: .1rem 0 .03rem;
   border-bottom: 1px solid #ccc;
 }
 
 .m-desc .sub-title::before {
   margin-right: .05rem;
-  padding: 0 0.03rem;
+  padding: 0 .03rem;
   border-radius: .03rem;
   content: "Note";
   font-weight: normal;
@@ -519,14 +519,12 @@ a {
   cursor: not-allowed;
 }
 
-.yo-btn-disabled,
-.yo-btn-disabled:active {
-  background-color: #ffaa66;
+.yo-btn-disabled, .yo-btn-disabled:active {
+  background-color: #ffaa67;
   color: white;
 }
 
-.yo-btn-disabled::after,
-.yo-btn-disabled:active::after {
+.yo-btn-disabled::after, .yo-btn-disabled:active::after {
   border-color: #fa7f1c;
 }
 
@@ -700,14 +698,12 @@ a {
   background-color: #f9f9f9;
 }
 
-.yo-dialog > .ft .yo-btn-dialog.yo-btn-disabled,
-.yo-dialog > .ft .yo-btn-dialog.yo-btn-disabled:active {
+.yo-dialog > .ft .yo-btn-dialog.yo-btn-disabled, .yo-dialog > .ft .yo-btn-dialog.yo-btn-disabled:active {
   background-color: white;
   color: #94f2ff;
 }
 
-.yo-dialog > .ft .yo-btn-dialog.yo-btn-disabled::after,
-.yo-dialog > .ft .yo-btn-dialog.yo-btn-disabled:active::after {
+.yo-dialog > .ft .yo-btn-dialog.yo-btn-disabled::after, .yo-dialog > .ft .yo-btn-dialog.yo-btn-disabled:active::after {
   border-color: #ebebeb;
 }
 

@@ -77,6 +77,7 @@ Yo约束了2种项目所使用的长度单位
     - 新增`$font-size`参数；
 * change: `yo-flex`
     - 移除`$box`参数；
+* update: 内部处理`yo-rating`, `yo-score`, `yo-range`在Node-Sass3.4.1-3.42下编译出错的问题
 
 #### 删除
 * del: `alignment` mixin
