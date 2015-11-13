@@ -122,8 +122,18 @@ $media-types: (
                 (-webkit-min-device-pixel-ratio: 2.5),
                 (min-device-pixel-ratio: 2.5),
                 (min-resolution: 240dpi),
-                (min-resolution: 2.5dppx)"
+                (min-resolution: 2.5dppx)",
     // 待添加stop-points
+    // 用于常规手机横竖屏
+    xs:        "(max-width: 767px)",
+    // 用于常规pad横竖屏
+    s:         "(min-width: 768px) and (max-width: 1024px)",
+    // 用于常规笔记本
+    m:         "(min-width: 1025px) and (max-width: 1280px)",
+    // 用于常规台式机
+    l:         "(min-width: 1281px) and (max-width: 1440px)",
+    // 用于超大台式机
+    xl:        "(min-width: 1441px)"
 ) !default;
 
 // ico font

@@ -306,10 +306,10 @@
 @mixin gradient($type, $gradient...) {
     @if map-get($setting, is-vendor-prefix) {
         @each $vendor in map-get($setting, vendor-prefix) {
-            background-image: #{$vendor}#{$type}-gradient($gradient);
+            background-image: $vendor$type#{-gradient($gradient)};
         }
     }
-    background-image: #{$type}-gradient($gradient);
+    background-image: $type#{-gradient($gradient)};
 }
 
 /**
@@ -903,7 +903,7 @@
 /**
  * @module core
  * @class 弹性盒
- * @description 定义弹性容器中子元素自身的在侧轴对齐方式
+ * @description 定义弹性容器中子元素自身的在侧轴对齐方式(iOS7.0+,Android4.4+)
  * @method align-self
  * @param {String} $align-self 取值与`align-self`属性一致，默认值：center
  */
@@ -1017,9 +1017,10 @@
 /**
  * @module core
  * @class 文本
- * @description 单行文本溢出显示方案
+ * @description 单行文本溢出时显示省略号
  * @method ellipsis
- * @param {Length} $width 定义包含块宽度，默认值：null {add:2.0.0}
+ * @version 1.0.0
+ * @param {Length} $width 定义容器的宽度，默认值：null {add:2.0.0}
  */
 @mixin ellipsis($width: null) {
     overflow: hidden;

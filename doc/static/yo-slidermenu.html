@@ -61,13 +61,9 @@
         background-color: map-get($slidermenu, action-bgcolor);
         @include flexbox;
         > .item {
-            @include flex(auto);
-            width: auto;
+            display: block;
+            @include flex(1);
             text-align: center;
-            // 使用align-self实现垂直居中
-            // 通过垂直方法的大数值内补白变相让item充满父容器侧轴
-            @include align-self;
-            padding: 1rem 0;
         }
     }
 }

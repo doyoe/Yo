@@ -39,8 +39,8 @@
     @include flexbox;
     @include flex-direction(column);
     position: fixed;
-    z-index: map-get($z-index, dialog);
     overflow: hidden;
+    z-index: map-get($z-index, dialog);
     @if map-get($dialog, shadow-opacity) != null {
         box-shadow: 0 0 5px rgba(map-get($dialog, border-color), map-get($dialog, shadow-opacity));
     }
@@ -56,6 +56,7 @@
     text-align: center;
     > .hd {
         position: relative;
+        overflow: hidden;
         height: map-get($dialog, hd-height);
         background: map-get($dialog, hd-bgcolor);
         line-height: map-get($dialog, hd-height);
