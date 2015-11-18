@@ -77,6 +77,8 @@ Yo约束了2种项目所使用的长度单位
     - 新增`$font-size`参数；
 * change: `yo-flex`
     - 移除`$box`参数；
+* change: `wrap` mixin
+    - 新增`$is-wrap`参数（Boolean），用于指定文本遇见边界时是否换行；
 * update: 内部处理`yo-rating`, `yo-score`, `yo-range`在Node-Sass3.4.1-3.42下编译出错的问题
 
 #### 删除
