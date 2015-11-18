@@ -22,6 +22,11 @@
     }
     border-style: solid;
     border-color: map-get($vcode, border-color);
+    // @include border(
+    //     $border-width: map-get($vcode, border-width),
+    //     $border-color: map-get($vcode, border-color),
+    //     $radius: map-get($vcode, radius)
+    // );
     > .value {
         &:not(:last-child) {
             // 当边框厚度大于0时，才定义边框相关属性
@@ -33,6 +38,10 @@
             }
             border-style: inherit;
             border-color: inherit;
+            // @include border(
+            //     $border-width: 0 map-get($vcode, border-width) 0 0,
+            //     $border-color: map-get($vcode, border-color)
+            // );
         }
         display: block;
         @include flex;
