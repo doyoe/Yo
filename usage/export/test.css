@@ -746,3 +746,14 @@ a {
     color: yellow;
   }
 }
+
+.demo {
+  width: 100px;
+  height: 40px;
+  overflow: hidden;
+  background: url(http://source.qunarzz.com/yo/bgimg/search-main-submit-demand.png) no-repeat;
+}
+
+.demo::after {
+  content: "...";
+}
