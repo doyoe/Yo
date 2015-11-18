@@ -33,7 +33,12 @@
 
 
 .demo {
-    display: inline-block;
-    float: left;
-    @include texthide;
+    @include flexbox;
+    @include flex-flow(row wrap);
+    width: 300px;
+    > .item {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+    }
 }
