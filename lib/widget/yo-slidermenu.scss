@@ -30,9 +30,8 @@
         background-color: map-get($slidermenu, action-bgcolor);
         @include flexbox;
         > .item {
-            display: block;
-            @include flex(1);
-            text-align: center;
+            @include flex;
+            @include align;
         }
     }
 }
