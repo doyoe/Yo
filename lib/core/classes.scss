@@ -523,7 +523,8 @@
  * @class 弹性盒
  * @description 定义显示类型为伸缩盒
  * @method flexbox
- * @param {String} $flexbox 默认值：flex，可选值：flex | inline-flex
+ * @version 1.0.0
+ * @param {String} $flexbox 默认值：flex，可选值：flex | inline-flex {add:1.0.0}
  */
 @mixin flexbox($flexbox: flex) {
     @if $flexbox == inline-flex or $flexbox == inline {
@@ -556,11 +557,13 @@
  * @class 弹性盒
  * @description 定义伸缩盒子元素如何分配空间
  * @method flex
- * @param {String} $flex 取值与`flex`属性一致，默认值：1
- * @param {String} $direction 默认值: row，可选值：row | column
+ * @version 1.0.0
+ * @param {Number} $flex 取值与`flex`属性一致，默认值：1 {add:1.0.0}
+ * @param {String} $direction 默认值: row，可选值：row | column {add:1.5.0}
  */
 @mixin flex($flex: 1, $direction: row) {
     // 老式浏览器（实验性质支持3个阶段草案）
+    // 原始版本box-flex并不是复合属性，所以只有一个为数字的值
     @if map-get($setting, is-vendor-prefix) {
         @each $vendor in map-get($setting, vendor-prefix) {
             @if $vendor != -ms- {
@@ -589,7 +592,8 @@
  * @class 弹性盒
  * @description 定义伸缩盒子元素的排版顺序
  * @method order
- * @param {String} $order 取值与`order`属性一致，默认值：1
+ * @version 1.0.0
+ * @param {Integer} $order 取值与`order`属性一致，默认值：1 {add:1.0.0}
  */
 @mixin order($order: 1) {
     // 老式浏览器（实验性质支持3个阶段草案）
@@ -614,7 +618,8 @@
  * @class 弹性盒
  * @description 定义伸缩盒子元素的流动方向
  * @method flex-direction
- * @param {String} $flex-direction 取值与`flex-direction`属性一致，默认值：row
+ * @version 1.0.0
+ * @param {String} $flex-direction 取值与`flex-direction`属性一致，默认值：row {add:1.0.0}
  */
 @mixin flex-direction($flex-direction: row) {
     // 老式浏览器（实验性质支持原始草案）
@@ -672,7 +677,8 @@
  * @class 弹性盒
  * @description 定义弹性盒子元素溢出后排版(iOS7.0+,Android4.4+)
  * @method flex-wrap
- * @param {String} $flex-wrap 取值与`flex-wrap`属性一致，默认值：nowrap
+ * @version 1.0.0
+ * @param {String} $flex-wrap 取值与`flex-wrap`属性一致，默认值：nowrap {add:1.0.0}
  */
 @mixin flex-wrap($flex-wrap: nowrap) {
     // 老式浏览器（实验性质支持过渡和最新2个阶段草案）+ 现代浏览器
@@ -685,7 +691,8 @@
  * @class 弹性盒
  * @description 定义弹性容器主轴对齐方式(其中`space-around`值需要iOS7.0+,Android4.4+)
  * @method justify-content
- * @param {String} $justify-content 取值与`justify-content`属性一致，默认值：center
+ * @version 1.0.0
+ * @param {String} $justify-content 取值与`justify-content`属性一致，默认值：center {add:1.0.0}
  */
 @mixin justify-content($justify-content: center) {
     // 老式浏览器（实验性质支持3个阶段草案）
@@ -766,7 +773,7 @@
  * @description 定义多行弹性容器侧轴对齐方式(iOS7.0+,Android4.4+)
  * @method align-content
  * @version 1.8.5
- * @param {String} $align-content 取值与`align-content`属性一致，默认值：center
+ * @param {String} $align-content 取值与`align-content`属性一致，默认值：center {add:1.8.5}
  */
 @mixin align-content($align-content: center) {
     // 老式浏览器（实验性质支持2个阶段草案）
@@ -840,7 +847,8 @@
  * @class 弹性盒
  * @description 定义单行弹性容器侧轴对齐方式
  * @method align-items
- * @param {String} $align-items 取值与`align-items`属性一致，默认值：center
+ * @version 1.0.0
+ * @param {String} $align-items 取值与`align-items`属性一致，默认值：center {add:1.0.0}
  */
 @mixin align-items($align-items: center) {
     // 老式浏览器（实验性质支持3个阶段草案）
@@ -894,7 +902,8 @@
  * @class 弹性盒
  * @description 定义弹性容器中子元素自身的在侧轴对齐方式(iOS7.0+,Android4.4+)
  * @method align-self
- * @param {String} $align-self 取值与`align-self`属性一致，默认值：center
+ * @version 1.0.0
+ * @param {String} $align-self 取值与`align-self`属性一致，默认值：center {add:1.0.0}
  */
 @mixin align-self($align-self: center) {
     // 老式浏览器（实验性质支持3个阶段草案）
@@ -944,8 +953,9 @@
  * @class 形状
  * @description 生成矩形方法
  * @method rect
- * @param {Length} $width 定义矩形的长度
- * @param {Length} $height 定义矩形的高度
+ * @version 1.0.0
+ * @param {Length} $width 定义矩形的长度 {add:1.0.0}
+ * @param {Length} $height 定义矩形的高度 {add:1.0.0}
  */
 @mixin rect($width, $height) {
     width: $width;
@@ -957,7 +967,8 @@
  * @class 形状
  * @description 生成正方形方法
  * @method square
- * @param {Length} $size 定义正方形的边长
+ * @version 1.0.0
+ * @param {Length} $size 定义正方形的边长 {add:1.0.0}
  */
 @mixin square($size) {
     width: $size;
@@ -969,8 +980,9 @@
  * @class 形状
  * @description 生成圆形方法
  * @method circle
- * @param {Length} $size 定义圆的半径长度
- * @param {Length} $radius 定义圆的圆角半径长度
+ * @version 1.0.0
+ * @param {Length} $size 定义圆的半径长度 {add:1.0.0}
+ * @param {Length} $radius 定义圆的圆角半径长度 {add:1.0.0}
  */
 @mixin circle($size, $radius: 50%) {
     @include square($size);
@@ -982,7 +994,8 @@
  * @class 文本
  * @description 链接处理方法
  * @method link
- * @param {Color} $color 定义链接颜色
+ * @version 1.0.0
+ * @param {Color} $color 定义链接颜色 {add:1.0.0}
  */
 @mixin link($color: map-get($base, link-color)) {
     color: $color;
@@ -997,6 +1010,7 @@
  * @class 文本
  * @description 强制换行方案
  * @method wrap
+ * @version 1.0.0
  */
 @mixin wrap() {
     word-wrap: break-word;
@@ -1023,6 +1037,7 @@
  * @class 文本
  * @description 文字隐藏方案
  * @method texthide
+ * @version 1.0.0
  */
 @mixin texthide() {
     overflow: hidden;
