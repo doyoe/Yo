@@ -748,12 +748,9 @@ a {
 }
 
 .demo {
-  width: 100px;
-  height: 40px;
+  display: inline-block;
+  float: left;
   overflow: hidden;
   white-space: nowrap;
-}
-
-.demo::after {
-  content: "...";
+  text-indent: 100%;
 }

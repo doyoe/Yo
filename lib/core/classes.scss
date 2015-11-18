@@ -1043,9 +1043,11 @@
  * @description 文字隐藏方案
  * @method texthide
  * @version 1.0.0
+ * @param {Length} $width 定义容器的宽度，默认值：null {add:2.0.0}
  */
-@mixin texthide() {
+@mixin texthide($width: null) {
     overflow: hidden;
     white-space: nowrap;
     text-indent: 100%;
+    width: $width;
 }

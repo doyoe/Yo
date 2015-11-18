@@ -1039,13 +1039,18 @@
 /**
  * @module core
  * @class 文本
- * @description 强制换行方案
+ * @description 文本碰到边界是否换行
  * @method wrap
  * @version 1.0.0
+ * @param {Boolean} $is-wrap 定义文本是否换行，默认值：true {add:2.0.0}
  */
-@mixin wrap() {
-    word-wrap: break-word;
-    word-break: break-all;
+@mixin wrap($is-wrap: true) {
+    @if $is-wrap == true {
+        word-wrap: break-word;
+        word-break: break-all;
+    } @else {
+        white-space: nowrap;
+    }
 }
 
 /**
@@ -1058,7 +1063,7 @@
  */
 @mixin ellipsis($width: null) {
     overflow: hidden;
-    white-space: nowrap;
+    @include wrap(false);
     text-overflow: ellipsis;
     width: $width;
 }

@@ -33,11 +33,7 @@
 
 
 .demo {
-    width: 100px;
-    height: 40px;
-    overflow : hidden;
-    &::after {
-        content: "...";
-    }
-    @include wrap(fa);
+    display: inline-block;
+    float: left;
+    @include texthide;
 }
