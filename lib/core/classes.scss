@@ -477,7 +477,8 @@
  * @module core
  * @description 定义动画
  * @method animation
- * @param {String} $animation 取值与原生语法一致
+ * @version 1.0.0
+ * @param {String} $animation 取值与原生语法一致 {add:1.0.0}
  */
 @mixin animation($animation...) {
     @include prefix(animation, $animation);
@@ -487,7 +488,8 @@
  * @module core
  * @description 定义补间
  * @method transition
- * @param {String} $transition 取值与原生语法一致
+ * @version 1.0.0
+ * @param {String} $transition 取值与原生语法一致 {add:1.0.0}
  */
 @mixin transition($transition...){
     $transitionable-prefixed-values: transform, transform-origin !default;
