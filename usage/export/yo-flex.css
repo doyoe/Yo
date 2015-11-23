@@ -764,15 +764,41 @@ a {
   color: #666;
 }
 
-.yo-tab > .item:not(:last-child)::after {
+.yo-tab > .item:not(:first-child)::after {
   position: absolute;
   top: 50%;
-  right: 0;
-  border-right: 1px solid transparent;
-  height: 100%;
+  left: 0;
+  border-left: 1px solid transparent;
   content: "\0020";
-  -webkit-transform: translatey(-50%);
-  transform: translatey(-50%);
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+
+@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
+  .yo-tab > .item:not(:first-child)::after {
+    width: 10px;
+    height: 100%;
+    -webkit-transform: translatey(-50%);
+    transform: translatey(-50%);
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
+  .yo-tab > .item:not(:first-child)::after {
+    width: 20px;
+    height: 200%;
+    -webkit-transform: scale(0.5) translatey(-50%);
+    transform: scale(0.5) translatey(-50%);
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
+  .yo-tab > .item:not(:first-child)::after {
+    width: 30px;
+    height: 300%;
+    -webkit-transform: scale(0.33333) translatey(-50%);
+    transform: scale(0.33333) translatey(-50%);
+  }
 }
 
 .yo-tab > .item.item-on {
@@ -841,9 +867,26 @@ a {
   border-width: 0 0 1px 0;
 }
 
-.yo-tab-filter > .item:not(:last-child)::after {
-  height: 0.2rem;
-  border-color: #ddd;
+.yo-tab-filter > .item:not(:first-child)::after {
+  border-color: #ccc;
+}
+
+@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
+  .yo-tab-filter > .item:not(:first-child)::after {
+    height: 0.2rem;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
+  .yo-tab-filter > .item:not(:first-child)::after {
+    height: 0.4rem;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
+  .yo-tab-filter > .item:not(:first-child)::after {
+    height: 0.6rem;
+  }
 }
 
 .yo-tab-view {
