@@ -463,8 +463,6 @@ a {
   -webkit-box-align: center;
   -webkit-align-items: center;
   align-items: center;
-  -webkit-transform: translatez(0);
-  transform: translatez(0);
 }
 
 .yo-list > .label > .mark:not(:last-child),
@@ -793,8 +791,6 @@ a {
 
 .yo-loadtip > .yo-ico {
   display: block;
-  -webkit-transform-origin: center;
-  transform-origin: center;
   color: #00afc7;
   -webkit-transition: -webkit-transform .3s;
   transition: transform .3s;
@@ -808,6 +804,8 @@ a {
 }
 
 .yo-loadtip > .yo-ico-loading {
+  position: relative;
+  z-index: 1000;
   -webkit-animation: rotate 1s infinite linear;
   animation: rotate 1s infinite linear;
 }

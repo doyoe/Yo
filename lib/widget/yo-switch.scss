@@ -22,6 +22,7 @@
         @include transition(border-color .1s ease-out, background-color .1s ease-out);
         > .handle {
             position: absolute;
+            z-index: 1000;
             top: 0;
             left: 0;
             @include square(.28rem);
