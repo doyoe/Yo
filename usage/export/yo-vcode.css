@@ -462,19 +462,57 @@ a {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
-  position: relative;
   height: 0.44rem;
   line-height: 0.44rem;
   background-color: #fff;
-  border-radius: 0.05rem;
-  -webkit-background-clip: padding-box !important;
-  background-clip: padding-box !important;
   text-align: center;
   font-size: 0.16rem;
   font-weight: bold;
-  border-width: 1px;
-  border-style: solid;
+  position: relative;
+  border-radius: 0.05rem;
+}
+
+.yo-vcode::after {
+  pointer-events: none;
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  content: "\0020";
   border-color: #000;
+  border-style: solid;
+  border-width: 1px;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+
+@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
+  .yo-vcode::after {
+    width: 100%;
+    height: 100%;
+    border-radius: 0.05rem;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
+  .yo-vcode::after {
+    width: 200%;
+    height: 200%;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    border-radius: 0.1rem;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
+  .yo-vcode::after {
+    width: 300%;
+    height: 300%;
+    -webkit-transform: scale(0.33333);
+    transform: scale(0.33333);
+    border-radius: 0.15rem;
+  }
 }
 
 .yo-vcode > .value {
@@ -486,15 +524,67 @@ a {
 }
 
 .yo-vcode > .value:not(:last-child) {
+  position: relative;
+}
+
+.yo-vcode > .value:not(:last-child)::after {
+  pointer-events: none;
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  content: "\0020";
+  border-color: #000;
+  border-style: solid;
   border-width: 0 1px 0 0;
-  border-style: inherit;
-  border-color: inherit;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+
+@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
+  .yo-vcode > .value:not(:last-child)::after {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
+  .yo-vcode > .value:not(:last-child)::after {
+    width: 200%;
+    height: 200%;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
+  .yo-vcode > .value:not(:last-child)::after {
+    width: 300%;
+    height: 300%;
+    -webkit-transform: scale(0.33333);
+    transform: scale(0.33333);
+  }
 }
 
 .yo-vcode > .input {
   position: absolute;
   left: -100%;
   opacity: 0;
+}
+
+.yo-vcode-test {
+  background-color: #eee;
+}
+
+.yo-vcode-test::after {
+  border-width: 2px;
+  border-color: gray;
+}
+
+.yo-vcode-test > .value:not(:last-child)::after {
+  border-right-width: 2px;
+  border-color: gray;
 }
 
 .yo-vcode {

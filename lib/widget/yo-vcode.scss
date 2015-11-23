@@ -5,46 +5,26 @@
 // 定义vcode的基础构造
 @mixin _vcode {
     @include flexbox;
-    position: relative;
     height: map-get($vcode, height);
     line-height: map-get($vcode, height);
     background-color: map-get($vcode, bgcolor);
-    @include border-radius(map-get($vcode, radius));
     text-align: center;
     font-size: map-get($vcode, font-size);
     font-weight: bold;
-    // 当边框厚度大于0时，才定义边框相关属性
-    @if map-get($vcode, border-width) != null and
-        map-get($vcode, border-width) != 0 {
-        border-width: map-get($vcode, border-width);
-    } @else {
-        border-width: 0;
-    }
-    border-style: solid;
-    border-color: map-get($vcode, border-color);
-    // @include border(
-    //     $border-width: map-get($vcode, border-width),
-    //     $border-color: map-get($vcode, border-color),
-    //     $radius: map-get($vcode, radius)
-    // );
+    @include border(
+        $border-width: map-get($vcode, border-width),
+        $border-color: map-get($vcode, border-color),
+        $radius: map-get($vcode, radius)
+    );
     > .value {
-        &:not(:last-child) {
-            // 当边框厚度大于0时，才定义边框相关属性
-            @if map-get($vcode, border-width) != null and
-                map-get($vcode, border-width) != 0 {
-                border-width: 0 map-get($vcode, border-width) 0 0;
-            } @else {
-                border-width: 0;
-            }
-            border-style: inherit;
-            border-color: inherit;
-            // @include border(
-            //     $border-width: 0 map-get($vcode, border-width) 0 0,
-            //     $border-color: map-get($vcode, border-color)
-            // );
-        }
         display: block;
         @include flex;
+        &:not(:last-child) {
+            @include border(
+                $border-width: 0 map-get($vcode, border-width) 0 0,
+                $border-color: map-get($vcode, border-color)
+            );
+        }
     }
     > .input {
         position: absolute;
@@ -105,26 +85,48 @@
     .yo-vcode#{$name} {
         @if $height != map-get($vcode, height) {
             height: $height;
+            line-height: $height;
         }
         @if $bgcolor != map-get($vcode, bgcolor) {
             background-color: $bgcolor;
         }
-        @if $radius != map-get($vcode, radius) {
-            border-radius: $radius;
-        }
         @if $font-size != map-get($vcode, font-size) {
             font-size: $font-size;
         }
-        // 如果$border-width不等于config设定，则重绘边框相关
-        @if $border-width != map-get($vcode, border-width) {
-            border-width: $border-width;
-            > .value:not(:last-child) {
-                border-right-width: $border-width;
+        @if $radius != map-get($vcode, radius) {
+            border-radius: $radius;
+        }
+        &::after {
+            // 如果$border-width不等于config设定，则重绘边框相关
+            @if $border-width != map-get($vcode, border-width) {
+                border-width: $border-width;
+            }
+            // 如果$border-color不等于config设定，则重绘边框色
+            @if $border-color != map-get($vcode, border-color) {
+                border-color: $border-color;
+            }
+            // 如果$radius不等于config设定，则重绘边框圆角
+            @if $radius != map-get($vcode, radius) {
+                @include responsive(retina1x) {
+                    border-radius: $radius;
+                }
+                @include responsive(retina2x) {
+                    border-radius: $radius * 2;
+                }
+                @include responsive(retina3x) {
+                    border-radius: $radius * 3;
+                }
             }
         }
-        // 如果$border-color不等于config设定，则重绘边框色
-        @if $border-color != map-get($vcode, border-color) {
-            border-color: $border-color;
+        > .value:not(:last-child)::after {
+            // 如果$border-width不等于config设定，则重绘边框相关
+            @if $border-width != map-get($vcode, border-width) {
+                border-right-width: $border-width;
+            }
+            // 如果$border-color不等于config设定，则重绘边框色
+            @if $border-color != map-get($vcode, border-color) {
+                border-color: $border-color;
+            }
         }
         // 增量扩展
         @content;
