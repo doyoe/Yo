@@ -56,7 +56,7 @@ Yo约束了2种项目所使用的长度单位
     - 新增`transform-style`,`perspective`,`perspective-origin`,`backface-visibility`,`flex-flow`方法
 
 #### 变更：
-* change: `1px边框方法`
+* change: `1px边框方法`（全平台兼容）
     - 新增`border`方法用于处理retina屏1px边框，移除原`viewport scale`方案
     - 移除原始用于`1px`方案的`$setting is-ios-1pixel`设置
 
