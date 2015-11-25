@@ -675,10 +675,31 @@ a {
   width: .1px;
 }
 
+.yo-list > .label > .info,
+.yo-list > .item > .info,
+.yo-list .front > .info {
+  color: #999;
+}
+
+.yo-list > .label .detail,
+.yo-list > .item .detail,
+.yo-list .front .detail {
+  color: #999;
+  font-size: 0.12rem;
+}
+
 .yo-list > .label > .yo-ico,
 .yo-list > .item > .yo-ico,
 .yo-list .front > .yo-ico {
   display: block;
+}
+
+.yo-list > .label > .yo-ico:last-child,
+.yo-list > .item > .yo-ico:last-child,
+.yo-list .front > .yo-ico:last-child {
+  margin: -.01rem 0 0 .05rem;
+  color: #aaa;
+  font-size: 0.12rem;
 }
 
 .yo-list > .label.tr,
@@ -882,11 +903,11 @@ a {
 }
 
 .m-list .mark img {
-  width: 0.6rem;
-  height: 0.6rem;
+  width: 0.4rem;
+  height: 0.4rem;
 }
 
-.m-list .title {
+.m-list > .title {
   padding: .18rem .1rem .03rem;
   border-bottom: 1px solid #ccc;
 }

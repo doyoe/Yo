@@ -42,7 +42,6 @@
     font-size: map-get($loadtip, font-size);
     > .yo-ico {
         display: block;
-        @include transform-origin(center);
         color: map-get($loadtip, ico-color);
         -webkit-transition: -webkit-transform .3s;
         transition: transform .3s;
@@ -52,6 +51,8 @@
         }
     }
     > .yo-ico-loading {
+        position: relative;
+        z-index: 1000;
         @include animation(rotate 1s infinite linear);
     }
     > .text {

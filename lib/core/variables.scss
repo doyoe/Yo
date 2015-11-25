@@ -323,7 +323,19 @@ $list: (
     // {Length} 列表组头字号
     label-font-size:   .13rem,
     // {Length} 列表项下边线距离左侧的间隙
-    item-border-space: .1rem
+    item-border-space: .1rem,
+    // {Length} 详情区域字号
+    detail-font-size:    .12rem,
+    // {Length} 详情区域文本色
+    detail-color:        #999,
+    // {Length} 描述区域字号
+    info-font-size:    null,
+    // {Length} 描述区域文本色
+    info-color:        #999,
+    // {Length} 更多区域字号
+    more-font-size:    .12rem,
+    // {Length} 更多区域文本色
+    more-color:        #aaa
 ) !default;
 
 // Widget tab(15)

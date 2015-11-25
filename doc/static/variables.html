@@ -44,13 +44,13 @@ $setting: (
     // 厂商前缀
     vendor-prefix:    -webkit-,
     // 背景图片服务器
-    bgimg-domain:     "http://source.qunarzz.com/yo/bgimg/"
+    bgimg-domain:     "//source.qunarzz.com/yo/bgimg/"
 ) !default;
 
 // base
 $base: (
-    // 响应式的类型：none | scaling
-    responsive-type:        none,
+    // 响应式的类型：normal | scaling
+    responsive-type:        normal,
     // html root使用100px，方便rem单位的换算
     font-size-root:         100px,
     // 适配：用于做元素随屏幕大小而变化的情况
@@ -143,7 +143,7 @@ $ico: (
     // {String} 图标字体文件名
     font-name:  yofont,
     // {Url} 图标字体路径
-    font-path:  "http://source.qunarzz.com/fonts/yo/1.0.0/"
+    font-path:  "//source.qunarzz.com/fonts/yo/1.0.2/"
 ) !default;
 
 // Layout Stacked
@@ -354,7 +354,19 @@ $list: (
     // {Length} 列表组头字号
     label-font-size:   .13rem,
     // {Length} 列表项下边线距离左侧的间隙
-    item-border-space: .1rem
+    item-border-space: .1rem,
+    // {Length} 详情区域字号
+    detail-font-size:    .12rem,
+    // {Length} 详情区域文本色
+    detail-color:        #999,
+    // {Length} 描述区域字号
+    info-font-size:    null,
+    // {Length} 描述区域文本色
+    info-color:        #999,
+    // {Length} 更多区域字号
+    more-font-size:    .12rem,
+    // {Length} 更多区域文本色
+    more-color:        #aaa
 ) !default;
 
 // Widget tab(15)

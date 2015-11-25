@@ -79,6 +79,13 @@ Yo约束了2种项目所使用的长度单位
     - 移除`$box`参数；
 * change: `wrap` mixin
     - 新增`$is-wrap`参数（Boolean），用于指定文本遇见边界时是否换行；
+* change: `yo-list`
+    - 新增`$detail-font-size`参数，用于指定详情区域的字号；
+    - 新增`$detail-color`参数，用于指定详情区域的文本色；
+    - 新增`$info-font-size`参数，用于指定描述区域的字号；
+    - 新增`$info-color`参数，用于指定描述区域的文本色；
+    - 新增`$more-font-size`参数，用于指定更多区域的字号；
+    - 新增`$more-color`参数，用于指定更多区域的文本色；
 * update: 内部处理`yo-rating`, `yo-score`, `yo-range`在Node-Sass3.4.1-3.42下编译出错的问题
 
 #### 删除

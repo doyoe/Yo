@@ -52,14 +52,29 @@
         display: block;
         @include flex;
         position: relative;
-        &:not(:last-child)::after {
+        &:not(:first-child)::after {
             position: absolute;
             top: 50%;
-            right: 0;
-            border-right: 1px solid map-get($tab, item-border-color);
-            height: map-get($tab, item-border-height);
+            left: 0;
+            border-left: 1px solid map-get($tab, item-border-color);
             content: "\0020";
-            @include transform(translatey(-50%));
+            // 适配dpr进行缩放
+            @include responsive(retina1x) {
+                width: 10px;
+                height: map-get($tab, item-border-height);
+                @include transform(translatey(-50%));
+            }
+            @include responsive(retina2x) {
+                width: 20px;
+                height: map-get($tab, item-border-height) * 2;
+                @include transform(scale(0.5) translatey(-50%));
+            }
+            @include responsive(retina3x) {
+                width: 30px;
+                height: map-get($tab, item-border-height) * 3;
+                @include transform(scale(1/3) translatey(-50%));
+            }
+            @include transform-origin(0 0);
         }
         color: map-get($tab, color);
         &.item-on {
@@ -226,9 +241,17 @@
             font-size: $font-size;
         }
         > .item {
-            &:not(:last-child)::after {
+            &:not(:first-child)::after {
                 @if $item-border-height != map-get($tab, item-border-height) {
-                    height: $item-border-height;
+                    @include responsive(retina1x) {
+                        height: $item-border-height;
+                    }
+                    @include responsive(retina2x) {
+                        height: $item-border-height * 2;
+                    }
+                    @include responsive(retina3x) {
+                        height: $item-border-height * 3;
+                    }
                 }
                 @if $item-border-color != map-get($tab, item-border-color) {
                     border-color: $item-border-color;

@@ -66,7 +66,7 @@
  */
 @mixin yofont() {
     // 是否开启图标字体
-    @if map-get($ico, is-use) {
+    @if map-get($ico, is-use) == true {
         @font-face {
             font-family: map-get($ico, font-name);
             src:

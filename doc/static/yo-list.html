@@ -47,7 +47,9 @@
         @include flexbox;
         @include align-items;
         // 修复某些安卓版本开启了3D，yo-list当成滚动内容时出现的诡异问题
-        @include transform(translatez(0));
+        // 移除该定义，请业务自行在需要的地方添加
+        // 该定义会将所有的item放到Composited Layer中，对性能有较大影响
+        // @include transform(translatez(0));
         > .mark:not(:last-child),
         > .yo-ico:not(:last-child) {
             margin-right: .1rem;
@@ -56,8 +58,21 @@
         > .flex {
             @include flex;
         }
+        > .info {
+            color: map-get($list, info-color);
+            font-size: map-get($list, info-font-size);
+        }
+        .detail {
+            color: map-get($list, detail-color);
+            font-size: map-get($list, detail-font-size);
+        }
         > .yo-ico {
             display: block;
+            &:last-child {
+                margin: -.01rem 0 0 .05rem;
+                color: map-get($list, more-color);
+                font-size: map-get($list, more-font-size);
+            }
         }
         &.tr {
             // 当模式为table时，padding将设置到col上
@@ -174,6 +189,12 @@
  * @param {Length} $item-font-size 子项字号 {add:1.2.0}
  * @param {Length} $label-font-size 列表组头字号 {add:1.2.0}
  * @param {Length} $item-border-space 子项下边线距离左侧的间隙 {add:1.8.0}
+ * @param {Length} $detail-font-size 详情区域字号 {add:2.0.0}
+ * @param {Color} $detail-color 详情区域文本色 {add:2.0.0}
+ * @param {Length} $info-font-size 描述区域字号 {add:2.0.0}
+ * @param {Color} $info-color 描述区域文本色 {add:2.0.0}
+ * @param {Length} $more-font-size 更多区域字号 {add:2.0.0}
+ * @param {Color} $more-color 更多区域文本色 {add:2.0.0}
  */
 
 @mixin yo-list(
@@ -192,7 +213,13 @@
     $label-border-color: default,
     $item-font-size: default,
     $label-font-size: default,
-    $item-border-space: default) {
+    $item-border-space: default,
+    $detail-font-size: default,
+    $detail-color: default,
+    $info-font-size: default,
+    $info-color: default,
+    $more-font-size: default,
+    $more-color: default) {
     // 区别是否新增实例还是修改本身
     @if $name == default {
         $name: "";
@@ -245,6 +272,24 @@
     @if $item-border-space == default {
         $item-border-space: map-get($list, item-border-space);
     }
+    @if $detail-font-size == default {
+        $detail-font-size: map-get($list, detail-font-size);
+    }
+    @if $detail-color == default {
+        $detail-color: map-get($list, detail-color);
+    }
+    @if $info-font-size == default {
+        $info-font-size: map-get($list, info-font-size);
+    }
+    @if $info-color == default {
+        $info-color: map-get($list, info-color);
+    }
+    @if $more-font-size == default {
+        $more-font-size: map-get($list, more-font-size);
+    }
+    @if $more-color == default {
+        $more-color: map-get($list, more-color);
+    }
     .yo-list#{$name} {
         @if $margin != map-get($list, margin) {
             margin: $margin;
@@ -272,6 +317,36 @@
                 }
                 @include responsive(retina3x) {
                     border-radius: $radius * 3;
+                }
+            }
+        }
+        > .label,
+        > .item,
+        .front {
+            > .info {
+                @if $info-color != map-get($list, info-color) {
+                    color: $info-color;
+                }
+                @if $info-font-size != map-get($list, info-font-size) {
+                    font-size: $info-font-size;
+                }
+            }
+            .detail {
+                @if $detail-color != map-get($list, detail-color) {
+                    color: $detail-color;
+                }
+                @if $detail-font-size != map-get($list, detail-font-size) {
+                    font-size: $detail-font-size;
+                }
+            }
+            > .yo-ico {
+                &:last-child {
+                    @if $more-color != map-get($list, more-color) {
+                        color: $more-color;
+                    }
+                    @if $more-font-size != map-get($list, more-font-size) {
+                        font-size: $more-font-size;
+                    }
                 }
             }
         }
