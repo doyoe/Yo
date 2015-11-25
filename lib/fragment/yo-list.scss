@@ -76,6 +76,8 @@
         padding: map-get($list, item-padding);
     }
     > .item {
+        // 使用opacity创建堆叠级别，用于覆盖.item的边线
+        opacity: .99999;
         overflow: hidden;
         background-color: #fff;
         color: map-get($base, color);
