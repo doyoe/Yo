@@ -76,7 +76,8 @@
         padding: map-get($list, item-padding);
     }
     > .item {
-        // 使用opacity创建堆叠级别，用于覆盖.item的边线
+        // 使用opacity创建局部堆叠上下文束缚内部after边线不覆盖label
+        // 如果想内容溢出容器，可以重置该值为1
         opacity: .99999;
         overflow: hidden;
         background-color: #fff;
@@ -132,6 +133,9 @@
         > .col {
             padding: map-get($list, item-padding);
         }
+    }
+    > .label + > .item {
+
     }
 }
 

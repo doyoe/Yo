@@ -42,3 +42,28 @@
         background-color: red;
     }
 }
+
+.k {
+    margin: .1rem;
+    background-color: #eee;
+    height: .34rem;
+    min-height: .05rem;
+    > .inner {
+        @include align;
+        height: 100%;
+        padding: 0 .1rem;
+        background-color: red;
+        color: #fff;
+        > .xxx,
+        > .yyy {
+            display: block;
+        }
+        > .xxx {
+            @include flex;
+        }
+        &::after {
+            display: block;
+            content: attr(data-attr);
+        }
+    }
+}
