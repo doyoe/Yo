@@ -2,6 +2,13 @@
 @import "../core/variables";
 @import "../core/classes";
 
+// 合并variables和config中的同类map
+@if global-variable-exists(vcode) {
+    $vcode: map-merge($_vcode, $vcode);
+} @else {
+    $vcode: $_vcode;
+}
+
 // 定义vcode的基础构造
 @mixin _vcode {
     @include flexbox;

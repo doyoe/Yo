@@ -2,6 +2,15 @@
 @import "../core/variables";
 @import "../core/classes";
 
+// 合并variables和config中的同类map
+@if global-variable-exists(stacked) {
+    $stacked: map-merge($_stacked, $stacked);
+    @debug $stacked;
+} @else {
+    $stacked: $_stacked;
+    @debug $stacked;
+}
+
 // 定义区块的基础构造
 @mixin _stacked {
     display: block;

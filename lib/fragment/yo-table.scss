@@ -2,6 +2,13 @@
 @import "../core/variables";
 @import "../core/classes";
 
+// 合并variables和config中的同类map
+@if global-variable-exists(table) {
+    $table: map-merge($_table, $table);
+} @else {
+    $table: $_table;
+}
+
 // 定义table的基础构造
 @mixin _table {
     width: map-get($table, width);

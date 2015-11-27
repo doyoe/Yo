@@ -2,6 +2,13 @@
 @import "../core/variables";
 @import "../core/classes";
 
+// 合并variables和config中的同类map
+@if global-variable-exists(align) {
+    $align: map-merge($_align, $align);
+} @else {
+    $align: $_align;
+}
+
 // 定义常见水平垂直居中布局
 @mixin _align {
     @include align;

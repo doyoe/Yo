@@ -2,6 +2,13 @@
 @import "../core/variables";
 @import "../core/classes";
 
+// 合并variables和config中的同类map
+@if global-variable-exists(tab) {
+    $tab: map-merge($_tab, $tab);
+} @else {
+    $tab: $_tab;
+}
+
 // 定义tab的基础构造
 @mixin _tab {
     @include flexbox;

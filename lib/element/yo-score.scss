@@ -5,10 +5,8 @@
 // 合并variables和config中的同类map
 @if global-variable-exists(score) {
     $score: map-merge($_score, $score);
-    @debug $score;
 } @else {
     $score: $_score;
-    @debug $score;
 }
 
 // 定义score的基础构造

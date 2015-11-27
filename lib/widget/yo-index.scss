@@ -2,6 +2,13 @@
 @import "../core/variables";
 @import "../core/classes";
 
+// 合并variables和config中的同类map
+@if global-variable-exists(index) {
+    $index: map-merge($_index, $index);
+} @else {
+    $index: $_index;
+}
+
 // 定义index的基础构造
 @mixin _index {
     width: map-get($index, width);

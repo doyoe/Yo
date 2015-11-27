@@ -2,6 +2,13 @@
 @import "../core/variables";
 @import "../core/classes";
 
+// 合并variables和config中的同类map
+@if global-variable-exists(header) {
+    $header: map-merge($_header, $header);
+} @else {
+    $header: $_header;
+}
+
 // 定义header的基础构造
 @mixin _header {
     position: relative;

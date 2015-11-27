@@ -115,24 +115,42 @@ $ico: (
     font-path:  "//source.qunarzz.com/fonts/yo/1.0.2/"
 );
 
-// Layout Stacked
-$stacked: (
-    // {Length} 区块外边距
-    margin: .2rem .1rem
-);
-
-// Layout flex
-$flex: (
-    // {String} 定义是水平布局还是垂直布局: row | column
-    direction: column
-);
-
 // Layout align
-$align: (
+$_align: (
     // {String} 定义弹性水平对齐方式
     text-align:     center,
     // {String} 定义弹性垂直对齐方式
     vertical-align: center
+);
+
+// Layout flex
+$_flex: (
+    // {String} 定义是水平布局还是垂直布局: row | column
+    direction: column
+);
+
+// Layout Stacked
+$_stacked: (
+    // {Length} 区块外边距
+    margin: .2rem .1rem
+);
+
+// Element UI badge(7)
+$_badge: (
+    // {Length} 内补白
+    padding:      0 .03rem,
+    // {Length} 边框厚度
+    border-width: 1px,
+    // {Color} 边框色
+    border-color:  #f00,
+    // {Color} 背景色
+    bgcolor:      #f00,
+    // {Color} 文本色
+    color:        #fff,
+    // {Length} 圆角
+    radius:       .1rem,
+    // {Length} 字号
+    font-size:    .12rem
 );
 
 // Element Button(18)
@@ -171,24 +189,6 @@ $_btn: (
     // large
     l-height:       .44rem,
     l-font-size:    .16rem
-);
-
-// Element UI badge(7)
-$_badge: (
-    // {Length} 内补白
-    padding:      0 .03rem,
-    // {Length} 边框厚度
-    border-width: 1px,
-    // {Color} 边框色
-    border-color:  #f00,
-    // {Color} 背景色
-    bgcolor:      #f00,
-    // {Color} 文本色
-    color:        #fff,
-    // {Length} 圆角
-    radius:       .1rem,
-    // {Length} 字号
-    font-size:    .12rem
 );
 
 // Element checked(11)
@@ -275,7 +275,7 @@ $_range: (
     ball-color:    #fff
 );
 
-// Widget UI score(3)
+// Fragment UI score(3)
 $_score: (
     // {Length} 单项宽度
     item-width:  .16rem,
@@ -285,6 +285,20 @@ $_score: (
     url:         "star.png"
 );
 
+// Fragment breadcrumb(5)
+$_breadcrumb: (
+    // {Length} 面包屑高度
+    height:       .44rem,
+    // {Color} 面包屑背景色
+    bgcolor:      #f0f0f0,
+    // {Color} 面包屑文本色
+    color:        map-get($base, color),
+    // {Color} 面包屑间隔色
+    arrow-color:  #ccc,
+    // {Length} 面包屑子项间隙
+    item-space:   .05rem
+);
+
 // Fragment btnbar(1)
 $_btnbar: (
     // {Length} 工具栏圆角
@@ -292,8 +306,36 @@ $_btnbar: (
     radius: null
 );
 
+// Fragment header(12)
+$_header: (
+    // {Length} 高度
+    height:         .44rem,
+    // {Length} 两侧的子项宽度
+    item-width:     .6rem,
+    // {Length} 两侧的子项离边界的间隙
+    item-space:     .15rem,
+    // {Length} 边框厚度
+    border-width:   0 0 1px,
+    // {Color} 边框色
+    border-color:   #1ba9ba,
+    // {Color} 背景色
+    bgcolor:        #1ba9ba,
+    // {Color} 文本色
+    color:          #fff,
+    // {Length} 文本大小
+    font-size:      .18rem,
+    // {Color} 文本色
+    item-color:     #fff,
+    // {Color} 两侧的子项ico颜色
+    item-ico-color: #7ff,
+    // {Length} 两侧的子项文本大小
+    item-font-size: .14rem,
+    // {Length} 两侧的子项ico大小
+    item-ico-size:  .2rem
+);
+
 // Fragment list(15)
-$list: (
+$_list: (
     // {Length} 列表外边距
     margin:            null,
     // {Length} 列表圆角
@@ -338,42 +380,8 @@ $list: (
     more-color:        #aaa
 );
 
-// Widget tab(15)
-$tab: (
-    // {Length} 组件宽度
-    width:              null,
-    // {Length} 组件高度
-    height:             .44rem,
-    // {Length} 圆角半径
-    radius:             null,
-    // {Length} 边框厚度
-    border-width:       1px 0 0 0,
-    // {Color} 边框色
-    border-color:       map-get($base, border-color),
-    // {Color} tab背景色
-    bgcolor:            #fafafa,
-    // {Color} tab文本色
-    color:              map-get($base, sub-color),
-    // {Color} tab激活背景色
-    on-bgcolor:         null,
-    // {Color} tab激活文本色
-    on-color:           #00bec8,
-    // {Length} 文本大小
-    font-size:          .14rem,
-    // {Length} 水平ico大小
-    x-ico-size:         .12rem,
-    // {Length} 垂直ico大小
-    y-ico-size:         .2rem,
-    // {Length} only ico大小
-    only-ico-size:      .28rem,
-    // {Color} item间隔线高度
-    item-border-height: 100%,
-    // {Color} item间隔线颜色
-    item-border-color:  transparent
-);
-
 // Fragment Table(10)
-$table: (
+$_table: (
     // {Length} 表头部内补白
     width:               100%,
     // {Boolean} 是否需要纵向边框
@@ -396,268 +404,8 @@ $table: (
     on-bgcolor:          null
 );
 
-// Fragment header(12)
-$header: (
-    // {Length} 高度
-    height:         .44rem,
-    // {Length} 两侧的子项宽度
-    item-width:     .6rem,
-    // {Length} 两侧的子项离边界的间隙
-    item-space:     .15rem,
-    // {Length} 边框厚度
-    border-width:   0 0 1px,
-    // {Color} 边框色
-    border-color:   #1ba9ba,
-    // {Color} 背景色
-    bgcolor:        #1ba9ba,
-    // {Color} 文本色
-    color:          #fff,
-    // {Length} 文本大小
-    font-size:      .18rem,
-    // {Color} 文本色
-    item-color:     #fff,
-    // {Color} 两侧的子项ico颜色
-    item-ico-color: #7ff,
-    // {Length} 两侧的子项文本大小
-    item-font-size: .14rem,
-    // {Length} 两侧的子项ico大小
-    item-ico-size:  .2rem
-);
-
-// Fragment breadcrumb(5)
-$breadcrumb: (
-    // {Length} 面包屑高度
-    height:       .44rem,
-    // {Color} 面包屑背景色
-    bgcolor:      #f0f0f0,
-    // {Color} 面包屑文本色
-    color:        map-get($base, color),
-    // {Color} 面包屑间隔色
-    arrow-color:  #ccc,
-    // {Length} 面包屑子项间隙
-    item-space:   .05rem
-);
-
-// Widget switch(5)
-$switch: (
-    // {Color} 激活边框色
-    checked-border-color:#4bd763,
-    // {Color} 激活背景色
-    checked-bgcolor:     #4bd763,
-    // {Color} 边框色
-    border-color:        map-get($base, border-color),
-    // {Color} 背景色
-    bgcolor:             map-get($base, bgcolor),
-    // {Color} 滑块色
-    ball-color:          #fff
-);
-
-// Widget index(3)
-$index: (
-    // {Length} 索引宽度
-    width:     .3rem,
-    // {Color} 文本色
-    color:     #555,
-    // {Length} 索引字号
-    font-size: .12rem
-);
-
-// Widget group(1)
-$group: (
-    // {Length} group顶部偏移值
-    top: 0
-);
-
-// Widget suggest(15)
-$suggest: (
-    // {Length} 输入框高度
-    height:           .3rem,
-    // {Length} 搜索区文字大小
-    font-size:        .14rem,
-    // {Length} 搜索区内补白
-    op-padding:       .07rem .1rem,
-    // {Length} 输入框圆角
-    radius:           .05rem,
-    // {Color} 边框色
-    border-color:      map-get($base, border-color),
-    // {Color} 输入框背景色
-    bgcolor:          map-get($base, border-color),
-    // {Color} 输入框文本色
-    color:            map-get($base, color),
-    // {Color} 激活边框色
-    on-border-color:   null,
-    // {Color} 激活背景色
-    on-bgcolor:       null,
-    // {Color} placeholder文本色
-    placeholder-color:#fff,
-    // {Color} 操作区图标颜色
-    ico-color:        #999,
-    // {Color} 取消按钮颜色
-    cancel-color:     map-get($base, link-color),
-    // {Color} 搜索区背景色
-    op-bgcolor:       #fff,
-    // {Color} mask背景色
-    mask-bgcolor:     rgba(#fff, .9),
-    // {Length} 取消按钮区域宽度
-    cancel-width:     .7rem
-);
-
-// Widget UI Dialog(11)
-$dialog: (
-    // {Length | null} 宽度
-    width:           null,
-    // {Length} 高度
-    height:          null,
-    // {Length} 圆角
-    radius:          .05rem,
-    // {Number} 阴影透明度(如果不想使用阴影，值为0)
-    shadow-opacity:  .5,
-    // {Color} 边框色
-    border-color:    map-get($base, border-color),
-    // {Length} 头部高度
-    hd-height:       .44rem,
-    // {Color} 头部背景色
-    hd-bgcolor:      white,
-    // {Color} 标题颜色
-    title-color:     map-get($base, color),
-    // {Length} 标题文字大小
-    title-font-size: .16rem,
-    // {Length} 主体区域间隙
-    bd-padding:      .1rem,
-    // {Length} 主体区域文字大小
-    bd-font-size:    .16rem
-);
-
-// Widget UI Popup(11)
-$popup: (
-    // {Length | null} 宽度
-    width:           null,
-    // {Length} 高度
-    height:          3rem,
-    // {Length} 圆角
-    radius:          .03rem,
-    // {Number} 阴影透明度(如果不想使用阴影，值为0)
-    shadow-opacity:  .5,
-    // {Color} 边框色
-    border-color:     map-get($base, border-color),
-    // {Length} 头部高度
-    hd-height:       .5rem,
-    // {Color} 头部背景色
-    hd-bgcolor:      #eee,
-    // {Color} 标题颜色
-    title-color:     map-get($base, color),
-    // {Length} 标题文字大小
-    title-font-size: .16rem,
-    // {Length} 主体区域间隙
-    bd-padding:      .1rem,
-    // {Length} 箭头大小
-    arrow-size:      .12rem
-);
-
-// Widget UI Tip(4)
-$tip: (
-    // {Length} 内补白
-    padding: .06rem .15rem,
-    // {Length} 圆角
-    radius:  .05rem,
-    // {Color} 背景色
-    bgcolor: rgba(#000, .5),
-    // {Color} 文本色
-    color:   #fff
-);
-
-// Widget UI select(3)
-$select: (
-    // {Length} 默认显示几个列表项
-    item:        5,
-    // {Length} 每个列表项的高度
-    item-height: .3rem,
-    // {Color} 边框色
-    border-color: map-get($base, border-color),
-);
-
-// Widget UI number(11)
-$number: (
-    // {Length} 宽度
-    width:               1.2rem,
-    // {Length} 高度
-    height:              .36rem,
-    // {Length} 外边框圆角半径
-    outer-radius:        .03rem,
-    // {Length} 外边框厚度
-    outer-border-width:  1px,
-    // {Length} 内边框圆角半径
-    inner-radius:        null,
-    // {Length} 内外边框厚度
-    inner-border-width:  1px,
-    // {Color} 外边框色
-    border-color:        map-get($base, border-color),
-    // {color} 输入框文本色
-    color:               map-get($base, color),
-    // {Color} 加减号背景色
-    sign-bgcolor:        map-get($base, bgcolor),
-    // {Color} 加减号文本色
-    sign-color:          #999,
-    // {Length} 字号
-    font-size:           .16rem,
-);
-
-// Widget UI switchable(9)
-$switchable: (
-    // {Boolean} 是否有按钮
-    has-btn:            false,
-    // {Length} 按钮大小
-    btn-size:           .44rem,
-    // {Color} 按钮背景色
-    btn-bgcolor:        rgba(#09a5c4, .8),
-    // {Color} 按钮文本色
-    btn-color:          #fff,
-    // {Color} 按钮按下时背景色
-    btn-active-bgcolor: rgba(#09a5c4, .5),
-    // {Color} 按钮按下时文本色
-    btn-active-color:   null,
-    // {Length} 索引大小
-    index-size:         .1rem,
-    // {Color} 索引背景色
-    index-bgcolor:      #85c8d1,
-    // {Color} 索引的当前项背景色
-    index-on-bgcolor:   #09a5c4
-);
-
-// Widget UI mask(1)
-$mask: (
-    // {Color} 背景色
-    bgcolor: rgba(#000, .2)
-);
-
-// Widget UI slidermenu(2)
-$slidermenu: (
-    // {Length} action 宽度
-    action-width:   1rem,
-    // {Color} action 背景色
-    action-bgcolor: #ccc
-);
-
-// Widget UI rating(3)
-$rating: (
-    // {Length} 单项宽度
-    item-width:  .24rem,
-    // {Length} 单项高度
-    item-height: .18rem,
-    // {String} 图片URL
-    url:         "star.png"
-);
-
-// Widget UI doublelist(2)
-$doublelist: (
-    // {Length} 导航panel宽度
-    aside-width: null,
-    // {Length} 导航panel顺序，从0开始
-    aside-order: null
-);
-
 // Widget UI datepicker(25)
-$datepicker: (
+$_datepicker: (
     // {Length} 星期bar高度
     week-bar-height:      .22rem,
     // {Color} 星期bar背景色
@@ -716,8 +464,260 @@ $datepicker: (
     end-content:           "离店"
 );
 
+// Widget UI Dialog(11)
+$_dialog: (
+    // {Length | null} 宽度
+    width:           null,
+    // {Length} 高度
+    height:          null,
+    // {Length} 圆角
+    radius:          .05rem,
+    // {Number} 阴影透明度(如果不想使用阴影，值为0)
+    shadow-opacity:  .5,
+    // {Color} 边框色
+    border-color:    map-get($base, border-color),
+    // {Length} 头部高度
+    hd-height:       .44rem,
+    // {Color} 头部背景色
+    hd-bgcolor:      white,
+    // {Color} 标题颜色
+    title-color:     map-get($base, color),
+    // {Length} 标题文字大小
+    title-font-size: .16rem,
+    // {Length} 主体区域间隙
+    bd-padding:      .1rem,
+    // {Length} 主体区域文字大小
+    bd-font-size:    .16rem
+);
+
+// Widget UI doublelist(2)
+$_doublelist: (
+    // {Length} 导航panel宽度
+    aside-width: null,
+    // {Length} 导航panel顺序，从0开始
+    aside-order: null
+);
+
+// Widget tab(15)
+$_tab: (
+    // {Length} 组件宽度
+    width:              null,
+    // {Length} 组件高度
+    height:             .44rem,
+    // {Length} 圆角半径
+    radius:             null,
+    // {Length} 边框厚度
+    border-width:       1px 0 0 0,
+    // {Color} 边框色
+    border-color:       map-get($base, border-color),
+    // {Color} tab背景色
+    bgcolor:            #fafafa,
+    // {Color} tab文本色
+    color:              map-get($base, sub-color),
+    // {Color} tab激活背景色
+    on-bgcolor:         null,
+    // {Color} tab激活文本色
+    on-color:           #00bec8,
+    // {Length} 文本大小
+    font-size:          .14rem,
+    // {Length} 水平ico大小
+    x-ico-size:         .12rem,
+    // {Length} 垂直ico大小
+    y-ico-size:         .2rem,
+    // {Length} only ico大小
+    only-ico-size:      .28rem,
+    // {Color} item间隔线高度
+    item-border-height: 100%,
+    // {Color} item间隔线颜色
+    item-border-color:  transparent
+);
+
+// Widget switch(5)
+$_switch: (
+    // {Color} 激活边框色
+    checked-border-color:#4bd763,
+    // {Color} 激活背景色
+    checked-bgcolor:     #4bd763,
+    // {Color} 边框色
+    border-color:        map-get($base, border-color),
+    // {Color} 背景色
+    bgcolor:             map-get($base, bgcolor),
+    // {Color} 滑块色
+    ball-color:          #fff
+);
+
+// Widget index(3)
+$_index: (
+    // {Length} 索引宽度
+    width:     .3rem,
+    // {Color} 文本色
+    color:     #555,
+    // {Length} 索引字号
+    font-size: .12rem
+);
+
+// Widget group(1)
+$_group: (
+    // {Length} group顶部偏移值
+    top: 0
+);
+
+// Widget suggest(15)
+$_suggest: (
+    // {Length} 输入框高度
+    height:           .3rem,
+    // {Length} 搜索区文字大小
+    font-size:        .14rem,
+    // {Length} 搜索区内补白
+    op-padding:       .07rem .1rem,
+    // {Length} 输入框圆角
+    radius:           .05rem,
+    // {Color} 边框色
+    border-color:      map-get($base, border-color),
+    // {Color} 输入框背景色
+    bgcolor:          map-get($base, border-color),
+    // {Color} 输入框文本色
+    color:            map-get($base, color),
+    // {Color} 激活边框色
+    on-border-color:   null,
+    // {Color} 激活背景色
+    on-bgcolor:       null,
+    // {Color} placeholder文本色
+    placeholder-color:#fff,
+    // {Color} 操作区图标颜色
+    ico-color:        #999,
+    // {Color} 取消按钮颜色
+    cancel-color:     map-get($base, link-color),
+    // {Color} 搜索区背景色
+    op-bgcolor:       #fff,
+    // {Color} mask背景色
+    mask-bgcolor:     rgba(#fff, .9),
+    // {Length} 取消按钮区域宽度
+    cancel-width:     .7rem
+);
+
+// Widget UI Popup(11)
+$_popup: (
+    // {Length | null} 宽度
+    width:           null,
+    // {Length} 高度
+    height:          3rem,
+    // {Length} 圆角
+    radius:          .03rem,
+    // {Number} 阴影透明度(如果不想使用阴影，值为0)
+    shadow-opacity:  .5,
+    // {Color} 边框色
+    border-color:     map-get($base, border-color),
+    // {Length} 头部高度
+    hd-height:       .5rem,
+    // {Color} 头部背景色
+    hd-bgcolor:      #eee,
+    // {Color} 标题颜色
+    title-color:     map-get($base, color),
+    // {Length} 标题文字大小
+    title-font-size: .16rem,
+    // {Length} 主体区域间隙
+    bd-padding:      .1rem,
+    // {Length} 箭头大小
+    arrow-size:      .12rem
+);
+
+// Widget UI Tip(4)
+$_tip: (
+    // {Length} 内补白
+    padding: .06rem .15rem,
+    // {Length} 圆角
+    radius:  .05rem,
+    // {Color} 背景色
+    bgcolor: rgba(#000, .5),
+    // {Color} 文本色
+    color:   #fff
+);
+
+// Widget UI select(3)
+$_select: (
+    // {Length} 默认显示几个列表项
+    item:        5,
+    // {Length} 每个列表项的高度
+    item-height: .3rem,
+    // {Color} 边框色
+    border-color: map-get($base, border-color),
+);
+
+// Widget UI number(11)
+$_number: (
+    // {Length} 宽度
+    width:               1.2rem,
+    // {Length} 高度
+    height:              .36rem,
+    // {Length} 外边框圆角半径
+    outer-radius:        .03rem,
+    // {Length} 外边框厚度
+    outer-border-width:  1px,
+    // {Length} 内边框圆角半径
+    inner-radius:        null,
+    // {Length} 内外边框厚度
+    inner-border-width:  1px,
+    // {Color} 外边框色
+    border-color:        map-get($base, border-color),
+    // {color} 输入框文本色
+    color:               map-get($base, color),
+    // {Color} 加减号背景色
+    sign-bgcolor:        map-get($base, bgcolor),
+    // {Color} 加减号文本色
+    sign-color:          #999,
+    // {Length} 字号
+    font-size:           .16rem,
+);
+
+// Widget UI switchable(9)
+$_switchable: (
+    // {Boolean} 是否有按钮
+    has-btn:            false,
+    // {Length} 按钮大小
+    btn-size:           .44rem,
+    // {Color} 按钮背景色
+    btn-bgcolor:        rgba(#09a5c4, .8),
+    // {Color} 按钮文本色
+    btn-color:          #fff,
+    // {Color} 按钮按下时背景色
+    btn-active-bgcolor: rgba(#09a5c4, .5),
+    // {Color} 按钮按下时文本色
+    btn-active-color:   null,
+    // {Length} 索引大小
+    index-size:         .1rem,
+    // {Color} 索引背景色
+    index-bgcolor:      #85c8d1,
+    // {Color} 索引的当前项背景色
+    index-on-bgcolor:   #09a5c4
+);
+
+// Widget UI mask(1)
+$_mask: (
+    // {Color} 背景色
+    bgcolor: rgba(#000, .2)
+);
+
+// Widget UI slidermenu(2)
+$_slidermenu: (
+    // {Length} action 宽度
+    action-width:   1rem,
+    // {Color} action 背景色
+    action-bgcolor: #ccc
+);
+
+// Widget UI rating(3)
+$_rating: (
+    // {Length} 单项宽度
+    item-width:  .24rem,
+    // {Length} 单项高度
+    item-height: .18rem,
+    // {String} 图片URL
+    url:         "star.png"
+);
+
 // Widget UI vcode(6)
-$vcode: (
+$_vcode: (
     // {Length} 输入框高度
     height:       .44rem,
     // {Color} 输入框背景色

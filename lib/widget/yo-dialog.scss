@@ -3,6 +3,13 @@
 @import "../core/classes";
 @import "../element/yo-btn";
 
+// 合并variables和config中的同类map
+@if global-variable-exists(dialog) {
+    $dialog: map-merge($_dialog, $dialog);
+} @else {
+    $dialog: $_dialog;
+}
+
 // 定义dialog的基础构造
 @mixin _dialog {
     @include flexbox;
