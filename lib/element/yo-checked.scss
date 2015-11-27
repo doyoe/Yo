@@ -2,6 +2,13 @@
 @import "../core/variables";
 @import "../core/classes";
 
+// 合并variables和config中的同类map
+@if global-variable-exists(checked) {
+    $checked: map-merge($_checked, $checked);
+} @else {
+    $checked: $_checked;
+}
+
 // 定义checked的基础构造
 @mixin _checked {
     display: inline-block;

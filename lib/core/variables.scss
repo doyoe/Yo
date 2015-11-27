@@ -135,46 +135,8 @@ $align: (
     vertical-align: center
 );
 
-// Element loading(7)
-$loading: (
-    // {Length} 菊花大小
-    ico-size:     .5rem,
-    // {Color} 菊花颜色
-    ico-color:    #212121,
-    // {Color} mask颜色
-    mask-bgcolor: rgba(0, 0, 0, .1),
-    // {Color} 背景颜色
-    bgcolor:      null,
-    // {Length} 字号
-    font-size:    .14rem,
-    // {Color} 文本颜色
-    color:        map-get($base, color),
-    // {String} loading的ico编码，自定义的webfont
-    content:      "\f089"
-);
-
-// Element Input(8)
-$input: (
-    // {Length} 输入框宽度
-    width:             100%,
-    // {Length} 输入框高度
-    height:            .44rem,
-    // {Length} 输入框内补白
-    padding:           .1rem,
-    // {Length} 输入框圆角
-    radius:            .02rem,
-    // {Color} 输入框边框色
-    border-color:       map-get($base, border-color),
-    // {Color} 输入框背景色
-    bgcolor:           transparent,
-    // {Color} 文本色
-    color:             map-get($base, color),
-    // {Color} 占位符颜色
-    placeholder-color: #bbb
-);
-
 // Element Button(18)
-$btn: (
+$_btn: (
     // {Color} Length
     border-width:   1px,
     // {Color} 边框色
@@ -230,7 +192,7 @@ $_badge: (
 );
 
 // Element checked(11)
-$checked: (
+$_checked: (
     // {String} 选中标记的内容，可以是自定义的webfont
     content:        "\f078",
     // {Length} 元件大小
@@ -255,18 +217,46 @@ $checked: (
     radius:         .05rem
 );
 
-// Element range(3)
-$range: (
-    // {Color} 已选择区域的滑轴背景色
-    inner-bgcolor: #444,
-    // {Color} 未选择区域的滑轴背景色
-    outer-bgcolor: #ccc,
-    // {Color} 滑块色
-    ball-color:    #fff
+// Element Input(8)
+$_input: (
+    // {Length} 输入框宽度
+    width:             100%,
+    // {Length} 输入框高度
+    height:            .44rem,
+    // {Length} 输入框内补白
+    padding:           .1rem,
+    // {Length} 输入框圆角
+    radius:            .02rem,
+    // {Color} 输入框边框色
+    border-color:       map-get($base, border-color),
+    // {Color} 输入框背景色
+    bgcolor:           transparent,
+    // {Color} 文本色
+    color:             map-get($base, color),
+    // {Color} 占位符颜色
+    placeholder-color: #bbb
+);
+
+// Element loading(7)
+$_loading: (
+    // {Length} 菊花大小
+    ico-size:     .5rem,
+    // {Color} 菊花颜色
+    ico-color:    #212121,
+    // {Color} mask颜色
+    mask-bgcolor: rgba(0, 0, 0, .1),
+    // {Color} 背景颜色
+    bgcolor:      null,
+    // {Length} 字号
+    font-size:    .14rem,
+    // {Color} 文本颜色
+    color:        map-get($base, color),
+    // {String} loading的ico编码，自定义的webfont
+    content:      "\f089"
 );
 
 // Element loadtip(3)
-$loadtip: (
+$_loadtip: (
     // {Color} 文本色
     color:     #666,
     // {Length} 字号
@@ -275,8 +265,18 @@ $loadtip: (
     ico-color: map-get($base, link-color)
 );
 
+// Element range(3)
+$_range: (
+    // {Color} 已选择区域的滑轴背景色
+    inner-bgcolor: #444,
+    // {Color} 未选择区域的滑轴背景色
+    outer-bgcolor: #ccc,
+    // {Color} 滑块色
+    ball-color:    #fff
+);
+
 // Widget UI score(3)
-$score: (
+$_score: (
     // {Length} 单项宽度
     item-width:  .16rem,
     // {Length} 单项高度
@@ -286,7 +286,7 @@ $score: (
 );
 
 // Fragment btnbar(1)
-$btnbar: (
+$_btnbar: (
     // {Length} 工具栏圆角
     // 当值为null时，btnbar的圆角半径取决于按钮的圆角定义
     radius: null

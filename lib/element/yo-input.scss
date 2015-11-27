@@ -2,6 +2,13 @@
 @import "../core/variables";
 @import "../core/classes";
 
+// 合并variables和config中的同类map
+@if global-variable-exists(input) {
+    $input: map-merge($_input, $input);
+} @else {
+    $input: $_input;
+}
+
 // 定义input的基础构造
 @mixin _input {
     &,

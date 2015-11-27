@@ -3,6 +3,13 @@
 @import "../core/classes";
 @import "../element/yo-btn";
 
+// 合并variables和config中的同类map
+@if global-variable-exists(btnbar) {
+    $btnbar: map-merge($_btnbar, $btnbar);
+} @else {
+    $btnbar: $_btnbar;
+}
+
 // 定义btnbar的基础构造
 @mixin _btnbar {
     display: inline-block;
