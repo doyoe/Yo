@@ -18,6 +18,7 @@ $_setting: (
 );
 
 // base
+// $base map在当前文件和config文件有引用，所以无法merge
 $base: (
     // 响应式的类型：normal | scaling
     responsive-type:        normal,
