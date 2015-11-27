@@ -5,7 +5,8 @@
  * Yo仅使用2种长度单位：px用于边框，rem用于除边框之外的所有地方
  */
 
-$setting: (
+// 基本设置
+$_setting: (
     // 版本号
     version:          "2.0.0",
     // 是否开启厂商前缀
@@ -31,7 +32,6 @@ $base: (
     // 所以这里注释该条属性，默认字号不能从root相对而来，所以定义成px
     font-size:            14px,
     // font-family
-    // escape('微软雅黑').replace(/\%u/g,'\\').toLowerCase()
     font-family:          #{"Helvetica Neue", Helvetica, STHeiTi, sans-serif},
     // lin-height
     line-height:          1.5,
@@ -57,7 +57,6 @@ $base: (
     light-color:          #FE0053,
     // 价格颜色
     price-color:          #f60,
-    // Link Colors
     // 默认链接色
     link-color:           #00afc7,
     // 链接经过色
@@ -65,7 +64,7 @@ $base: (
 );
 
 // responsive media types
-$media-types: (
+$_media-types: (
     // {String} 横屏
     landscape: "(orientation: landscape)",
     // {String} 竖屏
@@ -106,13 +105,31 @@ $media-types: (
 );
 
 // ico font
-$ico: (
+$_ico: (
     // {Boolean} 是否使用图标字体
     is-use:     true,
     // {String} 图标字体文件名
     font-name:  yofont,
     // {Url} 图标字体路径
     font-path:  "//source.qunarzz.com/fonts/yo/1.0.2/"
+);
+
+// z-index
+$_z-index: (
+    // {Number} 下拉菜单层级范围50-100
+    dropdown: 50,
+    // {Number} 遮罩层级
+    mask:     1000,
+    // {Number} 弹窗层级范围1001-2000
+    dialog:   1001,
+    // {Number} 浮层层级范围2001-2500
+    popup:    2001,
+    // {Number} 搜索层级范围2501-3000
+    suggest:  2501,
+    // {Number} 浮层层级范围3001-4000
+    tip:      3001,
+    // {Number} loading层级
+    loading:  9999
 );
 
 // Layout align
@@ -498,52 +515,10 @@ $_doublelist: (
     aside-order: null
 );
 
-// Widget tab(15)
-$_tab: (
-    // {Length} 组件宽度
-    width:              null,
-    // {Length} 组件高度
-    height:             .44rem,
-    // {Length} 圆角半径
-    radius:             null,
-    // {Length} 边框厚度
-    border-width:       1px 0 0 0,
-    // {Color} 边框色
-    border-color:       map-get($base, border-color),
-    // {Color} tab背景色
-    bgcolor:            #fafafa,
-    // {Color} tab文本色
-    color:              map-get($base, sub-color),
-    // {Color} tab激活背景色
-    on-bgcolor:         null,
-    // {Color} tab激活文本色
-    on-color:           #00bec8,
-    // {Length} 文本大小
-    font-size:          .14rem,
-    // {Length} 水平ico大小
-    x-ico-size:         .12rem,
-    // {Length} 垂直ico大小
-    y-ico-size:         .2rem,
-    // {Length} only ico大小
-    only-ico-size:      .28rem,
-    // {Color} item间隔线高度
-    item-border-height: 100%,
-    // {Color} item间隔线颜色
-    item-border-color:  transparent
-);
-
-// Widget switch(5)
-$_switch: (
-    // {Color} 激活边框色
-    checked-border-color:#4bd763,
-    // {Color} 激活背景色
-    checked-bgcolor:     #4bd763,
-    // {Color} 边框色
-    border-color:        map-get($base, border-color),
-    // {Color} 背景色
-    bgcolor:             map-get($base, bgcolor),
-    // {Color} 滑块色
-    ball-color:          #fff
+// Widget group(1)
+$_group: (
+    // {Length} group顶部偏移值
+    top: 0
 );
 
 // Widget index(3)
@@ -556,10 +531,90 @@ $_index: (
     font-size: .12rem
 );
 
-// Widget group(1)
-$_group: (
-    // {Length} group顶部偏移值
-    top: 0
+// Widget UI mask(1)
+$_mask: (
+    // {Color} 背景色
+    bgcolor: rgba(#000, .2)
+);
+
+// Widget UI number(11)
+$_number: (
+    // {Length} 宽度
+    width:               1.2rem,
+    // {Length} 高度
+    height:              .36rem,
+    // {Length} 外边框圆角半径
+    outer-radius:        .03rem,
+    // {Length} 外边框厚度
+    outer-border-width:  1px,
+    // {Length} 内边框圆角半径
+    inner-radius:        null,
+    // {Length} 内外边框厚度
+    inner-border-width:  1px,
+    // {Color} 外边框色
+    border-color:        map-get($base, border-color),
+    // {color} 输入框文本色
+    color:               map-get($base, color),
+    // {Color} 加减号背景色
+    sign-bgcolor:        map-get($base, bgcolor),
+    // {Color} 加减号文本色
+    sign-color:          #999,
+    // {Length} 字号
+    font-size:           .16rem,
+);
+
+// Widget UI Popup(11)
+$_popup: (
+    // {Length | null} 宽度
+    width:           null,
+    // {Length} 高度
+    height:          3rem,
+    // {Length} 圆角
+    radius:          .03rem,
+    // {Number} 阴影透明度(如果不想使用阴影，值为0)
+    shadow-opacity:  .5,
+    // {Color} 边框色
+    border-color:     map-get($base, border-color),
+    // {Length} 头部高度
+    hd-height:       .5rem,
+    // {Color} 头部背景色
+    hd-bgcolor:      #eee,
+    // {Color} 标题颜色
+    title-color:     map-get($base, color),
+    // {Length} 标题文字大小
+    title-font-size: .16rem,
+    // {Length} 主体区域间隙
+    bd-padding:      .1rem,
+    // {Length} 箭头大小
+    arrow-size:      .12rem
+);
+
+// Widget UI rating(3)
+$_rating: (
+    // {Length} 单项宽度
+    item-width:  .24rem,
+    // {Length} 单项高度
+    item-height: .18rem,
+    // {String} 图片URL
+    url:         "star.png"
+);
+
+// Widget UI select(3)
+$_select: (
+    // {Length} 默认显示几个列表项
+    item:        5,
+    // {Length} 每个列表项的高度
+    item-height: .3rem,
+    // {Color} 边框色
+    border-color: map-get($base, border-color),
+);
+
+// Widget UI slidermenu(2)
+$_slidermenu: (
+    // {Length} action 宽度
+    action-width:   1rem,
+    // {Color} action 背景色
+    action-bgcolor: #ccc
 );
 
 // Widget suggest(15)
@@ -596,78 +651,18 @@ $_suggest: (
     cancel-width:     .7rem
 );
 
-// Widget UI Popup(11)
-$_popup: (
-    // {Length | null} 宽度
-    width:           null,
-    // {Length} 高度
-    height:          3rem,
-    // {Length} 圆角
-    radius:          .03rem,
-    // {Number} 阴影透明度(如果不想使用阴影，值为0)
-    shadow-opacity:  .5,
+// Widget switch(5)
+$_switch: (
+    // {Color} 激活边框色
+    checked-border-color:#4bd763,
+    // {Color} 激活背景色
+    checked-bgcolor:     #4bd763,
     // {Color} 边框色
-    border-color:     map-get($base, border-color),
-    // {Length} 头部高度
-    hd-height:       .5rem,
-    // {Color} 头部背景色
-    hd-bgcolor:      #eee,
-    // {Color} 标题颜色
-    title-color:     map-get($base, color),
-    // {Length} 标题文字大小
-    title-font-size: .16rem,
-    // {Length} 主体区域间隙
-    bd-padding:      .1rem,
-    // {Length} 箭头大小
-    arrow-size:      .12rem
-);
-
-// Widget UI Tip(4)
-$_tip: (
-    // {Length} 内补白
-    padding: .06rem .15rem,
-    // {Length} 圆角
-    radius:  .05rem,
-    // {Color} 背景色
-    bgcolor: rgba(#000, .5),
-    // {Color} 文本色
-    color:   #fff
-);
-
-// Widget UI select(3)
-$_select: (
-    // {Length} 默认显示几个列表项
-    item:        5,
-    // {Length} 每个列表项的高度
-    item-height: .3rem,
-    // {Color} 边框色
-    border-color: map-get($base, border-color),
-);
-
-// Widget UI number(11)
-$_number: (
-    // {Length} 宽度
-    width:               1.2rem,
-    // {Length} 高度
-    height:              .36rem,
-    // {Length} 外边框圆角半径
-    outer-radius:        .03rem,
-    // {Length} 外边框厚度
-    outer-border-width:  1px,
-    // {Length} 内边框圆角半径
-    inner-radius:        null,
-    // {Length} 内外边框厚度
-    inner-border-width:  1px,
-    // {Color} 外边框色
     border-color:        map-get($base, border-color),
-    // {color} 输入框文本色
-    color:               map-get($base, color),
-    // {Color} 加减号背景色
-    sign-bgcolor:        map-get($base, bgcolor),
-    // {Color} 加减号文本色
-    sign-color:          #999,
-    // {Length} 字号
-    font-size:           .16rem,
+    // {Color} 背景色
+    bgcolor:             map-get($base, bgcolor),
+    // {Color} 滑块色
+    ball-color:          #fff
 );
 
 // Widget UI switchable(9)
@@ -692,28 +687,50 @@ $_switchable: (
     index-on-bgcolor:   #09a5c4
 );
 
-// Widget UI mask(1)
-$_mask: (
+// Widget tab(15)
+$_tab: (
+    // {Length} 组件宽度
+    width:              null,
+    // {Length} 组件高度
+    height:             .44rem,
+    // {Length} 圆角半径
+    radius:             null,
+    // {Length} 边框厚度
+    border-width:       1px 0 0 0,
+    // {Color} 边框色
+    border-color:       map-get($base, border-color),
+    // {Color} tab背景色
+    bgcolor:            #fafafa,
+    // {Color} tab文本色
+    color:              map-get($base, sub-color),
+    // {Color} tab激活背景色
+    on-bgcolor:         null,
+    // {Color} tab激活文本色
+    on-color:           #00bec8,
+    // {Length} 文本大小
+    font-size:          .14rem,
+    // {Length} 水平ico大小
+    x-ico-size:         .12rem,
+    // {Length} 垂直ico大小
+    y-ico-size:         .2rem,
+    // {Length} only ico大小
+    only-ico-size:      .28rem,
+    // {Color} item间隔线高度
+    item-border-height: 100%,
+    // {Color} item间隔线颜色
+    item-border-color:  transparent
+);
+
+// Widget UI Tip(4)
+$_tip: (
+    // {Length} 内补白
+    padding: .06rem .15rem,
+    // {Length} 圆角
+    radius:  .05rem,
     // {Color} 背景色
-    bgcolor: rgba(#000, .2)
-);
-
-// Widget UI slidermenu(2)
-$_slidermenu: (
-    // {Length} action 宽度
-    action-width:   1rem,
-    // {Color} action 背景色
-    action-bgcolor: #ccc
-);
-
-// Widget UI rating(3)
-$_rating: (
-    // {Length} 单项宽度
-    item-width:  .24rem,
-    // {Length} 单项高度
-    item-height: .18rem,
-    // {String} 图片URL
-    url:         "star.png"
+    bgcolor: rgba(#000, .5),
+    // {Color} 文本色
+    color:   #fff
 );
 
 // Widget UI vcode(6)
@@ -730,22 +747,4 @@ $_vcode: (
     border-width: 1px,
     // {Color} 输入框边框色
     border-color:  #000
-);
-
-// z-index
-$z-index: (
-    // {Number} 下拉菜单层级范围50-100
-    dropdown: 50,
-    // {Number} 遮罩层级
-    mask:     1000,
-    // {Number} 弹窗层级范围1001-2000
-    dialog:   1001,
-    // {Number} 浮层层级范围2001-2500
-    popup:    2001,
-    // {Number} 搜索层级范围2501-3000
-    suggest:  2501,
-    // {Number} 浮层层级范围3001-4000
-    tip:      3001,
-    // {Number} loading层级
-    loading:  9999
 );

@@ -2,13 +2,6 @@
 @import "../core/variables";
 @import "../core/classes";
 
-// 合并variables和config中的同类map
-@if global-variable-exists(doublelist) {
-    $doublelist: map-merge($_doublelist, $doublelist);
-} @else {
-    $doublelist: $_doublelist;
-}
-
 // 定义doublelist的基础构造
 @mixin _doublelist {
     @include fullscreen;

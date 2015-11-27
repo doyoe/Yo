@@ -2,13 +2,6 @@
 @import "../core/variables";
 @import "../core/classes";
 
-// 合并variables和config中的同类map
-@if global-variable-exists(tab) {
-    $tab: map-merge($_tab, $tab);
-} @else {
-    $tab: $_tab;
-}
-
 // 定义tab的基础构造
 @mixin _tab {
     @include flexbox;
@@ -213,7 +206,7 @@
         @if $bgcolor != map-get($tab, bgcolor) {
             background-color: $bgcolor;
         }
-        @if $font-size != map-get($tab, font-size) and map-get($tab, font-size) != map-get($base, font-size) {
+        @if $font-size != map-get($tab, font-size) {
             font-size: $font-size;
         }
         > .item {

@@ -3,13 +3,6 @@
 @import "../core/classes";
 @import "../ani/rotate";
 
-// 合并variables和config中的同类map
-@if global-variable-exists(loading) {
-    $loading: map-merge($_loading, $loading);
-} @else {
-    $loading: $_loading;
-}
-
 // 定义loading的基础构造
 @mixin _loading {
     @include flexbox;

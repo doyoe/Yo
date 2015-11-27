@@ -2,13 +2,6 @@
 @import "../core/variables";
 @import "../core/classes";
 
-// 合并variables和config中的同类map
-@if global-variable-exists(suggest) {
-    $suggest: map-merge($_suggest, $suggest);
-} @else {
-    $suggest: $_suggest;
-}
-
 // 定义suggest的基础构造
 @mixin _suggest {
     > .operate {

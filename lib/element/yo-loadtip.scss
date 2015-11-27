@@ -3,13 +3,6 @@
 @import "../core/classes";
 @import "../ani/rotate";
 
-// 合并variables和config中的同类map
-@if global-variable-exists(loadtip) {
-    $loadtip: map-merge($_loadtip, $loadtip);
-} @else {
-    $loadtip: $_loadtip;
-}
-
 // 定义loadtip的基础构造
 @mixin _loadtip {
     @include flexbox(inline-flex);

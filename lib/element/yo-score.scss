@@ -2,13 +2,6 @@
 @import "../core/variables";
 @import "../core/classes";
 
-// 合并variables和config中的同类map
-@if global-variable-exists(score) {
-    $score: map-merge($_score, $score);
-} @else {
-    $score: $_score;
-}
-
 // 定义score的基础构造
 @mixin _score {
     position: relative;

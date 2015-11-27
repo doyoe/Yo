@@ -2,13 +2,6 @@
 @import "../core/variables";
 @import "../core/classes";
 
-// 合并variables和config中的同类map
-@if global-variable-exists(btn) {
-    $btn: map-merge($_btn, $btn);
-} @else {
-    $btn: $_btn;
-}
-
 // 定义按钮的基础构造
 @mixin _btn {
     display: inline-block;

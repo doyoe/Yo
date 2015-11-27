@@ -2,13 +2,6 @@
 @import "../core/variables";
 @import "../core/classes";
 
-// 合并variables和config中的同类map
-@if global-variable-exists(flex) {
-    $flex: map-merge($_flex, $flex);
-} @else {
-    $flex: $_flex;
-}
-
 // 定义常见弹性布局
 @mixin _flex {
     height: 100%;

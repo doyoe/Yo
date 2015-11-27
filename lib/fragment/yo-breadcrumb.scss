@@ -2,13 +2,6 @@
 @import "../core/variables";
 @import "../core/classes";
 
-// 合并variables和config中的同类map
-@if global-variable-exists(breadcrumb) {
-    $breadcrumb: map-merge($_breadcrumb, $breadcrumb);
-} @else {
-    $breadcrumb: $_breadcrumb;
-}
-
 // 定义breadcrumb的基础构造
 @mixin _breadcrumb {
     @include flexbox;

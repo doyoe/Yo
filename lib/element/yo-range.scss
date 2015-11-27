@@ -2,13 +2,6 @@
 @import "../core/variables";
 @import "../core/classes";
 
-// 合并variables和config中的同类map
-@if global-variable-exists(range) {
-    $range: map-merge($_range, $range);
-} @else {
-    $range: $_range;
-}
-
 // 定义range的基础构造
 @mixin _range {
     @include flexbox;

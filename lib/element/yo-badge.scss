@@ -2,13 +2,6 @@
 @import "../core/variables";
 @import "../core/classes";
 
-// 合并variables和config中的同类map
-@if global-variable-exists(badge) {
-    $badge: map-merge($_badge, $badge);
-} @else {
-    $badge: $_badge;
-}
-
 // 定义badge的基础构造
 @mixin _badge {
     @include align(inline-flex);
