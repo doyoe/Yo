@@ -7,15 +7,15 @@
     @include align(inline-flex);
     min-width: .16rem;
     min-height: .16rem;
-    padding: map-get($badge, padding);
+    padding: map-get($_badge, padding);
     @include border(
-        $border-width: map-get($badge, border-width),
-        $border-color: map-get($badge, border-color),
-        $radius: map-get($badge, radius)
+        $border-width: map-get($_badge, border-width),
+        $border-color: map-get($_badge, border-color),
+        $radius: map-get($_badge, radius)
     );
-    background-color: map-get($badge, bgcolor);
-    color: map-get($badge, color);
-    font-size: map-get($badge, font-size);
+    background-color: map-get($_badge, bgcolor);
+    color: map-get($_badge, color);
+    font-size: map-get($_badge, font-size);
     line-height: 1;
 }
 
@@ -45,6 +45,15 @@
     $color: default,
     $radius: default,
     $font-size: default) {
+    // 合并variables和config中的同类map
+    @if global-variable-exists(badge) {
+        $badge: map-merge($_badge, $badge);
+        @debug $badge;
+    } @else {
+        $badge: $_badge;
+        @debug $badge;
+    }
+    // @include merge-variables-config(_badge, badge);
     // 区别是否新增实例还是修改本身
     @if $name == default {
         $name: "";

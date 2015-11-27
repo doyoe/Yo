@@ -14,7 +14,7 @@ $setting: (
     vendor-prefix:    -webkit-,
     // 背景图片服务器
     bgimg-domain:     "//source.qunarzz.com/yo/bgimg/"
-) !default;
+);
 
 // base
 $base: (
@@ -62,7 +62,7 @@ $base: (
     link-color:           #00afc7,
     // 链接经过色
     link-hover-color:     #f60
-) !default;
+);
 
 // responsive media types
 $media-types: (
@@ -103,7 +103,7 @@ $media-types: (
     l:         "(min-width: 1281px) and (max-width: 1440px)",
     // 用于超大台式机
     xl:        "(min-width: 1441px)"
-) !default;
+);
 
 // ico font
 $ico: (
@@ -113,19 +113,19 @@ $ico: (
     font-name:  yofont,
     // {Url} 图标字体路径
     font-path:  "//source.qunarzz.com/fonts/yo/1.0.2/"
-) !default;
+);
 
 // Layout Stacked
 $stacked: (
     // {Length} 区块外边距
     margin: .2rem .1rem
-) !default;
+);
 
 // Layout flex
 $flex: (
     // {String} 定义是水平布局还是垂直布局: row | column
     direction: column
-) !default;
+);
 
 // Layout align
 $align: (
@@ -133,7 +133,7 @@ $align: (
     text-align:     center,
     // {String} 定义弹性垂直对齐方式
     vertical-align: center
-) !default;
+);
 
 // Element loading(7)
 $loading: (
@@ -151,7 +151,7 @@ $loading: (
     color:        map-get($base, color),
     // {String} loading的ico编码，自定义的webfont
     content:      "\f089"
-) !default;
+);
 
 // Element Input(8)
 $input: (
@@ -171,7 +171,7 @@ $input: (
     color:             map-get($base, color),
     // {Color} 占位符颜色
     placeholder-color: #bbb
-) !default;
+);
 
 // Element Button(18)
 $btn: (
@@ -209,10 +209,10 @@ $btn: (
     // large
     l-height:       .44rem,
     l-font-size:    .16rem
-) !default;
+);
 
 // Element UI badge(7)
-$badge: (
+$_badge: (
     // {Length} 内补白
     padding:      0 .03rem,
     // {Length} 边框厚度
@@ -227,7 +227,7 @@ $badge: (
     radius:       .1rem,
     // {Length} 字号
     font-size:    .12rem
-) !default;
+);
 
 // Element checked(11)
 $checked: (
@@ -253,7 +253,7 @@ $checked: (
     on-color:       #2b94ff,
     // {Length} 圆角
     radius:         .05rem
-) !default;
+);
 
 // Element range(3)
 $range: (
@@ -263,7 +263,7 @@ $range: (
     outer-bgcolor: #ccc,
     // {Color} 滑块色
     ball-color:    #fff
-) !default;
+);
 
 // Element loadtip(3)
 $loadtip: (
@@ -273,7 +273,7 @@ $loadtip: (
     font-size: .14rem,
     // {Color} ico色
     ico-color: map-get($base, link-color)
-) !default;
+);
 
 // Widget UI score(3)
 $score: (
@@ -283,14 +283,14 @@ $score: (
     item-height: .12rem,
     // {String} 图片URL
     url:         "star.png"
-) !default;
+);
 
 // Fragment btnbar(1)
 $btnbar: (
     // {Length} 工具栏圆角
     // 当值为null时，btnbar的圆角半径取决于按钮的圆角定义
     radius: null
-) !default;
+);
 
 // Fragment list(15)
 $list: (
@@ -325,9 +325,9 @@ $list: (
     // {Length} 列表项下边线距离左侧的间隙
     item-border-space: .1rem,
     // {Length} 详情区域字号
-    detail-font-size:    .12rem,
+    detail-font-size:  .12rem,
     // {Length} 详情区域文本色
-    detail-color:        #999,
+    detail-color:      #999,
     // {Length} 描述区域字号
     info-font-size:    null,
     // {Length} 描述区域文本色
@@ -336,7 +336,7 @@ $list: (
     more-font-size:    .12rem,
     // {Length} 更多区域文本色
     more-color:        #aaa
-) !default;
+);
 
 // Widget tab(15)
 $tab: (
@@ -370,7 +370,7 @@ $tab: (
     item-border-height: 100%,
     // {Color} item间隔线颜色
     item-border-color:  transparent
-) !default;
+);
 
 // Fragment Table(10)
 $table: (
@@ -394,7 +394,7 @@ $table: (
     active-bgcolor:      null,
     // {Color} 表主体选中行背景色
     on-bgcolor:          null
-) !default;
+);
 
 // Fragment header(12)
 $header: (
@@ -422,7 +422,7 @@ $header: (
     item-font-size: .14rem,
     // {Length} 两侧的子项ico大小
     item-ico-size:  .2rem
-) !default;
+);
 
 // Fragment breadcrumb(5)
 $breadcrumb: (
@@ -436,7 +436,7 @@ $breadcrumb: (
     arrow-color:  #ccc,
     // {Length} 面包屑子项间隙
     item-space:   .05rem
-) !default;
+);
 
 // Widget switch(5)
 $switch: (
@@ -450,7 +450,7 @@ $switch: (
     bgcolor:             map-get($base, bgcolor),
     // {Color} 滑块色
     ball-color:          #fff
-) !default;
+);
 
 // Widget index(3)
 $index: (
@@ -460,13 +460,13 @@ $index: (
     color:     #555,
     // {Length} 索引字号
     font-size: .12rem
-) !default;
+);
 
 // Widget group(1)
 $group: (
     // {Length} group顶部偏移值
     top: 0
-) !default;
+);
 
 // Widget suggest(15)
 $suggest: (
@@ -500,7 +500,7 @@ $suggest: (
     mask-bgcolor:     rgba(#fff, .9),
     // {Length} 取消按钮区域宽度
     cancel-width:     .7rem
-) !default;
+);
 
 // Widget UI Dialog(11)
 $dialog: (
@@ -526,7 +526,7 @@ $dialog: (
     bd-padding:      .1rem,
     // {Length} 主体区域文字大小
     bd-font-size:    .16rem
-) !default;
+);
 
 // Widget UI Popup(11)
 $popup: (
@@ -552,7 +552,7 @@ $popup: (
     bd-padding:      .1rem,
     // {Length} 箭头大小
     arrow-size:      .12rem
-) !default;
+);
 
 // Widget UI Tip(4)
 $tip: (
@@ -564,7 +564,7 @@ $tip: (
     bgcolor: rgba(#000, .5),
     // {Color} 文本色
     color:   #fff
-) !default;
+);
 
 // Widget UI select(3)
 $select: (
@@ -574,7 +574,7 @@ $select: (
     item-height: .3rem,
     // {Color} 边框色
     border-color: map-get($base, border-color),
-) !default;
+);
 
 // Widget UI number(11)
 $number: (
@@ -600,7 +600,7 @@ $number: (
     sign-color:          #999,
     // {Length} 字号
     font-size:           .16rem,
-) !default;
+);
 
 // Widget UI switchable(9)
 $switchable: (
@@ -622,13 +622,13 @@ $switchable: (
     index-bgcolor:      #85c8d1,
     // {Color} 索引的当前项背景色
     index-on-bgcolor:   #09a5c4
-) !default;
+);
 
 // Widget UI mask(1)
 $mask: (
     // {Color} 背景色
     bgcolor: rgba(#000, .2)
-) !default;
+);
 
 // Widget UI slidermenu(2)
 $slidermenu: (
@@ -636,7 +636,7 @@ $slidermenu: (
     action-width:   1rem,
     // {Color} action 背景色
     action-bgcolor: #ccc
-) !default;
+);
 
 // Widget UI rating(3)
 $rating: (
@@ -646,7 +646,7 @@ $rating: (
     item-height: .18rem,
     // {String} 图片URL
     url:         "star.png"
-) !default;
+);
 
 // Widget UI doublelist(2)
 $doublelist: (
@@ -654,7 +654,7 @@ $doublelist: (
     aside-width: null,
     // {Length} 导航panel顺序，从0开始
     aside-order: null
-) !default;
+);
 
 // Widget UI datepicker(25)
 $datepicker: (
@@ -714,7 +714,7 @@ $datepicker: (
     start-content:         "入店",
     // {String} 结束日期提示语
     end-content:           "离店"
-) !default;
+);
 
 // Widget UI vcode(6)
 $vcode: (
@@ -730,7 +730,7 @@ $vcode: (
     border-width: 1px,
     // {Color} 输入框边框色
     border-color:  #000
-) !default;
+);
 
 // z-index
 $z-index: (
@@ -748,4 +748,4 @@ $z-index: (
     tip:      3001,
     // {Number} loading层级
     loading:  9999
-) !default;
+);

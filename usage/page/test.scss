@@ -1,7 +1,5 @@
 @charset "utf-8";
 @import "../layout/layout";
-@import "../fragment/yo-list";
-@import "../widget/yo-tab";
 
 // Android4.3及以下
 .img {
@@ -14,23 +12,6 @@
 .img > img {
     // border-radius: 50%;
 }
-
-@include responsive(xs) {
-    .demo {
-        color: red;
-    }
-}
-@include responsive(s) {
-    .demo {
-        color: blue;
-    }
-}
-@include responsive(m) {
-    .demo {
-        color: yellow;
-    }
-}
-
 
 .demo {
     @include flexbox;
