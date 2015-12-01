@@ -69,8 +69,10 @@ Yo约束了2种项目所使用的长度单位
 * (*)change: `bordercolor`变量
     - 将所有带`bordercolor`关键字的变量都重命名为`border-color`，因为早期的时候命名不严谨导致吐槽激烈，特在此大版本中全部修正
 * (*)change:
-    - 不再强制要求升级`Yo`时业务对比config和variables的一致性；
-    - 需要注意的是variables中map使用`_`开头，而config中不需要`_`，例如：`$_list` -> `$list`
+    - 不再强制要求升级`Yo`时业务对比`config`和`variables`的一致性；
+    - 需要注意的是variables中map使用`_`开头，而config中不需要`_`，例如：`$_list` -> `$list`；
+    - 从`variables`中将base map拆分到新文件base，同时在config中新增extra文件用以对应该文件；
+    - 用户可以在extra文件中配置，扩展或者新增map；
 * change: `yo-btn`
     - 将原来统一的灰色禁用按钮更改为每个按钮的禁用外观取决于自身的本来颜色
 * change: `yo-number`
