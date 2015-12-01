@@ -6,7 +6,7 @@
  */
 
 // 基本设置
-$_setting: (
+$setting: (
     // 版本号
     version:          "2.0.0",
     // 是否开启厂商前缀
@@ -18,7 +18,7 @@ $_setting: (
 );
 
 // base
-$_base: (
+$base: (
     // 响应式的类型：normal | scaling
     responsive-type:        normal,
     // html root使用100px，方便rem单位的换算
@@ -66,13 +66,13 @@ $_base: (
 // 合并variables和config中的同类base map，variables中不需要此段代码（最恶心的代码）
 // 因为$base被当前文件内的部分map中引用，所以无法将merge动作放到本文件之后进行
 @if global-variable-exists(base) {
-    $base: map-merge($_base, $base);
+    $base: map-merge($base, $base);
 } @else {
-    $base: $_base;
+    $base: $base;
 }
 
 // responsive media types
-$_media-types: (
+$media-types: (
     // {String} 横屏
     landscape: "(orientation: landscape)",
     // {String} 竖屏
@@ -113,7 +113,7 @@ $_media-types: (
 );
 
 // ico font
-$_ico: (
+$ico: (
     // {Boolean} 是否使用图标字体
     is-use:     true,
     // {String} 图标字体文件名
@@ -123,7 +123,7 @@ $_ico: (
 );
 
 // z-index
-$_z-index: (
+$z-index: (
     // {Number} 下拉菜单层级范围50-100
     dropdown: 50,
     // {Number} 遮罩层级
@@ -141,7 +141,7 @@ $_z-index: (
 );
 
 // Layout align
-$_align: (
+$align: (
     // {String} 定义弹性水平对齐方式
     text-align:     center,
     // {String} 定义弹性垂直对齐方式
@@ -149,19 +149,19 @@ $_align: (
 );
 
 // Layout flex
-$_flex: (
+$flex: (
     // {String} 定义是水平布局还是垂直布局: row | column
     direction: column
 );
 
 // Layout Stacked
-$_stacked: (
+$stacked: (
     // {Length} 区块外边距
     margin: .2rem .1rem
 );
 
 // Element UI badge(7)
-$_badge: (
+$badge: (
     // {Length} 内补白
     padding:      0 .03rem,
     // {Length} 边框厚度
@@ -179,7 +179,7 @@ $_badge: (
 );
 
 // Element Button(18)
-$_btn: (
+$btn: (
     // {Color} Length
     border-width:   1px,
     // {Color} 边框色
@@ -217,7 +217,7 @@ $_btn: (
 );
 
 // Element checked(11)
-$_checked: (
+$checked: (
     // {String} 选中标记的内容，可以是自定义的webfont
     content:        "\f078",
     // {Length} 元件大小
@@ -243,7 +243,7 @@ $_checked: (
 );
 
 // Element Input(8)
-$_input: (
+$input: (
     // {Length} 输入框宽度
     width:             100%,
     // {Length} 输入框高度
@@ -263,7 +263,7 @@ $_input: (
 );
 
 // Element loading(7)
-$_loading: (
+$loading: (
     // {Length} 菊花大小
     ico-size:     .5rem,
     // {Color} 菊花颜色
@@ -281,7 +281,7 @@ $_loading: (
 );
 
 // Element loadtip(3)
-$_loadtip: (
+$loadtip: (
     // {Color} 文本色
     color:     #666,
     // {Length} 字号
@@ -291,7 +291,7 @@ $_loadtip: (
 );
 
 // Element range(3)
-$_range: (
+$range: (
     // {Color} 已选择区域的滑轴背景色
     inner-bgcolor: #444,
     // {Color} 未选择区域的滑轴背景色
@@ -301,7 +301,7 @@ $_range: (
 );
 
 // Fragment UI score(3)
-$_score: (
+$score: (
     // {Length} 单项宽度
     item-width:  .16rem,
     // {Length} 单项高度
@@ -311,7 +311,7 @@ $_score: (
 );
 
 // Fragment breadcrumb(5)
-$_breadcrumb: (
+$breadcrumb: (
     // {Length} 面包屑高度
     height:       .44rem,
     // {Color} 面包屑背景色
@@ -325,14 +325,14 @@ $_breadcrumb: (
 );
 
 // Fragment btnbar(1)
-$_btnbar: (
+$btnbar: (
     // {Length} 工具栏圆角
     // 当值为null时，btnbar的圆角半径取决于按钮的圆角定义
     radius: null
 );
 
 // Fragment header(12)
-$_header: (
+$header: (
     // {Length} 高度
     height:         .44rem,
     // {Length} 两侧的子项宽度
@@ -360,7 +360,7 @@ $_header: (
 );
 
 // Fragment list(15)
-$_list: (
+$list: (
     // {Length} 列表外边距
     margin:            null,
     // {Length} 列表圆角
@@ -406,7 +406,7 @@ $_list: (
 );
 
 // Fragment Table(10)
-$_table: (
+$table: (
     // {Length} 表头部内补白
     width:               100%,
     // {Boolean} 是否需要纵向边框
@@ -430,7 +430,7 @@ $_table: (
 );
 
 // Widget UI datepicker(25)
-$_datepicker: (
+$datepicker: (
     // {Length} 星期bar高度
     week-bar-height:      .22rem,
     // {Color} 星期bar背景色
@@ -490,7 +490,7 @@ $_datepicker: (
 );
 
 // Widget UI Dialog(11)
-$_dialog: (
+$dialog: (
     // {Length | null} 宽度
     width:           null,
     // {Length} 高度
@@ -516,7 +516,7 @@ $_dialog: (
 );
 
 // Widget UI doublelist(2)
-$_doublelist: (
+$doublelist: (
     // {Length} 导航panel宽度
     aside-width: null,
     // {Length} 导航panel顺序，从0开始
@@ -524,13 +524,13 @@ $_doublelist: (
 );
 
 // Widget group(1)
-$_group: (
+$group: (
     // {Length} group顶部偏移值
     top: 0
 );
 
 // Widget index(3)
-$_index: (
+$index: (
     // {Length} 索引宽度
     width:     .3rem,
     // {Color} 文本色
@@ -540,13 +540,13 @@ $_index: (
 );
 
 // Widget UI mask(1)
-$_mask: (
+$mask: (
     // {Color} 背景色
     bgcolor: rgba(#000, .2)
 );
 
 // Widget UI number(11)
-$_number: (
+$number: (
     // {Length} 宽度
     width:               1.2rem,
     // {Length} 高度
@@ -572,7 +572,7 @@ $_number: (
 );
 
 // Widget UI Popup(11)
-$_popup: (
+$popup: (
     // {Length | null} 宽度
     width:           null,
     // {Length} 高度
@@ -598,7 +598,7 @@ $_popup: (
 );
 
 // Widget UI rating(3)
-$_rating: (
+$rating: (
     // {Length} 单项宽度
     item-width:  .24rem,
     // {Length} 单项高度
@@ -608,7 +608,7 @@ $_rating: (
 );
 
 // Widget UI select(3)
-$_select: (
+$select: (
     // {Length} 默认显示几个列表项
     item:        5,
     // {Length} 每个列表项的高度
@@ -618,7 +618,7 @@ $_select: (
 );
 
 // Widget UI slidermenu(2)
-$_slidermenu: (
+$slidermenu: (
     // {Length} action 宽度
     action-width:   1rem,
     // {Color} action 背景色
@@ -626,7 +626,7 @@ $_slidermenu: (
 );
 
 // Widget suggest(15)
-$_suggest: (
+$suggest: (
     // {Length} 输入框高度
     height:           .3rem,
     // {Length} 搜索区文字大小
@@ -660,7 +660,7 @@ $_suggest: (
 );
 
 // Widget switch(5)
-$_switch: (
+$switch: (
     // {Color} 激活边框色
     checked-border-color:#4bd763,
     // {Color} 激活背景色
@@ -674,7 +674,7 @@ $_switch: (
 );
 
 // Widget UI switchable(9)
-$_switchable: (
+$switchable: (
     // {Boolean} 是否有按钮
     has-btn:            false,
     // {Length} 按钮大小
@@ -696,7 +696,7 @@ $_switchable: (
 );
 
 // Widget tab(15)
-$_tab: (
+$tab: (
     // {Length} 组件宽度
     width:              null,
     // {Length} 组件高度
@@ -730,7 +730,7 @@ $_tab: (
 );
 
 // Widget UI Tip(4)
-$_tip: (
+$tip: (
     // {Length} 内补白
     padding: .06rem .15rem,
     // {Length} 圆角
@@ -742,7 +742,7 @@ $_tip: (
 );
 
 // Widget UI vcode(6)
-$_vcode: (
+$vcode: (
     // {Length} 输入框高度
     height:       .44rem,
     // {Color} 输入框背景色
