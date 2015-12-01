@@ -3,10 +3,8 @@
 
 // 定义loading的基础构造
 @mixin _loading {
-    @include flexbox;
+    @include align;
     @include fullscreen(map-get($z-index, loading));
-    @include justify-content;
-    @include align-items;
     background-color: map-get($loading, mask-bgcolor);
     line-height: 1;
     > .inner {
