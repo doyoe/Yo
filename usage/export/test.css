@@ -317,37 +317,3 @@ a {
   height: 100px;
   background-color: red;
 }
-
-.yo-proportion {
-  margin: .1rem;
-  background-color: #eee;
-  line-height: .34rem;
-  color: #fff;
-  font-size: .14rem;
-}
-
-.yo-proportion > .inner {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  min-height: .05rem;
-  padding: 0 .1rem;
-  background-color: red;
-}
-
-.yo-proportion > .inner > .date,
-.yo-proportion > .inner > .amount {
-  display: block;
-}
-
-.yo-proportion > .inner > .date {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  flex: 1;
-  width: .1px;
-}
-
-.yo-proportion > .inner::after {
-  display: block;
-  content: attr(data-attr);
-}

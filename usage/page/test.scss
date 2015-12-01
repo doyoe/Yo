@@ -23,28 +23,3 @@
         background-color: red;
     }
 }
-
-.yo-proportion {
-    margin: .1rem;
-    background-color: #eee;
-    line-height: .34rem;
-    color: #fff;
-    font-size: .14rem;
-    > .inner {
-        @include flexbox;
-        min-height: .05rem;
-        padding: 0 .1rem;
-        background-color: red;
-        > .date,
-        > .amount {
-            display: block;
-        }
-        > .date {
-            @include flex;
-        }
-        &::after {
-            display: block;
-            content: attr(data-attr);
-        }
-    }
-}
