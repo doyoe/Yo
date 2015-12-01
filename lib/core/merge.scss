@@ -139,6 +139,13 @@
     $list: $_list;
 }
 
+// 合并variables和config中的proportion map
+@if global-variable-exists(proportion) {
+    $proportion: map-merge($_proportion, $proportion);
+} @else {
+    $proportion: $_proportion;
+}
+
 // 合并variables和config中的table map
 @if global-variable-exists(table) {
     $table: map-merge($_table, $table);

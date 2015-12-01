@@ -131,7 +131,7 @@
  * @version 1.0.0
  * @param {Length} $font-size 指定子元素字号，默认值：config基准字号 {add: 2.0.0}
  */
-@mixin killspace($font-size: map-get($base, font-size)) {
+@mixin killspace($font-size: map-get($base, font-size-baseline)) {
     font-size: 0;
     font-family: arial;
     > .item {

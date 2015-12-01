@@ -49,6 +49,8 @@ Yo约束了2种项目所使用的长度单位
     - 新增`yo-vcode`用于验证码或者密码输入组件
 * add: `yo-breadcrumb`
     - 新增`yo-breadcrumb`面包屑
+* add: `yo-proportion`
+    - 新增`yo-proportion`用于展现占比情况
 * add: `响应式断点`
     - 新增`xs, s, m, l, xl`5类响应式断点，用于支持响应式设计
 * add: `global classes`

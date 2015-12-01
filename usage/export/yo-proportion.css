@@ -1,4 +1,3 @@
-@charset "UTF-8";
 *,
 ::before,
 ::after {
@@ -411,6 +410,10 @@ a {
   color: #212121;
 }
 
+.m-layer {
+  position: relative;
+}
+
 .m-desc {
   margin: .3rem .1rem;
   padding-bottom: .05rem;
@@ -455,102 +458,36 @@ a {
   margin: .1rem;
 }
 
-.ani {
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
+.yo-proportion {
+  margin: 0.1rem;
+  background-color: #eee;
+  line-height: 0.35rem;
+  color: #fff;
+  font-size: 0.14rem;
 }
 
-.ani.infinite {
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-}
-
-@-webkit-keyframes rotate {
-  from {
-    -webkit-transform: rotatez(0);
-  }
-  to {
-    -webkit-transform: rotatez(360deg);
-  }
-}
-
-@keyframes rotate {
-  from {
-    transform: rotatez(0);
-  }
-  to {
-    transform: rotatez(360deg);
-  }
-}
-
-.ani.rotate {
-  -webkit-animation-name: rotate;
-  animation-name: rotate;
-}
-
-.yo-loading {
+.yo-proportion > .inner {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
-  position: absolute;
-  z-index: 9999;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.1);
-  line-height: 1;
+  min-height: 0.05rem;
+  padding: 0 .1rem;
+  background-color: red;
 }
 
-.yo-loading > .inner {
+.yo-proportion > .inner > .date,
+.yo-proportion > .inner > .amount {
   display: block;
-  text-align: center;
-  padding: .1rem .2rem;
-  border-radius: .05rem;
-  color: #212121;
 }
 
-.yo-loading > .inner > .yo-ico {
+.yo-proportion > .inner > .date {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  width: .1px;
+}
+
+.yo-proportion > .inner::after {
   display: block;
-  -webkit-animation: rotate 1s infinite linear;
-  animation: rotate 1s infinite linear;
-  -webkit-transform-origin: center;
-  transform-origin: center;
-}
-
-.yo-loading > .inner > .yo-ico::before {
-  content: "";
-  color: #212121;
-  font-family: yofont;
-  font-size: 0.5rem;
-}
-
-.yo-loading > .inner > .yo-ico:not(:only-child) {
-  margin-bottom: .1rem;
-}
-
-.yo-loading-b {
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
-.yo-loading-b > .inner {
-  background-color: #666;
-  color: #00afc7;
-}
-
-.yo-loading-b > .inner > .yo-ico::before {
-  color: #00afc7;
-}
-
-.yo-loading {
-  position: static;
-  min-height: 2rem;
+  content: attr(data-attr);
 }

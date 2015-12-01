@@ -24,22 +24,22 @@
     }
 }
 
-.k {
+.yo-proportion {
     margin: .1rem;
     background-color: #eee;
-    height: .34rem;
-    min-height: .05rem;
+    line-height: .34rem;
+    color: #fff;
+    font-size: .14rem;
     > .inner {
-        @include align;
-        height: 100%;
+        @include flexbox;
+        min-height: .05rem;
         padding: 0 .1rem;
         background-color: red;
-        color: #fff;
-        > .xxx,
-        > .yyy {
+        > .date,
+        > .amount {
             display: block;
         }
-        > .xxx {
+        > .date {
             @include flex;
         }
         &::after {
