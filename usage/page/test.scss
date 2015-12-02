@@ -13,13 +13,6 @@
     // border-radius: 50%;
 }
 
-.demo {
-    @include flexbox;
-    @include flex-flow(row wrap);
-    width: 300px;
-    > .item {
-        width: 100px;
-        height: 100px;
-        background-color: red;
-    }
+.test {
+    @include gradient(linear, #f00, #f00);
 }

@@ -285,7 +285,7 @@
  * @param {String} $gradient 指定渐变取值，与w3c最新原生语法一致 {add:1.0.0}
  */
 @mixin gradient($type, $gradient...) {
-    @if map-get($setting, is-vendor-prefix) {
+    @if map-get($setting, is-vendor-prefix) == true {
         @each $vendor in map-get($setting, vendor-prefix) {
             background-image: $vendor$type#{-gradient($gradient)};
         }

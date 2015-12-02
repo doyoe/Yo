@@ -303,17 +303,7 @@ a {
   background-color: blue;
 }
 
-.demo {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-flow: row wrap;
-  flex-flow: row wrap;
-  width: 300px;
-}
-
-.demo > .item {
-  width: 100px;
-  height: 100px;
-  background-color: red;
+.test {
+  background-image: -webkit-linear-gradient(#f00, #f00);
+  background-image: linear-gradient(#f00, #f00);
 }
