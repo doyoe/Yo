@@ -311,7 +311,6 @@
     @if $is-angle == false {
         $dir-new: #{to $dir-new};
     }
-    @debug $is-angle;
     background-image: $type#{-gradient($dir-new, $color-stop)};
 }
 
