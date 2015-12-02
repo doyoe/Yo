@@ -1,6 +1,4 @@
 @charset "utf-8";
-@import "../core/variables";
-@import "../core/classes";
 
 // 定义panel的基础构造
 @mixin _panel {
@@ -24,8 +22,7 @@
         color: map-get($base, sub-color);
     }
     .no-data {
-        height: 100%;
-        padding-top: 1rem;
+        @include align;
         text-align: center;
     }
 }
@@ -33,10 +30,11 @@
 /**
  * @module widget
  * @method yo-panel
+ * @version 1.6.0
  * @description 构造yo-panel的自定义使用方法
  * @demo http://doyoe.github.io/Yo/demo/widget/yo-panel.html
- * @param {String} $name 定义yo-panel名称
- * @param {Length} $top 定义yo-panel顶部偏移值
+ * @param {String} $name 定义扩展名称 {add:1.6.0}
+ * @param {Length} $top 顶部偏移值 {add:1.6.0}
  */
 
 @mixin yo-panel(

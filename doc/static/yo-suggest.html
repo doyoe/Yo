@@ -30,8 +30,6 @@
         <div class="col-md-9" role="main">
         <pre class="brush: sass;">
                 @charset "utf-8";
-@import "../core/variables";
-@import "../core/classes";
 
 // 定义suggest的基础构造
 @mixin _suggest {
@@ -41,7 +39,10 @@
         font-size: map-get($suggest, font-size);
         line-height: map-get($suggest, height);
         padding: map-get($suggest, op-padding);
-        border-bottom: 1px solid map-get($suggest, bordercolor);
+        @include border(
+            $border-width: 0 0 1px,
+            $border-color: map-get($suggest, border-color)
+        );
         background-color: map-get($suggest, op-bgcolor);
         > .action {
             display: block;
@@ -54,7 +55,7 @@
             height: 100%;
             padding: 0 .3rem;
             @include appearance;
-            border: 1px solid map-get($suggest, bordercolor);
+            border: 1px solid map-get($suggest, border-color);
             @include border-radius(map-get($suggest, radius));
             background-color: map-get($suggest, bgcolor);
             color: map-get($suggest, color);
@@ -113,7 +114,7 @@
     &-on {
         > .operate {
             .input {
-                border-color: map-get($suggest, on-bordercolor);
+                border-color: map-get($suggest, on-border-color);
                 background-color: map-get($suggest, on-bgcolor);
             }
             .label {
@@ -154,24 +155,27 @@
 /**
  * @module widget
  * @method yo-suggest
- * @description 构造yo-suggest的自定义使用方法
+ * @version 1.6.0
+ * @description 构造yo-suggest的自定义使用方法（原yo-search）
  * @demo http://doyoe.github.io/Yo/demo/widget/yo-suggest.html
- * @param {String} $name 定义yo-suggest名称
- * @param {Length} $height 定义yo-suggest高度
- * @param {Length} $font-size 定义yo-suggest文本大小
- * @param {Length} $op-padding 定义yo-suggest内补白
- * @param {Length} $radius 定义yo-suggest圆角
- * @param {Color} $bordercolor 定义yo-suggest边框色
- * @param {Color} $bgcolor 定义yo-suggest背景色
- * @param {Color} $color 定义yo-suggest文本色
- * @param {Color} $on-bordercolor 定义yo-suggest激活边框色
- * @param {Color} $on-bgcolor 定义yo-suggest激活背景色
- * @param {Color} $placeholder-color 定义yo-suggest占位背景色
- * @param {Color} $ico-color 定义yo-suggest 操作区ico颜色
- * @param {Color} $cancel-color 定义yo-suggest取消按钮颜色
- * @param {Color} $op-bgcolor 定义yo-suggest搜索区域背景色
- * @param {Color} $mask-bgcolor 定义yo-suggest遮罩背景色
- * @param {Length} $cancel-width 取消按钮区域宽度
+ * @param {String} $name 定义扩展名称 {add:1.0.0}
+ * @param {Length} $height 高度 {add:1.0.0}
+ * @param {Length} $font-size 字号大小 {add:1.0.0}
+ * @param {Length} $op-padding 搜索区内补白 {add:1.0.0}
+ * @param {Length} $radius 搜索框圆角半径长度 {add:1.0.0}
+ * @param {Color} $bordercolor 边框色  {add:1.0.0}{del:2.0.0}
+ * @param {Color} $border-color 边框色 {add:2.0.0}
+ * @param {Color} $bgcolor 背景色 {add:1.0.0}
+ * @param {Color} $color 文本色 {add:1.0.0}
+ * @param {Color} $on-bordercolor 激活边框色  {add:1.0.0}{del:2.0.0}
+ * @param {Color} $on-border-color 激活边框色 {add:2.0.0}
+ * @param {Color} $on-bgcolor 激活背景色 {add:1.0.0}
+ * @param {Color} $placeholder-color 占位符背景色 {add:1.0.0}
+ * @param {Color} $ico-color 操作区ico颜色 {add:1.0.0}
+ * @param {Color} $cancel-color 取消按钮颜色 {add:1.0.0}
+ * @param {Color} $op-bgcolor 搜索区域背景色 {add:1.0.0}
+ * @param {Color} $mask-bgcolor 遮罩背景色 {add:1.0.0}
+ * @param {Length} $cancel-width 取消按钮区域宽度 {add:1.4.0}
  */
 
 @mixin yo-suggest(
@@ -180,10 +184,10 @@
     $font-size: default,
     $op-padding: default,
     $radius: default,
-    $bordercolor: default,
+    $border-color: default,
     $bgcolor: default,
     $color: default,
-    $on-bordercolor: default,
+    $on-border-color: default,
     $on-bgcolor: default,
     $placeholder-color: default,
     $ico-color: default,
@@ -210,8 +214,8 @@
     @if $radius == default {
         $radius: map-get($suggest, radius);
     }
-    @if $bordercolor == default {
-        $bordercolor: map-get($suggest, bordercolor);
+    @if $border-color == default {
+        $border-color: map-get($suggest, border-color);
     }
     @if $bgcolor == default {
         $bgcolor: map-get($suggest, bgcolor);
@@ -219,8 +223,8 @@
     @if $color == default {
         $color: map-get($suggest,color);
     }
-    @if $on-bordercolor == default {
-        $on-bordercolor: map-get($suggest, on-bordercolor);
+    @if $on-border-color == default {
+        $on-border-color: map-get($suggest, on-border-color);
     }
     @if $on-bgcolor == default {
         $on-bgcolor: map-get($suggest, on-bgcolor);
@@ -254,19 +258,21 @@
             @if $op-padding != map-get($suggest, op-padding) {
                 padding: $op-padding;
             }
-            @if $bordercolor != map-get($suggest, bordercolor) {
-                border-bottom-color: $bordercolor;
-            }
             @if $op-bgcolor != map-get($suggest, op-bgcolor) {
                 background-color: $op-bgcolor;
+            }
+            &::after {
+                @if $border-color != map-get($suggest, border-color) {
+                    border-color: $border-color;
+                }
             }
             > .action {
                 @if $height != map-get($suggest, height) {
                     height: $height;
                 }
                 > .input {
-                    @if $bordercolor != map-get($suggest, bordercolor) {
-                        border-color: $bordercolor;
+                    @if $border-color != map-get($suggest, border-color) {
+                        border-color: $border-color;
                     }
                     @if $radius != map-get($suggest, radius) {
                         border-radius: $radius;
@@ -315,8 +321,8 @@
         &-on {
             > .operate {
                 .input {
-                    @if $on-bordercolor != map-get($suggest, on-bordercolor) {
-                        border-color: $on-bordercolor;
+                    @if $on-border-color != map-get($suggest, on-border-color) {
+                        border-color: $on-border-color;
                     }
                     @if $on-bgcolor != map-get($suggest, on-bgcolor) {
                         background-color: $on-bgcolor;

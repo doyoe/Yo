@@ -21,35 +21,11 @@ html {
   user-select: none;
 }
 
-@media (min--moz-device-pixel-ratio: 1.5), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
-  html[ios="true"] {
-    font-size: 200px;
-  }
-}
-
-@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
-  html[ios="true"] {
-    font-size: 300px;
-  }
-}
-
 body {
   margin: 0;
   font-size: 14px;
   line-height: 1.5;
   font-family: Helvetica Neue, Helvetica, STHeiTi, sans-serif;
-}
-
-@media (min--moz-device-pixel-ratio: 1.5), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
-  html[ios="true"] body {
-    font-size: 28px;
-  }
-}
-
-@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
-  html[ios="true"] body {
-    font-size: 42px;
-  }
 }
 
 ul,
@@ -244,7 +220,7 @@ a {
 
 @font-face {
   font-family: yofont;
-  src: url("http://source.qunarzz.com/fonts/yo/1.0.0/yofont.woff") format("woff"), url("http://source.qunarzz.com/fonts/yo/1.0.0/yofont.ttf") format("truetype");
+  src: url("//source.qunarzz.com/fonts/yo/1.0.2/yofont.woff") format("woff"), url("//source.qunarzz.com/fonts/yo/1.0.2/yofont.ttf") format("truetype");
 }
 
 .yo-ico {
@@ -255,9 +231,23 @@ a {
   vertical-align: middle;
 }
 
-.yo-stacked {
-  display: block;
-  margin: 0.2rem 0.1rem;
+.yo-align {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  word-wrap: break-word;
+  word-break: break-all;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 .yo-flex {
@@ -299,28 +289,16 @@ a {
   left: 0;
 }
 
-.yo-align {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
+.yo-stacked {
+  display: block;
+  margin: 0.2rem 0.1rem;
 }
 
 .yo-header {
   position: relative;
   height: 0.44rem;
   line-height: 0.44rem;
-  border-bottom: 1px solid #1ba9ba;
+  position: relative;
   background-color: #1ba9ba;
   color: #fff;
   font-size: 0.18rem;
@@ -328,6 +306,46 @@ a {
   white-space: nowrap;
   text-overflow: ellipsis;
   text-align: center;
+}
+
+.yo-header::after {
+  pointer-events: none;
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  content: "\0020";
+  border-color: #1ba9ba;
+  border-style: solid;
+  border-width: 0 0 1px;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+
+@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
+  .yo-header::after {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
+  .yo-header::after {
+    width: 200%;
+    height: 200%;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
+  .yo-header::after {
+    width: 300%;
+    height: 300%;
+    -webkit-transform: scale(0.33333);
+    transform: scale(0.33333);
+  }
 }
 
 .yo-header > .title {
@@ -342,6 +360,7 @@ a {
   position: absolute;
   top: 0;
   width: 0.6rem;
+  color: #fff;
   cursor: pointer;
   font-size: 0.14rem;
 }
@@ -372,8 +391,16 @@ a {
 }
 
 .yo-header-normal {
-  border-color: #ddd;
   background-color: #eee;
+  color: #212121;
+}
+
+.yo-header-normal::after {
+  border-color: #ddd;
+}
+
+.yo-header-normal > .regret,
+.yo-header-normal > .affirm {
   color: #212121;
 }
 
@@ -405,6 +432,7 @@ a {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
+  position: relative;
 }
 
 .yo-datepicker > .week-bar,
@@ -434,27 +462,88 @@ a {
 }
 
 .yo-datepicker .month-bar,
-.yo-datepicker > .sticky-bar {
+.yo-datepicker .sticky-bar,
+.yo-datepicker .week {
+  position: relative;
+}
+
+.yo-datepicker .month-bar::after,
+.yo-datepicker .sticky-bar::after,
+.yo-datepicker .week::after {
+  pointer-events: none;
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  content: "\0020";
+  border-color: #ccc;
+  border-style: solid;
+  border-width: 0 0 1px;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+
+@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
+  .yo-datepicker .month-bar::after,
+  .yo-datepicker .sticky-bar::after,
+  .yo-datepicker .week::after {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
+  .yo-datepicker .month-bar::after,
+  .yo-datepicker .sticky-bar::after,
+  .yo-datepicker .week::after {
+    width: 200%;
+    height: 200%;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
+  .yo-datepicker .month-bar::after,
+  .yo-datepicker .sticky-bar::after,
+  .yo-datepicker .week::after {
+    width: 300%;
+    height: 300%;
+    -webkit-transform: scale(0.33333);
+    transform: scale(0.33333);
+  }
+}
+
+.yo-datepicker .month-bar,
+.yo-datepicker .sticky-bar {
   height: 0.25rem;
   line-height: 0.25rem;
-  border-bottom: 1px solid #ddd;
   background-color: #f9f9f9;
   color: #000;
   font-size: 0.14rem;
   font-weight: normal;
 }
 
-.yo-datepicker > .sticky-bar {
+.yo-datepicker .month-bar::after,
+.yo-datepicker .sticky-bar::after {
+  border-color: #ddd;
+}
+
+.yo-datepicker .sticky-bar {
   position: absolute;
   z-index: 1;
-  top: 0.22rem;
+  top: 0;
   left: 0;
   right: 0;
 }
 
 .yo-datepicker .week {
-  border-bottom: 1px solid #ddd;
   color: #000;
+}
+
+.yo-datepicker .week::after {
+  border-color: #ddd;
 }
 
 .yo-datepicker .week > li {
@@ -494,7 +583,7 @@ a {
 
 .yo-datepicker .disabled,
 .yo-datepicker .disabled > .special {
-  color: #bbb;
+  color: #bbb !important;
 }
 
 .yo-datepicker .start > .day,
@@ -522,40 +611,6 @@ a {
 
 .yo-datepicker .end::after {
   content: "离店";
-}
-
-.m-code {
-  -webkit-user-select: text;
-  user-select: text;
-  margin: .1rem;
-  padding: .1rem;
-  border-radius: 5px;
-  background: #272822;
-  color: #51bbe1;
-  font-size: .2rem;
-}
-
-.m-code .method {
-  color: #93de08;
-}
-
-.m-code .bracket,
-.m-code .colon {
-  padding-right: 5px;
-  color: #fff;
-}
-
-.m-code mark {
-  color: #ccc;
-  font-size: .14rem;
-}
-
-.m-code .version {
-  background-color: #fff;
-  color: red;
-  font-size: .12rem;
-  border-radius: .02rem;
-  padding: 0 0.02rem;
 }
 
 .m-code {

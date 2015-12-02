@@ -30,8 +30,6 @@
         <div class="col-md-9" role="main">
         <pre class="brush: sass;">
                 @charset "utf-8";
-@import "../core/variables";
-@import "../core/classes";
 
 // 定义datepicker的基础构造
 @mixin _datepicker {
@@ -42,6 +40,7 @@
     text-align: center;
     > .weeks {
         @include flex(1, column);
+        position: relative;
     }
     > .week-bar,
     .week {
@@ -61,29 +60,41 @@
         color: map-get($datepicker, week-bar-color);
         font-size: map-get($datepicker, week-bar-font-size);
     }
+    // 底边线设置
+    .month-bar,
+    .sticky-bar,
+    .week {
+        @include border(
+            $border-width: 0 0 1px
+        );
+    }
     // 月份bar
     .month-bar,
-    > .sticky-bar {
+    .sticky-bar {
         height: map-get($datepicker, month-bar-height);
         line-height: map-get($datepicker, month-bar-height);
-        border-bottom: 1px solid map-get($datepicker, month-bar-bordercolor);
         background-color: map-get($datepicker, month-bar-bgcolor);
         color: map-get($datepicker, month-bar-color);
         font-size: map-get($datepicker, month-bar-font-size);
         font-weight: normal;
+        &::after {
+            border-color: map-get($datepicker, month-bar-border-color);
+        }
     }
     // 吸顶月份bar
-    > .sticky-bar {
+    .sticky-bar {
         position: absolute;
         z-index: 1;
-        top: map-get($datepicker, week-bar-height);
+        top: 0;
         left: 0;
         right: 0;
     }
     // 日期每行
     .week {
-        border-bottom: 1px solid map-get($datepicker, week-bordercolor);
         color: map-get($datepicker, week-color);
+        &::after {
+            border-color: map-get($datepicker, week-border-color);
+        }
         > li {
             position: relative;
             height: map-get($datepicker, week-height);
@@ -120,7 +131,7 @@
     .disabled {
         &,
         > .special {
-            color: map-get($datepicker, disabled-color);
+            color: map-get($datepicker, disabled-color) !important;
         }
     }
     // 起始和结束日定义
@@ -151,34 +162,37 @@
 /**
  * @module widget
  * @method yo-datepicker
+ * @version 1.8.1
  * @description 构造yo-datepicker的自定义使用方法
  * @demo http://doyoe.github.io/Yo/demo/widget/yo-datepicker.html
- * @param {String} $name 定义扩展名称
- * @param {Length} $week-bar-height 定义星期bar高度
- * @param {Color} $week-bar-bgcolor 定义星期bar背景色
- * @param {Color} $week-bar-color 定义星期bar文本色
- * @param {Length} $week-bar-font-size 定义星期bar字号
- * @param {Length} $month-bar-height 定义月份bar高度
- * @param {Color} $month-bar-bordercolor 定义月份bar边线色
- * @param {Color} $month-bar-bgcolor 定义月份bar背景色
- * @param {Color} $month-bar-color 定义月份bar文本色
- * @param {Length} $month-bar-font-size 定义月份bar字号
- * @param {Length} $week-height 定义每行高度
- * @param {Color} $week-bordercolor 定义每行边线色
- * @param {Color} $week-color 定义每行文本色
- * @param {Length} $day-height 定义每日高度
- * @param {Length} $day-margin 定义每日间距
- * @param {Length} $day-radius 定义每日圆角
- * @param {Length} $day-font-size 定义每日字号
- * @param {Color} $special-color 定义特殊日文本色
- * @param {Color} $weekend-color 定义周末文本色
- * @param {Color} $disabled-color 定义禁用日子文本色
- * @param {Color} $on-bgcolor 定义选中日期背景色
- * @param {Color} $on-color 定义选中日期文本色
- * @param {Color} $on-tip-color 定义选中日期提示语文本色
- * @param {Length} $on-tip-font-size 定义选中日期提示语字号
- * @param {String} $start-content 定义开始日期提示语
- * @param {String} $end-content 定义结束日期提示语
+ * @param {String} $name 定义扩展名称 {add:1.8.1}
+ * @param {Length} $week-bar-height 定义星期bar高度 {add:1.8.1}
+ * @param {Color} $week-bar-bgcolor 定义星期bar背景色 {add:1.8.1}
+ * @param {Color} $week-bar-color 定义星期bar文本色 {add:1.8.1}
+ * @param {Length} $week-bar-font-size 定义星期bar字号 {add:1.8.1}
+ * @param {Length} $month-bar-height 定义月份bar高度 {add:1.8.1}
+ * @param {Color} $month-bar-bordercolor 定义月份bar边线色  {add:1.8.1}{del:2.0.0}
+ * @param {Color} $month-bar-border-color 定义月份bar边线色 {add:2.0.0}
+ * @param {Color} $month-bar-bgcolor 定义月份bar背景色 {add:1.8.1}
+ * @param {Color} $month-bar-color 定义月份bar文本色 {add:1.8.1}
+ * @param {Length} $month-bar-font-size 定义月份bar字号 {add:1.8.1}
+ * @param {Length} $week-height 定义每行高度 {add:1.8.1}
+ * @param {Color} $week-bordercolor 定义每行边线色  {add:1.8.1}{del:2.0.0}
+ * @param {Color} $week-border-color 定义每行边线色 {add:2.0.0}
+ * @param {Color} $week-color 定义每行文本色 {add:1.8.1}
+ * @param {Length} $day-height 定义每日高度 {add:1.8.1}
+ * @param {Length} $day-margin 定义每日间距 {add:1.8.1}
+ * @param {Length} $day-radius 定义每日圆角 {add:1.8.1}
+ * @param {Length} $day-font-size 定义每日字号 {add:1.8.1}
+ * @param {Color} $special-color 定义特殊日文本色 {add:1.8.1}
+ * @param {Color} $weekend-color 定义周末文本色 {add:1.8.1}
+ * @param {Color} $disabled-color 定义禁用日子文本色 {add:1.8.1}
+ * @param {Color} $on-bgcolor 定义选中日期背景色 {add:1.8.1}
+ * @param {Color} $on-color 定义选中日期文本色 {add:1.8.1}
+ * @param {Color} $on-tip-color 定义选中日期提示语文本色 {add:1.8.1}
+ * @param {Length} $on-tip-font-size 定义选中日期提示语字号 {add:1.8.1}
+ * @param {String} $start-content 定义开始日期提示语 {add:1.8.1}
+ * @param {String} $end-content 定义结束日期提示语 {add:1.8.1}
  */
 
 @mixin yo-datepicker(
@@ -188,12 +202,12 @@
     $week-bar-color: default,
     $week-bar-font-size: default,
     $month-bar-height: default,
-    $month-bar-bordercolor: default,
+    $month-bar-border-color: default,
     $month-bar-bgcolor: default,
     $month-bar-color: default,
     $month-bar-font-size: default,
     $week-height: default,
-    $week-bordercolor: default,
+    $week-border-color: default,
     $week-color: default,
     $day-height: default,
     $day-margin: default,
@@ -230,8 +244,8 @@
     @if $month-bar-height == default {
         $month-bar-height: map-get($datepicker, month-bar-height);
     }
-    @if $month-bar-bordercolor == default {
-        $month-bar-bordercolor: map-get($datepicker, month-bar-bordercolor);
+    @if $month-bar-border-color == default {
+        $month-bar-border-color: map-get($datepicker, month-bar-border-color);
     }
     @if $month-bar-bgcolor == default {
         $month-bar-bgcolor: map-get($datepicker, month-bar-bgcolor);
@@ -245,8 +259,8 @@
     @if $week-height == default {
         $week-height: map-get($datepicker, week-height);
     }
-    @if $week-bordercolor == default {
-        $week-bordercolor: map-get($datepicker, week-bordercolor);
+    @if $week-border-color == default {
+        $week-border-color: map-get($datepicker, week-border-color);
     }
     @if $week-color == default {
         $week-color: map-get($datepicker, week-color);
@@ -307,14 +321,19 @@
                 font-size: $week-bar-font-size;
             }
         }
+        .month-bar,
+        .sticky-bar {
+            &::after {
+                @if $month-bar-border-color != map-get($datepicker, month-bar-border-color) {
+                    border-color: $month-bar-border-color;
+                }
+            }
+        }
         // 月份bar
         .month-bar {
             @if $month-bar-height != map-get($datepicker, month-bar-height) {
                 height: $month-bar-height;
                 line-height: $month-bar-height;
-            }
-            @if $month-bar-bordercolor != map-get($datepicker, month-bar-bordercolor) {
-                border-bottom-color: $month-bar-bordercolor;
             }
             @if $month-bar-bgcolor != map-get($datepicker, month-bar-bgcolor) {
                 background-color: $month-bar-bgcolor;
@@ -334,8 +353,10 @@
         }
         // 日期每行
         .week {
-            @if $week-bordercolor != map-get($datepicker, week-bordercolor) {
-                border-bottom-color: $week-bordercolor;
+            &::after {
+                @if $week-border-color != map-get($datepicker, week-border-color) {
+                    border-color: $week-border-color;
+                }
             }
             @if $week-color != map-get($datepicker, week-color) {
                 color: $week-color;
@@ -384,7 +405,7 @@
             &,
             > .special {
                 @if $disabled-color != map-get($datepicker, disabled-color) {
-                    color: $disabled-color;
+                    color: $disabled-color !important;
                 }
             }
         }

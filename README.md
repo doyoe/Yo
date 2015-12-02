@@ -24,7 +24,10 @@
 如果你或者你所在的公司正在使用 Yo，过程中发现了任何问题，或者有任何帮助 Yo 更完善的想法和建议，都可以直接给我提[Issues](https://github.com/doyoe/Yo/issues/new)和[Pull Requests](https://github.com/doyoe/Yo/pulls)。
 
 
-## Documentation
+## Demo And Documentation
+
+* Demo: [示例查看](http://doyoe.github.io/Yo/demo/)
+* Documentation：撰写中
 
 待发布...
 
@@ -37,26 +40,78 @@ Yo约束了2种项目所使用的长度单位
 
 ## Versioning
 
-### Developing: v1.8.6
+### Developing: v2.0.0
 
-* 开发中。。。
+**请谨慎升级v2.0.0版本，因为这是大版本，涉及到很多变更**
 
-### Lastest: v1.8.5
+#### 新增：
+* add: `yo-vcode`
+    - 新增`yo-vcode`用于验证码或者密码输入组件
+* add: `yo-breadcrumb`
+    - 新增`yo-breadcrumb`面包屑
+* add: `yo-proportion`
+    - 新增`yo-proportion`用于展现占比情况
+* add: `响应式断点`
+    - 新增`xs, s, m, l, xl`5类响应式断点，用于支持响应式设计
+* add: `global classes`
+    - 新增`align`方法用于处理元素水平及垂直对齐方式，默认为居中
+    - 新增`transform-style`,`perspective`,`perspective-origin`,`backface-visibility`,`flex-flow`方法
 
-* update: `yo-group`, `yo-dblist`
-    - 调整内部实现
-* update:
-    - 拆分 `classes` 构造方法到各独立模块
-* update: `core classes`
-    - 更新弹性盒相关方法，支持 `Firefox` and `IE`
-    - 新增 `align-content()`方法，用于支持多行弹性容器侧轴对齐方式
+#### 变更：
+* (*)change: `1px边框方法`（全平台兼容）
+    - 新增`border`方法用于处理retina屏1px边框，移除原`viewport scale`方案
+    - 移除原始用于`1px`方案的`$setting is-ios-1pixel`设置
+
+    > 原因：
+    >
+    > 1. 原方案利用viewport缩放（需引入额外的js），这会改变layout viewport尺寸，进而影响响应式设计；
+    > 2. 原方案安卓未实现，因为Android4.3及以下不支持initial-scale除1之外的设置；
+* (*)change: `bordercolor`变量
+    - 将所有带`bordercolor`关键字的变量都重命名为`border-color`，因为早期的时候命名不严谨导致吐槽激烈，特在此大版本中全部修正
+* (*)change:
+    - 不再强制要求升级`Yo`时业务对比`config`和`variables`的一致性；
+    - 需要注意的是variables中map使用`_`开头，而config中不需要`_`，例如：`$_list` -> `$list`；
+    - 从`variables`中将base map拆分到新文件base，同时在config中新增extra文件用以对应该文件；
+    - 用户可以在extra文件中配置，扩展或者新增map；
+* change: `yo-btn`
+    - 将原来统一的灰色禁用按钮更改为每个按钮的禁用外观取决于自身的本来颜色
+* change: `yo-number`
+    - 移除`$disabled-sign-color`参数；
+    - 新增`$outer-radius`参数；
+    - 新增`$outer-border-width`参数；
+    - 新增`$inner-radius`参数；
+    - 新增`$inner-border-width`参数；
+    - 新增`$font-size`参数；
+* change: `yo-flex`
+    - 移除`$box`参数；
+* change: `wrap` mixin
+    - 新增`$is-wrap`参数（Boolean），用于指定文本遇见边界时是否换行；
+* change: `yo-list`
+    - 新增`$detail-font-size`参数，用于指定详情区域的字号；
+    - 新增`$detail-color`参数，用于指定详情区域的文本色；
+    - 新增`$info-font-size`参数，用于指定描述区域的字号；
+    - 新增`$info-color`参数，用于指定描述区域的文本色；
+    - 新增`$more-font-size`参数，用于指定更多区域的字号；
+    - 新增`$more-color`参数，用于指定更多区域的文本色；
+* update: 内部处理`yo-rating`, `yo-score`, `yo-range`在Node-Sass3.4.1-3.42下编译出错的问题
+
+#### 删除
+* del: `alignment` mixin
+* del: `valign` mixin
+
+**再次重申：将你的`flex子项`设置为`非行内级元素`，Yo会缓步移除对这种内部容错的代码**
+
+### Lastest: v1.8.7
+
 * update: `yo-datepicker`
-    - 恢复该组件内部的flex布局
+    - 为`weeks`容器添加`relative`
+    - 解决`disabled`状态被扩展覆盖的问题
+    - 引入`panel`依赖
 
 
 ### History
 
-For more information on History Version, Please visit [changelog](changelog.md).
+更多历史版本信息，请查看[ChangeLog](changelog.md)。
 
 
 ### Version Number Description

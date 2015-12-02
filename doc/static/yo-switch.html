@@ -30,8 +30,6 @@
         <div class="col-md-9" role="main">
         <pre class="brush: sass;">
                 @charset "utf-8";
-@import "../core/variables";
-@import "../core/classes";
 
 // 定义switch的基础构造
 @mixin _switch {
@@ -46,13 +44,14 @@
         height: .32rem;
         margin: 0;
         cursor: pointer;
-        border: .02rem solid map-get($switch, bordercolor);
+        border: .02rem solid map-get($switch, border-color);
         @include border-radius(.16rem);
         background-color: map-get($switch, bgcolor);
         vertical-align: middle;
         @include transition(border-color .1s ease-out, background-color .1s ease-out);
         > .handle {
             position: absolute;
+            z-index: 1000;
             top: 0;
             left: 0;
             @include square(.28rem);
@@ -65,7 +64,7 @@
         }
     }
     > input:checked + .track {
-        border-color: map-get($switch, checked-bordercolor);
+        border-color: map-get($switch, checked-border-color);
         background-color: map-get($switch, checked-bgcolor);
         > .handle {
             -webkit-transform: translate(100%, 0);
@@ -74,29 +73,32 @@
     }
     > input:disabled + .track {
         opacity: .4;
-        border-color: map-get($base, disabled-bordercolor);
-        background-color: map-get($base, disabled-bordercolor);
+        border-color: map-get($base, disabled-border-color);
+        background-color: map-get($base, disabled-border-color);
     }
 }
 
 /**
  * @module widget
  * @method yo-switch
+ * @version 1.0.0
  * @description 构造yo-switch的自定义使用方法
  * @demo http://doyoe.github.io/Yo/demo/widget/yo-switch.html
- * @param {String} $name 定义switch名称
- * @param {Color} $checked-bordercolor 定义switch激活边框色
- * @param {Color} $checked-bgcolor 定义switch激活背景色
- * @param {Color} $bordercolor 定义switch边框色
- * @param {Color} $bgcolor 定义switch背景色
- * @param {Color} $ball-color 定义switch滑块色
+ * @param {String} $name 定义扩展名称 {add:1.0.0}
+ * @param {Color} $checked-bordercolor 定义switch激活边框色 {add:1.0.0}{del:2.0.0}
+ * @param {Color} $checked-border-color 定义switch激活边框色 {add:2.0.0}
+ * @param {Color} $checked-bgcolor 定义switch激活背景色 {add:1.0.0}
+ * @param {Color} $bordercolor 定义switch边框色 {add:1.0.0}{del:2.0.0}
+ * @param {Color} $border-color 定义switch边框色 {add:2.0.0}
+ * @param {Color} $bgcolor 定义switch背景色 {add:1.0.0}
+ * @param {Color} $ball-color 定义switch滑块色 {add:1.0.0}
  */
 
 @mixin yo-switch(
     $name: default,
-    $checked-bordercolor: default,
+    $checked-border-color: default,
     $checked-bgcolor: default,
-    $bordercolor: default,
+    $border-color: default,
     $bgcolor: default,
     $ball-color: default) {
     // 区别是否新增实例还是修改本身
@@ -106,8 +108,8 @@
         $name: "-#{$name}";
     }
     // 如果值为default，则取config的定义
-    @if $bordercolor == default {
-        $bordercolor: map-get($switch, bordercolor);
+    @if $border-color == default {
+        $border-color: map-get($switch, border-color);
     }
     @if $bgcolor == default {
         $bgcolor: map-get($switch, bgcolor);
@@ -115,16 +117,16 @@
     @if $ball-color == default {
         $ball-color: map-get($switch, ball-color);
     }
-    @if $checked-bordercolor == default {
-        $checked-bordercolor: map-get($switch, checked-bordercolor);
+    @if $checked-border-color == default {
+        $checked-border-color: map-get($switch, checked-border-color);
     }
     @if $checked-bgcolor == default {
         $checked-bgcolor: map-get($switch, checked-bgcolor);
     }
     .yo-switch#{$name} {
         > .track {
-            @if $bordercolor != map-get($switch, bordercolor) {
-                border-color: $bordercolor;
+            @if $border-color != map-get($switch, border-color) {
+                border-color: $border-color;
             }
             @if $bgcolor != map-get($switch, bgcolor) {
                 background-color: $bgcolor;
@@ -136,8 +138,8 @@
             }
         }
         > input:checked + .track {
-            @if $checked-bordercolor != map-get($switch, checked-bordercolor) {
-                border-color: $checked-bordercolor;
+            @if $checked-border-color != map-get($switch, checked-border-color) {
+                border-color: $checked-border-color;
             }
             @if $checked-bgcolor != map-get($switch, checked-bgcolor) {
                 background-color: $checked-bgcolor;

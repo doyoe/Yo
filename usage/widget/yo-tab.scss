@@ -11,7 +11,7 @@
     $name: test,
     $width: 2rem,
     $border-width: 1px,
-    $bordercolor: #1ba9ba,
+    $border-color: #1ba9ba,
     $font-size: .12rem,
     $radius: .05rem,
     $on-bgcolor: #1ba9ba,
@@ -25,7 +25,7 @@
     $height: .4rem,
     $border-width: 0 0 1px 0,
     $item-border-height: .2rem,
-    $item-bordercolor: map-get($base, sub-bordercolor)
+    $item-border-color: map-get($base, border-color)
 );
 
 @include yo-tab(

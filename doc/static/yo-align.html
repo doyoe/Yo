@@ -30,31 +30,30 @@
         <div class="col-md-9" role="main">
         <pre class="brush: sass;">
                 @charset "utf-8";
-@import "../core/variables";
-@import "../core/classes";
 
 // 定义常见水平垂直居中布局
 @mixin _align {
-    @include flexbox;
+    @include align;
     @include fullscreen;
-    @include align-items;
-    @include justify-content;
 }
 
 /**
  * @module layout
  * @method yo-align
+ * @version 1.8.0
  * @description 构造弹性布局内容对齐使用方法，可以是横向和纵向
  * @demo http://doyoe.github.io/Yo/demo/layout/yo-align.html
- * @param {String} $name 为新的扩展定义一个名称
- * @param {String} $text-align 指定水平对齐方式
- * @param {String} $vertical-align 指定垂直对齐方式
+ * @param {String} $name 定义扩展名称 {add:1.8.0}
+ * @param {String} $text-align 指定水平对齐方式 {add:1.8.0}{del:2.0.0}
+ * @param {String} $justify-content 指定主轴对齐方式 {add:2.0.0}
+ * @param {String} $vertical-align 指定垂直对齐方式 {add:1.8.0}{del:2.0.0}
+ * @param {String} $align-items 指定侧轴对齐方式 {add:2.0.0}
  */
 
 @mixin yo-align(
     $name: default,
-    $text-align: default,
-    $vertical-align: default) {
+    $justify-content: default,
+    $align-items: default) {
     // 区别是否新增实例还是修改本身
     @if $name == default {
         $name: "";
@@ -62,20 +61,20 @@
         $name: "-#{$name}";
     }
     // 如果值为default，则取config的定义
-    @if $text-align == default {
-        $text-align: map-get($align, text-align);
+    @if $justify-content == default {
+        $justify-content: map-get($align, justify-content);
     }
-    @if $vertical-align == default {
-        $vertical-align: map-get($align, vertical-align);
+    @if $align-items == default {
+        $align-items: map-get($align, align-items);
     }
     .yo-align#{$name} {
-        // 如果$text-align不等于config预设，则重绘弹性盒水平对齐方式
-        @if $text-align != map-get($align, text-align) {
-            @include align-items($text-align);
+        // 如果$justify-content:不等于config预设，则重绘弹性盒水平对齐方式
+        @if $justify-content != map-get($align, justify-content) {
+            @include justify-content($justify-content);
         }
-        // 如果$vertical-align不等于config预设，则重绘弹性盒垂直对齐方式
-        @if $vertical-align != map-get($align, vertical-align) {
-            @include justify-content(vertical-align);
+        // 如果$align-items不等于config预设，则重绘弹性盒垂直对齐方式
+        @if $align-items != map-get($align, align-items) {
+            @include align-items($align-items);
         }
         // 增量扩展
         @content;

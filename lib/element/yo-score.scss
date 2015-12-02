@@ -1,6 +1,4 @@
 @charset "utf-8";
-@import "../core/variables";
-@import "../core/classes";
 
 // 定义score的基础构造
 @mixin _score {
@@ -18,7 +16,7 @@
     }
     > .index {
         height: 100%;
-        background-position: 0 -#{map-get($score, item-height)};
+        background-position: 0 unquote(-#{map-get($score, item-height)});
         line-height: 10;
         vertical-align: top;
     }
@@ -27,12 +25,13 @@
 /**
  * @module element
  * @method yo-score
+ * @version 1.3.1
  * @description 构造评分展示的自定义使用方法
  * @demo http://doyoe.github.io/Yo/demo/element/yo-score.html
- * @param {String} $name 为新的扩展定义一个名称
- * @param {Length} $item-width 单项宽度
- * @param {Length} $item-height 单项高度
- * @param {String} $url 背景图片url
+ * @param {String} $name 定义扩展名称 {add:1.3.1}
+ * @param {Length} $item-width 单项宽度 {add:1.3.1}
+ * @param {Length} $item-height 单项高度 {add:1.3.1}
+ * @param {String} $url 背景图片url {add:1.3.1}
  */
 
 @mixin yo-score(
@@ -74,7 +73,7 @@
         }
         > .index {
             @if $item-height != map-get($score, item-height) {
-                background-position: 0 -#{$item-height};
+                background-position: 0 unquote(-#{$item-height});
             }
         }
         // 增量扩展

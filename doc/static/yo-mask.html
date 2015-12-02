@@ -30,8 +30,6 @@
         <div class="col-md-9" role="main">
         <pre class="brush: sass;">
                 @charset "utf-8";
-@import "../core/variables";
-@import "../core/classes";
 
 // 定义mask的基础构造
 @mixin _mask {
@@ -47,10 +45,11 @@
 /**
  * @module widget
  * @method yo-mask
+ * @version 1.0.0
  * @description 构造yo-mask的自定义使用方法
  * @demo http://doyoe.github.io/Yo/demo/widget/yo-mask.html
- * @param {String} $name 定义yo-mask名称
- * @param {Color} $bgcolor 定义yo-mask背景色
+ * @param {String} $name 定义扩展名称 {add:1.0.0}
+ * @param {Color} $bgcolor 背景色 {add:1.0.0}
  */
 
 @mixin yo-mask(
@@ -68,7 +67,7 @@
     }
     .yo-mask#{$name} {
         @if $bgcolor != map-get($mask, bgcolor) {
-            background-color: rgba($bgcolor, .5);
+            background-color: $bgcolor;
         }
         // 增量扩展
         @content;

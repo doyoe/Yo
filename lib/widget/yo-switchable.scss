@@ -1,6 +1,4 @@
 @charset "utf-8";
-@import "../core/variables";
-@import "../core/classes";
 
 // 定义switchable的基础构造
 @mixin _switchable {
@@ -67,18 +65,19 @@
 /**
  * @module widget
  * @method yo-switchable
+ * @version 1.0.0
  * @description 构造yo-switchable的自定义使用方法
  * @demo http://doyoe.github.io/Yo/demo/widget/yo-switchable.html
- * @param {String} $name 扩展的名称
- * @param {Boolen} $has-btn 是否有按钮
- * @param {Length} $btn-size 按钮大小
- * @param {Length} $btn-bgcolor 按钮背景色
- * @param {Length} $btn-color 按钮文本色
- * @param {Color} $btn-active-bgcolor 按钮按下背景色
- * @param {Length} $btn-active-color 按钮按下文本色
- * @param {Length} $index-size 索引大小
- * @param {Color} $index-bgcolor 索引背景色
- * @param {Length} $index-on-bgcolor 索引当前项背景色
+ * @param {String} $name 定义扩展名称 {add:1.0.0}
+ * @param {Boolen} $has-btn 是否有按钮 {add:1.0.0}
+ * @param {Length} $btn-size 按钮大小 {add:1.0.0}
+ * @param {Length} $btn-bgcolor 按钮背景色 {add:1.0.0}
+ * @param {Length} $btn-color 按钮文本色 {add:1.0.0}
+ * @param {Color} $btn-active-bgcolor 按钮按下背景色 {add:1.0.0}
+ * @param {Length} $btn-active-color 按钮按下文本色 {add:1.0.0}
+ * @param {Length} $index-size 索引大小 {add:1.0.0}
+ * @param {Color} $index-bgcolor 索引背景色 {add:1.0.0}
+ * @param {Length} $index-on-bgcolor 索引当前项背景色 {add:1.0.0}
  */
 
 @mixin yo-switchable(

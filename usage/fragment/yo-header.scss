@@ -9,8 +9,9 @@
 
 @include yo-header(
     $name: normal,
-    $bordercolor: #ddd,
+    $border-color: #ddd,
     $bgcolor: #eee,
     $color: map-get($base, color),
+    $item-color: map-get($base, color),
     $item-ico-color: map-get($base, color)
 );

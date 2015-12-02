@@ -42,6 +42,7 @@
  * @method prefix
  * @param {String} $property 指定属性
  * @param {String} $value 指定属性值
+ * @skip
  */
 @mixin prefix($property, $value) {
     // 老式浏览器
@@ -59,53 +60,13 @@
 /**
  * @module core
  * @class 功能
- * @description 四则运算，安卓需要使用该方法，需要Android4.4及以上
- * @method calc
- * @param {String} $property 指定需要进行计算的CSS属性
- * @param {String} $value 与原生CSS语法一致，区别在于需要使用引号包裹表达式
- * @example @include calc(width, "100% - 100px");
- */
-@mixin calc($property, $value) {
-    // 是否开启厂商前缀支持
-    @if map-get($setting, is-vendor-prefix) {
-        // 遍历输出厂商代码
-        @each $vendor in map-get($setting, vendor-prefix) {
-            // 输出所有厂商前缀（IE9.0+支持标准写法，更早版本不支持该函数）
-            @if $vendor != -ms- {
-                #{$property}: #{$vendor}calc(#{$value});
-            }
-        }
-    }
-    #{$property}: calc(#{$value});
-}
-
-/**
- * @module core
- * @class 功能
- * @description 定义响应式方案
- * @method responsive
- * @param {String} $media 指定媒体查询条件
- */
-@mixin responsive($media) {
-    @if not map-has-key($media-types, $media) {
-        @warn "#{$media} is not a known media type. Using portrait instead.";
-        $media: portrait;
-    }
-    @media #{map-get($media-types, $media)} {
-        @content;
-    }
-}
-
-/**
- * @module core
- * @class 功能
  * @description 定义字体图标
  * @method yofont
  * @skip
  */
 @mixin yofont() {
     // 是否开启图标字体
-    @if map-get($ico, is-use) {
+    @if map-get($ico, is-use) == true {
         @font-face {
             font-family: map-get($ico, font-name);
             src:
@@ -129,8 +90,52 @@
 /**
  * @module core
  * @class 功能
+ * @description 四则运算(iOS6.0+,Android4.4+)
+ * @method calc
+ * @version 1.7.0
+ * @param {String} $property 指定需要进行计算的CSS属性 {add:1.7.0}
+ * @param {String} $value 与原生CSS语法一致，区别在于需要使用引号包裹表达式 {add:1.7.0}
+ * @example <div class="calc">四则运算</div>
+ * .calc { @include calc(width, "100% - 100px"); }
+ */
+@mixin calc($property, $value) {
+    // 是否开启厂商前缀支持
+    @if map-get($setting, is-vendor-prefix) {
+        // 遍历输出厂商代码
+        @each $vendor in map-get($setting, vendor-prefix) {
+            // 输出所有厂商前缀（IE9.0+支持标准写法，更早版本不支持该函数）
+            @if $vendor != -ms- {
+                #{$property}: #{$vendor}calc(#{$value});
+            }
+        }
+    }
+    #{$property}: calc(#{$value});
+}
+
+/**
+ * @module core
+ * @class 功能
+ * @description 定义响应式方案
+ * @method responsive
+ * @version 1.0.0
+ * @param {String} $media 指定媒体查询条件，取值为`config`文件map `media-types`中的值 {add:1.0.0}
+ */
+@mixin responsive($media) {
+    @if not map-has-key($media-types, $media) {
+        @warn "#{$media} is not a known media type. Using portrait instead.";
+        $media: portrait;
+    }
+    @media #{map-get($media-types, $media)} {
+        @content;
+    }
+}
+
+/**
+ * @module core
+ * @class 功能
  * @description 清除浮动方案
  * @method clearfix
+ * @version 1.0.0
  * @param {String} $type 指定清除浮动的方式，包括：pseudo-element | bfc，默认值：pseudo-element {add: 1.8.5}
  */
 @mixin clearfix($type: pseudo-element) {
@@ -154,13 +159,15 @@
  * @class 功能
  * @description 清除行内级元素间间隙方案
  * @method killspace
+ * @version 1.0.0
+ * @param {Length} $font-size 指定子元素字号，默认值：config基准字号 {add: 2.0.0}
  */
-@mixin killspace() {
+@mixin killspace($font-size: map-get($base, font-size-baseline)) {
     font-size: 0;
     font-family: arial;
     > .item {
         display: inline-block;
-        font-size: map-get($base, font-size);
+        font-size: $font-size;
         font-family: map-get($base, font-family);
     }
 }
@@ -168,55 +175,50 @@
 /**
  * @module core
  * @class 功能
- * @description 未知尺寸元素垂直居中解决方案
- * @method valign
- * @example .demo {@include valign;} <div class="demo"><img src="*.jpg" alt="未知尺寸图片居中" class="item" /></div>
+ * @description 元素在包含块中的对齐方式，默认为水平垂直对齐
+ * @method align
+ * @version 2.0.0
+ * @param {String} $flexbox 指定包含块布局方式，可选值：flex | inline-flex，默认值：flex {add:2.0.0}
+ * @param {String} $type 指定居中元素类型，可选值：image | text，默认值：text {add:2.0.0}
+ * @param {Keywords} $justify-content 指定元素水平对齐方式，取值与`justify-content`属性一致，默认值：center {add:2.0.0}
+ * @param {Keywords} $align-items 指定元素垂直对齐方式，取值与`align-items`属性一致，默认值：center {add:2.0.0}
+ * @example
+ * <div class="demo">
+ *      <img src="*.jpg" alt="未知尺寸图片居中" />
+ * </div>
+ * .demo {@include align;}
  */
-@mixin valign() {
-    @include killspace;
-    &::after {
-        display: inline-block;
-        overflow: hidden;
-        width: 0;
-        height: 100%;
-        content: "\0020";
-        vertical-align: middle;
-    }
+@mixin align($flexbox: flex, $type: text, $justify-content: center, $align-items: center) {
+    @include flexbox($flexbox);
+    @include justify-content($justify-content);
+    @include align-items($align-items);
+    @include wrap;
     > .item {
-        vertical-align: middle;
+        @if $type == image {
+            max-width: 100%;
+            max-height: 100%;
+        }
     }
 }
 
 /**
  * @module core
  * @class 功能
- * @description 已知尺寸元素垂直居中解决方案
- * @method alignment
- * @param {Length} $width 居中元素的宽度
- * @param {Length} $height 居中元素的高度
- */
-@mixin alignment($width: 2rem, $height: 2rem) {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: $width;
-    height: $height;
-    margin-top: -$height/2;
-    margin-left: -$width/2;
-}
-
-/**
- * @module core
- * @class 功能
- * @description 定义根节点 root-scroll
+ * @description 定义文档根节点是否允许滚动
  * @method root-scroll
- * @param {String} $root-scroll 指定scroll类型，取值overflow属性的标准值
+ * @version 1.4.0
+ * @param {Boolean} $is-scroll 指定是否有滚动，默认值：false {add: 1.8.6}
  */
-@mixin root-scroll($root-scroll: hidden) {
+@mixin root-scroll($is-scroll: false) {
     html,
     body {
-        overflow: $root-scroll;
-        height: 100%;
+        @if $is-scroll {
+            overflow: visible;
+            height: auto;
+        } @else {
+            overflow: hidden;
+            height: 100%;
+        }
     }
 }
 
@@ -225,7 +227,8 @@
  * @class 功能
  * @description 定义是否有滚动条
  * @method overflow
- * @param {String} $overflow 默认值：auto，取值与最新原生语法一致
+ * @version 1.0.0
+ * @param {String} $overflow 取值与最新原生语法一致，默认值：auto {add:1.0.0}
  */
 @mixin overflow($overflow: auto) {
     @if $overflow == auto {
@@ -242,8 +245,9 @@
  * @class 功能
  * @description 生成全屏方法
  * @method fullscreen
- * @param {Integer} $z-index 定义层叠级别
- * @param {Keywords} $position 定义定位方式，除 static | relative 之外的值
+ * @version 1.7.0
+ * @param {Integer} $z-index 指定层叠级别 {add:1.7.0}
+ * @param {Keywords} $position 指定定位方式，取除`static | relative`之外的值，默认值：absolute {add:1.8.5}
  */
 @mixin fullscreen($z-index: null, $position: absolute) {
     position: $position;
@@ -257,9 +261,10 @@
 /**
  * @module core
  * @class 用户界面
- * @description 滤镜
+ * @description 定义使用何种滤镜
  * @method filter
- * @param {String} $filter 取值与原生语法一致
+ * @version 1.7.0
+ * @param {String} $filter 取值与`filter`属性一致 {add:1.7.0}
  */
 @mixin filter($filter...) {
     @include prefix(filter, $filter);
@@ -270,7 +275,8 @@
  * @class 用户界面
  * @description 定义UA默认外观
  * @method appearance
- * @param {String} $appearance 指定UA外观类型
+ * @version 1.0.0
+ * @param {String} $appearance 取值与`appearance`属性一致，默认值：none {add:1.0.0}
  */
 @mixin appearance($appearance: none) {
     @include prefix(appearance, $appearance);
@@ -279,9 +285,10 @@
 /**
  * @module core
  * @class 用户界面
- * @description 定义是否可以选中元素
+ * @description 定义如何选中内容
  * @method user-select
- * @param {String} $user-select 指定是否可以选中
+ * @version 1.0.0
+ * @param {String} $user-select 取值与`user-select`属性一致，默认值：none {add:1.0.0}
  */
 @mixin user-select($user-select: none) {
     @include prefix(user-select, $user-select);
@@ -292,7 +299,8 @@
  * @class 用户界面
  * @description 定义盒模型
  * @method box-sizing
- * @param {String} $box-sizing 取值与`box-sizing`属性一致
+ * @version 1.0.0
+ * @param {String} $box-sizing 指定盒模型类型，取值与`box-sizing`属性一致，默认值：border-box {add:1.0.0}
  */
 @mixin box-sizing($box-sizing: border-box) {
     @include prefix(box-sizing, $box-sizing);
@@ -303,16 +311,38 @@
  * @class 背景与边框
  * @description 定义渐变色值
  * @method gradient
- * @param {String} $type 指定渐变的4种类型：linear, repeating-linear, radial, repeating-radial
- * @param {String} $gradient 指定渐变取值，与w3c最新原生语法一致
+ * @version 1.0.0
+ * @param {String} $type 指定渐变的4种类型：linear, repeating-linear, radial, repeating-radial {add:1.0.0}
+ * @param {String} $dir 指定渐变方向，可选值：[left | right] || [top | bottom] | angle {add:2.0.0}
+ * @param {String} $gradient 指定渐变取值，与w3c最新原生语法一致 {add:1.0.0}
  */
-@mixin gradient($type, $gradient...) {
-    @if map-get($setting, is-vendor-prefix) {
+@mixin gradient($type, $dir, $color-stop...) {
+    $dir-list: (top, right, bottom, left);
+    $dir-new: ();
+    $is-angle: false;
+    @if map-get($setting, is-vendor-prefix) == true {
         @each $vendor in map-get($setting, vendor-prefix) {
-            background-image: #{$vendor}#{$type}-gradient($gradient);
+            background-image: $vendor$type#{-gradient($dir, $color-stop)};
         }
     }
-    background-image: #{$type}-gradient($gradient);
+    @each $direction in $dir {
+        @if $direction == top {
+            $dir-new: join($dir-new, bottom, $separator: space);
+        } @else if $direction == bottom {
+            $dir-new: join($dir-new, top, $separator: space);
+        } @else if $direction == right {
+            $dir-new: join($dir-new, left, $separator: space);
+        } @else if $direction == left {
+            $dir-new: join($dir-new, right, $separator: space);
+        } @else {
+            $dir-new: $direction;
+            $is-angle: true;
+        }
+    }
+    @if $is-angle == false {
+        $dir-new: #{to $dir-new};
+    }
+    background-image: $type#{-gradient($dir-new, $color-stop)};
 }
 
 /**
@@ -320,7 +350,8 @@
  * @class 背景与边框
  * @description 定义背景图像缩放（AndroidBrowser2.3.*还需要厂商前缀）
  * @method background-size
- * @param {Keywords | Length} $background-size 指定背景图缩放值，取值与`background-size`属性一致
+ * @version 1.4.0
+ * @param {Keywords | Length} $background-size 指定背景图缩放值，取值与`background-size`属性一致 {add:1.4.0}
  */
 @mixin background-size($background-size...) {
     @include prefix(background-size, $background-size);
@@ -331,7 +362,8 @@
  * @class 背景与边框
  * @description 定义背景裁减（AndroidBrowser2.3.*还需要厂商前缀）
  * @method background-clip
- * @param {Keywords} $background-clip 指定背景图缩放值，取值与`background-clip`属性一致
+ * @version 1.6.0
+ * @param {Keywords} $background-clip 指定背景图缩放值，取值与`background-clip`属性一致 {add:1.6.0}
  */
 @mixin background-clip($background-clip...) {
     @include prefix(background-clip, $background-clip);
@@ -342,7 +374,8 @@
  * @class 背景与边框
  * @description 定义背景显示区域（AndroidBrowser2.3.*还需要厂商前缀）
  * @method background-origin
- * @param {Keywords} $background-origin 指定背景图`background-position`属性计算相对的参考点，取值与`background-origin`属性一致
+ * @version 1.6.0
+ * @param {Keywords} $background-origin 指定背景图`background-position`属性计算相对的参考点，取值与`background-origin`属性一致 {add:1.6.0}
  */
 @mixin background-origin($background-origin...) {
     @include prefix(background-origin, $background-origin);
@@ -351,22 +384,82 @@
 /**
  * @module core
  * @class 背景与边框
- * @description 定义圆角
+ * @description 定义圆角，用于修复某些安卓机型上“圆角+边框+背景”，背景溢出的情况
  * @method border-radius
- * @param {Length} $border-radius 指定元素的圆角半径，取值与`border-radius`属性一致
+ * @version 1.6.0
+ * @param {Length} $border-radius 指定元素的圆角半径，取值与`border-radius`属性一致 {add:1.6.0}
  */
 @mixin border-radius($border-radius...) {
     border-radius: $border-radius;
-    // 修复某些安卓机型上“边框+背景”，背景溢出的情况
     // 之所以会这样是因为这些机型的背景是从边框处开始渲染，所以只需要改成从padding处渲染即可
     @include background-clip(padding-box !important);
 }
 
 /**
  * @module core
+ * @class 背景与边框
+ * @description 为元素添加边框（包括1px边框）
+ * @method border
+ * @version 2.0.0
+ * @param {String} $border-width 指定边框厚度（单位为px），默认值：1px，取值与`border-width`属性一致，不同方向代表边框位置 {add:2.0.0}
+ * @param {String} $border-color 指定边框颜色 {add:2.0.0}
+ * @param {String} $border-style 指定边框样式 {add:2.0.0}
+ * @param {String} $radius 指定边框圆角半径，默认值：null {add:2.0.0}
+ */
+@mixin border($border-width: 1px, $border-color: map-get($base, border-color), $border-style: solid, $radius: null) {
+    // 为边框位置提供定位参考
+    position: relative;
+    @if $border-width == null {
+        $border-width: 0;
+    }
+    border-radius: $radius;
+    &::after {
+        // 用以解决边框layer遮盖内容
+        pointer-events: none;
+        position: absolute;
+        z-index: 999;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        content: "\0020";
+        border-color: $border-color;
+        border-style: $border-style;
+        border-width: $border-width;
+        // 适配dpr进行缩放
+        @include responsive(retina1x) {
+            width: 100%;
+            height: 100%;
+            @if $radius != null {
+                border-radius: $radius;
+            }
+        }
+        @include responsive(retina2x) {
+            width: 200%;
+            height: 200%;
+            @include transform(scale(0.5));
+            @if $radius != null {
+                border-radius: $radius * 2;
+            }
+        }
+        @include responsive(retina3x) {
+            width: 300%;
+            height: 300%;
+            @include transform(scale(1/3));
+            @if $radius != null {
+                border-radius: $radius * 3;
+            }
+        }
+        @include transform-origin(0 0);
+    }
+}
+
+/**
+ * @module core
+ * @class 变换
  * @description 定义简单变换
  * @method transform
- * @param {String} $transform 取值与原生语法一致
+ * @version 1.0.0
+ * @param {String} $transform 取值范围与`transform`属性一致 {add:1.0.0}
  */
 @mixin transform($transform...) {
     @include prefix(transform, $transform);
@@ -374,9 +467,11 @@
 
 /**
  * @module core
+ * @class 变换
  * @description 定义变换原点
  * @method transform-origin
- * @param {String} $transform-origin 取值与原生语法一致
+ * @version 1.0.0
+ * @param {Length | Percentage | Keywords} $transform-origin 取值范围与`transform-origin`属性一致 {add:1.0.0}
  */
 @mixin transform-origin($transform-origin) {
     @include prefix(transform-origin, $transform-origin);
@@ -384,9 +479,58 @@
 
 /**
  * @module core
+ * @class 变换
+ * @description 指定某元素的子元素是（看起来）位于三维空间内，还是在该元素所在的平面内被扁平化
+ * @method transform-style
+ * @version 2.0.0
+ * @param {String} $transform-style 取值范围与`transform-style`属性一致 {add:2.0.0}
+ */
+@mixin transform-style($transform-style) {
+    @include prefix(transform-style, $transform-style);
+}
+
+/**
+ * @module core
+ * @class 变换
+ * @description 指定观察者与「z=0」平面的距离，使具有三维位置变换的元素产生透视效果。「z>0」的三维元素比正常大，而「z<0」时则比正常小，大小程度由该属性的值决定。
+ * @method perspective
+ * @version 2.0.0
+ * @param {none | Length} $perspective 取值范围与`perspective`属性一致 {add:2.0.0}
+ */
+@mixin perspective($perspective) {
+    @include prefix(perspective, $perspective);
+}
+
+/**
+ * @module core
+ * @class 变换
+ * @description 指定透视点的位置
+ * @method perspective-origin
+ * @version 2.0.0
+ * @param {Length | Percentage | Keywords} $perspective-origin 取值范围与`perspective-origin`属性一致 {add:2.0.0}
+ */
+@mixin perspective-origin($perspective-origin) {
+    @include prefix(perspective-origin, $perspective-origin);
+}
+
+/**
+ * @module core
+ * @class 变换
+ * @description 指定元素背面面向用户时是否可见
+ * @method backface-visibility
+ * @version 2.0.0
+ * @param {Keywords} $backface-visibility 取值范围与`backface-visibility`属性一致 {add:2.0.0}
+ */
+@mixin backface-visibility($backface-visibility) {
+    @include prefix(backface-visibility, $backface-visibility);
+}
+
+/**
+ * @module core
  * @description 定义动画
  * @method animation
- * @param {String} $animation 取值与原生语法一致
+ * @version 1.0.0
+ * @param {String} $animation 取值与原生语法一致 {add:1.0.0}
  */
 @mixin animation($animation...) {
     @include prefix(animation, $animation);
@@ -396,7 +540,8 @@
  * @module core
  * @description 定义补间
  * @method transition
- * @param {String} $transition 取值与原生语法一致
+ * @version 1.0.0
+ * @param {String} $transition 取值与原生语法一致 {add:1.0.0}
  */
 @mixin transition($transition...){
     $transitionable-prefixed-values: transform, transform-origin !default;
@@ -430,7 +575,8 @@
  * @class 弹性盒
  * @description 定义显示类型为伸缩盒
  * @method flexbox
- * @param {String} $flexbox 默认值：flex，可选值：flex | inline-flex
+ * @version 1.0.0
+ * @param {String} $flexbox 默认值：flex，可选值：flex | inline-flex {add:1.0.0}
  */
 @mixin flexbox($flexbox: flex) {
     @if $flexbox == inline-flex or $flexbox == inline {
@@ -463,11 +609,13 @@
  * @class 弹性盒
  * @description 定义伸缩盒子元素如何分配空间
  * @method flex
- * @param {String} $flex 默认值：1，取值与最新原生语法一致
- * @param {String} $direction 默认值: row
+ * @version 1.0.0
+ * @param {Number} $flex 取值与`flex`属性一致，默认值：1 {add:1.0.0}
+ * @param {String} $direction 默认值: row，可选值：row | column {add:1.5.0}
  */
 @mixin flex($flex: 1, $direction: row) {
     // 老式浏览器（实验性质支持3个阶段草案）
+    // 原始版本box-flex并不是复合属性，所以只有一个为数字的值
     @if map-get($setting, is-vendor-prefix) {
         @each $vendor in map-get($setting, vendor-prefix) {
             @if $vendor != -ms- {
@@ -496,7 +644,8 @@
  * @class 弹性盒
  * @description 定义伸缩盒子元素的排版顺序
  * @method order
- * @param {String} $order 默认值：1，取值范围与最新草案语法一致
+ * @version 1.0.0
+ * @param {Integer} $order 取值与`order`属性一致，默认值：1 {add:1.0.0}
  */
 @mixin order($order: 1) {
     // 老式浏览器（实验性质支持3个阶段草案）
@@ -519,9 +668,23 @@
 /**
  * @module core
  * @class 弹性盒
+ * @description 定义弹性盒子元素流动方向及遇见边界时是否换行(iOS7.0+,Android4.4+)
+ * @method flex-flow
+ * @version 2.0.0
+ * @param {String} $flex-flow 取值与`flex-flow`属性一致，默认值：row nowrap {add:2.0.0}
+ */
+@mixin flex-flow($flex-flow: row nowrap) {
+    // 老式浏览器（实验性质支持过渡和最新2个阶段草案）+ 现代浏览器
+    @include prefix(flex-flow, $flex-flow);
+}
+
+/**
+ * @module core
+ * @class 弹性盒
  * @description 定义伸缩盒子元素的流动方向
  * @method flex-direction
- * @param {String} $flex-direction 默认值：row，取值范围与最新草案语法一致
+ * @version 1.0.0
+ * @param {String} $flex-direction 取值与`flex-direction`属性一致，默认值：row {add:1.0.0}
  */
 @mixin flex-direction($flex-direction: row) {
     // 老式浏览器（实验性质支持原始草案）
@@ -577,22 +740,24 @@
 /**
  * @module core
  * @class 弹性盒
- * @description 定义弹性盒子元素溢出排版
+ * @description 定义弹性盒子元素溢出后排版(iOS7.0+,Android4.4+)
  * @method flex-wrap
- * @param {String} $flex-wrap 默认值：nowrap，取值范围与最新草案语法一致
+ * @version 1.0.0
+ * @param {String} $flex-wrap 取值与`flex-wrap`属性一致，默认值：nowrap {add:1.0.0}
  */
 @mixin flex-wrap($flex-wrap: nowrap) {
     // 老式浏览器（实验性质支持过渡和最新2个阶段草案）+ 现代浏览器
-    // 原始草案有`box-lines`对应本书，不过虽然被webkit实验性质支援，但却未被任何浏览器实现（等同于未实现）
+    // 原始草案有`box-lines`对应本属性，不过虽然被webkit实验性质支援，但却未被任何浏览器实现（等同于未实现）
     @include prefix(flex-wrap, $flex-wrap);
 }
 
 /**
  * @module core
  * @class 弹性盒
- * @description 定义弹性容器主轴对齐方式
+ * @description 定义弹性容器主轴对齐方式(其中`space-around`值需要iOS7.0+,Android4.4+)
  * @method justify-content
- * @param {String} $justify-content 默认值：center，取值范围与最新草案语法一致
+ * @version 1.0.0
+ * @param {String} $justify-content 取值与`justify-content`属性一致，默认值：center {add:1.0.0}
  */
 @mixin justify-content($justify-content: center) {
     // 老式浏览器（实验性质支持3个阶段草案）
@@ -670,10 +835,10 @@
 /**
  * @module core
  * @class 弹性盒
- * @description 定义多行弹性容器侧轴对齐方式
+ * @description 定义多行弹性容器侧轴对齐方式(iOS7.0+,Android4.4+)
  * @method align-content
  * @version 1.8.5
- * @param {String} $align-content 默认值：center，取值范围与最新草案语法一致
+ * @param {String} $align-content 取值与`align-content`属性一致，默认值：center {add:1.8.5}
  */
 @mixin align-content($align-content: center) {
     // 老式浏览器（实验性质支持2个阶段草案）
@@ -747,7 +912,8 @@
  * @class 弹性盒
  * @description 定义单行弹性容器侧轴对齐方式
  * @method align-items
- * @param {String} $align-items 默认值：center，取值与最新原生语法一致
+ * @version 1.0.0
+ * @param {String} $align-items 取值与`align-items`属性一致，默认值：center {add:1.0.0}
  */
 @mixin align-items($align-items: center) {
     // 老式浏览器（实验性质支持3个阶段草案）
@@ -777,7 +943,8 @@
                 }
             }
         }
-    } @else if $align-items == center or $align-items == baseline or $align-items == stretch {
+    } @else {
+        // 取值为center | baseline | stretch时，3个阶段草案均相同
         @if map-get($setting, is-vendor-prefix) {
             @each $vendor in map-get($setting, vendor-prefix) {
                 @if $vendor != -ms- {
@@ -798,9 +965,10 @@
 /**
  * @module core
  * @class 弹性盒
- * @description 定义弹性容器中子元素自身的在侧轴对齐方式
+ * @description 定义弹性容器中子元素自身的在侧轴对齐方式(iOS7.0+,Android4.4+)
  * @method align-self
- * @param {String} $align-self 默认值：center，取值与最新原生语法一致
+ * @version 1.0.0
+ * @param {String} $align-self 取值与`align-self`属性一致，默认值：center {add:1.0.0}
  */
 @mixin align-self($align-self: center) {
     // 老式浏览器（实验性质支持3个阶段草案）
@@ -850,8 +1018,9 @@
  * @class 形状
  * @description 生成矩形方法
  * @method rect
- * @param {Length} $width 定义矩形的长度
- * @param {Length} $height 定义矩形的高度
+ * @version 1.0.0
+ * @param {Length} $width 定义矩形的长度 {add:1.0.0}
+ * @param {Length} $height 定义矩形的高度 {add:1.0.0}
  */
 @mixin rect($width, $height) {
     width: $width;
@@ -863,7 +1032,8 @@
  * @class 形状
  * @description 生成正方形方法
  * @method square
- * @param {Length} $size 定义正方形的边长
+ * @version 1.0.0
+ * @param {Length} $size 定义正方形的边长 {add:1.0.0}
  */
 @mixin square($size) {
     width: $size;
@@ -875,8 +1045,9 @@
  * @class 形状
  * @description 生成圆形方法
  * @method circle
- * @param {Length} $size 定义圆的半径长度
- * @param {Length} $radius 定义圆的圆角半径长度
+ * @version 1.0.0
+ * @param {Length} $size 定义圆的半径长度 {add:1.0.0}
+ * @param {Length} $radius 定义圆的圆角半径长度 {add:1.0.0}
  */
 @mixin circle($size, $radius: 50%) {
     @include square($size);
@@ -888,7 +1059,8 @@
  * @class 文本
  * @description 链接处理方法
  * @method link
- * @param {Color} $color 定义链接颜色
+ * @version 1.0.0
+ * @param {Color} $color 定义链接颜色 {add:1.0.0}
  */
 @mixin link($color: map-get($base, link-color)) {
     color: $color;
@@ -901,27 +1073,33 @@
 /**
  * @module core
  * @class 文本
- * @description 强制换行方案
+ * @description 文本碰到边界是否换行
  * @method wrap
+ * @version 1.0.0
+ * @param {Boolean} $is-wrap 定义文本是否换行，默认值：true {add:2.0.0}
  */
-@mixin wrap() {
-    word-wrap: break-word;
-    word-break: break-all;
+@mixin wrap($is-wrap: true) {
+    @if $is-wrap == true {
+        word-wrap: break-word;
+        word-break: break-all;
+    } @else {
+        white-space: nowrap;
+    }
 }
 
 /**
  * @module core
  * @class 文本
- * @description 单行文本溢出显示方案
+ * @description 单行文本溢出时显示省略号
  * @method ellipsis
- * @param {Boolen} $ellipsis 定义是否需要省略号
+ * @version 1.0.0
+ * @param {Length} $width 定义容器的宽度，默认值：null {add:2.0.0}
  */
-@mixin ellipsis($ellipsis: true) {
+@mixin ellipsis($width: null) {
     overflow: hidden;
-    white-space: nowrap;
-    @if $ellipsis {
-        text-overflow: ellipsis;
-    }
+    @include wrap(false);
+    text-overflow: ellipsis;
+    width: $width;
 }
 
 /**
@@ -929,11 +1107,14 @@
  * @class 文本
  * @description 文字隐藏方案
  * @method texthide
+ * @version 1.0.0
+ * @param {Length} $width 定义容器的宽度，默认值：null {add:2.0.0}
  */
-@mixin texthide() {
+@mixin texthide($width: null) {
     overflow: hidden;
     white-space: nowrap;
     text-indent: 100%;
+    width: $width;
 }
         </pre>
         </div>

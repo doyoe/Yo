@@ -9,7 +9,6 @@
 <meta name="format-detection" content="telephone=no,email=no" />
 <link rel="apple-touch-icon" href="../../yo.png" />
 <link rel="shortcut icon" href="../../shortcut.png" />
-<script src="../../js/viewport.js"></script>
 <link rel="stylesheet" href="../../usage/export/yo-input.css" />
 </head>
 <body>
@@ -18,16 +17,17 @@
     <header class="yo-header m-header">
         <h2 class="title">yo-input</h2>
         <a href="../index.html" class="regret yo-ico">&#xf07d;</a>
+        <a href="../../doc/api.html#dataitem-yo-input" class="affirm">文档</a>
     </header>
     <div class="flex">
         <section class="m-list">
             <div class="yo-list yo-list-group">
                 <h3 class="label">默认：</h3>
                 <div class="item">
-                    <input type="text" class="yo-input" placeholder="必须为中文" />
+                    <input type="text" class="flex yo-input" placeholder="必须为中文" />
                 </div>
                 <div class="item">
-                    <textarea class="yo-input" placeholder="必须为中文"></textarea>
+                    <textarea class="flex yo-input" placeholder="必须为中文"></textarea>
                 </div>
             </div>
         </section>
@@ -159,18 +159,6 @@
 </div></xmp>
         </section>
 
-<pre class="m-code"><span class="method">@include yo-input</span><span class="bracket">(</span>
-    $name<span class="colon">:</span>default, <mark>//{String} yo-input名称</mark>
-    $width<span class="colon">:</span>default, <mark>//{Length} yo-input宽度</mark>
-    $height<span class="colon">:</span>default, <mark>//{Length} yo-input高度</mark>
-    $padding<span class="colon">:</span>default, <mark>//{Length} yo-input内补白</mark>
-    $radius<span class="colon">:</span>default, <mark>//{Length} yo-input圆角</mark>
-    $bordercolor<span class="colon">:</span>default, <mark>//{Color} yo-input边框色</mark>
-    $bgcolor<span class="colon">:</span>default, <mark>//{Color} yo-input背景色</mark>
-    $color<span class="colon">:</span>default, <mark>//{Color} yo-input文本色</mark>
-    $placeholder-color<span class="colon">:</span>default <mark>//{Color} yo-input placeholder文本色</mark>
-<span class="bracket">)</span>
-</pre>
     </div>
 </div>
 

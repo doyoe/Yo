@@ -2,6 +2,23 @@
 
 History Version and release time.
 
+### v1.8.7（2016.10.23）
+
+[Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v1.8.7)
+
+* update: `yo-datepicker`
+    - 为`weeks`容器添加`relative`
+    - 解决`disabled`状态被扩展覆盖的问题
+
+### v1.8.6（2016.10.16）
+
+[Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v1.8.6)
+
+* update: `yo-btn`
+    - 更新`config`对于`yo-btn`的高度和字号设置
+* rename: `yo-dblist`
+    - 重命名 `yo-dblist` 为 `yo-doublelist`。**业务回归请注意**
+
 ### v1.8.5 (2015.10.8)
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v1.8.5)

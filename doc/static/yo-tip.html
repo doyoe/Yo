@@ -30,8 +30,6 @@
         <div class="col-md-9" role="main">
         <pre class="brush: sass;">
                 @charset "utf-8";
-@import "../core/variables";
-@import "../core/classes";
 
 // 定义浮层tip的基础构造
 @mixin _tip {
@@ -40,8 +38,8 @@
     max-width: 90%;
     z-index: map-get($z-index, tip);
     padding: map-get($tip, padding);
-    @include border-radius(map-get($tip, radius));
-    background-color: rgba(map-get($tip, bgcolor), .5);
+    border-radius: map-get($tip, radius);
+    background-color: map-get($tip, bgcolor);
     color: map-get($tip, color);
     text-align: center;
 }
@@ -49,13 +47,14 @@
 /**
  * @module widget
  * @method yo-tip
+ * @version 1.0.0
  * @description 构造列表的自定义使用方法
  * @demo http://doyoe.github.io/Yo/demo/widget/yo-tip.html
- * @param {String} $name 定义yo-tip名称
- * @param {Length} $padding 定义yo-tip内补白
- * @param {Length} $radius 定义yo-tip圆角
- * @param {Color} $bgcolor 定义yo-tip背景色
- * @param {Color} $color 定义yo-tip文本色
+ * @param {String} $name 定义扩展名称 {add:1.0.0}
+ * @param {Length} $padding 内补白 {add:1.0.0}
+ * @param {Length} $radius 圆角半径长度 {add:1.0.0}
+ * @param {Color} $bgcolor 背景色 {add:1.0.0}
+ * @param {Color} $color 文本色 {add:1.0.0}
  */
 
 @mixin yo-tip(
@@ -91,7 +90,7 @@
             border-radius: $radius;
         }
         @if $bgcolor != map-get($tip, bgcolor) {
-            background-color: rgba($bgcolor, .5);
+            background-color: $bgcolor;
         }
         @if $color != map-get($tip, color) {
             color: $color;

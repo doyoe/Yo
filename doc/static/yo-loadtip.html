@@ -30,8 +30,6 @@
         <div class="col-md-9" role="main">
         <pre class="brush: sass;">
                 @charset "utf-8";
-@import "../core/variables";
-@import "../core/classes";
 @import "../ani/rotate";
 
 // 定义loadtip的基础构造
@@ -42,7 +40,6 @@
     font-size: map-get($loadtip, font-size);
     > .yo-ico {
         display: block;
-        @include transform-origin(center);
         color: map-get($loadtip, ico-color);
         -webkit-transition: -webkit-transform .3s;
         transition: transform .3s;
@@ -52,6 +49,8 @@
         }
     }
     > .yo-ico-loading {
+        position: relative;
+        z-index: 1000;
         @include animation(rotate 1s infinite linear);
     }
     > .text {
@@ -66,12 +65,13 @@
 /**
  * @module element
  * @method yo-loadtip
+ * @version 1.1.0
  * @description 构造加载提示的自定义使用方法
  * @demo http://doyoe.github.io/Yo/demo/element/yo-loadtip.html
- * @param {String} $name 为新的扩展定义一个名称
- * @param {Color} $color 文本色
- * @param {Length} $font-size 字号大小
- * @param {Color} $ico-color ico颜色
+ * @param {String} $name 定义扩展名称 {add:1.1.0}
+ * @param {Color} $color 文本色 {add:1.1.0}
+ * @param {Length} $font-size 字号大小 {add:1.1.0}
+ * @param {Color} $ico-color ico颜色 {add:1.1.0}
  */
 
 @mixin yo-loadtip(

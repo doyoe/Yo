@@ -1,10 +1,15 @@
 @charset "utf-8";
-@import "../core/variables";
-@import "../core/classes";
 
 // 定义table的基础构造
 @mixin _table {
     width: map-get($table, width);
+    @include border(
+        $border-width: 0,
+        $border-color: map-get($table, border-color)
+    );
+    @if map-get($table, has-vertical-border) == true {
+        border-width: 1px;
+    }
     background-color: #fff;
     thead {
         background-color: map-get($table, thead-bgcolor);
@@ -17,14 +22,16 @@
     }
     th,
     td {
+        @include border(
+            $border-width: 0 0 1px,
+            $border-color: map-get($table, border-color)
+        );
         // 判断是够需要垂直边框
-        @if map-get($table, has-vertical-border) == false {
-            border-width: 0 0 1px 0;
-        } @else {
-            border-width: 1px;
+        &::after {
+            @if map-get($table, has-vertical-border) == true {
+                border-width: 0 1px 1px 0;
+            }
         }
-        border-style: solid;
-        border-color: map-get($table, bordercolor);
     }
     tbody {
         tr:nth-child(odd) {
@@ -46,19 +53,21 @@
 /**
  * @module fragment
  * @method yo-table
+ * @version 1.0.0
  * @description 构造表格的自定义使用方法
  * @demo http://doyoe.github.io/Yo/demo/fragment/yo-table.html
- * @param {String} $name 定义table名称
- * @param {String} $width 定义table长度
- * @param {Boole} $has-vertical-border 定义table是否需要纵向边框
- * @param {Length} $thead-padding 定义table头部内补白
- * @param {Length} $tbody-padding 定义table主体内补白
- * @param {Color} $bordercolor 定义table边框色
- * @param {Color} $thead-bgcolor 定义table头部背景色
- * @param {Color} $odd-bgcolor 定义table奇数行背景色
- * @param {Color} $even-bgcolor 定义table偶数行背景色
- * @param {Color} $active-bgcolor 定义table激活背景色
- * @param {Color} $on-bgcolor 定义table选中背景色
+ * @param {String} $name 定义扩展名称 {add:1.0.0}
+ * @param {String} $width 宽度 {add:1.0.0}
+ * @param {Boole} $has-vertical-border 是否需要纵向边框 {add:1.0.0}
+ * @param {Length} $thead-padding 头部内补白 {add:1.0.0}
+ * @param {Length} $tbody-padding 主体内补白 {add:1.0.0}
+ * @param {Color} $bordercolor 边框色  {add:1.0.0}{del:2.0.0}
+ * @param {Color} $border-color 边框色 {add:2.0.0}
+ * @param {Color} $thead-bgcolor 头部背景色 {add:1.0.0}
+ * @param {Color} $odd-bgcolor 主体奇数行背景色 {add:1.0.0}
+ * @param {Color} $even-bgcolor 主体偶数行背景色 {add:1.0.0}
+ * @param {Color} $active-bgcolor 主体激活背景色 {add:1.0.0}
+ * @param {Color} $on-bgcolor 主体选中背景色 {add:1.0.0}
  */
 
 @mixin yo-table(
@@ -67,7 +76,7 @@
     $has-vertical-border: default,
     $thead-padding: default,
     $tbody-padding: default,
-    $bordercolor: default,
+    $border-color: default,
     $thead-bgcolor: default,
     $odd-bgcolor: default,
     $even-bgcolor: default,
@@ -89,8 +98,8 @@
     @if $tbody-padding == default {
         $tbody-padding: map-get($table, tbody-padding);
     }
-    @if $bordercolor == default {
-        $bordercolor: map-get($table, bordercolor);
+    @if $border-color == default {
+        $border-color: map-get($table, border-color);
     }
     @if $thead-bgcolor == default {
         $thead-bgcolor: map-get($table, thead-bgcolor);
@@ -111,6 +120,20 @@
         @if $width != default {
             width: $width;
         }
+        &::after {
+            @if $has-vertical-border == false {
+                @if $has-vertical-border != map-get($table, has-vertical-border) {
+                    border-width: 0;
+                }
+            } @else {
+                @if $has-vertical-border != map-get($table, has-vertical-border) {
+                    border-width: 1px;
+                }
+            }
+            @if $border-color != map-get($table, border-color) {
+                border-color: $border-color;
+            }
+        }
         thead {
             @if $thead-bgcolor != none and $thead-bgcolor != map-get($table, thead-bgcolor) {
                 background-color: $thead-bgcolor;
@@ -127,17 +150,19 @@
             }
         }
         th,td {
-            @if $has-vertical-border == false {
-                @if $has-vertical-border != map-get($table, has-vertical-border) {
-                    border-width: 0 0 1px 0;
+            &::after {
+                @if $has-vertical-border == false {
+                    @if $has-vertical-border != map-get($table, has-vertical-border) {
+                        border-width: 0 0 1px;
+                    }
+                } @else {
+                    @if $has-vertical-border != map-get($table, has-vertical-border) {
+                        border-width: 0 1px 1px 0;
+                    }
                 }
-            } @else {
-                @if $has-vertical-border != map-get($table, has-vertical-border) {
-                    border-width: 1px;
+                @if $border-color != map-get($table, border-color) {
+                    border-color: $border-color;
                 }
-            }
-            @if $bordercolor != map-get($table, bordercolor) {
-                border-color: $bordercolor;
             }
         }
         tbody {

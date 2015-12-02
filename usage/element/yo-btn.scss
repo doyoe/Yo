@@ -11,13 +11,14 @@
 // 预设轻柔按钮
 @include yo-btn(
     $name: light,
-    $bordercolor: #ddd,
+    $border-color: #ccc,
     $bgcolor: #fff,
     $color: map-get($base, color)
 );
+
 // 预设信息按钮
 @include yo-btn(
     $name: info,
-    $bordercolor: #0456e2,
+    $border-color: #0456e2,
     $bgcolor: #4a87ee
 );

@@ -1,21 +1,13 @@
 @charset "utf-8";
 @import "../layout/layout";
-
 @import "../module/m-header";
 @import "../module/m-layer";
 @import "../module/m-desc";
-@import "../module/m-code";
 
 // 这个import应该放到具体使用了该widget的模块内
 // 此处只为简单描述一个demo，所以写法随意
-@import "../widget/yo-dblist";
+@import "../widget/yo-vcode";
 
-.yo-dblist {
-    position: static;
-    > .item:nth-child(1) {
-        background-color: #ccc;
-    }
-    > .item:not(:nth-child(1)) {
-        background-color: #eee;
-    }
+@include yo-vcode{
+    margin: .1rem;
 }

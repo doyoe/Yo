@@ -1,22 +1,17 @@
 @charset "utf-8";
-@import "../core/variables";
-@import "../core/classes";
 
 // 定义header的基础构造
 @mixin _header {
     position: relative;
     height: map-get($header, height);
     line-height: map-get($header, height);
-    border-bottom: 1px solid map-get($header, bordercolor);
+    @include border(
+        $border-width: map-get($header, border-width),
+        $border-color: map-get($header, border-color)
+    );
     background-color: map-get($header, bgcolor);
-    // 如果config预设值不等于base color，则重绘color
-    @if map-get($header, color) != map-get($base, color) {
-        color: map-get($header, color);
-    }
-    // 如果config预设值不等于base font-size，则重绘font-size
-    @if map-get($header, font-size) != map-get($base, font-size) {
-        font-size: map-get($header, font-size);
-    }
+    color: map-get($header, color);
+    font-size: map-get($header, font-size);
     @include ellipsis;
     text-align: center;
     > .title {
@@ -28,17 +23,11 @@
         position: absolute;
         top: 0;
         width: map-get($header, item-width);
-        // 如果config预设值不等于parent color，则重绘子项的color
-        @if map-get($header, item-color) != map-get($header, color) {
-            color: map-get($header, item-color);
-        }
+        color: map-get($header, item-color);
         cursor: pointer;
+        font-size: map-get($header, item-font-size);
         &:active {
             opacity: .5;
-        }
-        // 如果config预设值不等于parent font-size，则重绘子项的font-size
-        @if map-get($header, item-font-size) != map-get($header, font-size) {
-            font-size: map-get($header, item-font-size);
         }
         &.yo-ico,
         > .yo-ico {
@@ -61,20 +50,23 @@
 /**
  * @module fragment
  * @method yo-header
+ * @version 1.0.0
  * @description 构造头的自定义使用方法
  * @demo http://doyoe.github.io/Yo/demo/fragment/yo-header.html
- * @param {String} $name 定义yo-header名称
- * @param {Length} $height 定义yo-header高度
- * @param {Length} $item-width 定义yo-header两侧子项宽度
- * @param {Length} $item-space 定义yo-header两侧子项离边界的间隙
- * @param {Color} $bordercolor 定义yo-header边框色
- * @param {Color} $bgcolor 定义yo-header背景色
- * @param {Color} $color 定义yo-header文本色
- * @param {Length} $font-size 定义yo-header文本大小
- * @param {Color} $item-color 定义yo-header两侧的子项文本色
- * @param {Color} $item-ico-color 定义yo-header两侧的ico色
- * @param {Length} $item-font-size 定义yo-header两侧的子项文本大小
- * @param {Length} $item-ico-size 定义yo-header两侧的ico大小
+ * @param {String} $name 定义扩展名称 {add:1.0.0}
+ * @param {Length} $height 高度 {add:1.0.0}
+ * @param {Length} $item-width 两侧子项操作区宽度 {add:1.0.0}
+ * @param {Length} $item-space 两侧子项离边界的间隙 {add:1.0.0}
+ * @param {Length} $border-width 边框厚度 {add:1.8.3}
+ * @param {Color} $bordercolor 边框色  {add:1.0.0}{del:2.0.0}
+ * @param {Color} $border-color 边框色 {add:2.0.0}
+ * @param {Color} $bgcolor 背景色 {add:1.0.0}
+ * @param {Color} $color 文本色 {add:1.0.0}
+ * @param {Length} $font-size 字号大小 {add:1.0.0}
+ * @param {Color} $item-color 两侧子项操作区文本色 {add:1.2.0}
+ * @param {Color} $item-ico-color 两侧子项操作区ico色 {add:1.8.0}
+ * @param {Length} $item-font-size 两侧子项操作区字号大小 {add:1.0.0}
+ * @param {Length} $item-ico-size 两侧子项操作区ico大小 {add:1.4.0}
  */
 
 @mixin yo-header(
@@ -82,7 +74,8 @@
     $height: default,
     $item-width: default,
     $item-space: default,
-    $bordercolor: default,
+    $border-width: default,
+    $border-color: default,
     $bgcolor: default,
     $color: default,
     $font-size: default,
@@ -106,8 +99,11 @@
     @if $item-space == default {
         $item-space: map-get($header, item-space);
     }
-    @if $bordercolor == default {
-        $bordercolor: map-get($header, bordercolor);
+    @if $border-width == default {
+        $border-width: map-get($header, border-width);
+    }
+    @if $border-color == default {
+        $border-color: map-get($header, border-color);
     }
     @if $bgcolor == default {
         $bgcolor: map-get($header, bgcolor);
@@ -135,8 +131,13 @@
             height: $height;
             line-height: $height;
         }
-        @if $bordercolor != map-get($header, bordercolor) {
-            border-color: $bordercolor;
+        &::after {
+            @if $border-width != map-get($header, border-width) {
+                border-width: $border-width;
+            }
+            @if $border-color != map-get($header, border-color) {
+                border-color: $border-color;
+            }
         }
         @if $bgcolor != map-get($header, bgcolor) {
             background-color: $bgcolor;

@@ -30,8 +30,6 @@
         <div class="col-md-9" role="main">
         <pre class="brush: sass;">
                 @charset "utf-8";
-@import "../core/variables";
-@import "../core/classes";
 
 // 定义range的基础构造
 @mixin _range {
@@ -42,8 +40,7 @@
         @include flex;
         overflow: hidden;
         height: .28rem;
-        background-image: -webkit-linear-gradient(right, map-get($range, outer-bgcolor) 0%, map-get($range, outer-bgcolor) 100%);
-        background-image: linear-gradient(to right, map-get($range, outer-bgcolor) 0%, map-get($range, outer-bgcolor) 100%);
+        @include gradient(linear, top, map-get($range, outer-bgcolor), map-get($range, outer-bgcolor));
         background-size: 100% .04rem;
         background-repeat: no-repeat;
         background-position: center;
@@ -67,9 +64,6 @@
         }
         &:disabled {
             opacity: .4;
-            &::-webkit-slider-thumb::before {
-                background-color: #444;
-            }
         }
     }
     > .yo-ico {
@@ -86,12 +80,13 @@
 /**
  * @module element
  * @method yo-range
- * @description 构造区间选择的自定义使用方法
+ * @version 1.0.0
+ * @description 构造区间选择的自定义使用方法（安卓4.3及以下有点问题）
  * @demo http://doyoe.github.io/Yo/demo/element/yo-range.html
- * @param {String} $name 为新的扩展定义一个名称
- * @param {Color} $inner-bgcolor 已选择区域滑条色
- * @param {Color} $outer-bgcolor 未选择区域滑条色
- * @param {Color} $ball-color 滑块色
+ * @param {String} $name 定义扩展名称 {add:1.0.0}
+ * @param {Color} $inner-bgcolor 已选择区域滑条色 {add:1.0.0}
+ * @param {Color} $outer-bgcolor 未选择区域滑条色 {add:1.0.0}
+ * @param {Color} $ball-color 滑块色 {add:1.0.0}
  */
 
 @mixin yo-range(
@@ -118,8 +113,7 @@
     .yo-range#{$name} {
         > input[type="range"] {
             @if $outer-bgcolor != map-get($range, outer-bgcolor) {
-                background-image: -webkit-linear-gradient(to right, $outer-bgcolor 0%, $outer-bgcolor 100%);
-                background-image: linear-gradient(to right, $outer-bgcolor 0%, $outer-bgcolor 100%);
+                @include gradient(linear, top, $outer-bgcolor, $outer-bgcolor);
             }
             &::-webkit-slider-thumb {
                 @if $ball-color != map-get($range, ball-color) {
