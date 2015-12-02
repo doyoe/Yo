@@ -30,73 +30,20 @@
         <div class="col-md-9" role="main">
         <pre class="brush: sass;">
                 @charset "utf-8";
-
-// 定义doublelist的基础构造
-@mixin _doublelist {
-    @include fullscreen;
-    @include flexbox;
-    > .item {
-        position: relative;
-        min-width: .1rem;
-        min-height: 2rem;
-        height: 100%;
-        &:first-child {
-            width: map-get($doublelist, aside-width);
-            @include order(map-get($doublelist, aside-order));
-        }
-        &:last-child {
-            @include flex;
-        }
-    }
-}
-
+@import "base";
 /**
- * @module widget
- * @method yo-doublelist
- * @version 1.8.6
- * @description 构造yo-doublelist的自定义使用方法（原yo-dblist）
- * @demo http://doyoe.github.io/Yo/demo/widget/yo-doublelist.html
- * @param {String} $name 定义扩展名称 {add:1.3.1}
- * @param {Length} $aside-width 侧边栏宽度 {add:1.3.1}
- * @param {Length} $aside-order 侧边栏顺序 {add:1.3.1}
+ * 合并base和extra中的同类base map
+ * 用以解决业务方升级Yo时需比base和extra的一致性
+ * 当extra为空时，base map将以base文件里的定义作为默认值
+ * 当extra不为空时，base map使用extra文件里的定义
  */
 
-@mixin yo-doublelist(
-    $name: default,
-    $aside-width: default,
-    $aside-order: default) {
-    // 区别是否新增实例还是修改本身
-    @if $name == default {
-        $name: "";
-    } @else {
-        $name: "-#{$name}";
-    }
-    // 如果值为default，则取config的定义
-    @if $aside-width == default {
-        $aside-width: map-get($doublelist, aside-width);
-    }
-    @if $aside-order == default {
-        $aside-order: map-get($doublelist, aside-order);
-    }
-    .yo-doublelist#{$name} {
-        > .item {
-            &:first-child {
-                @if $aside-width != map-get($doublelist, aside-width) {
-                    width: $aside-width;
-                }
-                @if $aside-order != map-get($doublelist, aside-order) {
-                    @include order($aside-order);
-                }
-            }
-        }
-        // 增量扩展
-        @content;
-    }
-}
-
-// 调用本文件时载入doublelist基础构造
-.yo-doublelist {
-    @include _doublelist;
+// 合并base和extra中的base map
+// 因为base map会在variables中引用，所以无法将merge动作放到会引用该map的其它map之后
+@if global-variable-exists(base) {
+    $base: map-merge($_base, $base);
+} @else {
+    $base: $_base;
 }
         </pre>
         </div>

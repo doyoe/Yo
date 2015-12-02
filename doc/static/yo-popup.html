@@ -30,8 +30,6 @@
         <div class="col-md-9" role="main">
         <pre class="brush: sass;">
                 @charset "utf-8";
-@import "../core/variables";
-@import "../core/classes";
 
 // 定义浮层popup的基础构造
 @mixin _popup {
@@ -118,12 +116,8 @@
             overflow: hidden;
             height: 100%;
             margin: 0 60px;
-            @if map-get($popup, title-color) != map-get($base, color) {
-                color: map-get($popup, title-color);
-            }
-            @if map-get($popup, title-font-size) != map-get($base, font-size) {
-                font-size: map-get($popup, title-font-size);
-            }
+            color: map-get($popup, title-color);
+            font-size: map-get($popup, title-font-size);
         }
         .regret,
         .affirm {
@@ -315,10 +309,10 @@
                 background-color: $hd-bgcolor;
             }
             .title {
-                @if $title-color != map-get($popup, title-color) and $title-color != map-get($base, color) {
+                @if $title-color != map-get($popup, title-color) {
                     color: $title-color;
                 }
-                @if $title-font-size != map-get($popup, title-font-size) and $title-font-size != map-get($base, font-size) {
+                @if $title-font-size != map-get($popup, title-font-size) {
                     font-size: $title-font-size;
                 }
             }

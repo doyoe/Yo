@@ -30,8 +30,6 @@
         <div class="col-md-9" role="main">
         <pre class="brush: sass;">
                 @charset "utf-8";
-@import "../core/variables";
-@import "../core/classes";
 
 // 定义list的基础构造
 @mixin _list {
@@ -107,6 +105,9 @@
         padding: map-get($list, item-padding);
     }
     > .item {
+        // 使用opacity创建局部堆叠上下文束缚内部after边线不覆盖label
+        // 如果想内容溢出容器，可以重置该值为1
+        opacity: .99999;
         overflow: hidden;
         background-color: #fff;
         color: map-get($base, color);
@@ -161,6 +162,9 @@
         > .col {
             padding: map-get($list, item-padding);
         }
+    }
+    > .label + > .item {
+
     }
 }
 

@@ -30,8 +30,6 @@
         <div class="col-md-9" role="main">
         <pre class="brush: sass;">
                 @charset "utf-8";
-@import "../core/variables";
-@import "../core/classes";
 
 // 定义header的基础构造
 @mixin _header {
@@ -43,14 +41,8 @@
         $border-color: map-get($header, border-color)
     );
     background-color: map-get($header, bgcolor);
-    // 如果config预设值不等于base color，则重绘color
-    @if map-get($header, color) != map-get($base, color) {
-        color: map-get($header, color);
-    }
-    // 如果config预设值不等于base font-size，则重绘font-size
-    @if map-get($header, font-size) != map-get($base, font-size) {
-        font-size: map-get($header, font-size);
-    }
+    color: map-get($header, color);
+    font-size: map-get($header, font-size);
     @include ellipsis;
     text-align: center;
     > .title {

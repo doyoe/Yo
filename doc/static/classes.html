@@ -162,7 +162,7 @@
  * @version 1.0.0
  * @param {Length} $font-size 指定子元素字号，默认值：config基准字号 {add: 2.0.0}
  */
-@mixin killspace($font-size: map-get($base, font-size)) {
+@mixin killspace($font-size: map-get($base, font-size-baseline)) {
     font-size: 0;
     font-family: arial;
     > .item {
@@ -313,15 +313,37 @@
  * @method gradient
  * @version 1.0.0
  * @param {String} $type 指定渐变的4种类型：linear, repeating-linear, radial, repeating-radial {add:1.0.0}
+ * @param {String} $dir 指定渐变方向，可选值：[left | right] || [top | bottom] | angle {add:2.0.0}
  * @param {String} $gradient 指定渐变取值，与w3c最新原生语法一致 {add:1.0.0}
  */
-@mixin gradient($type, $gradient...) {
-    @if map-get($setting, is-vendor-prefix) {
+@mixin gradient($type, $dir, $color-stop...) {
+    $dir-list: (top, right, bottom, left);
+    $dir-new: ();
+    $is-angle: false;
+    @if map-get($setting, is-vendor-prefix) == true {
         @each $vendor in map-get($setting, vendor-prefix) {
-            background-image: $vendor$type#{-gradient($gradient)};
+            background-image: $vendor$type#{-gradient($dir, $color-stop)};
         }
     }
-    background-image: $type#{-gradient($gradient)};
+    @each $direction in $dir {
+        @if $direction == top {
+            $dir-new: join($dir-new, bottom, $separator: space);
+        } @else if $direction == bottom {
+            $dir-new: join($dir-new, top, $separator: space);
+        } @else if $direction == right {
+            $dir-new: join($dir-new, left, $separator: space);
+        } @else if $direction == left {
+            $dir-new: join($dir-new, right, $separator: space);
+        } @else {
+            $dir-new: $direction;
+            $is-angle: true;
+        }
+    }
+    @if $is-angle == false {
+        $dir-new: #{to $dir-new};
+    }
+    @debug $is-angle;
+    background-image: $type#{-gradient($dir-new, $color-stop)};
 }
 
 /**

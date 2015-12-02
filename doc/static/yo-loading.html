@@ -30,16 +30,12 @@
         <div class="col-md-9" role="main">
         <pre class="brush: sass;">
                 @charset "utf-8";
-@import "../core/variables";
-@import "../core/classes";
 @import "../ani/rotate";
 
 // 定义loading的基础构造
 @mixin _loading {
-    @include flexbox;
+    @include align;
     @include fullscreen(map-get($z-index, loading));
-    @include justify-content;
-    @include align-items;
     background-color: map-get($loading, mask-bgcolor);
     line-height: 1;
     > .inner {
@@ -63,7 +59,7 @@
             }
             // 当loading界面还有文字提示的时候，增加间隙
             &:not(:only-child) {
-                margin-bottom: .1rem;
+                margin-bottom: .08rem;
             }
         }
     }

@@ -30,8 +30,6 @@
         <div class="col-md-9" role="main">
         <pre class="brush: sass;">
                 @charset "utf-8";
-@import "../core/variables";
-@import "../core/classes";
 @import "../element/yo-btn";
 
 // 定义dialog的基础构造
@@ -64,12 +62,8 @@
             overflow: hidden;
             height: 100%;
             margin: 0 60px;
-            @if map-get($dialog, title-color) != map-get($base, color) {
-                color: map-get($dialog, title-color);
-            }
-            @if map-get($dialog, title-font-size) != map-get($base, font-size) {
-                font-size: map-get($dialog, title-font-size);
-            }
+            color: map-get($dialog, title-color);
+            font-size: map-get($dialog, title-font-size);
         }
         .regret,
         .affirm {
@@ -88,9 +82,7 @@
         @include overflow;
         min-height: .45rem;
         padding: map-get($dialog, bd-padding);
-        @if map-get($dialog, bd-font-size) != map-get($base, font-size) {
-            font-size: map-get($dialog, bd-font-size);
-        }
+        font-size: map-get($dialog, bd-font-size);
     }
     > .ft {
         @include flexbox;
@@ -98,7 +90,7 @@
         @include yo-btn(
             $name: dialog,
             $border-width: 1px 1px 0 0,
-            $border-color: map-get($base, border-color),
+            $border-color: map-get($dialog, border-color),
             $bgcolor: #fff,
             $color: map-get($base, link-color),
             $radius: 0,
@@ -231,10 +223,10 @@
                 background: $hd-bgcolor;
             }
             .title {
-                @if $title-color != map-get($dialog, title-color) and $title-color != map-get($base, color) {
+                @if $title-color != map-get($dialog, title-color) {
                     color: $title-color;
                 }
-                @if $title-font-size != map-get($dialog, title-font-size) and $title-font-size != map-get($base, font-size) {
+                @if $title-font-size != map-get($dialog, title-font-size) {
                     font-size: $title-font-size;
                 }
             }
@@ -243,7 +235,7 @@
             @if $bd-padding != map-get($dialog, bd-padding) {
                 padding: $bd-padding;
             }
-            @if $bd-font-size != map-get($dialog, bd-font-size) and $bd-font-size != map-get($base, font-size) {
+            @if $bd-font-size != map-get($dialog, bd-font-size) {
                 font-size: $bd-font-size;
             }
         }
