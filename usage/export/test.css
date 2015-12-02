@@ -304,6 +304,6 @@ a {
 }
 
 .test {
-  background-image: -webkit-linear-gradient(#f00, #f00);
-  background-image: linear-gradient(#f00, #f00);
+  background-image: -webkit-linear-gradient(left bottom, red, black);
+  background-image: linear-gradient(to right top, red, black);
 }

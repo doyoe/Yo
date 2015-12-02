@@ -9,7 +9,7 @@
         @include flex;
         overflow: hidden;
         height: .28rem;
-        @include gradient(linear, map-get($range, outer-bgcolor), map-get($range, outer-bgcolor));
+        @include gradient(linear, top, map-get($range, outer-bgcolor), map-get($range, outer-bgcolor));
         background-size: 100% .04rem;
         background-repeat: no-repeat;
         background-position: center;
@@ -82,8 +82,7 @@
     .yo-range#{$name} {
         > input[type="range"] {
             @if $outer-bgcolor != map-get($range, outer-bgcolor) {
-                background-image: -webkit-linear-gradient(to right, $outer-bgcolor 0%, $outer-bgcolor 100%);
-                background-image: linear-gradient(to right, $outer-bgcolor 0%, $outer-bgcolor 100%);
+                @include gradient(linear, top, $outer-bgcolor, $outer-bgcolor);
             }
             &::-webkit-slider-thumb {
                 @if $ball-color != map-get($range, ball-color) {

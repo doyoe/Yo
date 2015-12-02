@@ -14,5 +14,6 @@
 }
 
 .test {
-    @include gradient(linear, #f00, #f00);
+    // @include square(2rem);
+    @include gradient(linear, left bottom, red, black);
 }

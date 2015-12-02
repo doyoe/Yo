@@ -1010,8 +1010,8 @@ a {
   width: .1px;
   overflow: hidden;
   height: .28rem;
-  background-image: -webkit-linear-gradient(#ccc, #ccc);
-  background-image: linear-gradient(#ccc, #ccc);
+  background-image: -webkit-linear-gradient(top, #ccc, #ccc);
+  background-image: linear-gradient(to bottom, #ccc, #ccc);
   background-size: 100% .04rem;
   background-repeat: no-repeat;
   background-position: center;
