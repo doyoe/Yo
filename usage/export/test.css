@@ -303,7 +303,52 @@ a {
   background-color: blue;
 }
 
+.demo {
+  position: relative;
+  border-radius: 50%;
+  -webkit-background-clip: padding-box !important;
+  background-clip: padding-box !important;
+  width: 1rem;
+  height: 1rem;
+  border: 5px solid red;
+  background-color: #fff;
+}
+
+.demo::before {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  bottom: -5px;
+  left: -5px;
+  border-radius: 50%;
+  -webkit-background-clip: padding-box !important;
+  background-clip: padding-box !important;
+  content: "\0020";
+  border-width: 5px;
+  border-style: solid;
+  border-color: #ccc #ccc transparent transparent;
+  -webkit-transform: rotatez(-135deg);
+  transform: rotatez(-135deg);
+}
+
+.demo::after {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  bottom: -5px;
+  left: -5px;
+  border-radius: 50%;
+  -webkit-background-clip: padding-box !important;
+  background-clip: padding-box !important;
+  content: "\0020";
+  border-width: 5px;
+  border-style: solid;
+  border-color: #ccc #ccc transparent transparent;
+  -webkit-transform: rotatez(45deg);
+  transform: rotatez(45deg);
+}
+
 .test {
-  background-image: -webkit-linear-gradient(left bottom, red, black);
-  background-image: linear-gradient(to right top, red, black);
+  background-image: -webkit-linear-gradient(red, #000);
+  background-image: linear-gradient(red, #000);
 }

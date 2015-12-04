@@ -131,7 +131,7 @@
         @if $padding != map-get($btn, padding) {
             padding: $padding;
         }
-        // 如果$radius不等于config设定，则重绘边框圆角
+        // 如果$radius不等于config设定，则重绘容器边框圆角
         @if $radius != map-get($btn, radius) {
             border-radius: $radius;
         }

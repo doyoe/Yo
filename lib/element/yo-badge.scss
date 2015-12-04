@@ -72,7 +72,7 @@
         @if $padding != map-get($badge, padding) {
             padding: $padding;
         }
-        // 如果$radius不等于config设定，则重绘圆角
+        // 如果$radius不等于config设定，则重绘容器圆角
         @if $radius != map-get($badge, radius) {
             border-radius: $radius;
         }
