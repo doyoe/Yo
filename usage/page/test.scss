@@ -49,6 +49,6 @@
     }
 }
 
-.test {
-    @include gradient(linear, red, #000);
-}
+$list: "";
+
+@debug first($list);

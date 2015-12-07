@@ -1,0 +1,134 @@
+@charset "utf-8";
+/**
+ * Yo框架全局函数
+ * Yo内置了一些自定义函数来扩充Sass的函数库，用以增强语法
+ */
+
+/**
+ * @module core
+ * @class List扩展函数
+ * @description 返回Sass List中的第一项
+ * @function first
+ * @param {String} $list 指定一个Sass List
+ */
+@function first($list) {
+    $length: length($list);
+    $value: "";
+
+    @if type-of($list) != list {
+        @warn "`$list` of `last($list)` must be a list type.";
+    } @else if $length == 0 {
+        @warn "`$list` of `last($list)` must not be empty.";
+    } @else {
+        $value: nth($list, 1);
+    }
+
+    @return $value;
+}
+
+/**
+ * @module core
+ * @class List扩展函数
+ * @description 返回Sass List中的最后一项
+ * @function last
+ * @param {String} $list 指定一个Sass List
+ */
+@function last($list) {
+    $length: length($list);
+    $value: "";
+
+    @if type-of($list) != list {
+        @warn "`$list` of `last($list)` must be a list type.";
+    } @else if $length == 0 {
+        @warn "`$list` of `last($list)` must not be empty.";
+    } @else {
+        $value: nth($list, -1);
+    }
+
+    @return $value;
+}
+
+/**
+ * @module core
+ * @class List扩展函数
+ * @description 返回Sass List中的倒数第几项
+ * @function last
+ * @param {String} $list 指定一个Sass List
+ */
+@function nth-last($list, $index) {
+    $length: length($list);
+    $value: "";
+
+    @if type-of($list) != list {
+        @warn "$list must be a list type.";
+    } @else if type-of($index) != number {
+        @warn "$index must be a integer.";
+    } @else if $index <= 0 {
+        @warn "$index must be a greater than zero integer.";
+    } @else if $index > $length {
+        @warn "$index is #{$index}, but list length is #{$length}.";
+    } @else {
+        $value: nth($list, -$index);
+    }
+
+    @return $value;
+}
+
+/**
+ * @module core
+ * @class List扩展函数
+ * @description 移除Sass List中的某个项目
+ * @function remove
+ * @param {String} $list 指定一个Sass List
+ * @param {String} $value 指定一个Sass List中的某个值
+ */
+@function remove($list, $value) {
+    $new-list: ();
+    $length: length($list);
+
+    @if type-of($list) != list {
+        @warn "$list must be a list type.";
+    } @else {
+        @for $i from 1 through $length {
+            @if type-of(nth($list, $i)) == list {
+                $new-list: append($new-list, remove(nth($list, $i), $value), list_separator($list));
+            } @else if nth($list, $i) != $value {
+                $new-list: append($new-list, nth($list, $i), list_separator($list));
+            }
+        }
+    }
+
+    @return $new-list;
+}
+
+/**
+ * @module core
+ * @class List扩展函数
+ * @description 移除Sass List中的某个下标项目
+ * @function remove
+ * @param {String} $list 指定一个Sass List
+ * @param {Integer} $value 指定一个Sass List中的某个下标
+ */
+@function remove-nth($list, $index) {
+    $new-list: ();
+    $length: length($list);
+
+    @if type-of($list) != list {
+        @warn "$list must be a list type.";
+    } @else if type-of($index) != number {
+        @warn "List index must be a integer.";
+    } @else if $index == 0 {
+        @warn "List index must be a non-zero integer.";
+    } @else if abs($index) > $length {
+        @warn "List index is #{$index}, but list length is #{$length}.";
+    } @else {
+        $index: if($index < 0, $length + $index + 1, $index);
+        @for $i from 1 through $length {
+            @if $i != $index {
+                $new-list: append($new-list, nth($list, $i));
+            }
+        }
+    }
+
+    @return $new-list;
+}
