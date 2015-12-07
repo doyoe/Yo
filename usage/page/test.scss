@@ -13,41 +13,6 @@
     // border-radius: 50%;
 }
 
-.demo {
-    position: relative;
-    // overflow: hidden;
-    @include border-radius(50%);
-    @include square(1rem);
-    border: 5px solid red;
-    background-color: #fff;
-    &::before {
-        position: absolute;
-        top: -5px;
-        right: -5px;
-        bottom: -5px;
-        left: -5px;
-        @include border-radius(50%);
-        content: "\0020";
-        border-width: 5px;
-        border-style: solid;
-        border-color: #ccc #ccc transparent transparent;
-        // @include transform(rotatez(-135deg));
-        @include transform(rotatez(-135deg));
-    }
-    &::after {
-        position: absolute;
-        top: -5px;
-        right: -5px;
-        bottom: -5px;
-        left: -5px;
-        @include border-radius(50%);
-        content: "\0020";
-        border-width: 5px;
-        border-style: solid;
-        border-color: #ccc #ccc transparent transparent;
-        @include transform(rotatez(45deg));
-    }
-}
 
 $list: "";
 
