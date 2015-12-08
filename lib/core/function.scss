@@ -54,6 +54,7 @@
  * @description 返回Sass List中的倒数第几项
  * @function last
  * @param {String} $list 指定一个Sass List
+ * @param {Integer} $index 指定需要返回的值在list中的倒数位置
  */
 @function nth-last($list, $index) {
     $length: length($list);
@@ -80,7 +81,7 @@
  * @description 移除Sass List中的某个项目
  * @function remove
  * @param {String} $list 指定一个Sass List
- * @param {Integer} $index 指定一个Sass List的索引下标
+ * @param {String} $value 指定需要被删除的值
  */
 @function remove($list, $value) {
     $new-list: ();
@@ -91,9 +92,9 @@
     } @else {
         @for $i from 1 through $length {
             @if type-of(nth($list, $i)) == list {
-                $new-list: append($new-list, remove(nth($list, $i), $value), list_separator($list));
+                $new-list: append($new-list, remove(nth($list, $i), $value), list-separator($list));
             } @else if nth($list, $i) != $value {
-                $new-list: append($new-list, nth($list, $i), list_separator($list));
+                $new-list: append($new-list, nth($list, $i), list-separator($list));
             }
         }
     }
@@ -107,7 +108,7 @@
  * @description 移除Sass List中的某个下标项目
  * @function remove
  * @param {String} $list 指定一个Sass List
- * @param {Integer} $index 指定一个Sass List的索引下标
+ * @param {Integer} $index 指定需要移除的值在list中的位置
  */
 @function remove-nth($list, $index) {
     $new-list: ();
@@ -125,7 +126,7 @@
         $index: if($index < 0, $length + $index + 1, $index);
         @for $i from 1 through $length {
             @if $i != $index {
-                $new-list: append($new-list, nth($list, $i), list_separator($list));
+                $new-list: append($new-list, nth($list, $i), list-separator($list));
             }
         }
     }
@@ -139,18 +140,58 @@
  * @description 在Sass List中的某个位置添加新值
  * @function add-nth
  * @param {String} $list 指定一个Sass List
- * @param {Integer} $index 指定一个Sass List的索引下标
+ * @param {String} $value 指定需要添加的值
+ * @param {Integer} $index 指定值被添加在list中的位置，当该值为空时默认添加在末尾
  */
-@function add-nth($list) {
+@function add-nth($list, $value, $index: length($list) + 1) {
     $new-list: ();
     $length: length($list);
 
     @if type-of($list) != list {
-        @warn "$list of `add-nth($list)` must be a list type.";
+        @warn "$list of `add-nth($list, $value, $index)` must be a list type.";
+    } @else if $index > $length + 1 {
+        @warn "$index out of bounds for `add-nth($list, $value, $index)`";
+    } @else if $index == $length + 1 {
+        $new-list: append($list, $value, list-separator($list));
     } @else {
+        $index: if($index < 0, $length + $index + 1, $index);
         @for $i from 1 through $length {
-            @if $i != 1 {
-                $new-list: append($new-list, nth($list, $i));
+            @if $i != $index {
+                $new-list: append($new-list, nth($list, $i), list-separator($list));
+            } @else {
+                $new-list: append($new-list, $value, list-separator($list));
+                $new-list: append($new-list, nth($list, $i), list-separator($list));
+            }
+        }
+    }
+
+    @return $new-list;
+}
+
+/**
+ * @module core
+ * @class List扩展函数
+ * @description 替换Sass List中的某个位置的值
+ * @function replace-nth
+ * @param {String} $list 指定一个Sass List
+ * @param {String} $value 指定需要添加的值
+ * @param {Integer} $index 指定需要被替换的值在list中的位置
+ */
+@function replace-nth($list, $value, $index) {
+    $new-list: ();
+    $length: length($list);
+
+    @if type-of($list) != list {
+        @warn "$list of `replace-nth($list, $value, $index)` must be a list type.";
+    } @else if $index > $length {
+        @warn "$index out of bounds for `replace-nth($list, $value, $index)`";
+    } @else {
+        $index: if($index < 0, $length + $index + 1, $index);
+        @for $i from 1 through $length {
+            @if $i == $index {
+                $new-list: append($new-list, $value, list-separator($list));
+            } @else {
+                $new-list: append($new-list, nth($list, $i), list-separator($list));
             }
         }
     }
