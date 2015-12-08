@@ -16,6 +16,6 @@
 
 $list: 1, 2, 3, 4;
 
-$a: replace-nth($list, a, 6);
+$a: replace-nth($list, a, 0);
 
 @debug $a;

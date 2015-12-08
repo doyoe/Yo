@@ -67,7 +67,7 @@
     } @else if $index <= 0 {
         @warn "$index of `nth-last($list, $index)` must be a greater than zero integer.";
     } @else if $index > $length {
-        @warn "$index is #{$index}, but list length is #{$length}.";
+        @warn "$index out of bounds for `nth-last($list, $index)`.";
     } @else {
         $value: nth($list, -$index);
     }
@@ -121,7 +121,7 @@
     } @else if $index == 0 {
         @warn "$index of `remove-nth($list, $index)` must be a non-zero integer.";
     } @else if abs($index) > $length {
-        @warn "$index is #{$index}, but list length is #{$length}.";
+        @warn "$index out of bounds for `remove-nth($list, $index)`.";
     } @else {
         $index: if($index < 0, $length + $index + 1, $index);
         @for $i from 1 through $length {
@@ -149,9 +149,13 @@
 
     @if type-of($list) != list {
         @warn "$list of `add-nth($list, $value, $index)` must be a list type.";
-    } @else if $index > $length + 1 {
-        @warn "$index out of bounds for `add-nth($list, $value, $index)`";
-    } @else if $index == $length + 1 {
+    } @else if type-of($index) != number {
+        @warn "$index of `add-nth($list, $value, $index)` must be a integer.";
+    } @else if $index == 0 {
+        @warn "$index of `add-nth($list, $value, $index)` must be a non-zero integer.";
+    } @else if abs($index) > $length + 1 {
+        @warn "$index out of bounds for `add-nth($list, $value, $index)`.";
+    } @else if abs($index) == $length + 1 {
         $new-list: append($list, $value, list-separator($list));
     } @else {
         $index: if($index < 0, $length + $index + 1, $index);
@@ -183,8 +187,12 @@
 
     @if type-of($list) != list {
         @warn "$list of `replace-nth($list, $value, $index)` must be a list type.";
-    } @else if $index > $length {
-        @warn "$index out of bounds for `replace-nth($list, $value, $index)`";
+    } @else if type-of($index) != number {
+        @warn "$index of `replace-nth($list, $value, $index)` must be a integer.";
+    } @else if $index == 0 {
+        @warn "$index of `replace-nth($list, $value, $index)` must be a non-zero integer.";
+    } @else if abs($index) > $length {
+        @warn "$index out of bounds for `replace-nth($list, $value, $index)`.";
     } @else {
         $index: if($index < 0, $length + $index + 1, $index);
         @for $i from 1 through $length {
