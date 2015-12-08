@@ -80,7 +80,7 @@
  * @description 移除Sass List中的某个项目
  * @function remove
  * @param {String} $list 指定一个Sass List
- * @param {String} $value 指定一个Sass List中的某个值
+ * @param {Integer} $index 指定一个Sass List的索引下标
  */
 @function remove($list, $value) {
     $new-list: ();
@@ -107,7 +107,7 @@
  * @description 移除Sass List中的某个下标项目
  * @function remove
  * @param {String} $list 指定一个Sass List
- * @param {Integer} $value 指定一个Sass List中的某个下标
+ * @param {Integer} $index 指定一个Sass List的索引下标
  */
 @function remove-nth($list, $index) {
     $new-list: ();
@@ -125,7 +125,7 @@
         $index: if($index < 0, $length + $index + 1, $index);
         @for $i from 1 through $length {
             @if $i != $index {
-                $new-list: append($new-list, nth($list, $i));
+                $new-list: append($new-list, nth($list, $i), list_separator($list));
             }
         }
     }
@@ -136,17 +136,17 @@
 /**
  * @module core
  * @class List扩展函数
- * @description 移除Sass List中的某个下标项目
- * @function remove
+ * @description 在Sass List中的某个位置添加新值
+ * @function add-nth
  * @param {String} $list 指定一个Sass List
- * @param {Integer} $value 指定一个Sass List中的某个下标
+ * @param {Integer} $index 指定一个Sass List的索引下标
  */
-@function shift($list) {
+@function add-nth($list) {
     $new-list: ();
     $length: length($list);
 
     @if type-of($list) != list {
-        @warn "$list of `shift($list)` must be a list type.";
+        @warn "$list of `add-nth($list)` must be a list type.";
     } @else {
         @for $i from 1 through $length {
             @if $i != 1 {

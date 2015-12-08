@@ -14,7 +14,6 @@
 }
 
 
-$list: 1 2 3 4;
+$list: 1, 2, 3, 4;
 
-@debug shift($list);
-@debug $list;
+@debug remove-nth($list, 1);
