@@ -44,11 +44,7 @@
     $radius: default,
     $font-size: default) {
     // 区别是否新增实例还是修改本身
-    @if $name == default {
-        $name: "";
-    } @else {
-        $name: "-#{$name}";
-    }
+    $name: if($name == default, "", "-#{$name}");
     // 如果值为default，则取config的定义
     @if $padding == default {
         $padding: map-get($badge, padding);
@@ -76,7 +72,7 @@
         @if $padding != map-get($badge, padding) {
             padding: $padding;
         }
-        // 如果$radius不等于config设定，则重绘圆角
+        // 如果$radius不等于config设定，则重绘容器圆角
         @if $radius != map-get($badge, radius) {
             border-radius: $radius;
         }

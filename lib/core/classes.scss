@@ -286,7 +286,6 @@
  * @param {String} $gradient 指定渐变取值，与w3c最新原生语法一致 {add:1.0.0}
  */
 @mixin gradient($type, $dir, $color-stop...) {
-    $dir-list: (top, right, bottom, left);
     $dir-new: ();
     $is-angle: false;
     @if map-get($setting, is-vendor-prefix) == true {

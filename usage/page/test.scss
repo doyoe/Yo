@@ -13,7 +13,8 @@
     // border-radius: 50%;
 }
 
-.test {
-    // @include square(2rem);
-    @include gradient(linear, left bottom, red, black);
-}
+
+$list: 1 2 3 4;
+
+@debug shift($list);
+@debug $list;

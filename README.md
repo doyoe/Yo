@@ -40,7 +40,11 @@ Yo约束了2种项目所使用的长度单位
 
 ## Versioning
 
-### Developing: v2.0.0
+### Developing: v2.0.1
+
+* 开发中。。。
+
+### Lastest: v2.0.0
 
 **请谨慎升级v2.0.0版本，因为这是大版本，涉及到很多变更**
 
@@ -56,6 +60,8 @@ Yo约束了2种项目所使用的长度单位
 * add: `global classes`
     - 新增`align`方法用于处理元素水平及垂直对齐方式，默认为居中
     - 新增`transform-style`,`perspective`,`perspective-origin`,`backface-visibility`,`flex-flow`方法
+* add: `global function`
+    - 新增了`function`文件，用以后续扩展Sass内置的函数
 
 #### 变更：
 * (*)change: `1px边框方法`（全平台兼容）
@@ -70,9 +76,9 @@ Yo约束了2种项目所使用的长度单位
     - 将所有带`bordercolor`关键字的变量都重命名为`border-color`，因为早期的时候命名不严谨导致吐槽激烈，特在此大版本中全部修正
 * (*)change:
     - 不再强制要求升级`Yo`时业务对比`config`和`variables`的一致性；
-    - 需要注意的是variables中map使用`_`开头，而config中不需要`_`，例如：`$_list` -> `$list`；
-    - 从`variables`中将base map拆分到新文件base，同时在config中新增extra文件用以对应该文件；
-    - 用户可以在extra文件中配置，扩展或者新增map；
+    - 需要注意的是`variables`中`map`使用`_`开头，而`config`中不需要`_`，例如：`$_list` -> `$list`；
+    - 从`variables`中将`base map`拆分到新文件`base`，同时在`config`中新增`extra`文件用以对应该文件；
+    - 用户可以在`extra`文件中配置，扩展或者新增`map`；
 * change: `yo-btn`
     - 将原来统一的灰色禁用按钮更改为每个按钮的禁用外观取决于自身的本来颜色
 * change: `yo-number`
@@ -100,13 +106,6 @@ Yo约束了2种项目所使用的长度单位
 * del: `valign` mixin
 
 **再次重申：将你的`flex子项`设置为`非行内级元素`，Yo会缓步移除对这种内部容错的代码**
-
-### Lastest: v1.8.7
-
-* update: `yo-datepicker`
-    - 为`weeks`容器添加`relative`
-    - 解决`disabled`状态被扩展覆盖的问题
-    - 引入`panel`依赖
 
 
 ### History
