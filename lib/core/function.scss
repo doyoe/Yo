@@ -175,41 +175,6 @@
 /**
  * @module core
  * @class List扩展函数
- * @description 替换Sass List中的某个位置的值并返回新的List
- * @function replace-nth
- * @param {String} $list 指定一个Sass List
- * @param {String} $value 指定需要添加的值
- * @param {Integer} $index 指定需要被替换的值在list中的位置
- */
-@function replace-nth($list, $value, $index) {
-    $new-list: ();
-    $length: length($list);
-
-    @if type-of($list) != list {
-        @warn "$list of `replace-nth($list, $value, $index)` must be a list type.";
-    } @else if type-of($index) != number {
-        @warn "$index of `replace-nth($list, $value, $index)` must be a integer.";
-    } @else if $index == 0 {
-        @warn "$index of `replace-nth($list, $value, $index)` must be a non-zero integer.";
-    } @else if abs($index) > $length {
-        @warn "$index out of bounds for `replace-nth($list, $value, $index)`.";
-    } @else {
-        $index: if($index < 0, $length + $index + 1, $index);
-        @for $i from 1 through $length {
-            @if $i == $index {
-                $new-list: append($new-list, $value, list-separator($list));
-            } @else {
-                $new-list: append($new-list, nth($list, $i), list-separator($list));
-            }
-        }
-    }
-
-    @return $new-list;
-}
-
-/**
- * @module core
- * @class List扩展函数
  * @description 截取Sass List中的某个部分并返回新的List
  * @function slice
  * @param {String} $list 指定一个Sass List
@@ -238,25 +203,38 @@
     @return $new-list;
 }
 
-@function splice($list, $index, $count, $item...) {
+@function splice($list, $index, $count, $values...) {
     $new-list: ();
     $length: length($list);
 
     @if type-of($list) != list {
-        @warn "$list of `replace-nth($list, $value, $index)` must be a list type.";
+        @warn "$list of `splice($list, $index, $count, $values...)` must be a list type.";
     } @else if type-of($index) != number or $index == 0 {
-        @warn "$index of `splice($list, $index, $count, $item...)` must be a non-zero integer.";
+        @warn "$index of `splice($list, $index, $count, $values...)` must be a non-zero integer.";
     } @else if abs($index) > $length {
-        @warn "$index out of bounds for `splice($list, $index, $count, $item...)`.";
+        @warn "$index out of bounds for `splice($list, $index, $count, $values...)`.";
     } @else if type-of($count) != number or $count < 0 {
-        @warn "$count of `splice($list, $index, $count, $item...)` must be a positive integer.";
+        @warn "$count of `splice($list, $index, $count, $values...)` must be a positive integer.";
     } @else {
         $index: if($index < 0, $length + $index + 1, $index);
-        @for $i from 1 through $length {
-            @if $i == $index {
-                $new-list: append($new-list, $value, list-separator($list));
-            } @else {
-                $new-list: append($new-list, nth($list, $i), list-separator($list));
+        @if $count == 0 {
+            @for $i from 1 through $length {
+                @if $i != $index {
+                    $new-list: append($new-list, nth($list, $i), list-separator($list));
+                } @else {
+                    $new-list: append($new-list, $values, list-separator($list));
+                    $new-list: append($new-list, nth($list, $i), list-separator($list));
+                }
+            }
+        } @else {
+            @for $i from 1 through $length {
+                @if $i < $index {
+                    $new-list: append($new-list, nth($list, $i), list-separator($list));
+                } @else if $i == $index {
+                    $new-list: append($new-list, $values, list-separator($list));
+                } @else if $i >= ($index + $count) {
+                    $new-list: append($new-list, nth($list, $i), list-separator($list));
+                }
             }
         }
     }
