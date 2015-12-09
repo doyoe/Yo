@@ -105,38 +105,6 @@
 /**
  * @module core
  * @class List扩展函数
- * @description 移除Sass List中的下标项目并返回新的List
- * @function remove
- * @param {String} $list 指定一个Sass List
- * @param {Integer} $index 指定需要移除的值在list中的位置
- */
-@function remove-nth($list, $index) {
-    $new-list: ();
-    $length: length($list);
-
-    @if type-of($list) != list {
-        @warn "$list of `remove-nth($list, $index)` must be a list type.";
-    } @else if type-of($index) != number {
-        @warn "$index of `remove-nth($list, $index)` must be a integer.";
-    } @else if $index == 0 {
-        @warn "$index of `remove-nth($list, $index)` must be a non-zero integer.";
-    } @else if abs($index) > $length {
-        @warn "$index out of bounds for `remove-nth($list, $index)`.";
-    } @else {
-        $index: if($index < 0, $length + $index + 1, $index);
-        @for $i from 1 through $length {
-            @if $i != $index {
-                $new-list: append($new-list, nth($list, $i), list-separator($list));
-            }
-        }
-    }
-
-    @return $new-list;
-}
-
-/**
- * @module core
- * @class List扩展函数
  * @description 截取Sass List中的某个部分并返回新的List
  * @function slice
  * @param {String} $list 指定一个Sass List
@@ -156,8 +124,9 @@
     } @else if abs($start) > $length or abs($end) > $length {
         @warn "$start or $end out of bounds for `slice($list, $start, $end)`.";
     } @else {
+        $start: if($start < 0, $length + $start + 1, $start);
         $end: if($end < 0, $length + $end + 1, $end);
-        @for $i from $start through $end - $start + 1 {
+        @for $i from $start through $end {
             $new-list: append($new-list, nth($list, $i), list-separator($list));
         }
     }
@@ -173,7 +142,7 @@
  * @param {String} $list 指定一个Sass List
  * @param {Integer} $index 指定需要移除的开始下标
  * @param {Integer} $count 指定需要移除的数量，不可以为负值，0表示不移除
- * @param {String} $values 指定需要添加的新值
+ * @param {String} $values 指定需要添加的新值，如果该值缺省，则表示只移除不添加新值
  */
 @function splice($list, $index, $count, $values...) {
     $new-list: ();
@@ -194,6 +163,7 @@
                 @if $i != $index {
                     $new-list: append($new-list, nth($list, $i), list-separator($list));
                 } @else {
+                    // 在$index位置插入新值，并且将原来位置上的值往后移一位
                     $new-list: append($new-list, $values, list-separator($list));
                     $new-list: append($new-list, nth($list, $i), list-separator($list));
                 }
