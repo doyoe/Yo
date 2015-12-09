@@ -13,9 +13,8 @@
     // border-radius: 50%;
 }
 
+$list: a b c d;
 
-$list: 1, 2, 3, 4;
-
-$a: replace-nth($list, a, 0);
+$a: slice($list, 1, -4);
 
 @debug $a;

@@ -78,7 +78,7 @@
 /**
  * @module core
  * @class List扩展函数
- * @description 移除Sass List中的某个项目
+ * @description 移除Sass List中的某个项目并返回新的List
  * @function remove
  * @param {String} $list 指定一个Sass List
  * @param {String} $value 指定需要被删除的值
@@ -105,7 +105,7 @@
 /**
  * @module core
  * @class List扩展函数
- * @description 移除Sass List中的某个下标项目
+ * @description 移除Sass List中的下标项目并返回新的List
  * @function remove
  * @param {String} $list 指定一个Sass List
  * @param {Integer} $index 指定需要移除的值在list中的位置
@@ -137,11 +137,11 @@
 /**
  * @module core
  * @class List扩展函数
- * @description 在Sass List中的某个位置添加新值
+ * @description 在Sass List中的指定位置添加新值并返回新的List
  * @function add-nth
  * @param {String} $list 指定一个Sass List
  * @param {String} $value 指定需要添加的值
- * @param {Integer} $index 指定值被添加在list中的位置，当该值为空时默认添加在末尾
+ * @param {Integer} [$index] 指定值被添加在list中的位置，当该值为空时默认添加在末尾
  */
 @function add-nth($list, $value, $index: length($list) + 1) {
     $new-list: ();
@@ -175,7 +175,7 @@
 /**
  * @module core
  * @class List扩展函数
- * @description 替换Sass List中的某个位置的值
+ * @description 替换Sass List中的某个位置的值并返回新的List
  * @function replace-nth
  * @param {String} $list 指定一个Sass List
  * @param {String} $value 指定需要添加的值
@@ -193,6 +193,63 @@
         @warn "$index of `replace-nth($list, $value, $index)` must be a non-zero integer.";
     } @else if abs($index) > $length {
         @warn "$index out of bounds for `replace-nth($list, $value, $index)`.";
+    } @else {
+        $index: if($index < 0, $length + $index + 1, $index);
+        @for $i from 1 through $length {
+            @if $i == $index {
+                $new-list: append($new-list, $value, list-separator($list));
+            } @else {
+                $new-list: append($new-list, nth($list, $i), list-separator($list));
+            }
+        }
+    }
+
+    @return $new-list;
+}
+
+/**
+ * @module core
+ * @class List扩展函数
+ * @description 截取Sass List中的某个部分并返回新的List
+ * @function slice
+ * @param {String} $list 指定一个Sass List
+ * @param {Integer} $start 指定需要截取的开始下标
+ * @param {Integer} [$end] 指定需要截取的结束下标，当该值缺省时默认为末尾下标
+ */
+@function slice($list, $start, $end: length($list)) {
+    $new-list: ();
+    $length: length($list);
+
+    @if type-of($list) != list {
+        @warn "$list of `slice($list, $start, $end)` must be a list type.";
+    } @else if type-of($start) != number or type-of($end) != number {
+        @warn "$strat and $end of `slice($list, $start, $end)` must be a integer.";
+    } @else if $start == 0 or $end == 0 {
+        @warn "$start and $end of `slice($list, $start, $end)` must be a non-zero integer.";
+    } @else if abs($start) > $length or abs($end) > $length {
+        @warn "$start or $end out of bounds for `slice($list, $start, $end)`.";
+    } @else {
+        $end: if($end < 0, $length + $end + 1, $end);
+        @for $i from $start through $end - $start + 1 {
+            $new-list: append($new-list, nth($list, $i), list-separator($list));
+        }
+    }
+
+    @return $new-list;
+}
+
+@function splice($list, $index, $count, $item...) {
+    $new-list: ();
+    $length: length($list);
+
+    @if type-of($list) != list {
+        @warn "$list of `replace-nth($list, $value, $index)` must be a list type.";
+    } @else if type-of($index) != number or $index == 0 {
+        @warn "$index of `splice($list, $index, $count, $item...)` must be a non-zero integer.";
+    } @else if abs($index) > $length {
+        @warn "$index out of bounds for `splice($list, $index, $count, $item...)`.";
+    } @else if type-of($count) != number or $count < 0 {
+        @warn "$count of `splice($list, $index, $count, $item...)` must be a positive integer.";
     } @else {
         $index: if($index < 0, $length + $index + 1, $index);
         @for $i from 1 through $length {
