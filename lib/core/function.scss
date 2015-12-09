@@ -137,44 +137,6 @@
 /**
  * @module core
  * @class List扩展函数
- * @description 在Sass List中的指定位置添加新值并返回新的List
- * @function add-nth
- * @param {String} $list 指定一个Sass List
- * @param {String} $value 指定需要添加的值
- * @param {Integer} [$index] 指定值被添加在list中的位置，当该值为空时默认添加在末尾
- */
-@function add-nth($list, $value, $index: length($list) + 1) {
-    $new-list: ();
-    $length: length($list);
-
-    @if type-of($list) != list {
-        @warn "$list of `add-nth($list, $value, $index)` must be a list type.";
-    } @else if type-of($index) != number {
-        @warn "$index of `add-nth($list, $value, $index)` must be a integer.";
-    } @else if $index == 0 {
-        @warn "$index of `add-nth($list, $value, $index)` must be a non-zero integer.";
-    } @else if abs($index) > $length + 1 {
-        @warn "$index out of bounds for `add-nth($list, $value, $index)`.";
-    } @else if abs($index) == $length + 1 {
-        $new-list: append($list, $value, list-separator($list));
-    } @else {
-        $index: if($index < 0, $length + $index + 1, $index);
-        @for $i from 1 through $length {
-            @if $i != $index {
-                $new-list: append($new-list, nth($list, $i), list-separator($list));
-            } @else {
-                $new-list: append($new-list, $value, list-separator($list));
-                $new-list: append($new-list, nth($list, $i), list-separator($list));
-            }
-        }
-    }
-
-    @return $new-list;
-}
-
-/**
- * @module core
- * @class List扩展函数
  * @description 截取Sass List中的某个部分并返回新的List
  * @function slice
  * @param {String} $list 指定一个Sass List
@@ -203,6 +165,16 @@
     @return $new-list;
 }
 
+/**
+ * @module core
+ * @class List扩展函数
+ * @description 从Sass List中添加/删除项目，然后返回新的List。
+ * @function splice
+ * @param {String} $list 指定一个Sass List
+ * @param {Integer} $index 指定需要移除的开始下标
+ * @param {Integer} $count 指定需要移除的数量，不可以为负值，0表示不移除
+ * @param {String} $values 指定需要添加的新值
+ */
 @function splice($list, $index, $count, $values...) {
     $new-list: ();
     $length: length($list);
