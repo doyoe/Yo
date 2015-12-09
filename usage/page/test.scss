@@ -13,8 +13,8 @@
     // border-radius: 50%;
 }
 
-$list: 0 1 2 3 4 5;
+$list: 1 2 3 4 5 6;
 
-$a: splice($list, 3, 0);
+$a: slice($list, 3, 6);
 
 @debug $a;
