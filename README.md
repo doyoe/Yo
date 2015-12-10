@@ -40,7 +40,7 @@ Yo约束了2种项目所使用的长度单位
 
 ## Versioning
 
-### Developing: v2.0.1
+### Developing: v2.1.0
 
 #### 新增：
 * add `frist($list)` function，用于取出Sass List中的第一项；

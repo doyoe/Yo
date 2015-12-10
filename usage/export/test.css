@@ -302,3 +302,8 @@ a {
   border: 10px solid blue;
   background-color: blue;
 }
+
+.test {
+  background-image: -webkit-linear-gradient(top, red, gray);
+  background-image: linear-gradient(to bottom, red, gray);
+}

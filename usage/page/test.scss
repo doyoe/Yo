@@ -12,3 +12,8 @@
 .img > img {
     // border-radius: 50%;
 }
+
+
+.test {
+    @include gradient(linear, top, red, gray);
+}

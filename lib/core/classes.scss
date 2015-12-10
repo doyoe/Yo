@@ -289,6 +289,8 @@
  */
 @mixin gradient($type, $dir, $color-stop...) {
     $dir-new: ();
+    $dir-x: right left;
+    $dir-y: top bottom;
     $is-angle: false;
     @if map-get($setting, is-vendor-prefix) == true {
         @each $vendor in map-get($setting, vendor-prefix) {
@@ -296,14 +298,10 @@
         }
     }
     @each $direction in $dir {
-        @if $direction == top {
-            $dir-new: join($dir-new, bottom, $separator: space);
-        } @else if $direction == bottom {
-            $dir-new: join($dir-new, top, $separator: space);
-        } @else if $direction == right {
-            $dir-new: join($dir-new, left, $separator: space);
-        } @else if $direction == left {
-            $dir-new: join($dir-new, right, $separator: space);
+        @if index($dir-x, $direction) != null {
+            $dir-new: append($dir-new, remove($dir-x, $direction), space);
+        } @else if index($dir-y, $direction) != null {
+            $dir-new: append($dir-new, remove($dir-y, $direction), space);
         } @else {
             $dir-new: $direction;
             $is-angle: true;
