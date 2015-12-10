@@ -16,7 +16,7 @@
 $list: 1, 2, 3, 4, 5, 6;
 
 // $a: slice($list, 3, 5);
-$b: splice($list, length($list), 0, abc,123,dfs);
+$b: splice($list, length($list)+1, 0, abc,123,dfs);
 
 // @debug $a;
 @debug $b;

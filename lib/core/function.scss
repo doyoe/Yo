@@ -150,20 +150,28 @@
         @warn "$list of `splice($list, $index, $count, $values...)` must be a list type.";
     } @else if type-of($index) != number or $index == 0 {
         @warn "$index of `splice($list, $index, $count, $values...)` must be a non-zero integer.";
-    } @else if abs($index) > $length {
-        @warn "$index out of bounds for `splice($list, $index, $count, $values...)`.";
     } @else if type-of($count) != number or $count < 0 {
         @warn "$count of `splice($list, $index, $count, $values...)` must be a positive integer.";
     } @else {
         $index: if($index < 0, $length + $index + 1, $index);
         @if $count == 0 {
-            @for $i from 1 through $length {
-                @if $i != $index {
-                    $new-list: append($new-list, nth($list, $i), list-separator($list));
-                } @else {
-                    // 在$index位置插入新值，并且将原来位置上的值往后移一位
-                    $new-list: join($new-list, $values, list-separator($list));
-                    $new-list: append($new-list, nth($list, $i), list-separator($list));
+            @if $index < $length {
+                @for $i from 1 through $length {
+                    @if $i != $index {
+                        $new-list: append($new-list, nth($list, $i), list-separator($list));
+                    } @else {
+                        // 在$index位置插入新值，并且将原来位置上的值往后移一位
+                        $new-list: join($new-list, $values, list-separator($list));
+                        $new-list: append($new-list, nth($list, $i), list-separator($list));
+                    }
+                }
+            } @else {
+                @for $i from 1 through $index {
+                    @if $i < $index {
+                        $new-list: append($new-list, nth($list, $i), list-separator($list));
+                    } @else {
+                        $new-list: join($new-list, $values, list-separator($list));
+                    }
                 }
             }
         } @else {
