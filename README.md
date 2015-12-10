@@ -45,7 +45,10 @@ Yo约束了2种项目所使用的长度单位
 #### 新增：
 * add `frist($list)` function，用于取出Sass List中的第一项；
 * add `last($list)` function，用于取出Sass List中的最后一项；
-* add `nth-last($list)` function，用于取出Sass List中的倒数第n项；
+* add `nth-last($list, $index)` function，用于取出Sass List中的倒数第n项；
+* add `remove($list, $value)` function，用于移除Sass List中的$value；
+* add `slice($list, $start, $end)` function，用于取出Sass List中被选中的项；
+* add `splice($list, $index, $count, $values)` function，用于移除Sass List中的项，并添加新项；
 
 ### Lastest: v2.0.0
 
