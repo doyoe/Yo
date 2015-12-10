@@ -50,6 +50,10 @@ Yo约束了2种项目所使用的长度单位
 * add `slice($list, $start, $end)` function，用于取出Sass List中被选中的项；
 * add `splice($list, $index, $count, $values)` function，用于移除Sass List中的项，并添加新项；
 
+#### 变更：
+* change `perfix` mixin 为私有`_perfix`；
+* change `yofont` mixin 为私有`_yofont`；
+
 ### Lastest: v2.0.0
 
 **请谨慎升级v2.0.0版本，因为这是大版本，涉及到很多变更**
