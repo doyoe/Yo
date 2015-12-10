@@ -140,7 +140,7 @@
  * @param {String} $list 指定一个Sass List
  * @param {Integer} $index 指定需要移除的开始下标
  * @param {Integer} $count 指定需要移除的数量，不可以为负值，0表示不移除
- * @param {String} $values 指定需要添加的新值，如果该值缺省，则表示只移除不添加新值
+ * @param {String} $values 指定需要添加的新值（可以是多个），如果该值缺省，则表示只移除不添加新值
  */
 @function splice($list, $index, $count, $values...) {
     $new-list: ();
@@ -162,7 +162,7 @@
                     $new-list: append($new-list, nth($list, $i), list-separator($list));
                 } @else {
                     // 在$index位置插入新值，并且将原来位置上的值往后移一位
-                    $new-list: append($new-list, $values, list-separator($list));
+                    $new-list: join($new-list, $values, list-separator($list));
                     $new-list: append($new-list, nth($list, $i), list-separator($list));
                 }
             }
@@ -171,7 +171,7 @@
                 @if $i < $index {
                     $new-list: append($new-list, nth($list, $i), list-separator($list));
                 } @else if $i == $index {
-                    $new-list: append($new-list, $values, list-separator($list));
+                    $new-list: join($new-list, $values, list-separator($list));
                 } @else if $i >= ($index + $count) {
                     $new-list: append($new-list, nth($list, $i), list-separator($list));
                 }
