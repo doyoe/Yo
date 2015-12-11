@@ -1,14 +1,14 @@
 @charset "utf-8";
 /**
  * Yo框架全局基础方法
- * Yo内置了包括响应式方案，CSS3兼容性方案，厂商前缀方案，iconfont方案，flex布局等全局方法
+ * 包括响应式方案，CSS3兼容性方案，厂商前缀方案，iconfont方案，flex布局等全局方法
  */
 
 /**
  * @module core
  * @class 功能
  * @description 给需要的属性加厂家前缀
- * @method prefix
+ * @method _prefix
  * @param {String} $property 指定属性
  * @param {String} $value 指定属性值
  * @private
@@ -31,7 +31,7 @@
  * @module core
  * @class 功能
  * @description 定义字体图标
- * @method yofont
+ * @method _yofont
  * @private
  * @skip
  */
