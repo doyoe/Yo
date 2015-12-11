@@ -32,19 +32,21 @@
                 @charset "utf-8";
 /**
  * Yo框架全局基础方法
- * Yo内置了包括响应式方案，CSS3兼容性方案，厂商前缀方案，iconfont方案，flex布局等全局方法
+ * 包括响应式方案，CSS3兼容性方案，厂商前缀方案，iconfont方案，flex布局等全局方法
  */
 
 /**
  * @module core
  * @class 功能
  * @description 给需要的属性加厂家前缀
- * @method prefix
+ * @method _prefix
+ * @version 1.0.0
  * @param {String} $property 指定属性
  * @param {String} $value 指定属性值
+ * @private
  * @skip
  */
-@mixin prefix($property, $value) {
+@mixin _prefix($property, $value) {
     // 老式浏览器
     // 是否开启厂商前缀支持
     @if map-get($setting, is-vendor-prefix) {
@@ -61,12 +63,14 @@
  * @module core
  * @class 功能
  * @description 定义字体图标
- * @method yofont
+ * @method _yofont
+ * @version 1.0.0
+ * @private
  * @skip
  */
-@mixin yofont() {
+@mixin _yofont() {
     // 是否开启图标字体
-    @if map-get($ico, is-use) == true {
+    @if map-get($ico, is-use) {
         @font-face {
             font-family: map-get($ico, font-name);
             src:
@@ -161,6 +165,13 @@
  * @method killspace
  * @version 1.0.0
  * @param {Length} $font-size 指定子元素字号，默认值：config基准字号 {add: 2.0.0}
+ * @example
+ * <div class="demo">
+ *      <span class="item">1</span>
+ *      <span class="item">2</span>
+ *      <span class="item">3</span>
+ * </div>
+ * .demo {@include killspace;}
  */
 @mixin killspace($font-size: map-get($base, font-size-baseline)) {
     font-size: 0;
@@ -267,7 +278,7 @@
  * @param {String} $filter 取值与`filter`属性一致 {add:1.7.0}
  */
 @mixin filter($filter...) {
-    @include prefix(filter, $filter);
+    @include _prefix(filter, $filter);
 }
 
 /**
@@ -279,7 +290,7 @@
  * @param {String} $appearance 取值与`appearance`属性一致，默认值：none {add:1.0.0}
  */
 @mixin appearance($appearance: none) {
-    @include prefix(appearance, $appearance);
+    @include _prefix(appearance, $appearance);
 }
 
 /**
@@ -291,7 +302,7 @@
  * @param {String} $user-select 取值与`user-select`属性一致，默认值：none {add:1.0.0}
  */
 @mixin user-select($user-select: none) {
-    @include prefix(user-select, $user-select);
+    @include _prefix(user-select, $user-select);
 }
 
 /**
@@ -303,7 +314,7 @@
  * @param {String} $box-sizing 指定盒模型类型，取值与`box-sizing`属性一致，默认值：border-box {add:1.0.0}
  */
 @mixin box-sizing($box-sizing: border-box) {
-    @include prefix(box-sizing, $box-sizing);
+    @include _prefix(box-sizing, $box-sizing);
 }
 
 /**
@@ -317,31 +328,26 @@
  * @param {String} $gradient 指定渐变取值，与w3c最新原生语法一致 {add:1.0.0}
  */
 @mixin gradient($type, $dir, $color-stop...) {
-    $dir-list: (top, right, bottom, left);
-    $dir-new: ();
-    $is-angle: false;
-    @if map-get($setting, is-vendor-prefix) == true {
+    // 最新草案：当方向为top,right,bottom,left时需要使用关键字to
+    $dir-new: to;
+    $dir-x: right left;
+    $dir-y: top bottom;
+
+    @if map-get($setting, is-vendor-prefix) {
         @each $vendor in map-get($setting, vendor-prefix) {
             background-image: $vendor$type#{-gradient($dir, $color-stop)};
         }
     }
     @each $direction in $dir {
-        @if $direction == top {
-            $dir-new: join($dir-new, bottom, $separator: space);
-        } @else if $direction == bottom {
-            $dir-new: join($dir-new, top, $separator: space);
-        } @else if $direction == right {
-            $dir-new: join($dir-new, left, $separator: space);
-        } @else if $direction == left {
-            $dir-new: join($dir-new, right, $separator: space);
+        @if index($dir-x, $direction) != null {
+            $dir-new: append($dir-new, remove($dir-x, $direction), space);
+        } @else if index($dir-y, $direction) != null {
+            $dir-new: append($dir-new, remove($dir-y, $direction), space);
         } @else {
             $dir-new: $direction;
-            $is-angle: true;
         }
     }
-    @if $is-angle == false {
-        $dir-new: #{to $dir-new};
-    }
+
     background-image: $type#{-gradient($dir-new, $color-stop)};
 }
 
@@ -354,7 +360,7 @@
  * @param {Keywords | Length} $background-size 指定背景图缩放值，取值与`background-size`属性一致 {add:1.4.0}
  */
 @mixin background-size($background-size...) {
-    @include prefix(background-size, $background-size);
+    @include _prefix(background-size, $background-size);
 }
 
 /**
@@ -366,7 +372,7 @@
  * @param {Keywords} $background-clip 指定背景图缩放值，取值与`background-clip`属性一致 {add:1.6.0}
  */
 @mixin background-clip($background-clip...) {
-    @include prefix(background-clip, $background-clip);
+    @include _prefix(background-clip, $background-clip);
 }
 
 /**
@@ -378,7 +384,7 @@
  * @param {Keywords} $background-origin 指定背景图`background-position`属性计算相对的参考点，取值与`background-origin`属性一致 {add:1.6.0}
  */
 @mixin background-origin($background-origin...) {
-    @include prefix(background-origin, $background-origin);
+    @include _prefix(background-origin, $background-origin);
 }
 
 /**
@@ -462,7 +468,7 @@
  * @param {String} $transform 取值范围与`transform`属性一致 {add:1.0.0}
  */
 @mixin transform($transform...) {
-    @include prefix(transform, $transform);
+    @include _prefix(transform, $transform);
 }
 
 /**
@@ -474,7 +480,7 @@
  * @param {Length | Percentage | Keywords} $transform-origin 取值范围与`transform-origin`属性一致 {add:1.0.0}
  */
 @mixin transform-origin($transform-origin) {
-    @include prefix(transform-origin, $transform-origin);
+    @include _prefix(transform-origin, $transform-origin);
 }
 
 /**
@@ -486,7 +492,7 @@
  * @param {String} $transform-style 取值范围与`transform-style`属性一致 {add:2.0.0}
  */
 @mixin transform-style($transform-style) {
-    @include prefix(transform-style, $transform-style);
+    @include _prefix(transform-style, $transform-style);
 }
 
 /**
@@ -498,7 +504,7 @@
  * @param {none | Length} $perspective 取值范围与`perspective`属性一致 {add:2.0.0}
  */
 @mixin perspective($perspective) {
-    @include prefix(perspective, $perspective);
+    @include _prefix(perspective, $perspective);
 }
 
 /**
@@ -510,7 +516,7 @@
  * @param {Length | Percentage | Keywords} $perspective-origin 取值范围与`perspective-origin`属性一致 {add:2.0.0}
  */
 @mixin perspective-origin($perspective-origin) {
-    @include prefix(perspective-origin, $perspective-origin);
+    @include _prefix(perspective-origin, $perspective-origin);
 }
 
 /**
@@ -522,7 +528,7 @@
  * @param {Keywords} $backface-visibility 取值范围与`backface-visibility`属性一致 {add:2.0.0}
  */
 @mixin backface-visibility($backface-visibility) {
-    @include prefix(backface-visibility, $backface-visibility);
+    @include _prefix(backface-visibility, $backface-visibility);
 }
 
 /**
@@ -533,7 +539,7 @@
  * @param {String} $animation 取值与原生语法一致 {add:1.0.0}
  */
 @mixin animation($animation...) {
-    @include prefix(animation, $animation);
+    @include _prefix(animation, $animation);
 }
 
 /**
@@ -544,30 +550,23 @@
  * @param {String} $transition 取值与原生语法一致 {add:1.0.0}
  */
 @mixin transition($transition...){
-    $transitionable-prefixed-values: transform, transform-origin !default;
+    $prefix-properties: transform, transform-origin;
     $vendor-list: ();
-    $list: ();
 
     @if map-get($setting, is-vendor-prefix) {
         @each $vendor in map-get($setting, vendor-prefix) {
             @for $i from 1 through length($transition) {
-                @if type-of(nth($transition, $i)) == list {
-                    @if index($transitionable-prefixed-values, nth(nth($transition, $i), 1)){
-                        $vendor-list: join($vendor-list, #{$vendor}#{nth($transition, $i)}, $separator: comma);
-                    } @else {
-                        $vendor-list: join($vendor-list, #{nth($transition, $i)}, $separator: comma);
-                    }
+                @if index($prefix-properties, nth(nth($transition, $i), 1)) {
+                    $vendor-list: join($vendor-list, #{$vendor}#{nth($transition, $i)}, comma);
+                } @else {
+                    $vendor-list: join($vendor-list, #{nth($transition, $i)}, comma);
                 }
             }
             #{$vendor}transition: $vendor-list;
-            $vendor-list: ();
         }
     }
 
-    @for $i from 1 through length($transition) {
-        $list: join($list, #{nth($transition, $i)}, $separator: comma);
-    }
-    transition: $list;
+    transition: $transition;
 }
 
 /**
@@ -675,7 +674,7 @@
  */
 @mixin flex-flow($flex-flow: row nowrap) {
     // 老式浏览器（实验性质支持过渡和最新2个阶段草案）+ 现代浏览器
-    @include prefix(flex-flow, $flex-flow);
+    @include _prefix(flex-flow, $flex-flow);
 }
 
 /**
@@ -748,7 +747,7 @@
 @mixin flex-wrap($flex-wrap: nowrap) {
     // 老式浏览器（实验性质支持过渡和最新2个阶段草案）+ 现代浏览器
     // 原始草案有`box-lines`对应本属性，不过虽然被webkit实验性质支援，但却未被任何浏览器实现（等同于未实现）
-    @include prefix(flex-wrap, $flex-wrap);
+    @include _prefix(flex-wrap, $flex-wrap);
 }
 
 /**
