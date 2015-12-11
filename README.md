@@ -40,9 +40,21 @@ Yo约束了2种项目所使用的长度单位
 
 ## Versioning
 
-### Developing: v2.0.1
+### Developing: v2.1.0
 
-* 开发中。。。
+#### 新增：
+* add `frist($list)` function，用于取出Sass List中的第一项；
+* add `last($list)` function，用于取出Sass List中的最后一项；
+* add `nth-last($list, $index)` function，用于取出Sass List中的倒数第n项；
+* add `remove($list, $value)` function，用于移除Sass List中的$value；
+* add `slice($list, $start, $end)` function，用于取出Sass List中被选中的项；
+* add `splice($list, $index, $count, $values)` function，用于移除Sass List中的项，并添加新项；
+
+#### 变更：
+* change `perfix` mixin 为私有`_perfix`；
+* change `yofont` mixin 为私有`_yofont`；
+* change `gradient` mixin 的内部实现；
+* change `transition` mixin 的内部实现；
 
 ### Lastest: v2.0.0
 
