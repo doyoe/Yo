@@ -27,7 +27,7 @@
 ## Demo And Documentation
 
 * Demo: [示例查看](http://doyoe.github.io/Yo/demo/)
-* Documentation：撰写中
+* Documentation：[使用文档](http://doyoe.github.io/Yo/doc/)
 
 待发布...
 
