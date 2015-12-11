@@ -53,6 +53,8 @@ Yo约束了2种项目所使用的长度单位
 #### 变更：
 * change `perfix` mixin 为私有`_perfix`；
 * change `yofont` mixin 为私有`_yofont`；
+* change `gradient` mixin 的内部实现；
+* change `transition` mixin 的内部实现；
 
 ### Lastest: v2.0.0
 

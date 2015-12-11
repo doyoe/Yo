@@ -15,5 +15,5 @@
 
 
 .test {
-    @include gradient(linear, top, red, gray);
+    @include gradient(linear, 45deg, red, black);
 }
