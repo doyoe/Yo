@@ -1,7 +1,7 @@
 @charset "utf-8";
 /**
- * Yo框架全局函数
- * Yo内置了一些自定义函数来扩充Sass的函数库，用以增强语法
+ * Yo框架自定义全局函数
+ * 扩充Sass默认函数库，用以增强语法
  */
 
 /**
@@ -9,6 +9,7 @@
  * @class List扩展函数
  * @description 返回Sass List中的第一项
  * @function first
+ * @version 2.1.0
  * @param {String} $list 指定一个Sass List
  */
 @function first($list) {
@@ -31,6 +32,7 @@
  * @class List扩展函数
  * @description 返回Sass List中的最后一项
  * @function last
+ * @version 2.1.0
  * @param {String} $list 指定一个Sass List
  */
 @function last($list) {
@@ -53,6 +55,7 @@
  * @class List扩展函数
  * @description 返回Sass List中的倒数第几项
  * @function last
+ * @version 2.1.0
  * @param {String} $list 指定一个Sass List
  * @param {Integer} $index 指定需要返回的值在list中的倒数位置
  */
@@ -80,6 +83,7 @@
  * @class List扩展函数
  * @description 移除Sass List中的某个项目并返回新的List
  * @function remove
+ * @version 2.1.0
  * @param {String} $list 指定一个Sass List
  * @param {String} $value 指定需要被删除的值
  */
@@ -107,6 +111,7 @@
  * @class List扩展函数
  * @description 截取Sass List中的某个部分并返回新的List
  * @function slice
+ * @version 2.1.0
  * @param {String} $list 指定一个Sass List
  * @param {Integer} $start 指定需要截取的开始下标
  * @param {Integer} [$end] 指定需要截取的结束下标，当该值缺省时默认为末尾下标
@@ -137,6 +142,7 @@
  * @class List扩展函数
  * @description 从Sass List中添加/删除项目，然后返回新的List。
  * @function splice
+ * @version 2.1.0
  * @param {String} $list 指定一个Sass List
  * @param {Integer} $index 指定需要移除的开始下标
  * @param {Integer} $count 指定需要移除的数量，不可以为负值，0表示不移除
