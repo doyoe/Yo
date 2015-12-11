@@ -40,6 +40,8 @@ Yo约束了2种项目所使用的长度单位
 
 ## Versioning
 
+The `master` branch is the development of version. The stable versions take the form of tags.
+
 ### Developing: v2.1.0
 
 #### 新增：
