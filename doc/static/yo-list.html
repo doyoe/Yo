@@ -225,11 +225,7 @@
     $more-font-size: default,
     $more-color: default) {
     // 区别是否新增实例还是修改本身
-    @if $name == default {
-        $name: "";
-    } @else {
-        $name: "-#{$name}";
-    }
+    $name: if($name == default, "", "-#{$name}");
     // 如果值为default，则取config的定义
     @if $margin == default {
         $margin: map-get($list, margin);
