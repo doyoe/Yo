@@ -28,7 +28,7 @@
         );
         // 判断是够需要垂直边框
         &::after {
-            @if map-get($table, has-vertical-border) == true {
+            @if map-get($table, has-vertical-border) {
                 border-width: 0 1px 1px 0;
             }
         }

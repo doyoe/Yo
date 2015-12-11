@@ -18,7 +18,7 @@
 @mixin _prefix($property, $value) {
     // 老式浏览器
     // 是否开启厂商前缀支持
-    @if map-get($setting, is-vendor-prefix) == true {
+    @if map-get($setting, is-vendor-prefix) {
         // 遍历输出厂商代码
         @each $vendor in map-get($setting, vendor-prefix) {
             #{$vendor}#{$property}: $value;
@@ -39,7 +39,7 @@
  */
 @mixin _yofont() {
     // 是否开启图标字体
-    @if map-get($ico, is-use) == true {
+    @if map-get($ico, is-use) {
         @font-face {
             font-family: map-get($ico, font-name);
             src:
@@ -73,7 +73,7 @@
  */
 @mixin calc($property, $value) {
     // 是否开启厂商前缀支持
-    @if map-get($setting, is-vendor-prefix) == true {
+    @if map-get($setting, is-vendor-prefix) {
         // 遍历输出厂商代码
         @each $vendor in map-get($setting, vendor-prefix) {
             // 输出所有厂商前缀（IE9.0+支持标准写法，更早版本不支持该函数）
@@ -302,7 +302,7 @@
     $dir-x: right left;
     $dir-y: top bottom;
 
-    @if map-get($setting, is-vendor-prefix) == true {
+    @if map-get($setting, is-vendor-prefix) {
         @each $vendor in map-get($setting, vendor-prefix) {
             background-image: $vendor$type#{-gradient($dir, $color-stop)};
         }
@@ -522,7 +522,7 @@
     $prefix-properties: transform, transform-origin;
     $vendor-list: ();
 
-    @if map-get($setting, is-vendor-prefix) == true {
+    @if map-get($setting, is-vendor-prefix) {
         @each $vendor in map-get($setting, vendor-prefix) {
             @for $i from 1 through length($transition) {
                 @if index($prefix-properties, nth(nth($transition, $i), 1)) {
@@ -556,7 +556,7 @@
     // 原始草案：20090723
     // 过渡草案：20110322-20120322（以后面这个日期为准）
     // 最新草案：20120612-20140925（以后面这个日期为准）
-    @if map-get($setting, is-vendor-prefix) == true {
+    @if map-get($setting, is-vendor-prefix) {
         @each $vendor in map-get($setting, vendor-prefix) {
             @if $vendor != -ms- {
                 // 当厂商前缀不为`-ms-`时输出原始和最新草案厂商前缀版
@@ -584,7 +584,7 @@
 @mixin flex($flex: 1, $direction: row) {
     // 老式浏览器（实验性质支持3个阶段草案）
     // 原始版本box-flex并不是复合属性，所以只有一个为数字的值
-    @if map-get($setting, is-vendor-prefix) == true {
+    @if map-get($setting, is-vendor-prefix) {
         @each $vendor in map-get($setting, vendor-prefix) {
             @if $vendor != -ms- {
                 // 当厂商前缀不为`-ms-`时输出原始和最新草案厂商前缀版
@@ -617,7 +617,7 @@
  */
 @mixin order($order: 1) {
     // 老式浏览器（实验性质支持3个阶段草案）
-    @if map-get($setting, is-vendor-prefix) == true {
+    @if map-get($setting, is-vendor-prefix) {
         @each $vendor in map-get($setting, vendor-prefix) {
             @if $vendor != -ms- {
                 // 当厂商前缀不为`-ms-`时输出原始和最新草案厂商前缀版
@@ -658,7 +658,7 @@
     // 老式浏览器（实验性质支持原始草案）
     // 当厂商前缀不为`-ms-`时输出原始草案厂商前缀版
     @if $flex-direction == row {
-        @if map-get($setting, is-vendor-prefix) == true {
+        @if map-get($setting, is-vendor-prefix) {
             @each $vendor in map-get($setting, vendor-prefix) {
                 @if $vendor != -ms- {
                     #{$vendor}box-orient: horizontal;
@@ -667,7 +667,7 @@
             }
         }
     } @else if $flex-direction == column {
-        @if map-get($setting, is-vendor-prefix) == true {
+        @if map-get($setting, is-vendor-prefix) {
             @each $vendor in map-get($setting, vendor-prefix) {
                 @if $vendor != -ms- {
                     #{$vendor}box-orient: vertical;
@@ -676,7 +676,7 @@
             }
         }
     } @else if $flex-direction == row-reverse {
-        @if map-get($setting, is-vendor-prefix) == true {
+        @if map-get($setting, is-vendor-prefix) {
             @each $vendor in map-get($setting, vendor-prefix) {
                 @if $vendor != -ms- {
                     #{$vendor}box-orient: horizontal;
@@ -685,7 +685,7 @@
             }
         }
     } @else if $flex-direction == column-reverse {
-        @if map-get($setting, is-vendor-prefix) == true {
+        @if map-get($setting, is-vendor-prefix) {
             @each $vendor in map-get($setting, vendor-prefix) {
                 @if $vendor != -ms- {
                     #{$vendor}box-orient: vertical;
@@ -695,7 +695,7 @@
         }
     }
     // 老式浏览器（实验性质支持过渡及最新草案）
-    @if map-get($setting, is-vendor-prefix) == true {
+    @if map-get($setting, is-vendor-prefix) {
         @each $vendor in map-get($setting, vendor-prefix) {
             // `flex-direction`属性在过渡和最新草案中语法一致
             #{$vendor}flex-direction: $flex-direction;
@@ -730,7 +730,7 @@
 @mixin justify-content($justify-content: center) {
     // 老式浏览器（实验性质支持3个阶段草案）
     @if $justify-content == center {
-        @if map-get($setting, is-vendor-prefix) == true {
+        @if map-get($setting, is-vendor-prefix) {
             @each $vendor in map-get($setting, vendor-prefix) {
                 @if $vendor != -ms- {
                     // 当厂商前缀不为`-ms-`时输出原始和最新草案厂商前缀版
@@ -743,7 +743,7 @@
             }
         }
     } @else if $justify-content == flex-start {
-        @if map-get($setting, is-vendor-prefix) == true {
+        @if map-get($setting, is-vendor-prefix) {
             @each $vendor in map-get($setting, vendor-prefix) {
                 @if $vendor != -ms- {
                     // 当厂商前缀不为`-ms-`时输出原始和最新草案厂商前缀版
@@ -756,7 +756,7 @@
             }
         }
     } @else if $justify-content == flex-end {
-        @if map-get($setting, is-vendor-prefix) == true {
+        @if map-get($setting, is-vendor-prefix) {
             @each $vendor in map-get($setting, vendor-prefix) {
                 @if $vendor != -ms- {
                     // 当厂商前缀不为`-ms-`时输出原始和最新草案厂商前缀版
@@ -769,7 +769,7 @@
             }
         }
     } @else if $justify-content == space-between {
-        @if map-get($setting, is-vendor-prefix) == true {
+        @if map-get($setting, is-vendor-prefix) {
             @each $vendor in map-get($setting, vendor-prefix) {
                 @if $vendor != -ms- {
                     // 当厂商前缀不为`-ms-`时输出原始和最新草案厂商前缀版
@@ -782,7 +782,7 @@
             }
         }
     } @else if $justify-content == space-around {
-        @if map-get($setting, is-vendor-prefix) == true {
+        @if map-get($setting, is-vendor-prefix) {
             @each $vendor in map-get($setting, vendor-prefix) {
                 @if $vendor != -ms- {
                     // 当厂商前缀不为`-ms-`时输出原始和最新草案厂商前缀版
@@ -811,7 +811,7 @@
 @mixin align-content($align-content: center) {
     // 老式浏览器（实验性质支持2个阶段草案）
     @if $align-content == flex-start {
-        @if map-get($setting, is-vendor-prefix) == true {
+        @if map-get($setting, is-vendor-prefix) {
             @each $vendor in map-get($setting, vendor-prefix) {
                 @if $vendor != -ms- {
                     // 当厂商前缀不为`-ms-`时输最新草案厂商前缀版（原始草案没有类似属性）
@@ -823,7 +823,7 @@
             }
         }
     } @else if $align-content == flex-end {
-        @if map-get($setting, is-vendor-prefix) == true {
+        @if map-get($setting, is-vendor-prefix) {
             @each $vendor in map-get($setting, vendor-prefix) {
                 @if $vendor != -ms- {
                     // 当厂商前缀不为`-ms-`时输最新草案厂商前缀版（原始草案没有类似属性）
@@ -835,7 +835,7 @@
             }
         }
     } @else if $align-content == space-between {
-        @if map-get($setting, is-vendor-prefix) == true {
+        @if map-get($setting, is-vendor-prefix) {
             @each $vendor in map-get($setting, vendor-prefix) {
                 @if $vendor != -ms- {
                     // 当厂商前缀不为`-ms-`时输最新草案厂商前缀版（原始草案没有类似属性）
@@ -847,7 +847,7 @@
             }
         }
     } @else if $align-content == space-around {
-        @if map-get($setting, is-vendor-prefix) == true {
+        @if map-get($setting, is-vendor-prefix) {
             @each $vendor in map-get($setting, vendor-prefix) {
                 @if $vendor != -ms- {
                     // 当厂商前缀不为`-ms-`时输最新草案厂商前缀版（原始草案没有类似属性）
@@ -859,7 +859,7 @@
             }
         }
     } @else if $align-content == center or $align-content == stretch {
-        @if map-get($setting, is-vendor-prefix) == true {
+        @if map-get($setting, is-vendor-prefix) {
             @each $vendor in map-get($setting, vendor-prefix) {
                 @if $vendor != -ms- {
                     // 当厂商前缀不为`-ms-`时输最新草案厂商前缀版（原始草案没有类似属性）
@@ -886,7 +886,7 @@
 @mixin align-items($align-items: center) {
     // 老式浏览器（实验性质支持3个阶段草案）
     @if $align-items == flex-start {
-        @if map-get($setting, is-vendor-prefix) == true {
+        @if map-get($setting, is-vendor-prefix) {
             @each $vendor in map-get($setting, vendor-prefix) {
                 @if $vendor != -ms- {
                     // 当厂商前缀不为`-ms-`时输出原始和最新草案厂商前缀版
@@ -899,7 +899,7 @@
             }
         }
     } @else if $align-items == flex-end {
-        @if map-get($setting, is-vendor-prefix) == true {
+        @if map-get($setting, is-vendor-prefix) {
             @each $vendor in map-get($setting, vendor-prefix) {
                 @if $vendor != -ms- {
                     // 当厂商前缀不为`-ms-`时输出原始和最新草案厂商前缀版
@@ -913,7 +913,7 @@
         }
     } @else {
         // 取值为center | baseline | stretch时，3个阶段草案均相同
-        @if map-get($setting, is-vendor-prefix) == true {
+        @if map-get($setting, is-vendor-prefix) {
             @each $vendor in map-get($setting, vendor-prefix) {
                 @if $vendor != -ms- {
                     // 当厂商前缀不为`-ms-`时输出原始和最新草案厂商前缀版
@@ -941,7 +941,7 @@
 @mixin align-self($align-self: center) {
     // 老式浏览器（实验性质支持3个阶段草案）
     @if $align-self == flex-start {
-        @if map-get($setting, is-vendor-prefix) == true {
+        @if map-get($setting, is-vendor-prefix) {
             @each $vendor in map-get($setting, vendor-prefix) {
                 @if $vendor != -ms- {
                     // 当厂商前缀不为`-ms-`时输最新草案厂商前缀版（原始草案没有类似属性）
@@ -953,7 +953,7 @@
             }
         }
     } @else if $align-self == flex-end {
-        @if map-get($setting, is-vendor-prefix) == true {
+        @if map-get($setting, is-vendor-prefix) {
             @each $vendor in map-get($setting, vendor-prefix) {
                 @if $vendor != -ms- {
                     // 当厂商前缀不为`-ms-`时输最新草案厂商前缀版（原始草案没有类似属性）
@@ -965,7 +965,7 @@
             }
         }
     } @else if $align-self == auto or $align-self == center or $align-self == baseline or $align-self == stretch {
-        @if map-get($setting, is-vendor-prefix) == true {
+        @if map-get($setting, is-vendor-prefix) {
             @each $vendor in map-get($setting, vendor-prefix) {
                 @if $vendor != -ms- {
                     // 当厂商前缀不为`-ms-`时输最新草案厂商前缀版（原始草案没有类似属性）
