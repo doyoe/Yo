@@ -114,7 +114,7 @@
  * @version 2.1.0
  * @param {String} $list 指定一个Sass List
  * @param {Integer} $start 指定需要截取的开始下标
- * @param {Integer} [$end] 指定需要截取的结束下标，当该值缺省时默认为末尾下标
+ * @param {Integer} [$end] 指定需要截取的结束下标（不包括$end），当该值缺省时默认为末尾下标
  */
 @function slice($list, $start, $end: length($list) + 1) {
     $new-list: ();
