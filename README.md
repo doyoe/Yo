@@ -58,6 +58,7 @@ The `master` branch is the development of version. The stable versions take the 
 * change `yofont` mixin 为私有`_yofont`；
 * change `gradient` mixin 的内部实现；
 * change `transition` mixin 的内部实现；
+* 为 `selectlist` 添加对 `yo-checked` 的依赖；
 
 ### History
 
