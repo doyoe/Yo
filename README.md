@@ -3,47 +3,47 @@
 `Yo` 是一款基于 `Mobile First` 理念而设计的 `CSS Framework`，当然，它也适应于PC端的高级浏览器；其具备轻量，易用，快速且高度强大的自定义能力。
 
 
-## Quick start
+## 快速开始
 
-* Install: `Nodejs`
-* Clone the repo: `git clone git@github.com:doyoe/Yo.git`
-* Install gulp: `npm install gulp -g --registry=https://registry.npm.taobao.org`
-* Install dependencies: `npm install --registry=https://registry.npm.taobao.org`
-* Run: `gulp`
+* 安装: `Nodejs`
+* 克隆项目: `git clone git@github.com:doyoe/Yo.git`
+* 安装gulp: `npm install gulp -g --registry=https://registry.npm.taobao.org`
+* 安装依赖: `npm install --registry=https://registry.npm.taobao.org`
+* 运行: `gulp`
 
 
-## Browser support
+## 浏览器支持
 
 * iOS6.0+
 * Android4.0+
 * Latest Stable: Chrome, Safari, Opera, IE10+
 
 
-## Bugs and feature requests
+## 问题及反馈
 
 如果您的项目正在使用`Yo`，过程中发现了任何问题，或者有任何帮助`Yo`更完善的想法和建议，请直接给我提[Issues](https://github.com/doyoe/Yo/issues/new)和[Pull Requests](https://github.com/doyoe/Yo/pulls)。
 
 
-## Demo And Documentation
+## 实例和文档
 
 * [View Demo](http://doyoe.github.io/Yo/demo/)
 * [View Documentation](http://doyoe.github.io/Yo/doc/)
 
 
-## Notice
+## 注意
 
 Yo约束了2种项目所使用的长度单位
 
-* 所有涉及到 `border` 的长度单位都是用 `px`；
-* 除 `border` 外，所有的长度设置都是用 `rem` 单位；
+* 所有涉及到`border`的长度单位都是用`px`；
+* 除`border`外，所有的长度设置都是用`rem`单位；
 
-## Versioning
+## 版本
 
-The `master` branch is the development of version. The stable versions take the form of `tags`.
+`master`分支为开发版本，稳定版本都发布在`releases tag`中。
 
-### Lastest releases: [v2.0.0](https://github.com/doyoe/Yo/releases/tag/v2.0.0)
+### 最新稳定版: [v2.0.0](https://github.com/doyoe/Yo/releases/tag/v2.0.0)
 
-### Developing: v2.1.0
+### 开发中版本: v2.1.0
 
 #### 新增：
 * add `frist($list)` function，用于取出Sass List中的第一项；
@@ -60,33 +60,27 @@ The `master` branch is the development of version. The stable versions take the 
 * change `transition` mixin 的内部实现；
 * 为 `selectlist` 添加对 `yo-checked` 的依赖；
 
-### History
+### 历史版本
 
-For more information on History Version, Please visit [ChangeLog](changelog.md).
-
-
-### Version Number Description
-
-For transparency and insight into our release cycle, and for striving to maintain backward compatibility, Yo will be maintained under the Semantic Versioning guidelines as much as possible.
-
-Releases will be numbered with the following format:
-
-`<major>.<minor>.<patch>`
-
-And constructed with the following guidelines:
-
-* Breaking backward compatibility bumps the major (and resets the minor and patch)
-* New additions without breaking backward compatibility bumps the minor (and resets the patch)
-* Bug fixes and misc changes bumps the patch
-
-For more information on SemVer, please visit [semver.org](http://semver.org/).
+如想查看更多版本变更历史，请查看[ChangeLog](changelog.md).
 
 
-## Author
+### 版本号说明
 
-My name is Du Yao, working in Beijing [Qunar.com](http://www.qunar.com) now, is active in [Github](https://github.com/doyoe) and [Weibo](http://weibo.com/doyoe). Thus, you can find some information about me on my [Website](http://www.doyoe.com). Of course, you can visit my [blog](http://blog.doyoe.com) and use my tool sites, including [CSS-handbook](http://css.doyoe.com) and [Web front-end laboratories](http://demo.doyoe.com).
+`Yo`的版本发布周期是透明的，并尽可能保证向前向后兼容，您可以根据我们的语义化版本方针进行版本控制。
+
+`Yo`的版本方针遵循 [SemVer](http://semver.org/lang/zh-CN/) 规范，版本号采用`主版本号.次版本号.修订号`的格式，版本号规则如下：
+
+* 主版本号：做了不兼容的`API`修改，同时可以涵盖`次版本号`和`修订号`的内容；
+* 次版本号：做了向前向后兼容的功能性新增，同时可以涵盖`修订号`的内容；
+* 修订号：做了前向后兼容的问题修正。
 
 
-## Copyright and License
+## 作者
 
-Code and documentation copyright 2014-2015 [doyoe.com](http://www.doyoe.com). Code released under [the MIT license](http://opensource.org/licenses/MIT). Docs released under [Creative Commons](http://creativecommons.org/licenses/by/4.0/).
+杜瑶，我目前居住在北京，就职于 [Qunar](http://www.qunar.com)，您可以在 [Github](https://github.com/doyoe) 或者 [Weibo](http://weibo.com/doyoe) 看到我的最近动态。当然，也可以通过我的[个人站点](http://www.doyoe.com)，[博客](http://blog.doyoe.com)，[CSS参考手册](http://css.doyoe.com) 和 [Web前端实验室](http://demo.doyoe.com) 等信息了解更多。
+
+
+## 版本许可
+
+源码和文档版权属于 [doyoe.com](http://www.doyoe.com)。源码发布基于 [the MIT license](http://opensource.org/licenses/MIT) 开源协议。文档发布基于 [Creative Commons](http://creativecommons.org/licenses/by/4.0/) 开源协议。
