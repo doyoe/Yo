@@ -67,19 +67,13 @@ Yo约束了2种项目所使用的长度单位
 
 ### 版本号说明
 
-For transparency and insight into our release cycle, and for striving to maintain backward compatibility, Yo will be maintained under the Semantic Versioning guidelines as much as possible.
+`Yo`的版本发布周期是透明的，并尽可能保证向前向后兼容，您可以根据我们的语义化版本方针进行版本控制。
 
-Releases will be numbered with the following format:
+`Yo`的版本方针遵循`[SemVer](http://semver.org/lang/zh-CN/)`规范，版本号采用`主版本号.次版本号.修订号`的格式，版本号规则如下：
 
-`<major>.<minor>.<patch>`
-
-And constructed with the following guidelines:
-
-* Breaking backward compatibility bumps the major (and resets the minor and patch)
-* New additions without breaking backward compatibility bumps the minor (and resets the patch)
-* Bug fixes and misc changes bumps the patch
-
-For more information on SemVer, please visit [semver.org](http://semver.org/).
+* 主版本号：做了不兼容的`API`修改，同时可以涵盖`次版本号`和`修订号`的内容；
+* 次版本号：做了向前向后兼容的功能性新增，同时可以涵盖`修订号`的内容；
+* 修订号：做了前向后兼容的问题修正。
 
 
 ## Author
