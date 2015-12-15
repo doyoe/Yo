@@ -1693,7 +1693,7 @@ tbody.collapse.in {
 .docs-header {
   position: relative;
   padding: 50px 0;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.7);
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
   background-color: #1ba9ba;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#0088a4), to(#1ba9ba));
@@ -1714,6 +1714,7 @@ tbody.collapse.in {
 .docs-header h1 {
   margin-top: 0;
   margin-bottom: 20px;
+  padding: 0 30px;
   color: #fff;
 }
 
@@ -1721,7 +1722,7 @@ tbody.collapse.in {
   margin-bottom: 0;
   font-weight: 300;
   line-height: 1.7;
-  margin-right: 4.5rem;
+  padding: 0 30px;
 }
 
 .docs-header .container {
@@ -1736,8 +1737,7 @@ tbody.collapse.in {
 }
 
 .row {
-  margin-right: -15px;
-  margin-left: -15px;
+  padding: 10px 15px;
 }
 
 .col-md-3, .col-md-9 {
@@ -1941,6 +1941,7 @@ tbody.collapse.in {
 }
 
 .anchorjs-link, .anchorjs-link:hover {
+  margin-left: -.8em !important;
   text-decoration: none;
 }
 
@@ -1966,7 +1967,7 @@ tbody.collapse.in {
 
 .docs-sidebar.affix {
   position: fixed;
-  top: 20px;
+  top: 0;
 }
 
 .docs-sidebar.affix-bottom {
@@ -2003,6 +2004,9 @@ tbody.collapse.in {
   }
   .container {
     width: 1200px;
+  }
+  .docs-header p {
+    width: 7.5rem;
   }
   .navbar-static-top {
     border-radius: 0;
@@ -2070,6 +2074,9 @@ tbody.collapse.in {
   }
   .container {
     width: 992px;
+  }
+  .docs-header p {
+    width: 7.5rem;
   }
   .navbar-static-top {
     border-radius: 0;
@@ -2253,4 +2260,16 @@ tbody.collapse.in {
   .docs-header p {
     margin-right: 0;
   }
+}
+
+#readme {
+  margin-top: -1.5em;
+}
+
+#readme .markdown-body h1:nth-of-type(1) {
+  display: none;
+}
+
+#readme .markdown-body p:nth-of-type(1) {
+  display: none;
 }
