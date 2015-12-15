@@ -3,47 +3,47 @@
 `Yo` 是一款基于 `Mobile First` 理念而设计的 `CSS Framework`，当然，它也适应于PC端的高级浏览器；其具备轻量，易用，快速且高度强大的自定义能力。
 
 
-## Quick start
+## 快速开始
 
-* Install: `Nodejs`
-* Clone the repo: `git clone git@github.com:doyoe/Yo.git`
-* Install gulp: `npm install gulp -g --registry=https://registry.npm.taobao.org`
-* Install dependencies: `npm install --registry=https://registry.npm.taobao.org`
-* Run: `gulp`
+* 安装: `Nodejs`
+* 克隆项目: `git clone git@github.com:doyoe/Yo.git`
+* 安装gulp: `npm install gulp -g --registry=https://registry.npm.taobao.org`
+* 安装依赖: `npm install --registry=https://registry.npm.taobao.org`
+* 运行: `gulp`
 
 
-## Browser support
+## 浏览器支持
 
 * iOS6.0+
 * Android4.0+
 * Latest Stable: Chrome, Safari, Opera, IE10+
 
 
-## Bugs and feature requests
+## 问题及反馈
 
 如果您的项目正在使用`Yo`，过程中发现了任何问题，或者有任何帮助`Yo`更完善的想法和建议，请直接给我提[Issues](https://github.com/doyoe/Yo/issues/new)和[Pull Requests](https://github.com/doyoe/Yo/pulls)。
 
 
-## Demo And Documentation
+## 实例和文档
 
 * [View Demo](http://doyoe.github.io/Yo/demo/)
 * [View Documentation](http://doyoe.github.io/Yo/doc/)
 
 
-## Notice
+## 注意
 
 Yo约束了2种项目所使用的长度单位
 
-* 所有涉及到 `border` 的长度单位都是用 `px`；
-* 除 `border` 外，所有的长度设置都是用 `rem` 单位；
+* 所有涉及到`border`的长度单位都是用`px`；
+* 除`border`外，所有的长度设置都是用`rem`单位；
 
-## Versioning
+## 版本
 
 The `master` branch is the development of version. The stable versions take the form of `tags`.
 
-### Lastest releases: [v2.0.0](https://github.com/doyoe/Yo/releases/tag/v2.0.0)
+### 最新稳定版: [v2.0.0](https://github.com/doyoe/Yo/releases/tag/v2.0.0)
 
-### Developing: v2.1.0
+### 开发中: v2.1.0
 
 #### 新增：
 * add `frist($list)` function，用于取出Sass List中的第一项；
@@ -60,12 +60,12 @@ The `master` branch is the development of version. The stable versions take the 
 * change `transition` mixin 的内部实现；
 * 为 `selectlist` 添加对 `yo-checked` 的依赖；
 
-### History
+### 历史版本
 
-For more information on History Version, Please visit [ChangeLog](changelog.md).
+如想查看更多版本变更历史，请查看[ChangeLog](changelog.md).
 
 
-### Version Number Description
+### 版本号说明
 
 For transparency and insight into our release cycle, and for striving to maintain backward compatibility, Yo will be maintained under the Semantic Versioning guidelines as much as possible.
 
