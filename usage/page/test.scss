@@ -12,3 +12,16 @@
 .img > img {
     // border-radius: 50%;
 }
+
+.yo-card {
+    margin: .1rem;
+    padding: .1rem;
+    @include border-radius(.05rem);
+    background-color: #eee;
+    > .title {
+        @include border(
+            $border-width: 0 0 1px,
+            $border-color: #ddd
+        );
+    }
+}
