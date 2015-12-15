@@ -21,7 +21,7 @@
 
 ## Bugs and feature requests
 
-如果你或者你所在的公司正在使用 Yo，过程中发现了任何问题，或者有任何帮助 Yo 更完善的想法和建议，都可以直接给我提[Issues](https://github.com/doyoe/Yo/issues/new)和[Pull Requests](https://github.com/doyoe/Yo/pulls)。
+如果您的项目正在使用`Yo`，过程中发现了任何问题，或者有任何帮助`Yo`更完善的想法和建议，请直接给我提[Issues](https://github.com/doyoe/Yo/issues/new)和[Pull Requests](https://github.com/doyoe/Yo/pulls)。
 
 
 ## Demo And Documentation
@@ -29,7 +29,6 @@
 * [View Demo](http://doyoe.github.io/Yo/demo/)
 * [View Documentation](http://doyoe.github.io/Yo/doc/)
 
-待发布...
 
 ## Notice
 
@@ -42,9 +41,9 @@ Yo约束了2种项目所使用的长度单位
 
 The `master` branch is the development of version. The stable versions take the form of `tags`.
 
-### Lastest stable version: v2.0.0
+### Lastest releases: [v2.0.0](https://github.com/doyoe/Yo/releases/tag/v2.0.0)
 
-### Developing version: v2.1.0
+### Developing: v2.1.0
 
 #### 新增：
 * add `frist($list)` function，用于取出Sass List中的第一项；

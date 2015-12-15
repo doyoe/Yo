@@ -7,9 +7,6 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="format-detection" content="telephone=no,email=no" />
-    <!-- <link href="source/bootstrap.css" rel="stylesheet">
-    <link href="source/patch.css" rel="stylesheet">
-    <link href="source/docs.min.css" rel="stylesheet"> -->
     <script src="source/shCore.js"></script>
     <script src="source/shBrushSass.js"></script>
     <link rel="stylesheet" href="source/shCoreDefault.css" />
@@ -18,27 +15,31 @@
 <body>
 
 <!-- Docs master nav -->
+
 <header class="navbar navbar-static-top docs-nav" id="top" role="banner">
     <div class="container">
         <div class="navbar-header">
-          <a href="http://ued.qunar.com/mobile/" class="navbar-brand">X1</a>
+            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+             <a href="http://ued.qunar.com/mobile/" class="navbar-brand">Yo</a>
         </div>
         <nav id="bs-navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="http://ued.qunar.com/mobile/qapp/doc/">QApp</a>
-                </li>
-                <li>
-                    <a href="http://ued.qunar.com/mobile/kami/doc/">Kami</a>
+                    <a href="../demo/index.html">实例</a>
                 </li>
                 <li class="active">
-                    <a href="index.html">Yo</a>
+                    <a href="index.html">文档</a>
                 </li>
                 <li>
-                    <a href="http://hy.qunar.com/source/qunarapi.html">QunarAPI</a>
+                    <a href="../case/index.html">案列</a>
                 </li>
                 <li>
-                    <a href="http://ued.qunar.com/mobile/guide/">TouchGuide</a>
+                    <a href="https://github.com/doyoe/Yo">Github</a>
                 </li>
             </ul>
         </nav>
@@ -49,15 +50,16 @@
 
 <div class="docs-header" id="content" style="margin-bottom:0">
     <div class="container">
-        <h1>Yo 历史</h1>
-        <p>Yo 是一款基于 Mobile First 理念而设计的 CSS Framework，当然，你使用在PC高级浏览器中也完全没有问题；其具备轻量，易用，快速且高度强大的自定义能力。</p>
+        <h1>历史</h1>
+        <p>Yo 是一款基于 Mobile First 理念而设计的 CSS Framework，当然，它也适应于PC端的高级浏览器；其具备轻量，易用，快速且高度强大的自定义能力</p>
     </div>
 </div>
 
 
-<header class="navbar navbar-static-top docs-nav docs-second-nav">
+
+<header class="navbar navbar-static-top docs-second-nav">
     <div class="container">
-        <nav class="collapse navbar-collapse">
+        <nav>
             <ul class="nav navbar-nav">
                 
                 <li class="">
@@ -72,13 +74,6 @@
                     <a href="changelog.html">历史</a>
                 </li>
                 
-                <li class="">
-                    <a href="doc.html">注释规范</a>
-                </li>
-                
-                <li>
-                    <a href="http://ued.qunar.com/mobile/yo/demo/">demo</a>
-                </li>
             </ul>
         </nav>
     </div>
@@ -243,13 +238,20 @@ left: 0;
 <!-- Footer -->
 <footer class="docs-footer" role="contentinfo">
     <div class="container">
-        <p>Made By Qunar Hotel FE Mobile Team. © 2014 - 2015</p>
+        <p>Made By doyoe.com © 2014 - 2015</p>
     </div>
 </footer>
 
 <script src="source/jquery.min.js"></script>
-<script src="source/bootstrap.js"></script>
+<script src="source/bootstrap.min.js"></script>
 <script src="source/docs.min.js"></script>
-<script>SyntaxHighlighter.all();</script>
+<script>SyntaxHighlighter.all();
+    // $('.docs-sidenav li').click(function(){
+    //     if($(this).hasClass('active')){
+    //         $(this).removeClass('.active')
+    //     }
+    //    // alert("dsfsdafasdfsdaf");
+    //})
+</script>
 </body>
 </html>
