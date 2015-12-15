@@ -39,11 +39,11 @@ Yo约束了2种项目所使用的长度单位
 
 ## 版本
 
-The `master` branch is the development of version. The stable versions take the form of `tags`.
+`master`分支为开发版本，稳定版本都发布在`releases tag`中。
 
 ### 最新稳定版: [v2.0.0](https://github.com/doyoe/Yo/releases/tag/v2.0.0)
 
-### 开发中: v2.1.0
+### 开发中版本: v2.1.0
 
 #### 新增：
 * add `frist($list)` function，用于取出Sass List中的第一项；
