@@ -5,7 +5,7 @@
 
 ## Quick start
 
-* Install Nodejs
+* Install: `Nodejs`
 * Clone the repo: `git clone git@github.com:doyoe/Yo.git`
 * Install gulp: `npm install gulp -g --registry=https://registry.npm.taobao.org`
 * Install dependencies: `npm install --registry=https://registry.npm.taobao.org`
