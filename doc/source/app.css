@@ -1365,10 +1365,6 @@ del {
   padding-right: 20px;
 }
 
-* {
-  box-sizing: border-box;
-}
-
 .example-code .line {
   line-height: normal !important;
 }
@@ -2270,4 +2266,71 @@ tbody.collapse.in {
 
 #readme .markdown-body p:nth-of-type(1) {
   display: none;
+}
+
+#index .docs-nav .navbar-brand.index {
+  color: #555;
+}
+
+#index .docs-header {
+  padding: 1rem 0;
+  text-align: center;
+}
+
+#index .docs-header .container > h1 {
+  font-size: .8rem;
+}
+
+#index .docs-header .container > p {
+  width: auto;
+}
+
+#index .docs-header .container > a {
+  display: inline-block;
+  margin-top: .2rem;
+  padding: 0.1rem 0.4rem;
+  border: 1px solid;
+  border-radius: 0.05rem;
+  -webkit-background-clip: padding-box !important;
+  -moz-background-clip: padding-box !important;
+  -ms-background-clip: padding-box !important;
+  background-clip: padding-box !important;
+  color: #9dd8fc;
+  font-size: .2rem;
+  font-weight: bold;
+}
+
+#index .docs-header .container > a:hover {
+  text-decoration: none;
+  border-color: #9dd8fc;
+  background-color: rgba(157, 216, 252, 0.6);
+  color: #fff;
+}
+
+@media (min-width: 1200px) {
+  #index .docs-header .container > p {
+    padding: 0 1rem;
+    font-size: .28rem;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  #index .docs-header .container > p {
+    padding: 0 0.6rem;
+    font-size: .25rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #index .docs-header .container > p {
+    padding: 0 0.3rem;
+    font-size: .21rem;
+  }
+}
+
+@media (max-width: 767px) {
+  #index .docs-header .container > p {
+    padding: 0 0.2rem;
+    font-size: .2rem;
+  }
 }
