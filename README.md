@@ -1,6 +1,6 @@
 # Yo
 
-`Yo` 是一款基于 `Mobile First` 理念而设计的 `CSS Framework`，当然，它也适应于PC端的高级浏览器；其具备轻量，易用，快速且高度强大的自定义能力。
+`Yo` 是一款基于 `Mobile First` 理念而设计的 `CSS Framework`，它轻量，易用且自定义能力高度强大，同时也适应于PC端的高级浏览器。
 
 
 ## 快速开始
