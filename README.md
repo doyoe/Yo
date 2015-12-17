@@ -52,6 +52,7 @@ Yo约束了2种项目所使用的长度单位
 * add `remove($list, $value)` function，用于移除Sass List中的$value；
 * add `slice($list, $start, $end)` function，用于取出Sass List中被选中的项；
 * add `splice($list, $index, $count, $values)` function，用于移除Sass List中的项，并添加新项；
+* add `$has-last-border` for `yo-list`，用于指定是否最后一项是否需要底边线；
 
 #### 变更：
 * change `perfix` mixin 为私有`_perfix`；

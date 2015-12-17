@@ -94,6 +94,9 @@
             // 最后一根线的颜色与外边框颜色相同
             &::after {
                 border-color: map-get($list, border-color);
+                @if map-get($list, has-last-border) == false {
+                    border-width: 0;
+                }
             }
         }
         .yo-input {
@@ -155,6 +158,7 @@
  * @param {Color} $active-bgcolor 子项点击反馈背景色 {add:1.0.0}
  * @param {Color} $on-bgcolor 子项选中背景色 {add:1.0.0}
  * @param {Color} $on-color 子项选中文本色 {add:1.4.0}
+ * @param {Boolean} $has-last-border 是否有最后一根底边线 {add:2.1.0}
  * @param {Color} $item-bordercolor 子项边框色 {add:1.2.0}{del:2.0.0}
  * @param {Color} $item-border-color 子项边框色 {add:2.0.0}
  * @param {Color} $label-bordercolor 列表组头边框色 {add:1.2.0}{del:2.0.0}
@@ -182,6 +186,7 @@
     $active-bgcolor: default,
     $on-bgcolor: default,
     $on-color: default,
+    $has-last-border: default,
     $item-border-color: default,
     $label-border-color: default,
     $item-font-size: default,
@@ -225,6 +230,9 @@
     }
     @if $on-color == default {
         $on-color: map-get($list, on-color);
+    }
+    @if $has-last-border == default {
+        $has-last-border: map-get($list, has-last-border);
     }
     @if $item-border-color == default {
         $item-border-color: map-get($list, item-border-color);
@@ -368,6 +376,13 @@
             &:last-child::after {
                 @if $border-color != map-get($list, border-color) {
                     border-color: $border-color;
+                }
+                @if $has-last-border != map-get($list, has-last-border) {
+                    @if $has-last-border {
+                        border-width: 0 0 1px;
+                    } @else {
+                        border-width: 0;
+                    }
                 }
             }
             &.item-active:active,
