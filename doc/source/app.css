@@ -2264,7 +2264,7 @@ tbody.collapse.in {
   display: none;
 }
 
-#readme .markdown-body p:nth-of-type(1) {
+#readme .markdown-body h1:nth-of-type(1) + p {
   display: none;
 }
 
@@ -2273,7 +2273,7 @@ tbody.collapse.in {
 }
 
 #index .docs-header {
-  padding: 1rem 0;
+  padding: 1.2rem 0;
   text-align: center;
 }
 
@@ -2333,4 +2333,64 @@ tbody.collapse.in {
     padding: 0 0.2rem;
     font-size: .2rem;
   }
+}
+
+#index .markdown-body {
+  text-align: center;
+}
+
+#index .markdown-body > h2 {
+  margin-top: .8rem !important;
+  border: none;
+  font-size: .35rem;
+}
+
+#index .markdown-body > p {
+  padding: 0 1rem;
+  color: #666;
+  font-size: .24rem;
+}
+
+#index .markdown-body ul {
+  *zoom: 1;
+  overflow: hidden;
+  padding: 0;
+  list-style: none;
+}
+
+#index .markdown-body ul > li {
+  float: left;
+  overflow: hidden;
+  width: 18%;
+  height: 2rem;
+  margin: 1%;
+  border: 1px solid #eee;
+  border-radius: 0.05rem;
+  -webkit-background-clip: padding-box !important;
+  -moz-background-clip: padding-box !important;
+  -ms-background-clip: padding-box !important;
+  background-clip: padding-box !important;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -moz-box-pack: center;
+  -moz-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -moz-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+#index .markdown-body ul img {
+  max-width: 100%;
+  max-height: 100%;
 }
