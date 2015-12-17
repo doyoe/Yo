@@ -2370,6 +2370,13 @@ tbody.collapse.in {
   -moz-background-clip: padding-box !important;
   -ms-background-clip: padding-box !important;
   background-clip: padding-box !important;
+}
+
+#index .markdown-body ul > li:hover > p:not(:only-child):first-child {
+  margin-top: -198px;
+}
+
+#index .markdown-body ul p {
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -2388,6 +2395,18 @@ tbody.collapse.in {
   -moz-align-items: center;
   -ms-flex-align: center;
   align-items: center;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: margin-top 0.3s ease-in;
+  -moz-transition: margin-top 0.3s ease-in;
+  -ms-transition: margin-top 0.3s ease-in;
+  transition: margin-top 0.3s ease-in;
+  margin: 0;
+}
+
+#index .markdown-body ul p:not(:only-child):last-child {
+  padding: .15rem;
+  background-color: #eee;
 }
 
 #index .markdown-body ul img {
