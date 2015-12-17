@@ -4,6 +4,6 @@
 
 * ![去哪儿网](http://source.qunarzz.com/common/hf/logo.png)
 
-    > 实打实大师的
+    > 在去哪儿网已有近百个移动Web应用基于 Yo 来构建
 
 * ![去哪儿网](http://source.qunarzz.com/common/hf/logo.png)
