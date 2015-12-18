@@ -13,7 +13,7 @@
         $border-color: map-get($btn, border-color),
         $radius: map-get($btn, radius)
     );
-    // 当使用button, input时清除默认边框
+    // 当使用button元素时清除默认边框（不推荐使用input，因为边框使用伪元素实现）
     border: 0 none;
     background-color: map-get($btn, bgcolor);
     color: map-get($btn, color);
@@ -131,12 +131,12 @@
         @if $padding != map-get($btn, padding) {
             padding: $padding;
         }
-        // 如果$radius不等于config设定，则重绘容器边框圆角
+        // 如果$radius不等于config设定，则重绘容器圆角
         @if $radius != map-get($btn, radius) {
             border-radius: $radius;
         }
         &::after {
-            // 如果$border-width不等于config设定，则重绘边框相关
+            // 如果$border-width不等于config设定，则重绘边框厚度
             @if $border-width != map-get($btn, border-width) {
                 border-width: $border-width;
             }
@@ -171,18 +171,21 @@
         }
         &:active {
             &::after {
+                // 如果$active-border-color不等于config设定，则重绘点按时边框颜色
                 @if $active-border-color != map-get($btn, active-border-color) {
                     border-color: $active-border-color;
                 }
             }
+            // 如果$active-bgcolor不等于config设定，则重绘点按时背景色
             @if $active-bgcolor != map-get($btn, active-bgcolor) {
                 background-color: $active-bgcolor;
             }
+            // 如果$active-color不等于config设定，则重绘点按时文本色
             @if $active-color != map-get($btn, active-color) {
                 color: $active-color;
             }
         }
-        // 禁用按钮为当前按钮色彩的亮色
+        // 禁用按钮为当前按钮色彩的加亮色
         &.yo-btn-disabled {
             &,
             &:active {
