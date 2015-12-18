@@ -77,7 +77,7 @@
             border-radius: $radius;
         }
         &::after {
-            // 如果$border-width不等于config设定，则重绘边框相关
+            // 如果$border-width不等于config设定，则重绘边框厚度
             @if $border-width != map-get($badge, border-width) {
                 border-width: $border-width;
             }
