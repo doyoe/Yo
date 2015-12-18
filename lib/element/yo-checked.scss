@@ -10,15 +10,14 @@
     vertical-align: middle;
     > input,
     > .type {
-        @include align;
-        @include fullscreen;
         @include square(100%);
     }
     > input {
-        z-index: 2;
+        position: absolute;
         opacity: 0;
     }
     > .type {
+        @include align;
         background-color: map-get($checked, bgcolor);
         @include border(
             $border-width: map-get($checked, border-width),
@@ -145,19 +144,21 @@
         $radius: map-get($checked, radius);
     }
     .yo-checked#{$name} {
+        // 如果$size不等于config设定，则重绘容器大小
         @if $size != map-get($checked, size) {
             @include square($size);
         }
+        // 如果$font-size不等于config设定，则重绘标识符大小
         @if $font-size != map-get($checked, font-size) {
             font-size: $font-size;
         }
         > .type {
+            // 如果$radius不等于config设定，则重绘容器圆角
             @if $radius != map-get($checked, radius) {
-                // 构造里已处理过边框+圆角+背景溢出的问题，所以这里写原生即可
                 border-radius: $radius;
             }
             &::after {
-                // 如果$border-width不等于config设定，则重绘边框相关
+                // 如果$border-width不等于config设定，则重绘边框厚度
                 @if $border-width != map-get($checked, border-width) {
                     border-width: $border-width;
                 }
@@ -178,28 +179,33 @@
                     }
                 }
             }
+            // 如果$bgcolor不等于config设定，则重绘背景色
             @if $bgcolor != map-get($checked, bgcolor) {
                 background-color: $bgcolor;
             }
             &::before {
+                // 如果$content不等于config设定，则重绘标识符
                 @if $content != map-get($checked, content) {
                     content: $content;
                 }
+                // 如果$color不等于config设定，则重绘标识符颜色
                 @if $color != map-get($checked, color) {
                     color: $color;
                 }
             }
         }
         > input:checked + .type {
-            // 如果$border-color不等于config设定，则重绘边框颜色
+            // 如果$on-border-color不等于config设定，则重绘选中时边框颜色
             @if $on-border-color != map-get($checked, on-border-color) {
                 &::after {
                     border-color: $on-border-color;
                 }
             }
+            // 如果$on-bgcolor不等于config设定，则重绘选中时背景色
             @if $on-bgcolor != map-get($checked, on-bgcolor) {
                 background-color: $on-bgcolor;
             }
+            // 如果$on-color不等于config设定，则重绘选中时标识符颜色
             @if $on-color != map-get($checked, on-color) {
                 &::before {
                     color: $on-color;

@@ -520,6 +520,16 @@ a {
 
 .yo-checked > input,
 .yo-checked > .type {
+  width: 100%;
+  height: 100%;
+}
+
+.yo-checked > input {
+  position: absolute;
+  opacity: 0;
+}
+
+.yo-checked > .type {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -531,21 +541,6 @@ a {
   align-items: center;
   word-wrap: break-word;
   word-break: break-all;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.yo-checked > input {
-  z-index: 2;
-  opacity: 0;
-}
-
-.yo-checked > .type {
   position: relative;
   border-radius: 0.05rem;
 }
