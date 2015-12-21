@@ -2,7 +2,27 @@
 
 History Version and release time.
 
-### v2.0.0（2016.12.7）
+### v2.1.0（2015.12.21）
+
+[Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v2.1.0)
+
+#### 新增：
+* add `frist($list)` function，用于取出Sass List中的第一项；
+* add `last($list)` function，用于取出Sass List中的最后一项；
+* add `nth-last($list, $index)` function，用于取出Sass List中的倒数第n项；
+* add `remove($list, $value)` function，用于移除Sass List中的$value；
+* add `slice($list, $start, $end)` function，用于取出Sass List中被选中的项；
+* add `splice($list, $index, $count, $values)` function，用于移除Sass List中的项，并添加新项；
+* add `$has-last-border` for `yo-list`，用于指定最后一项是否需要底边线；
+
+#### 变更：
+* change `perfix` mixin 为私有`_perfix`；
+* change `yofont` mixin 为私有`_yofont`；
+* change `gradient` mixin 的内部实现；
+* change `transition` mixin 的内部实现；
+* 为 `selectlist` 添加对 `yo-checked` 的依赖；
+
+### v2.0.0（2015.12.7）
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v2.0.0)
 
@@ -67,7 +87,7 @@ History Version and release time.
 
 **再次重申：将你的`flex子项`设置为`非行内级元素`，Yo会缓步移除对这种内部容错的代码**
 
-### v1.8.7（2016.10.23）
+### v1.8.7（2015.10.23）
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v1.8.7)
 
@@ -75,7 +95,7 @@ History Version and release time.
     - 为`weeks`容器添加`relative`
     - 解决`disabled`状态被扩展覆盖的问题
 
-### v1.8.6（2016.10.16）
+### v1.8.6（2015.10.16）
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v1.8.6)
 
