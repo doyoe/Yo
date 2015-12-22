@@ -1,6 +1,10 @@
 @charset "utf-8";
 @import "../../lib/widget/yo-vcode";
 
+/**
+ * yo-vcode扩展
+ */
+
 @include yo-vcode(
     $name: test,
     $border-color: gray,
