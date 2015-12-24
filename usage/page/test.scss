@@ -18,6 +18,7 @@
     padding: .1rem;
     @include border-radius(.05rem);
     background-color: #eee;
+    color: red;
     > .title {
         @include border(
             $border-width: 0 0 1px,

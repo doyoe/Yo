@@ -170,7 +170,7 @@ function combineScss(file, enc, cb) {
 
 // 读取 Yo 版本号
 function getVersion() {
-    var config = fs.readFileSync(path.join(__dirname, 'lib', 'core', 'variables.scss'), 'UTF-8').match(/version:\s*"(\d+\.\d+\.\d+\w+)"/);
+    var config = fs.readFileSync(path.join(__dirname, 'lib', 'core', 'variables.scss'), 'UTF-8').match(/version:\s*"(\d+\.\d+\.\d+\w*)"/);
 
     return config ? config[1] : 'Not Found';
 }
@@ -254,11 +254,6 @@ gulp.task('compile', function () {
     }
 });
 
-// 命令: gulp watch ，监听工程中scss文件变化时，执行compile操作
-gulp.task('watch', function () {
-    gulp.watch('./**/*.scss', ['compile']);
-});
-
 // 命令: gulp version ，获取Yo、Sass和Node-sass的版本信息
 gulp.task('version', function () {
     gutil.log(gutil.colors.green('Yo: ' + getVersion()));
@@ -266,5 +261,13 @@ gulp.task('version', function () {
     gutil.log(gutil.colors.green('Node-sass: ' + getNodeSassVersion()));
 });
 
+// 命令: gulp watch ，监听工程中scss文件变化时，执行compile操作
+gulp.task('watch', function () {
+    gulp.watch('./**/*.scss', ['compile']);
+});
+
+// 命令: gulp build ，一次性构建项目，不监听文件变化
+gulp.task('build', ['compile']);
+
 // 默认任务
-gulp.task('default', ['version', 'compile', 'watch']);
+// gulp.task('default', ['version', 'compile', 'watch']);
