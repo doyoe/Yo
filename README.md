@@ -10,8 +10,8 @@
 * 安装gulp: `npm install gulp -g --registry=https://registry.npm.taobao.org`
 * 安装依赖: `npm install --registry=https://registry.npm.taobao.org`
 * 运行:
-    * 如果你想监听所有文件的变更：`gulp watch`
-    * 如果你只是想build：`gulp build`
+    * `gulp watch`: 如果你想监听所有文件的变更
+    * `gulp build`: 如果你只是想build一次该项目
 
 
 ## 浏览器支持
