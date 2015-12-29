@@ -49,7 +49,7 @@ Yo约束了2种项目所使用的长度单位
 
 ### 历史版本
 
-如想查看更多版本变更历史，请查看[ChangeLog](changelog.md).
+如想查看更多版本变更历史，请查看[ChangeLog](https://github.com/doyoe/Yo/blob/master/changelog.md).
 
 
 ### 版本号说明
