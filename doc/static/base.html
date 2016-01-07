@@ -30,13 +30,15 @@
 /**
  * Yo框架全局base定义
  * 本文件与variables不同地方在于，这里所定义的map可以使用在variables和任何地方
- * 本文件中map使用“_”开头，extra中不使用"_"
+ * 本文件中map使用"_"开头，extra中不使用"_"
  * base ⇌ extra
  */
 
 // base
 $_base: (
     // root字号类型：normal | scaling
+    // normal表示root字号使用 `font-size-root`
+    // scaling表示root字号使用 `font-size-root-scaling`
     responsive-type:        normal,
     // html root使用100px，方便rem单位的换算
     font-size-root:         100px,

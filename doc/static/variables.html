@@ -31,7 +31,7 @@
  * Yo框架全局Variables
  * Yo基础变量map，如果不想定义某属性，将其value设置为null
  * Yo仅使用2种长度单位：px用于边框，rem用于除边框之外的所有地方
- * 本文件中map使用“_”开头，config中不使用"_"
+ * 本文件中map使用"_"开头，config中不使用"_"
  * variables ⇌ config
  */
 
@@ -357,6 +357,8 @@ $_list: (
     on-bgcolor:        null,
     // {Color} 选中文本色
     on-color:          null,
+    // {Boolean} 是否有最后一根底边线
+    has-last-border:   true,
     // {Color} 列表项边框色
     item-border-color: map-get($base, sub-border-color),
     // {Color} 列表项组名边框色
