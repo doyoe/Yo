@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-// 定义按钮的基础构造
+// 定义btn的基础构造
 @mixin _btn {
     display: inline-block;
     width: map-get($btn, width);
@@ -185,7 +185,7 @@
                 color: $active-color;
             }
         }
-        // 禁用按钮为当前按钮色彩的加亮色
+        // 如果btn色彩不等于config设定，则重绘禁用时按钮的背景色
         &.yo-btn-disabled {
             &,
             &:active {
