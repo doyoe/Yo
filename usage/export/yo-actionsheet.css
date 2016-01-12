@@ -500,10 +500,6 @@ a {
   line-height: .55rem;
 }
 
-.yo-actionsheet .item:active {
-  background-color: blue;
-}
-
 .yo-actionsheet .item:not(:first-child) {
   position: relative;
 }
@@ -546,4 +542,8 @@ a {
     -webkit-transform: scale(0.33333);
     transform: scale(0.33333);
   }
+}
+
+.yo-actionsheet .item:active {
+  background-color: rgba(255, 255, 255, 0.5);
 }
