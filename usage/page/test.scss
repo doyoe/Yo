@@ -13,16 +13,25 @@
     // border-radius: 50%;
 }
 
-.yo-card {
+.yo-actionsheet {
     margin: .1rem;
-    padding: .1rem;
-    @include border-radius(.05rem);
-    background-color: #eee;
-    color: red;
-    > .title {
-        @include border(
-            $border-width: 0 0 1px,
-            $border-color: #ddd
-        );
+    text-align: center;
+    > .menu,
+    > .action {
+        border-radius: .1rem;
+        background-color: #eee;
+    }
+    > .action {
+        margin-top: .05rem;
+    }
+    .item {
+        display: block;
+        line-height: .44rem;
+        &:not(:last-child) {
+            @include border(
+                $border-width: 0 0 1px,
+                $border-color: #ddd
+            );
+        }
     }
 }

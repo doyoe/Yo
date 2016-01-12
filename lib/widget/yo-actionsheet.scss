@@ -1,0 +1,94 @@
+@charset "utf-8";
+
+// 定义浮层actionsheet的基础构造
+@mixin _actionsheet {
+    position: fixed;
+    z-index: map-get($z-index, actionsheet);
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: .1rem;
+    text-align: center;
+    > .menu,
+    > .action {
+        border-radius: .1rem;
+        background-color: #fff;
+    }
+    > .action {
+        margin-top: .05rem;
+    }
+    .title {
+        font-weight: normal;
+        font-size: .14rem;
+        line-height: .44rem;
+    }
+    .item {
+        display: block;
+        height: .57rem;
+        font-size: .18rem;
+        line-height: .57rem;
+        &:not(:first-child) {
+            @include border(
+                $border-width: 1px 0 0,
+                $border-color: #ddd
+            );
+        }
+    }
+}
+
+/**
+ * @module widget
+ * @method yo-actionsheet
+ * @version 1.0.0
+ * @description 构造列表的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/widget/yo-actionsheet.html
+ * @param {String} $name 定义扩展名称 {add:1.0.0}
+ * @param {Length} $padding 内补白 {add:1.0.0}
+ * @param {Length} $radius 圆角半径长度 {add:1.0.0}
+ * @param {Color} $bgcolor 背景色 {add:1.0.0}
+ * @param {Color} $color 文本色 {add:1.0.0}
+ */
+
+@mixin yo-actionsheet(
+    $name: default,
+    $padding: default,
+    $radius: default,
+    $bgcolor: default,
+    $color: default) {
+    // 区别是否新增实例还是修改本身
+    $name: if($name == default, "", "-#{$name}");
+    // 如果值为default，则取config的定义
+    @if $padding == default {
+        $padding: map-get($actionsheet, padding);
+    }
+    @if $radius == default {
+        $radius: map-get($actionsheet, radius);
+    }
+    @if $bgcolor == default {
+        $bgcolor: map-get($actionsheet, bgcolor);
+    }
+    @if $color == default {
+        $color: map-get($actionsheet,color);
+    }
+    .yo-actionsheet#{$name} {
+        @if $padding != map-get($actionsheet, padding) {
+            padding: $padding;
+        }
+        @if $radius != map-get($actionsheet, radius) {
+            border-radius: $radius;
+        }
+        @if $bgcolor != map-get($actionsheet, bgcolor) {
+            background-color: $bgcolor;
+        }
+        @if $color != map-get($actionsheet, color) {
+            color: $color;
+        }
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入actionsheet基础构造
+.yo-actionsheet {
+    @include _actionsheet;
+}

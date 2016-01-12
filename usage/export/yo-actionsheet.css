@@ -293,17 +293,183 @@ a {
   margin: 0.2rem 0.1rem;
 }
 
-.img {
-  display: inline-block;
+.yo-header {
+  position: relative;
+  height: 0.44rem;
+  line-height: 0.44rem;
+  position: relative;
+  background-color: #1ba9ba;
+  color: #fff;
+  font-size: 0.18rem;
   overflow: hidden;
-  border-radius: 20px;
-  -webkit-background-clip: padding-box !important;
-  background-clip: padding-box !important;
-  border: 10px solid blue;
-  background-color: blue;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+.yo-header::after {
+  pointer-events: none;
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  content: "\0020";
+  border-color: #1ba9ba;
+  border-style: solid;
+  border-width: 0 0 1px;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+
+@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
+  .yo-header::after {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
+  .yo-header::after {
+    width: 200%;
+    height: 200%;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
+  .yo-header::after {
+    width: 300%;
+    height: 300%;
+    -webkit-transform: scale(0.33333);
+    transform: scale(0.33333);
+  }
+}
+
+.yo-header > .title {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin: 0 0.6rem;
+}
+
+.yo-header > .regret,
+.yo-header > .affirm {
+  position: absolute;
+  top: 0;
+  width: 0.6rem;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.14rem;
+}
+
+.yo-header > .regret:active,
+.yo-header > .affirm:active {
+  opacity: .5;
+}
+
+.yo-header > .regret.yo-ico,
+.yo-header > .regret > .yo-ico,
+.yo-header > .affirm.yo-ico,
+.yo-header > .affirm > .yo-ico {
+  color: #7ff;
+  font-size: 0.2rem;
+}
+
+.yo-header > .regret {
+  left: 0;
+  padding-left: 0.15rem;
+  text-align: left;
+}
+
+.yo-header > .affirm {
+  right: 0;
+  padding-right: 0.15rem;
+  text-align: right;
+}
+
+.yo-header-normal {
+  background-color: #eee;
+  color: #212121;
+}
+
+.yo-header-normal::after {
+  border-color: #ddd;
+}
+
+.yo-header-normal > .regret,
+.yo-header-normal > .affirm {
+  color: #212121;
+}
+
+.yo-header-normal > .regret.yo-ico,
+.yo-header-normal > .regret > .yo-ico,
+.yo-header-normal > .affirm.yo-ico,
+.yo-header-normal > .affirm > .yo-ico {
+  color: #212121;
+}
+
+.m-desc {
+  margin: .3rem .1rem;
+  padding-bottom: .05rem;
+  border-radius: .05rem;
+  background-color: #ddd;
+}
+
+.m-desc > .title,
+.m-desc > .sub-title {
+  max-height: 100%;
+}
+
+.m-desc > .title {
+  padding: .18rem .1rem .03rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.m-desc > xmp {
+  margin: .1rem;
+  padding: .1rem;
+  background-color: #666;
+  color: #fff;
+}
+
+.m-desc .sub-title {
+  margin: 0 .1rem;
+  padding: .1rem 0 .03rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.m-desc .sub-title::before {
+  margin-right: .05rem;
+  padding: 0 .03rem;
+  border-radius: .03rem;
+  content: "Note";
+  font-weight: normal;
+  background-color: #f9c027;
+  color: #fff;
+}
+
+.m-desc .info {
+  margin: .1rem;
+}
+
+.yo-mask {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .yo-actionsheet {
+  position: fixed;
+  z-index: 2501;
+  right: 0;
+  bottom: 0;
+  left: 0;
   margin: .1rem;
   text-align: center;
 }
@@ -311,23 +477,31 @@ a {
 .yo-actionsheet > .menu,
 .yo-actionsheet > .action {
   border-radius: .1rem;
-  background-color: #eee;
+  background-color: #fff;
 }
 
 .yo-actionsheet > .action {
   margin-top: .05rem;
 }
 
-.yo-actionsheet .item {
-  display: block;
+.yo-actionsheet .title {
+  font-weight: normal;
+  font-size: .14rem;
   line-height: .44rem;
 }
 
-.yo-actionsheet .item:not(:last-child) {
+.yo-actionsheet .item {
+  display: block;
+  height: .57rem;
+  font-size: .18rem;
+  line-height: .57rem;
+}
+
+.yo-actionsheet .item:not(:first-child) {
   position: relative;
 }
 
-.yo-actionsheet .item:not(:last-child)::after {
+.yo-actionsheet .item:not(:first-child)::after {
   pointer-events: none;
   position: absolute;
   z-index: 999;
@@ -337,20 +511,20 @@ a {
   content: "\0020";
   border-color: #ddd;
   border-style: solid;
-  border-width: 0 0 1px;
+  border-width: 1px 0 0;
   -webkit-transform-origin: 0 0;
   transform-origin: 0 0;
 }
 
 @media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
-  .yo-actionsheet .item:not(:last-child)::after {
+  .yo-actionsheet .item:not(:first-child)::after {
     width: 100%;
     height: 100%;
   }
 }
 
 @media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
-  .yo-actionsheet .item:not(:last-child)::after {
+  .yo-actionsheet .item:not(:first-child)::after {
     width: 200%;
     height: 200%;
     -webkit-transform: scale(0.5);
@@ -359,7 +533,7 @@ a {
 }
 
 @media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
-  .yo-actionsheet .item:not(:last-child)::after {
+  .yo-actionsheet .item:not(:first-child)::after {
     width: 300%;
     height: 300%;
     -webkit-transform: scale(0.33333);
