@@ -476,8 +476,8 @@ a {
 
 .yo-actionsheet > .menu,
 .yo-actionsheet > .action {
+  overflow: hidden;
   border-radius: .1rem;
-  background-color: #fff;
 }
 
 .yo-actionsheet > .action {
@@ -485,6 +485,7 @@ a {
 }
 
 .yo-actionsheet .title {
+  background-color: #fff;
   color: #999;
   font-weight: normal;
   font-size: .14rem;
@@ -494,8 +495,13 @@ a {
 .yo-actionsheet .item {
   display: block;
   height: .55rem;
+  background-color: #fff;
   font-size: .18rem;
   line-height: .55rem;
+}
+
+.yo-actionsheet .item:active {
+  background-color: blue;
 }
 
 .yo-actionsheet .item:not(:first-child) {

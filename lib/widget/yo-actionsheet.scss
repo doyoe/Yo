@@ -11,21 +11,26 @@
     text-align: center;
     > .menu,
     > .action {
+        overflow: hidden;
         border-radius: .1rem;
-        background-color: #fff;
     }
     > .action {
         margin-top: .08rem;
     }
     .title {
+        background-color: #fff;
         color: #999;
         font-weight: normal;
         font-size: .14rem;
         line-height: .44rem;
     }
     .item {
+        &:active {
+            background-color: blue;
+        }
         display: block;
         height: .55rem;
+        background-color: #fff;
         font-size: .18rem;
         line-height: .55rem;
         &:not(:first-child) {
