@@ -12,13 +12,13 @@
     > .menu,
     > .action {
         overflow: hidden;
-        border-radius: .1rem;
+        border-radius: map-get($actionsheet, radius);
     }
     > .action {
         margin-top: .08rem;
     }
     .title {
-        background-color: #fff;
+        background-color: map-get($actionsheet, bgcolor);
         color: #999;
         font-weight: normal;
         font-size: .14rem;
