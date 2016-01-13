@@ -399,10 +399,12 @@ $_table: (
     on-bgcolor:          null
 );
 
-// Widget UI actionsheet(3)
+// Widget UI actionsheet(7)
 $_actionsheet: (
     // {Length} 圆角半径
     radius:         .1rem,
+    // {Color} 边线色
+    border-color:   map-get($base, border-color),
     // {Color} 子项背景色
     bgcolor:        #fff,
     // {Color} 子项背景色

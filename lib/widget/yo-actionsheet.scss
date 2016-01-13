@@ -33,7 +33,7 @@
         &:not(:first-child) {
             @include border(
                 $border-width: 1px 0 0,
-                $border-color: #ddd
+                $border-color: map-get($actionsheet, border-color)
             );
         }
         &.item-active:active,
