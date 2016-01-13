@@ -401,9 +401,16 @@ $_table: (
 
 // Widget UI actionsheet(3)
 $_actionsheet: (
-    item-height: .55rem,
+    // {Color} 子项背景色
+    bgcolor:        #fff,
+    // {Color} 子项背景色
+    active-bgcolor: rgba(#fff, .6),
+    // {Length} 子项高度
+    item-height:    .55rem,
+    // {Length} 子项字号
     item-font-size: .18rem,
-    item-color: map-get($base, link-color)
+    // {Color} 子项文本色
+    item-color:     map-get($base, link-color)
 );
 
 // Widget UI datepicker(25)
