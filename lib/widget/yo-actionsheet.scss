@@ -25,18 +25,20 @@
         line-height: .44rem;
     }
     .item {
-        height: .55rem;
+        height: map-get($actionsheet, item-height);
         background-color: #fff;
-        font-size: .18rem;
-        line-height: .55rem;
+        color: map-get($actionsheet, item-color);
+        font-size: map-get($actionsheet, item-font-size);
+        line-height: map-get($actionsheet, item-height);
         &:not(:first-child) {
             @include border(
                 $border-width: 1px 0 0,
                 $border-color: #ddd
             );
         }
-        &:active {
-            background-color: rgba(#fff, .6);
+        &.item-active:active,
+        &.item-light {
+            background-color: rgba(#fff, .5);
         }
     }
 }

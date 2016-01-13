@@ -154,6 +154,13 @@
     $table: $_table;
 }
 
+// 合并variables和config中的actionsheet map
+@if global-variable-exists(actionsheet) {
+    $actionsheet: map-merge($_actionsheet, $actionsheet);
+} @else {
+    $actionsheet: $_actionsheet;
+}
+
 // 合并variables和config中的datepicker map
 @if global-variable-exists(datepicker) {
     $datepicker: map-merge($_datepicker, $datepicker);

@@ -493,10 +493,11 @@ a {
 }
 
 .yo-actionsheet .item {
-  height: .55rem;
+  height: 0.55rem;
   background-color: #fff;
-  font-size: .18rem;
-  line-height: .55rem;
+  color: #00afc7;
+  font-size: 0.18rem;
+  line-height: 0.55rem;
 }
 
 .yo-actionsheet .item:not(:first-child) {
@@ -543,6 +544,6 @@ a {
   }
 }
 
-.yo-actionsheet .item:active {
-  background-color: rgba(255, 255, 255, 0.6);
+.yo-actionsheet .item.item-active:active, .yo-actionsheet .item.item-light {
+  background-color: rgba(255, 255, 255, 0.5);
 }

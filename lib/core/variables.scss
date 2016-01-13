@@ -399,6 +399,13 @@ $_table: (
     on-bgcolor:          null
 );
 
+// Widget UI actionsheet(3)
+$_actionsheet: (
+    item-height: .55rem,
+    item-font-size: .18rem,
+    item-color: map-get($base, link-color)
+);
+
 // Widget UI datepicker(25)
 $_datepicker: (
     // {Length} 星期bar高度
