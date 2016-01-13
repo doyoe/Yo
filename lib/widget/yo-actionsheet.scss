@@ -46,49 +46,99 @@
 /**
  * @module widget
  * @method yo-actionsheet
- * @version 1.0.0
- * @description 构造列表的自定义使用方法
+ * @version 2.1.1
+ * @description 构造actionsheet的自定义使用方法
  * @demo http://doyoe.github.io/Yo/demo/widget/yo-actionsheet.html
- * @param {String} $name 定义扩展名称 {add:1.0.0}
- * @param {Length} $padding 内补白 {add:1.0.0}
- * @param {Length} $radius 圆角半径长度 {add:1.0.0}
- * @param {Color} $bgcolor 背景色 {add:1.0.0}
- * @param {Color} $color 文本色 {add:1.0.0}
+ * @param {String} $name 定义扩展名称 {add:2.1.1}
+ * @param {Length} $margin 外补白 {add:2.1.1}
+ * @param {Length} $radius 圆角半径长度 {add:2.1.1}
+ * @param {Color} $border-color 边线色 {add:2.1.1}
+ * @param {Color} $bgcolor 子项背景色 {add:2.1.1}
+ * @param {Color} $active-bgcolor 子项点击反馈背景色 {add:2.1.1}
+ * @param {Length} $item-height 子项高度 {add:2.1.1}
+ * @param {Length} $item-font-size 子项字号 {add:2.1.1}
+ * @param {Color} $item-color 子项文本色 {add:2.1.1}
  */
 
 @mixin yo-actionsheet(
     $name: default,
-    $padding: default,
+    $margin: default,
     $radius: default,
+    $border-color: default,
     $bgcolor: default,
-    $color: default) {
+    $active-bgcolor: default,
+    $item-height: default,
+    $item-font-size: default,
+    $item-color: default) {
     // 区别是否新增实例还是修改本身
     $name: if($name == default, "", "-#{$name}");
     // 如果值为default，则取config的定义
-    @if $padding == default {
-        $padding: map-get($actionsheet, padding);
+    @if $margin == default {
+        $margin: map-get($actionsheet, margin);
     }
     @if $radius == default {
         $radius: map-get($actionsheet, radius);
     }
+    @if $border-color == default {
+        $border-color: map-get($actionsheet, border-color);
+    }
     @if $bgcolor == default {
         $bgcolor: map-get($actionsheet, bgcolor);
     }
-    @if $color == default {
-        $color: map-get($actionsheet,color);
+    @if $active-bgcolor == default {
+        $active-bgcolor: map-get($actionsheet, active-bgcolor);
+    }
+    @if $item-height == default {
+        $item-height: map-get($actionsheet, item-height);
+    }
+    @if $item-font-size == default {
+        $item-font-size: map-get($actionsheet, item-font-size);
+    }
+    @if $item-color == default {
+        $item-color: map-get($actionsheet, item-color);
     }
     .yo-actionsheet#{$name} {
-        @if $padding != map-get($actionsheet, padding) {
-            padding: $padding;
+        @if $margin != map-get($actionsheet, margin) {
+            margin: $margin;
         }
-        @if $radius != map-get($actionsheet, radius) {
-            border-radius: $radius;
+        > .menu,
+        > .action {
+            @if $radius != map-get($actionsheet, radius) {
+                border-radius: $radius;
+            }
         }
-        @if $bgcolor != map-get($actionsheet, bgcolor) {
-            background-color: $bgcolor;
+        .title {
+            @if $bgcolor != map-get($actionsheet, bgcolor) {
+                background-color: $bgcolor;
+            }
         }
-        @if $color != map-get($actionsheet, color) {
-            color: $color;
+        .item {
+            @if $item-height != map-get($actionsheet, item-height) {
+                height: $item-height;
+                line-height: $item-height;
+            }
+            @if $bgcolor != map-get($actionsheet, bgcolor) {
+                background-color: $bgcolor;
+            }
+            @if $item-color != map-get($actionsheet, item-color) {
+                color: $item-color;
+            }
+            @if $item-font-size != map-get($actionsheet, item-font-size) {
+                font-size: $item-font-size;
+            }
+            &:not(:first-child) {
+                &::after {
+                    @if $border-color != map-get($actionsheet, border-color) {
+                        border-color: $border-color;
+                    }
+                }
+            }
+            &.item-active:active,
+            &.item-light {
+                @if $active-bgcolor != map-get($actionsheet, active-bgcolor) {
+                    background-color: $active-bgcolor;
+                }
+            }
         }
         // 增量扩展
         @content;

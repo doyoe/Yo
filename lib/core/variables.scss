@@ -10,7 +10,7 @@
 // 基本设置
 $_setting: (
     // {String} 版本号
-    version:          "2.1.0",
+    version:          "2.1.1",
     // {Boolean} 是否开启厂商前缀
     is-vendor-prefix: true,
     // {String} 厂商前缀
@@ -409,7 +409,7 @@ $_actionsheet: (
     border-color:   map-get($base, border-color),
     // {Color} 子项背景色
     bgcolor:        #fff,
-    // {Color} 子项背景色
+    // {Color} 子项点击反馈背景色
     active-bgcolor: rgba(#fff, .6),
     // {Length} 子项高度
     item-height:    .55rem,
