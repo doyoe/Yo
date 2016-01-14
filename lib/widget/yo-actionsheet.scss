@@ -7,11 +7,15 @@
     right: 0;
     bottom: 0;
     left: 0;
+    // (设置容器可滚动)iOS中active要生效的话，内容必须放置在滚动容器中
+    overflow: auto;
     margin: map-get($actionsheet, margin);
     text-align: center;
     > .menu,
     > .action {
         overflow: hidden;
+        // (设置内容溢出容器)iOS中active要生效的话，内容必须放置在滚动容器中
+        width: 100.13%;
         border-radius: map-get($actionsheet, radius);
     }
     > .action {
@@ -36,8 +40,7 @@
                 $border-color: map-get($actionsheet, border-color)
             );
         }
-        &.item-active:active,
-        &.item-light {
+        &:active {
             background-color: map-get($actionsheet, active-bgcolor);
         }
     }
@@ -133,8 +136,7 @@
                     }
                 }
             }
-            &.item-active:active,
-            &.item-light {
+            &:active {
                 @if $active-bgcolor != map-get($actionsheet, active-bgcolor) {
                     background-color: $active-bgcolor;
                 }

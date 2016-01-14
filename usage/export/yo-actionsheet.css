@@ -470,6 +470,7 @@ a {
   right: 0;
   bottom: 0;
   left: 0;
+  overflow: auto;
   margin: 0.1rem;
   text-align: center;
 }
@@ -477,6 +478,7 @@ a {
 .yo-actionsheet > .menu,
 .yo-actionsheet > .action {
   overflow: hidden;
+  width: 100.13%;
   border-radius: 0.1rem;
 }
 
@@ -544,6 +546,6 @@ a {
   }
 }
 
-.yo-actionsheet .item.item-active:active, .yo-actionsheet .item.item-light {
+.yo-actionsheet .item:active {
   background-color: rgba(255, 255, 255, 0.6);
 }
