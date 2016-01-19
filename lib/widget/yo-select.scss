@@ -38,7 +38,7 @@
         height: 100%;
     }
     &-item {
-        @include flex();
+        @include flex;
         position: relative;
         z-index: 2;
         text-align: center;
@@ -52,7 +52,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            // height: map-get($select, item-height);
+            height: map-get($select, item-height);
             &.disabled {
                 opacity: .4;
             }
