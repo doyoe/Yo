@@ -53,7 +53,7 @@ Yo约束了2种项目所使用的长度单位
     - 为`yo-actionsheet`新增`$actionsheet` map，用于设置`yo-actionsheet`的基础定义；
 
 #### 变更：
-* 调整`yo-select`，默认子项有初始高度；
+* change `yo-select`，默认子项有初始高度；
 
 
 ### 历史版本
