@@ -572,6 +572,10 @@ a {
   color: #f50;
 }
 
+.yo-datepicker .special ~ .special {
+  margin: -.05rem 0 0;
+}
+
 .yo-datepicker .today > .day,
 .yo-datepicker .holiday > .day {
   display: none;

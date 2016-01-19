@@ -85,6 +85,10 @@
     // 特殊的日子
     .special {
         color: map-get($datepicker, special-color);
+        // 今天是特殊日子的场景
+        ~ .special {
+            margin: -.05rem 0 0;
+        }
     }
     .today,
     .holiday {

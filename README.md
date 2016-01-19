@@ -54,6 +54,7 @@ Yo约束了2种项目所使用的长度单位
 
 #### 变更：
 * change `yo-select`，默认子项有初始高度；
+* change `yo-datepicker`今天是节日的情况显示规则；
 
 
 ### 历史版本
