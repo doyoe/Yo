@@ -17,12 +17,13 @@
         // (设置内容溢出容器)iOS中active要生效的话，内容必须放置在滚动容器中
         width: 100.13%;
         border-radius: map-get($actionsheet, radius);
+        background-color: map-get($actionsheet, bgcolor);
+        -webkit-backdrop-filter: blur(3px);
     }
     > .action {
         margin-top: .08rem;
     }
     .title {
-        background-color: map-get($actionsheet, bgcolor);
         color: #999;
         font-weight: normal;
         font-size: .14rem;
@@ -30,7 +31,6 @@
     }
     .item {
         height: map-get($actionsheet, item-height);
-        background-color: map-get($actionsheet, bgcolor);
         color: map-get($actionsheet, item-color);
         font-size: map-get($actionsheet, item-font-size);
         line-height: map-get($actionsheet, item-height);

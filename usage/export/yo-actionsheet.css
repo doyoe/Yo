@@ -480,6 +480,8 @@ a {
   overflow: hidden;
   width: 100.13%;
   border-radius: 0.1rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  -webkit-backdrop-filter: blur(3px);
 }
 
 .yo-actionsheet > .action {
@@ -487,7 +489,6 @@ a {
 }
 
 .yo-actionsheet .title {
-  background-color: #fff;
   color: #999;
   font-weight: normal;
   font-size: .14rem;
@@ -496,7 +497,6 @@ a {
 
 .yo-actionsheet .item {
   height: 0.55rem;
-  background-color: #fff;
   color: #00afc7;
   font-size: 0.18rem;
   line-height: 0.55rem;
@@ -547,5 +547,5 @@ a {
 }
 
 .yo-actionsheet .item:active {
-  background-color: #eee;
+  background-color: rgba(238, 238, 238, 0.9);
 }

@@ -408,9 +408,9 @@ $_actionsheet: (
     // {Color} 边线色
     border-color:   map-get($base, border-color),
     // {Color} 子项背景色
-    bgcolor:        #fff,
+    bgcolor:        rgba(#fff, .9),
     // {Color} 子项点击反馈背景色
-    active-bgcolor: #eee,
+    active-bgcolor: rgba(#eee, .9),
     // {Length} 子项高度
     item-height:    .55rem,
     // {Length} 子项字号
