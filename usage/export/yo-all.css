@@ -3525,6 +3525,15 @@ a {
   text-align: center;
 }
 
+.yo-tip::before {
+  position: absolute;
+  bottom: -.2rem;
+  content: "\0020";
+  border-width: .1rem;
+  border-style: solid dashed dashed;
+  border-color: red;
+}
+
 .yo-vcode {
   display: -webkit-box;
   display: -webkit-flex;

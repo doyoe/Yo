@@ -11,6 +11,14 @@
     background-color: map-get($tip, bgcolor);
     color: map-get($tip, color);
     text-align: center;
+    &::before {
+        position: absolute;
+        bottom: -.2rem;
+        content: "\0020";
+        border-width: .1rem;
+        border-style: solid dashed dashed;
+        border-color: red;
+    }
 }
 
 /**

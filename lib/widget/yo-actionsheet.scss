@@ -109,8 +109,6 @@
             @if $radius != map-get($actionsheet, radius) {
                 border-radius: $radius;
             }
-        }
-        .title {
             @if $bgcolor != map-get($actionsheet, bgcolor) {
                 background-color: $bgcolor;
             }
@@ -119,9 +117,6 @@
             @if $item-height != map-get($actionsheet, item-height) {
                 height: $item-height;
                 line-height: $item-height;
-            }
-            @if $bgcolor != map-get($actionsheet, bgcolor) {
-                background-color: $bgcolor;
             }
             @if $item-color != map-get($actionsheet, item-color) {
                 color: $item-color;

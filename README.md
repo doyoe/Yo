@@ -51,6 +51,7 @@ Yo约束了2种项目所使用的长度单位
 * add: `yo-actionsheet`用于底部滑出菜单
     - 为`$z-index map`增加`actionsheet`参数，用于指定`yo-actionsheet`的层叠级别；
     - 为`yo-actionsheet`新增`$actionsheet` map，用于设置`yo-actionsheet`的基础定义；
+* add: `yo-tip`方向箭头
 
 #### 变更：
 * change `yo-select`，默认子项有初始高度；
