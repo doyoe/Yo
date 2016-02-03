@@ -11,13 +11,28 @@
     background-color: map-get($tip, bgcolor);
     color: map-get($tip, color);
     text-align: center;
-    &::before {
+    > .arrow {
         position: absolute;
-        bottom: -.2rem;
         content: "\0020";
-        border-width: .1rem;
-        border-style: solid dashed dashed;
-        border-color: red;
+        border-width: map-get($tip, arrow-size);
+        border-style: solid;
+        border-color: transparent;
+        &-top {
+            top: -#{map-get($tip, arrow-size) * 2};
+            border-bottom-color: map-get($tip, bgcolor);
+        }
+        &-right {
+            right: -#{map-get($tip, arrow-size) * 2};
+            border-left-color: map-get($tip, bgcolor);
+        }
+        &-bottom {
+            bottom: -#{map-get($tip, arrow-size) * 2};
+            border-top-color: map-get($tip, bgcolor);
+        }
+        &-left {
+            left: -#{map-get($tip, arrow-size) * 2};
+            border-right-color: map-get($tip, bgcolor);
+        }
     }
 }
 
@@ -32,6 +47,7 @@
  * @param {Length} $radius 圆角半径长度 {add:1.0.0}
  * @param {Color} $bgcolor 背景色 {add:1.0.0}
  * @param {Color} $color 文本色 {add:1.0.0}
+ * @param {Length} $arrow-size 箭头大小 {add:2.1.1}
  */
 
 @mixin yo-tip(
@@ -39,7 +55,8 @@
     $padding: default,
     $radius: default,
     $bgcolor: default,
-    $color: default) {
+    $color: default,
+    $arrow-size: default) {
     // 区别是否新增实例还是修改本身
     $name: if($name == default, "", "-#{$name}");
     // 如果值为default，则取config的定义
@@ -53,7 +70,10 @@
         $bgcolor: map-get($tip, bgcolor);
     }
     @if $color == default {
-        $color: map-get($tip,color);
+        $color: map-get($tip, color);
+    }
+    @if $arrow-size == default {
+        $arrow-size: map-get($tip, arrow-size);
     }
     .yo-tip#{$name} {
         @if $padding != map-get($tip, padding) {
