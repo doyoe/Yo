@@ -88,6 +88,43 @@
         @if $color != map-get($tip, color) {
             color: $color;
         }
+        > .arrow {
+            @if $arrow-size != map-get($tip, arrow-size) {
+                border-width: $arrow-size;
+            }
+            &-top {
+                @if $arrow-size != map-get($tip, arrow-size) {
+                    top: -#{$arrow-size * 2};
+                }
+                @if $bgcolor != map-get($tip, bgcolor) {
+                    border-bottom-color: $bgcolor;
+                }
+            }
+            &-right {
+                @if $arrow-size != map-get($tip, arrow-size) {
+                    right: -#{$arrow-size * 2};
+                }
+                @if $bgcolor != map-get($tip, bgcolor) {
+                    border-left-color: $bgcolor;
+                }
+            }
+            &-bottom {
+                @if $arrow-size != map-get($tip, arrow-size) {
+                    bottom: -#{$arrow-size * 2};
+                }
+                @if $bgcolor != map-get($tip, bgcolor) {
+                    border-top-color: $bgcolor;
+                }
+            }
+            &-left {
+                @if $arrow-size != map-get($tip, arrow-size) {
+                    left: -#{$arrow-size * 2};
+                }
+                @if $bgcolor != map-get($tip, bgcolor) {
+                    border-right-color: $bgcolor;
+                }
+            }
+        }
         // 增量扩展
         @content;
     }
