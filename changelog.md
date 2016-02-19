@@ -2,6 +2,24 @@
 
 History Version and release time.
 
+### v2.1.1（2016.2.19）
+
+[Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v2.1.1)
+
+#### 新增：
+* add: `yo-actionsheet`用于底部滑出菜单
+    - 为`$z-index map`增加`actionsheet`参数，用于指定`yo-actionsheet`的层叠级别；
+    - 为`yo-actionsheet`新增`$actionsheet` map，用于设置`yo-actionsheet`的基础定义；
+* add: `yo-tip`方向箭头
+    - 为`yo-tip`添加一个子元素用来指定箭头，top | right | bottom | left 可以确定箭头的方向，箭头的位置由业务自己计算
+    - 添加`$arrow-size`参数用于指定箭头的大小
+* add:
+    - 为`yo-datepicker`增加“今天是节日的情况”显示规则；
+    - 为`yo-datepicker`增加日期段Range选中背景显示规则；
+
+#### 变更：
+* change `yo-select`，默认子项有初始高度；
+
 ### v2.1.0（2015.12.21）
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v2.1.0)

@@ -56,7 +56,7 @@ Yo约束了2种项目所使用的长度单位
     - 添加`$arrow-size`参数用于指定箭头的大小
 * add:
     - 为`yo-datepicker`增加“今天是节日的情况”显示规则；
-    - 为`yo-datepicker`增加日期段选中背景显示规则；
+    - 为`yo-datepicker`增加日期段Range选中背景显示规则；
 
 #### 变更：
 * change `yo-select`，默认子项有初始高度；
