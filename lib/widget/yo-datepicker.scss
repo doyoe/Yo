@@ -130,6 +130,10 @@
     .end::after {
         content: map-get($datepicker, end-content);
     }
+    // 选中日期段背景
+    .range {
+        background-color: map-get($datepicker, range-bgcolor);
+    }
 }
 
 /**
@@ -166,6 +170,7 @@
  * @param {Length} $on-tip-font-size 定义选中日期提示语字号 {add:1.8.1}
  * @param {String} $start-content 定义开始日期提示语 {add:1.8.1}
  * @param {String} $end-content 定义结束日期提示语 {add:1.8.1}
+ * @param {Color} $range-bgcolor 选中日期段背景 {add:2.1.1}
  */
 
 @mixin yo-datepicker(
@@ -194,7 +199,8 @@
     $on-tip-color: default,
     $on-tip-font-size: default,
     $start-content: default,
-    $end-content: default) {
+    $end-content: default,
+    $range-bgcolor: default) {
     // 区别是否新增实例还是修改本身
     $name: if($name == default, "", "-#{$name}");
     // 如果值为default，则取config的定义
@@ -272,6 +278,9 @@
     }
     @if $end-content == default {
         $end-content: map-get($datepicker, end-content);
+    }
+    @if $range-bgcolor == default {
+        $range-bgcolor: map-get($datepicker, range-bgcolor);
     }
     .yo-datepicker#{$name} {
         // 星期一，二...条（bar）
@@ -406,6 +415,11 @@
         .end::after {
             @if $end-content != map-get($datepicker, end-content) {
                 content: $end-content;
+            }
+        }
+        .range {
+            @if $range-bgcolor != map-get($datepicker, range-bgcolor) {
+                background-color: $range-bgcolor;
             }
         }
 

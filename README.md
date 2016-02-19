@@ -54,10 +54,12 @@ Yo约束了2种项目所使用的长度单位
 * add: `yo-tip`方向箭头
     - 为`yo-tip`添加一个子元素用来指定箭头，top | right | bottom | left 可以确定箭头的方向，箭头的位置由业务自己计算
     - 添加`$arrow-size`参数用于指定箭头的大小
+* add:
+    - 为`yo-datepicker`增加“今天是节日的情况”显示规则；
+    - 为`yo-datepicker`增加日期段选中背景显示规则；
 
 #### 变更：
 * change `yo-select`，默认子项有初始高度；
-* change `yo-datepicker`今天是节日的情况显示规则；
 
 
 ### 历史版本

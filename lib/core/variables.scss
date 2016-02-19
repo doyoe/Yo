@@ -419,7 +419,7 @@ $_actionsheet: (
     item-color:     map-get($base, link-color)
 );
 
-// Widget UI datepicker(25)
+// Widget UI datepicker(26)
 $_datepicker: (
     // {Length} 星期bar高度
     week-bar-height:      .22rem,
@@ -477,6 +477,9 @@ $_datepicker: (
     start-content:         "入店",
     // {String} 结束日期提示语
     end-content:           "离店"
+
+    // {color} 选中日期段背景色
+    range-bgcolor:         #eee
 );
 
 // Widget UI Dialog(11)
