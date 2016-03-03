@@ -1,24 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Source code - Yo</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+    <title>Yo Documentation - The Yo API Yo 文档站</title>
+    <link type="text/css" rel="stylesheet" href="../source/shCoreDefault.css"/>
+    <link rel="stylesheet" href="../source/app.css" rel="stylesheet" />
     <script type="text/javascript" src="../source/shCore.js"></script>
     <script type="text/javascript" src="../source/shBrushSass.js"></script>
-    <link rel="stylesheet" href="../source/shCoreDefault.css" />
-    <link rel="stylesheet" href="../source/app.css" />
     <style>
         .syntaxhighlighter .number1 .spaces,.syntaxhighlighter .toolbar{ display: none;}
     </style>
-
-
 </head>
 <body style="background: white; font-family: Helvetica">
-<div class="docs-header" id="content">
+<div class="docs-header" id="content" tabindex="-1">
     <div class="container">
-        <h1>Yo 源文件</h1>
-        <p>Yo 是一款基于 Mobile First 理念而设计的 CSS Framework，当然，它也适应于PC端的高级浏览器；其具备轻量，易用，快速且高度强大的自定义能力</p>
+        
     </div>
 </div>
 <div class="container docs-container">
@@ -26,7 +23,7 @@
     <div class="row">
         <div class="col-md-9" role="main">
         <pre class="brush: sass;">
-                @charset "utf-8";
+            @charset "utf-8";
 
 // 定义select的基础构造
 @mixin _select {
@@ -40,23 +37,23 @@
         position: absolute;
         top: 50%;
         left: 0;
-        margin-top: -#{map-get($select, item-height) / 2};
         content: "\0020";
         border: 1px solid map-get($select, border-color);
         border-width: 1px 0;
         @include responsive(retina1x) {
             width: 100%;
             height: map-get($select, item-height);
+            @include transform(translatey(-50%));
         }
         @include responsive(retina2x) {
             width: 200%;
             height: map-get($select, item-height) * 2;
-            @include transform(scale(0.5));
+            @include transform(scale(0.5) translatey(-50%));
         }
         @include responsive(retina3x) {
             width: 300%;
             height: map-get($select, item-height) * 3;
-            @include transform(scale(1/3));
+            @include transform(scale(1/3) translatey(-50%));
         }
         @include transform-origin(0 0);
     }
@@ -66,7 +63,7 @@
         height: 100%;
     }
     &-item {
-        @include flex();
+        @include flex;
         position: relative;
         z-index: 2;
         text-align: center;
@@ -80,7 +77,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            // height: map-get($select, item-height);
+            height: map-get($select, item-height);
             &.disabled {
                 opacity: .4;
             }
@@ -138,11 +135,12 @@
     .yo-select#{$name} {
         @if $item-height != map-get($select, item-height) or $item != map-get($select, item) {
             height: $item-height * $item;
+        }
+        @if $item-height != map-get($select, item-height) {
             line-height: $item-height;
         }
         &::before {
             @if $item-height != map-get($select, item-height) {
-                margin-top: -#{$item-height / 2};
                 @include responsive(retina1x) {
                     height: $item-height;
                 }
@@ -157,9 +155,11 @@
                 border-color: $border-color;
             }
         }
-        &-item-tag {
-            @if $item-height != map-get($select, item-height) or $item != map-get($select, item) {
-                line-height: $item-height * $item;
+        &-item-list {
+            li {
+                @if $item-height != map-get($select, item-height) {
+                    height: $item-height;
+                }
             }
         }
         // 增量扩展
@@ -177,11 +177,9 @@
     </div>
 </div>
 
-<!-- Footer
-================================================== -->
 <footer class="docs-footer" role="contentinfo">
     <div class="container">
-        <p>Made By Qunar Hotel FE Mobile Team. © 2014 - 2015</p>
+        <p>Made By doyoe.com © 2014 - 2016</p>
     </div>
 </footer>
 <script type="text/javascript">

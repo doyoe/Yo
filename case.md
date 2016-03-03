@@ -6,6 +6,6 @@
 
     在去哪儿网已有“近百个”移动Web应用基于 Yo 来构建
 
-* ![去哪儿网](http://www.doyoe.com/pimg/amily.png)
+* ![Amily](http://www.doyoe.com/pimg/amily.png)
 
     北京美至网络科技有限公司“所有的”移动Web应用均使用 Yo 构建

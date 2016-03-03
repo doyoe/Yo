@@ -1,24 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Source code - Yo</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+    <title>Yo Documentation - The Yo API Yo 文档站</title>
+    <link type="text/css" rel="stylesheet" href="../source/shCoreDefault.css"/>
+    <link rel="stylesheet" href="../source/app.css" rel="stylesheet" />
     <script type="text/javascript" src="../source/shCore.js"></script>
     <script type="text/javascript" src="../source/shBrushSass.js"></script>
-    <link rel="stylesheet" href="../source/shCoreDefault.css" />
-    <link rel="stylesheet" href="../source/app.css" />
     <style>
         .syntaxhighlighter .number1 .spaces,.syntaxhighlighter .toolbar{ display: none;}
     </style>
-
-
 </head>
 <body style="background: white; font-family: Helvetica">
-<div class="docs-header" id="content">
+<div class="docs-header" id="content" tabindex="-1">
     <div class="container">
-        <h1>Yo 源文件</h1>
-        <p>Yo 是一款基于 Mobile First 理念而设计的 CSS Framework，当然，它也适应于PC端的高级浏览器；其具备轻量，易用，快速且高度强大的自定义能力</p>
+        
     </div>
 </div>
 <div class="container docs-container">
@@ -26,7 +23,7 @@
     <div class="row">
         <div class="col-md-9" role="main">
         <pre class="brush: sass;">
-                @charset "utf-8";
+            @charset "utf-8";
 /**
  * Yo框架全局Variables
  * Yo基础变量map，如果不想定义某属性，将其value设置为null
@@ -38,13 +35,13 @@
 // 基本设置
 $_setting: (
     // {String} 版本号
-    version:          "2.1.0",
+    version:          "2.1.2",
     // {Boolean} 是否开启厂商前缀
     is-vendor-prefix: true,
     // {String} 厂商前缀
     vendor-prefix:    -webkit-,
     // {String} 背景图片服务器
-    bgimg-domain:     "//source.qunarzz.com/yo/bgimg/"
+    bgimg-domain:     "//ss.qunarzz.com/yo/bgimg/"
 );
 
 // responsive media types
@@ -95,25 +92,27 @@ $_ico: (
     // {String} 图标字体文件名
     font-name:  yofont,
     // {Url} 图标字体路径
-    font-path:  "//source.qunarzz.com/fonts/yo/1.0.2/"
+    font-path:  "//ss.qunarzz.com/yo/font/1.0.2/"
 );
 
 // z-index
 $_z-index: (
     // {Number} 下拉菜单层级范围50-100
-    dropdown: 50,
+    dropdown:    50,
     // {Number} 遮罩层级
-    mask:     1000,
-    // {Number} 弹窗层级范围1001-2000
-    dialog:   1001,
-    // {Number} 浮层层级范围2001-2500
-    popup:    2001,
+    mask:        1000,
+    // {Number} 弹窗层级范围1001-1500
+    dialog:      1001,
+    // {Number} 浮层层级范围1501-2000
+    popup:       1501,
+    // {Number} 搜索层级范围2001-2500
+    suggest:     2001,
     // {Number} 搜索层级范围2501-3000
-    suggest:  2501,
-    // {Number} 浮层层级范围3001-4000
-    tip:      3001,
+    actionsheet: 2501,
+    // {Number} 浮层层级范围3001-3500
+    tip:         3001,
     // {Number} loading层级
-    loading:  9999
+    loading:     9999
 );
 
 // Layout align
@@ -425,7 +424,27 @@ $_table: (
     on-bgcolor:          null
 );
 
-// Widget UI datepicker(25)
+// Widget UI actionsheet(8)
+$_actionsheet: (
+    // {Length} 外边距
+    margin:         .1rem,
+    // {Length} 圆角半径
+    radius:         .1rem,
+    // {Color} 边线色
+    border-color:   map-get($base, border-color),
+    // {Color} 子项背景色
+    bgcolor:        rgba(#fff, .9),
+    // {Color} 子项点击反馈背景色
+    active-bgcolor: rgba(#eee, .9),
+    // {Length} 子项高度
+    item-height:    .55rem,
+    // {Length} 子项字号
+    item-font-size: .18rem,
+    // {Color} 子项文本色
+    item-color:     map-get($base, link-color)
+);
+
+// Widget UI datepicker(26)
 $_datepicker: (
     // {Length} 星期bar高度
     week-bar-height:      .22rem,
@@ -482,7 +501,10 @@ $_datepicker: (
     // {String} 开始日期提示语
     start-content:         "入店",
     // {String} 结束日期提示语
-    end-content:           "离店"
+    end-content:           "离店",
+
+    // {color} 选中日期段背景色
+    range-bgcolor:         #eee
 );
 
 // Widget UI Dialog(11)
@@ -728,13 +750,15 @@ $_tab: (
 // Widget UI Tip(4)
 $_tip: (
     // {Length} 内补白
-    padding: .06rem .15rem,
+    padding:    .06rem .15rem,
     // {Length} 圆角
-    radius:  .05rem,
+    radius:     .05rem,
     // {Color} 背景色
-    bgcolor: rgba(#000, .5),
+    bgcolor:    rgba(#000, .5),
     // {Color} 文本色
-    color:   #fff
+    color:      #fff,
+    // {Length} 箭头大小
+    arrow-size: .08rem
 );
 
 // Widget UI vcode(6)
@@ -758,11 +782,9 @@ $_vcode: (
     </div>
 </div>
 
-<!-- Footer
-================================================== -->
 <footer class="docs-footer" role="contentinfo">
     <div class="container">
-        <p>Made By Qunar Hotel FE Mobile Team. © 2014 - 2015</p>
+        <p>Made By doyoe.com © 2014 - 2016</p>
     </div>
 </footer>
 <script type="text/javascript">

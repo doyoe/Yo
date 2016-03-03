@@ -3,20 +3,202 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
-    <title>Yo 文档站</title>
+    <title>Yo Documentation 版本</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="format-detection" content="telephone=no,email=no" />
-    <script src="source/shCore.js"></script>
-    <script src="source/shBrushSass.js"></script>
     <link rel="stylesheet" href="source/shCoreDefault.css" />
     <link rel="stylesheet" href="source/app.css" />
+    <script src="source/shCore.js"></script>
+    <script src="source/shBrushSass.js"></script>
+    <style>
+    #readme {
+      margin-top: -1.5em;
+    }
+
+    #readme .markdown-body h1:nth-of-type(1) {
+      display: none;
+    }
+
+    #readme .markdown-body h1:nth-of-type(1) + p {
+      display: none;
+    }
+
+    #index .docs-nav .navbar-brand.index {
+      color: #555;
+    }
+
+    #index .docs-header {
+      padding: 1.2rem 0;
+      text-align: center;
+    }
+
+    #index .docs-header .container > h1 {
+      margin-bottom: 20px;
+      font-size: .8rem;
+    }
+
+    #index .docs-header .container > p {
+      width: auto;
+      margin-right: 0;
+    }
+
+    #index .docs-header .container > a {
+      display: inline-block;
+      margin-top: .2rem;
+      padding: 0.1rem 0.4rem;
+      border: 1px solid;
+      border-radius: 0.05rem;
+      -webkit-background-clip: padding-box !important;
+      -moz-background-clip: padding-box !important;
+      -ms-background-clip: padding-box !important;
+      background-clip: padding-box !important;
+      color: #9dd8fc;
+      font-size: .2rem;
+      font-weight: bold;
+    }
+
+    #index .docs-header .container > a:hover {
+      text-decoration: none;
+      border-color: #9dd8fc;
+      background-color: rgba(157, 216, 252, 0.6);
+      color: #fff;
+    }
+
+    @media (min-width: 1200px) {
+      #index .docs-header .container > p {
+        padding: 0 1rem;
+        font-size: .28rem;
+      }
+    }
+
+    @media (min-width: 992px) and (max-width: 1199px) {
+      #index .docs-header .container > p {
+        padding: 0 0.6rem;
+        font-size: .25rem;
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 991px) {
+      #index .docs-header .container > p {
+        padding: 0 0.3rem;
+        font-size: .21rem;
+      }
+    }
+
+    @media (max-width: 767px) {
+      #index .docs-header .container > p {
+        padding: 0 0.2rem;
+        font-size: .2rem;
+      }
+    }
+
+    #index .markdown-body {
+      text-align: center;
+    }
+
+    #index .markdown-body > h2 {
+      margin-top: .8rem !important;
+      border: none;
+      font-size: .35rem;
+    }
+
+    #index .markdown-body > p {
+      width: 80%;
+      margin: auto;
+      color: #666;
+      font-size: .24rem;
+    }
+
+    @media (max-width: 767px) {
+      #index .markdown-body > h2 {
+        font-size: .28rem;
+      }
+      #index .markdown-body > p {
+        font-size: .18rem;
+      }
+    }
+
+    #index .markdown-body ul {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -moz-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -moz-box-pack: center;
+      -moz-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-flex-wrap: wrap;
+      -moz-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      padding: 0;
+      list-style: none;
+    }
+
+    #index .markdown-body ul > li {
+      overflow: hidden;
+      width: 200px;
+      height: 200px;
+      margin: 20px 10px 0;
+      border: 1px solid #eee;
+      border-radius: 0.05rem;
+      -webkit-background-clip: padding-box !important;
+      -moz-background-clip: padding-box !important;
+      -ms-background-clip: padding-box !important;
+      background-clip: padding-box !important;
+    }
+
+    #index .markdown-body ul > li:hover > p:not(:only-child):first-child {
+      margin-top: -198px;
+    }
+
+    #index .markdown-body ul p {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -moz-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -moz-box-pack: center;
+      -moz-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -moz-box-align: center;
+      -moz-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      -webkit-transition: margin-top 0.3s ease-in;
+      -moz-transition: margin-top 0.3s ease-in;
+      -ms-transition: margin-top 0.3s ease-in;
+      transition: margin-top 0.3s ease-in;
+      margin: 0;
+    }
+
+    #index .markdown-body ul p:not(:only-child):last-child {
+      padding: .15rem;
+      background-color: #eee;
+    }
+
+    #index .markdown-body ul img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+    </style>
 </head>
 <body id="changelog">
 
-
 <!-- Docs master nav -->
-
 <header class="navbar navbar-static-top docs-nav" id="top" role="banner">
     <div class="container">
         <div class="navbar-header">
@@ -26,10 +208,27 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-             <a href="./index.html" class="navbar-brand changelog">Yo</a>
+            
+            
+            
+            <a href="./index.html" class="navbar-brand">Yo</a>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
         </div>
         <nav id="bs-navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav navbar-left">
+           <ul class="nav navbar-nav navbar-left">
+                
                 
                 
                 
@@ -41,9 +240,13 @@
                 
                 
                 
+                
+                
                 <li class="">
                     <a href="api.html">文档</a>
                 </li>
+                
+                
                 
                 
                 
@@ -53,12 +256,23 @@
                 
                 
                 
-                <li>
-                    <a href="../demo/index.html" target="_blank">实例</a>
+                
+                
+                <li class="">
+                    <a href="http://doyoe.github.io/Yo/demo/" target="_blank">实例</a>
                 </li>
-                <li>
+                
+                
+                
+                
+                
+                <li class="">
                     <a href="https://github.com/doyoe/Yo" target="_blank">Github</a>
                 </li>
+                
+                
+                
+                
             </ul>
         </nav>
     </div>
@@ -68,7 +282,7 @@
 
 <div class="docs-header" id="content" style="margin-bottom:0">
     <div class="container">
-        <h1>版本历史</h1>
+        <h1>版本</h1>
         <p>Yo 是一款基于 Mobile First 理念而设计的 CSS Framework，它轻量，易用且自定义能力高度强大，同时也适应于PC端的高级浏览器</p>
         
     </div>
@@ -77,11 +291,23 @@
 
 <div class="container docs-container">
     
-    <div id="readme">
-        <article class="markdown-body">
-            <h1>Yo Changelog</h1>
+        <div id="readme">
+            <article class="markdown-body">
+                <h1>Yo Changelog</h1>
 
 <p>History Version and release time.</p>
+
+<h3>v2.1.1（2016.2.19）</h3>
+
+<p><a href="https://github.com/doyoe/Yo/releases/tag/v2.1.1">Tagged on Github.</a></p>
+
+<h4>新增：</h4>
+
+<ul><li>add: <code>yo-actionsheet</code>用于底部滑出菜单<ul><li>为<code>$z-index map</code>增加<code>actionsheet</code>参数，用于指定<code>yo-actionsheet</code>的层叠级别；</li><li>为<code>yo-actionsheet</code>新增<code>$actionsheet</code> map，用于设置<code>yo-actionsheet</code>的基础定义；</li></ul></li><li>add: <code>yo-tip</code>方向箭头<ul><li>为<code>yo-tip</code>添加一个子元素用来指定箭头，top | right | bottom | left 可以确定箭头的方向，箭头的位置由业务自己计算</li><li>添加<code>$arrow-size</code>参数用于指定箭头的大小</li></ul></li><li>add:<ul><li>为<code>yo-datepicker</code>增加“今天是节日的情况”显示规则；</li><li>为<code>yo-datepicker</code>增加日期段Range选中背景显示规则；</li></ul></li></ul>
+
+<h4>变更：</h4>
+
+<ul><li>change <code>yo-select</code>，默认子项有初始高度；</li></ul>
 
 <h3>v2.1.0（2015.12.21）</h3>
 
@@ -237,28 +463,21 @@ left: 0;
 <p><a href="https://github.com/doyoe/Yo/releases/tag/v1.0.0">Tagged on Github.</a></p>
 
 <ul><li>新增 widget yo-switch，并移除 element yo-switch；</li><li>新增 widget yo-switchable</li><li>修订 widget yo-select背景色问题</li></ul>
-        </article>
-    </div>
+            </article>
+        </div>
     
 </div>
 
 <!-- Footer -->
 <footer class="docs-footer" role="contentinfo">
     <div class="container">
-        <p>Made By doyoe.com © 2014 - 2015</p>
+        <p>Made By doyoe.com © 2014 - 2016</p>
     </div>
 </footer>
 
 <script src="source/jquery.min.js"></script>
 <script src="source/bootstrap.min.js"></script>
 <script src="source/docs.min.js"></script>
-<script>SyntaxHighlighter.all();
-    // $('.docs-sidenav li').click(function(){
-    //     if($(this).hasClass('active')){
-    //         $(this).removeClass('.active')
-    //     }
-    //    // alert("dsfsdafasdfsdaf");
-    //})
-</script>
+<script>SyntaxHighlighter.all();</script>
 </body>
 </html>
