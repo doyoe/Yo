@@ -3,11 +3,42 @@
 // 定义select的基础构造
 @mixin _select {
     @include flexbox;
+    @include justify-content;
     position: relative;
     overflow: hidden;
     height: map-get($select, item-height) * map-get($select, item);
-    line-height: map-get($select, item-height);
     background-color: white;
+    > .list {
+        position: relative;
+        @include flex;
+        text-align: center;
+        > .item {
+            height: map-get($select, item-height);
+            line-height: map-get($select, item-height);
+            padding: 0 .1rem;
+            &.disabled {
+                opacity: .4;
+            }
+        }
+    }
+    > .unit {
+        position: relative;
+        line-height: map-get($select, item-height) * 5;
+        &:last-child {
+            padding-right: .1rem;
+        }
+    }
+    > .mask {
+        position: absolute;
+        z-index: 3;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        content: "\0020";
+        pointer-events: none;
+        background: -webkit-linear-gradient(top, white, rgba(255, 255, 255, .4) 40%, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 60.5%, rgba(255, 255, 255, .4) 60.5%, white);
+    }
     &::before {
         position: absolute;
         top: 50%;
@@ -32,60 +63,17 @@
         }
         @include transform-origin(0 0);
     }
-    &-item,
-    &-item-list,
-    &-item ul {
-        height: 100%;
-    }
-    &-item {
-        @include flex;
-        position: relative;
-        z-index: 2;
-        text-align: center;
-    }
-    &-item-list {
-        ul {
-            position: relative;
-        }
-        li {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: map-get($select, item-height);
-            &.disabled {
-                opacity: .4;
-            }
-        }
-    }
-    &-item-tag {
-        position: absolute;
-        top: 50%;
-        right: .1rem;
-        @include transform(translatey(-50%));
-    }
-    > .mask {
-        position: absolute;
-        z-index: 3;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        content: "\0020";
-        pointer-events: none;
-        background: -webkit-linear-gradient(top, white, rgba(255, 255, 255, .4) 40%, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 60.5%, rgba(255, 255, 255, .4) 60.5%, white);
-    }
 }
 
 /**
  * @module widget
  * @method yo-select
  * @version 1.0.0
- * @description 构造yo-select的自定义使用方法
+ * @description 构造yo-select的自定义使用方法（2.1.2版本优化了内部实现，精简了代码层级，匹配的kami版本为：）
  * @demo http://doyoe.github.io/Yo/demo/widget/yo-select.html
  * @param {String} $name 定义扩展名称 {add:1.0.0}
- * @param {Length} $width 显示的子项个数 {add:1.0.0}
- * @param {Length} $height 子项高度 {add:1.0.0}
+ * @param {Length} $item 显示的子项个数 {add:1.0.0}
+ * @param {Length} $item-height 子项高度 {add:1.0.0}
  * @param {Color} $bordercolor 边框色 {add:1.0.0}{del:2.0.0}
  * @param {Color} $border-color 边框色 {add:2.0.0}
  */
@@ -111,8 +99,19 @@
         @if $item-height != map-get($select, item-height) or $item != map-get($select, item) {
             height: $item-height * $item;
         }
-        @if $item-height != map-get($select, item-height) {
-            line-height: $item-height;
+        > .list {
+            > .item {
+                @if $item-height != map-get($select, item-height) {
+                    height: $item-height;
+                    line-height: $item-height;
+                }
+            }
+        }
+        > .unit {
+            position: relative;
+            @if $item-height != map-get($select, item-height) or $item != map-get($select, item) {
+                line-height: $item-height * $item;
+            }
         }
         &::before {
             @if $item-height != map-get($select, item-height) {
@@ -130,13 +129,7 @@
                 border-color: $border-color;
             }
         }
-        &-item-list {
-            li {
-                @if $item-height != map-get($select, item-height) {
-                    height: $item-height;
-                }
-            }
-        }
+
         // 增量扩展
         @content;
     }
