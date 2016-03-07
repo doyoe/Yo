@@ -776,7 +776,7 @@ a {
 .yo-switch > .track {
   display: inline-block;
   position: relative;
-  width: .6rem;
+  width: .52rem;
   height: .32rem;
   margin: 0;
   cursor: pointer;
@@ -812,8 +812,8 @@ a {
 }
 
 .yo-switch > input:checked + .track > .handle {
-  -webkit-transform: translate(100%, 0);
-  transform: translate(100%, 0) translatez(0);
+  -webkit-transform: translate(0.2rem, 0);
+  transform: translate(0.2rem, 0) translatez(0);
 }
 
 .yo-switch > input:disabled + .track {
