@@ -28,7 +28,7 @@
             background-color: map-get($switch, ball-color);
             box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
             @include transition(transform .1s ease-out);
-            -webkit-transform: translate(0, 0); // samsung s4 4.4.2 如果写了Z或者3D，元素的边框及背景色无法被圆角化
+            -webkit-transform: translate(0, 0); // samsung s4 4.4.2 如果写了Z或者3D，元素的边框及背景色无法被圆角化，后续考虑换成阴影实现
             transform: translate(0, 0) translatez(0);
         }
     }
