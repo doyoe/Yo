@@ -35,7 +35,7 @@
             height: .28rem;
             background-color: map-get($switch, follow-bgcolor);
             border-radius: 0 .15rem .15rem 0;
-            @include transition(transform .13s ease-out);
+            @include transition(transform .1s ease-out);
         }
     }
     > input:checked + .track {
