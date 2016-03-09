@@ -652,18 +652,16 @@ $_suggest: (
     cancel-width:     .7rem
 );
 
-// Widget switch(5)
+// Widget switch(4)
 $_switch: (
-    // {Color} 激活边框色
-    checked-border-color:#4bd763,
-    // {Color} 激活背景色
-    checked-bgcolor:     #4bd763,
-    // {Color} 边框色
-    border-color:        map-get($base, border-color),
     // {Color} 背景色
-    bgcolor:             map-get($base, bgcolor),
+    bgcolor:         map-get($base, border-color),
+    // {Color} 激活背景色
+    checked-bgcolor: #4bd763,
+    // {Color} 跟随背景色
+    follow-bgcolor:  map-get($base, bgcolor),
     // {Color} 滑块色
-    ball-color:          #fff
+    ball-color:      #fff
 );
 
 // Widget UI switchable(9)

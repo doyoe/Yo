@@ -49,7 +49,9 @@ Yo约束了2种项目所使用的长度单位
 
 #### 变更：
 * change `yo-select`，修改内部实现，精简代码层级；
-* change `yo-switch`，将默认宽度由`.6rem`修改为`.52rem`；
+* change `yo-switch`：
+    - 将默认宽度由`.6rem`修改为`.52rem`；
+    - 移除 `$border-color`, `$checked-border-color` 参数；
 
 ### 历史版本
 

@@ -3148,6 +3148,7 @@ a {
 
 .yo-switch {
   display: inline-block;
+  margin: -.05rem 0;
 }
 
 .yo-switch > input {
@@ -3157,79 +3158,79 @@ a {
 .yo-switch > .track {
   display: inline-block;
   position: relative;
-  width: .52rem;
-  height: .32rem;
-  margin: 0;
-  cursor: pointer;
-  border: 0.02rem solid #ccc;
-  border-radius: 0.16rem;
-  -webkit-background-clip: padding-box !important;
-  background-clip: padding-box !important;
-  background-color: #fafafa;
+  width: .50rem;
+  height: .3rem;
+  padding: .01rem;
+  border-radius: .16rem;
+  background-color: #ccc;
   vertical-align: middle;
-  -webkit-transition: border-color 0.1s ease-out, background-color 0.1s ease-out;
-  transition: border-color 0.1s ease-out, background-color 0.1s ease-out;
 }
 
 .yo-switch > .track > .handle {
   position: absolute;
   z-index: 1000;
-  top: 0;
-  left: 0;
+  top: 1px;
+  left: 1px;
   width: 0.28rem;
   height: 0.28rem;
   border-radius: 50%;
   background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   -webkit-transition: -webkit-transform 0.1s ease-out;
   transition: transform 0.1s ease-out;
-  -webkit-transform: translate(0, 0);
-  transform: translate(0, 0) translatez(0);
+}
+
+.yo-switch > .track::after {
+  position: absolute;
+  left: .15rem;
+  content: "\0020";
+  width: .34rem;
+  height: .28rem;
+  background-color: #fafafa;
+  border-radius: 0 .15rem .15rem 0;
+  -webkit-transition: -webkit-transform 0.13s ease-out;
+  transition: transform 0.13s ease-out;
 }
 
 .yo-switch > input:checked + .track {
-  border-color: #4bd763;
   background-color: #4bd763;
 }
 
 .yo-switch > input:checked + .track > .handle {
-  -webkit-transform: translate(0.2rem, 0);
-  transform: translate(0.2rem, 0) translatez(0);
+  -webkit-transform: translate3d(0.2rem, 0, 0);
+  transform: translate3d(0.2rem, 0, 0);
+}
+
+.yo-switch > input:checked + .track::after {
+  -webkit-transform: scale3d(0, 0, 0);
+  transform: scale3d(0, 0, 0);
 }
 
 .yo-switch > input:disabled + .track {
   opacity: .4;
-  border-color: #ccc;
-  background-color: #ccc;
 }
 
 .yo-switch-a > input:checked + .track {
-  border-color: #4a87ee;
   background-color: #4a87ee;
 }
 
 .yo-switch-b > input:checked + .track {
-  border-color: #43cee6;
   background-color: #43cee6;
 }
 
 .yo-switch-c > input:checked + .track {
-  border-color: #f0b840;
   background-color: #f0b840;
 }
 
 .yo-switch-d > input:checked + .track {
-  border-color: #ef4e3a;
   background-color: #ef4e3a;
 }
 
 .yo-switch-e > input:checked + .track {
-  border-color: #8a6de9;
   background-color: #8a6de9;
 }
 
 .yo-switch-f > input:checked + .track {
-  border-color: #444;
   background-color: #444;
 }
 
