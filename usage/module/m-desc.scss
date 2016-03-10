@@ -23,6 +23,7 @@
         padding: .1rem;
         background-color: #666;
         color: #fff;
+        @include user-select(text);
     }
     .sub-title {
         margin: 0 .1rem;

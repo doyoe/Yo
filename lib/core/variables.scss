@@ -375,6 +375,28 @@ $_proportion: (
     inner-bgcolor: red
 );
 
+// Fragment yo-search(9)
+$_search: (
+    // {Length} 搜索框区域内边距
+    padding:            .1rem,
+    // {Color} 搜索框区域底色
+    bgcolor:            #eee,
+    // {Length} 搜索框及搜索按钮圆角
+    radius:             .05rem,
+    // {Length} 搜索框高度
+    input-height:       .3rem,
+    // {Color} 搜索框边框色
+    input-border-color: #fff,
+    // {Color} 搜索框底色
+    input-bgcolor:      #fff,
+    // {Color} 搜索按钮底色
+    button-bgcolor:     #1ba9ba,
+    // {Color} 搜索按钮文本色
+    button-color:       #fff,
+    // {Color} 取消操作区文本色
+    cancel-color:       #1ba9ba
+);
+
 // Fragment Table(10)
 $_table: (
     // {Length} 表头部内补白
