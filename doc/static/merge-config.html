@@ -172,6 +172,13 @@
     $proportion: $_proportion;
 }
 
+// 合并variables和config中的search map
+@if global-variable-exists(search) {
+    $search: map-merge($_search, $search);
+} @else {
+    $search: $_search;
+}
+
 // 合并variables和config中的table map
 @if global-variable-exists(table) {
     $table: map-merge($_table, $table);
