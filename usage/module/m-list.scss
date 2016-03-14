@@ -2,10 +2,6 @@
 @import "../../lib/element/yo-badge";
 
 .m-list {
-    @include yo-list(
-        $label-padding: .18rem .1rem .03rem,
-        $label-border-color: map-get($base, border-color)
-    );
     > .note {
         padding: .1rem;
         color: gray;

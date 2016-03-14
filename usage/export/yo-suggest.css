@@ -932,6 +932,10 @@ a {
   padding: 0.18rem 0.1rem 0.03rem;
 }
 
+.yo-list-group > .label::after {
+  border-color: #ccc;
+}
+
 .m-layer {
   position: relative;
 }
