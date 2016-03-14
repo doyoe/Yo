@@ -269,7 +269,8 @@ a {
   left: 0;
 }
 
-.yo-flex {
+.yo-flex > .flex,
+.yo-flex .flex-inherit > .flex {
   -webkit-overflow-scrolling: touch;
 }
 
