@@ -389,25 +389,126 @@ a {
   text-align: right;
 }
 
-.yo-header-normal {
-  background-color: #eee;
-  color: #212121;
+.yo-tab {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  overflow: hidden;
+  height: 0.44rem;
+  position: relative;
+  background-color: #fafafa;
+  font-size: 0.14rem;
+  text-align: center;
+  line-height: 0.44rem;
 }
 
-.yo-header-normal::after {
-  border-color: #ddd;
+.yo-tab::after {
+  pointer-events: none;
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  content: "\0020";
+  border-color: #ccc;
+  border-style: solid;
+  border-width: 1px 0 0 0;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
 }
 
-.yo-header-normal > .regret,
-.yo-header-normal > .affirm {
-  color: #212121;
+@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
+  .yo-tab::after {
+    width: 100%;
+    height: 100%;
+  }
 }
 
-.yo-header-normal > .regret.yo-ico,
-.yo-header-normal > .regret > .yo-ico,
-.yo-header-normal > .affirm.yo-ico,
-.yo-header-normal > .affirm > .yo-ico {
-  color: #212121;
+@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
+  .yo-tab::after {
+    width: 200%;
+    height: 200%;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
+  .yo-tab::after {
+    width: 300%;
+    height: 300%;
+    -webkit-transform: scale(0.33333);
+    transform: scale(0.33333);
+  }
+}
+
+.yo-tab > .item {
+  display: block;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  width: .1px;
+  position: relative;
+  color: #666;
+}
+
+.yo-tab > .item:not(:first-child)::after {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  border-left: 1px solid transparent;
+  content: "\0020";
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+
+@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
+  .yo-tab > .item:not(:first-child)::after {
+    width: 10px;
+    height: 100%;
+    -webkit-transform: translatey(-50%);
+    transform: translatey(-50%);
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
+  .yo-tab > .item:not(:first-child)::after {
+    width: 20px;
+    height: 200%;
+    -webkit-transform: scale(0.5) translatey(-50%);
+    transform: scale(0.5) translatey(-50%);
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
+  .yo-tab > .item:not(:first-child)::after {
+    width: 30px;
+    height: 300%;
+    -webkit-transform: scale(0.33333) translatey(-50%);
+    transform: scale(0.33333) translatey(-50%);
+  }
+}
+
+.yo-tab > .item.item-on {
+  color: #00bec8;
+}
+
+.yo-tab > .item-y-ico {
+  padding-top: .04rem;
+  line-height: .2rem;
+}
+
+.yo-tab > .item-y-ico .yo-ico {
+  display: block;
+  font-size: 0.2rem;
+}
+
+.yo-tab > .item-x-ico .yo-ico {
+  font-size: 0.12rem;
+}
+
+.yo-tab > .item-only-ico .yo-ico {
+  font-size: 0.28rem;
 }
 
 .yo-btn {
@@ -553,194 +654,6 @@ a {
 
 .m-nodata .yo-btn-normal {
   width: 1.35rem;
-}
-
-.yo-tab {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  overflow: hidden;
-  height: 0.44rem;
-  position: relative;
-  background-color: #fafafa;
-  font-size: 0.14rem;
-  text-align: center;
-  line-height: 0.44rem;
-}
-
-.yo-tab::after {
-  pointer-events: none;
-  position: absolute;
-  z-index: 999;
-  top: 0;
-  left: 0;
-  overflow: hidden;
-  content: "\0020";
-  border-color: #ccc;
-  border-style: solid;
-  border-width: 1px 0 0 0;
-  -webkit-transform-origin: 0 0;
-  transform-origin: 0 0;
-}
-
-@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
-  .yo-tab::after {
-    width: 100%;
-    height: 100%;
-  }
-}
-
-@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
-  .yo-tab::after {
-    width: 200%;
-    height: 200%;
-    -webkit-transform: scale(0.5);
-    transform: scale(0.5);
-  }
-}
-
-@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
-  .yo-tab::after {
-    width: 300%;
-    height: 300%;
-    -webkit-transform: scale(0.33333);
-    transform: scale(0.33333);
-  }
-}
-
-.yo-tab > .item {
-  display: block;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  flex: 1;
-  width: .1px;
-  position: relative;
-  color: #666;
-}
-
-.yo-tab > .item:not(:first-child)::after {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  border-left: 1px solid transparent;
-  content: "\0020";
-  -webkit-transform-origin: 0 0;
-  transform-origin: 0 0;
-}
-
-@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
-  .yo-tab > .item:not(:first-child)::after {
-    width: 10px;
-    height: 100%;
-    -webkit-transform: translatey(-50%);
-    transform: translatey(-50%);
-  }
-}
-
-@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
-  .yo-tab > .item:not(:first-child)::after {
-    width: 20px;
-    height: 200%;
-    -webkit-transform: scale(0.5) translatey(-50%);
-    transform: scale(0.5) translatey(-50%);
-  }
-}
-
-@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
-  .yo-tab > .item:not(:first-child)::after {
-    width: 30px;
-    height: 300%;
-    -webkit-transform: scale(0.33333) translatey(-50%);
-    transform: scale(0.33333) translatey(-50%);
-  }
-}
-
-.yo-tab > .item.item-on {
-  color: #00bec8;
-}
-
-.yo-tab > .item-y-ico {
-  padding-top: .04rem;
-  line-height: .2rem;
-}
-
-.yo-tab > .item-y-ico .yo-ico {
-  display: block;
-  font-size: 0.2rem;
-}
-
-.yo-tab > .item-x-ico .yo-ico {
-  font-size: 0.12rem;
-}
-
-.yo-tab > .item-only-ico .yo-ico {
-  font-size: 0.28rem;
-}
-
-.yo-tab-test {
-  width: 2rem;
-  border-radius: 0.05rem;
-  font-size: 0.12rem;
-  margin: auto;
-}
-
-.yo-tab-test::after {
-  border-width: 1px;
-  border-color: #1ba9ba;
-}
-
-@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
-  .yo-tab-test::after {
-    border-radius: 0.05rem;
-  }
-}
-
-@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
-  .yo-tab-test::after {
-    border-radius: 0.1rem;
-  }
-}
-
-@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
-  .yo-tab-test::after {
-    border-radius: 0.15rem;
-  }
-}
-
-.yo-tab-test > .item.item-on {
-  background-color: #1ba9ba;
-  color: #fff;
-}
-
-.yo-tab-filter {
-  height: 0.4rem;
-  line-height: 0.4rem;
-}
-
-.yo-tab-filter::after {
-  border-width: 0 0 1px 0;
-}
-
-.yo-tab-filter > .item:not(:first-child)::after {
-  border-color: #ccc;
-}
-
-@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
-  .yo-tab-filter > .item:not(:first-child)::after {
-    height: 0.2rem;
-  }
-}
-
-@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
-  .yo-tab-filter > .item:not(:first-child)::after {
-    height: 0.4rem;
-  }
-}
-
-@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
-  .yo-tab-filter > .item:not(:first-child)::after {
-    height: 0.6rem;
-  }
 }
 
 .yo-tab-view {

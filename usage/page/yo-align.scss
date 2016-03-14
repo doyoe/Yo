@@ -1,8 +1,9 @@
 @charset "utf-8";
 @import "../core/reset";
 @import "../layout/yo-flex";
-@import "../layout/yo-align";
-@import "../fragment/yo-header";
+@import "../../lib/layout/yo-align";
+@import "../../lib/fragment/yo-header";
+@import "../../lib/widget/yo-tab";
 
 // 页面所需模块
 @import "../module/m-header";
