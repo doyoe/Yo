@@ -2,7 +2,9 @@
 
 .m-btndemo {
     // do something...
-    .yo-btn:not(:last-child) {
-        margin-right: .1rem;
+    @include yo-btn {
+        &:not(:last-child) {
+            margin-right: .1rem;
+        }
     }
 }
