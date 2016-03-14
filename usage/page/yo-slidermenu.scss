@@ -1,12 +1,13 @@
 @charset "utf-8";
-@import "../layout/layout";
+@import "../core/reset";
+@import "../layout/yo-flex";
+@import "../fragment/yo-header";
+@import "../widget/yo-slidermenu";
+
+// 页面所需模块
 @import "../module/m-header";
 @import "../module/m-list";
 @import "../module/m-desc";
-
-// 这个import应该放到具体使用了该widget的模块内
-// 此处只为简单描述一个demo，所以写法随意
-@import "../widget/yo-slidermenu";
 
 .m-layer {
     img {

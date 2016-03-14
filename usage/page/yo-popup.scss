@@ -1,12 +1,16 @@
 @charset "utf-8";
-@import "../layout/layout";
+@import "../core/reset";
+@import "../layout/yo-flex";
+@import "../fragment/yo-header";
+@import "../widget/yo-popup";
+
+// 页面所需模块
 @import "../module/m-header";
 @import "../module/m-layer";
 @import "../module/m-desc";
 
 // 这个import应该放到具体使用了该widget的模块内
 // 此处只为简单描述一个demo，所以写法随意
-@import "../widget/yo-popup";
 
 .m-layer {
     height: 3.2rem;

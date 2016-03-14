@@ -230,25 +230,6 @@ a {
   vertical-align: middle;
 }
 
-.yo-align {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-  word-wrap: break-word;
-  word-break: break-all;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
 .yo-flex {
   height: 100%;
 }
@@ -286,11 +267,6 @@ a {
   right: 0;
   bottom: 0;
   left: 0;
-}
-
-.yo-stacked {
-  display: block;
-  margin: 0.2rem 0.1rem;
 }
 
 .yo-header {
@@ -410,6 +386,82 @@ a {
   color: #212121;
 }
 
+.yo-search {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  position: relative;
+  padding: 0.1rem;
+  background-color: #eee;
+  line-height: 0.3rem;
+}
+
+.yo-search > .operation {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  width: .1px;
+}
+
+.yo-search > .operation > .yo-ico {
+  position: absolute;
+  z-index: 2;
+  width: .28rem;
+  text-align: center;
+}
+
+.yo-search > .operation > .input {
+  display: block;
+  -webkit-appearance: none;
+  appearance: none;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  width: .1px;
+  position: relative;
+  z-index: 1;
+  margin: -1px 0;
+  padding-left: .1rem;
+  border: 1px solid #fff;
+  border-radius: 0.05rem;
+  background-color: #fff;
+}
+
+.yo-search > .operation > .input-shrink {
+  -webkit-transition: margin 0.2s ease-out;
+  transition: margin 0.2s ease-out;
+}
+
+.yo-search > .operation > .input-shrink:focus {
+  margin-right: .6rem;
+}
+
+.yo-search > .operation > .yo-ico + .input {
+  padding-left: .28rem;
+}
+
+.yo-search > .cancel {
+  position: absolute;
+  right: .1rem;
+  width: .5rem;
+  color: #1ba9ba;
+  text-align: center;
+}
+
+.yo-search > .button {
+  display: block;
+  min-width: .4rem;
+  margin-left: .1rem;
+  padding: 0 .1rem;
+  background-color: #1ba9ba;
+  color: #fff;
+  text-align: center;
+  border-radius: 0.05rem;
+}
+
 .m-layer {
   position: relative;
 }
@@ -503,80 +555,4 @@ a {
 
 .m-desc .info {
   margin: .1rem;
-}
-
-.yo-search {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  position: relative;
-  padding: 0.1rem;
-  background-color: #eee;
-  line-height: 0.3rem;
-}
-
-.yo-search > .operation {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  flex: 1;
-  width: .1px;
-}
-
-.yo-search > .operation > .yo-ico {
-  position: absolute;
-  z-index: 2;
-  width: .28rem;
-  text-align: center;
-}
-
-.yo-search > .operation > .input {
-  display: block;
-  -webkit-appearance: none;
-  appearance: none;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  flex: 1;
-  width: .1px;
-  position: relative;
-  z-index: 1;
-  margin: -1px 0;
-  padding-left: .1rem;
-  border: 1px solid #fff;
-  border-radius: 0.05rem;
-  background-color: #fff;
-}
-
-.yo-search > .operation > .input-shrink {
-  -webkit-transition: margin 0.2s ease-out;
-  transition: margin 0.2s ease-out;
-}
-
-.yo-search > .operation > .input-shrink:focus {
-  margin-right: .6rem;
-}
-
-.yo-search > .operation > .yo-ico + .input {
-  padding-left: .28rem;
-}
-
-.yo-search > .cancel {
-  position: absolute;
-  right: .1rem;
-  width: .5rem;
-  color: #1ba9ba;
-  text-align: center;
-}
-
-.yo-search > .button {
-  display: block;
-  min-width: .4rem;
-  margin-left: .1rem;
-  padding: 0 .1rem;
-  background-color: #1ba9ba;
-  color: #fff;
-  text-align: center;
-  border-radius: 0.05rem;
 }

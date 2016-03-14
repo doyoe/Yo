@@ -230,69 +230,6 @@ a {
   vertical-align: middle;
 }
 
-.yo-align {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-  word-wrap: break-word;
-  word-break: break-all;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
-.yo-flex {
-  height: 100%;
-}
-
-.yo-flex,
-.yo-flex .flex-inherit {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-.yo-flex > .flex,
-.yo-flex .flex-inherit,
-.yo-flex .flex-inherit > .flex {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  flex: 1;
-  position: relative;
-}
-
-.yo-flex > .flex,
-.yo-flex .flex-inherit > .flex {
-  overflow: auto;
-}
-
-.yo-flex > .flex > .yo-flex,
-.yo-flex .flex-inherit > .flex > .yo-flex {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
-.yo-stacked {
-  display: block;
-  margin: 0.2rem 0.1rem;
-}
-
 .yo-btn {
   display: inline-block;
   padding: 0 1.2em;

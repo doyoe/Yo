@@ -230,25 +230,6 @@ a {
   vertical-align: middle;
 }
 
-.yo-align {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-  word-wrap: break-word;
-  word-break: break-all;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
 .yo-flex {
   height: 100%;
 }
@@ -286,11 +267,6 @@ a {
   right: 0;
   bottom: 0;
   left: 0;
-}
-
-.yo-stacked {
-  display: block;
-  margin: 0.2rem 0.1rem;
 }
 
 .yo-header {
@@ -408,6 +384,46 @@ a {
 .yo-header-normal > .affirm.yo-ico,
 .yo-header-normal > .affirm > .yo-ico {
   color: #212121;
+}
+
+.yo-tip {
+  position: fixed;
+  min-width: 1rem;
+  max-width: 90%;
+  z-index: 3001;
+  padding: 0.06rem 0.15rem;
+  border-radius: 0.05rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  text-align: center;
+}
+
+.yo-tip > .arrow {
+  position: absolute;
+  content: "\0020";
+  border-width: 0.08rem;
+  border-style: solid;
+  border-color: transparent;
+}
+
+.yo-tip > .arrow-top {
+  top: -0.16rem;
+  border-bottom-color: rgba(0, 0, 0, 0.5);
+}
+
+.yo-tip > .arrow-right {
+  right: -0.16rem;
+  border-left-color: rgba(0, 0, 0, 0.5);
+}
+
+.yo-tip > .arrow-bottom {
+  bottom: -0.16rem;
+  border-top-color: rgba(0, 0, 0, 0.5);
+}
+
+.yo-tip > .arrow-left {
+  left: -0.16rem;
+  border-right-color: rgba(0, 0, 0, 0.5);
 }
 
 .yo-list {
@@ -805,46 +821,6 @@ a {
 
 .m-desc .info {
   margin: .1rem;
-}
-
-.yo-tip {
-  position: fixed;
-  min-width: 1rem;
-  max-width: 90%;
-  z-index: 3001;
-  padding: 0.06rem 0.15rem;
-  border-radius: 0.05rem;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  text-align: center;
-}
-
-.yo-tip > .arrow {
-  position: absolute;
-  content: "\0020";
-  border-width: 0.08rem;
-  border-style: solid;
-  border-color: transparent;
-}
-
-.yo-tip > .arrow-top {
-  top: -0.16rem;
-  border-bottom-color: rgba(0, 0, 0, 0.5);
-}
-
-.yo-tip > .arrow-right {
-  right: -0.16rem;
-  border-left-color: rgba(0, 0, 0, 0.5);
-}
-
-.yo-tip > .arrow-bottom {
-  bottom: -0.16rem;
-  border-top-color: rgba(0, 0, 0, 0.5);
-}
-
-.yo-tip > .arrow-left {
-  left: -0.16rem;
-  border-right-color: rgba(0, 0, 0, 0.5);
 }
 
 .yo-tip {

@@ -231,6 +231,69 @@ a {
   vertical-align: middle;
 }
 
+.yo-flex {
+  height: 100%;
+}
+
+.yo-flex,
+.yo-flex .flex-inherit {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.yo-flex > .flex,
+.yo-flex .flex-inherit,
+.yo-flex .flex-inherit > .flex {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  position: relative;
+}
+
+.yo-flex > .flex,
+.yo-flex .flex-inherit > .flex {
+  overflow: auto;
+}
+
+.yo-flex > .flex > .yo-flex,
+.yo-flex .flex-inherit > .flex > .yo-flex {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.yo-align {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  word-wrap: break-word;
+  word-break: break-all;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.yo-stacked {
+  display: block;
+  margin: 0.2rem 0.1rem;
+}
+
 .yo-badge {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -1755,6 +1818,202 @@ a {
 
 .yo-table-test2 tbody tr:nth-child(even) {
   background-color: #f9f9f9;
+}
+
+.yo-proportion {
+  margin: 0.1rem;
+  background-color: #eee;
+  line-height: 0.35rem;
+  color: #fff;
+  font-size: 0.14rem;
+}
+
+.yo-proportion > .inner {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  min-height: 0.05rem;
+  padding: 0 .1rem;
+  background-color: red;
+}
+
+.yo-proportion > .inner > .date,
+.yo-proportion > .inner > .amount {
+  display: block;
+}
+
+.yo-proportion > .inner > .date {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  width: .1px;
+}
+
+.yo-proportion > .inner::after {
+  display: block;
+  content: attr(data-attr);
+}
+
+.yo-search {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  position: relative;
+  padding: 0.1rem;
+  background-color: #eee;
+  line-height: 0.3rem;
+}
+
+.yo-search > .operation {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  width: .1px;
+}
+
+.yo-search > .operation > .yo-ico {
+  position: absolute;
+  z-index: 2;
+  width: .28rem;
+  text-align: center;
+}
+
+.yo-search > .operation > .input {
+  display: block;
+  -webkit-appearance: none;
+  appearance: none;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  width: .1px;
+  position: relative;
+  z-index: 1;
+  margin: -1px 0;
+  padding-left: .1rem;
+  border: 1px solid #fff;
+  border-radius: 0.05rem;
+  background-color: #fff;
+}
+
+.yo-search > .operation > .input-shrink {
+  -webkit-transition: margin 0.2s ease-out;
+  transition: margin 0.2s ease-out;
+}
+
+.yo-search > .operation > .input-shrink:focus {
+  margin-right: .6rem;
+}
+
+.yo-search > .operation > .yo-ico + .input {
+  padding-left: .28rem;
+}
+
+.yo-search > .cancel {
+  position: absolute;
+  right: .1rem;
+  width: .5rem;
+  color: #1ba9ba;
+  text-align: center;
+}
+
+.yo-search > .button {
+  display: block;
+  min-width: .4rem;
+  margin-left: .1rem;
+  padding: 0 .1rem;
+  background-color: #1ba9ba;
+  color: #fff;
+  text-align: center;
+  border-radius: 0.05rem;
+}
+
+.yo-actionsheet {
+  position: fixed;
+  z-index: 2501;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  margin: 0.1rem;
+  text-align: center;
+}
+
+.yo-actionsheet > .menu,
+.yo-actionsheet > .action {
+  overflow: hidden;
+  width: 100.13%;
+  border-radius: 0.1rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+.yo-actionsheet > .action {
+  margin-top: .08rem;
+}
+
+.yo-actionsheet .title {
+  color: #999;
+  font-weight: normal;
+  font-size: .14rem;
+  line-height: .44rem;
+}
+
+.yo-actionsheet .item {
+  height: 0.55rem;
+  color: #00afc7;
+  font-size: 0.18rem;
+  line-height: 0.55rem;
+}
+
+.yo-actionsheet .item:not(:first-child) {
+  position: relative;
+}
+
+.yo-actionsheet .item:not(:first-child)::after {
+  pointer-events: none;
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  content: "\0020";
+  border-color: #ccc;
+  border-style: solid;
+  border-width: 1px 0 0;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+
+@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
+  .yo-actionsheet .item:not(:first-child)::after {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
+  .yo-actionsheet .item:not(:first-child)::after {
+    width: 200%;
+    height: 200%;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
+  .yo-actionsheet .item:not(:first-child)::after {
+    width: 300%;
+    height: 300%;
+    -webkit-transform: scale(0.33333);
+    transform: scale(0.33333);
+  }
+}
+
+.yo-actionsheet .item:active {
+  background-color: rgba(238, 238, 238, 0.9);
 }
 
 .yo-datepicker {

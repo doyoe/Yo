@@ -230,25 +230,6 @@ a {
   vertical-align: middle;
 }
 
-.yo-align {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-  word-wrap: break-word;
-  word-break: break-all;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
 .yo-flex {
   height: 100%;
 }
@@ -286,11 +267,6 @@ a {
   right: 0;
   bottom: 0;
   left: 0;
-}
-
-.yo-stacked {
-  display: block;
-  margin: 0.2rem 0.1rem;
 }
 
 .yo-header {
@@ -408,6 +384,28 @@ a {
 .yo-header-normal > .affirm.yo-ico,
 .yo-header-normal > .affirm > .yo-ico {
   color: #212121;
+}
+
+.yo-input {
+  width: 100%;
+  height: 0.44rem;
+  padding: 0.1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.02rem;
+  -webkit-background-clip: padding-box !important;
+  background-clip: padding-box !important;
+  background-color: transparent;
+  vertical-align: top;
+  color: #212121;
+}
+
+.yo-input, .yo-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.yo-input::-webkit-input-placeholder {
+  color: #bbb;
 }
 
 .yo-list {
@@ -805,26 +803,4 @@ a {
 
 .m-desc .info {
   margin: .1rem;
-}
-
-.yo-input {
-  width: 100%;
-  height: 0.44rem;
-  padding: 0.1rem;
-  border: 1px solid #ccc;
-  border-radius: 0.02rem;
-  -webkit-background-clip: padding-box !important;
-  background-clip: padding-box !important;
-  background-color: transparent;
-  vertical-align: top;
-  color: #212121;
-}
-
-.yo-input, .yo-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  appearance: none;
-}
-
-.yo-input::-webkit-input-placeholder {
-  color: #bbb;
 }

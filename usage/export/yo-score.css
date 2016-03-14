@@ -230,25 +230,6 @@ a {
   vertical-align: middle;
 }
 
-.yo-align {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-  word-wrap: break-word;
-  word-break: break-all;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
 .yo-flex {
   height: 100%;
 }
@@ -286,11 +267,6 @@ a {
   right: 0;
   bottom: 0;
   left: 0;
-}
-
-.yo-stacked {
-  display: block;
-  margin: 0.2rem 0.1rem;
 }
 
 .yo-header {
@@ -408,6 +384,42 @@ a {
 .yo-header-normal > .affirm.yo-ico,
 .yo-header-normal > .affirm > .yo-ico {
   color: #212121;
+}
+
+.yo-score {
+  position: relative;
+  width: 0.8rem;
+  height: 0.12rem;
+  overflow: hidden;
+}
+
+.yo-score,
+.yo-score > .index {
+  display: inline-block;
+  background: url(//ss.qunarzz.com/yo/bgimg/star.png) repeat-x;
+  background-size: auto 0.24rem;
+}
+
+.yo-score > .index {
+  height: 100%;
+  background-position: 0 -0.12rem;
+  line-height: 10;
+  vertical-align: top;
+}
+
+.yo-score-test {
+  width: 0.75rem;
+  height: 0.15rem;
+}
+
+.yo-score-test,
+.yo-score-test > .index {
+  background-image: url(//ss.qunarzz.com/yo/bgimg/star2.png);
+  background-size: auto 0.3rem;
+}
+
+.yo-score-test > .index {
+  background-position: 0 -0.15rem;
 }
 
 .yo-list {
@@ -805,40 +817,4 @@ a {
 
 .m-desc .info {
   margin: .1rem;
-}
-
-.yo-score {
-  position: relative;
-  width: 0.8rem;
-  height: 0.12rem;
-  overflow: hidden;
-}
-
-.yo-score,
-.yo-score > .index {
-  display: inline-block;
-  background: url(//ss.qunarzz.com/yo/bgimg/star.png) repeat-x;
-  background-size: auto 0.24rem;
-}
-
-.yo-score > .index {
-  height: 100%;
-  background-position: 0 -0.12rem;
-  line-height: 10;
-  vertical-align: top;
-}
-
-.yo-score-test {
-  width: 0.75rem;
-  height: 0.15rem;
-}
-
-.yo-score-test,
-.yo-score-test > .index {
-  background-image: url(//ss.qunarzz.com/yo/bgimg/star2.png);
-  background-size: auto 0.3rem;
-}
-
-.yo-score-test > .index {
-  background-position: 0 -0.15rem;
 }

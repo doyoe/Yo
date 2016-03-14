@@ -1,6 +1,10 @@
 @charset "utf-8";
 @import "../core/reset";
 
+@import "../layout/yo-flex";
+@import "../layout/yo-align";
+@import "../layout/yo-stacked";
+
 @import "../element/yo-badge";
 @import "../element/yo-btn";
 @import "../element/yo-checked";
@@ -15,7 +19,10 @@
 @import "../fragment/yo-header";
 @import "../fragment/yo-list";
 @import "../fragment/yo-table";
+@import "../fragment/yo-proportion";
+@import "../fragment/yo-search";
 
+@import "../widget/yo-actionsheet";
 @import "../widget/yo-datepicker";
 @import "../widget/yo-dialog";
 @import "../widget/yo-doublelist";

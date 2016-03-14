@@ -230,25 +230,6 @@ a {
   vertical-align: middle;
 }
 
-.yo-align {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-  word-wrap: break-word;
-  word-break: break-all;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
 .yo-flex {
   height: 100%;
 }
@@ -286,11 +267,6 @@ a {
   right: 0;
   bottom: 0;
   left: 0;
-}
-
-.yo-stacked {
-  display: block;
-  margin: 0.2rem 0.1rem;
 }
 
 .yo-header {
@@ -408,6 +384,93 @@ a {
 .yo-header-normal > .affirm.yo-ico,
 .yo-header-normal > .affirm > .yo-ico {
   color: #212121;
+}
+
+.yo-rating {
+  display: inline-block;
+  position: relative;
+  width: 1.2rem;
+  height: 0.18rem;
+  overflow: hidden;
+}
+
+.yo-rating,
+.yo-rating > .index,
+.yo-rating > .item {
+  background: url(//ss.qunarzz.com/yo/bgimg/star.png) repeat-x;
+  background-size: auto 0.36rem;
+}
+
+.yo-rating > .index,
+.yo-rating > .item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  line-height: 10;
+}
+
+.yo-rating > .index {
+  background-position: 0 -0.18rem;
+}
+
+.yo-rating > .item {
+  z-index: 3;
+  width: 20%;
+  background-position: 0 100px;
+  cursor: pointer;
+}
+
+.yo-rating > .item:nth-of-type(2) {
+  left: 20%;
+}
+
+.yo-rating > .item:nth-of-type(2):hover {
+  width: 40%;
+}
+
+.yo-rating > .item:nth-of-type(3) {
+  left: 40%;
+}
+
+.yo-rating > .item:nth-of-type(3):hover {
+  width: 60%;
+}
+
+.yo-rating > .item:nth-of-type(4) {
+  left: 60%;
+}
+
+.yo-rating > .item:nth-of-type(4):hover {
+  width: 80%;
+}
+
+.yo-rating > .item:nth-of-type(5) {
+  left: 80%;
+}
+
+.yo-rating > .item:nth-of-type(5):hover {
+  width: 100%;
+}
+
+.yo-rating > .item:hover {
+  z-index: 2;
+  left: 0 !important;
+  background-position: 0 -0.18rem;
+}
+
+.yo-rating-readonly > .item:hover {
+  background-position: 0 1rem !important;
+}
+
+.yo-rating-test {
+  width: 0.9rem;
+}
+
+.yo-rating-test,
+.yo-rating-test > .index,
+.yo-rating-test > .item {
+  background-image: url(//ss.qunarzz.com/yo/bgimg/star2.png);
 }
 
 .yo-list {
@@ -805,91 +868,4 @@ a {
 
 .m-desc .info {
   margin: .1rem;
-}
-
-.yo-rating {
-  display: inline-block;
-  position: relative;
-  width: 1.2rem;
-  height: 0.18rem;
-  overflow: hidden;
-}
-
-.yo-rating,
-.yo-rating > .index,
-.yo-rating > .item {
-  background: url(//ss.qunarzz.com/yo/bgimg/star.png) repeat-x;
-  background-size: auto 0.36rem;
-}
-
-.yo-rating > .index,
-.yo-rating > .item {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  line-height: 10;
-}
-
-.yo-rating > .index {
-  background-position: 0 -0.18rem;
-}
-
-.yo-rating > .item {
-  z-index: 3;
-  width: 20%;
-  background-position: 0 100px;
-  cursor: pointer;
-}
-
-.yo-rating > .item:nth-of-type(2) {
-  left: 20%;
-}
-
-.yo-rating > .item:nth-of-type(2):hover {
-  width: 40%;
-}
-
-.yo-rating > .item:nth-of-type(3) {
-  left: 40%;
-}
-
-.yo-rating > .item:nth-of-type(3):hover {
-  width: 60%;
-}
-
-.yo-rating > .item:nth-of-type(4) {
-  left: 60%;
-}
-
-.yo-rating > .item:nth-of-type(4):hover {
-  width: 80%;
-}
-
-.yo-rating > .item:nth-of-type(5) {
-  left: 80%;
-}
-
-.yo-rating > .item:nth-of-type(5):hover {
-  width: 100%;
-}
-
-.yo-rating > .item:hover {
-  z-index: 2;
-  left: 0 !important;
-  background-position: 0 -0.18rem;
-}
-
-.yo-rating-readonly > .item:hover {
-  background-position: 0 1rem !important;
-}
-
-.yo-rating-test {
-  width: 0.9rem;
-}
-
-.yo-rating-test,
-.yo-rating-test > .index,
-.yo-rating-test > .item {
-  background-image: url(//ss.qunarzz.com/yo/bgimg/star2.png);
 }
