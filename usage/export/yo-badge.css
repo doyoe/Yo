@@ -219,7 +219,7 @@ a {
 
 @font-face {
   font-family: yofont;
-  src: url("//ss.qunarzz.com/yo/font/1.0.2/yofont.woff") format("woff"), url("//ss.qunarzz.com/yo/font/1.0.2/yofont.ttf") format("truetype");
+  src: url("//ss.qunarzz.com/yo/font/1.0.3/yofont.woff") format("woff"), url("//ss.qunarzz.com/yo/font/1.0.3/yofont.ttf") format("truetype");
 }
 
 .yo-ico {
@@ -818,6 +818,14 @@ a {
   padding: .1rem;
   color: gray;
   font-size: .12rem;
+}
+
+.m-list .yo-badge {
+  background-color: gray;
+}
+
+.m-list .yo-badge::after {
+  border-color: gray;
 }
 
 .m-list .mark img {
