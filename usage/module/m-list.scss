@@ -1,23 +1,17 @@
 @charset "utf-8";
-@import "../fragment/yo-list";
 
 .m-list {
-    // do something
-    > .yo-list-group {
-        .yo-btn:not(:first-child) {
-            margin-left: .1rem;
-        }
+    @include yo-list(
+        $label-padding: .18rem .1rem .03rem,
+        $label-border-color: map-get($base, border-color)
+    );
+    > .note {
+        padding: .1rem;
+        color: gray;
+        font-size: .12rem;
     }
     // 图片大小
     .mark img {
         @include square(.4rem);
-    }
-    // 类别标题
-    > .title {
-        padding: .18rem .1rem .03rem;
-        @include border(
-            $border-width: 0 0 1px,
-            $border-color: map-get($base, border-color)
-        );
     }
 }
