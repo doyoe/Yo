@@ -604,40 +604,6 @@ a {
   width: 100%;
 }
 
-.yo-btn-light {
-  background-color: #fff;
-  color: #212121;
-}
-
-.yo-btn-light::after {
-  border-color: #ccc;
-}
-
-.yo-btn-light.yo-btn-disabled, .yo-btn-light.yo-btn-disabled:active {
-  background-color: white;
-  color: #878787;
-}
-
-.yo-btn-light.yo-btn-disabled::after, .yo-btn-light.yo-btn-disabled:active::after {
-  border-color: #ebebeb;
-}
-
-.yo-btn-info {
-  background-color: #4a87ee;
-}
-
-.yo-btn-info::after {
-  border-color: #0456e2;
-}
-
-.yo-btn-info.yo-btn-disabled, .yo-btn-info.yo-btn-disabled:active {
-  background-color: #90b5f5;
-}
-
-.yo-btn-info.yo-btn-disabled::after, .yo-btn-info.yo-btn-disabled:active::after {
-  border-color: #2876fb;
-}
-
 .m-nodata {
   padding-top: .55rem;
   background: url(//ss.qunarzz.com/yo/bgimg/what.png) no-repeat center 0;
@@ -652,8 +618,8 @@ a {
   font-size: .16rem;
 }
 
-.m-nodata .yo-btn-normal {
-  width: 1.35rem;
+.m-nodata .yo-btn {
+  width: 1.3rem;
 }
 
 .yo-tab-view {

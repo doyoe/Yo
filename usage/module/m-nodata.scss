@@ -1,5 +1,4 @@
 @charset "utf-8";
-@import "../element/yo-btn";
 
 .m-nodata {
     padding-top: .55rem;
@@ -11,7 +10,7 @@
         color: #999;
         font-size: .16rem;
     }
-    .yo-btn-normal {
-        width: 1.35rem;
-    }
+    @include yo-btn(
+        $width: 1.3rem
+    );
 }
