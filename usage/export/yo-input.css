@@ -693,6 +693,15 @@ a {
   border-color: #ccc;
 }
 
+.m-demo {
+  position: relative;
+  min-height: .88rem;
+}
+
+.m-demo .yo-btn:not(:last-child) {
+  margin-right: .1rem;
+}
+
 .m-desc {
   margin: .3rem .1rem;
   padding-bottom: .05rem;

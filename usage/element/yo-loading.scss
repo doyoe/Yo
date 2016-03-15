@@ -5,15 +5,9 @@
  * yo-loading扩展
  */
 
-@include yo-loading {
-    position: static;
-    min-height: 2rem;
-};
-
 @include yo-loading(
     $name: b,
     $bgcolor: #666,
-    $mask-bgcolor: rgba(0, 0, 0, .2),
     $ico-color: #00afc7,
     $color: #00afc7
 );

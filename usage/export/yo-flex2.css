@@ -783,3 +783,12 @@ a {
     height: 0.6rem;
   }
 }
+
+.m-demo {
+  position: relative;
+  min-height: .88rem;
+}
+
+.m-demo .yo-btn:not(:last-child) {
+  margin-right: .1rem;
+}

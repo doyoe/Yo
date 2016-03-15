@@ -5,8 +5,7 @@
  * yo-btn扩展
  */
 
-
-// 预设轻柔按钮
+// 扩展轻柔按钮
 @include yo-btn(
     $name: light,
     $border-color: #ccc,
@@ -14,7 +13,7 @@
     $color: map-get($base, color)
 );
 
-// 预设信息按钮
+// 扩展信息按钮
 @include yo-btn(
     $name: info,
     $border-color: #0456e2,

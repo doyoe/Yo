@@ -424,7 +424,6 @@ a {
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.1);
   line-height: 1;
 }
 
@@ -455,15 +454,6 @@ a {
   margin-bottom: .08rem;
 }
 
-.yo-loading {
-  position: static;
-  min-height: 2rem;
-}
-
-.yo-loading-b {
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
 .yo-loading-b > .inner {
   background-color: #666;
   color: #00afc7;
@@ -471,6 +461,15 @@ a {
 
 .yo-loading-b > .inner > .yo-ico::before {
   color: #00afc7;
+}
+
+.m-demo {
+  position: relative;
+  min-height: .88rem;
+}
+
+.m-demo .yo-btn:not(:last-child) {
+  margin-right: .1rem;
 }
 
 .m-desc {

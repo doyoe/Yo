@@ -753,6 +753,15 @@ a {
   font-size: 0.28rem;
 }
 
+.m-demo {
+  position: relative;
+  min-height: .88rem;
+}
+
+.m-demo .yo-btn:not(:last-child) {
+  margin-right: .1rem;
+}
+
 .yo-tab-view {
   font-size: 0.12rem;
 }

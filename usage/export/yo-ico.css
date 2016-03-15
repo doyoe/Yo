@@ -630,3 +630,12 @@ a {
 .yo-list > .item > .col {
   padding: 0.11rem 0.1rem 0.12rem;
 }
+
+.m-demo {
+  position: relative;
+  min-height: .88rem;
+}
+
+.m-demo .yo-btn:not(:last-child) {
+  margin-right: .1rem;
+}

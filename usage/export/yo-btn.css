@@ -798,7 +798,12 @@ a {
   border-color: #2876fb;
 }
 
-.m-btndemo .yo-btn:not(:last-child) {
+.m-demo {
+  position: relative;
+  min-height: .88rem;
+}
+
+.m-demo .yo-btn:not(:last-child) {
   margin-right: .1rem;
 }
 
