@@ -5,6 +5,11 @@
  * yo-loading扩展
  */
 
+@include yo-loading {
+    position: static;
+    min-height: 2rem;
+};
+
 @include yo-loading(
     $name: b,
     $bgcolor: #666,

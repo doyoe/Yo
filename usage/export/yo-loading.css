@@ -371,27 +371,6 @@ a {
   text-align: right;
 }
 
-.yo-header-normal {
-  background-color: #eee;
-  color: #212121;
-}
-
-.yo-header-normal::after {
-  border-color: #ddd;
-}
-
-.yo-header-normal > .regret,
-.yo-header-normal > .affirm {
-  color: #212121;
-}
-
-.yo-header-normal > .regret.yo-ico,
-.yo-header-normal > .regret > .yo-ico,
-.yo-header-normal > .affirm.yo-ico,
-.yo-header-normal > .affirm > .yo-ico {
-  color: #212121;
-}
-
 .ani {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
@@ -476,6 +455,11 @@ a {
   margin-bottom: .08rem;
 }
 
+.yo-loading {
+  position: static;
+  min-height: 2rem;
+}
+
 .yo-loading-b {
   background-color: rgba(0, 0, 0, 0.2);
 }
@@ -533,9 +517,4 @@ a {
 
 .m-desc .info {
   margin: .1rem;
-}
-
-.yo-loading {
-  position: static;
-  min-height: 2rem;
 }
