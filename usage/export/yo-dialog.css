@@ -495,70 +495,23 @@ a {
   position: fixed;
   overflow: hidden;
   z-index: 1001;
-  box-shadow: 0 0 5px rgba(204, 204, 204, 0.5);
-  position: relative;
-  border-radius: 0.05rem;
+  padding-top: .15rem;
   min-width: 2.8rem;
   max-width: 90%;
-  background: #fff;
+  border-radius: 0.1rem;
+  background-color: #fff;
   text-align: center;
-}
-
-.yo-dialog::after {
-  pointer-events: none;
-  position: absolute;
-  z-index: 999;
-  top: 0;
-  left: 0;
-  overflow: hidden;
-  content: "\0020";
-  border-color: #ccc;
-  border-style: solid;
-  border-width: 1px;
-  -webkit-transform-origin: 0 0;
-  transform-origin: 0 0;
-}
-
-@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
-  .yo-dialog::after {
-    width: 100%;
-    height: 100%;
-    border-radius: 0.05rem;
-  }
-}
-
-@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
-  .yo-dialog::after {
-    width: 200%;
-    height: 200%;
-    -webkit-transform: scale(0.5);
-    transform: scale(0.5);
-    border-radius: 0.1rem;
-  }
-}
-
-@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
-  .yo-dialog::after {
-    width: 300%;
-    height: 300%;
-    -webkit-transform: scale(0.33333);
-    transform: scale(0.33333);
-    border-radius: 0.15rem;
-  }
 }
 
 .yo-dialog > .hd {
   position: relative;
   overflow: hidden;
-  height: 0.44rem;
-  background: white;
-  line-height: 0.44rem;
 }
 
 .yo-dialog > .hd .title {
   overflow: hidden;
   height: 100%;
-  margin: 0 60px;
+  margin: 0 .6rem;
   color: #212121;
   font-size: 0.16rem;
 }
@@ -582,8 +535,8 @@ a {
   -webkit-flex: 1;
   flex: 1;
   overflow: auto;
-  min-height: .45rem;
-  padding: 0.1rem;
+  min-height: .4rem;
+  padding: 0.03rem 0.1rem 0.15rem;
   font-size: 0.16rem;
 }
 
@@ -649,20 +602,17 @@ a {
   border-right-width: 0;
 }
 
-.yo-dialog-test {
-  height: 3rem;
-}
-
-.m-layer {
+.m-demo {
   position: relative;
+  min-height: .88rem;
 }
 
-.m-layer > .title {
+.m-demo > .title {
   padding: .18rem .1rem .03rem;
   position: relative;
 }
 
-.m-layer > .title::after {
+.m-demo > .title::after {
   pointer-events: none;
   position: absolute;
   z-index: 999;
@@ -678,14 +628,14 @@ a {
 }
 
 @media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
-  .m-layer > .title::after {
+  .m-demo > .title::after {
     width: 100%;
     height: 100%;
   }
 }
 
 @media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
-  .m-layer > .title::after {
+  .m-demo > .title::after {
     width: 200%;
     height: 200%;
     -webkit-transform: scale(0.5);
@@ -694,12 +644,28 @@ a {
 }
 
 @media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
-  .m-layer > .title::after {
+  .m-demo > .title::after {
     width: 300%;
     height: 300%;
     -webkit-transform: scale(0.33333);
     transform: scale(0.33333);
   }
+}
+
+.m-demo .item .yo-btn:not(:last-child) {
+  margin-right: .1rem;
+}
+
+.m-demo .mark img {
+  width: 0.4rem;
+  height: 0.4rem;
+}
+
+.m-demo > .yo-dialog {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+  transform: translate(-50%);
 }
 
 .m-desc {
@@ -748,14 +714,6 @@ a {
   margin: .1rem;
 }
 
-.m-layer {
-  height: 3.2rem;
-}
-
-.m-layer > .yo-dialog {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+html {
+  background-color: #ccc;
 }

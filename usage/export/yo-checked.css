@@ -1044,13 +1044,20 @@ a {
   }
 }
 
-.m-demo .yo-btn:not(:last-child) {
+.m-demo .item .yo-btn:not(:last-child) {
   margin-right: .1rem;
 }
 
 .m-demo .mark img {
   width: 0.4rem;
   height: 0.4rem;
+}
+
+.m-demo > .yo-dialog {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+  transform: translate(-50%);
 }
 
 .m-desc {
