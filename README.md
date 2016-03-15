@@ -57,6 +57,9 @@ Yo约束了2种项目所使用的长度单位
     - 移除 `$border-color`, `$checked-border-color` 参数；
     - 新增 `$follow-bgcolor` 参数用以指定跟随元素的背景色；
 
+#### 删除：
+* 删除 `yo-popup` 组件；
+
 ### 历史版本
 
 如想查看更多版本变更历史，请查看[ChangeLog](https://github.com/doyoe/Yo/blob/master/changelog.md).

@@ -217,18 +217,11 @@
     $number: $_number !global;
 }
 
-// 合并variables和config中的group map
+// 合并variables和config中的panel map(panel和group公用一个map)
 @if global-variable-exists(group) {
     $group: map-merge($_group, $group) !global;
 } @else {
     $group: $_group !global;
-}
-
-// 合并variables和config中的popup map
-@if global-variable-exists(popup) {
-    $popup: map-merge($_popup, $popup) !global;
-} @else {
-    $popup: $_popup !global;
 }
 
 // 合并variables和config中的rating map

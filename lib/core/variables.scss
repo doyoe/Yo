@@ -580,32 +580,6 @@ $_number: (
     font-size:           .16rem,
 );
 
-// Widget UI Popup(11)
-$_popup: (
-    // {Length | null} 宽度
-    width:           null,
-    // {Length} 高度
-    height:          3rem,
-    // {Length} 圆角
-    radius:          .03rem,
-    // {Number} 阴影透明度(如果不想使用阴影，值为0)
-    shadow-opacity:  .5,
-    // {Color} 边框色
-    border-color:     map-get($base, border-color),
-    // {Length} 头部高度
-    hd-height:       .5rem,
-    // {Color} 头部背景色
-    hd-bgcolor:      #eee,
-    // {Color} 标题颜色
-    title-color:     map-get($base, color),
-    // {Length} 标题文字大小
-    title-font-size: .16rem,
-    // {Length} 主体区域间隙
-    bd-padding:      .1rem,
-    // {Length} 箭头大小
-    arrow-size:      .12rem
-);
-
 // Widget UI rating(3)
 $_rating: (
     // {Length} 单项宽度
