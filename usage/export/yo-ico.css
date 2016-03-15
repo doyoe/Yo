@@ -630,20 +630,3 @@ a {
 .yo-list > .item > .col {
   padding: 0.11rem 0.1rem 0.12rem;
 }
-
-.m-font {
-  -webkit-user-select: text;
-  user-select: text;
-}
-
-.m-font .flex::before, .m-font .flex::after {
-  color: #999;
-}
-
-.m-font .flex::before {
-  content: "( ";
-}
-
-.m-font .flex::after {
-  content: " )";
-}
