@@ -8,4 +8,9 @@
     .yo-btn:not(:last-child) {
         margin-right: .1rem;
     }
+
+    // yo-list示例页面：图片大小
+    .mark img {
+        @include square(.4rem);
+    }
 }
