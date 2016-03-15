@@ -3,6 +3,14 @@
 .m-demo {
     position: relative;
     min-height: .88rem;
+    // 类别标题
+    > .title {
+        padding: .18rem .1rem .03rem;
+        @include border(
+            $border-width: 0 0 1px,
+            $border-color: map-get($base, border-color)
+        );
+    }
 
     // yo-btn示例页面：每行除最后一个按钮外，留0.1rem右边距
     .yo-btn:not(:last-child) {

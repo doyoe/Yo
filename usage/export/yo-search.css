@@ -370,27 +370,6 @@ a {
   text-align: right;
 }
 
-.yo-header-normal {
-  background-color: #eee;
-  color: #212121;
-}
-
-.yo-header-normal::after {
-  border-color: #ddd;
-}
-
-.yo-header-normal > .regret,
-.yo-header-normal > .affirm {
-  color: #212121;
-}
-
-.yo-header-normal > .regret.yo-ico,
-.yo-header-normal > .regret > .yo-ico,
-.yo-header-normal > .affirm.yo-ico,
-.yo-header-normal > .affirm > .yo-ico {
-  color: #212121;
-}
-
 .yo-search {
   display: -webkit-box;
   display: -webkit-flex;
@@ -467,16 +446,17 @@ a {
   border-radius: 0.05rem;
 }
 
-.m-layer {
+.m-demo {
   position: relative;
+  min-height: .88rem;
 }
 
-.m-layer > .title {
+.m-demo > .title {
   padding: .18rem .1rem .03rem;
   position: relative;
 }
 
-.m-layer > .title::after {
+.m-demo > .title::after {
   pointer-events: none;
   position: absolute;
   z-index: 999;
@@ -492,14 +472,14 @@ a {
 }
 
 @media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
-  .m-layer > .title::after {
+  .m-demo > .title::after {
     width: 100%;
     height: 100%;
   }
 }
 
 @media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
-  .m-layer > .title::after {
+  .m-demo > .title::after {
     width: 200%;
     height: 200%;
     -webkit-transform: scale(0.5);
@@ -508,12 +488,21 @@ a {
 }
 
 @media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
-  .m-layer > .title::after {
+  .m-demo > .title::after {
     width: 300%;
     height: 300%;
     -webkit-transform: scale(0.33333);
     transform: scale(0.33333);
   }
+}
+
+.m-demo .yo-btn:not(:last-child) {
+  margin-right: .1rem;
+}
+
+.m-demo .mark img {
+  width: 0.4rem;
+  height: 0.4rem;
 }
 
 .m-desc {
