@@ -783,7 +783,7 @@ a {
   left: 0;
   overflow: hidden;
   content: "\0020";
-  border-color: #d36105;
+  border-color: red;
   border-style: solid;
   border-width: 1px;
   -webkit-transform-origin: 0 0;
@@ -836,7 +836,7 @@ a {
   left: 0;
   overflow: hidden;
   content: "\0020";
-  border-color: #d36105;
+  border-color: red;
   border-style: solid;
   border-width: 0 0 0 1px;
   -webkit-transform-origin: 0 0;
@@ -872,8 +872,30 @@ a {
   background-color: #f06d05;
 }
 
+.yo-toolbar-test {
+  border-radius: 0;
+}
+
 .yo-toolbar-test::after {
   border-color: #ccc;
+}
+
+@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
+  .yo-toolbar-test::after {
+    border-radius: 0;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
+  .yo-toolbar-test::after {
+    border-radius: 0;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
+  .yo-toolbar-test::after {
+    border-radius: 0;
+  }
 }
 
 .yo-toolbar-test > .item {

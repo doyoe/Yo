@@ -8,7 +8,7 @@
     @include border(
         $border-width: map-get($toolbar, border-width),
         $border-color: map-get($toolbar, border-color),
-        $radius: .1rem
+        $radius: map-get($toolbar, radius)
     );
     font-size: map-get($toolbar, font-size);
     line-height: map-get($toolbar, height);
