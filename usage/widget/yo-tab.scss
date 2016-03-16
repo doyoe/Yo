@@ -16,6 +16,7 @@
     $on-color: #fff
 ){
     margin: auto;
+    @include transform(translatez(0));
 }
 
 @include yo-tab(
