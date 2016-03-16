@@ -1,17 +1,11 @@
 @charset "utf-8";
 @import "../core/reset";
 @import "../layout/yo-flex";
-@import "../fragment/yo-header";
+@import "../../lib/fragment/yo-header";
 @import "../widget/yo-tip";
 @import "../../lib/fragment/yo-list";
 
 // 页面所需模块
 @import "../module/m-header";
-@import "../module/m-list";
+@import "../module/m-demo";
 @import "../module/m-desc";
-
-@include yo-tip{
-    top: 50%;
-    left: 50%;
-    @include transform(translate(-50%, -50%));
-}
