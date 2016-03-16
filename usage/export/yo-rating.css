@@ -370,27 +370,6 @@ a {
   text-align: right;
 }
 
-.yo-header-normal {
-  background-color: #eee;
-  color: #212121;
-}
-
-.yo-header-normal::after {
-  border-color: #ddd;
-}
-
-.yo-header-normal > .regret,
-.yo-header-normal > .affirm {
-  color: #212121;
-}
-
-.yo-header-normal > .regret.yo-ico,
-.yo-header-normal > .regret > .yo-ico,
-.yo-header-normal > .affirm.yo-ico,
-.yo-header-normal > .affirm > .yo-ico {
-  color: #212121;
-}
-
 .yo-rating {
   display: inline-block;
   position: relative;
@@ -739,10 +718,70 @@ a {
   padding: 0.11rem 0.1rem 0.12rem;
 }
 
-.m-list > .note {
-  padding: .1rem;
-  color: gray;
-  font-size: .12rem;
+.m-demo {
+  position: relative;
+  min-height: .88rem;
+}
+
+.m-demo > .title {
+  padding: .18rem .1rem .03rem;
+  position: relative;
+}
+
+.m-demo > .title::after {
+  pointer-events: none;
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  content: "\0020";
+  border-color: #ccc;
+  border-style: solid;
+  border-width: 0 0 1px;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+
+@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
+  .m-demo > .title::after {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
+  .m-demo > .title::after {
+    width: 200%;
+    height: 200%;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
+  .m-demo > .title::after {
+    width: 300%;
+    height: 300%;
+    -webkit-transform: scale(0.33333);
+    transform: scale(0.33333);
+  }
+}
+
+.m-demo .item .yo-btn:not(:last-child) {
+  margin-right: .1rem;
+}
+
+.m-demo .mark img {
+  width: .4rem;
+}
+
+.m-demo > .yo-dialog {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .m-desc {
