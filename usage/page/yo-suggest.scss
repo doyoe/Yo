@@ -1,7 +1,7 @@
 @charset "utf-8";
 @import "../core/reset";
 @import "../layout/yo-flex";
-@import "../fragment/yo-header";
+@import "../../lib/fragment/yo-header";
 @import "../widget/yo-suggest";
 @import "../widget/yo-group";
 @import "../widget/yo-index";
@@ -9,5 +9,4 @@
 
 // 页面所需模块
 @import "../module/m-header";
-@import "../module/m-layer";
 @import "../module/m-desc";
