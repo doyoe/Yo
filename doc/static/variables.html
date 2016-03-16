@@ -92,7 +92,7 @@ $_ico: (
     // {String} 图标字体文件名
     font-name:  yofont,
     // {Url} 图标字体路径
-    font-path:  "//ss.qunarzz.com/yo/font/1.0.2/"
+    font-path:  "//ss.qunarzz.com/yo/font/1.0.3/"
 );
 
 // z-index
@@ -244,7 +244,7 @@ $_loading: (
     // {Color} 菊花颜色
     ico-color:    #212121,
     // {Color} mask颜色
-    mask-bgcolor: rgba(0, 0, 0, .1),
+    mask-bgcolor: null,
     // {Color} 背景颜色
     bgcolor:      null,
     // {Length} 字号
@@ -529,28 +529,22 @@ $_datepicker: (
     range-bgcolor:         #eee
 );
 
-// Widget UI Dialog(11)
+// Widget UI Dialog(8)
 $_dialog: (
     // {Length | null} 宽度
     width:           null,
     // {Length} 高度
     height:          null,
     // {Length} 圆角
-    radius:          .05rem,
-    // {Number} 阴影透明度(如果不想使用阴影，值为0)
-    shadow-opacity:  .5,
+    radius:          .1rem,
     // {Color} 边框色
     border-color:    map-get($base, border-color),
-    // {Length} 头部高度
-    hd-height:       .44rem,
-    // {Color} 头部背景色
-    hd-bgcolor:      white,
     // {Color} 标题颜色
     title-color:     map-get($base, color),
     // {Length} 标题文字大小
     title-font-size: .16rem,
     // {Length} 主体区域间隙
-    bd-padding:      .1rem,
+    bd-padding:      .03rem .1rem .15rem,
     // {Length} 主体区域文字大小
     bd-font-size:    .16rem
 );
@@ -609,32 +603,6 @@ $_number: (
     sign-color:          #999,
     // {Length} 字号
     font-size:           .16rem,
-);
-
-// Widget UI Popup(11)
-$_popup: (
-    // {Length | null} 宽度
-    width:           null,
-    // {Length} 高度
-    height:          3rem,
-    // {Length} 圆角
-    radius:          .03rem,
-    // {Number} 阴影透明度(如果不想使用阴影，值为0)
-    shadow-opacity:  .5,
-    // {Color} 边框色
-    border-color:     map-get($base, border-color),
-    // {Length} 头部高度
-    hd-height:       .5rem,
-    // {Color} 头部背景色
-    hd-bgcolor:      #eee,
-    // {Color} 标题颜色
-    title-color:     map-get($base, color),
-    // {Length} 标题文字大小
-    title-font-size: .16rem,
-    // {Length} 主体区域间隙
-    bd-padding:      .1rem,
-    // {Length} 箭头大小
-    arrow-size:      .12rem
 );
 
 // Widget UI rating(3)

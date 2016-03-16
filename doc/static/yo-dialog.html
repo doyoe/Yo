@@ -33,29 +33,21 @@
     position: fixed;
     overflow: hidden;
     z-index: map-get($z-index, dialog);
-    @if map-get($dialog, shadow-opacity) != null {
-        box-shadow: 0 0 5px rgba(map-get($dialog, border-color), map-get($dialog, shadow-opacity));
-    }
-    @include border(
-        $border-color: map-get($dialog, border-color),
-        $radius: map-get($dialog, radius)
-    );
+    padding-top: .15rem;
     min-width: 2.8rem;
     max-width: 90%;
     width: map-get($dialog, width);
     height: map-get($dialog, height);
-    background: #fff;
+    border-radius: map-get($dialog, radius);
+    background-color: #fff;
     text-align: center;
     > .hd {
         position: relative;
         overflow: hidden;
-        height: map-get($dialog, hd-height);
-        background: map-get($dialog, hd-bgcolor);
-        line-height: map-get($dialog, hd-height);
         .title {
             overflow: hidden;
             height: 100%;
-            margin: 0 60px;
+            margin: 0 .6rem;
             color: map-get($dialog, title-color);
             font-size: map-get($dialog, title-font-size);
         }
@@ -74,7 +66,7 @@
     > .bd {
         @include flex(1, column);
         @include overflow;
-        min-height: .45rem;
+        min-height: .4rem;
         padding: map-get($dialog, bd-padding);
         font-size: map-get($dialog, bd-font-size);
     }
@@ -112,11 +104,11 @@
  * @param {Length} $width 宽度 {add:1.0.0}
  * @param {Length} $height 高度 {add:1.0.0}
  * @param {Length} $radius 圆角半径长度 {add:1.0.0}
- * @param {Number} $shadow-opacity 阴影透明度 {add:1.0.0}
+ * @param {Number} $shadow-opacity 阴影透明度 {add:1.0.0}{del:2.1.2}
  * @param {Color} $bordercolor 边框色  {add:1.0.0}{del:2.0.0}
  * @param {Color} $border-color 边框色 {add:2.0.0}
- * @param {Length} $hd-height 头部高度 {add:1.0.0}
- * @param {Color} $hd-bgcolor 头部背景色 {add:1.0.0}
+ * @param {Length} $hd-height 头部高度 {add:1.0.0}{del:2.1.2}
+ * @param {Color} $hd-bgcolor 头部背景色 {add:1.0.0}{del:2.1.2}
  * @param {Color} $title-color 标题文本色 {add:1.0.0}
  * @param {Length} $title-font-size 标题字号 {add:1.0.0}
  * @param {Length} $bd-padding 主体内补白 {add:1.0.0}
@@ -128,10 +120,7 @@
     $width: default,
     $height: default,
     $radius: default,
-    $shadow-opacity: default,
     $border-color: default,
-    $hd-height: default,
-    $hd-bgcolor: default,
     $title-color: default,
     $title-font-size: default,
     $bd-padding: default,
@@ -153,12 +142,6 @@
     }
     @if $border-color == default {
         $border-color: map-get($dialog, border-color);
-    }
-    @if $hd-height == default {
-        $hd-height: map-get($dialog, hd-height);
-    }
-    @if $hd-bgcolor == default {
-        $hd-bgcolor: map-get($dialog, hd-bgcolor);
     }
     @if $title-color == default {
         $title-color: map-get($dialog, title-color);
@@ -194,10 +177,6 @@
                 }
             }
         }
-        // 如果$border-color或者$shadow-opacity不等于config设定，都重绘边框颜色
-        @if $border-color != map-get($dialog, border-color) or $shadow-opacity != map-get($dialog, shadow-opacity) {
-            box-shadow: 0 0 5px rgba($border-color, $shadow-opacity);
-        }
         @if $width != map-get($dialog, width) {
             width: $width;
         }
@@ -205,13 +184,6 @@
             height: $height;
         }
         > .hd {
-            @if $hd-height != map-get($dialog, hd-height) {
-                height: $hd-height;
-                line-height: $hd-height;
-            }
-            @if $hd-bgcolor != map-get($dialog, hd-bgcolor) {
-                background: $hd-bgcolor;
-            }
             .title {
                 @if $title-color != map-get($dialog, title-color) {
                     color: $title-color;

@@ -35,9 +35,9 @@
 // 合并base和extra中的base map
 // 因为base map会在variables中引用，所以无法将merge动作放到会引用该map的其它map之后
 @if global-variable-exists(base) {
-    $base: map-merge($_base, $base);
+    $base: map-merge($_base, $base) !global;
 } @else {
-    $base: $_base;
+    $base: $_base !global;
 }
         </pre>
         </div>
