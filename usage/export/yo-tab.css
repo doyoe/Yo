@@ -497,8 +497,6 @@ a {
   border-radius: 0.05rem;
   font-size: 0.12rem;
   margin: auto;
-  -webkit-transform: translatez(0);
-  transform: translatez(0);
 }
 
 .yo-tab-test::after {
@@ -522,6 +520,16 @@ a {
   .yo-tab-test::after {
     border-radius: 0.15rem;
   }
+}
+
+.yo-tab-test > .item:first-child {
+  border-top-left-radius: 0.05rem;
+  border-bottom-left-radius: 0.05rem;
+}
+
+.yo-tab-test > .item:last-child {
+  border-top-right-radius: 0.05rem;
+  border-bottom-right-radius: 0.05rem;
 }
 
 .yo-tab-test > .item.item-on {

@@ -44,6 +44,14 @@
             @include transform-origin(0 0);
         }
         color: map-get($tab, color);
+        &:first-child {
+            border-top-left-radius: map-get($tab, radius);
+            border-bottom-left-radius: map-get($tab, radius);
+        }
+        &:last-child {
+            border-top-right-radius: map-get($tab, radius);
+            border-bottom-right-radius: map-get($tab, radius);
+        }
         &.item-on {
             background-color: map-get($tab, on-bgcolor);
             color: map-get($tab, on-color);
@@ -222,6 +230,16 @@
             }
             @if $color != map-get($tab, color) {
                 color: $color;
+            }
+            @if $radius != map-get($tab, radius) {
+                &:first-child {
+                    border-top-left-radius: $radius;
+                    border-bottom-left-radius: $radius;
+                }
+                &:last-child {
+                    border-top-right-radius: $radius;
+                    border-bottom-right-radius: $radius;
+                }
             }
             &.item-on {
                 @if $on-bgcolor != map-get($tab, on-bgcolor) {
