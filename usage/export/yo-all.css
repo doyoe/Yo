@@ -1871,10 +1871,15 @@ a {
 
 .yo-dialog > .ft .yo-btn-dialog:last-child {
   font-weight: bold;
+  border-bottom-right-radius: 0.1rem;
 }
 
 .yo-dialog > .ft .yo-btn-dialog:last-child::after {
   border-right-width: 0;
+}
+
+.yo-dialog > .ft .yo-btn-dialog:first-child {
+  border-bottom-left-radius: 0.1rem;
 }
 
 .yo-doublelist {
