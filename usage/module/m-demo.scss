@@ -25,8 +25,5 @@
     // yo-dialog示例页面：显示多个dialog
     > .yo-dialog {
         position: absolute;
-        top: 50%;
-        left: 50%;
-        @include transform(translate(-50%, -50%));
     }
 }

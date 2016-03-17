@@ -4,12 +4,6 @@
 // 定义toolbar的基础构造
 @mixin _toolbar {
     @include flexbox;
-    overflow: hidden;
-    @include border(
-        $border-width: map-get($toolbar, border-width),
-        $border-color: map-get($toolbar, border-color),
-        $radius: map-get($toolbar, radius)
-    );
     font-size: map-get($toolbar, font-size);
     line-height: map-get($toolbar, height);
     cursor: default;
@@ -17,11 +11,28 @@
         padding: map-get($toolbar, item-padding);
         background-color: map-get($toolbar, bgcolor);
         color: map-get($toolbar, color);
+        // 为了避免安卓各种手机上的圆角背景溢出，将圆角和边框放到子元素上处理
+        @include border(
+            $border-width: map-get($toolbar, border-width),
+            $border-color: map-get($toolbar, border-color),
+            $radius: map-get($toolbar, radius)
+        );
         &:not(:first-child) {
-            @include border(
-                $border-width: 0 0 0 map-get($toolbar, border-width),
-                $border-color: map-get($toolbar, border-color)
-            );
+            &::after {
+                border-left-width: 0;
+            }
+        }
+        &:not(:only-child):not(:first-child) {
+            &, &::after {
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+        }
+        &:not(:only-child):not(:last-child) {
+            &, &::after {
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+            }
         }
         &.item-on {
             background-color: map-get($toolbar, on-bgcolor);
@@ -100,32 +111,6 @@
         $font-size: map-get($toolbar, font-size);
     }
     .yo-toolbar#{$name} {
-        // 如果$radius不等于config设定，则重绘容器圆角
-        @if $radius != map-get($toolbar, radius) {
-            border-radius: $radius;
-        }
-        &::after {
-            // 如果$border-width不等于config设定，则重绘边框厚度
-            @if $border-width != map-get($toolbar, border-width) {
-                border-width: $border-width;
-            }
-            // 如果$border-color不等于config设定，则重绘边框颜色
-            @if $border-color != map-get($toolbar, border-color) {
-                border-color: $border-color;
-            }
-            // 如果$radius不等于config设定，则重绘边框圆角
-            @if $radius != map-get($toolbar, radius) {
-                @include responsive(retina1x) {
-                    border-radius: $radius;
-                }
-                @include responsive(retina2x) {
-                    border-radius: $radius * 2;
-                }
-                @include responsive(retina3x) {
-                    border-radius: $radius * 3;
-                }
-            }
-        }
         @if $font-size != map-get($toolbar, font-size) {
             font-size: $font-size;
         }
@@ -142,15 +127,29 @@
             @if $color != map-get($toolbar, color) {
                 color: $color;
             }
-            &:not(:first-child) {
-                &::after {
-                    // 如果$border-width不等于config设定，则重绘边框厚度
-                    @if $border-width != map-get($toolbar, border-width) {
-                        border-width: $border-width;
+            // 如果$radius不等于config设定，则重绘容器圆角
+            @if $radius != map-get($toolbar, radius) {
+                border-radius: $radius;
+            }
+            &::after {
+                // 如果$border-width不等于config设定，则重绘边框厚度
+                @if $border-width != map-get($toolbar, border-width) {
+                    border-width: $border-width;
+                }
+                // 如果$border-color不等于config设定，则重绘边框颜色
+                @if $border-color != map-get($toolbar, border-color) {
+                    border-color: $border-color;
+                }
+                // 如果$radius不等于config设定，则重绘边框圆角
+                @if $radius != map-get($toolbar, radius) {
+                    @include responsive(retina1x) {
+                        border-radius: $radius;
                     }
-                    // 如果$border-color不等于config设定，则重绘边框颜色
-                    @if $border-color != map-get($toolbar, border-color) {
-                        border-color: $border-color;
+                    @include responsive(retina2x) {
+                        border-radius: $radius * 2;
+                    }
+                    @include responsive(retina3x) {
+                        border-radius: $radius * 3;
                     }
                 }
             }
