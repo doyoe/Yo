@@ -22,9 +22,16 @@
     }
     > .extra {
         position: relative;
-        .cover-img {
+        .img-cover {
             max-width: 100%;
             max-height: 100%;
+        }
+        .img-desc {
+            @include align;
+            @include flex-direction(column);
+            @include fullscreen;
+            color: #fff;
+            text-shadow: -1px 1px 0 #666;
         }
     }
     // 如果 .hd或.extra 是第一个子元素时，fix圆角问题
@@ -39,6 +46,15 @@
         border-bottom-left-radius: map-get($card, radius);
         border-bottom-right-radius: map-get($card, radius);
     }
+    > .hd,
+    > .ft {
+        min-height: .44rem;
+        padding: 0 .1rem;
+        @include align(
+            $type: other,
+            $justify-content: space-between
+        );
+    }
     > .hd {
         @include border(
             $border-width: 0 0 1px,
@@ -51,15 +67,9 @@
             $border-color: #ccc
         );
         color: #666;
-    }
-    > .hd,
-    > .ft {
-        min-height: .44rem;
-        padding: 0 .1rem;
-        @include align(
-            $type: other,
-            $justify-content: space-between
-        );
+        .link {
+            color: map-get($base, link-color);
+        }
     }
 }
 
