@@ -274,6 +274,12 @@ $_breadcrumb: (
     item-space:   .05rem
 );
 
+// Fragment card(5)
+$_card: (
+    // {Length} 圆角半径长度
+    radius:  0
+);
+
 // Fragment header(12)
 $_header: (
     // {Length} 高度
@@ -302,7 +308,7 @@ $_header: (
     item-ico-size:  .2rem
 );
 
-// Fragment list(15)
+// Fragment list(11)
 $_list: (
     // {Length} 列表外边距
     margin:            null,
@@ -317,7 +323,7 @@ $_list: (
     // {Length} 列表组头内补白
     label-padding:     .03rem .1rem,
     // {Color} 列表组头背景色
-    label-bgcolor:     map-get($base, bgcolor),
+    label-bgcolor:     map-get($base, doc-bgcolor),
     // {Color} 点击反馈背景色
     active-bgcolor:    #f8f8f8,
     // {Color} 选中背景色
@@ -336,14 +342,6 @@ $_list: (
     label-font-size:   .13rem,
     // {Length} 列表项下边线距离左侧的间隙
     item-border-space: .1rem,
-    // {Length} 详情区域字号
-    detail-font-size:  .12rem,
-    // {Length} 详情区域文本色
-    detail-color:      #999,
-    // {Length} 描述区域字号
-    info-font-size:    null,
-    // {Length} 描述区域文本色
-    info-color:        #999,
     // {Length} 更多区域字号
     more-font-size:    .12rem,
     // {Length} 更多区域文本色

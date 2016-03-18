@@ -25,14 +25,6 @@
         > .flex {
             @include flex;
         }
-        > .info {
-            color: map-get($list, info-color);
-            font-size: map-get($list, info-font-size);
-        }
-        .detail {
-            color: map-get($list, detail-color);
-            font-size: map-get($list, detail-font-size);
-        }
         > .yo-ico {
             display: block;
             &:last-child {
@@ -163,10 +155,10 @@
  * @param {Length} $item-font-size 子项字号 {add:1.2.0}
  * @param {Length} $label-font-size 列表组头字号 {add:1.2.0}
  * @param {Length} $item-border-space 子项下边线距离左侧的间隙 {add:1.8.0}
- * @param {Length} $detail-font-size 详情区域字号 {add:2.0.0}
- * @param {Color} $detail-color 详情区域文本色 {add:2.0.0}
- * @param {Length} $info-font-size 描述区域字号 {add:2.0.0}
- * @param {Color} $info-color 描述区域文本色 {add:2.0.0}
+ * @param {Length} $detail-font-size 详情区域字号 {add:2.0.0}{del:2.1.2}
+ * @param {Color} $detail-color 详情区域文本色 {add:2.0.0}{del:2.1.2}
+ * @param {Length} $info-font-size 描述区域字号 {add:2.0.0}{del:2.1.2}
+ * @param {Color} $info-color 描述区域文本色 {add:2.0.0}{del:2.1.2}
  * @param {Length} $more-font-size 更多区域字号 {add:2.0.0}
  * @param {Color} $more-color 更多区域文本色 {add:2.0.0}
  */
@@ -297,22 +289,6 @@
         > .label,
         > .item,
         .front {
-            > .info {
-                @if $info-color != map-get($list, info-color) {
-                    color: $info-color;
-                }
-                @if $info-font-size != map-get($list, info-font-size) {
-                    font-size: $info-font-size;
-                }
-            }
-            .detail {
-                @if $detail-color != map-get($list, detail-color) {
-                    color: $detail-color;
-                }
-                @if $detail-font-size != map-get($list, detail-font-size) {
-                    font-size: $detail-font-size;
-                }
-            }
             > .yo-ico {
                 &:last-child {
                     @if $more-color != map-get($list, more-color) {

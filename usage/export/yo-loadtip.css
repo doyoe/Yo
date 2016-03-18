@@ -13,7 +13,7 @@ body {
 }
 
 html {
-  background-color: #fafafa;
+  background-color: #ebebeb;
   color: #212121;
   font-size: 100px;
   -webkit-user-select: none;
@@ -518,19 +518,6 @@ a {
   width: .1px;
 }
 
-.yo-list > .label > .info,
-.yo-list > .item > .info,
-.yo-list .front > .info {
-  color: #999;
-}
-
-.yo-list > .label .detail,
-.yo-list > .item .detail,
-.yo-list .front .detail {
-  color: #999;
-  font-size: 0.12rem;
-}
-
 .yo-list > .label > .yo-ico,
 .yo-list > .item > .yo-ico,
 .yo-list .front > .yo-ico {
@@ -554,7 +541,7 @@ a {
 .yo-list > .label {
   padding: 0.03rem 0.1rem;
   position: relative;
-  background-color: #fafafa;
+  background-color: #ebebeb;
   color: #666;
   font-size: 0.13rem;
   font-weight: normal;
@@ -708,7 +695,7 @@ a {
 
 .yo-list-inset {
   margin: 0.2rem 0.1rem 0 0.1rem;
-  border-radius: 0.02rem;
+  border-radius: 0.2rem;
   overflow: hidden;
 }
 
@@ -718,19 +705,19 @@ a {
 
 @media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
   .yo-list-inset::after {
-    border-radius: 0.02rem;
+    border-radius: 0.2rem;
   }
 }
 
 @media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
   .yo-list-inset::after {
-    border-radius: 0.04rem;
+    border-radius: 0.4rem;
   }
 }
 
 @media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
   .yo-list-inset::after {
-    border-radius: 0.06rem;
+    border-radius: 0.6rem;
   }
 }
 

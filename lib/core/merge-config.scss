@@ -119,6 +119,13 @@
     $breadcrumb: $_breadcrumb !global;
 }
 
+// 合并variables和config中的card map
+@if global-variable-exists(card) {
+    $card: map-merge($_card, $card) !global;
+} @else {
+    $card: $_card !global;
+}
+
 // 合并variables和config中的header map
 @if global-variable-exists(header) {
     $header: map-merge($_header, $header) !global;
