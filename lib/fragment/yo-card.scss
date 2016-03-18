@@ -2,7 +2,7 @@
 
 // 定义card的基础构造
 @mixin _card {
-    margin: .1rem;
+    margin: map-get($card, margin);
     background-color: #fff;
     @include border(
         $border-width: 1px,
