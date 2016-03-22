@@ -303,12 +303,7 @@ a {
   font-size: 0.18rem;
   overflow: hidden;
   text-overflow: ellipsis;
-  display: -webkit-box !important;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  flex-direction: column;
+  white-space: nowrap;
   text-align: center;
 }
 
@@ -355,12 +350,7 @@ a {
 .yo-header > .title {
   overflow: hidden;
   text-overflow: ellipsis;
-  display: -webkit-box !important;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  flex-direction: column;
+  white-space: nowrap;
   margin: 0 0.6rem;
 }
 
