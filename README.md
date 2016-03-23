@@ -57,6 +57,10 @@ Yo约束了2种项目所使用的长度单位
     - 将默认宽度由`.6rem`修改为`.5rem`；
     - 移除 `$border-color`, `$checked-border-color` 参数；
     - 新增 `$follow-bgcolor` 参数用以指定跟随元素的背景色；
+* change：
+    - 将 `yo-actionsheet` 移到了 fragement 类别；
+    - 将 `yo-vcode` 移到了 fragment 类别；
+    - 后续计划将 widget 类别全部迁移到 fragement ，kami对应的应该是各种 fragement 的拼合文件，Yo 不直接提供某个具体的组件
 
 #### 删除：
 * 删除 `yo-popup` 组件；
