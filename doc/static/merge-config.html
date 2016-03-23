@@ -144,11 +144,11 @@
     $breadcrumb: $_breadcrumb !global;
 }
 
-// 合并variables和config中的btnbar map
-@if global-variable-exists(btnbar) {
-    $btnbar: map-merge($_btnbar, $btnbar) !global;
+// 合并variables和config中的card map
+@if global-variable-exists(card) {
+    $card: map-merge($_card, $card) !global;
 } @else {
-    $btnbar: $_btnbar !global;
+    $card: $_card !global;
 }
 
 // 合并variables和config中的header map
@@ -184,6 +184,13 @@
     $table: map-merge($_table, $table) !global;
 } @else {
     $table: $_table !global;
+}
+
+// 合并variables和config中的toolbar map
+@if global-variable-exists(toolbar) {
+    $toolbar: map-merge($_toolbar, $toolbar) !global;
+} @else {
+    $toolbar: $_toolbar !global;
 }
 
 // 合并variables和config中的actionsheet map

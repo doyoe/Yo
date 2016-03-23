@@ -299,11 +299,12 @@ $_breadcrumb: (
     item-space:   .05rem
 );
 
-// Fragment btnbar(1)
-$_btnbar: (
-    // {Length} 工具栏圆角
-    // 当值为null时，btnbar的圆角半径取决于按钮的圆角定义
-    radius: null
+// Fragment card(5)
+$_card: (
+    // {Length} 外边距
+    margin:  .1rem,
+    // {Length} 圆角半径长度
+    radius:  0
 );
 
 // Fragment header(12)
@@ -334,7 +335,7 @@ $_header: (
     item-ico-size:  .2rem
 );
 
-// Fragment list(15)
+// Fragment list(11)
 $_list: (
     // {Length} 列表外边距
     margin:            null,
@@ -349,7 +350,7 @@ $_list: (
     // {Length} 列表组头内补白
     label-padding:     .03rem .1rem,
     // {Color} 列表组头背景色
-    label-bgcolor:     map-get($base, bgcolor),
+    label-bgcolor:     map-get($base, doc-bgcolor),
     // {Color} 点击反馈背景色
     active-bgcolor:    #f8f8f8,
     // {Color} 选中背景色
@@ -368,14 +369,6 @@ $_list: (
     label-font-size:   .13rem,
     // {Length} 列表项下边线距离左侧的间隙
     item-border-space: .1rem,
-    // {Length} 详情区域字号
-    detail-font-size:  .12rem,
-    // {Length} 详情区域文本色
-    detail-color:      #999,
-    // {Length} 描述区域字号
-    info-font-size:    null,
-    // {Length} 描述区域文本色
-    info-color:        #999,
     // {Length} 更多区域字号
     more-font-size:    .12rem,
     // {Length} 更多区域文本色
@@ -444,6 +437,32 @@ $_table: (
     active-bgcolor:      null,
     // {Color} 表主体选中行背景色
     on-bgcolor:          null
+);
+
+// Fragment toolbar(11)
+$_toolbar: (
+    // {Length} 宽度
+    width:          null,
+    // {Length} 高度
+    height:         .44rem,
+    // {Length} 边框厚度
+    border-width:   1px,
+    // {Color} 边框色
+    border-color:   #d36105,
+    // {Color} 背景色
+    bgcolor:        #ff801a,
+    // {Color} 文本色
+    color:          #fff,
+    // {Color} 选中时背景色
+    on-bgcolor:     #f06d05,
+    // {Color} 选中时文本色
+    on-color:       null,
+    // {Length} 内补白
+    item-padding:    0 .15rem,
+    // {Length} 圆角半径
+    radius:         .1rem,
+    // {Length} 字号
+    font-size:      null
 );
 
 // Widget UI actionsheet(8)

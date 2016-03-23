@@ -184,7 +184,7 @@
  * @method align
  * @version 2.0.0
  * @param {String} $flexbox 指定包含块布局方式，可选值：flex | inline-flex，默认值：flex {add:2.0.0}
- * @param {String} $type 指定居中元素类型，可选值：image | text，默认值：text {add:2.0.0}
+ * @param {String} $type 指定居中元素类型，可选值：image | text | other，默认值：text {add:2.0.0}
  * @param {Keywords} $justify-content 指定元素水平对齐方式，取值与`justify-content`属性一致，默认值：center {add:2.0.0}
  * @param {Keywords} $align-items 指定元素垂直对齐方式，取值与`align-items`属性一致，默认值：center {add:2.0.0}
  * @example
@@ -197,7 +197,9 @@
     @include flexbox($flexbox);
     @include justify-content($justify-content);
     @include align-items($align-items);
-    @include wrap;
+    @if $type == text {
+        @include wrap;
+    }
     > .item {
         @if $type == image {
             max-width: 100%;
@@ -1087,13 +1089,23 @@
  * @method ellipsis
  * @version 1.0.0
  * @param {Length} $width 定义容器的宽度，默认值：null {add:2.0.0}
+ * @param {Integer} $line-clamp 定义需要显示的行数，默认值：1（即使用单行溢出的处理方案），需要注意的是本参数支持`-webkit-` {add:2.1.2}
  */
-@mixin ellipsis($width: null) {
+@mixin ellipsis($width: null, $line-clamp: 1) {
     overflow: hidden;
-    @include wrap(false);
     text-overflow: ellipsis;
     width: $width;
+    @if abs($line-clamp) > 1 {
+        // 要使得多行截取生效，display的值只能为-webkit-box
+        display: -webkit-box !important;
+        -webkit-line-clamp: $line-clamp;
+        @include flex-direction(column);
+    } @else {
+        @include wrap(false);
+    }
 }
+
+
 
 /**
  * @module core

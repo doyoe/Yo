@@ -277,9 +277,19 @@ $_breadcrumb: (
 // Fragment card(5)
 $_card: (
     // {Length} 外边距
-    margin:  .1rem,
+    margin:       .1rem,
     // {Length} 圆角半径长度
-    radius:  0
+    radius:       0,
+    // {Length} 外边框厚度
+    border-width: 1px,
+    // {Color} 外边框色
+    border-color: #ccc,
+    // {Color} 背景色
+    bgcolor:      #fff,
+    // {Color} 文本色
+    color:        null,
+    // {Length} 字号大小
+    font-size:    map-get($base, font-size-baseline)
 );
 
 // Fragment header(12)

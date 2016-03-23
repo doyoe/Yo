@@ -89,6 +89,10 @@
                 &::after {
                     border-right-width: 0;
                 }
+                border-bottom-right-radius: map-get($dialog, radius);
+            }
+            &:first-child {
+                border-bottom-left-radius: map-get($dialog, radius);
             }
         }
     }
@@ -136,9 +140,6 @@
     }
     @if $radius == default {
         $radius: map-get($dialog, radius);
-    }
-    @if $shadow-opacity == default {
-        $shadow-opacity: map-get($dialog, shadow-opacity);
     }
     @if $border-color == default {
         $border-color: map-get($dialog, border-color);
@@ -202,10 +203,20 @@
             }
         }
         > .ft {
-            .yo-btn-dialog::after {
-                // 如果$border-color不等于config设定，则重绘边框颜色
-                @if $border-color != map-get($dialog, border-color) {
-                    border-color: $border-color;
+            .yo-btn-dialog {
+                @if $radius != map-get($dialog, radius) {
+                    &:last-child {
+                        border-bottom-right-radius: $radius;
+                    }
+                    &:first-child {
+                        border-bottom-left-radius: $radius;
+                    }
+                }
+                &::after {
+                    // 如果$border-color不等于config设定，则重绘边框颜色
+                    @if $border-color != map-get($dialog, border-color) {
+                        border-color: $border-color;
+                    }
                 }
             }
         }
