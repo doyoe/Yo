@@ -801,7 +801,8 @@ a {
 }
 
 .m-demo .mark img {
-  width: .4rem;
+  width: 0.5rem;
+  height: 0.5rem;
 }
 
 .m-demo > .yo-dialog {
@@ -810,6 +811,11 @@ a {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+}
+
+.m-demo > .yo-card .cols img {
+  width: 0.6rem;
+  height: 0.6rem;
 }
 
 .m-desc {

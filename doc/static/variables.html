@@ -299,12 +299,30 @@ $_breadcrumb: (
     item-space:   .05rem
 );
 
-// Fragment card(5)
+// Fragment card(11)
 $_card: (
     // {Length} 外边距
-    margin:  .1rem,
+    margin:       .1rem,
     // {Length} 圆角半径长度
-    radius:  0
+    radius:       0,
+    // {Length} 外边框厚度
+    border-width: 1px,
+    // {Color} 外边框色
+    border-color: #ccc,
+    // {Color} 背景色
+    bgcolor:      #fff,
+    // {Color} 文本色
+    color:        null,
+    // {Length} 字号大小
+    font-size:    map-get($base, font-size-baseline),
+    // {Length} 头部边框厚度
+    hd-border-width: 0 0 1px,
+    // {Color} 头部边框色
+    hd-border-color: #ddd,
+    // {Length} 底部边框厚度
+    ft-border-width: 1px 0 0,
+    // {Color} 底部边框色
+    ft-border-color: #ddd
 );
 
 // Fragment header(12)

@@ -19,7 +19,7 @@
 
     // yo-list示例页面：图片大小
     .mark img {
-        width: .4rem;
+        @include square(.5rem);
     }
 
     // yo-dialog示例页面：显示多个dialog
@@ -28,5 +28,10 @@
         top: 50%;
         left: 50%;
         @include transform(translate(-50%, -50%));
+    }
+
+    // yo-card示例页面：多列时的图片大小
+    > .yo-card .cols img {
+        @include square(.6rem);
     }
 }
