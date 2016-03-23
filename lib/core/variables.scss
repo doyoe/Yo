@@ -10,7 +10,7 @@
 // 基本设置
 $_setting: (
     // {String} 版本号
-    version:          "2.1.2",
+    version:          "2.2.0",
     // {Boolean} 是否开启厂商前缀
     is-vendor-prefix: true,
     // {String} 厂商前缀
@@ -260,6 +260,26 @@ $_score: (
     url:         "star.png"
 );
 
+// Fragment UI actionsheet(8)
+$_actionsheet: (
+    // {Length} 外边距
+    margin:         .1rem,
+    // {Length} 圆角半径
+    radius:         .1rem,
+    // {Color} 边线色
+    border-color:   map-get($base, border-color),
+    // {Color} 子项背景色
+    bgcolor:        rgba(#fff, .9),
+    // {Color} 子项点击反馈背景色
+    active-bgcolor: rgba(#eee, .9),
+    // {Length} 子项高度
+    item-height:    .55rem,
+    // {Length} 子项字号
+    item-font-size: .18rem,
+    // {Color} 子项文本色
+    item-color:     map-get($base, link-color)
+);
+
 // Fragment breadcrumb(5)
 $_breadcrumb: (
     // {Length} 面包屑高度
@@ -458,24 +478,20 @@ $_toolbar: (
     font-size:      null
 );
 
-// Widget UI actionsheet(8)
-$_actionsheet: (
-    // {Length} 外边距
-    margin:         .1rem,
-    // {Length} 圆角半径
-    radius:         .1rem,
-    // {Color} 边线色
-    border-color:   map-get($base, border-color),
-    // {Color} 子项背景色
-    bgcolor:        rgba(#fff, .9),
-    // {Color} 子项点击反馈背景色
-    active-bgcolor: rgba(#eee, .9),
-    // {Length} 子项高度
-    item-height:    .55rem,
-    // {Length} 子项字号
-    item-font-size: .18rem,
-    // {Color} 子项文本色
-    item-color:     map-get($base, link-color)
+// Widget UI vcode(6)
+$_vcode: (
+    // {Length} 输入框高度
+    height:       .44rem,
+    // {Color} 输入框背景色
+    bgcolor:      #fff,
+    // {Length} 输入框圆角半径
+    radius:       .05rem,
+    // {Length} 输入框字号
+    font-size:    .16rem,
+    // {Length} 输入框边框厚度
+    border-width: 1px,
+    // {Color} 输入框边框色
+    border-color:  #000
 );
 
 // Widget UI datepicker(26)
@@ -759,20 +775,4 @@ $_tip: (
     color:      #fff,
     // {Length} 箭头大小
     arrow-size: .08rem
-);
-
-// Widget UI vcode(6)
-$_vcode: (
-    // {Length} 输入框高度
-    height:       .44rem,
-    // {Color} 输入框背景色
-    bgcolor:      #fff,
-    // {Length} 输入框圆角半径
-    radius:       .05rem,
-    // {Length} 输入框字号
-    font-size:    .16rem,
-    // {Length} 输入框边框厚度
-    border-width: 1px,
-    // {Color} 输入框边框色
-    border-color:  #000
 );
