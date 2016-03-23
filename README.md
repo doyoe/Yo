@@ -45,7 +45,7 @@ Yo约束了2种项目所使用的长度单位
 
 ### 最新稳定版: [v2.1.1](https://github.com/doyoe/Yo/releases/tag/v2.1.1)
 
-### 开发中版本: v2.2.0
+### 开发中版本: v2.1.2
 
 #### 新增：
 * add `yo-search`，用以各种搜索框；
