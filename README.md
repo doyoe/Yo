@@ -52,7 +52,7 @@ Yo约束了2种项目所使用的长度单位
 * add `yo-toolbar`，用以展示工具条；
 
 #### 变更：
-* change `yo-select`，修改内部实现，精简代码层级；
+* change `yo-select`，修改内部实现，精简代码层级，Kami需要重写该组件；
 * change `yo-switch`：
     - 将默认宽度由`.6rem`修改为`.5rem`；
     - 移除 `$border-color`, `$checked-border-color` 参数；
