@@ -372,7 +372,6 @@ a {
 
 .yo-card {
   position: relative;
-  border-radius: 0;
   overflow: hidden;
   margin: 0.1rem;
   background-color: #fff;
@@ -398,7 +397,6 @@ a {
   .yo-card::after {
     width: 100%;
     height: 100%;
-    border-radius: 0;
   }
 }
 
@@ -408,7 +406,6 @@ a {
     height: 200%;
     -webkit-transform: scale(0.5);
     transform: scale(0.5);
-    border-radius: 0;
   }
 }
 
@@ -418,7 +415,6 @@ a {
     height: 300%;
     -webkit-transform: scale(0.33333);
     transform: scale(0.33333);
-    border-radius: 0;
   }
 }
 
@@ -462,18 +458,6 @@ a {
   left: 0;
   color: #fff;
   text-shadow: -1px 1px 0 #666;
-}
-
-.yo-card > .hd,
-.yo-card > .extra:first-child .cover-img {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-}
-
-.yo-card > .ft,
-.yo-card > .extra:first-child .cover-img {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
 }
 
 .yo-card > .hd {
