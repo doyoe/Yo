@@ -112,6 +112,13 @@
     $score: $_score !global;
 }
 
+// 合并variables和config中的actionsheet map
+@if global-variable-exists(actionsheet) {
+    $actionsheet: map-merge($_actionsheet, $actionsheet) !global;
+} @else {
+    $actionsheet: $_actionsheet !global;
+}
+
 // 合并variables和config中的breadcrumb map
 @if global-variable-exists(breadcrumb) {
     $breadcrumb: map-merge($_breadcrumb, $breadcrumb) !global;
@@ -168,11 +175,11 @@
     $toolbar: $_toolbar !global;
 }
 
-// 合并variables和config中的actionsheet map
-@if global-variable-exists(actionsheet) {
-    $actionsheet: map-merge($_actionsheet, $actionsheet) !global;
+// 合并variables和config中的vcode map
+@if global-variable-exists(vcode) {
+    $vcode: map-merge($_vcode, $vcode) !global;
 } @else {
-    $actionsheet: $_actionsheet !global;
+    $vcode: $_vcode !global;
 }
 
 // 合并variables和config中的datepicker map
@@ -285,11 +292,4 @@
     $tip: map-merge($_tip, $tip) !global;
 } @else {
     $tip: $_tip !global;
-}
-
-// 合并variables和config中的vcode map
-@if global-variable-exists(vcode) {
-    $vcode: map-merge($_vcode, $vcode) !global;
-} @else {
-    $vcode: $_vcode !global;
 }
