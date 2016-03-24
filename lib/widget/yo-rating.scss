@@ -11,9 +11,7 @@
     > .index,
     > .item {
         background: url(#{map-get($setting, bgimg-domain)}#{map-get($rating, url)}) repeat-x;
-        @if map-get($rating, item-height) != null {
-            background-size: auto map-get($rating, item-height) * 2;
-        }
+        background-size: auto 200%;
     }
     > .index,
     > .item {
@@ -24,7 +22,7 @@
         line-height: 10;
     }
     > .index {
-        background-position: 0 unquote(-#{map-get($rating, item-height)});
+        background-position: 0 100%;
     }
     > .item {
         z-index: 3;
@@ -59,7 +57,7 @@
         &:hover {
             z-index: 2;
             left: 0 !important;
-            background-position: 0 unquote(-#{map-get($rating, item-height)});
+            background-position: 0 100%;
         }
     }
     &-readonly {
@@ -114,21 +112,6 @@
         > .item {
             @if $url != map-get($rating, url) {
                 background-image: url(#{map-get($setting, bgimg-domain)}#{$url});
-            }
-            @if $item-height != map-get($rating, item-height) {
-                background-size: auto $item-height * 2;
-            }
-        }
-        > .index {
-            @if $item-height != map-get($rating, item-height) {
-                background-position: 0 unquote(-#{$item-height});
-            }
-        }
-        > .item {
-            &:hover {
-                @if $item-height != map-get($rating, item-height) {
-                    background-position: 0 unquote(-#{$item-height});
-                }
             }
         }
         // 增量扩展

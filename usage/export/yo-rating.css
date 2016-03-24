@@ -382,7 +382,7 @@ a {
 .yo-rating > .index,
 .yo-rating > .item {
   background: url(//ss.qunarzz.com/yo/bgimg/star.png) repeat-x;
-  background-size: auto 0.36rem;
+  background-size: auto 200%;
 }
 
 .yo-rating > .index,
@@ -395,7 +395,7 @@ a {
 }
 
 .yo-rating > .index {
-  background-position: 0 -0.18rem;
+  background-position: 0 100%;
 }
 
 .yo-rating > .item {
@@ -440,7 +440,7 @@ a {
 .yo-rating > .item:hover {
   z-index: 2;
   left: 0 !important;
-  background-position: 0 -0.18rem;
+  background-position: 0 100%;
 }
 
 .yo-rating-readonly > .item:hover {
