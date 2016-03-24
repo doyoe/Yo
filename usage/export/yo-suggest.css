@@ -673,15 +673,6 @@ a {
   align-items: center;
 }
 
-.yo-list > .label > .mark:not(:last-child),
-.yo-list > .label > .yo-ico:not(:last-child),
-.yo-list > .item > .mark:not(:last-child),
-.yo-list > .item > .yo-ico:not(:last-child),
-.yo-list .front > .mark:not(:last-child),
-.yo-list .front > .yo-ico:not(:last-child) {
-  margin-right: .1rem;
-}
-
 .yo-list > .label > .flex,
 .yo-list > .item > .flex,
 .yo-list .front > .flex {
@@ -689,6 +680,19 @@ a {
   -webkit-flex: 1;
   flex: 1;
   width: .1px;
+  margin: 0 .1rem;
+}
+
+.yo-list > .label > .flex:first-child,
+.yo-list > .item > .flex:first-child,
+.yo-list .front > .flex:first-child {
+  margin-left: 0;
+}
+
+.yo-list > .label > .flex:last-child,
+.yo-list > .item > .flex:last-child,
+.yo-list .front > .flex:last-child {
+  margin-right: 0;
 }
 
 .yo-list > .label > .yo-ico,
@@ -700,7 +704,6 @@ a {
 .yo-list > .label > .yo-ico:last-child,
 .yo-list > .item > .yo-ico:last-child,
 .yo-list .front > .yo-ico:last-child {
-  margin: -.01rem 0 0 .05rem;
   color: #aaa;
   font-size: 0.12rem;
 }
