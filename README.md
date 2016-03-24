@@ -4,6 +4,13 @@
 
 通过阅读 [文档](http://doyoe.github.io/Yo/doc/) 和 [示例](http://doyoe.github.io/Yo/demo/) 将可以快速上手。
 
+
+## 内容
+
+* [快速开始](#quick-stat)
+
+
+<a name="quick-stat"></a>
 ## 快速开始
 
 * 安装: `Nodejs`
