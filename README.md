@@ -8,6 +8,12 @@
 ## 内容
 
 * [快速开始](#quick-stat)
+* [浏览器支持](#supported-browsers)
+* [问题及反馈](#bugs-and-feature-requests)
+* [文档和实例](#documentation-and-demo)
+* [版本](#versioning)
+* [作者](#author)
+* [版权和许可](#copyright-and-license)
 
 
 <a name="quick-stat"></a>
@@ -22,6 +28,7 @@
     * `gulp build`: 如果你只是想build一次该项目
 
 
+<a name="supported-browsers"></a>
 ## 浏览器支持
 
 * iOS6.0+
@@ -29,18 +36,20 @@
 * Latest Stable: Chrome, Safari, Opera, IE10+
 
 
+<a name="bugs-and-feature-requests"></a>
 ## 问题及反馈
 
 如果您的项目正在使用`Yo`，过程中发现了任何问题，或者有任何帮助`Yo`更完善的想法和建议，请直接给我提[Issues](https://github.com/doyoe/Yo/issues/new)和[Pull Requests](https://github.com/doyoe/Yo/pulls)。
 
 
-## 注意
+<a name="documentation-and-demo"></a>
+## 实例和文档
 
-Yo约束了2种项目所使用的长度单位
+* [View Demo](http://doyoe.github.io/Yo/demo/)
+* [View Documentation](http://doyoe.github.io/Yo/doc/)
 
-* 所有涉及到`border`的长度单位都是用`px`；
-* 除`border`外，所有的长度设置都是用`rem`单位；
 
+<a name="Versioning"></a>
 ## 版本
 
 `master`分支为开发版本，稳定版本都发布在`releases tag`中。
@@ -65,11 +74,13 @@ Yo约束了2种项目所使用的长度单位
 * 修订号：做了前向后兼容的问题修正。
 
 
+<a name="author"></a>
 ## 作者
 
 杜瑶，我目前居住在北京，就职于 [Qunar](http://www.qunar.com)，您可以在 [Github](https://github.com/doyoe) 或者 [Weibo](http://weibo.com/doyoe) 看到我的最近动态。当然，也可以通过我的[个人站点](http://www.doyoe.com)，博客：[CSS探索之旅](http://blog.doyoe.com)，[CSS参考手册](http://css.doyoe.com) 和 [Web前端实验室](http://demo.doyoe.com) 等信息了解更多。
 
 
-## 版本许可
+<a name="copyright-and-license"></a>
+## 版本和许可
 
 源码和文档版权属于 [doyoe.com](http://www.doyoe.com)。源码发布基于 [the MIT license](http://opensource.org/licenses/MIT) 开源协议。文档发布基于 [Creative Commons](http://creativecommons.org/licenses/by/4.0/) 开源协议。
