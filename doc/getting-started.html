@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
-    <title>Yo Documentation 简介</title>
+    <title>Yo Documentation 起步</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="format-detection" content="telephone=no,email=no" />
@@ -196,7 +196,7 @@
     }
     </style>
 </head>
-<body id="intro">
+<body id="getting-started">
 
 <!-- Docs master nav -->
 <header class="navbar navbar-static-top docs-nav" id="top" role="banner">
@@ -235,7 +235,7 @@
                 
                 
                 <li class="active">
-                    <a href="intro.html">简介</a>
+                    <a href="getting-started.html">起步</a>
                 </li>
                 
                 
@@ -282,8 +282,8 @@
 
 <div class="docs-header" id="content" style="margin-bottom:0">
     <div class="container">
-        <h1>简介</h1>
-        <p>Yo 是一款基于 Mobile First 理念而设计的 CSS Framework，它轻量，易用且自定义能力高度强大，同时也适应于PC端的高级浏览器</p>
+        <h1>起步</h1>
+        <p>本文详细描述 Yo 的使用方式，花上几分钟，下述的介绍将会帮助你快速的上手，并让自己沉浸在使用 Yo 的开发之中，感受到乐趣</p>
         
     </div>
 </div>
@@ -293,59 +293,39 @@
     
         <div id="readme">
             <article class="markdown-body">
-                <h1>Yo</h1>
+                <h1></h1>
 
-<p><code>Yo</code> 是一款基于 <code>Mobile First</code> 理念而设计的 <code>CSS Framework</code>，它轻量，易用且自定义能力高度强大，同时也适应于PC端的高级浏览器。</p>
+<h2>用前须知</h2>
 
-<h2>快速开始</h2>
+<p><code>Yo</code> 是基于 <code>Sass</code> 开发的 <code>CSS Framework</code>，所以在使用之前，请先确保有能够编译 <code>Sass</code> 的环境。如果还没有，下面的步骤可以帮你快速搞定：</p>
 
 <ul><li>安装: <code>Nodejs</code></li><li>克隆项目: <code>git clone git@github.com:doyoe/Yo.git</code></li><li>安装gulp: <code>npm install gulp -g --registry=https://registry.npm.taobao.org</code></li><li>安装依赖: <code>npm install --registry=https://registry.npm.taobao.org</code></li><li>运行:<ul><li><code>gulp watch</code>: 如果你想监听所有文件的变更</li><li><code>gulp build</code>: 如果你只是想build一次该项目</li></ul></li></ul>
 
-<h2>浏览器支持</h2>
+<h2>内容</h2>
 
-<ul><li>iOS6.0+</li><li>Android4.0+</li><li>Latest Stable: Chrome, Safari, Opera, IE10+</li></ul>
+<ul><li><a href="#user-content-properties">Properties 属性</a><ul><li><a href="#user-content-text">Text 文本</a></li><li><a href="#user-content-dimension">Dimension 尺寸</a></li><li><a href="#user-content-positioning">Positioning 定位</a></li><li><a href="#user-content-margin">Margin 外部白</a></li><li><a href="#user-content-padding">Padding 内补白</a></li><li><a href="#user-content-border">Border 边框</a></li><li><a href="#user-content-background">Background 背景</a></li><li><a href="#user-content-transform">Transform 转换</a></li><li><a href="#user-content-flexbox">Flexbox 弹性盒</a></li><li><a href="#user-content-other">Other 其他</a></li></ul></li><li><a href="#user-content-values">Values 取值</a><ul><li><a href="#user-content-color">Color 颜色</a></li><li><a href="#user-content-number">Number 数值</a></li></ul></li><li><a href="#user-content-units">Units 单位</a><ul><li><a href="#user-content-pt">Pt 点</a></li></ul></li></ul>
 
-<h2>问题及反馈</h2>
-
-<p>如果您的项目正在使用<code>Yo</code>，过程中发现了任何问题，或者有任何帮助<code>Yo</code>更完善的想法和建议，请直接给我提<a href="https://github.com/doyoe/Yo/issues/new">Issues</a>和<a href="https://github.com/doyoe/Yo/pulls">Pull Requests</a>。</p>
-
-<h2>实例和文档</h2>
-
-<ul><li><a href="http://doyoe.github.io/Yo/demo/">View Demo</a></li><li><a href="http://doyoe.github.io/Yo/doc/">View Documentation</a></li></ul>
+<p>首先，实际上我们并不计划对外提供打包好的 <code>yo.min.css</code> 来供直接引用，而是推荐直接在 <code>Yo</code> 的 <code>usage</code> 目录下进行开发。因为这样，你才更能体会 <code>Yo</code> 的众多功能和方法所带来的便利，并感受到它的魅力。</p>
 
 <h2>注意</h2>
 
-<p>Yo约束了2种项目所使用的长度单位</p>
+<h4>Yo约束了2种项目所使用的长度单位</h4>
 
-<ul><li>所有涉及到<code>border</code>的长度单位都是用<code>px</code>；</li><li>除<code>border</code>外，所有的长度设置都是用<code>rem</code>单位；</li></ul>
+<ul><li>所有涉及到 <code>border</code> 的长度单位都是用 <code>px</code>；</li><li>除 <code>border</code> 外，所有的长度设置都是用 <code>rem</code> 单位；</li></ul>
 
-<h2>版本</h2>
+<h4>Yo重置了盒模型</h4>
 
-<p><code>master</code>分支为开发版本，稳定版本都发布在<code>releases tag</code>中。</p>
+<p>为了让计算变得简单，我们改变了所有元素的盒模型，将其重置为 <code>border-box</code>。当然，也包括常用的伪元素 <code>::before</code> 和 <code>::after</code>。</p>
 
-<h3>最新稳定版: <a href="https://github.com/doyoe/Yo/releases/tag/v2.1.2">v2.1.2</a></h3>
+<pre><code>*,
+::before,
+::after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}</code></pre>
 
-<h3>开发中版本: v2.1.3</h3>
-
-<h3>历史版本</h3>
-
-<p>如想查看更多版本变更历史，请查看<a href="https://github.com/doyoe/Yo/blob/master/changelog.md">ChangeLog</a>.</p>
-
-<h3>版本号说明</h3>
-
-<p><code>Yo</code>的版本发布周期是透明的，并尽可能保证向前向后兼容，您可以根据我们的语义化版本方针进行版本控制。</p>
-
-<p><code>Yo</code>的版本方针遵循 <a href="http://semver.org/lang/zh-CN/">SemVer</a> 规范，版本号采用<code>主版本号.次版本号.修订号</code>的格式，版本号规则如下：</p>
-
-<ul><li>主版本号：做了不兼容的<code>API</code>修改，同时可以涵盖<code>次版本号</code>和<code>修订号</code>的内容；</li><li>次版本号：做了向前向后兼容的功能性新增，同时可以涵盖<code>修订号</code>的内容；</li><li>修订号：做了前向后兼容的问题修正。</li></ul>
-
-<h2>作者</h2>
-
-<p>杜瑶，我目前居住在北京，就职于 <a href="http://www.qunar.com">Qunar</a>，您可以在 <a href="https://github.com/doyoe">Github</a> 或者 <a href="http://weibo.com/doyoe">Weibo</a> 看到我的最近动态。当然，也可以通过我的<a href="http://www.doyoe.com">个人站点</a>，博客：<a href="http://blog.doyoe.com">CSS探索之旅</a>，<a href="http://css.doyoe.com">CSS参考手册</a> 和 <a href="http://demo.doyoe.com">Web前端实验室</a> 等信息了解更多。</p>
-
-<h2>版本许可</h2>
-
-<p>源码和文档版权属于 <a href="http://www.doyoe.com">doyoe.com</a>。源码发布基于 <a href="http://opensource.org/licenses/MIT">the MIT license</a> 开源协议。文档发布基于 <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons</a> 开源协议。</p>
+<p>如果你长时间工作在 <code>PC</code> 平台上，这个设定可能需要一个适应的过程，但可以肯定的是，你一定会喜欢上它。</p>
             </article>
         </div>
     
