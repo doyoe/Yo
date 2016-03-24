@@ -43,28 +43,9 @@ Yo约束了2种项目所使用的长度单位
 
 `master`分支为开发版本，稳定版本都发布在`releases tag`中。
 
-### 最新稳定版: [v2.1.1](https://github.com/doyoe/Yo/releases/tag/v2.1.1)
+### 最新稳定版: [v2.1.2](https://github.com/doyoe/Yo/releases/tag/v2.1.2)
 
-### 开发中版本: v2.1.2
-
-#### 新增：
-* add `yo-search`，用以各种搜索框；
-* add `yo-toolbar`，用以展示工具条；
-
-#### 变更：
-* change `yo-select`，修改内部实现，精简代码层级，Kami需要重写该组件；
-* change `yo-switch`：
-    - 将默认宽度由`.6rem`修改为`.5rem`；
-    - 移除 `$border-color`, `$checked-border-color` 参数；
-    - 新增 `$follow-bgcolor` 参数用以指定跟随元素的背景色；
-* change：
-    - 将 `yo-actionsheet` 移到了 fragement 类别；
-    - 将 `yo-vcode` 移到了 fragment 类别；
-    - 后续计划将 widget 类别全部迁移到 fragement ，kami对应的应该是各种 fragement 的拼合文件，Yo 不直接提供某个具体的组件
-
-#### 删除：
-* 删除 `yo-popup` 组件；
-* 删除 `yo-btnbar` 组件；
+### 开发中版本: v2.1.3
 
 ### 历史版本
 
