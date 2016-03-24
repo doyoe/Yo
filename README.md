@@ -49,7 +49,7 @@
 * [View Documentation](http://doyoe.github.io/Yo/doc/)
 
 
-<a name="Versioning"></a>
+<a name="versioning"></a>
 ## 版本
 
 `master`分支为开发版本，稳定版本都发布在`releases tag`中。
