@@ -1,7 +1,21 @@
 #
 ## 用前须知
 
-`Yo` 是基于 `Sass` 开发的 `CSS Framework`，所以在使用之前，请先确保有能够编译 `Sass` 的环境。如果还没有，下面的步骤可以帮你快速搞定：
+`Yo` 是基于 `Mobile First` 理念而设计，并使用 `Sass` 开发的 `CSS Framework`，所以在使用之前，请先确保你的机器有能够编译 `Sass` 的环境。如果还没有，下面的步骤可以帮你快速搞定：
+
+
+## 内容
+
+* [环境搭建](#quick-stat)
+* [浏览器支持](#supported-browsers)
+* [问题及反馈](#bugs-and-feature-requests)
+* [文档和实例](#documentation-and-demo)
+* [版本](#versioning)
+* [作者](#author)
+* [版权和许可](#copyright-and-license)
+
+
+## 环境搭建
 
 * 安装: `Nodejs`
 * 克隆项目: `git clone git@github.com:doyoe/Yo.git`
@@ -14,22 +28,6 @@
 
 ## 内容
 
-* [Properties 属性](#user-content-properties)
-    * [Text 文本](#user-content-text)
-    * [Dimension 尺寸](#user-content-dimension)
-    * [Positioning 定位](#user-content-positioning)
-    * [Margin 外部白](#user-content-margin)
-    * [Padding 内补白](#user-content-padding)
-    * [Border 边框](#user-content-border)
-    * [Background 背景](#user-content-background)
-    * [Transform 转换](#user-content-transform)
-    * [Flexbox 弹性盒](#user-content-flexbox)
-    * [Other 其他](#user-content-other)
-* [Values 取值](#user-content-values)
-    * [Color 颜色](#user-content-color)
-    * [Number 数值](#user-content-number)
-* [Units 单位](#user-content-units)
-    * [Pt 点](#user-content-pt)
 
 首先，实际上我们并不计划对外提供打包好的 `yo.min.css` 来供直接引用，而是推荐直接在 `Yo` 的 `usage` 目录下进行开发。因为这样，你才更能体会 `Yo` 的众多功能和方法所带来的便利，并感受到它的魅力。
 
