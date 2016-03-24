@@ -42,18 +42,20 @@
         // 移除该定义，请业务自行在需要的地方添加
         // 该定义会将所有的item放到Composited Layer中，对性能有较大影响
         // @include transform(translatez(0));
-        > .mark:not(:last-child),
-        > .yo-ico:not(:last-child) {
-            margin-right: .1rem;
-        }
         // 定义需要自适应宽度的列
         > .flex {
             @include flex;
+            margin: 0 .1rem;
+            &:first-child {
+                margin-left: 0;
+            }
+            &:last-child {
+                margin-right: 0;
+            }
         }
         > .yo-ico {
             display: block;
             &:last-child {
-                margin: -.01rem 0 0 .05rem;
                 color: map-get($list, more-color);
                 font-size: map-get($list, more-font-size);
             }
