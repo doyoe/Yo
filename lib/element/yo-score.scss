@@ -10,13 +10,11 @@
     > .index {
         display: inline-block;
         background: url(#{map-get($setting, bgimg-domain)}#{map-get($score, url)}) repeat-x;
-        @if map-get($score, item-height) != null {
-            background-size: auto map-get($score, item-height) * 2;
-        }
+        background-size: auto 200%;
     }
     > .index {
         height: 100%;
-        background-position: 0 unquote(-#{map-get($score, item-height)});
+        background-position: 0 100%;
         line-height: 10;
         vertical-align: top;
     }
@@ -29,8 +27,8 @@
  * @description 构造评分展示的自定义使用方法
  * @demo http://doyoe.github.io/Yo/demo/element/yo-score.html
  * @param {String} $name 定义扩展名称 {add:1.3.1}
- * @param {Length} $item-width 单项宽度 {add:1.3.1}
- * @param {Length} $item-height 单项高度 {add:1.3.1}
+ * @param {Length} $item-width 单项宽度（指定尺寸时，宽高的比例需要和图片原始比例保持一致） {add:1.3.1}
+ * @param {Length} $item-height 单项高度（指定尺寸时，宽高的比例需要和图片原始比例保持一致） {add:1.3.1}
  * @param {String} $url 背景图片url {add:1.3.1}
  */
 
@@ -62,14 +60,6 @@
         > .index {
             @if $url != map-get($score, url) {
                 background-image: url(#{map-get($setting, bgimg-domain)}#{$url});
-            }
-            @if $item-height != map-get($score, item-height) {
-                background-size: auto $item-height * 2;
-            }
-        }
-        > .index {
-            @if $item-height != map-get($score, item-height) {
-                background-position: 0 unquote(-#{$item-height});
             }
         }
         // 增量扩展
