@@ -2,15 +2,15 @@
 
 History Version and release time.
 
-### v2.1.2（2016.3.24）
+## v2.1.2（2016.3.24）
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v2.1.2)
 
-#### 新增：
+### 新增：
 * add `yo-search`，用以各种搜索框；
 * add `yo-toolbar`，用以展示工具条；
 
-#### 变更：
+### 变更：
 * change `yo-select`，修改内部实现，精简代码层级，Kami需要重写该组件；
 * change `yo-switch`：
     - 将默认宽度由`.6rem`修改为`.5rem`；
@@ -21,15 +21,15 @@ History Version and release time.
     - 将 `yo-vcode` 移到了 fragment 类别；
     - 后续计划将 widget 类别全部迁移到 fragement ，kami对应的应该是各种 fragement 的拼合文件，Yo 不直接提供某个具体的组件
 
-#### 删除：
+### 删除：
 * 删除 `yo-popup` 组件；
 * 删除 `yo-btnbar` 组件；
 
-### v2.1.1（2016.2.19）
+## v2.1.1（2016.2.19）
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v2.1.1)
 
-#### 新增：
+### 新增：
 * add: `yo-actionsheet`用于底部滑出菜单
     - 为`$z-index map`增加`actionsheet`参数，用于指定`yo-actionsheet`的层叠级别；
     - 为`yo-actionsheet`新增`$actionsheet` map，用于设置`yo-actionsheet`的基础定义；
@@ -40,14 +40,14 @@ History Version and release time.
     - 为`yo-datepicker`增加“今天是节日的情况”显示规则；
     - 为`yo-datepicker`增加日期段Range选中背景显示规则；
 
-#### 变更：
+### 变更：
 * change `yo-select`，默认子项有初始高度；
 
-### v2.1.0（2015.12.21）
+## v2.1.0（2015.12.21）
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v2.1.0)
 
-#### 新增：
+### 新增：
 * add `frist($list)` function，用于取出Sass List中的第一项；
 * add `last($list)` function，用于取出Sass List中的最后一项；
 * add `nth-last($list, $index)` function，用于取出Sass List中的倒数第n项；
@@ -56,20 +56,20 @@ History Version and release time.
 * add `splice($list, $index, $count, $values)` function，用于移除Sass List中的项，并添加新项；
 * add `$has-last-border` for `yo-list`，用于指定最后一项是否需要底边线；
 
-#### 变更：
+### 变更：
 * change `perfix` mixin 为私有`_perfix`；
 * change `yofont` mixin 为私有`_yofont`；
 * change `gradient` mixin 的内部实现；
 * change `transition` mixin 的内部实现；
 * 为 `selectlist` 添加对 `yo-checked` 的依赖；
 
-### v2.0.0（2015.12.7）
+## v2.0.0（2015.12.7）
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v2.0.0)
 
 **请谨慎升级v2.0.0版本，因为这是大版本，涉及到很多变更**
 
-#### 新增：
+### 新增：
 * add: `yo-vcode`
     - 新增`yo-vcode`用于验证码或者密码输入组件
 * add: `yo-breadcrumb`
@@ -84,7 +84,7 @@ History Version and release time.
 * add: `global function`
     - 新增了`function`文件，用以后续扩展Sass内置的函数
 
-#### 变更：
+### 变更：
 * (*)change: `1px边框方法`（全平台兼容）
     - 新增`border`方法用于处理retina屏1px边框，移除原`viewport scale`方案
     - 移除原始用于`1px`方案的`$setting is-ios-1pixel`设置
@@ -122,13 +122,13 @@ History Version and release time.
     - 新增`$more-color`参数，用于指定更多区域的文本色；
 * update: 内部处理`yo-rating`, `yo-score`, `yo-range`在Node-Sass3.4.1-3.42下编译出错的问题
 
-#### 删除
+### 删除
 * del: `alignment` mixin
 * del: `valign` mixin
 
 **再次重申：将你的`flex子项`设置为`非行内级元素`，Yo会缓步移除对这种内部容错的代码**
 
-### v1.8.7（2015.10.23）
+## v1.8.7（2015.10.23）
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v1.8.7)
 
@@ -136,7 +136,7 @@ History Version and release time.
     - 为`weeks`容器添加`relative`
     - 解决`disabled`状态被扩展覆盖的问题
 
-### v1.8.6（2015.10.16）
+## v1.8.6（2015.10.16）
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v1.8.6)
 
@@ -145,7 +145,7 @@ History Version and release time.
 * rename: `yo-dblist`
     - 重命名 `yo-dblist` 为 `yo-doublelist`。**业务回归请注意**
 
-### v1.8.5 (2015.10.8)
+## v1.8.5 (2015.10.8)
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v1.8.5)
 
