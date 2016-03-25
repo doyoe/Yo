@@ -305,23 +305,29 @@
 
 <h2>内容</h2>
 
-<ul><li><a href="#quick-stat">环境搭建</a></li><li><a href="#supported-browsers">如何开始</a></li><li><a href="#rules">工程约束</a></li><li><a href="#template">示例代码</a></li><li><a href="#attention">注意</a><ul><li><a href="#doctype">文档模式</a></li><li><a href="#viewport">viewport</a></li><li><a href="#units">单位</a></li><li><a href="#box-sizing">盒模型</a></li></ul></li></ul>
+<ul><li><a href="#quick-stat">环境搭建</a></li><li><a href="#how-to-start">如何开始</a></li><li><a href="#rules">工程约束</a></li><li><a href="#template">示例代码</a></li><li><a href="#attention">注意</a><ul><li><a href="#doctype">文档模式</a></li><li><a href="#viewport">视窗viewport</a></li><li><a href="#units">单位</a></li><li><a href="#box-sizing">盒模型</a></li></ul></li></ul>
 
-<p>&lt;a name=&quot;quick-stat&quot;&gt;sdfdf&lt;/a&gt;</p>
+<p>&lt;a name=&quot;quick-stat&quot;&gt;&lt;/a&gt;</p>
 
 <h2>环境搭建</h2>
 
 <ul><li>安装: <code>Nodejs</code></li><li>克隆项目: <code>git clone git@github.com:doyoe/Yo.git</code></li><li>安装gulp: <code>npm install gulp -g --registry=https://registry.npm.taobao.org</code></li><li>安装依赖: <code>npm install --registry=https://registry.npm.taobao.org</code></li><li>在Yo根目录下运行:<ul><li><code>gulp watch</code>: 如果你想监听所有文件的变更</li><li><code>gulp build</code>: 如果你只是想build一次该项目</li></ul></li></ul>
 
+<p>&lt;a name=&quot;how-to-start&quot;&gt;&lt;/a&gt;</p>
+
 <h2>如何开始</h2>
 
 <p>通过上述的 <code>环境搭建</code>，运行完 <code>gulp build</code>，<code>Yo</code> 就已经可以在你的机器上跑起来了，此时你可以浏览 <code>Demo</code> 目录下的任意演示文件来确认它是否正常。</p>
+
+<p>&lt;a name=&quot;rules&quot;&gt;&lt;/a&gt;</p>
 
 <h2>工程约束</h2>
 
 <p>真正的编码之前，先看一下 <code>Yo</code> 的目录结构是非常重要的，这有助于理解并更好的使用它：</p>
 
 <ul><li><code>lib</code> 目录是 <code>Yo</code> 框架的底层代码，不要改动它，避免日后升级时遇到麻烦；</li><li><code>usage</code> 目录正是你的舞台，在这做业务的样式编码；<ul><li><code>usage/core</code> 目录下的都是配置文件，比如你想改变某些设定的初始值；</li><li>需要编译使用的文件（一般来说都是page级别的文件），放在 <code>usage/page</code> 目录下，编译后，会输出到 <code>usage/export</code> 目录；</li><li><code>usage</code> 下的其它目录和 <code>lib</code> 里的目录一一对应，用于放置扩展文件；</li></ul></li></ul>
+
+<p>&lt;a name=&quot;template&quot;&gt;&lt;/a&gt;</p>
 
 <h2>示例代码</h2>
 
@@ -349,9 +355,13 @@
 
 <p>在页面上请使用 <code>list-scss</code> 编译后的 <code>list.css</code> 文件。</p>
 
+<p>&lt;a name=&quot;attention&quot;&gt;&lt;/a&gt;</p>
+
 <h2>注意</h2>
 
 <p><code>Yo</code> 做了一些全局的定义，这些定义也让设计变得意思。</p>
+
+<p>&lt;a name=&quot;doctype&quot;&gt;&lt;/a&gt;</p>
 
 <h3>文档模式</h3>
 
@@ -359,7 +369,9 @@
 
 <pre><code>&lt;!DOCTYPE html&gt;</code></pre>
 
-<h3>viewport</h3>
+<p>&lt;a name=&quot;viewport&quot;&gt;&lt;/a&gt;</p>
+
+<h3>视窗viewport</h3>
 
 <p><code>Yo</code> 采用 <code>Mobile First</code> 的策略设计，首先要保证移动设备上的体验，至于不同的终端，可以配合 <code>响应式</code> 来做适配：</p>
 
@@ -367,11 +379,15 @@
 
 <p>如果应用需要考虑手动缩放的情况，可以将 <code>maximum-scale=1, user-scalable=no</code> 移除；但不建议移除 <code>minimum-scale=1</code>，因为页面可能会被缩小到难以阅读的程度。</p>
 
+<p>&lt;a name=&quot;units&quot;&gt;&lt;/a&gt;</p>
+
 <h3>单位</h3>
 
 <p><code>Yo</code> 约束了2种项目所使用的长度单位</p>
 
 <ul><li>所有涉及到 <code>border</code> 的长度单位都是用 <code>px</code>；</li><li>除 <code>border</code> 外，所有的长度设置都是用 <code>rem</code> 单位；</li></ul>
+
+<p>&lt;a name=&quot;box-sizing&quot;&gt;&lt;/a&gt;</p>
 
 <h3>盒模型</h3>
 

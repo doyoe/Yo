@@ -11,17 +11,17 @@
 ## 内容
 
 * [环境搭建](#quick-stat)
-* [如何开始](#supported-browsers)
+* [如何开始](#how-to-start)
 * [工程约束](#rules)
 * [示例代码](#template)
 * [注意](#attention)
     * [文档模式](#doctype)
-    * [viewport](#viewport)
+    * [视窗viewport](#viewport)
     * [单位](#units)
     * [盒模型](#box-sizing)
 
 
-<a name="quick-stat">sdfdf</a>
+<a name="quick-stat"></a>
 ## 环境搭建
 
 * 安装: `Nodejs`
@@ -33,11 +33,13 @@
     * `gulp build`: 如果你只是想build一次该项目
 
 
+<a name="how-to-start"></a>
 ## 如何开始
 
 通过上述的 `环境搭建`，运行完 `gulp build`，`Yo` 就已经可以在你的机器上跑起来了，此时你可以浏览 `Demo` 目录下的任意演示文件来确认它是否正常。
 
 
+<a name="rules"></a>
 ## 工程约束
 
 真正的编码之前，先看一下 `Yo` 的目录结构是非常重要的，这有助于理解并更好的使用它：
@@ -49,6 +51,7 @@
     * `usage` 下的其它目录和 `lib` 里的目录一一对应，用于放置扩展文件；
 
 
+<a name="template"></a>
 ## 示例代码
 
 我们可以开始真正的使用 `Yo` 来进行编码了，下面将会展示一段最简单的代码，我们要做一个列表页，其对应的样式表文件为：`list.scss`：
@@ -76,17 +79,20 @@
 在页面上请使用 `list-scss` 编译后的 `list.css` 文件。
 
 
+<a name="attention"></a>
 ## 注意
 
 `Yo` 做了一些全局的定义，这些定义也让设计变得意思。
 
+<a name="doctype"></a>
 ### 文档模式
 
 为了能够让你的样式得到完整的解析，我们推荐你使用 `HTML5 doctype`：
 
     <!DOCTYPE html>
 
-### viewport
+<a name="viewport"></a>
+### 视窗viewport
 
 `Yo` 采用 `Mobile First` 的策略设计，首先要保证移动设备上的体验，至于不同的终端，可以配合 `响应式` 来做适配：
 
@@ -94,6 +100,7 @@
 
 如果应用需要考虑手动缩放的情况，可以将 `maximum-scale=1, user-scalable=no` 移除；但不建议移除 `minimum-scale=1`，因为页面可能会被缩小到难以阅读的程度。
 
+<a name="units"></a>
 ### 单位
 
 `Yo` 约束了2种项目所使用的长度单位
@@ -101,6 +108,7 @@
 * 所有涉及到 `border` 的长度单位都是用 `px`；
 * 除 `border` 外，所有的长度设置都是用 `rem` 单位；
 
+<a name="box-sizing"></a>
 ### 盒模型
 
 为了让计算变得简单，我们改变了所有元素的盒模型，将其重置为 `border-box`。当然，也包括常用的伪元素 `::before` 和 `::after`。
