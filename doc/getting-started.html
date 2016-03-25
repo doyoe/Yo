@@ -305,7 +305,9 @@
 
 <h2>内容</h2>
 
-<ul><li><a href="#quick-stat">环境搭建</a></li><li><a href="#supported-browsers">如何开始</a></li><li><a href="#bugs-and-feature-requests">问题及反馈</a></li><li><a href="#documentation-and-demo">文档和实例</a></li><li><a href="#versioning">版本</a></li><li><a href="#author">作者</a></li><li><a href="#attention">注意</a></li></ul>
+<ul><li><a href="#quick-stat">环境搭建</a></li><li><a href="#supported-browsers">如何开始</a></li><li><a href="#rules">工程约束</a></li><li><a href="#attention">注意</a><ul><li><a href="#doctype">文档模式</a></li><li><a href="#units">单位</a></li><li><a href="#box-sizing">盒模型</a></li></ul></li></ul>
+
+<p>&lt;a name=&quot;quick-stat&quot;&gt;&lt;/a&gt;</p>
 
 <h2>环境搭建</h2>
 
@@ -315,13 +317,29 @@
 
 <p>通过上述的 <code>环境搭建</code>，运行完 <code>gulp build</code>，<code>Yo</code> 就已经可以在你的机器上跑起来了，此时你可以浏览 <code>Demo</code> 目录下的任意演示文件来确认它是否正常。</p>
 
+<h2>工程约束</h2>
+
+<p>真正的编码之前，先看一下 <code>Yo</code> 的目录结构是非常重要的，这有助于理解并更好的使用它：</p>
+
+<ul><li><code>lib</code> 目录是 <code>Yo</code> 框架的底层代码，不要改动它，避免日后升级时遇到麻烦；</li><li><code>usage</code> 目录正是你的舞台，在这做业务的样式编码；<ul><li><code>usage/core</code> 目录下的都是配置文件，比如你想改变某些设定的初始值；</li><li>需要编译的文件（一般来说都是page级别的文件），放在 <code>usage/page</code> 目录下，编译后，会输出到 <code>usage/export</code> 目录；</li><li><code>usage</code> 下的其它目录和 <code>lib</code> 里的目录一一对应，用于放置扩展文件；</li></ul></li></ul>
+
 <h2>注意</h2>
 
-<h4>Yo约束了2种项目所使用的长度单位</h4>
+<p><code>Yo</code> 做了一些全局的定义，这些定义也让设计变得意思。</p>
+
+<h3>文档模式</h3>
+
+<p>为了能够让你的样式得到完整的解析，我们推荐你使用 <code>HTML5 doctype</code>。</p>
+
+<pre><code>&lt;!DOCTYPE html&gt;</code></pre>
+
+<h3>单位</h3>
+
+<p><code>Yo</code> 约束了2种项目所使用的长度单位</p>
 
 <ul><li>所有涉及到 <code>border</code> 的长度单位都是用 <code>px</code>；</li><li>除 <code>border</code> 外，所有的长度设置都是用 <code>rem</code> 单位；</li></ul>
 
-<h4>Yo重置了盒模型</h4>
+<h3>盒模型</h3>
 
 <p>为了让计算变得简单，我们改变了所有元素的盒模型，将其重置为 <code>border-box</code>。当然，也包括常用的伪元素 <code>::before</code> 和 <code>::after</code>。</p>
 
