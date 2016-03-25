@@ -15,11 +15,12 @@
 * [工程约束](#rules)
 * [注意](#attention)
     * [文档模式](#doctype)
+    * [viewport](#viewport)
     * [单位](#units)
     * [盒模型](#box-sizing)
 
 
-<a name="quick-stat"></a>
+<a name="quick-stat">sdfdf</a>
 ## 环境搭建
 
 * 安装: `Nodejs`
@@ -53,9 +54,17 @@
 
 ### 文档模式
 
-为了能够让你的样式得到完整的解析，我们推荐你使用 `HTML5 doctype`。
+为了能够让你的样式得到完整的解析，我们推荐你使用 `HTML5 doctype`：
 
     <!DOCTYPE html>
+
+### viewport
+
+`Yo` 采用 `Mobile First` 的策略设计，首先要保证移动设备上的体验，至于不同的终端，可以配合 `响应式` 来做适配：
+
+    <meta name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+
+如果应用需要考虑手动缩放的情况，可以将 `maximum-scale=1, user-scalable=no` 移除。
 
 ### 单位
 

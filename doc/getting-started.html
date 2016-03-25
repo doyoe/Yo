@@ -305,9 +305,9 @@
 
 <h2>内容</h2>
 
-<ul><li><a href="#quick-stat">环境搭建</a></li><li><a href="#supported-browsers">如何开始</a></li><li><a href="#rules">工程约束</a></li><li><a href="#attention">注意</a><ul><li><a href="#doctype">文档模式</a></li><li><a href="#units">单位</a></li><li><a href="#box-sizing">盒模型</a></li></ul></li></ul>
+<ul><li><a href="#quick-stat">环境搭建</a></li><li><a href="#supported-browsers">如何开始</a></li><li><a href="#rules">工程约束</a></li><li><a href="#attention">注意</a><ul><li><a href="#doctype">文档模式</a></li><li><a href="#viewport">viewport</a></li><li><a href="#units">单位</a></li><li><a href="#box-sizing">盒模型</a></li></ul></li></ul>
 
-<p>&lt;a name=&quot;quick-stat&quot;&gt;&lt;/a&gt;</p>
+<p>&lt;a name=&quot;quick-stat&quot;&gt;sdfdf&lt;/a&gt;</p>
 
 <h2>环境搭建</h2>
 
@@ -329,9 +329,17 @@
 
 <h3>文档模式</h3>
 
-<p>为了能够让你的样式得到完整的解析，我们推荐你使用 <code>HTML5 doctype</code>。</p>
+<p>为了能够让你的样式得到完整的解析，我们推荐你使用 <code>HTML5 doctype</code>：</p>
 
 <pre><code>&lt;!DOCTYPE html&gt;</code></pre>
+
+<h3>viewport</h3>
+
+<p><code>Yo</code> 采用 <code>Mobile First</code> 的策略设计，首先要保证移动设备上的体验，至于不同的终端，可以配合 <code>响应式</code> 来做适配：</p>
+
+<pre><code>&lt;meta name=&quot;viewport&quot; content=&quot;initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no&quot; /&gt;</code></pre>
+
+<p>如果应用需要考虑手动缩放的情况，可以将 <code>maximum-scale=1, user-scalable=no</code> 移除。</p>
 
 <h3>单位</h3>
 
