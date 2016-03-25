@@ -3,7 +3,7 @@
 
 `Yo` 是基于 `Mobile First` 理念而设计，并使用 `Sass` 开发的 `CSS Framework`，所以在使用之前，请先确保你的机器有能够编译 `Sass` 的环境并开始去了解一些 [Sass](http://sass-lang.com/) 相关的知识（当然，这非常简单）。
 
-与其它框架不同的是，实际上我们并不计划对外提供打包好的 `yo.min.css` 来供使用，而是推荐直接在 `Yo` 的 `usage` 目录下进行开发。因为这样，你将能体会到 `Yo` 的众多功能和方法为开发所带来的便利，并感受到它的魅力。
+与其它框架不同的是，实际上我们并不计划对外提供打包好的 `yo.min.css` 来供使用，而是推荐直接在 `Yo` 的 `usage` 目录下进行开发。这样你将能体会到 `Yo` 的众多功能和方法为开发所带来的便利，并感受到它的魅力。
 
 好了，请仔细看下面的步骤，这可以帮你快速搞定一切：
 
@@ -11,12 +11,12 @@
 ## 内容
 
 * [环境搭建](#quick-stat)
-* [浏览器支持](#supported-browsers)
+* [如何开始](#supported-browsers)
 * [问题及反馈](#bugs-and-feature-requests)
 * [文档和实例](#documentation-and-demo)
 * [版本](#versioning)
 * [作者](#author)
-* [版权和许可](#copyright-and-license)
+* [注意](#attention)
 
 
 ## 环境搭建
@@ -30,6 +30,9 @@
     * `gulp build`: 如果你只是想build一次该项目
 
 
+## 如何开始
+
+通过上述的 `环境搭建`，`Yo` 已经可以在你的机器上跑起来了，你可以打开 `Demo` 目录下的任意文件，
 
 ## 注意
 
