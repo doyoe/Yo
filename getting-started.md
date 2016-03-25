@@ -11,6 +11,8 @@
 ## 内容
 
 * [环境搭建](#quick-stat)
+    * [使用gulp构建](#gulp)
+    * [使用fekit&QMB构建](#fekit)
 * [如何开始](#how-to-start)
 * [工程约束](#rules)
 * [示例代码](#template)
@@ -24,6 +26,9 @@
 <a name="quick-stat"></a>
 ## 环境搭建
 
+<a name="gulp"></a>
+### 使用gulp构建
+
 * 安装: `Nodejs`
 * 克隆项目: `git clone git@github.com:doyoe/Yo.git`
 * 安装gulp: `npm install gulp -g --registry=https://registry.npm.taobao.org`
@@ -32,11 +37,16 @@
     * `gulp watch`: 如果你想监听所有文件的变更
     * `gulp build`: 如果你只是想build一次该项目
 
+<a name="fekit"></a>
+### 使用fekit&QMB构建
+
+* 使用方法参考：[QMB使用说明](http://ued.qunar.com/mobile/qmb2/)
+
 
 <a name="how-to-start"></a>
 ## 如何开始
 
-通过上述的 `环境搭建`，运行完 `gulp build`，`Yo` 就已经可以在你的机器上跑起来了，此时你可以浏览 `Demo` 目录下的任意演示文件来确认它是否正常。
+通过上述的 `环境搭建`，`Yo` 就已经可以在你的机器上跑起来了，此时你可以浏览 `Demo` 目录下的任意演示文件来确认它是否正常。
 
 
 <a name="rules"></a>
