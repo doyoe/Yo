@@ -305,7 +305,7 @@
 
 <h2>内容</h2>
 
-<ul><li><a href="#quick-stat">环境搭建</a></li><li><a href="#supported-browsers">如何开始</a></li><li><a href="#rules">工程约束</a></li><li><a href="#attention">注意</a><ul><li><a href="#doctype">文档模式</a></li><li><a href="#viewport">viewport</a></li><li><a href="#units">单位</a></li><li><a href="#box-sizing">盒模型</a></li></ul></li></ul>
+<ul><li><a href="#quick-stat">环境搭建</a></li><li><a href="#supported-browsers">如何开始</a></li><li><a href="#rules">工程约束</a></li><li><a href="#template">示例代码</a></li><li><a href="#attention">注意</a><ul><li><a href="#doctype">文档模式</a></li><li><a href="#viewport">viewport</a></li><li><a href="#units">单位</a></li><li><a href="#box-sizing">盒模型</a></li></ul></li></ul>
 
 <p>&lt;a name=&quot;quick-stat&quot;&gt;sdfdf&lt;/a&gt;</p>
 
@@ -321,7 +321,33 @@
 
 <p>真正的编码之前，先看一下 <code>Yo</code> 的目录结构是非常重要的，这有助于理解并更好的使用它：</p>
 
-<ul><li><code>lib</code> 目录是 <code>Yo</code> 框架的底层代码，不要改动它，避免日后升级时遇到麻烦；</li><li><code>usage</code> 目录正是你的舞台，在这做业务的样式编码；<ul><li><code>usage/core</code> 目录下的都是配置文件，比如你想改变某些设定的初始值；</li><li>需要编译的文件（一般来说都是page级别的文件），放在 <code>usage/page</code> 目录下，编译后，会输出到 <code>usage/export</code> 目录；</li><li><code>usage</code> 下的其它目录和 <code>lib</code> 里的目录一一对应，用于放置扩展文件；</li></ul></li></ul>
+<ul><li><code>lib</code> 目录是 <code>Yo</code> 框架的底层代码，不要改动它，避免日后升级时遇到麻烦；</li><li><code>usage</code> 目录正是你的舞台，在这做业务的样式编码；<ul><li><code>usage/core</code> 目录下的都是配置文件，比如你想改变某些设定的初始值；</li><li>需要编译使用的文件（一般来说都是page级别的文件），放在 <code>usage/page</code> 目录下，编译后，会输出到 <code>usage/export</code> 目录；</li><li><code>usage</code> 下的其它目录和 <code>lib</code> 里的目录一一对应，用于放置扩展文件；</li></ul></li></ul>
+
+<h2>示例代码</h2>
+
+<p>我们可以开始真正的使用 <code>Yo</code> 来进行编码了，下面将会展示一段最简单的代码，我们要做一个列表页，其对应的样式表文件为：<code>list.scss</code>：</p>
+
+<pre><code>@charset &quot;utf-8&quot;;
+@import &quot;../core/reset&quot;;
+@import &quot;../fragment/yo-flex&quot;;
+@import &quot;../fragment/yo-header&quot;;
+@import &quot;../element/yo-list&quot;;
+
+// 下面这段模块化的代码，请新建一个 `m-xxx` 的文件并将代码移过去，然后 `@import` 到这里
+// 为了方便演示，所以下述代码直接写在了这里
+.m-xxx {
+    // 由于这里所需要的`list`和默认展示不同，所以使用 `yo-list` 进行扩展
+    @include yo-list(
+        $margin: .1rem,
+        $border-width: 1px,
+        $border-color: #ccc,
+        $radius: .1rem
+    );
+}</code></pre>
+
+<p>首先，我们将 <code>reset</code> 引入 <code>list.scss</code>，这是必须的；该列表页由一个 <code>yo-header</code> 和 <code>yo-list</code> 组成，于是引入与之相关的2个元件；同时，我们想要使用 <code>flex</code> 布局，所以引入了 <code>yo-flex</code> 元件。</p>
+
+<p>在页面上请使用 <code>list-scss</code> 编译后的 <code>list.css</code> 文件。</p>
 
 <h2>注意</h2>
 
@@ -339,7 +365,7 @@
 
 <pre><code>&lt;meta name=&quot;viewport&quot; content=&quot;initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no&quot; /&gt;</code></pre>
 
-<p>如果应用需要考虑手动缩放的情况，可以将 <code>maximum-scale=1, user-scalable=no</code> 移除。</p>
+<p>如果应用需要考虑手动缩放的情况，可以将 <code>maximum-scale=1, user-scalable=no</code> 移除；但不建议移除 <code>minimum-scale=1</code>，因为页面可能会被缩小到难以阅读的程度。</p>
 
 <h3>单位</h3>
 

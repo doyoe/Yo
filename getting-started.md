@@ -13,6 +13,7 @@
 * [环境搭建](#quick-stat)
 * [如何开始](#supported-browsers)
 * [工程约束](#rules)
+* [示例代码](#template)
 * [注意](#attention)
     * [文档模式](#doctype)
     * [viewport](#viewport)
@@ -44,8 +45,35 @@
 * `lib` 目录是 `Yo` 框架的底层代码，不要改动它，避免日后升级时遇到麻烦；
 * `usage` 目录正是你的舞台，在这做业务的样式编码；
     * `usage/core` 目录下的都是配置文件，比如你想改变某些设定的初始值；
-    * 需要编译的文件（一般来说都是page级别的文件），放在 `usage/page` 目录下，编译后，会输出到 `usage/export` 目录；
+    * 需要编译使用的文件（一般来说都是page级别的文件），放在 `usage/page` 目录下，编译后，会输出到 `usage/export` 目录；
     * `usage` 下的其它目录和 `lib` 里的目录一一对应，用于放置扩展文件；
+
+
+## 示例代码
+
+我们可以开始真正的使用 `Yo` 来进行编码了，下面将会展示一段最简单的代码，我们要做一个列表页，其对应的样式表文件为：`list.scss`：
+
+    @charset "utf-8";
+    @import "../core/reset";
+    @import "../fragment/yo-flex";
+    @import "../fragment/yo-header";
+    @import "../element/yo-list";
+
+    // 下面这段模块化的代码，请新建一个 `m-xxx` 的文件并将代码移过去，然后 `@import` 到这里
+    // 为了方便演示，所以下述代码直接写在了这里
+    .m-xxx {
+        // 由于这里所需要的`list`和默认展示不同，所以使用 `yo-list` 进行扩展
+        @include yo-list(
+            $margin: .1rem,
+            $border-width: 1px,
+            $border-color: #ccc,
+            $radius: .1rem
+        );
+    }
+
+首先，我们将 `reset` 引入 `list.scss`，这是必须的；该列表页由一个 `yo-header` 和 `yo-list` 组成，于是引入与之相关的2个元件；同时，我们想要使用 `flex` 布局，所以引入了 `yo-flex` 元件。
+
+在页面上请使用 `list-scss` 编译后的 `list.css` 文件。
 
 
 ## 注意
@@ -64,7 +92,7 @@
 
     <meta name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
 
-如果应用需要考虑手动缩放的情况，可以将 `maximum-scale=1, user-scalable=no` 移除。
+如果应用需要考虑手动缩放的情况，可以将 `maximum-scale=1, user-scalable=no` 移除；但不建议移除 `minimum-scale=1`，因为页面可能会被缩小到难以阅读的程度。
 
 ### 单位
 
