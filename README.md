@@ -27,10 +27,17 @@
 <a name="quick-stat"></a>
 ## 环境搭建
 
+### 基础环境
+
+请确保你已经安装过下述环境：
+
+* Bower
+* Node.js
+* npm
+
 ### 使用gulp构建
 
-* 安装: `Nodejs`
-* 克隆项目: `git clone git@github.com:doyoe/Yo.git`
+* 安装: `bower install yo`
 * 安装gulp: `npm install gulp -g --registry=https://registry.npm.taobao.org`
 * 安装依赖: `npm install --registry=https://registry.npm.taobao.org`
 * 在Yo根目录下运行:
