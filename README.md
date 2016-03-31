@@ -52,7 +52,7 @@
 <a name="how-to-start"></a>
 ## 如何开始
 
-通过上述的 `环境搭建`，`Yo` 就已经可以在你的机器上跑起来了，在 `Yo` 根目录下运行 `gulp test`，会在 `usage` 目录生成一个 `test.css`，这表示一切OK（当然，项目中你可以将test文件移除）。
+通过上述的 `环境搭建`，`Yo` 就已经可以在你的机器上跑起来了，在 `Yo` 根目录下运行 `gulp test`，会在 `usage/test` 目录生成一个 `test.css`，这表示一切OK（当然，项目中你可以将test文件夹移除）。
 
 
 <a name="rules"></a>

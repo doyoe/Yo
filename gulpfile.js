@@ -274,8 +274,8 @@ gulp.task('build', ['compile']);
 
 // 测试任务
 gulp.task('test', function () {
-    return gulp.src('./usage/test.scss')
+    return gulp.src('./usage/test/test.scss')
         .pipe(through.obj(combineScss))
         .pipe(nodeSass({outputStyle: 'expanded'}))
-        .pipe(gulp.dest('./usage'));
+        .pipe(gulp.dest('./usage/test'));
 });
