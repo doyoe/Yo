@@ -271,3 +271,11 @@ gulp.task('build', ['compile']);
 
 // 默认任务
 // gulp.task('default', ['version', 'compile', 'watch']);
+
+// 测试任务
+gulp.task('test', function () {
+    return gulp.src('./usage/test.scss')
+        .pipe(through.obj(combineScss))
+        .pipe(nodeSass({outputStyle: 'expanded'}))
+        .pipe(gulp.dest('./usage'));
+});
