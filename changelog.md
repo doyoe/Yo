@@ -2,6 +2,15 @@
 
 History Version and release time.
 
+## v2.1.3（2016.?）
+
+[Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v2.1.3)
+
+### 变更：
+* change `yo-list`，移除item的opacity设定，改用z-index:0来替代；
+* change `yo-switchable`，移除索引和前进后退按钮3d偏移，减少复合层的数量；
+
+
 ## v2.1.2（2016.3.24）
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v2.1.2)
