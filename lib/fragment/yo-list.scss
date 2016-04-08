@@ -326,7 +326,7 @@
                 }
             }
             // 如果$item-border-space不等于config设定，则重绘子项边线间隙
-            &:not(:last-child)::after {
+            &::after {
                 @if $item-border-space != map-get($list, item-border-space) {
                     left: $item-border-space;
                 }
