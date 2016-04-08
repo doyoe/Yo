@@ -27,7 +27,7 @@
 
 // 定义浮层actionsheet的基础构造
 @mixin _actionsheet {
-    position: fixed;
+    position: absolute;
     z-index: map-get($z-index, actionsheet);
     right: 0;
     bottom: 0;
@@ -43,7 +43,6 @@
         width: 100.13%;
         border-radius: map-get($actionsheet, radius);
         background-color: map-get($actionsheet, bgcolor);
-        -webkit-backdrop-filter: blur(3px);
     }
     > .action {
         margin-top: .08rem;

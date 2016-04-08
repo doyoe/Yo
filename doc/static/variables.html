@@ -35,7 +35,7 @@
 // 基本设置
 $_setting: (
     // {String} 版本号
-    version:          "2.1.2",
+    version:          "2.1.3",
     // {Boolean} 是否开启厂商前缀
     is-vendor-prefix: true,
     // {String} 厂商前缀
@@ -294,9 +294,9 @@ $_actionsheet: (
     // {Color} 边线色
     border-color:   map-get($base, border-color),
     // {Color} 子项背景色
-    bgcolor:        rgba(#fff, .9),
+    bgcolor:        rgba(#fff, .95),
     // {Color} 子项点击反馈背景色
-    active-bgcolor: rgba(#eee, .9),
+    active-bgcolor: rgba(#eee, .95),
     // {Length} 子项高度
     item-height:    .55rem,
     // {Length} 子项字号
@@ -373,14 +373,14 @@ $_header: (
     item-ico-size:  .2rem
 );
 
-// Fragment list(11)
+// Fragment list(17)
 $_list: (
     // {Length} 列表外边距
     margin:            null,
     // {Length} 列表圆角
     radius:            null,
     // {Length} 列表边框厚度
-    border-width:      null,
+    border-width:      0 0 1px,
     // {Color} 列表边框色
     border-color:      map-get($base, border-color),
     // {Length} 列表项内补白，列表项有最小高度.44rem
@@ -395,8 +395,6 @@ $_list: (
     on-bgcolor:        null,
     // {Color} 选中文本色
     on-color:          null,
-    // {Boolean} 是否有最后一根底边线
-    has-last-border:   true,
     // {Color} 列表项边框色
     item-border-color: map-get($base, sub-border-color),
     // {Color} 列表项组名边框色

@@ -49,7 +49,7 @@
         position: absolute;
         bottom: .05rem;
         left: 50%;
-        @include transform(translate(-50%, 0) translatez(0));
+        @include transform(translate(-50%, 0));
         > li {
             float: left;
             margin: 0 .05rem;
@@ -67,7 +67,7 @@
         }
         position: absolute;
         top: 50%;
-        @include transform(translate(0, -50%) translatez(0));
+        @include transform(translate(0, -50%));
         @include square(map-get($switchable, btn-size));
         border-radius: 50%;
         background-color: map-get($switchable, btn-bgcolor);
