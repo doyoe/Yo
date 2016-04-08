@@ -10,6 +10,7 @@ History Version and release time.
 * change `yo-list`，移除item的opacity设定，改用z-index:0来替代；
 * change `yo-list`，改变内部子项的边线实现方式；
 * change `yo-switchable`，移除索引和前进后退按钮3d偏移，减少复合层的数量；
+* change `yo-actionsheet`，改用absolute替代fixed，同时去除filter effect，减少复合层；
 
 
 ## v2.1.2（2016.3.24）
