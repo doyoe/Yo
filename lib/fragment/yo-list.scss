@@ -144,7 +144,7 @@
  * @param {Color} $label-border-color 列表组头边框色 {add:2.0.0}
  * @param {Length} $item-font-size 子项字号 {add:1.2.0}
  * @param {Length} $label-font-size 列表组头字号 {add:1.2.0}
- * @param {Length} $item-border-space 子项下边线距离左侧的间隙 {add:1.8.0}
+ * @param {Length} $item-border-space 子项边线左侧偏移量 {add:1.8.0}
  * @param {Length} $detail-font-size 详情区域字号 {add:2.0.0}{del:2.1.2}
  * @param {Color} $detail-color 详情区域文本色 {add:2.0.0}{del:2.1.2}
  * @param {Length} $info-font-size 描述区域字号 {add:2.0.0}{del:2.1.2}
@@ -170,10 +170,6 @@
     $item-font-size: default,
     $label-font-size: default,
     $item-border-space: default,
-    $detail-font-size: default,
-    $detail-color: default,
-    $info-font-size: default,
-    $info-color: default,
     $more-font-size: default,
     $more-color: default) {
     // 区别是否新增实例还是修改本身
@@ -223,18 +219,6 @@
     }
     @if $item-border-space == default {
         $item-border-space: map-get($list, item-border-space);
-    }
-    @if $detail-font-size == default {
-        $detail-font-size: map-get($list, detail-font-size);
-    }
-    @if $detail-color == default {
-        $detail-color: map-get($list, detail-color);
-    }
-    @if $info-font-size == default {
-        $info-font-size: map-get($list, info-font-size);
-    }
-    @if $info-color == default {
-        $info-color: map-get($list, info-color);
     }
     @if $more-font-size == default {
         $more-font-size: map-get($list, more-font-size);
