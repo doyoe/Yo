@@ -92,7 +92,7 @@
 
 首先，我们将 `reset` 引入 `list.scss`，这是必须的；该列表页由一个 `yo-header` 和 `yo-list` 组成，于是引入与之相关的2个元件；同时，我们想要使用 `flex` 布局，所以引入了 `yo-flex` 元件。
 
-在页面上请使用 `list-scss` 编译后的 `list.css` 文件。
+在页面上请使用 `list.scss` 编译后的 `list.css` 文件。
 
 
 <a name="attention"></a>
