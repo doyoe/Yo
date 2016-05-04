@@ -5,8 +5,7 @@
  */
 
 /**
- * @module core
- * @class 功能
+ * @module 功能
  * @description 给需要的属性加厂家前缀
  * @method _prefix
  * @version 1.0.0
@@ -29,8 +28,7 @@
 }
 
 /**
- * @module core
- * @class 功能
+ * @module 功能
  * @description 定义字体图标
  * @method _yofont
  * @version 1.0.0
@@ -61,8 +59,7 @@
 }
 
 /**
- * @module core
- * @class 功能
+ * @module 功能
  * @description 四则运算(iOS6.0+,Android4.4+)
  * @method calc
  * @version 1.7.0
@@ -86,8 +83,7 @@
 }
 
 /**
- * @module core
- * @class 功能
+ * @module 功能
  * @description 定义响应式方案
  * @method responsive
  * @version 1.0.0
@@ -104,8 +100,7 @@
 }
 
 /**
- * @module core
- * @class 功能
+ * @module 功能
  * @description 清除浮动方案
  * @method clearfix
  * @version 1.0.0
@@ -128,8 +123,7 @@
 }
 
 /**
- * @module core
- * @class 功能
+ * @module 功能
  * @description 清除行内级元素间间隙方案
  * @method killspace
  * @version 1.0.0
@@ -153,8 +147,7 @@
 }
 
 /**
- * @module core
- * @class 功能
+ * @module 功能
  * @description 元素在包含块中的对齐方式，默认为水平垂直对齐
  * @method align
  * @version 2.0.0
@@ -184,8 +177,7 @@
 }
 
 /**
- * @module core
- * @class 功能
+ * @module 功能
  * @description 定义文档根节点是否允许滚动
  * @method root-scroll
  * @version 1.4.0
@@ -205,8 +197,7 @@
 }
 
 /**
- * @module core
- * @class 功能
+ * @module 功能
  * @description 定义是否有滚动条
  * @method overflow
  * @version 1.0.0
@@ -223,8 +214,7 @@
 }
 
 /**
- * @module core
- * @class 功能
+ * @module 功能
  * @description 生成全屏方法
  * @method fullscreen
  * @version 1.7.0
@@ -241,8 +231,7 @@
 }
 
 /**
- * @module core
- * @class 用户界面
+ * @module 用户界面
  * @description 定义使用何种滤镜
  * @method filter
  * @version 1.7.0
@@ -253,8 +242,7 @@
 }
 
 /**
- * @module core
- * @class 用户界面
+ * @module 用户界面
  * @description 定义UA默认外观
  * @method appearance
  * @version 1.0.0
@@ -265,8 +253,7 @@
 }
 
 /**
- * @module core
- * @class 用户界面
+ * @module 用户界面
  * @description 定义如何选中内容
  * @method user-select
  * @version 1.0.0
@@ -277,8 +264,7 @@
 }
 
 /**
- * @module core
- * @class 用户界面
+ * @module 用户界面
  * @description 定义盒模型
  * @method box-sizing
  * @version 1.0.0
@@ -289,8 +275,7 @@
 }
 
 /**
- * @module core
- * @class 背景与边框
+ * @module 背景与边框
  * @description 定义渐变色值
  * @method gradient
  * @version 1.0.0
@@ -323,8 +308,7 @@
 }
 
 /**
- * @module core
- * @class 背景与边框
+ * @module 背景与边框
  * @description 定义背景图像缩放（AndroidBrowser2.3.*还需要厂商前缀）
  * @method background-size
  * @version 1.4.0
@@ -335,8 +319,7 @@
 }
 
 /**
- * @module core
- * @class 背景与边框
+ * @module 背景与边框
  * @description 定义背景裁减（AndroidBrowser2.3.*还需要厂商前缀）
  * @method background-clip
  * @version 1.6.0
@@ -347,8 +330,7 @@
 }
 
 /**
- * @module core
- * @class 背景与边框
+ * @module 背景与边框
  * @description 定义背景显示区域（AndroidBrowser2.3.*还需要厂商前缀）
  * @method background-origin
  * @version 1.6.0
@@ -359,8 +341,7 @@
 }
 
 /**
- * @module core
- * @class 背景与边框
+ * @module 背景与边框
  * @description 定义圆角，用于修复某些安卓机型上“圆角+边框+背景”，背景溢出的情况
  * @method border-radius
  * @version 1.6.0
@@ -373,8 +354,7 @@
 }
 
 /**
- * @module core
- * @class 背景与边框
+ * @module 背景与边框
  * @description 为元素添加边框（包括1px边框）
  * @method border
  * @version 2.0.0
@@ -431,8 +411,7 @@
 }
 
 /**
- * @module core
- * @class 变换
+ * @module 变换
  * @description 定义简单变换
  * @method transform
  * @version 1.0.0
@@ -443,8 +422,7 @@
 }
 
 /**
- * @module core
- * @class 变换
+ * @module 变换
  * @description 定义变换原点
  * @method transform-origin
  * @version 1.0.0
@@ -455,8 +433,7 @@
 }
 
 /**
- * @module core
- * @class 变换
+ * @module 变换
  * @description 指定某元素的子元素是（看起来）位于三维空间内，还是在该元素所在的平面内被扁平化
  * @method transform-style
  * @version 2.0.0
@@ -467,8 +444,7 @@
 }
 
 /**
- * @module core
- * @class 变换
+ * @module 变换
  * @description 指定观察者与「z=0」平面的距离，使具有三维位置变换的元素产生透视效果。「z>0」的三维元素比正常大，而「z<0」时则比正常小，大小程度由该属性的值决定。
  * @method perspective
  * @version 2.0.0
@@ -479,8 +455,7 @@
 }
 
 /**
- * @module core
- * @class 变换
+ * @module 变换
  * @description 指定透视点的位置
  * @method perspective-origin
  * @version 2.0.0
@@ -491,8 +466,7 @@
 }
 
 /**
- * @module core
- * @class 变换
+ * @module 变换
  * @description 指定元素背面面向用户时是否可见
  * @method backface-visibility
  * @version 2.0.0
@@ -503,7 +477,7 @@
 }
 
 /**
- * @module core
+ * @module 动画
  * @description 定义动画
  * @method animation
  * @version 1.0.0
@@ -514,7 +488,7 @@
 }
 
 /**
- * @module core
+ * @module 过渡
  * @description 定义补间
  * @method transition
  * @version 1.0.0
@@ -541,8 +515,7 @@
 }
 
 /**
- * @module core
- * @class 弹性盒
+ * @module Flexbox
  * @description 定义显示类型为伸缩盒
  * @method flexbox
  * @version 1.0.0
@@ -575,8 +548,7 @@
 }
 
 /**
- * @module core
- * @class 弹性盒
+ * @module Flexbox
  * @description 定义伸缩盒子元素如何分配空间
  * @method flex
  * @version 1.0.0
@@ -610,8 +582,7 @@
 }
 
 /**
- * @module core
- * @class 弹性盒
+ * @module Flexbox
  * @description 定义伸缩盒子元素的排版顺序
  * @method order
  * @version 1.0.0
@@ -636,8 +607,7 @@
 }
 
 /**
- * @module core
- * @class 弹性盒
+ * @module Flexbox
  * @description 定义弹性盒子元素流动方向及遇见边界时是否换行(iOS7.0+,Android4.4+)
  * @method flex-flow
  * @version 2.0.0
@@ -649,8 +619,7 @@
 }
 
 /**
- * @module core
- * @class 弹性盒
+ * @module Flexbox
  * @description 定义伸缩盒子元素的流动方向
  * @method flex-direction
  * @version 1.0.0
@@ -708,8 +677,7 @@
 }
 
 /**
- * @module core
- * @class 弹性盒
+ * @module Flexbox
  * @description 定义弹性盒子元素溢出后排版(iOS7.0+,Android4.4+)
  * @method flex-wrap
  * @version 1.0.0
@@ -722,8 +690,7 @@
 }
 
 /**
- * @module core
- * @class 弹性盒
+ * @module Flexbox
  * @description 定义弹性容器主轴对齐方式(其中`space-around`值需要iOS7.0+,Android4.4+)
  * @method justify-content
  * @version 1.0.0
@@ -803,8 +770,7 @@
 }
 
 /**
- * @module core
- * @class 弹性盒
+ * @module Flexbox
  * @description 定义多行弹性容器侧轴对齐方式(iOS7.0+,Android4.4+)
  * @method align-content
  * @version 1.8.5
@@ -878,8 +844,7 @@
 }
 
 /**
- * @module core
- * @class 弹性盒
+ * @module Flexbox
  * @description 定义单行弹性容器侧轴对齐方式
  * @method align-items
  * @version 1.0.0
@@ -933,8 +898,7 @@
 }
 
 /**
- * @module core
- * @class 弹性盒
+ * @module Flexbox
  * @description 定义弹性容器中子元素自身的在侧轴对齐方式(iOS7.0+,Android4.4+)
  * @method align-self
  * @version 1.0.0
@@ -984,8 +948,7 @@
 }
 
 /**
- * @module core
- * @class 形状
+ * @module Flexbox
  * @description 生成矩形方法
  * @method rect
  * @version 1.0.0
@@ -998,8 +961,7 @@
 }
 
 /**
- * @module core
- * @class 形状
+ * @module 形状
  * @description 生成正方形方法
  * @method square
  * @version 1.0.0
@@ -1011,8 +973,7 @@
 }
 
 /**
- * @module core
- * @class 形状
+ * @module 形状
  * @description 生成圆形方法
  * @method circle
  * @version 1.0.0
@@ -1025,8 +986,7 @@
 }
 
 /**
- * @module core
- * @class 文本
+ * @module 文本
  * @description 链接处理方法
  * @method link
  * @version 1.0.0
@@ -1041,8 +1001,7 @@
 }
 
 /**
- * @module core
- * @class 文本
+ * @module 文本
  * @description 文本碰到边界是否换行
  * @method wrap
  * @version 1.0.0
@@ -1058,8 +1017,7 @@
 }
 
 /**
- * @module core
- * @class 文本
+ * @module 文本
  * @description 单行文本溢出时显示省略号
  * @method ellipsis
  * @version 1.0.0
@@ -1080,11 +1038,8 @@
     }
 }
 
-
-
 /**
- * @module core
- * @class 文本
+ * @module 文本
  * @description 文字隐藏方案
  * @method texthide
  * @version 1.0.0
