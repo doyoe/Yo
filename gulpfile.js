@@ -4,8 +4,8 @@ var gutil = require('gulp-util');
 var plumber = require('gulp-plumber');
 
 // 引入组件
-var sass = require('node-sass-china');
 var nodeSass = require('gulp-sass-china');
+var sass = nodeSass.compiler;
 var through = require('through2');
 
 // 引入其他
