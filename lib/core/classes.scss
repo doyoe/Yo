@@ -11,7 +11,6 @@
  * @version 1.0.0
  * @param {String} $property 指定属性 {add:1.0.0}
  * @param {String} $value 指定属性值 {add:1.0.0}
- * @private
  * @skip
  */
 @mixin _prefix($property, $value) {
@@ -32,7 +31,6 @@
  * @description 定义字体图标
  * @method _yofont
  * @version 1.0.0
- * @private
  * @skip
  */
 @mixin _yofont() {
