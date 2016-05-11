@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+    <title>Yo : ./lib/widget/yo-select.scss</title>
+    <link type="text/css" rel="stylesheet" href="../../../source/shCoreDefault.css"/>
+    <link rel="stylesheet" href="../../../source/app.css" rel="stylesheet" />
+    <script type="text/javascript" src="../../../source/shCore.js"></script>
+    <script type="text/javascript" src="../../../source/shBrush-css.js"></script>
+    <style>
+        .syntaxhighlighter .number1 .spaces,.syntaxhighlighter .toolbar{ display: none;}
+        .syntaxhighlighter table td.gutter .line.highlight { background-color: #6ce26c !important; color: white; }
+    </style>
+</head>
+<body style="background: white; font-family: Helvetica">
+<div class="docs-header" id="content" tabindex="-1">
+    <div class="container">
+        <h1>Yo : ./lib/widget/yo-select.scss</h1>
+        <p>源代码</p>
+    </div>
+</div>
+<div class="container docs-container">
+
+    <div class="row">
+        <div class="col-md-9" role="main">
+        <pre class="brush: css;">
+@charset "utf-8";
+
+// 定义select的基础构造
+@mixin _select {
+    @include flexbox;
+    @include justify-content;
+    position: relative;
+    overflow: hidden;
+    height: map-get($select, item-height) * map-get($select, item);
+    background-color: white;
+    > .list {
+        position: relative;
+        @include flex;
+        text-align: center;
+        > .item {
+            height: map-get($select, item-height);
+            line-height: map-get($select, item-height);
+            padding: 0 .1rem;
+            &.disabled {
+                opacity: .4;
+            }
+        }
+    }
+    > .unit {
+        position: relative;
+        line-height: map-get($select, item-height) * 5;
+        &:last-child {
+            padding-right: .1rem;
+        }
+    }
+    > .mask {
+        position: absolute;
+        z-index: 3;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        content: "\0020";
+        pointer-events: none;
+        background: -webkit-linear-gradient(top, white, rgba(255, 255, 255, .4) 40%, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 60.5%, rgba(255, 255, 255, .4) 60.5%, white);
+    }
+    &::before {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        content: "\0020";
+        border: 1px solid map-get($select, border-color);
+        border-width: 1px 0;
+        @include responsive(retina1x) {
+            width: 100%;
+            height: map-get($select, item-height);
+            @include transform(translatey(-50%));
+        }
+        @include responsive(retina2x) {
+            width: 200%;
+            height: map-get($select, item-height) * 2;
+            @include transform(scale(0.5) translatey(-50%));
+        }
+        @include responsive(retina3x) {
+            width: 300%;
+            height: map-get($select, item-height) * 3;
+            @include transform(scale(1/3) translatey(-50%));
+        }
+        @include transform-origin(0 0);
+    }
+}
+
+/**
+ * @module widget
+ * @method yo-select
+ * @version 1.0.0
+ * @description 构造yo-select的自定义使用方法（2.1.2版本优化了内部实现，精简了代码层级，匹配的kami版本为：）
+ * @demo http://doyoe.github.io/Yo/demo/widget/yo-select.html
+ * @param {String} $name 定义扩展名称 {add:1.0.0}
+ * @param {Length} $item 显示的子项个数 {add:1.0.0}
+ * @param {Length} $item-height 子项高度 {add:1.0.0}
+ * @param {Color} $bordercolor 边框色 {add:1.0.0}{del:2.0.0}
+ * @param {Color} $border-color 边框色 {add:2.0.0}
+ */
+
+@mixin yo-select(
+    $name: default,
+    $item: default,
+    $item-height: default,
+    $border-color: default) {
+    // 区别是否新增实例还是修改本身
+    $name: if($name == default, "", "-#{$name}");
+    // 如果值为default，则取config的定义
+    @if $item == default {
+        $item: map-get($select, item);
+    }
+    @if $item-height == default {
+        $item-height: map-get($select, item-height);
+    }
+    @if $border-color == default {
+        $border-color: map-get($select, border-color);
+    }
+    .yo-select#{$name} {
+        @if $item-height != map-get($select, item-height) or $item != map-get($select, item) {
+            height: $item-height * $item;
+        }
+        > .list {
+            > .item {
+                @if $item-height != map-get($select, item-height) {
+                    height: $item-height;
+                    line-height: $item-height;
+                }
+            }
+        }
+        > .unit {
+            position: relative;
+            @if $item-height != map-get($select, item-height) or $item != map-get($select, item) {
+                line-height: $item-height * $item;
+            }
+        }
+        &::before {
+            @if $item-height != map-get($select, item-height) {
+                @include responsive(retina1x) {
+                    height: $item-height;
+                }
+                @include responsive(retina2x) {
+                    height: $item-height * 2;
+                }
+                @include responsive(retina3x) {
+                    height: $item-height * 3;
+                }
+            }
+            @if $border-color != map-get($select, border-color) {
+                border-color: $border-color;
+            }
+        }
+
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入select基础构造
+.yo-select {
+    @include _select;
+}
+        </pre>
+        </div>
+    </div>
+</div>
+
+<footer class="docs-footer" role="contentinfo">
+    <div class="container">
+        <p></p>
+    </div>
+</footer>
+<script type="text/javascript">
+    SyntaxHighlighter.all();
+
+    function getTop(node){
+        return node.offsetTop + (node.offsetParent ? getTop(node.offsetParent) : 0);
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+            try {
+                var lineNum = (parseInt(location.hash.replace(/#/g, '')) - 1) || 0,
+                    node = document.querySelectorAll('div.line')[lineNum];
+                document.body.scrollTop = getTop(node);
+                node.className += ' highlight';
+            } catch(e) {}
+        }, 500);
+    }, false);
+</script>
+</body>
+</html>

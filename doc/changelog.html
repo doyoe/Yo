@@ -1,16 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Yo Documentation 版本</title>
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta name="format-detection" content="telephone=no,email=no" />
-    <link rel="stylesheet" href="source/shCoreDefault.css" />
-    <link rel="stylesheet" href="source/app.css" />
-    <script src="source/shCore.js"></script>
-    <script src="source/shBrushSass.js"></script>
+    <link rel="stylesheet" href="source/app.css"/>
+    <link rel="stylesheet" href="source/highlight.min.css">
     <style>
     #readme {
       margin-top: .2rem;
@@ -200,6 +195,8 @@
     </style>
 </head>
 <body id="changelog">
+<a id="skippy" class="sr-only sr-only-focusable" href="#content"><div class="container"><span class="skiplink-text">Skip to main content</span></div></a>
+
 
 <!-- Docs master nav -->
 <header class="navbar navbar-static-top docs-nav" id="top" role="banner">
@@ -211,27 +208,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            
-            
-            
             <a href="./index.html" class="navbar-brand">Yo</a>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         </div>
         <nav id="bs-navbar" class="collapse navbar-collapse">
-           <ul class="nav navbar-nav navbar-left">
-                
+            <ul class="nav navbar-nav navbar-left">
                 
                 
                 
@@ -246,7 +226,23 @@
                 
                 
                 <li class="">
-                    <a href="api.html">文档</a>
+                    <a href="core.html">核心</a>
+                </li>
+                
+                
+                
+                
+                
+                <li class="">
+                    <a href="element.html">元件</a>
+                </li>
+                
+                
+                
+                
+                
+                <li class="">
+                    <a href="animate.html">动画</a>
                 </li>
                 
                 
@@ -261,18 +257,17 @@
                 
                 
                 
-                <li class="">
-                    <a href="http://doyoe.github.io/Yo/demo/" target="_blank">示例</a>
+                <li>
+                    <a href="http://ued.qunar.com/mobile/yo/demo/" target="_blank">示例</a>
                 </li>
                 
                 
                 
                 
                 
-                <li class="">
+                <li>
                     <a href="https://github.com/doyoe/Yo" target="_blank">Github</a>
                 </li>
-                
                 
                 
                 
@@ -283,21 +278,24 @@
 
 <!-- Docs page layout -->
 
-<div class="docs-header" id="content" style="margin-bottom:0">
+<div class="docs-header" id="content">
     <div class="container">
         <h1>版本</h1>
         <p>Yo 的历史版本发布时间及变更记录，帮助你追溯到每个版本的演进过程，同时也有每个版本所对应的下载地址</p>
         <a href="https://github.com/doyoe/Yo/tree/"></a>
-        <span class="version">当前版本：</span>
+        
     </div>
 </div>
 
 
+
 <div class="container docs-container">
     
-        <div id="readme">
-            <article class="markdown-body">
-                <h1 id="Yo Changelog">Yo Changelog</h1><p>History Version and release time.</p>
+    
+    <div id="readme">
+        <article class="markdown-body">
+            
+            <h1 id="Yo Changelog">Yo Changelog</h1><p>History Version and release time.</p>
 <h2 id="v2.1.3（2016.?）">v2.1.3（2016.?）</h2><p><a href="https://github.com/doyoe/Yo/releases/tag/v2.1.3">Tagged on Github.</a></p>
 <h3 id="变更：">变更：</h3><ul>
 <li>change <code>yo-list</code>，移除item的opacity设定，改用z-index:0来替代；</li>
@@ -758,21 +756,75 @@
 <li>修订 widget yo-select背景色问题</li>
 </ul>
 
-            </article>
-        </div>
+        </article>
+    </div>
+    
     
 </div>
 
-<!-- Footer -->
+<!-- Footer
+================================================== -->
 <footer class="docs-footer" role="contentinfo">
     <div class="container">
-        <p>Made By doyoe.com © 2014 - 2016</p>
+        <p>Made By Doyoe.com © 2014 - 2016</p>
     </div>
 </footer>
 
 <script src="source/jquery.min.js"></script>
 <script src="source/bootstrap.min.js"></script>
 <script src="source/docs.min.js"></script>
-<script>SyntaxHighlighter.all();</script>
+<script src="source/highlight.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('code').each(function(i, block) {
+            if (block.innerHTML.indexOf('\n') != -1) {
+                var pn = block.parentNode;
+                if (pn.tagName.toUpperCase() == 'PRE') {
+                    try {
+                        hljs.highlightBlock(block);
+                    } catch(e) {}
+                } else {
+                    pn.innerHTML = '<pre><code>' + block.innerHTML + '</code></pre>';
+                    try {
+                        hljs.highlightBlock(pn.childNodes[0].childNodes[0]);
+                    } catch(e) {}
+                }
+            }
+        });
+
+        var winHeight = $(window).height() - 40;
+
+        $('.docs-sidebar').height(winHeight);
+
+        var activeMenu,
+            sidebar = $('.docs-sidebar'),
+            barScroll = false;
+
+        sidebar.on('mouseover', function() {
+            barScroll = true;
+        });
+
+        sidebar.on('mouseout', function() {
+            barScroll = false;
+        });
+
+        $(window).on('scroll', function(e) {
+            if (!barScroll) {
+                var activeItem = $('.docs-sidebar li.active a');
+                if (activeItem.length) {
+                    if (!activeMenu || (activeMenu.attr('href') != activeItem.attr('href'))) {
+                        activeMenu = activeItem;
+                        var top = activeMenu.offset().top - sidebar.offset().top;
+                        if (top < 0) {
+                            sidebar.scrollTop(sidebar.scrollTop() + top);
+                        } else if (top > winHeight - 30) {
+                            sidebar.scrollTop(sidebar.scrollTop() + top - winHeight + 30);
+                        }
+                    }
+                }
+            }
+        });
+    });
+</script>
 </body>
 </html>
