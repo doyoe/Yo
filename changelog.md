@@ -1,8 +1,4 @@
-# Yo Changelog
-
-History Version and release time.
-
-## v2.1.3（2016.?）
+## v2.1.3（2016.?）- 开发中
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v2.1.3)
 
