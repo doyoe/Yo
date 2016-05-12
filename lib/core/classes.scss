@@ -289,7 +289,7 @@
 
     @if map-get($setting, is-vendor-prefix) {
         @each $vendor in map-get($setting, vendor-prefix) {
-            background-image: $vendor$type#{-gradient($dir, $color-stop)};
+            background-image: $vendor$type"#{-gradient($dir, $color-stop)}";
         }
     }
     @each $direction in $dir {
@@ -302,7 +302,7 @@
         }
     }
 
-    background-image: $type#{-gradient($dir-new, $color-stop)};
+    background-image: $type"#{-gradient($dir-new, $color-stop)}";
 }
 
 /**
@@ -500,9 +500,9 @@
         @each $vendor in map-get($setting, vendor-prefix) {
             @for $i from 1 through length($transition) {
                 @if index($prefix-properties, nth(nth($transition, $i), 1)) {
-                    $vendor-list: join($vendor-list, #{$vendor}#{nth($transition, $i)}, comma);
+                    $vendor-list: join($vendor-list, "#{$vendor}#{nth($transition, $i)}", comma);
                 } @else {
-                    $vendor-list: join($vendor-list, #{nth($transition, $i)}, comma);
+                    $vendor-list: join($vendor-list, "#{nth($transition, $i)}", comma);
                 }
             }
             #{$vendor}transition: $vendor-list;
