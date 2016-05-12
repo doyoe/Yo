@@ -42,7 +42,7 @@ var compilers = {
     }
 };
 
-// 命令: gulp compile ，进行node-sass编译
+// 命令: gulp compile, 进行node-sass编译 [-c node-sass/sass]
 gulp.task('compile', function() {
     var argv = optimist.argv,
         compiler = argv.c || argv.compiler || require('./package.json').compiler;
@@ -56,27 +56,24 @@ gulp.task('compile', function() {
     }
 });
 
-// 命令: gulp clear ，清理 ruby sass 编译时产生的缓存
+// 命令: gulp clear, 清理 ruby sass 编译时产生的缓存
 gulp.task('clear', function() {
     rubySass.clearCache();
 });
 
-// 命令: gulp version ，获取Yo、Sass和Node-sass的版本信息
+// 命令: gulp version, 获取Yo、Sass和Node-sass的版本信息
 gulp.task('version', function() {
     gutil.log(gutil.colors.green('Yo: ' + versions.yo));
     gutil.log(gutil.colors.green('Sass: ' + versions.sass));
     gutil.log(gutil.colors.green('Node-sass: ' + versions['node-sass']));
 });
 
-// 命令: gulp watch ，监听工程中scss文件变化时，执行compile操作
+// 命令: gulp watch, 监听工程中scss文件变化时，执行compile操作 [-c node-sass/sass]
 gulp.task('watch', function() {
     gulp.watch('./**/*.scss', ['compile']);
 });
 
-// 命令: gulp build ，一次性构建项目，不监听文件变化
-gulp.task('build', ['compile']);
-
-// 命令: gulp test ， 测试任务
+// 命令: gulp test, 测试任务
 gulp.task('test', function() {
     return gulp.src('./usage/test/test.scss')
         .pipe(through.obj(combineScss))
@@ -84,4 +81,12 @@ gulp.task('test', function() {
             outputStyle: 'expanded'
         }))
         .pipe(gulp.dest('./usage/test'));
+});
+
+
+gulp.task('default', function() {
+    gutil.log('可以使用的命令如下: ');
+    fs.readFileSync('./gulpfile.js', 'UTF-8').replace(/\/\/\s命令\:\sgulp\s(\w+)\,\s([^\n]+)/g, function(a, b, c) {
+        gutil.log(gutil.colors.green(b), gutil.colors.blue(c));
+    });
 });
