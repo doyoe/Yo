@@ -1,6 +1,6 @@
 ## v2.1.3 - 开发中
 
-[Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v2.1.3)
+<!-- [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v2.1.3) -->
 
 ### 变更：
 * change `yo-list`，移除item的opacity设定，改用z-index:0来替代；
