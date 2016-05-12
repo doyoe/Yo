@@ -16,6 +16,7 @@ var hanlders = require('./gulp/hanlders.js');
 var scssPath = './usage/page';
 var cssPath = './usage/export';
 
+// 编译器
 var compilers = {
     'node-sass': function(scssPath, cssPath) {
         return gulp.src(scssPath + '/*.scss')
@@ -29,8 +30,8 @@ var compilers = {
             .pipe(gulp.dest(cssPath))
             .on('end', hanlders.end);
     },
-    'sass': function buildSassGulp(scssPath, cssPath) {
-        return rubySass(scssPath, {
+    'sass': function (scssPath, cssPath) {
+        return rubySass(scssPath + '/*.scss', {
                 style: 'expanded'
             })
             .pipe(plumber({
@@ -55,6 +56,11 @@ gulp.task('compile', function() {
     }
 });
 
+// 命令: gulp clear ，清理 ruby sass 编译时产生的缓存
+gulp.task('clear', function() {
+    rubySass.clearCache();
+});
+
 // 命令: gulp version ，获取Yo、Sass和Node-sass的版本信息
 gulp.task('version', function() {
     gutil.log(gutil.colors.green('Yo: ' + versions.yo));
@@ -70,7 +76,7 @@ gulp.task('watch', function() {
 // 命令: gulp build ，一次性构建项目，不监听文件变化
 gulp.task('build', ['compile']);
 
-// 测试任务
+// 命令: gulp test ， 测试任务
 gulp.task('test', function() {
     return gulp.src('./usage/test/test.scss')
         .pipe(through.obj(combineScss))
