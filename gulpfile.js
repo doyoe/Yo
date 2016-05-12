@@ -8,6 +8,7 @@ var rubySass = require('gulp-ruby-sass');
 var nodeSass = require('gulp-sass-china');
 var through = require('through2');
 var optimist = require('optimist');
+var qdoc = require('q-doc');
 var combineScss = require('./gulp/combineScss.js');
 var versions = require('./gulp/versions.js');
 var hanlders = require('./gulp/hanlders.js');
@@ -30,7 +31,7 @@ var compilers = {
             .pipe(gulp.dest(cssPath))
             .on('end', hanlders.end);
     },
-    'sass': function (scssPath, cssPath) {
+    'sass': function(scssPath, cssPath) {
         return rubySass(scssPath + '/*.scss', {
                 style: 'expanded'
             })
@@ -56,6 +57,11 @@ gulp.task('compile', function() {
     }
 });
 
+// 命令: gulp watch, 监听工程中scss文件变化时，执行compile操作 [-c node-sass/sass]
+gulp.task('watch', function() {
+    gulp.watch('./**/*.scss', ['compile']);
+});
+
 // 命令: gulp clear, 清理 ruby sass 编译时产生的缓存
 gulp.task('clear', function() {
     rubySass.clearCache();
@@ -68,9 +74,21 @@ gulp.task('version', function() {
     gutil.log(gutil.colors.green('Node-sass: ' + versions['node-sass']));
 });
 
-// 命令: gulp watch, 监听工程中scss文件变化时，执行compile操作 [-c node-sass/sass]
-gulp.task('watch', function() {
-    gulp.watch('./**/*.scss', ['compile']);
+// 命令: gulp doc, 生成文档
+gulp.task('doc', function() {
+    return gulp.src('./')
+        .pipe(qdoc({
+            dest: 'doc',
+            template: './gulp/qdoc_template/'
+        }));
+});
+
+// 命令: gulp uedoc, 生成UED文档
+gulp.task('uedoc', function() {
+    var conf = require('./gulp/uedocConfig.js');
+    conf.dest = 'uedoc';
+    return gulp.src('./')
+        .pipe(qdoc(conf));
 });
 
 // 命令: gulp test, 测试任务
