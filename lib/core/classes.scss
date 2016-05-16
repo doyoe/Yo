@@ -255,7 +255,7 @@
  * @description 定义如何选中内容
  * @method user-select
  * @version 1.0.0
- * @param {String} $user-select 取值与`user-select`属性一致，默认值：none {add:1.0.0}
+ * @param {String} $user-select 取值与`user-select`属性一致，默认值：none <1.0.0>
  */
 @mixin user-select($user-select: none) {
     @include _prefix(user-select, $user-select);
@@ -266,7 +266,7 @@
  * @description 定义盒模型
  * @method box-sizing
  * @version 1.0.0
- * @param {String} $box-sizing 指定盒模型类型，取值与`box-sizing`属性一致，默认值：border-box {add:1.0.0}
+ * @param {String} $box-sizing 指定盒模型类型，取值与`box-sizing`属性一致，默认值：border-box <1.0.0>
  */
 @mixin box-sizing($box-sizing: border-box) {
     @include _prefix(box-sizing, $box-sizing);
@@ -277,9 +277,9 @@
  * @description 定义渐变色值
  * @method gradient
  * @version 1.0.0
- * @param {String} $type 指定渐变的4种类型：linear, repeating-linear, radial, repeating-radial {add:1.0.0}
- * @param {String} $dir 指定渐变方向，可选值：[left | right] || [top | bottom] | angle {add:2.0.0}
- * @param {String} $gradient 指定渐变取值，与w3c最新原生语法一致 {add:1.0.0}
+ * @param {String} $type 指定渐变的4种类型：linear, repeating-linear, radial, repeating-radial <1.0.0>
+ * @param {String} $dir 指定渐变方向，可选值：[left | right] || [top | bottom] | angle <2.0.0>
+ * @param {String} $gradient 指定渐变取值，与w3c最新原生语法一致 <1.0.0>
  */
 @mixin gradient($type, $dir, $color-stop...) {
     // 最新草案：当方向为top,right,bottom,left时需要使用关键字to
@@ -310,7 +310,7 @@
  * @description 定义背景图像缩放（AndroidBrowser2.3.*还需要厂商前缀）
  * @method background-size
  * @version 1.4.0
- * @param {Keywords | Length} $background-size 指定背景图缩放值，取值与`background-size`属性一致 {add:1.4.0}
+ * @param {Keywords | Length} $background-size 指定背景图缩放值，取值与`background-size`属性一致 <1.4.0>
  */
 @mixin background-size($background-size...) {
     @include _prefix(background-size, $background-size);
@@ -321,7 +321,7 @@
  * @description 定义背景裁减（AndroidBrowser2.3.*还需要厂商前缀）
  * @method background-clip
  * @version 1.6.0
- * @param {Keywords} $background-clip 指定背景图缩放值，取值与`background-clip`属性一致 {add:1.6.0}
+ * @param {Keywords} $background-clip 指定背景图缩放值，取值与`background-clip`属性一致 <1.6.0>
  */
 @mixin background-clip($background-clip...) {
     @include _prefix(background-clip, $background-clip);
@@ -332,7 +332,7 @@
  * @description 定义背景显示区域（AndroidBrowser2.3.*还需要厂商前缀）
  * @method background-origin
  * @version 1.6.0
- * @param {Keywords} $background-origin 指定背景图`background-position`属性计算相对的参考点，取值与`background-origin`属性一致 {add:1.6.0}
+ * @param {Keywords} $background-origin 指定背景图`background-position`属性计算相对的参考点，取值与`background-origin`属性一致 <1.6.0>
  */
 @mixin background-origin($background-origin...) {
     @include _prefix(background-origin, $background-origin);
@@ -343,7 +343,7 @@
  * @description 定义圆角，用于修复某些安卓机型上“圆角+边框+背景”，背景溢出的情况
  * @method border-radius
  * @version 1.6.0
- * @param {Length} $border-radius 指定元素的圆角半径，取值与`border-radius`属性一致 {add:1.6.0}
+ * @param {Length} $border-radius 指定元素的圆角半径，取值与`border-radius`属性一致 <1.6.0>
  */
 @mixin border-radius($border-radius...) {
     border-radius: $border-radius;
@@ -356,10 +356,10 @@
  * @description 为元素添加边框（包括1px边框）
  * @method border
  * @version 2.0.0
- * @param {String} $border-width 指定边框厚度（单位为px），默认值：1px，取值与`border-width`属性一致，不同方向代表边框位置 {add:2.0.0}
- * @param {String} $border-color 指定边框颜色 {add:2.0.0}
- * @param {String} $border-style 指定边框样式 {add:2.0.0}
- * @param {String} $radius 指定边框圆角半径，默认值：null {add:2.0.0}
+ * @param {String} $border-width 指定边框厚度（单位为px），默认值：1px，取值与`border-width`属性一致，不同方向代表边框位置 <2.0.0>
+ * @param {String} $border-color 指定边框颜色 <2.0.0>
+ * @param {String} $border-style 指定边框样式 <2.0.0>
+ * @param {String} $radius 指定边框圆角半径，默认值：null <2.0.0>
  */
 @mixin border($border-width: 1px, $border-color: map-get($base, border-color), $border-style: solid, $radius: null) {
     // 为边框位置提供定位参考
@@ -413,7 +413,7 @@
  * @description 定义简单变换
  * @method transform
  * @version 1.0.0
- * @param {String} $transform 取值范围与`transform`属性一致 {add:1.0.0}
+ * @param {String} $transform 取值范围与`transform`属性一致 <1.0.0>
  */
 @mixin transform($transform...) {
     @include _prefix(transform, $transform);
@@ -424,7 +424,7 @@
  * @description 定义变换原点
  * @method transform-origin
  * @version 1.0.0
- * @param {Length | Percentage | Keywords} $transform-origin 取值范围与`transform-origin`属性一致 {add:1.0.0}
+ * @param {Length | Percentage | Keywords} $transform-origin 取值范围与`transform-origin`属性一致 <1.0.0>
  */
 @mixin transform-origin($transform-origin) {
     @include _prefix(transform-origin, $transform-origin);
@@ -435,7 +435,7 @@
  * @description 指定某元素的子元素是（看起来）位于三维空间内，还是在该元素所在的平面内被扁平化
  * @method transform-style
  * @version 2.0.0
- * @param {String} $transform-style 取值范围与`transform-style`属性一致 {add:2.0.0}
+ * @param {String} $transform-style 取值范围与`transform-style`属性一致 <2.0.0>
  */
 @mixin transform-style($transform-style) {
     @include _prefix(transform-style, $transform-style);
@@ -446,7 +446,7 @@
  * @description 指定观察者与「z=0」平面的距离，使具有三维位置变换的元素产生透视效果。「z>0」的三维元素比正常大，而「z<0」时则比正常小，大小程度由该属性的值决定。
  * @method perspective
  * @version 2.0.0
- * @param {none | Length} $perspective 取值范围与`perspective`属性一致 {add:2.0.0}
+ * @param {none | Length} $perspective 取值范围与`perspective`属性一致 <2.0.0>
  */
 @mixin perspective($perspective) {
     @include _prefix(perspective, $perspective);
@@ -457,7 +457,7 @@
  * @description 指定透视点的位置
  * @method perspective-origin
  * @version 2.0.0
- * @param {Length | Percentage | Keywords} $perspective-origin 取值范围与`perspective-origin`属性一致 {add:2.0.0}
+ * @param {Length | Percentage | Keywords} $perspective-origin 取值范围与`perspective-origin`属性一致 <2.0.0>
  */
 @mixin perspective-origin($perspective-origin) {
     @include _prefix(perspective-origin, $perspective-origin);
@@ -468,7 +468,7 @@
  * @description 指定元素背面面向用户时是否可见
  * @method backface-visibility
  * @version 2.0.0
- * @param {Keywords} $backface-visibility 取值范围与`backface-visibility`属性一致 {add:2.0.0}
+ * @param {Keywords} $backface-visibility 取值范围与`backface-visibility`属性一致 <2.0.0>
  */
 @mixin backface-visibility($backface-visibility) {
     @include _prefix(backface-visibility, $backface-visibility);
@@ -479,7 +479,7 @@
  * @description 定义动画
  * @method animation
  * @version 1.0.0
- * @param {String} $animation 取值与原生语法一致 {add:1.0.0}
+ * @param {String} $animation 取值与原生语法一致 <1.0.0>
  */
 @mixin animation($animation...) {
     @include _prefix(animation, $animation);
@@ -490,7 +490,7 @@
  * @description 定义补间
  * @method transition
  * @version 1.0.0
- * @param {String} $transition 取值与原生语法一致 {add:1.0.0}
+ * @param {String} $transition 取值与原生语法一致 <1.0.0>
  */
 @mixin transition($transition...){
     $prefix-properties: transform, transform-origin;
@@ -517,7 +517,7 @@
  * @description 定义显示类型为伸缩盒
  * @method flexbox
  * @version 1.0.0
- * @param {String} $flexbox 默认值：flex，可选值：flex | inline-flex {add:1.0.0}
+ * @param {String} $flexbox 默认值：flex，可选值：flex | inline-flex <1.0.0>
  */
 @mixin flexbox($flexbox: flex) {
     @if $flexbox == inline-flex or $flexbox == inline {
@@ -550,8 +550,8 @@
  * @description 定义伸缩盒子元素如何分配空间
  * @method flex
  * @version 1.0.0
- * @param {Number} $flex 取值与`flex`属性一致，默认值：1 {add:1.0.0}
- * @param {String} $direction 默认值: row，可选值：row | column {add:1.5.0}
+ * @param {Number} $flex 取值与`flex`属性一致，默认值：1 <1.0.0>
+ * @param {String} $direction 默认值: row，可选值：row | column <1.5.0>
  */
 @mixin flex($flex: 1, $direction: row) {
     // 老式浏览器（实验性质支持3个阶段草案）
@@ -584,7 +584,7 @@
  * @description 定义伸缩盒子元素的排版顺序
  * @method order
  * @version 1.0.0
- * @param {Integer} $order 取值与`order`属性一致，默认值：1 {add:1.0.0}
+ * @param {Integer} $order 取值与`order`属性一致，默认值：1 <1.0.0>
  */
 @mixin order($order: 1) {
     // 老式浏览器（实验性质支持3个阶段草案）
@@ -609,7 +609,7 @@
  * @description 定义弹性盒子元素流动方向及遇见边界时是否换行(iOS7.0+,Android4.4+)
  * @method flex-flow
  * @version 2.0.0
- * @param {String} $flex-flow 取值与`flex-flow`属性一致，默认值：row nowrap {add:2.0.0}
+ * @param {String} $flex-flow 取值与`flex-flow`属性一致，默认值：row nowrap <2.0.0>
  */
 @mixin flex-flow($flex-flow: row nowrap) {
     // 老式浏览器（实验性质支持过渡和最新2个阶段草案）+ 现代浏览器
@@ -621,7 +621,7 @@
  * @description 定义伸缩盒子元素的流动方向
  * @method flex-direction
  * @version 1.0.0
- * @param {String} $flex-direction 取值与`flex-direction`属性一致，默认值：row {add:1.0.0}
+ * @param {String} $flex-direction 取值与`flex-direction`属性一致，默认值：row <1.0.0>
  */
 @mixin flex-direction($flex-direction: row) {
     // 老式浏览器（实验性质支持原始草案）
@@ -679,7 +679,7 @@
  * @description 定义弹性盒子元素溢出后排版(iOS7.0+,Android4.4+)
  * @method flex-wrap
  * @version 1.0.0
- * @param {String} $flex-wrap 取值与`flex-wrap`属性一致，默认值：nowrap {add:1.0.0}
+ * @param {String} $flex-wrap 取值与`flex-wrap`属性一致，默认值：nowrap <1.0.0>
  */
 @mixin flex-wrap($flex-wrap: nowrap) {
     // 老式浏览器（实验性质支持过渡和最新2个阶段草案）+ 现代浏览器
@@ -692,7 +692,7 @@
  * @description 定义弹性容器主轴对齐方式(其中`space-around`值需要iOS7.0+,Android4.4+)
  * @method justify-content
  * @version 1.0.0
- * @param {String} $justify-content 取值与`justify-content`属性一致，默认值：center {add:1.0.0}
+ * @param {String} $justify-content 取值与`justify-content`属性一致，默认值：center <1.0.0>
  */
 @mixin justify-content($justify-content: center) {
     // 老式浏览器（实验性质支持3个阶段草案）
@@ -772,7 +772,7 @@
  * @description 定义多行弹性容器侧轴对齐方式(iOS7.0+,Android4.4+)
  * @method align-content
  * @version 1.8.5
- * @param {String} $align-content 取值与`align-content`属性一致，默认值：center {add:1.8.5}
+ * @param {String} $align-content 取值与`align-content`属性一致，默认值：center <1.8.5>
  */
 @mixin align-content($align-content: center) {
     // 老式浏览器（实验性质支持2个阶段草案）
@@ -846,7 +846,7 @@
  * @description 定义单行弹性容器侧轴对齐方式
  * @method align-items
  * @version 1.0.0
- * @param {String} $align-items 取值与`align-items`属性一致，默认值：center {add:1.0.0}
+ * @param {String} $align-items 取值与`align-items`属性一致，默认值：center <1.0.0>
  */
 @mixin align-items($align-items: center) {
     // 老式浏览器（实验性质支持3个阶段草案）
@@ -900,7 +900,7 @@
  * @description 定义弹性容器中子元素自身的在侧轴对齐方式(iOS7.0+,Android4.4+)
  * @method align-self
  * @version 1.0.0
- * @param {String} $align-self 取值与`align-self`属性一致，默认值：center {add:1.0.0}
+ * @param {String} $align-self 取值与`align-self`属性一致，默认值：center <1.0.0>
  */
 @mixin align-self($align-self: center) {
     // 老式浏览器（实验性质支持3个阶段草案）
@@ -950,8 +950,8 @@
  * @description 生成矩形方法
  * @method rect
  * @version 1.0.0
- * @param {Length} $width 定义矩形的长度 {add:1.0.0}
- * @param {Length} $height 定义矩形的高度 {add:1.0.0}
+ * @param {Length} $width 定义矩形的长度 <1.0.0>
+ * @param {Length} $height 定义矩形的高度 <1.0.0>
  */
 @mixin rect($width, $height) {
     width: $width;
@@ -963,7 +963,7 @@
  * @description 生成正方形方法
  * @method square
  * @version 1.0.0
- * @param {Length} $size 定义正方形的边长 {add:1.0.0}
+ * @param {Length} $size 定义正方形的边长 <1.0.0>
  */
 @mixin square($size) {
     width: $size;
@@ -975,8 +975,8 @@
  * @description 生成圆形方法
  * @method circle
  * @version 1.0.0
- * @param {Length} $size 定义圆的半径长度 {add:1.0.0}
- * @param {Length} $radius 定义圆的圆角半径长度 {add:1.0.0}
+ * @param {Length} $size 定义圆的半径长度 <1.0.0>
+ * @param {Length} $radius 定义圆的圆角半径长度 <1.0.0>
  */
 @mixin circle($size, $radius: 50%) {
     @include square($size);
@@ -988,7 +988,7 @@
  * @description 链接处理方法
  * @method link
  * @version 1.0.0
- * @param {Color} $color 定义链接颜色 {add:1.0.0}
+ * @param {Color} $color 定义链接颜色 <1.0.0>
  */
 @mixin link($color: map-get($base, link-color)) {
     color: $color;
@@ -1003,7 +1003,7 @@
  * @description 文本碰到边界是否换行
  * @method wrap
  * @version 1.0.0
- * @param {Boolean} $is-wrap 定义文本是否换行，默认值：true {add:2.0.0}
+ * @param {Boolean} $is-wrap 定义文本是否换行，默认值：true <2.0.0>
  */
 @mixin wrap($is-wrap: true) {
     @if $is-wrap == true {
@@ -1019,8 +1019,8 @@
  * @description 单行文本溢出时显示省略号
  * @method ellipsis
  * @version 1.0.0
- * @param {Length} $width 定义容器的宽度，默认值：null {add:2.0.0}
- * @param {Integer} $line-clamp 定义需要显示的行数，默认值：1（即使用单行溢出的处理方案），需要注意的是本参数只支持webkit内核 {add:2.1.2}
+ * @param {Length} $width 定义容器的宽度，默认值：null <2.0.0>
+ * @param {Integer} $line-clamp 定义需要显示的行数，默认值：1（即使用单行溢出的处理方案），需要注意的是本参数只支持webkit内核 <2.1.2>
  */
 @mixin ellipsis($width: null, $line-clamp: 1) {
     overflow: hidden;
@@ -1041,7 +1041,7 @@
  * @description 文字隐藏方案
  * @method texthide
  * @version 1.0.0
- * @param {Length} $width 定义容器的宽度，默认值：null {add:2.0.0}
+ * @param {Length} $width 定义容器的宽度，默认值：null <2.0.0>
  */
 @mixin texthide($width: null) {
     overflow: hidden;
