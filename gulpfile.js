@@ -91,6 +91,11 @@ gulp.task('uedoc', function() {
         .pipe(qdoc(conf));
 });
 
+// 命令: gulp watch-doc, 监听改变生成文档
+gulp.task('watch-doc', function() {
+    gulp.watch(['./**/*.scss', './**/*.md'], ['doc']);
+});
+
 // 命令: gulp test, 测试任务
 gulp.task('test', function() {
     return gulp.src('./usage/test/test.scss')
