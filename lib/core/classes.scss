@@ -9,8 +9,8 @@
  * @description 给需要的属性加厂家前缀
  * @method _prefix
  * @version 1.0.0
- * @param {String} $property 指定属性 {add:1.0.0}
- * @param {String} $value 指定属性值 {add:1.0.0}
+ * @param {String} $property 指定属性 <1.0.0>
+ * @param {String} $value 指定属性值 <1.0.0>
  * @skip
  */
 @mixin _prefix($property, $value) {
@@ -61,8 +61,8 @@
  * @description 四则运算(iOS6.0+,Android4.4+)
  * @method calc
  * @version 1.7.0
- * @param {String} $property 指定需要进行计算的CSS属性 {add:1.7.0}
- * @param {String} $value 与原生CSS语法一致，区别在于需要使用引号包裹表达式 {add:1.7.0}
+ * @param {String} $property 指定需要进行计算的CSS属性 <1.7.0>
+ * @param {String} $value 与原生CSS语法一致，区别在于需要使用引号包裹表达式 <1.7.0>
  * @example <div class="calc">四则运算</div>
  * .calc { @include calc(width, "100% - 100px"); }
  */
@@ -85,7 +85,7 @@
  * @description 定义响应式方案
  * @method responsive
  * @version 1.0.0
- * @param {String} $media 指定媒体查询条件，取值为`config`文件map `media-types`中的值 {add:1.0.0}
+ * @param {String} $media 指定媒体查询条件，取值为`config`文件map `media-types`中的值 <1.0.0>
  */
 @mixin responsive($media) {
     @if not map-has-key($media-types, $media) {
@@ -102,7 +102,7 @@
  * @description 清除浮动方案
  * @method clearfix
  * @version 1.0.0
- * @param {String} $type 指定清除浮动的方式，包括：pseudo-element | bfc，默认值：pseudo-element {add: 1.8.5}
+ * @param {String} $type 指定清除浮动的方式，包括：pseudo-element | bfc，默认值：pseudo-element <1.8.5>
  */
 @mixin clearfix($type: pseudo-element) {
     @if $type == pseudo-element {
@@ -125,7 +125,7 @@
  * @description 清除行内级元素间间隙方案
  * @method killspace
  * @version 1.0.0
- * @param {Length} $font-size 指定子元素字号，默认值：config基准字号 {add: 2.0.0}
+ * @param {Length} $font-size 指定子元素字号，默认值：config基准字号 <2.0.0>
  * @example
  * <div class="demo">
  *      <span class="item">1</span>
@@ -149,10 +149,10 @@
  * @description 元素在包含块中的对齐方式，默认为水平垂直对齐
  * @method align
  * @version 2.0.0
- * @param {String} $flexbox 指定包含块布局方式，可选值：flex | inline-flex，默认值：flex {add:2.0.0}
- * @param {String} $type 指定居中元素类型，可选值：image | text | other，默认值：text {add:2.0.0}
- * @param {Keywords} $justify-content 指定元素水平对齐方式，取值与`justify-content`属性一致，默认值：center {add:2.0.0}
- * @param {Keywords} $align-items 指定元素垂直对齐方式，取值与`align-items`属性一致，默认值：center {add:2.0.0}
+ * @param {String} $flexbox 指定包含块布局方式，可选值：flex | inline-flex，默认值：flex <2.0.0>
+ * @param {String} $type 指定居中元素类型，可选值：image | text | other，默认值：text <2.0.0>
+ * @param {Keywords} $justify-content 指定元素水平对齐方式，取值与`justify-content`属性一致，默认值：center <2.0.0>
+ * @param {Keywords} $align-items 指定元素垂直对齐方式，取值与`align-items`属性一致，默认值：center <2.0.0>
  * @example
  * <div class="demo">
  *      <img class="item" alt="未知尺寸图片居中" />
@@ -179,7 +179,7 @@
  * @description 定义文档根节点是否允许滚动
  * @method root-scroll
  * @version 1.4.0
- * @param {Boolean} $is-scroll 指定是否有滚动，默认值：false {add: 1.8.6}
+ * @param {Boolean} $is-scroll 指定是否有滚动，默认值：false <1.8.6>
  */
 @mixin root-scroll($is-scroll: false) {
     html,
@@ -199,7 +199,7 @@
  * @description 定义是否有滚动条
  * @method overflow
  * @version 1.0.0
- * @param {String} $overflow 取值与最新原生语法一致，默认值：auto {add:1.0.0}
+ * @param {String} $overflow 取值与最新原生语法一致，默认值：auto <1.0.0>
  */
 @mixin overflow($overflow: auto) {
     @if $overflow == auto {
@@ -216,8 +216,8 @@
  * @description 生成全屏方法
  * @method fullscreen
  * @version 1.7.0
- * @param {Integer} $z-index 指定层叠级别 {add:1.7.0}
- * @param {Keywords} $position 指定定位方式，取除`static | relative`之外的值，默认值：absolute {add:1.8.5}
+ * @param {Integer} $z-index 指定层叠级别 <1.7.0>
+ * @param {Keywords} $position 指定定位方式，取除`static | relative`之外的值，默认值：absolute <1.8.5>
  */
 @mixin fullscreen($z-index: null, $position: absolute) {
     position: $position;
@@ -233,7 +233,7 @@
  * @description 定义使用何种滤镜
  * @method filter
  * @version 1.7.0
- * @param {String} $filter 取值与`filter`属性一致 {add:1.7.0}
+ * @param {String} $filter 取值与`filter`属性一致 <1.7.0>
  */
 @mixin filter($filter...) {
     @include _prefix(filter, $filter);
@@ -244,7 +244,7 @@
  * @description 定义UA默认外观
  * @method appearance
  * @version 1.0.0
- * @param {String} $appearance 取值与`appearance`属性一致，默认值：none {add:1.0.0}
+ * @param {String} $appearance 取值与`appearance`属性一致，默认值：none <1.0.0>
  */
 @mixin appearance($appearance: none) {
     @include _prefix(appearance, $appearance);
