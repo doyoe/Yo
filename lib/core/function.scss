@@ -9,7 +9,7 @@
  * @description 返回SassList中的第一项
  * @function first
  * @version 2.1.0
- * @param {String} $list 指定一个Sass List {add:2.1.0}
+ * @param {String} $list 指定一个Sass List <2.1.0>
  */
 @function first($list) {
     $length: length($list);
@@ -31,7 +31,7 @@
  * @description 返回SassList中的最后一项
  * @function last
  * @version 2.1.0
- * @param {String} $list 指定一个Sass List {add:2.1.0}
+ * @param {String} $list 指定一个Sass List <2.1.0>
  */
 @function last($list) {
     $length: length($list);
@@ -53,8 +53,8 @@
  * @description 返回SassList中的倒数第几项
  * @function nth-last
  * @version 2.1.0
- * @param {String} $list 指定一个Sass List {add:2.1.0}
- * @param {Integer} $index 指定需要返回的值在list中的倒数位置 {add:2.1.0}
+ * @param {String} $list 指定一个Sass List <2.1.0>
+ * @param {Integer} $index 指定需要返回的值在list中的倒数位置 <2.1.0>
  */
 @function nth-last($list, $index) {
     $length: length($list);
@@ -80,8 +80,8 @@
  * @description 移除SassList中的某个项目并返回新的List
  * @function remove
  * @version 2.1.0
- * @param {String} $list 指定一个Sass List {add:2.1.0}
- * @param {String} $value 指定需要被删除的值 {add:2.1.0}
+ * @param {String} $list 指定一个Sass List <2.1.0>
+ * @param {String} $value 指定需要被删除的值 <2.1.0>
  */
 @function remove($list, $value) {
     $new-list: ();
@@ -107,9 +107,9 @@
  * @description 截取SassList中的某个部分并返回新的List
  * @function slice
  * @version 2.1.0
- * @param {String} $list 指定一个Sass List {add:2.1.0}
- * @param {Integer} $start 指定需要截取的开始下标 {add:2.1.0}
- * @param {Integer} $end 指定需要截取的结束下标（不包括end），当该值缺省时默认为末尾下标 {add:2.1.0}
+ * @param {String} $list 指定一个Sass List <2.1.0>
+ * @param {Integer} $start 指定需要截取的开始下标 <2.1.0>
+ * @param {Integer} $end 指定需要截取的结束下标（不包括end），当该值缺省时默认为末尾下标 <2.1.0>
  */
 @function slice($list, $start, $end: length($list) + 1) {
     $new-list: ();
@@ -137,10 +137,10 @@
  * @description 从SassList中添加/删除项目，然后返回新的List。
  * @function splice
  * @version 2.1.0
- * @param {String} $list 指定一个Sass List {add:2.1.0}
- * @param {Integer} $index 指定需要移除的开始下标 {add:2.1.0}
- * @param {Integer} $count 指定需要移除的数量，不可以为负值，0表示不移除 {add:2.1.0}
- * @param {String} $values 指定需要添加的新值（可以是多个），如果该值缺省，则表示只移除不添加新值 {add:2.1.0}
+ * @param {String} $list 指定一个Sass List <2.1.0>
+ * @param {Integer} $index 指定需要移除的开始下标 <2.1.0>
+ * @param {Integer} $count 指定需要移除的数量，不可以为负值，0表示不移除 <2.1.0>
+ * @param {String} $values 指定需要添加的新值（可以是多个），如果该值缺省，则表示只移除不添加新值 <2.1.0>
  */
 @function splice($list, $index, $count, $values...) {
     $new-list: ();
