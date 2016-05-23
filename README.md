@@ -44,10 +44,6 @@
     * `gulp watch`: 如果你想监听所有文件的变更
     * `gulp build`: 如果你只是想build一次该项目
 
-### 使用fekit&QMB构建
-
-* 使用方法参考：[QMB使用说明](http://ued.qunar.com/mobile/qmb2/)
-
 
 <a name="how-to-start"></a>
 ## 如何开始
