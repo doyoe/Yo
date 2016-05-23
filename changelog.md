@@ -3,11 +3,7 @@
 <!-- [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v2.1.3) -->
 
 ### 变更：
-* change `yo-list`，移除item的opacity设定，改用z-index:0来替代；
-* change `yo-list`，改变内部子项的边线实现方式；
-* change `yo-list`，最后一根边线存在与否改由 $border-width 决定，移除 $has-last-border 参数；
-* change `yo-switchable`，移除索引和前进后退按钮3d偏移，减少复合层的数量；
-* change `yo-actionsheet`，改用absolute替代fixed，同时去除filter effect，减少复合层；
+
 
 
 ## v2.1.2（2016.3.24）
@@ -17,6 +13,7 @@
 ### 新增：
 * add `yo-search`，用以各种搜索框；
 * add `yo-toolbar`，用以展示工具条；
+* add `yo-card`，用以展示卡片元件；
 
 ### 变更：
 * change `yo-select`，修改内部实现，精简代码层级，Kami需要重写该组件；
@@ -24,8 +21,20 @@
     - 将默认宽度由`.6rem`修改为`.5rem`；
     - 移除 `$border-color`, `$checked-border-color` 参数；
     - 新增 `$follow-bgcolor` 参数用以指定跟随元素的背景色；
+* change `yo-list`：
+    - 移除item的opacity设定，改用z-index:0来替代；
+    - 改变内部子项的边线实现方式；
+    - 最后一根边线存在与否改由 `$border-width 决定`，移除 `$has-last-border` 参数；
+    - 移除 `$detail-font-size`，`$detail-color`，`$info-font-size`，`$info-color` 参数，改布局交由新元件 `yo-card` 来承担；
+* change `yo-dialog`：
+    - 移除外边框阴影设置 `$shadow-opacity` 参数；
+    - 移除 `$hd-height` 和 `hd-bgcolor` 参数；
+* change `yo-switchable`：
+    - 移除索引和前进后退按钮3d偏移，减少复合层的数量；
+* change `yo-actionsheet`：
+    - 从 widget 移到了 fragement 类别；
+    - 改用absolute替代fixed，同时去除filter effect，减少复合层；
 * change：
-    - 将 `yo-actionsheet` 移到了 fragement 类别；
     - 将 `yo-vcode` 移到了 fragment 类别；
     - 后续计划将 widget 类别全部迁移到 fragement ，kami对应的应该是各种 fragement 的拼合文件，Yo 不直接提供某个具体的组件
 * change：
