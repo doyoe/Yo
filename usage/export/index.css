@@ -153,8 +153,7 @@ textarea {
 input,
 textarea,
 button,
-select
-a {
+select a {
   outline: 0 none;
 }
 
@@ -323,8 +322,8 @@ a {
   .yo-header::after {
     width: 300%;
     height: 300%;
-    -webkit-transform: scale(0.33333);
-    transform: scale(0.33333);
+    -webkit-transform: scale(1/3);
+    transform: scale(1/3);
   }
 }
 
@@ -409,8 +408,8 @@ a {
   .yo-list::after {
     width: 300%;
     height: 300%;
-    -webkit-transform: scale(0.33333);
-    transform: scale(0.33333);
+    -webkit-transform: scale(1/3);
+    transform: scale(1/3);
   }
 }
 
@@ -510,8 +509,8 @@ a {
   .yo-list > .label::after {
     width: 300%;
     height: 300%;
-    -webkit-transform: scale(0.33333);
-    transform: scale(0.33333);
+    -webkit-transform: scale(1/3);
+    transform: scale(1/3);
   }
 }
 
@@ -576,8 +575,8 @@ a {
   .yo-list > .item::after {
     width: 300%;
     height: 300%;
-    -webkit-transform: scale(0.33333);
-    transform: scale(0.33333);
+    -webkit-transform: scale(1/3);
+    transform: scale(1/3);
   }
 }
 
@@ -721,8 +720,8 @@ a {
   .yo-badge::after {
     width: 300%;
     height: 300%;
-    -webkit-transform: scale(0.33333);
-    transform: scale(0.33333);
+    -webkit-transform: scale(1/3);
+    transform: scale(1/3);
     border-radius: 0.3rem;
   }
 }
