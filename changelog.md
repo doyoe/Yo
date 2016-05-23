@@ -1,12 +1,4 @@
-## v2.1.3 - 开发中
-
-<!-- [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v2.1.3) -->
-
-### 变更：
-
-
-
-## v2.1.2（2016.3.24）
+## v2.1.2（2016.5.23）
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v2.1.2)
 
