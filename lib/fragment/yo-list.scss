@@ -3,6 +3,7 @@
 // 定义list的基础构造
 @mixin _list {
     margin: map-get($list, margin);
+    // 包括底边线在内的外边线都由list容器提供
     @include border(
         $border-width: map-get($list, border-width),
         $border-color: map-get($list, border-color),
@@ -42,17 +43,18 @@
     }
     > .label {
         padding: map-get($list, label-padding);
+        // 绘制label边线
         @include border(
-            $border-width: 0 0 1px,
+            $border-width: 1px 0,
             $border-color: map-get($list, label-border-color)
         );
-        &:not(:first-child) {
-            margin-top: -1px;
-            // 除第一个.label外，其他.label都需要top,bottom2条线
-            // top线用于补全上一组的最后一根线
-            &::after {
-                border-width: 1px 0;
-            }
+        // 第一个label只需要下边线
+        &:first-child::after {
+            border-width: 0 0 1px;
+        }
+        // 移除紧邻item的上边线
+        + .item::after {
+            border-width: 0;
         }
         background-color: map-get($list, label-bgcolor);
         color: map-get($base, sub-color);
@@ -68,37 +70,23 @@
         padding: map-get($list, item-padding);
     }
     > .item {
-        // 使用opacity创建局部堆叠上下文束缚内部after边线不覆盖label
-        // 如果想内容溢出容器，可以重置该值为1
-        opacity: .99999;
         overflow: hidden;
         background-color: #fff;
         color: map-get($base, color);
         font-size: map-get($list, item-font-size);
+        // 绘制item上边线
         @include border(
-            $border-width: 0 0 1px,
+            $border-width: 1px 0 0,
             $border-color: map-get($list, item-border-color)
         );
-        // 除最后一项子项外边线内陷
-        &:not(:last-child)::after {
+        // item边线向左偏移量
+        &::after {
             left: map-get($list, item-border-space);
-        }
-        &:last-child {
-            margin-bottom: -1px;
-            // 最后一根线的颜色与外边框颜色相同
-            &::after {
-                border-color: map-get($list, border-color);
-                @if map-get($list, has-last-border) == false {
-                    border-width: 0;
-                }
-            }
-        }
-        .yo-input {
-            display: block;
         }
         &-input {
             // 让输入框占满整个父容器
             > .yo-input {
+                display: block;
                 height: auto;
                 padding: 0;
                 border: 0;
@@ -149,14 +137,14 @@
  * @param {Color} $active-bgcolor 子项点击反馈背景色 {add:1.0.0}
  * @param {Color} $on-bgcolor 子项选中背景色 {add:1.0.0}
  * @param {Color} $on-color 子项选中文本色 {add:1.4.0}
- * @param {Boolean} $has-last-border 是否有最后一根底边线 {add:2.1.0}
+ * @param {Boolean} $has-last-border 是否有最后一根底边线，改由`border-width`参数控制 {add:2.1.0}{del:2.1.2}
  * @param {Color} $item-bordercolor 子项边框色 {add:1.2.0}{del:2.0.0}
  * @param {Color} $item-border-color 子项边框色 {add:2.0.0}
  * @param {Color} $label-bordercolor 列表组头边框色 {add:1.2.0}{del:2.0.0}
  * @param {Color} $label-border-color 列表组头边框色 {add:2.0.0}
  * @param {Length} $item-font-size 子项字号 {add:1.2.0}
  * @param {Length} $label-font-size 列表组头字号 {add:1.2.0}
- * @param {Length} $item-border-space 子项下边线距离左侧的间隙 {add:1.8.0}
+ * @param {Length} $item-border-space 子项边线左侧偏移量 {add:1.8.0}
  * @param {Length} $detail-font-size 详情区域字号 {add:2.0.0}{del:2.1.2}
  * @param {Color} $detail-color 详情区域文本色 {add:2.0.0}{del:2.1.2}
  * @param {Length} $info-font-size 描述区域字号 {add:2.0.0}{del:2.1.2}
@@ -177,16 +165,11 @@
     $active-bgcolor: default,
     $on-bgcolor: default,
     $on-color: default,
-    $has-last-border: default,
     $item-border-color: default,
     $label-border-color: default,
     $item-font-size: default,
     $label-font-size: default,
     $item-border-space: default,
-    $detail-font-size: default,
-    $detail-color: default,
-    $info-font-size: default,
-    $info-color: default,
     $more-font-size: default,
     $more-color: default) {
     // 区别是否新增实例还是修改本身
@@ -222,9 +205,6 @@
     @if $on-color == default {
         $on-color: map-get($list, on-color);
     }
-    @if $has-last-border == default {
-        $has-last-border: map-get($list, has-last-border);
-    }
     @if $item-border-color == default {
         $item-border-color: map-get($list, item-border-color);
     }
@@ -239,18 +219,6 @@
     }
     @if $item-border-space == default {
         $item-border-space: map-get($list, item-border-space);
-    }
-    @if $detail-font-size == default {
-        $detail-font-size: map-get($list, detail-font-size);
-    }
-    @if $detail-color == default {
-        $detail-color: map-get($list, detail-color);
-    }
-    @if $info-font-size == default {
-        $info-font-size: map-get($list, info-font-size);
-    }
-    @if $info-color == default {
-        $info-color: map-get($list, info-color);
     }
     @if $more-font-size == default {
         $more-font-size: map-get($list, more-font-size);
@@ -342,22 +310,9 @@
                 }
             }
             // 如果$item-border-space不等于config设定，则重绘子项边线间隙
-            &:not(:last-child)::after {
+            &::after {
                 @if $item-border-space != map-get($list, item-border-space) {
                     left: $item-border-space;
-                }
-            }
-            // 如果$border-color不等于config设定，则重绘最后一个子项边框色
-            &:last-child::after {
-                @if $border-color != map-get($list, border-color) {
-                    border-color: $border-color;
-                }
-                @if $has-last-border != map-get($list, has-last-border) {
-                    @if $has-last-border {
-                        border-width: 0 0 1px;
-                    } @else {
-                        border-width: 0;
-                    }
                 }
             }
             &.item-active:active,

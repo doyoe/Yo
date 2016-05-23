@@ -323,8 +323,8 @@ a {
   .yo-header::after {
     width: 300%;
     height: 300%;
-    -webkit-transform: scale(1/3);
-    transform: scale(1/3);
+    -webkit-transform: scale(0.33333);
+    transform: scale(0.33333);
   }
 }
 
@@ -444,8 +444,8 @@ a {
   .m-demo > .title::after {
     width: 300%;
     height: 300%;
-    -webkit-transform: scale(1/3);
-    transform: scale(1/3);
+    -webkit-transform: scale(0.33333);
+    transform: scale(0.33333);
   }
 }
 

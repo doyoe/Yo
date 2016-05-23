@@ -47,21 +47,21 @@
  * @version 1.0.0
  * @description 构造按钮的自定义使用方法，勿使用`input`标签，因为边框为`::after`实现
  * @demo http://doyoe.github.io/Yo/demo/element/yo-btn.html
- * @param {String} $name 定义扩展名称 {add:1.0.0}
- * @param {Length} $border-width 边框厚度 {add:1.4.0}
- * @param {Color} $bordercolor 边框色 {add:1.0.0}{del:2.0.0}
- * @param {Color} $border-color 边框色 {add:2.0.0}
- * @param {Color} $bgcolor 背景色 {add:1.0.0}
- * @param {Color} $color 文本色 {add:1.0.0}
- * @param {Color} $active-bordercolor 触点（鼠标，手指或其它）按下时边框色  {add:1.3.1}{del:2.0.0}
- * @param {Color} $active-border-color 触点（鼠标，手指或其它）按下时边框色 {add:2.0.0}
- * @param {Color} $active-bgcolor 触点（鼠标，手指或其它）按下时背景色 {add:1.3.1}
- * @param {Color} $active-color 触点（鼠标，手指或其它）按下时文本色 {add:1.3.1}
- * @param {Length} $padding 内补白 {add:1.0.0}
- * @param {Length} $radius 圆角半径长度 {add:1.0.0}
- * @param {Length} $font-size 字号大小 {add:1.0.0}
- * @param {Length} $width 宽度 {add:1.8.0}
- * @param {Length} $height 高度 {add:1.8.0}
+ * @param {String} $name 定义扩展名称 <1.0.0>
+ * @param {Length} $border-width 边框厚度 <1.4.0>
+ * @param {Color} $bordercolor 边框色 <1.0.0, 2.0.0>
+ * @param {Color} $border-color 边框色 <2.0.0>
+ * @param {Color} $bgcolor 背景色 <1.0.0>
+ * @param {Color} $color 文本色 <1.0.0>
+ * @param {Color} $active-bordercolor 触点（鼠标，手指或其它）按下时边框色  <1.3.1, 2.0.0>
+ * @param {Color} $active-border-color 触点（鼠标，手指或其它）按下时边框色 <2.0.0>
+ * @param {Color} $active-bgcolor 触点（鼠标，手指或其它）按下时背景色 <1.3.1>
+ * @param {Color} $active-color 触点（鼠标，手指或其它）按下时文本色 <1.3.1>
+ * @param {Length} $padding 内补白 <1.0.0>
+ * @param {Length} $radius 圆角半径长度 <1.0.0>
+ * @param {Length} $font-size 字号大小 <1.0.0>
+ * @param {Length} $width 宽度 <1.8.0>
+ * @param {Length} $height 高度 <1.8.0>
  */
 
 @mixin yo-btn(

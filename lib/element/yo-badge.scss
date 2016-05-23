@@ -23,15 +23,15 @@
  * @version 1.0.0
  * @description 构造提醒气泡的自定义使用方法，可以扩展为：tag,文字ico等形态
  * @demo http://doyoe.github.io/Yo/demo/element/yo-badge.html
- * @param {String} $name 定义扩展名称 {add: 1.0.0}
- * @param {Length} $padding 内补白 {add: 1.4.0}
- * @param {Length} $border-width 边框厚度 {add: 1.4.0}
- * @param {Color} $bordercolor 边框色 {add: 1.1.0}{del:2.0.0}
- * @param {Color} $border-color 边框色 {add:2.0.0}
- * @param {Color} $bgcolor 背景色 {add: 1.0.0}
- * @param {Color} $color 文本色 {add: 1.0.0}
- * @param {Length} $radius 圆角半径长度 {add: 1.0.0}
- * @param {Length} $font-size 字号大小 {add: 1.0.0}
+ * @param {String} $name 定义扩展名称 <1.0.0>
+ * @param {Length} $padding 内补白 <1.4.0>
+ * @param {Length} $border-width 边框厚度 <1.4.0>
+ * @param {Color} $bordercolor 边框色 <1.1.0, 2.0.0>
+ * @param {Color} $border-color 边框色 <2.0.0>
+ * @param {Color} $bgcolor 背景色 <1.0.0>
+ * @param {Color} $color 文本色 <1.0.0>
+ * @param {Length} $radius 圆角半径长度 <1.0.0>
+ * @param {Length} $font-size 字号大小 <1.0.0>
  */
 
 @mixin yo-badge(

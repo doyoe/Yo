@@ -323,8 +323,8 @@ a {
   .yo-header::after {
     width: 300%;
     height: 300%;
-    -webkit-transform: scale(1/3);
-    transform: scale(1/3);
+    -webkit-transform: scale(0.33333);
+    transform: scale(0.33333);
   }
 }
 
@@ -415,7 +415,7 @@ a {
 }
 
 .yo-search > .operation > .input-shrink {
-  -webkit-transition: margin 0.2s ease-out;
+  -webkit-transition: "margin 0.2s ease-out";
   transition: margin 0.2s ease-out;
 }
 
@@ -491,8 +491,8 @@ a {
   .m-demo > .title::after {
     width: 300%;
     height: 300%;
-    -webkit-transform: scale(1/3);
-    transform: scale(1/3);
+    -webkit-transform: scale(0.33333);
+    transform: scale(0.33333);
   }
 }
 

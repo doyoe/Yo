@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+    <title>Yo : ./lib/widget/yo-switchable.scss</title>
+    <link type="text/css" rel="stylesheet" href="../../../source/shCoreDefault.css"/>
+    <link rel="stylesheet" href="../../../source/app.css" rel="stylesheet" />
+    <script type="text/javascript" src="../../../source/shCore.js"></script>
+    <script type="text/javascript" src="../../../source/shBrush-css.js"></script>
+    <style>
+        .syntaxhighlighter .number1 .spaces,.syntaxhighlighter .toolbar{ display: none;}
+        .syntaxhighlighter table td.gutter .line.highlight { background-color: #6ce26c !important; color: white; }
+    </style>
+</head>
+<body style="background: white; font-family: Helvetica">
+<div class="docs-header" id="content" tabindex="-1">
+    <div class="container">
+        <h1>Yo : ./lib/widget/yo-switchable.scss</h1>
+        <p>源代码</p>
+    </div>
+</div>
+<div class="container docs-container">
+
+    <div class="row">
+        <div class="col-md-9" role="main">
+        <pre class="brush: css;">
+@charset "utf-8";
+
+// 定义switchable的基础构造
+@mixin _switchable {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    text-align: center;
+    > .cont {
+        position: relative;
+        white-space: nowrap;
+        @include killspace;
+        > .item {
+            width: 100%;
+            background-color: #eee;
+        }
+        .img {
+            max-width: 100%;
+            max-height: 100%;
+            height: auto;
+        }
+    }
+    > .index {
+        position: absolute;
+        bottom: .05rem;
+        left: 50%;
+        @include transform(translate(-50%, 0));
+        > li {
+            float: left;
+            margin: 0 .05rem;
+            @include square(map-get($switchable, index-size));
+            border-radius: 50%;
+            background-color: map-get($switchable, index-bgcolor);
+            &.on {
+                background-color: map-get($switchable, index-on-bgcolor);
+            }
+        }
+    }
+    > .yo-ico {
+        @if map-get($switchable, has-btn) == false {
+            display: none;
+        }
+        position: absolute;
+        top: 50%;
+        @include transform(translate(0, -50%));
+        @include square(map-get($switchable, btn-size));
+        border-radius: 50%;
+        background-color: map-get($switchable, btn-bgcolor);
+        color: map-get($switchable, btn-color);
+        line-height: map-get($switchable, btn-size);
+        cursor: pointer;
+        &:active {
+            background-color: map-get($switchable, btn-active-bgcolor);
+            color: map-get($switchable, btn-active-color);
+        }
+    }
+    > .yo-ico-prev {
+        left: 0;
+    }
+    > .yo-ico-next {
+        right: 0;
+    }
+}
+
+/**
+ * @module widget
+ * @method yo-switchable
+ * @version 1.0.0
+ * @description 构造yo-switchable的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/widget/yo-switchable.html
+ * @param {String} $name 定义扩展名称 {add:1.0.0}
+ * @param {Boolen} $has-btn 是否有按钮 {add:1.0.0}
+ * @param {Length} $btn-size 按钮大小 {add:1.0.0}
+ * @param {Length} $btn-bgcolor 按钮背景色 {add:1.0.0}
+ * @param {Length} $btn-color 按钮文本色 {add:1.0.0}
+ * @param {Color} $btn-active-bgcolor 按钮按下背景色 {add:1.0.0}
+ * @param {Length} $btn-active-color 按钮按下文本色 {add:1.0.0}
+ * @param {Length} $index-size 索引大小 {add:1.0.0}
+ * @param {Color} $index-bgcolor 索引背景色 {add:1.0.0}
+ * @param {Length} $index-on-bgcolor 索引当前项背景色 {add:1.0.0}
+ */
+
+@mixin yo-switchable(
+    $name: default,
+    $has-btn: default,
+    $btn-size: default,
+    $btn-bgcolor: default,
+    $btn-color: default,
+    $btn-active-bgcolor: default,
+    $btn-active-color: default,
+    $index-size: default,
+    $index-bgcolor: default,
+    $index-on-bgcolor: default) {
+    // 区别是否新增实例还是修改本身
+    $name: if($name == default, "", "-#{$name}");
+    // 如果值为default，则取config的定义
+    @if $has-btn == default {
+        $has-btn: map-get($switchable, has-btn);
+    }
+    @if $btn-size == default {
+        $btn-size: map-get($switchable, btn-size);
+    }
+    @if $btn-bgcolor == default {
+        $btn-bgcolor: map-get($switchable, btn-bgcolor);
+    }
+    @if $btn-color == default {
+        $btn-color: map-get($switchable, btn-color);
+    }
+    @if $btn-active-bgcolor == default {
+        $btn-active-bgcolor: map-get($switchable, btn-active-bgcolor);
+    }
+    @if $btn-active-color == default {
+        $btn-active-color: map-get($switchable, btn-active-color);
+    }
+    @if $index-size == default {
+        $index-size: map-get($switchable, index-size);
+    }
+    @if $index-bgcolor == default {
+        $index-bgcolor: map-get($switchable, index-bgcolor);
+    }
+    @if $index-on-bgcolor == default {
+        $index-on-bgcolor: map-get($switchable, index-on-bgcolor);
+    }
+    .yo-switchable#{$name} {
+        > .index {
+            > li {
+                @if $index-size != map-get($switchable, index-size) {
+                    @include square($index-size);
+                }
+                @if $index-bgcolor != map-get($switchable, index-bgcolor) {
+                    background-color: $index-bgcolor;
+                }
+                &.on {
+                    @if $index-on-bgcolor != map-get($switchable, index-on-bgcolor) {
+                        background-color: $index-on-bgcolor;
+                    }
+                }
+            }
+        }
+        > .yo-ico {
+            @if $has-btn != map-get($switchable, has-btn) {
+                @if $has-btn == false {
+                    display: none;
+                } @else {
+                    display: inline;
+                }
+            }
+            @if $btn-size != map-get($switchable, btn-size) {
+                @include square($btn-size);
+                line-height: $btn-size;
+            }
+            @if $btn-bgcolor != map-get($switchable, btn-bgcolor) {
+                background-color: $btn-bgcolor;
+            }
+            @if $btn-color != map-get($switchable, btn-color) {
+                color: $btn-color;
+            }
+            &:active {
+                @if $btn-active-bgcolor != map-get($switchable, btn-active-bgcolor) {
+                background-color: $btn-active-bgcolor;
+                }
+                @if $btn-active-color != map-get($switchable, btn-active-color) {
+                    color: $btn-active-color;
+                }
+            }
+        }
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入switchableable基础构造
+.yo-switchable {
+    @include _switchable;
+}
+        </pre>
+        </div>
+    </div>
+</div>
+
+<footer class="docs-footer" role="contentinfo">
+    <div class="container">
+        <p></p>
+    </div>
+</footer>
+<script type="text/javascript">
+    SyntaxHighlighter.all();
+
+    function getTop(node){
+        return node.offsetTop + (node.offsetParent ? getTop(node.offsetParent) : 0);
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+            try {
+                var lineNum = (parseInt(location.hash.replace(/#/g, '')) - 1) || 0,
+                    node = document.querySelectorAll('div.line')[lineNum];
+                document.body.scrollTop = getTop(node);
+                node.className += ' highlight';
+            } catch(e) {}
+        }, 500);
+    }, false);
+</script>
+</body>
+</html>

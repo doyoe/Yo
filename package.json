@@ -3,13 +3,15 @@
   "description": "Yo 是基于 Mobile First 的策略而设计，并使用 Sass 开发的 CSS Framework，具备轻量，易用，可配置，强扩展等特性，同时也适应于PC端的高级浏览器",
   "compiler": "node-sass",
   "dependencies": {
-    "css": "2.2.1",
     "gulp": "3.9.0",
     "gulp-plumber": "1.0.1",
-    "gulp-sass-china": "2.2.0",
-    "node-sass-china": "3.4.2",
+    "gulp-ruby-sass": "^2.0.6",
+    "gulp-sass-china": "2.3.1",
     "gulp-util": "3.0.6",
     "node-notifier": "4.2.3",
+    "node-sass-china": "3.7.0",
+    "optimist": "^0.6.1",
+    "q-doc": "^1.0.0-beta2",
     "through2": "2.0.0"
   },
   "repository": "https://github.com/doyoe/Yo",

@@ -323,8 +323,8 @@ a {
   .yo-header::after {
     width: 300%;
     height: 300%;
-    -webkit-transform: scale(1/3);
-    transform: scale(1/3);
+    -webkit-transform: scale(0.33333);
+    transform: scale(0.33333);
   }
 }
 
@@ -405,8 +405,8 @@ a {
   position: absolute;
   bottom: .05rem;
   left: 50%;
-  -webkit-transform: translate(-50%, 0) translatez(0);
-  transform: translate(-50%, 0) translatez(0);
+  -webkit-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
 }
 
 .yo-switchable > .index > li {
@@ -426,8 +426,8 @@ a {
   display: none;
   position: absolute;
   top: 50%;
-  -webkit-transform: translate(0, -50%) translatez(0);
-  transform: translate(0, -50%) translatez(0);
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
   width: 0.44rem;
   height: 0.44rem;
   border-radius: 50%;
@@ -498,8 +498,8 @@ a {
   .m-demo > .title::after {
     width: 300%;
     height: 300%;
-    -webkit-transform: scale(1/3);
-    transform: scale(1/3);
+    -webkit-transform: scale(0.33333);
+    transform: scale(0.33333);
   }
 }
 

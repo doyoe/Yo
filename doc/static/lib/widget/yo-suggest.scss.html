@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+    <title>Yo : ./lib/widget/yo-suggest.scss</title>
+    <link type="text/css" rel="stylesheet" href="../../../source/shCoreDefault.css"/>
+    <link rel="stylesheet" href="../../../source/app.css" rel="stylesheet" />
+    <script type="text/javascript" src="../../../source/shCore.js"></script>
+    <script type="text/javascript" src="../../../source/shBrush-css.js"></script>
+    <style>
+        .syntaxhighlighter .number1 .spaces,.syntaxhighlighter .toolbar{ display: none;}
+        .syntaxhighlighter table td.gutter .line.highlight { background-color: #6ce26c !important; color: white; }
+    </style>
+</head>
+<body style="background: white; font-family: Helvetica">
+<div class="docs-header" id="content" tabindex="-1">
+    <div class="container">
+        <h1>Yo : ./lib/widget/yo-suggest.scss</h1>
+        <p>源代码</p>
+    </div>
+</div>
+<div class="container docs-container">
+
+    <div class="row">
+        <div class="col-md-9" role="main">
+        <pre class="brush: css;">
+@charset "utf-8";
+
+// 定义suggest的基础构造
+@mixin _suggest {
+    > .operate {
+        position: relative;
+        overflow: hidden;
+        font-size: map-get($suggest, font-size);
+        line-height: map-get($suggest, height);
+        padding: map-get($suggest, op-padding);
+        @include border(
+            $border-width: 0 0 1px,
+            $border-color: map-get($suggest, border-color)
+        );
+        background-color: map-get($suggest, op-bgcolor);
+        > .action {
+            display: block;
+            position: relative;
+            z-index: 2;
+            height: map-get($suggest, height);
+        }
+        .input {
+            width: 100%;
+            height: 100%;
+            padding: 0 .3rem;
+            @include appearance;
+            border: 1px solid map-get($suggest, border-color);
+            @include border-radius(map-get($suggest, radius));
+            background-color: map-get($suggest, bgcolor);
+            color: map-get($suggest, color);
+            font-size: map-get($suggest, font-size);
+            line-height: map-get($base, line-height);
+            vertical-align: top;
+        }
+        .yo-ico-delete,
+        .yo-ico-fresh,
+        .yo-ico-stop,
+        .yo-ico-loading {
+            display: none;
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            padding: 0 .08rem;
+            color: map-get($suggest, ico-color);
+        }
+        .yo-ico-loading {
+            @include animation(rotate 1s infinite linear);
+            @include transform-origin(center);
+        }
+        .label {
+            @include flexbox;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            @include transition(left .2s ease-in);
+            @include transform(translatex(-50%) translatez(0));
+            color: map-get($suggest, placeholder-color);
+        }
+        .placeholder {
+            margin-left: .08rem;
+        }
+        > .cancel {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            @include transform(translatey(-50%));
+            width: map-get($suggest, cancel-width);
+            padding: .1rem 0;
+            color: map-get($suggest, cancel-color);
+            text-align: center;
+        }
+    }
+    > .cont {
+        display: none;
+        background-color: map-get($suggest, mask-bgcolor);
+        > .recommend,
+        > .result {
+            @include fullscreen;
+        }
+    }
+    // focus形态
+    &-on {
+        > .operate {
+            .input {
+                border-color: map-get($suggest, on-border-color);
+                background-color: map-get($suggest, on-bgcolor);
+            }
+            .label {
+                left: .1rem;
+                @include transform(translatex(0) translatez(0));
+            }
+            .yo-ico-delete {
+                display: inline-block;
+            }
+        }
+        // 非独占形态，激活时展开cont，并使用绝对定位拉伸获得高度
+        // 需要通过设置top值来确定cont区域
+        > .cont {
+            display: block;
+            @include fullscreen(map-get($z-index, suggest));
+            top: .88rem;
+        }
+    }
+    // 独占形态搜索
+    &-modal {
+        @include flexbox;
+        @include flex-direction(column);
+        @include fullscreen(map-get($z-index, suggest), fixed);
+        // 独占形态时，在foucs时显示取消按钮
+        > .operate {
+            padding-right: map-get($suggest, cancel-width) !important;
+        }
+        // 独占形态时自动展开cont，并使用flex获得高度
+        > .cont {
+            display: block;
+            position: relative;
+            top: 0;
+            @include flex(1, column);
+        }
+    }
+}
+
+/**
+ * @module widget
+ * @method yo-suggest
+ * @version 1.6.0
+ * @description 构造yo-suggest的自定义使用方法（原yo-search）
+ * @demo http://doyoe.github.io/Yo/demo/widget/yo-suggest.html
+ * @param {String} $name 定义扩展名称 {add:1.0.0}
+ * @param {Length} $height 高度 {add:1.0.0}
+ * @param {Length} $font-size 字号大小 {add:1.0.0}
+ * @param {Length} $op-padding 搜索区内补白 {add:1.0.0}
+ * @param {Length} $radius 搜索框圆角半径长度 {add:1.0.0}
+ * @param {Color} $bordercolor 边框色  {add:1.0.0}{del:2.0.0}
+ * @param {Color} $border-color 边框色 {add:2.0.0}
+ * @param {Color} $bgcolor 背景色 {add:1.0.0}
+ * @param {Color} $color 文本色 {add:1.0.0}
+ * @param {Color} $on-bordercolor 激活边框色  {add:1.0.0}{del:2.0.0}
+ * @param {Color} $on-border-color 激活边框色 {add:2.0.0}
+ * @param {Color} $on-bgcolor 激活背景色 {add:1.0.0}
+ * @param {Color} $placeholder-color 占位符背景色 {add:1.0.0}
+ * @param {Color} $ico-color 操作区ico颜色 {add:1.0.0}
+ * @param {Color} $cancel-color 取消按钮颜色 {add:1.0.0}
+ * @param {Color} $op-bgcolor 搜索区域背景色 {add:1.0.0}
+ * @param {Color} $mask-bgcolor 遮罩背景色 {add:1.0.0}
+ * @param {Length} $cancel-width 取消按钮区域宽度 {add:1.4.0}
+ */
+
+@mixin yo-suggest(
+    $name: default,
+    $height: default,
+    $font-size: default,
+    $op-padding: default,
+    $radius: default,
+    $border-color: default,
+    $bgcolor: default,
+    $color: default,
+    $on-border-color: default,
+    $on-bgcolor: default,
+    $placeholder-color: default,
+    $ico-color: default,
+    $cancel-color: default,
+    $op-bgcolor: default,
+    $mask-bgcolor: default,
+    $cancel-width: default) {
+    // 区别是否新增实例还是修改本身
+    $name: if($name == default, "", "-#{$name}");
+    // 如果值为default，则取config的定义
+    @if $height == default {
+        $height: map-get($suggest, height);
+    }
+    @if $font-size == default {
+        $font-size: map-get($suggest, font-size);
+    }
+    @if $op-padding == default {
+        $op-padding: map-get($suggest, op-padding);
+    }
+    @if $radius == default {
+        $radius: map-get($suggest, radius);
+    }
+    @if $border-color == default {
+        $border-color: map-get($suggest, border-color);
+    }
+    @if $bgcolor == default {
+        $bgcolor: map-get($suggest, bgcolor);
+    }
+    @if $color == default {
+        $color: map-get($suggest,color);
+    }
+    @if $on-border-color == default {
+        $on-border-color: map-get($suggest, on-border-color);
+    }
+    @if $on-bgcolor == default {
+        $on-bgcolor: map-get($suggest, on-bgcolor);
+    }
+    @if $placeholder-color == default {
+        $placeholder-color: map-get($suggest, placeholder-color);
+    }
+    @if $ico-color == default {
+        $ico-color: map-get($suggest, ico-color);
+    }
+    @if $cancel-color == default {
+        $cancel-color: map-get($suggest, cancel-color);
+    }
+    @if $op-bgcolor == default {
+        $op-bgcolor: map-get($suggest, op-bgcolor);
+    }
+    @if $mask-bgcolor == default {
+        $mask-bgcolor: map-get($suggest, mask-bgcolor);
+    }
+    @if $cancel-width == default {
+        $cancel-width: map-get($suggest, cancel-width);
+    }
+    .yo-suggest#{$name} {
+        > .operate {
+            @if $font-size != map-get($suggest, font-size) {
+                font-size: $font-size;
+            }
+            @if $height != map-get($suggest, height) {
+                line-height: $height;
+            }
+            @if $op-padding != map-get($suggest, op-padding) {
+                padding: $op-padding;
+            }
+            @if $op-bgcolor != map-get($suggest, op-bgcolor) {
+                background-color: $op-bgcolor;
+            }
+            &::after {
+                @if $border-color != map-get($suggest, border-color) {
+                    border-color: $border-color;
+                }
+            }
+            > .action {
+                @if $height != map-get($suggest, height) {
+                    height: $height;
+                }
+                > .input {
+                    @if $border-color != map-get($suggest, border-color) {
+                        border-color: $border-color;
+                    }
+                    @if $radius != map-get($suggest, radius) {
+                        border-radius: $radius;
+                    }
+                    @if $bgcolor != map-get($suggest, bgcolor) {
+                        background-color: $bgcolor;
+                    }
+                    @if $color != map-get($suggest, color) {
+                        color: $color;
+                    }
+                    @if $font-size != map-get($suggest, font-size) {
+                        font-size: $font-size;
+                    }
+                    @if $height != map-get($suggest, height) {
+                        line-height: $height;
+                    }
+                }
+                > .yo-ico-delete,
+                > .yo-ico-fresh,
+                > .yo-ico-stop {
+                    @if $ico-color != map-get($suggest, ico-color) {
+                        color: $ico-color;
+                    }
+                }
+                > .label {
+                    @if $placeholder-color != map-get($suggest, placeholder-color) {
+                        color: $placeholder-color;
+                    }
+                }
+            }
+            > .cancel {
+                @if $cancel-width != map-get($suggest, cancel-width) {
+                    width: $cancel-width;
+                }
+                @if $cancel-color != map-get($suggest, cancel-color) {
+                    color: $cancel-color;
+                }
+            }
+        }
+        > .cont {
+            @if $mask-bgcolor != map-get($suggest, mask-bgcolor) {
+                background-color: $mask-bgcolor;
+            }
+        }
+        // focus时
+        &-on {
+            > .operate {
+                .input {
+                    @if $on-border-color != map-get($suggest, on-border-color) {
+                        border-color: $on-border-color;
+                    }
+                    @if $on-bgcolor != map-get($suggest, on-bgcolor) {
+                        background-color: $on-bgcolor;
+                    }
+                }
+            }
+        }
+        // 独占形态
+        &-modal {
+            // 独占形态时，在foucs时显示取消按钮
+            > .operate {
+                @if $cancel-width != map-get($suggest, cancel-width) {
+                    padding-right: #{$cancel-width} !important;
+                }
+            }
+        }
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入suggest基础构造
+.yo-suggest {
+    @include _suggest;
+}
+        </pre>
+        </div>
+    </div>
+</div>
+
+<footer class="docs-footer" role="contentinfo">
+    <div class="container">
+        <p></p>
+    </div>
+</footer>
+<script type="text/javascript">
+    SyntaxHighlighter.all();
+
+    function getTop(node){
+        return node.offsetTop + (node.offsetParent ? getTop(node.offsetParent) : 0);
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+            try {
+                var lineNum = (parseInt(location.hash.replace(/#/g, '')) - 1) || 0,
+                    node = document.querySelectorAll('div.line')[lineNum];
+                document.body.scrollTop = getTop(node);
+                node.className += ' highlight';
+            } catch(e) {}
+        }, 500);
+    }, false);
+</script>
+</body>
+</html>
