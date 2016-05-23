@@ -5,6 +5,7 @@
 ### 变更：
 * change `yo-list`，移除item的opacity设定，改用z-index:0来替代；
 * change `yo-list`，改变内部子项的边线实现方式；
+* change `yo-list`，最后一根边线存在与否改由 $border-width 决定，移除 $has-last-border 参数；
 * change `yo-switchable`，移除索引和前进后退按钮3d偏移，减少复合层的数量；
 * change `yo-actionsheet`，改用absolute替代fixed，同时去除filter effect，减少复合层；
 
@@ -27,6 +28,8 @@
     - 将 `yo-actionsheet` 移到了 fragement 类别；
     - 将 `yo-vcode` 移到了 fragment 类别；
     - 后续计划将 widget 类别全部迁移到 fragement ，kami对应的应该是各种 fragement 的拼合文件，Yo 不直接提供某个具体的组件
+* change：
+    — 为 `merge-config` 和 `merge-extra` 文件添加 `!global` 关键字，解决node-sass3.4.2以上版本的编译错误
 
 ### 删除：
 * 删除 `yo-popup` 组件；
