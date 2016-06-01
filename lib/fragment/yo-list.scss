@@ -83,6 +83,9 @@
         &::after {
             left: map-get($list, item-border-space);
         }
+        &:first-child::after {
+            border-width: 0;
+        }
         &-input {
             // 让输入框占满整个父容器
             > .yo-input {
@@ -303,14 +306,12 @@
             @if $item-font-size != map-get($list, item-font-size) {
                 font-size: $item-font-size;
             }
-            // 如果$item-border-color不等于config设定，则重绘子项边框色
             &::after {
+                // 如果$item-border-color不等于config设定，则重绘子项边框色
                 @if $item-border-color != map-get($list, item-border-color) {
                     border-color: $item-border-color;
                 }
-            }
-            // 如果$item-border-space不等于config设定，则重绘子项边线间隙
-            &::after {
+                // 如果$item-border-space不等于config设定，则重绘子项边线间隙
                 @if $item-border-space != map-get($list, item-border-space) {
                     left: $item-border-space;
                 }

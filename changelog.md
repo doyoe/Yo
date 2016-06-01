@@ -1,3 +1,9 @@
+## v2.1.3（开发中）
+
+### 变更：
+* change `yo-list`：
+    - 去除第一个 `.item` 的上边线；
+
 ## v2.1.2（2016.5.23）
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v2.1.2)
