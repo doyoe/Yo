@@ -8,7 +8,7 @@ var rubySass = require('gulp-ruby-sass');
 var nodeSass = require('gulp-sass-china');
 var through = require('through2');
 var optimist = require('optimist');
-var qdoc = require('q-doc');
+var ydoc = require('ydoc');
 var combineScss = require('./gulp/combineScss.js');
 var versions = require('./gulp/versions.js');
 var hanlders = require('./gulp/hanlders.js');
@@ -77,9 +77,9 @@ gulp.task('version', function() {
 // 命令: gulp doc, 生成文档
 gulp.task('doc', function() {
     return gulp.src('./')
-        .pipe(qdoc({
+        .pipe(ydoc({
             dest: 'doc',
-            template: './gulp/qdoc_template/'
+            template: './gulp/ydoc_template/'
         }));
 });
 
@@ -88,7 +88,7 @@ gulp.task('uedoc', function() {
     var conf = require('./gulp/uedocConfig.js');
     conf.dest = 'uedoc';
     return gulp.src('./')
-        .pipe(qdoc(conf));
+        .pipe(ydoc(conf));
 });
 
 // 命令: gulp watch-doc, 监听改变生成文档
