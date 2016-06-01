@@ -53,20 +53,20 @@
  * @version 1.0.0
  * @description 构造头的自定义使用方法
  * @demo http://doyoe.github.io/Yo/demo/fragment/yo-header.html
- * @param {String} $name 定义扩展名称 {add:1.0.0}
- * @param {Length} $height 高度 {add:1.0.0}
- * @param {Length} $item-width 两侧子项操作区宽度 {add:1.0.0}
- * @param {Length} $item-space 两侧子项离边界的间隙 {add:1.0.0}
- * @param {Length} $border-width 边框厚度 {add:1.8.3}
- * @param {Color} $bordercolor 边框色  {add:1.0.0}{del:2.0.0}
- * @param {Color} $border-color 边框色 {add:2.0.0}
- * @param {Color} $bgcolor 背景色 {add:1.0.0}
- * @param {Color} $color 文本色 {add:1.0.0}
- * @param {Length} $font-size 字号大小 {add:1.0.0}
- * @param {Color} $item-color 两侧子项操作区文本色 {add:1.2.0}
- * @param {Color} $item-ico-color 两侧子项操作区ico色 {add:1.8.0}
- * @param {Length} $item-font-size 两侧子项操作区字号大小 {add:1.0.0}
- * @param {Length} $item-ico-size 两侧子项操作区ico大小 {add:1.4.0}
+ * @param {String} $name 定义扩展名称 <1.0.0>
+ * @param {Length} $height 高度 <1.0.0>
+ * @param {Length} $item-width 两侧子项操作区宽度 <1.0.0>
+ * @param {Length} $item-space 两侧子项离边界的间隙 <1.0.0>
+ * @param {Length} $border-width 边框厚度 <1.8.3>
+ * @param {Color} $bordercolor 边框色  <1.0.0, 2.0.0>
+ * @param {Color} $border-color 边框色 <2.0.0>
+ * @param {Color} $bgcolor 背景色 <1.0.0>
+ * @param {Color} $color 文本色 <1.0.0>
+ * @param {Length} $font-size 字号大小 <1.0.0>
+ * @param {Color} $item-color 两侧子项操作区文本色 <1.2.0>
+ * @param {Color} $item-ico-color 两侧子项操作区ico色 <1.8.0>
+ * @param {Length} $item-font-size 两侧子项操作区字号大小 <1.0.0>
+ * @param {Length} $item-ico-size 两侧子项操作区ico大小 <1.4.0>
  */
 
 @mixin yo-header(
