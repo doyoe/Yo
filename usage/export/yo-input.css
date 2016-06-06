@@ -606,6 +606,10 @@ a {
   left: 0.1rem;
 }
 
+.yo-list > .item:first-child::after {
+  border-width: 0;
+}
+
 .yo-list > .item-input > .yo-input {
   display: block;
   height: auto;
