@@ -8,4 +8,8 @@
 
 * ![Amily](http://www.doyoe.com/pimg/amily.png)
 
-    北京美至网络科技有限公司“所有的”移动Web应用均使用 Yo 构建
+    北京美至网络科技有限公司大部分移动Web应用均基于 Yo 构建
+
+* ![本木医疗](http://www.doyoe.com/pimg/benmu.png)
+
+    本木医疗已接入使用 Yo 框架来构建移动应用UI
