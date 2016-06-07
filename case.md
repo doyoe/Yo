@@ -13,3 +13,7 @@
 * ![本木医疗](http://www.doyoe.com/pimg/benmu.png)
 
     本木医疗已接入使用 Yo 框架来构建移动应用UI
+
+* ![积木盒子](http://www.doyoe.com/pimg/jimu.png)
+
+    积木盒子已接入使用 Yo 框架来构建移动应用UI
