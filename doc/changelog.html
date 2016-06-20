@@ -300,6 +300,10 @@
 <li>去除第一个 <code>.item</code> 的上边线；</li>
 </ul>
 </li>
+<li>change <code>&quot;#{}&quot;</code><ul>
+<li>Node-sass新版对 <code>&quot;#{}&quot;</code> 的处理发生变化，会将双引号保留。所以移除 <code>gradient</code>, <code>transition</code> mixin 中使用了 <code>&quot;#{}&quot;</code> 的双引号，改成 <code>#{}</code></li>
+</ul>
+</li>
 </ul>
 <h2 id="v2.1.2（2016.5.23）">v2.1.2（2016.5.23）</h2><p><a href="https://github.com/doyoe/Yo/releases/tag/v2.1.2">Tagged on Github.</a></p>
 <h3 id="新增：">新增：</h3><ul>
