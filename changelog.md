@@ -3,6 +3,7 @@
 ### 新增：
 * add `is-text-size-adjust` 参数
     - 为 `$setting` 添加 `is-text-size-adjust` 参数用于决定是否允许横竖屏时字号动态调整
+
 ### 变更：
 * change `yo-list`：
     - 去除第一个 `.item` 的上边线；
