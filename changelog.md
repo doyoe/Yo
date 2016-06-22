@@ -10,6 +10,10 @@
 * change `"#{}"`
     - Node-sass新版对 `"#{}"` 的处理发生变化，会将双引号保留。所以移除 `gradient`, `transition` mixin 中使用了 `"#{}"` 的双引号，改成 `#{}`
 
+### 修复
+* fix `yo-select`：
+    - 修复在 `dpr=3` 时，Node-sass新版编译除法表达式出现问题。把 `1/3` 改为 `0.33333`
+
 ## v2.1.2（2016.5.23）
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v2.1.2)
