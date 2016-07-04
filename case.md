@@ -17,3 +17,7 @@
 * ![积木盒子](http://www.doyoe.com/pimg/jimu.png)
 
     积木盒子已接入使用 Yo 框架来构建移动应用UI
+
+* ![医联](http://www.doyoe.com/pimg/medlinker.png)
+
+    医联已接入使用 Yo 框架来构建移动应用UI

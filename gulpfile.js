@@ -6,6 +6,7 @@ var gutil = require('gulp-util');
 var plumber = require('gulp-plumber');
 var rubySass = require('gulp-ruby-sass');
 var nodeSass = require('gulp-sass-china');
+var connect = require('gulp-connect');
 var through = require('through2');
 var optimist = require('optimist');
 var ydoc = require('ydoc');
@@ -111,5 +112,21 @@ gulp.task('default', function() {
     gutil.log('可以使用的命令如下: ');
     fs.readFileSync('./gulpfile.js', 'UTF-8').replace(/\/\/\s命令\:\sgulp\s(\w+)\,\s([^\n]+)/g, function(a, b, c) {
         gutil.log(gutil.colors.green(b), gutil.colors.blue(c));
+    });
+});
+
+gulp.task('reload', ['compile'], function() {
+    return gulp.src('./**/*.css')
+        .pipe(connect.reload());
+});
+
+gulp.task('watch-reload', function() {
+    gulp.watch('./**/*.scss', ['reload']);
+});
+
+// 命令: gulp server, 启动 Web 服务
+gulp.task('server', ['watch-reload'], function() {
+    connect.server({
+        livereload: true
     });
 });

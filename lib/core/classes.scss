@@ -40,9 +40,9 @@
             font-family: map-get($ico, font-name);
             src:
                 // 现代浏览器
-                url("#{map-get($ico,font-path)}#{map-get($ico,font-name)}.woff") format("woff"),
+                url(#{map-get($ico,font-path)}#{map-get($ico,font-name)}.woff) format("woff"),
                 // Android2.2+
-                url("#{map-get($ico,font-path)}#{map-get($ico,font-name)}.ttf") format("truetype");
+                url(#{map-get($ico,font-path)}#{map-get($ico,font-name)}.ttf) format("truetype");
         }
         .yo-ico {
             font-family: map-get($ico, font-name) !important;
@@ -289,7 +289,7 @@
 
     @if map-get($setting, is-vendor-prefix) {
         @each $vendor in map-get($setting, vendor-prefix) {
-            background-image: $vendor$type"#{-gradient($dir, $color-stop)}";
+            background-image: $vendor$type#{-gradient($dir, $color-stop)};
         }
     }
     @each $direction in $dir {
@@ -302,7 +302,7 @@
         }
     }
 
-    background-image: $type"#{-gradient($dir-new, $color-stop)}";
+    background-image: $type#{-gradient($dir-new, $color-stop)};
 }
 
 /**
@@ -500,9 +500,9 @@
         @each $vendor in map-get($setting, vendor-prefix) {
             @for $i from 1 through length($transition) {
                 @if index($prefix-properties, nth(nth($transition, $i), 1)) {
-                    $vendor-list: join($vendor-list, "#{$vendor}#{nth($transition, $i)}", comma);
+                    $vendor-list: join($vendor-list, #{$vendor}#{nth($transition, $i)}, comma);
                 } @else {
-                    $vendor-list: join($vendor-list, "#{nth($transition, $i)}", comma);
+                    $vendor-list: join($vendor-list, #{nth($transition, $i)}, comma);
                 }
             }
             #{$vendor}transition: $vendor-list;

@@ -48,11 +48,18 @@
 html {
     background-color: map-get($base, doc-bgcolor);
     color: map-get($base, color);
-    // 用于rem计算
-    font-size: map-get($base, font-size-root);
-    // 如果是适配大小的场景
+    // 定义root字号，作为rem计算基准
     @if map-get($base, responsive-type) == scaling {
+        // 如果是跟随屏幕大小而变的场景，使用 vw
         font-size: map-get($base, font-size-root-scaling);
+    } @else {
+        // 如果是常规场景，使用 px
+        font-size: map-get($base, font-size-root);
+    }
+    // 是否允许横竖屏时字号调整
+    @if map-get($setting, is-text-size-adjust) == false {
+        // 如果为flase，则不允许自动调整
+        -webkit-text-size-adjust: 100%;
     }
     @include user-select;
 }
