@@ -4,7 +4,8 @@
 
 ### 变更：
 * 将所有的 `widget` 迁移到 `fragment` 目录下；
-* 将 `yo-select` 修改为 `yo-picker`；
+* 将 `yo-select` 变更为 `yo-picker`；
+* 将 `yo-datepicker` 变更为 `yo-calendar`；
 
 ### 删除：
 

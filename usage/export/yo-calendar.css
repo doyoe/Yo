@@ -371,7 +371,7 @@ a {
   text-align: right;
 }
 
-.yo-datepicker {
+.yo-calendar {
   position: absolute;
   top: 0;
   right: 0;
@@ -388,30 +388,30 @@ a {
   text-align: center;
 }
 
-.yo-datepicker > .weeks {
+.yo-calendar > .weeks {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
   position: relative;
 }
 
-.yo-datepicker > .week-bar,
-.yo-datepicker .week {
+.yo-calendar > .week-bar,
+.yo-calendar .week {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
   width: 100%;
 }
 
-.yo-datepicker > .week-bar > li,
-.yo-datepicker .week > li {
+.yo-calendar > .week-bar > li,
+.yo-calendar .week > li {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
   width: .1px;
 }
 
-.yo-datepicker > .week-bar {
+.yo-calendar > .week-bar {
   position: relative;
   z-index: 2;
   height: 0.22rem;
@@ -421,15 +421,15 @@ a {
   font-size: 0.12rem;
 }
 
-.yo-datepicker .month-bar,
-.yo-datepicker .sticky-bar,
-.yo-datepicker .week {
+.yo-calendar .month-bar,
+.yo-calendar .sticky-bar,
+.yo-calendar .week {
   position: relative;
 }
 
-.yo-datepicker .month-bar::after,
-.yo-datepicker .sticky-bar::after,
-.yo-datepicker .week::after {
+.yo-calendar .month-bar::after,
+.yo-calendar .sticky-bar::after,
+.yo-calendar .week::after {
   pointer-events: none;
   position: absolute;
   z-index: 999;
@@ -445,18 +445,18 @@ a {
 }
 
 @media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
-  .yo-datepicker .month-bar::after,
-  .yo-datepicker .sticky-bar::after,
-  .yo-datepicker .week::after {
+  .yo-calendar .month-bar::after,
+  .yo-calendar .sticky-bar::after,
+  .yo-calendar .week::after {
     width: 100%;
     height: 100%;
   }
 }
 
 @media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
-  .yo-datepicker .month-bar::after,
-  .yo-datepicker .sticky-bar::after,
-  .yo-datepicker .week::after {
+  .yo-calendar .month-bar::after,
+  .yo-calendar .sticky-bar::after,
+  .yo-calendar .week::after {
     width: 200%;
     height: 200%;
     -webkit-transform: scale(0.5);
@@ -465,9 +465,9 @@ a {
 }
 
 @media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
-  .yo-datepicker .month-bar::after,
-  .yo-datepicker .sticky-bar::after,
-  .yo-datepicker .week::after {
+  .yo-calendar .month-bar::after,
+  .yo-calendar .sticky-bar::after,
+  .yo-calendar .week::after {
     width: 300%;
     height: 300%;
     -webkit-transform: scale(0.33333);
@@ -475,8 +475,8 @@ a {
   }
 }
 
-.yo-datepicker .month-bar,
-.yo-datepicker .sticky-bar {
+.yo-calendar .month-bar,
+.yo-calendar .sticky-bar {
   height: 0.25rem;
   line-height: 0.25rem;
   background-color: #f9f9f9;
@@ -485,12 +485,12 @@ a {
   font-weight: normal;
 }
 
-.yo-datepicker .month-bar::after,
-.yo-datepicker .sticky-bar::after {
+.yo-calendar .month-bar::after,
+.yo-calendar .sticky-bar::after {
   border-color: #ddd;
 }
 
-.yo-datepicker .sticky-bar {
+.yo-calendar .sticky-bar {
   position: absolute;
   z-index: 1;
   top: 0;
@@ -498,21 +498,21 @@ a {
   right: 0;
 }
 
-.yo-datepicker .week {
+.yo-calendar .week {
   color: #000;
 }
 
-.yo-datepicker .week::after {
+.yo-calendar .week::after {
   border-color: #ddd;
 }
 
-.yo-datepicker .week > li {
+.yo-calendar .week > li {
   position: relative;
   height: 0.54rem;
 }
 
-.yo-datepicker .day,
-.yo-datepicker .special {
+.yo-calendar .day,
+.yo-calendar .special {
   display: inline-block;
   margin: 0.05rem 0 0.02rem;
   font-size: 0.14rem;
@@ -520,7 +520,7 @@ a {
   vertical-align: top;
 }
 
-.yo-datepicker .day {
+.yo-calendar .day {
   width: 0.24rem;
   height: 0.24rem;
   border-radius: 50%;
@@ -528,56 +528,56 @@ a {
   background-clip: padding-box !important;
 }
 
-.yo-datepicker .special {
+.yo-calendar .special {
   color: #f50;
 }
 
-.yo-datepicker .special ~ .special {
+.yo-calendar .special ~ .special {
   margin: -.05rem 0 0;
 }
 
-.yo-datepicker .today > .day,
-.yo-datepicker .holiday > .day {
+.yo-calendar .today > .day,
+.yo-calendar .holiday > .day {
   display: none;
 }
 
-.yo-datepicker .weekend {
+.yo-calendar .weekend {
   color: #f00;
 }
 
-.yo-datepicker .disabled,
-.yo-datepicker .disabled > .special {
+.yo-calendar .disabled,
+.yo-calendar .disabled > .special {
   color: #bbb !important;
 }
 
-.yo-datepicker .start > .day,
-.yo-datepicker .end > .day {
+.yo-calendar .start > .day,
+.yo-calendar .end > .day {
   display: inline-block;
   background-color: #1ba9ba;
   color: #fff;
 }
 
-.yo-datepicker .start > .special,
-.yo-datepicker .end > .special {
+.yo-calendar .start > .special,
+.yo-calendar .end > .special {
   display: none;
 }
 
-.yo-datepicker .start::after,
-.yo-datepicker .end::after {
+.yo-calendar .start::after,
+.yo-calendar .end::after {
   display: block;
   color: #1ba9ba;
   font-size: 0.14rem;
 }
 
-.yo-datepicker .start::after {
+.yo-calendar .start::after {
   content: "入店";
 }
 
-.yo-datepicker .end::after {
+.yo-calendar .end::after {
   content: "离店";
 }
 
-.yo-datepicker .range {
+.yo-calendar .range {
   background-color: #eee;
 }
 

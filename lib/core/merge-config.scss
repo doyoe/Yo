@@ -182,11 +182,11 @@
     $vcode: $_vcode !global;
 }
 
-// 合并variables和config中的datepicker map
-@if global-variable-exists(datepicker) {
-    $datepicker: map-merge($_datepicker, $datepicker) !global;
+// 合并variables和config中的calendar map
+@if global-variable-exists(calendar) {
+    $calendar: map-merge($_calendar, $calendar) !global;
 } @else {
-    $datepicker: $_datepicker !global;
+    $calendar: $_calendar !global;
 }
 
 // 合并variables和config中的dialog map
