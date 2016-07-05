@@ -1,7 +1,7 @@
 @charset "utf-8";
 
-// 定义switchable的基础构造
-@mixin _switchable {
+// 定义carousel的基础构造
+@mixin _carousel {
     position: relative;
     overflow: hidden;
     width: 100%;
@@ -28,30 +28,30 @@
         > li {
             float: left;
             margin: 0 .05rem;
-            @include square(map-get($switchable, index-size));
+            @include square(map-get($carousel, index-size));
             border-radius: 50%;
-            background-color: map-get($switchable, index-bgcolor);
+            background-color: map-get($carousel, index-bgcolor);
             &.on {
-                background-color: map-get($switchable, index-on-bgcolor);
+                background-color: map-get($carousel, index-on-bgcolor);
             }
         }
     }
     > .yo-ico {
-        @if map-get($switchable, has-btn) == false {
+        @if map-get($carousel, has-btn) == false {
             display: none;
         }
         position: absolute;
         top: 50%;
         @include transform(translate(0, -50%));
-        @include square(map-get($switchable, btn-size));
+        @include square(map-get($carousel, btn-size));
         border-radius: 50%;
-        background-color: map-get($switchable, btn-bgcolor);
-        color: map-get($switchable, btn-color);
-        line-height: map-get($switchable, btn-size);
+        background-color: map-get($carousel, btn-bgcolor);
+        color: map-get($carousel, btn-color);
+        line-height: map-get($carousel, btn-size);
         cursor: pointer;
         &:active {
-            background-color: map-get($switchable, btn-active-bgcolor);
-            color: map-get($switchable, btn-active-color);
+            background-color: map-get($carousel, btn-active-bgcolor);
+            color: map-get($carousel, btn-active-color);
         }
     }
     > .yo-ico-prev {
@@ -64,10 +64,10 @@
 
 /**
  * @module widget
- * @method yo-switchable
+ * @method yo-carousel
  * @version 1.0.0
- * @description 构造yo-switchable的自定义使用方法
- * @demo http://doyoe.github.io/Yo/demo/widget/yo-switchable.html
+ * @description 构造yo-carousel的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/widget/yo-carousel.html
  * @param {String} $name 定义扩展名称 <1.0.0>
  * @param {Boolen} $has-btn 是否有按钮 <1.0.0>
  * @param {Length} $btn-size 按钮大小 <1.0.0>
@@ -80,7 +80,7 @@
  * @param {Length} $index-on-bgcolor 索引当前项背景色 <1.0.0>
  */
 
-@mixin yo-switchable(
+@mixin yo-carousel(
     $name: default,
     $has-btn: default,
     $btn-size: default,
@@ -95,71 +95,71 @@
     $name: if($name == default, "", "-#{$name}");
     // 如果值为default，则取config的定义
     @if $has-btn == default {
-        $has-btn: map-get($switchable, has-btn);
+        $has-btn: map-get($carousel, has-btn);
     }
     @if $btn-size == default {
-        $btn-size: map-get($switchable, btn-size);
+        $btn-size: map-get($carousel, btn-size);
     }
     @if $btn-bgcolor == default {
-        $btn-bgcolor: map-get($switchable, btn-bgcolor);
+        $btn-bgcolor: map-get($carousel, btn-bgcolor);
     }
     @if $btn-color == default {
-        $btn-color: map-get($switchable, btn-color);
+        $btn-color: map-get($carousel, btn-color);
     }
     @if $btn-active-bgcolor == default {
-        $btn-active-bgcolor: map-get($switchable, btn-active-bgcolor);
+        $btn-active-bgcolor: map-get($carousel, btn-active-bgcolor);
     }
     @if $btn-active-color == default {
-        $btn-active-color: map-get($switchable, btn-active-color);
+        $btn-active-color: map-get($carousel, btn-active-color);
     }
     @if $index-size == default {
-        $index-size: map-get($switchable, index-size);
+        $index-size: map-get($carousel, index-size);
     }
     @if $index-bgcolor == default {
-        $index-bgcolor: map-get($switchable, index-bgcolor);
+        $index-bgcolor: map-get($carousel, index-bgcolor);
     }
     @if $index-on-bgcolor == default {
-        $index-on-bgcolor: map-get($switchable, index-on-bgcolor);
+        $index-on-bgcolor: map-get($carousel, index-on-bgcolor);
     }
-    .yo-switchable#{$name} {
+    .yo-carousel#{$name} {
         > .index {
             > li {
-                @if $index-size != map-get($switchable, index-size) {
+                @if $index-size != map-get($carousel, index-size) {
                     @include square($index-size);
                 }
-                @if $index-bgcolor != map-get($switchable, index-bgcolor) {
+                @if $index-bgcolor != map-get($carousel, index-bgcolor) {
                     background-color: $index-bgcolor;
                 }
                 &.on {
-                    @if $index-on-bgcolor != map-get($switchable, index-on-bgcolor) {
+                    @if $index-on-bgcolor != map-get($carousel, index-on-bgcolor) {
                         background-color: $index-on-bgcolor;
                     }
                 }
             }
         }
         > .yo-ico {
-            @if $has-btn != map-get($switchable, has-btn) {
+            @if $has-btn != map-get($carousel, has-btn) {
                 @if $has-btn == false {
                     display: none;
                 } @else {
                     display: inline;
                 }
             }
-            @if $btn-size != map-get($switchable, btn-size) {
+            @if $btn-size != map-get($carousel, btn-size) {
                 @include square($btn-size);
                 line-height: $btn-size;
             }
-            @if $btn-bgcolor != map-get($switchable, btn-bgcolor) {
+            @if $btn-bgcolor != map-get($carousel, btn-bgcolor) {
                 background-color: $btn-bgcolor;
             }
-            @if $btn-color != map-get($switchable, btn-color) {
+            @if $btn-color != map-get($carousel, btn-color) {
                 color: $btn-color;
             }
             &:active {
-                @if $btn-active-bgcolor != map-get($switchable, btn-active-bgcolor) {
+                @if $btn-active-bgcolor != map-get($carousel, btn-active-bgcolor) {
                 background-color: $btn-active-bgcolor;
                 }
-                @if $btn-active-color != map-get($switchable, btn-active-color) {
+                @if $btn-active-color != map-get($carousel, btn-active-color) {
                     color: $btn-active-color;
                 }
             }
@@ -169,7 +169,7 @@
     }
 }
 
-// 调用本文件时载入switchableable基础构造
-.yo-switchable {
-    @include _switchable;
+// 调用本文件时载入carouselable基础构造
+.yo-carousel {
+    @include _carousel;
 }

@@ -273,11 +273,11 @@
     $switch: $_switch !global;
 }
 
-// 合并variables和config中的switchable map
-@if global-variable-exists(switchable) {
-    $switchable: map-merge($_switchable, $switchable) !global;
+// 合并variables和config中的carousel map
+@if global-variable-exists(carousel) {
+    $carousel: map-merge($_carousel, $carousel) !global;
 } @else {
-    $switchable: $_switchable !global;
+    $carousel: $_carousel !global;
 }
 
 // 合并variables和config中的tab map

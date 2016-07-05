@@ -6,6 +6,7 @@
 * 将所有的 `widget` 迁移到 `fragment` 目录下；
 * 将 `yo-select` 变更为 `yo-picker`；
 * 将 `yo-datepicker` 变更为 `yo-calendar`；
+* 将 `yo-switchable` 变更为 `yo-carousel`；
 
 ### 删除：
 
