@@ -10,6 +10,7 @@
     > .weeks {
         @include flex(1, column);
         position: relative;
+        @include overflow;
     }
     > .week-bar,
     .week {

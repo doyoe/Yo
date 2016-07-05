@@ -393,6 +393,7 @@ a {
   -webkit-flex: 1;
   flex: 1;
   position: relative;
+  overflow: auto;
 }
 
 .yo-calendar > .week-bar,
@@ -651,9 +652,4 @@ a {
 .m-demo > .yo-card .cols img {
   width: 0.6rem;
   height: 0.6rem;
-}
-
-.m-code {
-  position: relative;
-  margin-top: 4rem;
 }
