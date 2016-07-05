@@ -87,7 +87,7 @@ $_z-index: (
     // {Number} 搜索层级范围2501-3000
     actionsheet: 2501,
     // {Number} 浮层层级范围3001-3500
-    tip:         3001,
+    tooltip:     3001,
     // {Number} loading层级
     loading:     9999
 );
@@ -763,8 +763,8 @@ $_tab: (
     item-border-color:  transparent
 );
 
-// Fragment UI Tip(4)
-$_tip: (
+// Fragment UI tooltip(4)
+$_tooltip: (
     // {Length} 内补白
     padding:    .06rem .15rem,
     // {Length} 圆角

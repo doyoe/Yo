@@ -287,9 +287,9 @@
     $tab: $_tab !global;
 }
 
-// 合并variables和config中的tip map
-@if global-variable-exists(tip) {
-    $tip: map-merge($_tip, $tip) !global;
+// 合并variables和config中的tooltip map
+@if global-variable-exists(tooltip) {
+    $tooltip: map-merge($_tooltip, $tooltip) !global;
 } @else {
-    $tip: $_tip !global;
+    $tooltip: $_tooltip !global;
 }
