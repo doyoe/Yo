@@ -245,11 +245,11 @@
     $rating: $_rating !global;
 }
 
-// 合并variables和config中的select map
-@if global-variable-exists(select) {
-    $select: map-merge($_select, $select) !global;
+// 合并variables和config中的picker map
+@if global-variable-exists(picker) {
+    $picker: map-merge($_picker, $picker) !global;
 } @else {
-    $select: $_select !global;
+    $picker: $_picker !global;
 }
 
 // 合并variables和config中的slidermenu map

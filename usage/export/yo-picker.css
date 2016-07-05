@@ -370,7 +370,7 @@ a {
   text-align: right;
 }
 
-.yo-select {
+.yo-picker {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -383,7 +383,7 @@ a {
   background-color: white;
 }
 
-.yo-select > .list {
+.yo-picker > .list {
   position: relative;
   -webkit-box-flex: 1;
   -webkit-flex: 1;
@@ -392,26 +392,26 @@ a {
   text-align: center;
 }
 
-.yo-select > .list > .item {
+.yo-picker > .list > .item {
   height: 0.3rem;
   line-height: 0.3rem;
   padding: 0 .1rem;
 }
 
-.yo-select > .list > .item.disabled {
+.yo-picker > .list > .item.disabled {
   opacity: .4;
 }
 
-.yo-select > .unit {
+.yo-picker > .unit {
   position: relative;
   line-height: 1.5rem;
 }
 
-.yo-select > .unit:last-child {
+.yo-picker > .unit:last-child {
   padding-right: .1rem;
 }
 
-.yo-select > .mask {
+.yo-picker > .mask {
   position: absolute;
   z-index: 3;
   top: 0;
@@ -423,7 +423,7 @@ a {
   background: -webkit-linear-gradient(top, white, rgba(255, 255, 255, 0.4) 40%, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 60.5%, rgba(255, 255, 255, 0.4) 60.5%, white);
 }
 
-.yo-select::before {
+.yo-picker::before {
   position: absolute;
   top: 50%;
   left: 0;
@@ -435,7 +435,7 @@ a {
 }
 
 @media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
-  .yo-select::before {
+  .yo-picker::before {
     width: 100%;
     height: 0.3rem;
     -webkit-transform: translatey(-50%);
@@ -444,7 +444,7 @@ a {
 }
 
 @media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
-  .yo-select::before {
+  .yo-picker::before {
     width: 200%;
     height: 0.6rem;
     -webkit-transform: scale(0.5) translatey(-50%);
@@ -453,7 +453,7 @@ a {
 }
 
 @media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
-  .yo-select::before {
+  .yo-picker::before {
     width: 300%;
     height: 0.9rem;
     -webkit-transform: scale(0.33333) translatey(-50%);
