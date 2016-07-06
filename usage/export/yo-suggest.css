@@ -568,18 +568,38 @@ a {
 }
 
 .yo-group > .sticky,
-.yo-group > .scroll-index {
+.yo-group > .index {
   position: absolute;
-  z-index: 1000;
-  top: 0;
   right: 0;
 }
 
 .yo-group > .sticky {
+  top: 0;
   left: 0;
   padding: 0.03rem 0.1rem;
   background-color: #ebebeb;
   color: #666;
+}
+
+.yo-group > .index {
+  z-index: 1000;
+  top: 50%;
+  -webkit-transform: translatey(-50%);
+  transform: translatey(-50%);
+  width: 0.3rem;
+  text-transform: uppercase;
+  color: #555;
+  font-size: 0.12rem;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.yo-group > .index .ellipsis {
+  display: inline-block;
+  width: 0.06rem;
+  height: 0.06rem;
+  border-radius: 50%;
+  background-color: #555;
 }
 
 .yo-group .no-data {
@@ -595,27 +615,6 @@ a {
   word-wrap: break-word;
   word-break: break-all;
   text-align: center;
-}
-
-.yo-index {
-  width: 0.3rem;
-  text-transform: uppercase;
-  color: #555;
-  font-size: 0.12rem;
-  line-height: 1.1;
-  text-align: center;
-}
-
-.yo-index .ellipsis {
-  display: inline-block;
-  width: 0.06rem;
-  height: 0.06rem;
-  border-radius: 50%;
-  background-color: #555;
-}
-
-.yo-index {
-  margin: .3rem 0 .3rem auto;
 }
 
 .yo-list {

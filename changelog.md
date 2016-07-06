@@ -8,6 +8,7 @@
 * 将 `yo-datepicker` 变更为 `yo-calendar`；
 * 将 `yo-switchable` 变更为 `yo-carousel`；
 * 将 `yo-tip` 变更为 `yo-tooltip`；
+* 将 `yo-index` 并入 `yo-group`；
 
 ### 删除：
 

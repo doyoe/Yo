@@ -585,20 +585,14 @@ $_doublelist: (
     aside-order: null
 );
 
-// Fragment group(1)
+// Fragment group(3)
 $_group: (
-    // {Length} group顶部偏移值
-    top: 0
-);
-
-// Fragment index(3)
-$_index: (
     // {Length} 索引宽度
-    width:     .3rem,
-    // {Color} 文本色
-    color:     #555,
+    index-width:     .3rem,
+    // {Color} 索引文本色
+    index-color:     #555,
     // {Length} 索引字号
-    font-size: .12rem
+    index-font-size: .12rem
 );
 
 // Fragment UI mask(1)
@@ -763,7 +757,7 @@ $_tab: (
     item-border-color:  transparent
 );
 
-// Fragment UI tooltip(4)
+// Fragment UI tooltip(5)
 $_tooltip: (
     // {Length} 内补白
     padding:    .06rem .15rem,
