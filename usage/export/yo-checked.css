@@ -654,6 +654,14 @@ a {
   border-color: #ccc;
 }
 
+.yo-list-table > .label {
+  background-color: #f9f9f9;
+}
+
+.yo-list-table > .label::after {
+  border-color: #aaa;
+}
+
 .yo-checked {
   display: inline-block;
   position: relative;
@@ -983,6 +991,7 @@ a {
 
 .m-demo > .title {
   padding: .18rem .1rem .03rem;
+  font-weight: normal;
   position: relative;
 }
 

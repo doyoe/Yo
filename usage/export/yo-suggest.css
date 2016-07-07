@@ -900,6 +900,14 @@ a {
   border-color: #ccc;
 }
 
+.yo-list-table > .label {
+  background-color: #f9f9f9;
+}
+
+.yo-list-table > .label::after {
+  border-color: #aaa;
+}
+
 .m-desc {
   margin: .3rem .1rem;
   padding-bottom: .05rem;

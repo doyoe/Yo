@@ -17,3 +17,9 @@
     $label-padding: .2rem .1rem .05rem,
     $label-border-color: map-get($base, border-color)
 );
+
+@include yo-list(
+    $name: table,
+    $label-bgcolor: #f9f9f9,
+    $label-border-color: #aaa
+);

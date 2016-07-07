@@ -652,6 +652,14 @@ a {
   border-color: #ccc;
 }
 
+.yo-list-table > .label {
+  background-color: #f9f9f9;
+}
+
+.yo-list-table > .label::after {
+  border-color: #aaa;
+}
+
 .yo-badge {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;

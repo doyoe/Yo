@@ -677,6 +677,54 @@ a {
   padding: 0.11rem 0.1rem 0.12rem;
 }
 
+.yo-list-inset {
+  margin: 0.2rem 0.1rem 0 0.1rem;
+  border-radius: 0.2rem;
+  overflow: hidden;
+}
+
+.yo-list-inset::after {
+  border-width: 1px;
+}
+
+@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
+  .yo-list-inset::after {
+    border-radius: 0.2rem;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
+  .yo-list-inset::after {
+    border-radius: 0.4rem;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
+  .yo-list-inset::after {
+    border-radius: 0.6rem;
+  }
+}
+
+.yo-list-group > .label {
+  padding: 0.2rem 0.1rem 0.05rem;
+}
+
+.yo-list-group > .label > .col {
+  padding: 0.2rem 0.1rem 0.05rem;
+}
+
+.yo-list-group > .label::after {
+  border-color: #ccc;
+}
+
+.yo-list-table > .label {
+  background-color: #f9f9f9;
+}
+
+.yo-list-table > .label::after {
+  border-color: #aaa;
+}
+
 .m-demo {
   position: relative;
   min-height: .88rem;
@@ -684,6 +732,7 @@ a {
 
 .m-demo > .title {
   padding: .18rem .1rem .03rem;
+  font-weight: normal;
   position: relative;
 }
 
@@ -793,4 +842,8 @@ a {
 
 .m-desc .info {
   margin: .1rem;
+}
+
+.yo-list img {
+  width: 100px;
 }

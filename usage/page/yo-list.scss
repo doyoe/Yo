@@ -3,9 +3,13 @@
 @import "../layout/yo-flex";
 @import "../../lib/fragment/yo-header";
 @import "../../lib/fragment/yo-switch";
-@import "../../lib/fragment/yo-list";
+@import "../fragment/yo-list";
 
 // 页面所需模块
 @import "../module/m-header";
 @import "../module/m-demo";
 @import "../module/m-desc";
+
+.yo-list img {
+    width: 100px;
+}
