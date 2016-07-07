@@ -407,35 +407,20 @@ a {
 }
 
 .yo-loading {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-  word-wrap: break-word;
-  word-break: break-all;
   position: absolute;
+  top: 50%;
+  left: 50%;
   z-index: 9999;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  line-height: 1;
-}
-
-.yo-loading > .inner {
-  display: block;
-  text-align: center;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   padding: .1rem .2rem;
   border-radius: .05rem;
   color: #212121;
+  line-height: 1;
+  text-align: center;
 }
 
-.yo-loading > .inner > .yo-ico {
+.yo-loading > .yo-ico {
   display: block;
   -webkit-animation: rotate 1s infinite linear;
   animation: rotate 1s infinite linear;
@@ -443,96 +428,24 @@ a {
   transform-origin: center;
 }
 
-.yo-loading > .inner > .yo-ico::before {
+.yo-loading > .yo-ico::before {
   content: "";
   color: #212121;
-  font-family: yofont;
   font-size: 0.5rem;
 }
 
-.yo-loading > .inner > .yo-ico:not(:only-child) {
+.yo-loading > .yo-ico:not(:only-child) {
   margin-bottom: .08rem;
 }
 
-.yo-loading-b > .inner {
-  background-color: #666;
-  color: #00afc7;
-}
-
-.yo-loading-b > .inner > .yo-ico::before {
-  color: #00afc7;
-}
-
-.m-demo {
-  position: relative;
-  min-height: .88rem;
-}
-
-.m-demo > .title {
-  padding: .18rem .1rem .03rem;
-  position: relative;
-}
-
-.m-demo > .title::after {
-  pointer-events: none;
+.yo-mask {
   position: absolute;
-  z-index: 999;
   top: 0;
+  right: 0;
+  bottom: 0;
   left: 0;
-  overflow: hidden;
-  content: "\0020";
-  border-color: #ccc;
-  border-style: solid;
-  border-width: 0 0 1px;
-  -webkit-transform-origin: 0 0;
-  transform-origin: 0 0;
-}
-
-@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
-  .m-demo > .title::after {
-    width: 100%;
-    height: 100%;
-  }
-}
-
-@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
-  .m-demo > .title::after {
-    width: 200%;
-    height: 200%;
-    -webkit-transform: scale(0.5);
-    transform: scale(0.5);
-  }
-}
-
-@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
-  .m-demo > .title::after {
-    width: 300%;
-    height: 300%;
-    -webkit-transform: scale(0.33333);
-    transform: scale(0.33333);
-  }
-}
-
-.m-demo .item .yo-btn:not(:last-child) {
-  margin-right: .1rem;
-}
-
-.m-demo .mark img {
-  width: 0.5rem;
-  height: 0.5rem;
-}
-
-.m-demo > .yo-dialog {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-
-.m-demo > .yo-card .cols img {
-  width: 0.6rem;
-  height: 0.6rem;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .m-desc {

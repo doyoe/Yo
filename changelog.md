@@ -10,6 +10,7 @@
 * 将 `yo-switchable` 变更为 `yo-carousel`；
 * 将 `yo-tip` 变更为 `yo-tooltip`；
 * 将 `yo-index` 并入 `yo-group`；
+* 将 `yo-loading` 中的 `inner` 层级移除；
 
 ### 删除：
 

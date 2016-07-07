@@ -20,43 +20,18 @@
         <a href="../../doc/element.html#yo-loading" class="affirm">文档</a>
     </header>
     <div class="flex">
-        <div class="yo-loading m-demo">
-            <div class="inner"><i class="yo-ico"></i></div>
+        <div class="yo-loading">
+            <i class="yo-ico"></i>
+            <span>加载中...</span>
         </div>
         <section class="m-desc">
             <h3 class="title">示例描述：</h3>
             <xmp><div class="yo-loading">
-    <div class="inner"><i class="yo-ico"></i></div>
+    <i class="yo-ico"></i>
+    <span>加载中...</span>
 </div></xmp>
         </section>
-
-        <div class="yo-loading m-demo">
-            <div class="inner"><i class="yo-ico"></i><span>加载中...</span></div>
-        </div>
-        <section class="m-desc">
-            <h3 class="title">示例描述：</h3>
-            <xmp><div class="yo-loading">
-    <div class="inner"><i class="yo-ico"></i><span>加载中...</span></div>
-</div></xmp>
-        </section>
-
-        <div class="yo-loading yo-loading-b m-demo">
-            <div class="inner"><i class="yo-ico"></i><span>加载中...</span></div>
-        </div>
-        <section class="m-desc">
-            <h3 class="title">假设你想要背景色，那么你可以这样扩展：</h3>
-            <xmp>@include yo-loading(
-    $name: b,
-    $bgcolor: #666,
-    $ico-color: #00afc7,
-    $color: #00afc7
-);</xmp>
-    <h3 class="sub-title">使用方法：</h3>
-    <xmp><div class="yo-loading yo-loading-b">
-    <div class="inner"><i class="yo-ico"></i><span>加载中...</span></div>
-</div></xmp>
-        </section>
-
+        <div class="yo-mask"></div>
     </div>
 </div>
 

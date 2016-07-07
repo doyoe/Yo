@@ -3,33 +3,31 @@
 
 // 定义loading的基础构造
 @mixin _loading {
-    @include align;
-    @include fullscreen(map-get($z-index, loading));
-    background-color: map-get($loading, mask-bgcolor);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: map-get($z-index, loading);
+    @include transform(translate(-50%, -50%));
+    padding: .1rem .2rem;
+    border-radius: .05rem;
+    background-color: map-get($loading, bgcolor);
+    color: map-get($loading, color);
+    font-size: map-get($loading, font-size);
     line-height: 1;
-    > .inner {
+    text-align: center;
+    // 增加 .yo-ico 这一级用以fix某些浏览器不支持伪元素动画
+    > .yo-ico {
         display: block;
-        text-align: center;
-        padding: .1rem .2rem;
-        border-radius: .05rem;
-        background-color: map-get($loading, bgcolor);
-        color: map-get($loading, color);
-        font-size: map-get($loading, font-size);
-        // 增加 .yo-ico 这一级用以fix某些浏览器不支持伪元素动画
-        > .yo-ico {
-            display: block;
-            @include animation(rotate 1s infinite linear);
-            @include transform-origin(center);
-            &::before {
-                content: map-get($loading, content);
-                color: map-get($loading, ico-color);
-                font-family: map-get($ico, font-name);
-                font-size: map-get($loading, ico-size);
-            }
-            // 当loading界面还有文字提示的时候，增加间隙
-            &:not(:only-child) {
-                margin-bottom: .08rem;
-            }
+        @include animation(rotate 1s infinite linear);
+        @include transform-origin(center);
+        &::before {
+            content: map-get($loading, content);
+            color: map-get($loading, ico-color);
+            font-size: map-get($loading, ico-size);
+        }
+        // 当loading界面还有文字提示的时候，增加间隙
+        &:not(:only-child) {
+            margin-bottom: .08rem;
         }
     }
 }
@@ -44,7 +42,6 @@
  * @param {Length} $ico-size loading的尺寸 <1.5.0>
  * @param {Color} $ico-color loading的颜色 <1.5.0>
  * @param {Color} $bgcolor 背景色 <1.0.0>
- * @param {Color} $mask-bgcolor 遮罩背景色 <1.0.0>
  * @param {Length} $font-size 文本字号 <1.5.0>
  * @param {Color} $color 文本颜色 <1.5.0>
  * @param {String} $content loading形态 <1.5.0>
@@ -55,7 +52,6 @@
     $ico-size: default,
     $ico-color: default,
     $bgcolor: default,
-    $mask-bgcolor: default,
     $font-size: default,
     $color: default,
     $content: default) {
@@ -71,9 +67,6 @@
     @if $bgcolor == default {
         $bgcolor: map-get($loading, bgcolor);
     }
-    @if $mask-bgcolor == default {
-        $mask-bgcolor: map-get($loading, mask-bgcolor);
-    }
     @if $font-size == default {
         $font-size: map-get($loading, font-size);
     }
@@ -84,34 +77,31 @@
         $content: map-get($loading, content);
     }
     .yo-loading#{$name} {
-        // 如果$bgcolor不等于config预设值时，则重写遮罩背景色
-        @if $mask-bgcolor != map-get($loading, mask-bgcolor) {
-            background-color: $mask-bgcolor;
+        padding: .1rem .2rem;
+        border-radius: .05rem;
+        @if $bgcolor != map-get($loading, bgcolor) {
+            background-color: $bgcolor;
         }
-        > .inner {
-            @if $bgcolor != map-get($loading, bgcolor) {
-                background-color: $bgcolor;
-            }
-            @if $color != map-get($loading, color) {
-                color: $color;
-            }
-            @if $font-size != map-get($loading, font-size) {
-                font-size: $font-size;
-            }
-            > .yo-ico {
-                &::before {
-                    @if $content != map-get($loading, content) {
-                        content: $content;
-                    }
-                    @if $ico-color != map-get($loading, ico-color) {
-                        color: $ico-color;
-                    }
-                    @if $ico-size != map-get($loading, ico-size) {
-                        font-size: $ico-size;
-                    }
+        @if $color != map-get($loading, color) {
+            color: $color;
+        }
+        @if $font-size != map-get($loading, font-size) {
+            font-size: $font-size;
+        }
+        > .yo-ico {
+            &::before {
+                @if $content != map-get($loading, content) {
+                    content: $content;
+                }
+                @if $ico-color != map-get($loading, ico-color) {
+                    color: $ico-color;
+                }
+                @if $ico-size != map-get($loading, ico-size) {
+                    font-size: $ico-size;
                 }
             }
         }
+
         // 增量扩展
         @content;
     }
