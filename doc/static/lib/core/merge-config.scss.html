@@ -69,6 +69,13 @@
     $align: $_align !global;
 }
 
+// 合并variables和config中的column map
+@if global-variable-exists(column) {
+    $column: map-merge($_column, $column) !global;
+} @else {
+    $column: $_column !global;
+}
+
 // 合并variables和config中的flex map
 @if global-variable-exists(flex) {
     $flex: map-merge($_flex, $flex) !global;
