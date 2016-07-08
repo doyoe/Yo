@@ -414,6 +414,10 @@ a {
   background-color: #fff;
 }
 
+.yo-search > .operation > .input::-webkit-input-placeholder {
+  color: #bbb;
+}
+
 .yo-search > .operation > .input-shrink {
   -webkit-transition: margin 0.2s ease-out;
   transition: margin 0.2s ease-out;
