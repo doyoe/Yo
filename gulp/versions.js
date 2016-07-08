@@ -5,7 +5,7 @@ var execSync = require('child_process').execSync;
 
 // 读取 Yo 版本号
 function getVersion() {
-    var config = fs.readFileSync(path.join(__dirname, '..', 'lib', 'core', 'variables.scss'), 'UTF-8').match(/version:\s*"(\d+\.\d+\.\d+\w*)"/);
+    var config = fs.readFileSync(path.join(__dirname, '..', 'style', 'lib', 'core', 'variables.scss'), 'UTF-8').match(/version:\s*"(\d+\.\d+\.\d+\w*)"/);
 
     return config ? config[1] : 'Not Found';
 }
