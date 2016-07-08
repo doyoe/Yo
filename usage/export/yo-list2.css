@@ -370,28 +370,6 @@ a {
   text-align: right;
 }
 
-.yo-input {
-  width: 100%;
-  height: 0.44rem;
-  padding: 0.1rem;
-  border: 1px solid #ccc;
-  border-radius: 0.02rem;
-  -webkit-background-clip: padding-box !important;
-  background-clip: padding-box !important;
-  background-color: transparent;
-  vertical-align: top;
-  color: #212121;
-}
-
-.yo-input, .yo-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  appearance: none;
-}
-
-.yo-input::-webkit-input-placeholder {
-  color: #bbb;
-}
-
 .yo-list {
   position: relative;
 }
@@ -610,11 +588,16 @@ a {
   border-width: 0;
 }
 
-.yo-list > .item-input > .yo-input {
+.yo-list > .item-input > .input {
+  -webkit-appearance: none;
+  appearance: none;
   display: block;
-  height: auto;
-  padding: 0;
+  width: 100%;
   border: 0;
+}
+
+.yo-list > .item-input > .input::-webkit-input-placeholder {
+  color: #bbb;
 }
 
 .yo-list > .item-stacked {

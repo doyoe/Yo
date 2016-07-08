@@ -111,13 +111,6 @@
     $checked: $_checked !global;
 }
 
-// 合并variables和config中的input map
-@if global-variable-exists(input) {
-    $input: map-merge($_input, $input) !global;
-} @else {
-    $input: $_input !global;
-}
-
 // 合并variables和config中的loading map
 @if global-variable-exists(loading) {
     $loading: map-merge($_loading, $loading) !global;
@@ -186,13 +179,6 @@
     $dialog: map-merge($_dialog, $dialog) !global;
 } @else {
     $dialog: $_dialog !global;
-}
-
-// 合并variables和config中的doublelist map
-@if global-variable-exists(doublelist) {
-    $doublelist: map-merge($_doublelist, $doublelist) !global;
-} @else {
-    $doublelist: $_doublelist !global;
 }
 
 // 合并variables和config中的group map

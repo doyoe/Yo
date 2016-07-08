@@ -652,11 +652,16 @@ a {
   border-width: 0;
 }
 
-.yo-list > .item-input > .yo-input {
+.yo-list > .item-input > .input {
+  -webkit-appearance: none;
+  appearance: none;
   display: block;
-  height: auto;
-  padding: 0;
+  width: 100%;
   border: 0;
+}
+
+.yo-list > .item-input > .input::-webkit-input-placeholder {
+  color: #bbb;
 }
 
 .yo-list > .item-stacked {
@@ -796,52 +801,6 @@ a {
 .m-demo > .yo-card .cols img {
   width: 0.6rem;
   height: 0.6rem;
-}
-
-.m-desc {
-  margin: .3rem .1rem;
-  padding-bottom: .05rem;
-  border-radius: .05rem;
-  background-color: #ddd;
-}
-
-.m-desc > .title,
-.m-desc > .sub-title {
-  max-height: 100%;
-}
-
-.m-desc > .title {
-  padding: .18rem .1rem .03rem;
-  border-bottom: 1px solid #ccc;
-}
-
-.m-desc > xmp {
-  margin: .1rem;
-  padding: .1rem;
-  background-color: #666;
-  color: #fff;
-  -webkit-user-select: text;
-  user-select: text;
-}
-
-.m-desc .sub-title {
-  margin: 0 .1rem;
-  padding: .1rem 0 .03rem;
-  border-bottom: 1px solid #ccc;
-}
-
-.m-desc .sub-title::before {
-  margin-right: .05rem;
-  padding: 0 .03rem;
-  border-radius: .03rem;
-  content: "Note";
-  font-weight: normal;
-  background-color: #f9c027;
-  color: #fff;
-}
-
-.m-desc .info {
-  margin: .1rem;
 }
 
 .yo-list img {

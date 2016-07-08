@@ -13,6 +13,8 @@
 * 将 `yo-loading` 中的 `inner` 层级移除；
 
 ### 删除：
+* 删除 `yo-input` 元件；
+* 删除 `yo-doublelist` 元件；
 
 ## v2.1.3（2016.7.4）
 

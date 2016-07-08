@@ -589,11 +589,16 @@ a {
   border-width: 0;
 }
 
-.yo-list > .item-input > .yo-input {
+.yo-list > .item-input > .input {
+  -webkit-appearance: none;
+  appearance: none;
   display: block;
-  height: auto;
-  padding: 0;
+  width: 100%;
   border: 0;
+}
+
+.yo-list > .item-input > .input::-webkit-input-placeholder {
+  color: #bbb;
 }
 
 .yo-list > .item-stacked {

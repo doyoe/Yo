@@ -194,26 +194,6 @@ $_checked: (
     radius:         .05rem
 );
 
-// Element Input(8)
-$_input: (
-    // {Length} 输入框宽度
-    width:             100%,
-    // {Length} 输入框高度
-    height:            .44rem,
-    // {Length} 输入框内补白
-    padding:           .1rem,
-    // {Length} 输入框圆角
-    radius:            .02rem,
-    // {Color} 输入框边框色
-    border-color:      map-get($base, border-color),
-    // {Color} 输入框背景色
-    bgcolor:           transparent,
-    // {Color} 文本色
-    color:             map-get($base, color),
-    // {Color} 占位符颜色
-    placeholder-color: #bbb
-);
-
 // Element loading(7)
 $_loading: (
     // {Length} 菊花大小
@@ -573,14 +553,6 @@ $_dialog: (
     bd-padding:      .03rem .1rem .15rem,
     // {Length} 主体区域文字大小
     bd-font-size:    .16rem
-);
-
-// Fragment UI doublelist(2)
-$_doublelist: (
-    // {Length} 导航panel宽度
-    aside-width: null,
-    // {Length} 导航panel顺序，从0开始
-    aside-order: null
 );
 
 // Fragment group(3)

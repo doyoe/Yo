@@ -88,11 +88,14 @@
         }
         &-input {
             // 让输入框占满整个父容器
-            > .yo-input {
+            > .input {
+                @include appearance;
                 display: block;
-                height: auto;
-                padding: 0;
+                width: 100%;
                 border: 0;
+                &::-webkit-input-placeholder {
+                    color: #bbb;
+                }
             }
         }
         &-stacked {
