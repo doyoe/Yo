@@ -384,24 +384,22 @@ $_proportion: (
     inner-bgcolor: red
 );
 
-// Fragment yo-search(9)
+// Fragment yo-search(8)
 $_search: (
     // {Length} 搜索框区域内边距
-    padding:            .1rem,
+    padding:            .07rem .1rem,
     // {Color} 搜索框区域底色
     bgcolor:            #eee,
     // {Length} 搜索框及搜索按钮圆角
     radius:             .05rem,
     // {Length} 搜索框高度
     input-height:       .3rem,
-    // {Color} 搜索框边框色
-    input-border-color: #fff,
     // {Color} 搜索框底色
     input-bgcolor:      #fff,
     // {Color} 搜索按钮底色
-    button-bgcolor:     #1ba9ba,
+    btn-bgcolor:        #1ba9ba,
     // {Color} 搜索按钮文本色
-    button-color:       #fff,
+    btn-color:          #fff,
     // {Color} 取消操作区文本色
     cancel-color:       #1ba9ba
 );
@@ -625,7 +623,7 @@ $_slidermenu: (
     action-bgcolor: #ccc
 );
 
-// Fragment suggest(15)
+// Fragment suggest(14)
 $_suggest: (
     // {Length} 输入框高度
     height:           .3rem,
@@ -633,16 +631,16 @@ $_suggest: (
     font-size:        map-get($base, font-size-baseline),
     // {Length} 搜索区内补白
     op-padding:       .07rem .1rem,
+    // {Color} 操作区背景色
+    op-bgcolor:       #fff,
     // {Length} 输入框圆角
     radius:           .05rem,
-    // {Color} 边框色
+    // {Color} 操作区域边框色
     border-color:      map-get($base, border-color),
     // {Color} 输入框背景色
     bgcolor:          map-get($base, border-color),
     // {Color} 输入框文本色
     color:            map-get($base, color),
-    // {Color} 激活边框色
-    on-border-color:  null,
     // {Color} 激活背景色
     on-bgcolor:       null,
     // {Color} placeholder文本色
@@ -651,12 +649,10 @@ $_suggest: (
     ico-color:        #999,
     // {Color} 取消按钮颜色
     cancel-color:     map-get($base, link-color),
-    // {Color} 搜索区背景色
-    op-bgcolor:       #fff,
-    // {Color} mask背景色
-    mask-bgcolor:     rgba(#fff, .9),
     // {Length} 取消按钮区域宽度
-    cancel-width:     .7rem
+    cancel-width:     .7rem,
+    // {Color} mask背景色
+    mask-bgcolor:     rgba(#fff, .9)
 );
 
 // Fragment switch(4)

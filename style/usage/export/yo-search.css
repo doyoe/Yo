@@ -370,17 +370,110 @@ a {
   text-align: right;
 }
 
+.yo-btn {
+  display: inline-block;
+  padding: 0 1.2em;
+  vertical-align: top;
+  position: relative;
+  border-radius: 0.05rem;
+  border: 0 none;
+  background-color: #ff801a;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+}
+
+.yo-btn::after {
+  pointer-events: none;
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  content: "\0020";
+  border-color: #d36105;
+  border-style: solid;
+  border-width: 1px;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+
+@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
+  .yo-btn::after {
+    width: 100%;
+    height: 100%;
+    border-radius: 0.05rem;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
+  .yo-btn::after {
+    width: 200%;
+    height: 200%;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    border-radius: 0.1rem;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
+  .yo-btn::after {
+    width: 300%;
+    height: 300%;
+    -webkit-transform: scale(0.33333);
+    transform: scale(0.33333);
+    border-radius: 0.15rem;
+  }
+}
+
+.yo-btn-disabled {
+  opacity: 1;
+  cursor: not-allowed;
+}
+
+.yo-btn-disabled, .yo-btn-disabled:active {
+  background-color: #ffaa67;
+  color: white;
+}
+
+.yo-btn-disabled::after, .yo-btn-disabled:active::after {
+  border-color: #fa7f1c;
+}
+
+.yo-btn-s {
+  height: 0.28rem;
+  line-height: 0.28rem;
+  font-size: 0.12rem;
+}
+
+.yo-btn-m {
+  height: 0.36rem;
+  line-height: 0.36rem;
+  font-size: 0.14rem;
+}
+
+.yo-btn-l {
+  height: 0.44rem;
+  line-height: 0.44rem;
+  font-size: 0.16rem;
+}
+
+.yo-btn-stacked {
+  display: block;
+  width: 100%;
+}
+
 .yo-search {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
   position: relative;
-  padding: 0.1rem;
+  padding: 0.07rem 0.1rem;
   background-color: #eee;
   line-height: 0.3rem;
 }
 
-.yo-search > .operation {
+.yo-search > .action {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -390,14 +483,7 @@ a {
   width: .1px;
 }
 
-.yo-search > .operation > .yo-ico {
-  position: absolute;
-  z-index: 2;
-  width: .28rem;
-  text-align: center;
-}
-
-.yo-search > .operation > .input {
+.yo-search > .action > .input {
   display: block;
   -webkit-appearance: none;
   appearance: none;
@@ -407,27 +493,34 @@ a {
   width: .1px;
   position: relative;
   z-index: 1;
-  margin: -1px 0;
   padding-left: .1rem;
-  border: 1px solid #fff;
+  border: 0 none;
   border-radius: 0.05rem;
   background-color: #fff;
+  vertical-align: top;
 }
 
-.yo-search > .operation > .input::-webkit-input-placeholder {
+.yo-search > .action > .input::-webkit-input-placeholder {
   color: #bbb;
 }
 
-.yo-search > .operation > .input-shrink {
+.yo-search > .action > .input-shrink {
   -webkit-transition: margin 0.2s ease-out;
   transition: margin 0.2s ease-out;
 }
 
-.yo-search > .operation > .input-shrink:focus {
+.yo-search > .action > .input-shrink:focus {
   margin-right: .6rem;
 }
 
-.yo-search > .operation > .yo-ico + .input {
+.yo-search > .action > .yo-ico {
+  position: absolute;
+  z-index: 2;
+  width: .28rem;
+  text-align: center;
+}
+
+.yo-search > .action > .yo-ico + .input {
   padding-left: .28rem;
 }
 
@@ -439,15 +532,20 @@ a {
   text-align: center;
 }
 
-.yo-search > .button {
+.yo-search .yo-btn {
+  padding: 0 0.1rem;
+  background-color: #1ba9ba;
   display: block;
   min-width: .4rem;
   margin-left: .1rem;
-  padding: 0 .1rem;
-  background-color: #1ba9ba;
-  color: #fff;
-  text-align: center;
-  border-radius: 0.05rem;
+}
+
+.yo-search .yo-btn::after {
+  border-width: 0;
+}
+
+.yo-search .yo-btn.yo-btn-disabled, .yo-search .yo-btn.yo-btn-disabled:active {
+  background-color: #3ed1e3;
 }
 
 .m-demo {

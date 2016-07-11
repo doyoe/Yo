@@ -1,122 +1,72 @@
 @charset "utf-8";
+@import "../ani/rotate";
 
 // 定义suggest的基础构造
 @mixin _suggest {
+    @include flexbox;
+    @include flex-direction(column);
+    @include fullscreen(map-get($z-index, suggest), fixed);
     > .operate {
-        position: relative;
-        overflow: hidden;
+        @include flexbox;
+        padding: map-get($suggest, op-padding);
         font-size: map-get($suggest, font-size);
         line-height: map-get($suggest, height);
-        padding: map-get($suggest, op-padding);
         @include border(
             $border-width: 0 0 1px,
             $border-color: map-get($suggest, border-color)
         );
         background-color: map-get($suggest, op-bgcolor);
-        > .action {
-            display: block;
-            position: relative;
-            z-index: 2;
-            height: map-get($suggest, height);
-        }
-        .input {
+    }
+    .action {
+        @include flex;
+        position: relative;
+        color: #fff;
+        > .input {
+            @include appearance;
             width: 100%;
             height: 100%;
-            padding: 0 .3rem;
-            @include appearance;
-            border: 1px solid map-get($suggest, border-color);
-            @include border-radius(map-get($suggest, radius));
+            padding: 0 .28rem;
+            border: 0 none;
+            border-radius: map-get($suggest, radius);
             background-color: map-get($suggest, bgcolor);
             color: map-get($suggest, color);
-            font-size: map-get($suggest, font-size);
-            line-height: map-get($base, line-height);
             vertical-align: top;
+            &::-webkit-input-placeholder {
+                color: #fff;
+            }
         }
-        .yo-ico-delete,
-        .yo-ico-fresh,
-        .yo-ico-stop,
-        .yo-ico-loading {
-            display: none;
+        > .yo-ico {
             position: absolute;
+            z-index: 2;
+            width: .28rem;
+            text-align: center;
+        }
+        > .yo-ico-delete,
+        > .yo-ico-fresh,
+        > .yo-ico-stop,
+        > .yo-ico-loading {
+            display: none;
             top: 0;
             right: 0;
-            height: 100%;
-            padding: 0 .08rem;
             color: map-get($suggest, ico-color);
         }
-        .yo-ico-loading {
+        > .yo-ico-loading {
             @include animation(rotate 1s infinite linear);
             @include transform-origin(center);
         }
-        .label {
-            @include flexbox;
-            position: absolute;
-            top: 0;
-            left: 50%;
-            @include transition(left .2s ease-in);
-            @include transform(translatex(-50%) translatez(0));
-            color: map-get($suggest, placeholder-color);
-        }
-        .placeholder {
-            margin-left: .08rem;
-        }
-        > .cancel {
-            position: absolute;
-            top: 50%;
-            right: 0;
-            @include transform(translatey(-50%));
-            width: map-get($suggest, cancel-width);
-            padding: .1rem 0;
-            color: map-get($suggest, cancel-color);
-            text-align: center;
-        }
+    }
+    .cancel {
+        width: map-get($suggest, cancel-width);
+        color: map-get($suggest, cancel-color);
+        text-align: center;
     }
     > .cont {
-        display: none;
+        position: relative;
+        @include flex(1, column);
         background-color: map-get($suggest, mask-bgcolor);
         > .recommend,
         > .result {
             @include fullscreen;
-        }
-    }
-    // focus形态
-    &-on {
-        > .operate {
-            .input {
-                border-color: map-get($suggest, on-border-color);
-                background-color: map-get($suggest, on-bgcolor);
-            }
-            .label {
-                left: .1rem;
-                @include transform(translatex(0) translatez(0));
-            }
-            .yo-ico-delete {
-                display: inline-block;
-            }
-        }
-        // 非独占形态，激活时展开cont，并使用绝对定位拉伸获得高度
-        // 需要通过设置top值来确定cont区域
-        > .cont {
-            display: block;
-            @include fullscreen(map-get($z-index, suggest));
-            top: .88rem;
-        }
-    }
-    // 独占形态搜索
-    &-modal {
-        @include flexbox;
-        @include flex-direction(column);
-        @include fullscreen(map-get($z-index, suggest), fixed);
-        // 独占形态时，在foucs时显示取消按钮
-        > .operate {
-            padding-right: map-get($suggest, cancel-width) !important;
-        }
-        // 独占形态时自动展开cont，并使用flex获得高度
-        > .cont {
-            display: block;
-            position: relative;
-            top: 0;
-            @include flex(1, column);
         }
     }
 }
@@ -125,21 +75,19 @@
  * @module fragment
  * @method yo-suggest
  * @version 1.6.0
- * @description 构造yo-suggest的自定义使用方法（原yo-search）
+ * @description 构造yo-suggest的自定义使用方法
  * @demo http://doyoe.github.io/Yo/demo/fragment/yo-suggest.html
  * @param {String} $name 定义扩展名称 <1.0.0>
  * @param {Length} $height 高度 <1.0.0>
  * @param {Length} $font-size 字号大小 <1.0.0>
  * @param {Length} $op-padding 搜索区内补白 <1.0.0>
  * @param {Length} $radius 搜索框圆角半径长度 <1.0.0>
- * @param {Color} $bordercolor 边框色  <1.0.0, 2.0.0>
  * @param {Color} $border-color 边框色 <2.0.0>
  * @param {Color} $bgcolor 背景色 <1.0.0>
  * @param {Color} $color 文本色 <1.0.0>
- * @param {Color} $on-bordercolor 激活边框色  <1.0.0, 2.0.0>
  * @param {Color} $on-border-color 激活边框色 <2.0.0>
  * @param {Color} $on-bgcolor 激活背景色 <1.0.0>
- * @param {Color} $placeholder-color 占位符背景色 <1.0.0>
+ * @param {Color} $placeholder-color 占位符文本色 <1.0.0>
  * @param {Color} $ico-color 操作区ico颜色 <1.0.0>
  * @param {Color} $cancel-color 取消按钮颜色 <1.0.0>
  * @param {Color} $op-bgcolor 搜索区域背景色 <1.0.0>

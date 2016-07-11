@@ -1,4 +1,5 @@
 @charset "utf-8";
+@import "../element/yo-btn";
 
 // 定义浮层search的基础构造
 @mixin _search {
@@ -7,26 +8,20 @@
     padding: map-get($search, padding);
     background-color: map-get($search, bgcolor);
     line-height: map-get($search, input-height);
-    > .operation {
+    > .action {
         @include flexbox;
         @include flex;
-        > .yo-ico {
-            position: absolute;
-            z-index: 2;
-            width: .28rem;
-            text-align: center;
-        }
         > .input {
             display: block;
             @include appearance;
             @include flex;
             position: relative;
             z-index: 1;
-            margin: -1px 0;
             padding-left: .1rem;
-            border: 1px solid map-get($search, input-border-color);
+            border: 0 none;
             border-radius: map-get($search, radius);
             background-color: map-get($search, input-bgcolor);
+            vertical-align: top;
             &::-webkit-input-placeholder {
                 color: #bbb;
             }
@@ -36,6 +31,12 @@
                     margin-right: .6rem;
                 }
             }
+        }
+        > .yo-ico {
+            position: absolute;
+            z-index: 2;
+            width: .28rem;
+            text-align: center;
         }
         > .yo-ico + .input {
             padding-left: .28rem;
@@ -48,15 +49,16 @@
         color: map-get($search, cancel-color);
         text-align: center;
     }
-    > .button {
+    @include yo-btn(
+        $padding: 0 .1rem,
+        $border-width: 0,
+        $bgcolor: map-get($search, btn-bgcolor),
+        $color: map-get($search, btn-color),
+        $radius: map-get($search, radius)
+    ) {
         display: block;
         min-width: .4rem;
         margin-left: .1rem;
-        padding: 0 .1rem;
-        background-color: map-get($search, button-bgcolor);
-        color: map-get($search, button-color);
-        text-align: center;
-        border-radius: map-get($search, radius);
     }
 }
 
@@ -71,10 +73,9 @@
  * @param {Color} $bgcolor 搜索框区域底色 <2.1.2>
  * @param {Length} $radius 搜索框及搜索按钮圆角 <2.1.2>
  * @param {Length} $input-height 搜索框高度 <2.1.2>
- * @param {Color} $input-border-color 搜索框边框色 <2.1.2>
  * @param {Color} $input-bgcolor 搜索框底色 <2.1.2>
- * @param {Color} $button-bgcolor 搜索按钮底色 <2.1.2>
- * @param {Color} $button-color 搜索按钮文本色 <2.1.2>
+ * @param {Color} $btn-bgcolor 搜索按钮底色 <2.1.2>
+ * @param {Color} $btn-color 搜索按钮文本色 <2.1.2>
  * @param {Color} $cancel-color 取消操作区文本色 <2.1.2>
  */
 
@@ -84,10 +85,9 @@
     $bgcolor: default,
     $radius: default,
     $input-height: default,
-    $input-border-color : default,
     $input-bgcolor: default,
-    $button-bgcolor: default,
-    $button-color: default,
+    $btn-bgcolor: default,
+    $btn-color: default,
     $cancel-color: default) {
     // 区别是否新增实例还是修改本身
     $name: if($name == default, "", "-#{$name}");
@@ -104,17 +104,14 @@
     @if $input-height == default {
         $input-height: map-get($search, input-height);
     }
-    @if $input-border-color == default {
-        $input-border-color: map-get($search, input-border-color);
-    }
     @if $input-bgcolor == default {
         $input-bgcolor: map-get($search, input-bgcolor);
     }
-    @if $button-bgcolor == default {
-        $button-bgcolor: map-get($search, button-bgcolor);
+    @if $btn-bgcolor == default {
+        $btn-bgcolor: map-get($search, btn-bgcolor);
     }
-    @if $button-color == default {
-        $button-color: map-get($search, button-color);
+    @if $btn-color == default {
+        $btn-color: map-get($search, btn-color);
     }
     @if $cancel-color == default {
         $cancel-color: map-get($search, cancel-color);
@@ -129,11 +126,8 @@
         @if $input-height != map-get($search, input-height) {
             line-height: $input-height;
         }
-        > .operation {
+        > .operate {
             > .input {
-                @if $input-border-color != map-get($search, input-border-color) {
-                    border-color: $input-border-color;
-                }
                 @if $radius != map-get($search, radius) {
                     border-radius: $radius;
                 }
@@ -147,12 +141,12 @@
                 color: $cancel-color;
             }
         }
-        > .button {
-            @if $button-bgcolor != map-get($search, button-bgcolor) {
-                background-color: $button-bgcolor;
+        > .yo-btn {
+            @if $btn-bgcolor != map-get($search, btn-bgcolor) {
+                background-color: $btn-bgcolor;
             }
-            @if $button-color != map-get($search, button-color) {
-                color: $button-color;
+            @if $btn-color != map-get($search, btn-color) {
+                color: $btn-color;
             }
             @if $radius != map-get($search, radius) {
                 border-radius: $radius;
