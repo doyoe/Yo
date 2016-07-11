@@ -470,6 +470,7 @@ a {
   position: relative;
   padding: 0.07rem 0.1rem;
   background-color: #eee;
+  font-size: 0.14rem;
   line-height: 0.3rem;
 }
 
@@ -481,6 +482,8 @@ a {
   -webkit-flex: 1;
   flex: 1;
   width: .1px;
+  position: relative;
+  color: #bbb;
 }
 
 .yo-search > .action > .input {
@@ -497,6 +500,7 @@ a {
   border: 0 none;
   border-radius: 0.05rem;
   background-color: #fff;
+  color: #212121;
   vertical-align: top;
 }
 
@@ -510,7 +514,7 @@ a {
 }
 
 .yo-search > .action > .input-shrink:focus {
-  margin-right: .6rem;
+  margin-right: 0.5rem;
 }
 
 .yo-search > .action > .yo-ico {
@@ -526,9 +530,9 @@ a {
 
 .yo-search > .cancel {
   position: absolute;
-  right: .1rem;
-  width: .5rem;
-  color: #1ba9ba;
+  right: 0;
+  width: 0.6rem;
+  color: #00afc7;
   text-align: center;
 }
 

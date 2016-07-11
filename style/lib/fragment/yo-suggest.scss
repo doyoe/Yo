@@ -18,14 +18,18 @@
         line-height: map-get($suggest, input-height);
     }
     .action {
+        @include flexbox;
         @include flex;
         position: relative;
         // placeholder旁边的箭头颜色
         color: map-get($suggest, placeholder-color);
         > .input {
+            display: block;
             @include appearance;
-            width: 100%;
-            height: 100%;
+            @include flex;
+            position: relative;
+            z-index: 1;
+            margin-right: map-get($suggest, cancel-width) - .1rem;
             padding: 0 .28rem 0 .1rem;
             border: 0 none;
             border-radius: map-get($suggest, input-radius);
@@ -60,6 +64,8 @@
         }
     }
     .cancel {
+        position: absolute;
+        right: 0;
         width: map-get($suggest, cancel-width);
         color: map-get($suggest, cancel-color);
         text-align: center;
@@ -78,7 +84,7 @@
 /**
  * @module fragment
  * @method yo-suggest
- * @version 1.6.0
+ * @version 3.0.0
  * @description 构造yo-suggest的自定义使用方法
  * @demo http://doyoe.github.io/Yo/demo/fragment/yo-suggest.html
  * @param {String} $name 定义扩展名称 <3.0.0>
@@ -179,6 +185,9 @@
                 color: $placeholder-color;
             }
             > .input {
+                @if $cancel-width != map-get($suggest, cancel-width) {
+                    margin-right: $cancel-width - .1rem;
+                }
                 @if $input-radius != map-get($suggest, input-radius) {
                     border-radius: $input-radius;
                 }

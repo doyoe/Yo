@@ -384,24 +384,32 @@ $_proportion: (
     inner-bgcolor: red
 );
 
-// Fragment yo-search(8)
+// Fragment yo-search(12)
 $_search: (
     // {Length} 搜索框区域内边距
-    padding:            .07rem .1rem,
+    padding:       .07rem .1rem,
     // {Color} 搜索框区域底色
-    bgcolor:            #eee,
-    // {Length} 搜索框及搜索按钮圆角
-    radius:             .05rem,
+    bgcolor:       #eee,
+    // {Length} 搜索区字号
+    font-size:     map-get($base, font-size-baseline),
     // {Length} 搜索框高度
-    input-height:       .3rem,
+    input-height:  .3rem,
+    // {Length} 搜索框及搜索按钮圆角
+    input-radius:  .05rem,
     // {Color} 搜索框底色
-    input-bgcolor:      #fff,
+    input-bgcolor: #fff,
+    // {Color} 输入框文本色
+    input-color:   map-get($base, color),
+    // {Color} 输入框placeholder文本色
+    placeholder-color:#bbb,
     // {Color} 搜索按钮底色
-    btn-bgcolor:        #1ba9ba,
+    btn-bgcolor:   #1ba9ba,
     // {Color} 搜索按钮文本色
-    btn-color:          #fff,
-    // {Color} 取消操作区文本色
-    cancel-color:       #1ba9ba
+    btn-color:     #fff,
+    // {Length} 取消按钮区域宽度
+    cancel-width:  .6rem,
+    // {Color} 取消按钮颜色
+    cancel-color:  map-get($base, link-color)
 );
 
 // Fragment Table(10)
@@ -646,7 +654,7 @@ $_suggest: (
     // {Color} 输入框右侧图标颜色
     ico-color:        #999,
     // {Length} 取消按钮区域宽度
-    cancel-width:     .7rem,
+    cancel-width:     .6rem,
     // {Color} 取消按钮颜色
     cancel-color:     map-get($base, link-color),
     // {Color} 内容区背景色

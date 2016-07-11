@@ -12,6 +12,7 @@
 * 将 `yo-index` 并入 `yo-group`；
 * 将 `yo-loading` 中的 `inner` 层级移除；
 * 重构 `yo-suggest` 元件；
+* 重构 `yo-search` 元件；
 
 ### 删除：
 * 删除 `yo-input` 元件；
