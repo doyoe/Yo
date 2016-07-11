@@ -623,36 +623,34 @@ $_slidermenu: (
     action-bgcolor: #ccc
 );
 
-// Fragment suggest(14)
+// Fragment suggest(13)
 $_suggest: (
-    // {Length} 输入框高度
-    height:           .3rem,
-    // {Length} 搜索区文字大小
-    font-size:        map-get($base, font-size-baseline),
     // {Length} 搜索区内补白
-    op-padding:       .07rem .1rem,
-    // {Color} 操作区背景色
-    op-bgcolor:       #fff,
+    padding:          .07rem .1rem,
+    // {Color} 搜索区边框色
+    border-color:     map-get($base, border-color),
+    // {Color} 搜索区背景色
+    bgcolor:          #fff,
+    // {Length} 搜索区字号
+    font-size:        map-get($base, font-size-baseline),
+    // {Length} 输入框高度
+    input-height:     .3rem,
     // {Length} 输入框圆角
-    radius:           .05rem,
-    // {Color} 操作区域边框色
-    border-color:      map-get($base, border-color),
+    input-radius:     .05rem,
     // {Color} 输入框背景色
-    bgcolor:          map-get($base, border-color),
+    input-bgcolor:    map-get($base, border-color),
     // {Color} 输入框文本色
-    color:            map-get($base, color),
-    // {Color} 激活背景色
-    on-bgcolor:       null,
-    // {Color} placeholder文本色
+    input-color:      map-get($base, color),
+    // {Color} 输入框placeholder文本色
     placeholder-color:#fff,
-    // {Color} 操作区图标颜色
+    // {Color} 输入框右侧图标颜色
     ico-color:        #999,
-    // {Color} 取消按钮颜色
-    cancel-color:     map-get($base, link-color),
     // {Length} 取消按钮区域宽度
     cancel-width:     .7rem,
-    // {Color} mask背景色
-    mask-bgcolor:     rgba(#fff, .9)
+    // {Color} 取消按钮颜色
+    cancel-color:     map-get($base, link-color),
+    // {Color} 内容区背景色
+    cont-bgcolor:     rgba(#fff, .9)
 );
 
 // Fragment switch(4)

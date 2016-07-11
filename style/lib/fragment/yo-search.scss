@@ -126,7 +126,7 @@
         @if $input-height != map-get($search, input-height) {
             line-height: $input-height;
         }
-        > .operate {
+        > .action {
             > .input {
                 @if $radius != map-get($search, radius) {
                     border-radius: $radius;
