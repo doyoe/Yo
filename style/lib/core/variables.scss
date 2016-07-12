@@ -220,14 +220,14 @@ $_loadtip: (
     ico-color: map-get($base, link-color)
 );
 
-// Element range(3)
+// Element range(2)
 $_range: (
-    // {Color} 已选择区域的滑轴背景色
-    inner-bgcolor: #444,
-    // {Color} 未选择区域的滑轴背景色
-    outer-bgcolor: #ccc,
+    // {Color} 滑轴背景色
+    track-bgcolor: #ccc,
+    // {Length} 滑球高度
+    thumb-height:  .28rem,
     // {Color} 滑块色
-    ball-color:    #fff
+    thumb-color:   #fff
 );
 
 // Element score(3)

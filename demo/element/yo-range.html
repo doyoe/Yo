@@ -19,51 +19,42 @@
         <a href="../../doc/element.html#yo-range" class="affirm">文档</a>
     </header>
     <div class="flex">
-    	<ul class="yo-list yo-list-group m-demo">
-            <li class="label">常规：</li>
-            <li class="item yo-range">
-                <input type="range" />
-            </li>
-            <li class="label">禁用：</li>
-            <li class="item yo-range">
-                <input type="range" disabled />
-            </li>
-            <li class="label">扩展：</li>
-            <li class="item yo-range yo-range-a">
-                <input type="range" min="0" max="100" value="30" />
-            </li>
-            <li class="item yo-range yo-range-b">
-                <input type="range" min="0" max="100" value="40" />
-            </li>
-            <li class="item yo-range yo-range-c">
-                <input type="range" min="0" max="100" value="50" />
-            </li>
-            <li class="item yo-range yo-range-d">
-                <input type="range" min="0" max="100" value="60" />
-            </li>
-            <li class="item yo-range yo-range-e">
-                <input type="range" min="0" max="100" value="70" />
-            </li>
-            <li class="item yo-range yo-range-f">
-                <input type="range" min="0" max="100" value="80" />
-            </li>
-        </ul>
+        <section class="m-demo">
+            <h3 class="title">单个滑块：</h3>
+        	<ul class="yo-list">
+                <li class="item">
+                    <div class="flex yo-range">
+                        <span class="thumb"></span>
+                        <span class="thumb"></span>
+                    </div>
+                </li>
+            </ul>
+        </section>
         <section class="m-desc">
             <h3 class="title">示例描述：</h3>
             <xmp><div class="yo-range">
-    <input type="range" />
-</div></xmp>
-            <h3 class="sub-title">假设你想要多种风格，只需这样扩展：</h3>
-            <xmp>@include yo-range(
-    $name: test,
-    $inner-bgcolor: #4a87ee
-);</xmp>
-            <h3 class="sub-title">使用方法：</h3>
-            <xmp><div class="yo-range yo-range-test">
-    <input type="range" />
+    <span class="thumb"></span>
 </div></xmp>
         </section>
 
+        <section class="m-demo">
+            <h3 class="title">两个滑块：</h3>
+            <ul class="yo-list">
+                <li class="item">
+                    <div class="flex yo-range">
+                        <span class="thumb" style="-webkit-transform: translatex(.5rem)"></span>
+                        <span class="thumb" style="-webkit-transform: translatex(1rem)"></span>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section class="m-desc">
+            <h3 class="title">示例描述：</h3>
+            <xmp><div class="yo-range">
+    <span class="thumb"></span>
+    <span class="thumb"></span>
+</div></xmp>
+        </section>
     </div>
 </div>
 

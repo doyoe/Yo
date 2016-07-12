@@ -371,66 +371,22 @@ a {
 }
 
 .yo-range {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  line-height: 1;
-}
-
-.yo-range > input[type="range"] {
-  -webkit-appearance: none;
-  appearance: none;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  flex: 1;
-  width: .1px;
-  overflow: hidden;
-  height: .28rem;
+  position: relative;
+  height: 0.28rem;
   background-image: -webkit-linear-gradient(top, #ccc, #ccc);
   background-image: linear-gradient(to bottom, #ccc, #ccc);
-  background-size: 100% .04rem;
   background-repeat: no-repeat;
   background-position: center;
+  background-size: 100% 2px;
 }
 
-.yo-range > input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 0.2rem;
-  height: 0.2rem;
-  position: relative;
-  border: 0;
-  border-radius: 50%;
-  -webkit-background-clip: padding-box !important;
-  background-clip: padding-box !important;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5), 1px 1px 5px rgba(0, 0, 0, 0.25);
-  background-color: #fff;
-}
-
-.yo-range > input[type="range"]::-webkit-slider-thumb::before {
+.yo-range > .thumb {
   position: absolute;
-  top: .08rem;
-  left: -2001px;
-  width: 2000px;
-  height: .04rem;
-  background-color: #444;
-  content: "\0020";
-}
-
-.yo-range > input[type="range"]:disabled {
-  opacity: .4;
-}
-
-.yo-range > .yo-ico {
-  font-size: .2rem;
-}
-
-.yo-range > .yo-ico:first-child {
-  margin-right: .1rem;
-}
-
-.yo-range > .yo-ico:last-child {
-  margin-left: .1rem;
+  width: 0.28rem;
+  height: 0.28rem;
+  border-radius: 50%;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.25), 0 3px 5px rgba(0, 0, 0, 0.15);
+  background-color: #fff;
 }
 
 .yo-range-a > input[type="range"]::-webkit-slider-thumb::before {

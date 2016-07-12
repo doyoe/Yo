@@ -2,47 +2,18 @@
 
 // 定义range的基础构造
 @mixin _range {
-    @include flexbox;
-    line-height: 1;
-    > input[type="range"] {
-        @include appearance(none);
-        @include flex;
-        overflow: hidden;
-        height: .28rem;
-        @include gradient(linear, top, map-get($range, outer-bgcolor), map-get($range, outer-bgcolor));
-        background-size: 100% .04rem;
-        background-repeat: no-repeat;
-        background-position: center;
-        &::-webkit-slider-thumb {
-            @include appearance(none);
-            @include square(.2rem);
-            position: relative;
-            border: 0;
-            @include border-radius(50%);
-            box-shadow: 0 0 2px rgba(0, 0, 0, .5), 1px 1px 5px rgba(0, 0, 0, .25);
-            background-color: map-get($range, ball-color);
-            &::before {
-                position: absolute;
-                top: .08rem;
-                left: -2001px;
-                width: 2000px;
-                height: .04rem;
-                background-color: map-get($range, inner-bgcolor);
-                content: "\0020";
-            }
-        }
-        &:disabled {
-            opacity: .4;
-        }
-    }
-    > .yo-ico {
-        font-size: .2rem;
-        &:first-child {
-            margin-right: .1rem;
-        }
-        &:last-child {
-            margin-left: .1rem;
-        }
+    position: relative;
+    height: map-get($range, thumb-height);
+    @include gradient(linear, top, map-get($range, track-bgcolor), map-get($range, track-bgcolor));
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 2px;
+    > .thumb {
+        position: absolute;
+        @include square(map-get($range, thumb-height));
+        border-radius: 50%;
+        box-shadow: 0 0 2px rgba(0, 0, 0, 0.25), 0 3px 5px rgba(0, 0, 0, 0.15);
+        background-color: map-get($range, thumb-color);
     }
 }
 
