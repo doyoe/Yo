@@ -220,10 +220,10 @@ $_loadtip: (
     ico-color: map-get($base, link-color)
 );
 
-// Element range(2)
+// Element range(3)
 $_range: (
-    // {Color} 滑轴背景色
-    track-bgcolor: #ccc,
+    // {Color} 滑轴色
+    track-color: #ccc,
     // {Length} 滑球高度
     thumb-height:  .28rem,
     // {Color} 滑块色

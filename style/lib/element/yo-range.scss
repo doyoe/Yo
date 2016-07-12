@@ -4,7 +4,7 @@
 @mixin _range {
     position: relative;
     height: map-get($range, thumb-height);
-    @include gradient(linear, top, map-get($range, track-bgcolor), map-get($range, track-bgcolor));
+    @include gradient(linear, top, map-get($range, track-color), map-get($range, track-color));
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100% 2px;
@@ -20,48 +20,48 @@
 /**
  * @module element
  * @method yo-range
- * @version 1.0.0
- * @description 构造区间选择的自定义使用方法（安卓4.3及以下有点问题）
+ * @version 3.0.0
+ * @description 构造区间选择的自定义使用方法
  * @demo http://doyoe.github.io/Yo/demo/element/yo-range.html
- * @param {String} $name 定义扩展名称 <1.0.0>
- * @param {Color} $inner-bgcolor 已选择区域滑条色 <1.0.0>
- * @param {Color} $outer-bgcolor 未选择区域滑条色 <1.0.0>
- * @param {Color} $ball-color 滑块色 <1.0.0>
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Color} $track-color 滑轴色 <3.0.0>
+ * @param {Length} $thumb-height 滑球高度 <3.0.0>
+ * @param {Color} $thumb-color 滑球色 <3.0.0>
  */
 
 @mixin yo-range(
     $name: default,
-    $inner-bgcolor: default,
-    $outer-bgcolor: default,
-    $ball-color: default) {
+    $track-color: default,
+    $thumb-height: default,
+    $thumb-color: default) {
     // 区别是否新增实例还是修改本身
     $name: if($name == default, "", "-#{$name}");
     // 如果值为default，则取config的定义
-    @if $inner-bgcolor == default {
-        $inner-bgcolor: map-get($range, inner-bgcolor);
+    @if $track-color == default {
+        $track-color: map-get($range, track-color);
     }
-    @if $outer-bgcolor == default {
-        $outer-bgcolor: map-get($range, outer-bgcolor);
+    @if $thumb-height == default {
+        $thumb-height: map-get($range, thumb-height);
     }
-    @if $ball-color == default {
-        $ball-color: map-get($range, ball-color);
+    @if $thumb-color == default {
+        $thumb-color: map-get($range, thumb-color);
     }
     .yo-range#{$name} {
-        > input[type="range"] {
-            @if $outer-bgcolor != map-get($range, outer-bgcolor) {
-                @include gradient(linear, top, $outer-bgcolor, $outer-bgcolor);
+        @if $thumb-height != map-get($range, thumb-height) {
+            height: $thumb-height;
+        }
+        @if $track-color != map-get($range, track-color) {
+            @include gradient(linear, top, $track-color, $track-color);
+        }
+        > .thumb {
+            @if $thumb-height != map-get($range, thumb-height) {
+                @include square($thumb-height);
             }
-            &::-webkit-slider-thumb {
-                @if $ball-color != map-get($range, ball-color) {
-                    background-color: $ball-color;
-                }
-                &::before {
-                    @if $inner-bgcolor != map-get($range, inner-bgcolor) {
-                        background: $inner-bgcolor;
-                    }
-                }
+            @if $thumb-color != map-get($range, thumb-color) {
+                background-color: $thumb-color;
             }
         }
+
         // 增量扩展
         @content;
     }
