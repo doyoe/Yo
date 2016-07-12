@@ -29,7 +29,6 @@
         font-family: arial;
         cursor: pointer;
         &.disabled {
-            color: map-get($number, disabled-sign-color);
             cursor: not-allowed;
             &::after {
                 border-color: lighten(map-get($number, border-color), 12%);
