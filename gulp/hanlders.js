@@ -1,5 +1,6 @@
 var gutil = require('gulp-util');
 var notifier = require('node-notifier');
+var path = require('path');
 
 // Error Handler
 function errorHandler(e) {
@@ -10,6 +11,7 @@ function errorHandler(e) {
         sound: true
     });
     gutil.log(gutil.colors.red(e.message));
+    this.emit('end');
 }
 
 // End Handler
