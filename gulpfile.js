@@ -10,7 +10,6 @@ var connect = require('gulp-connect');
 var through = require('through2');
 var optimist = require('optimist');
 var ydoc = require('ydoc');
-var combineScss = require('./gulp/combineScss.js');
 var versions = require('./gulp/versions.js');
 var hanlders = require('./gulp/hanlders.js');
 
@@ -25,9 +24,12 @@ var compilers = {
             .pipe(plumber({
                 errorHandler: hanlders.error
             }))
-            .pipe(through.obj(combineScss))
             .pipe(nodeSass({
-                outputStyle: 'expanded'
+                outputStyle: 'expanded',
+                importer: require('node-sass-import-once'),
+                importerOnce: {
+                    css: true
+                }
             }))
             .pipe(gulp.dest(cssPath))
             .on('end', hanlders.end);
