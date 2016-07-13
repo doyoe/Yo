@@ -21,7 +21,7 @@
  * @description 构造弹性布局使用方法，可以是横向和纵向
  * @demo http://doyoe.github.io/Yo/demo/layout/yo-flex.html
  * @param {String} $name 定义扩展名称 <3.0.0>
- * @param {String} $size 指定容器的高度 <3.0.0>
+ * @param {String} $size 指定容器的大小，取值：[auto|cover] <3.0.0>
  */
 
 @mixin yo-column(
