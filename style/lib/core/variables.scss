@@ -16,7 +16,7 @@ $_setting: (
     // {String} 厂商前缀
     vendor-prefix:       -webkit-,
     // {String} 背景图片服务器
-    bgimg-domain:        "//ss.qunarzz.com/yo/bgimg/",
+    bgimg-domain:        "//s.qunarzz.com/yo/bgimg/",
     // {Boolean} 是否允许横竖屏时文本字号自动调整
     is-text-size-adjust: true
 );
@@ -98,6 +98,12 @@ $_align: (
     justify-content: center,
     // {String} 定义弹性垂直对齐方式
     align-items:     center
+);
+
+// Layout column(1)
+$_column: (
+    // {Length} 容器高度，取值：[auto|cover]
+    size:     auto
 );
 
 // Layout flex
@@ -603,14 +609,16 @@ $_number: (
     font-size:           .16rem,
 );
 
-// Fragment UI rating(3)
+// Fragment UI rating(4)
 $_rating: (
     // {Length} 单项宽度
-    item-width:  .24rem,
+    item-width:  .18rem,
     // {Length} 单项高度
     item-height: .18rem,
+    // {Length} 子项间间隙
+    item-space:  .1rem,
     // {String} 图片URL
-    url:         "star.png"
+    url:         "star3.png"
 );
 
 // Fragment UI picker(3)
@@ -670,7 +678,7 @@ $_switch: (
     // {Color} 跟随背景色
     follow-bgcolor:  map-get($base, bgcolor),
     // {Color} 滑块色
-    ball-color:      #fff
+    thumb-color:     #fff
 );
 
 // Fragment UI carousel(9)
@@ -741,10 +749,4 @@ $_tooltip: (
     color:      #fff,
     // {Length} 箭头大小
     arrow-size: .08rem
-);
-
-// Fragment UI column(1)
-$_column: (
-    // {Length} 容器高度，取值：[auto|cover]
-    size:     auto
 );

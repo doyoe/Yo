@@ -16,6 +16,7 @@
 * 重构 `yo-suggest` 元件；
 * 重构 `yo-search` 元件；
 * 重构 `yo-range` 元件；
+* 重构 `yo-rating` 元件；
 
 ### 删除：
 * 删除 `yo-input` 元件；
