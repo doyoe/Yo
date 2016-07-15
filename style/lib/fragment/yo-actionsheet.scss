@@ -42,24 +42,29 @@
         &:active {
             background-color: map-get($actionsheet, active-bgcolor);
         }
+        // 重要操作
+        &-light {
+            color: map-get($actionsheet, item-light-color);
+        }
     }
 }
 
 /**
  * @module fragment
  * @method yo-actionsheet
- * @version 2.1.1
+ * @version 3.0.0
  * @description 构造actionsheet的自定义使用方法
  * @demo http://doyoe.github.io/Yo/demo/fragment/yo-actionsheet.html
- * @param {String} $name 定义扩展名称 <2.1.1>
- * @param {Length} $margin 外补白 <2.1.1>
- * @param {Length} $radius 圆角半径长度 <2.1.1>
- * @param {Color} $border-color 边线色 <2.1.1>
- * @param {Color} $bgcolor 子项背景色 <2.1.1>
- * @param {Color} $active-bgcolor 子项点击反馈背景色 <2.1.1>
- * @param {Length} $item-height 子项高度 <2.1.1>
- * @param {Length} $item-font-size 子项字号 <2.1.1>
- * @param {Color} $item-color 子项文本色 <2.1.1>
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Length} $margin 外补白 <3.0.0>
+ * @param {Length} $radius 圆角半径长度 <3.0.0>
+ * @param {Color} $border-color 边线色 <3.0.0>
+ * @param {Color} $bgcolor 子项背景色 <3.0.0>
+ * @param {Color} $active-bgcolor 子项点击反馈背景色 <3.0.0>
+ * @param {Length} $item-height 子项高度 <3.0.0>
+ * @param {Length} $item-font-size 子项字号 <3.0.0>
+ * @param {Color} $item-color 子项文本色 <3.0.0>
+ * @param {Color} $item-light-color 重要操作子项文本色 <3.0.0>
  */
 
 @mixin yo-actionsheet(
@@ -71,7 +76,8 @@
     $active-bgcolor: default,
     $item-height: default,
     $item-font-size: default,
-    $item-color: default) {
+    $item-color: default,
+    $item-light-color: default) {
     // 区别是否新增实例还是修改本身
     $name: if($name == default, "", "-#{$name}");
     // 如果值为default，则取config的定义
@@ -98,6 +104,9 @@
     }
     @if $item-color == default {
         $item-color: map-get($actionsheet, item-color);
+    }
+    @if $item-light-color == default {
+        $item-light-color: map-get($actionsheet, item-light-color);
     }
     .yo-actionsheet#{$name} {
         @if $margin != map-get($actionsheet, margin) {
@@ -135,7 +144,13 @@
                     background-color: $active-bgcolor;
                 }
             }
+            &-light {
+                @if $item-light-color != map-get($actionsheet, item-light-color) {
+                    color: $item-light-color;
+                }
+            }
         }
+
         // 增量扩展
         @content;
     }

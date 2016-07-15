@@ -4,6 +4,7 @@
 
 ### 新增：
 * 新增 `yo-column` 横向弹性布局元件；
+* `yo-actionsheet` 新增 `item-light` 重要操作状态；
 
 ### 变更：
 * 将所有的 `widget` 迁移到 `fragment` 目录下；
