@@ -37,9 +37,6 @@
         }
     }
     > .yo-ico {
-        @if map-get($carousel, has-btn) == false {
-            display: none;
-        }
         position: absolute;
         top: 50%;
         @include transform(translate(0, -50%));
@@ -69,7 +66,6 @@
  * @description 构造yo-carousel的自定义使用方法
  * @demo http://doyoe.github.io/Yo/demo/fragment/yo-carousel.html
  * @param {String} $name 定义扩展名称 <1.0.0>
- * @param {Boolen} $has-btn 是否有按钮 <1.0.0>
  * @param {Length} $btn-size 按钮大小 <1.0.0>
  * @param {Length} $btn-bgcolor 按钮背景色 <1.0.0>
  * @param {Length} $btn-color 按钮文本色 <1.0.0>
@@ -82,7 +78,6 @@
 
 @mixin yo-carousel(
     $name: default,
-    $has-btn: default,
     $btn-size: default,
     $btn-bgcolor: default,
     $btn-color: default,
@@ -94,9 +89,6 @@
     // 区别是否新增实例还是修改本身
     $name: if($name == default, "", "-#{$name}");
     // 如果值为default，则取config的定义
-    @if $has-btn == default {
-        $has-btn: map-get($carousel, has-btn);
-    }
     @if $btn-size == default {
         $btn-size: map-get($carousel, btn-size);
     }
@@ -138,13 +130,6 @@
             }
         }
         > .yo-ico {
-            @if $has-btn != map-get($carousel, has-btn) {
-                @if $has-btn == false {
-                    display: none;
-                } @else {
-                    display: inline;
-                }
-            }
             @if $btn-size != map-get($carousel, btn-size) {
                 @include square($btn-size);
                 line-height: $btn-size;
@@ -157,13 +142,14 @@
             }
             &:active {
                 @if $btn-active-bgcolor != map-get($carousel, btn-active-bgcolor) {
-                background-color: $btn-active-bgcolor;
+                    background-color: $btn-active-bgcolor;
                 }
                 @if $btn-active-color != map-get($carousel, btn-active-color) {
                     color: $btn-active-color;
                 }
             }
         }
+
         // 增量扩展
         @content;
     }
