@@ -176,7 +176,7 @@ $_btn: (
 
 // Element checked(11)
 $_checked: (
-    // {String} 选中标记的内容，可以是自定义的webfont
+    // {String} 选中标记的内容，可以是自定义的iconfont编码
     content:        "\f078",
     // {Length} 元件大小
     size:           .2rem,
@@ -212,7 +212,7 @@ $_loading: (
     font-size:    null,
     // {Color} 文本颜色
     color:        map-get($base, color),
-    // {String} loading的ico编码，自定义的webfont
+    // {String} loading符号，可以是自定义的iconfont编码
     content:      "\f089"
 );
 
@@ -234,16 +234,6 @@ $_range: (
     thumb-height:  .28rem,
     // {Color} 滑块色
     thumb-color:   #fff
-);
-
-// Element score(3)
-$_score: (
-    // {Length} 单项宽度
-    item-width:  .16rem,
-    // {Length} 单项高度
-    item-height: .12rem,
-    // {String} 图片URL
-    url:         "star.png"
 );
 
 // Fragment UI actionsheet(9)
@@ -268,18 +258,20 @@ $_actionsheet: (
     item-light-color: #f00
 );
 
-// Fragment breadcrumb(5)
+// Fragment breadcrumb(6)
 $_breadcrumb: (
     // {Length} 面包屑高度
-    height:       .44rem,
+    height:         .44rem,
     // {Color} 面包屑背景色
-    bgcolor:      #f0f0f0,
+    bgcolor:        #f0f0f0,
     // {Color} 面包屑文本色
-    color:        map-get($base, color),
+    color:          map-get($base, color),
     // {Color} 面包屑间隔色
-    arrow-color:  #ccc,
+    arrow-color:    #ccc,
+    // {String} 面包屑间隔符号，可以是自定义的iconfont编码
+    arrow-content:  "\f07f",
     // {Length} 面包屑子项间隙
-    item-space:   .05rem
+    item-space:     .05rem
 );
 
 // Fragment card(11)

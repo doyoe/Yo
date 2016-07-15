@@ -132,13 +132,6 @@
     $range: $_range !global;
 }
 
-// 合并variables和config中的score map
-@if global-variable-exists(score) {
-    $score: map-merge($_score, $score) !global;
-} @else {
-    $score: $_score !global;
-}
-
 // 合并variables和config中的actionsheet map
 @if global-variable-exists(actionsheet) {
     $actionsheet: map-merge($_actionsheet, $actionsheet) !global;

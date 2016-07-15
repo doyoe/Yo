@@ -1,3 +1,4 @@
+@charset "UTF-8";
 *,
 ::before,
 ::after {
@@ -393,10 +394,15 @@ a {
 .yo-breadcrumb > .item:not(:last-child)::after {
   display: inline-block;
   overflow: hidden;
+  padding-left: 0.05rem;
   font-family: yofont;
-  content: "\f07f";
+  content: "";
   vertical-align: top;
   color: #ccc;
+}
+
+.yo-breadcrumb-test > .item:not(:last-child)::after {
+  content: "/";
 }
 
 .m-demo {

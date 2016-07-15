@@ -16,8 +16,9 @@
             &::after {
                 display: inline-block;
                 overflow: hidden;
+                padding-left: map-get($breadcrumb, item-space);
                 font-family: yofont;
-                content: "\f07f";
+                content: map-get($breadcrumb, arrow-content);
                 vertical-align: top;
                 color: map-get($breadcrumb, arrow-color);
             }
@@ -28,15 +29,16 @@
 /**
  * @module fragment
  * @method yo-breadcrumb
- * @version 2.0.0
+ * @version 3.0.0
  * @description 构造面包屑的自定义使用方法
  * @demo http://doyoe.github.io/Yo/demo/fragment/yo-breadcrumb.html
- * @param {String} $name 定义扩展名称 <2.0.0>
- * @param {Length} $height 面包屑高度 <2.0.0>
- * @param {Color} $bgcolor 面包屑背景色 <2.0.0>
- * @param {Color} $color 面包屑文本色 <2.0.0>
- * @param {Color} $arrow-color 面包屑间隔色 <2.0.0>
- * @param {Length} $item-space 面包屑子项间隙 <2.0.0>
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Length} $height 面包屑高度 <3.0.0>
+ * @param {Color} $bgcolor 面包屑背景色 <3.0.0>
+ * @param {Color} $color 面包屑文本色 <3.0.0>
+ * @param {Color} $arrow-color 面包屑间隔色 <3.0.0>
+ * @param {Color} $arrow-content 面包屑间隔符号 <3.0.0>
+ * @param {Length} $item-space 面包屑子项间隙 <3.0.0>
  */
 
 @mixin yo-breadcrumb(
@@ -45,6 +47,7 @@
     $bgcolor: default,
     $color: default,
     $arrow-color: default,
+    $arrow-content: default,
     $item-space: default) {
     // 区别是否新增实例还是修改本身
     $name: if($name == default, "", "-#{$name}");
@@ -60,6 +63,9 @@
     }
     @if $arrow-color == default {
         $arrow-color: map-get($breadcrumb, arrow-color);
+    }
+    @if $arrow-content == default {
+        $arrow-content: map-get($breadcrumb, arrow-content);
     }
     @if $item-space == default {
         $item-space: map-get($breadcrumb, item-space);
@@ -85,6 +91,14 @@
                     padding-right: $item-space;
                 }
                 &::after {
+                    // 如果$item-space不等于config设定，则重绘间隙
+                    @if $item-space != map-get($breadcrumb, item-space) {
+                        padding-left: $item-space;
+                    }
+                    // 如果$arrow-content不等于config设定，则重绘间隔符号
+                    @if $arrow-content != map-get($breadcrumb, arrow-content) {
+                        content: $arrow-content;
+                    }
                     // 如果$arrow-color不等于config设定，则重绘间隔色
                     @if $arrow-color != map-get($breadcrumb, arrow-color) {
                         color: $arrow-color;
@@ -92,6 +106,7 @@
                 }
             }
         }
+
         // 增量扩展
         @content;
     }
