@@ -580,27 +580,27 @@ $_mask: (
 // Fragment UI number(11)
 $_number: (
     // {Length} 宽度
-    width:               1.2rem,
+    width:             1.2rem,
     // {Length} 高度
-    height:              .36rem,
+    height:            .36rem,
     // {Length} 外边框圆角半径
-    outer-radius:        .03rem,
-    // {Length} 外边框厚度
-    outer-border-width:  1px,
-    // {Length} 内边框圆角半径
-    inner-radius:        null,
-    // {Length} 内外边框厚度
-    inner-border-width:  1px,
+    radius:            .03rem,
+    // {Length} 边框厚度
+    border-width:      1px,
     // {Color} 外边框色
-    border-color:        map-get($base, border-color),
+    border-color:      map-get($base, border-color),
     // {color} 输入框文本色
-    color:               map-get($base, color),
-    // {Color} 加减号背景色
-    sign-bgcolor:        map-get($base, bgcolor),
-    // {Color} 加减号文本色
-    sign-color:          #999,
+    color:             map-get($base, color),
+    // {Length} 加减号区域圆角半径
+    sign-radius:       null,
+    // {Length} 加减号区域边框厚度
+    sign-border-width: 1px,
+    // {Color} 加减号区域背景色
+    sign-bgcolor:      map-get($base, bgcolor),
+    // {Color} 加减号区域文本色
+    sign-color:        #999,
     // {Length} 字号
-    font-size:           .16rem,
+    font-size:         .16rem
 );
 
 // Fragment UI rating(4)
