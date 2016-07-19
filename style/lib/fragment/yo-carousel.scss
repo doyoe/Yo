@@ -32,7 +32,7 @@
             border-radius: 50%;
             background-color: map-get($carousel, index-bgcolor);
             &.on {
-                background-color: map-get($carousel, index-on-bgcolor);
+                background-color: map-get($carousel, on-index-bgcolor);
             }
         }
     }
@@ -73,7 +73,7 @@
  * @param {Length} $btn-active-color 按钮按下文本色 <1.0.0>
  * @param {Length} $index-size 索引大小 <1.0.0>
  * @param {Color} $index-bgcolor 索引背景色 <1.0.0>
- * @param {Length} $index-on-bgcolor 索引当前项背景色 <1.0.0>
+ * @param {Length} $on-index-bgcolor 索引当前项背景色 <1.0.0>
  */
 
 @mixin yo-carousel(
@@ -85,7 +85,7 @@
     $btn-active-color: default,
     $index-size: default,
     $index-bgcolor: default,
-    $index-on-bgcolor: default) {
+    $on-index-bgcolor: default) {
     // 区别是否新增实例还是修改本身
     $name: if($name == default, "", "-#{$name}");
     // 如果值为default，则取config的定义
@@ -110,8 +110,8 @@
     @if $index-bgcolor == default {
         $index-bgcolor: map-get($carousel, index-bgcolor);
     }
-    @if $index-on-bgcolor == default {
-        $index-on-bgcolor: map-get($carousel, index-on-bgcolor);
+    @if $on-index-bgcolor == default {
+        $on-index-bgcolor: map-get($carousel, on-index-bgcolor);
     }
     .yo-carousel#{$name} {
         > .index {
@@ -123,8 +123,8 @@
                     background-color: $index-bgcolor;
                 }
                 &.on {
-                    @if $index-on-bgcolor != map-get($carousel, index-on-bgcolor) {
-                        background-color: $index-on-bgcolor;
+                    @if $on-index-bgcolor != map-get($carousel, on-index-bgcolor) {
+                        background-color: $on-index-bgcolor;
                     }
                 }
             }

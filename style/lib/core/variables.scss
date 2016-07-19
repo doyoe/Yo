@@ -672,7 +672,7 @@ $_switch: (
     // {Color} 背景色
     bgcolor:         map-get($base, border-color),
     // {Color} 激活背景色
-    checked-bgcolor: #4bd763,
+    on-bgcolor:      #4bd763,
     // {Color} 跟随背景色
     follow-bgcolor:  map-get($base, bgcolor),
     // {Color} 滑块色
@@ -696,7 +696,7 @@ $_carousel: (
     // {Color} 索引背景色
     index-bgcolor:      #85c8d1,
     // {Color} 索引的当前项背景色
-    index-on-bgcolor:   #09a5c4
+    on-index-bgcolor:   #09a5c4
 );
 
 // Fragment tab(15)
