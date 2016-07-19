@@ -674,8 +674,6 @@ a {
   align-items: center;
   word-wrap: break-word;
   word-break: break-all;
-  min-width: .16rem;
-  min-height: .16rem;
   padding: 0 0.03rem;
   position: relative;
   border-radius: 0.1rem;
@@ -683,6 +681,17 @@ a {
   color: #fff;
   font-size: 0.12rem;
   line-height: 1;
+}
+
+.yo-badge:not(:empty) {
+  min-width: .16rem;
+  min-height: .16rem;
+}
+
+.yo-badge:empty {
+  min-width: .08rem;
+  min-height: .08rem;
+  vertical-align: super;
 }
 
 .yo-badge::after {

@@ -3,8 +3,17 @@
 // 定义badge的基础构造
 @mixin _badge {
     @include align(inline-flex);
-    min-width: .16rem;
-    min-height: .16rem;
+    // 内容不为空时，约束最小宽度和高度
+    &:not(:empty) {
+        min-width: .16rem;
+        min-height: .16rem;
+    }
+    // 内容为空时，约束最小宽度和高度
+    &:empty {
+        min-width: .08rem;
+        min-height: .08rem;
+        vertical-align: super;
+    }
     padding: map-get($badge, padding);
     @include border(
         $border-width: map-get($badge, border-width),
