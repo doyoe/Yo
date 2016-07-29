@@ -18,6 +18,7 @@
 * 重构 `yo-search` 元件；
 * 重构 `yo-range` 元件；
 * 重构 `yo-rating` 元件；
+* 修改 `@mixin flex` 方法纵向排版时，空间分配的bug，使用 `height: .1px` 解决；
 
 ### 删除：
 * 删除 `yo-input` 元件；
