@@ -262,7 +262,7 @@ $_score: (
     url:         "star.png"
 );
 
-// Fragment UI actionsheet(8)
+// Fragment UI actionsheet(9)
 $_actionsheet: (
     // {Length} 外边距
     margin:         .1rem,
@@ -279,7 +279,9 @@ $_actionsheet: (
     // {Length} 子项字号
     item-font-size: .18rem,
     // {Color} 子项文本色
-    item-color:     map-get($base, link-color)
+    item-color:     map-get($base, link-color),
+    // {Color} 重要操作子项文本色
+    item-light-color: #f00
 );
 
 // Fragment breadcrumb(5)
