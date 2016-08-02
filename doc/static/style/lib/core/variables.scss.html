@@ -522,16 +522,6 @@ $_number: (
     font-size:         .16rem
 );
 
-// Fragment UI picker(3)
-$_picker: (
-    // {Length} 默认显示几个列表项
-    item:        5,
-    // {Length} 每个列表项的高度
-    item-height: .3rem,
-    // {Color} 边框色
-    border-color: map-get($base, border-color),
-);
-
 // Fragment switch(4)
 $_switch: (
     // {Color} 背景色
@@ -562,6 +552,16 @@ $_carousel: (
     index-bgcolor:      #85c8d1,
     // {Color} 索引的当前项背景色
     on-index-bgcolor:   #09a5c4
+);
+
+// Fragment UI picker(3)
+$_picker: (
+    // {Integer} 默认显示几个列表项
+    item:        5,
+    // {Length} 每个列表项的高度
+    item-height: .3rem,
+    // {Color} 边框色
+    border-color: map-get($base, border-color),
 );
 
 // Fragment Proportion(7)
