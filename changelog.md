@@ -5,6 +5,8 @@
 ### 新增：
 * 新增 `yo-column` 横向弹性布局元件；
 * `yo-actionsheet` 新增 `item-light` 重要操作状态；
+* `yo-list` 增加边线右缩进的情况；
+* `yo-carousel` 增加纵向的情况；
 
 ### 变更：
 * 将所有的 `widget` 迁移到 `fragment` 目录下；
@@ -19,6 +21,7 @@
 * 重构 `yo-range` 元件；
 * 重构 `yo-rating` 元件；
 * 修改 `@mixin flex` 方法纵向排版时，空间分配的bug，使用 `height: .1px` 解决；
+* 修复 `yo-tab` 中间隔线 `1/3` 的编译问题；
 
 ### 删除：
 * 删除 `yo-input` 元件；
