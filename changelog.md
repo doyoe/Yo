@@ -1,4 +1,11 @@
+## v2.1.4（开发中）
+
+### 修复
+* fix `yo-tab` 在 `dpr=3` 时，Node-sass新版编译除法表达式出现的问题。把 `1/3` 改为 `.33333`；
+
 ## v2.1.3（2016.7.4）
+
+[Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v2.1.3)
 
 ### 新增：
 * add `is-text-size-adjust` 参数

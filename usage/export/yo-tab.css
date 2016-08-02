@@ -465,8 +465,8 @@ a {
   .yo-tab > .item:not(:first-child)::after {
     width: 30px;
     height: 300%;
-    -webkit-transform: scale(1/3) translatey(-50%);
-    transform: scale(1/3) translatey(-50%);
+    -webkit-transform: scale(0.33333) translatey(-50%);
+    transform: scale(0.33333) translatey(-50%);
   }
 }
 
