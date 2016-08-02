@@ -64,9 +64,6 @@
         }
     }
     > .yo-ico {
-        @if map-get($switchable, has-btn) == false {
-            display: none;
-        }
         position: absolute;
         top: 50%;
         @include transform(translate(0, -50%));
@@ -96,7 +93,7 @@
  * @description 构造yo-switchable的自定义使用方法
  * @demo http://doyoe.github.io/Yo/demo/widget/yo-switchable.html
  * @param {String} $name 定义扩展名称 <1.0.0>
- * @param {Boolen} $has-btn 是否有按钮 <1.0.0>
+ * @param {Boolen} $has-btn 是否有按钮 <1.0.0, 2.1.4>
  * @param {Color} $btn-size 按钮大小 <1.0.0>
  * @param {Color} $btn-bgcolor 按钮背景色 <1.0.0>
  * @param {Color} $btn-color 按钮文本色 <1.0.0>
@@ -109,7 +106,6 @@
 
 @mixin yo-switchable(
     $name: default,
-    $has-btn: default,
     $btn-size: default,
     $btn-bgcolor: default,
     $btn-color: default,
@@ -121,9 +117,6 @@
     // 区别是否新增实例还是修改本身
     $name: if($name == default, "", "-#{$name}");
     // 如果值为default，则取config的定义
-    @if $has-btn == default {
-        $has-btn: map-get($switchable, has-btn);
-    }
     @if $btn-size == default {
         $btn-size: map-get($switchable, btn-size);
     }
@@ -165,13 +158,6 @@
             }
         }
         > .yo-ico {
-            @if $has-btn != map-get($switchable, has-btn) {
-                @if $has-btn == false {
-                    display: none;
-                } @else {
-                    display: inline;
-                }
-            }
             @if $btn-size != map-get($switchable, btn-size) {
                 @include square($btn-size);
                 line-height: $btn-size;
