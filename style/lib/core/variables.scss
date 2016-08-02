@@ -469,32 +469,6 @@ $_mask: (
     bgcolor: rgba(#000, .2)
 );
 
-// Fragment UI number(11)
-$_number: (
-    // {Length} 宽度
-    width:             1.2rem,
-    // {Length} 高度
-    height:            .36rem,
-    // {Length} 外边框圆角半径
-    radius:            .03rem,
-    // {Length} 边框厚度
-    border-width:      1px,
-    // {Color} 外边框色
-    border-color:      map-get($base, border-color),
-    // {color} 输入框文本色
-    color:             map-get($base, color),
-    // {Length} 加减号区域圆角半径
-    sign-radius:       null,
-    // {Length} 加减号区域边框厚度
-    sign-border-width: 1px,
-    // {Color} 加减号区域背景色
-    sign-bgcolor:      map-get($base, bgcolor),
-    // {Color} 加减号区域文本色
-    sign-color:        #999,
-    // {Length} 字号
-    font-size:         .16rem
-);
-
 // Fragment switch(4)
 $_switch: (
     // {Color} 背景色
@@ -527,7 +501,33 @@ $_carousel: (
     on-index-bgcolor:   #09a5c4
 );
 
-// Fragment UI picker(3)
+// Fragment number(11)
+$_number: (
+    // {Length} 宽度
+    width:             1.2rem,
+    // {Length} 高度
+    height:            .36rem,
+    // {Length} 外边框圆角半径
+    radius:            .03rem,
+    // {Length} 边框厚度
+    border-width:      1px,
+    // {Color} 外边框色
+    border-color:      map-get($base, border-color),
+    // {color} 输入框文本色
+    color:             map-get($base, color),
+    // {Length} 加减号区域圆角半径
+    sign-radius:       null,
+    // {Length} 加减号区域边框厚度
+    sign-border-width: 1px,
+    // {Color} 加减号区域背景色
+    sign-bgcolor:      map-get($base, bgcolor),
+    // {Color} 加减号区域文本色
+    sign-color:        #999,
+    // {Length} 字号
+    font-size:         .16rem
+);
+
+// Fragment picker(3)
 $_picker: (
     // {Integer} 默认显示几个列表项
     item:        5,
@@ -537,7 +537,7 @@ $_picker: (
     border-color: map-get($base, border-color),
 );
 
-// Fragment Proportion(7)
+// Fragment proportion(7)
 $_proportion: (
     // {Length} 外边距
     margin:        .1rem,
@@ -567,7 +567,7 @@ $_rating: (
     url:         "star3.png"
 );
 
-// Fragment yo-search(12)
+// Fragment search(12)
 $_search: (
     // {Length} 搜索框区域内边距
     padding:       .07rem .1rem,
@@ -667,7 +667,7 @@ $_tab: (
     item-border-color:  transparent
 );
 
-// Fragment Table(10)
+// Fragment table(10)
 $_table: (
     // {Length} 表头部内补白
     width:               100%,
