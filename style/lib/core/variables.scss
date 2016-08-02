@@ -332,44 +332,6 @@ $_header: (
     item-ico-size:  .2rem
 );
 
-// Fragment list(17)
-$_list: (
-    // {Length} 列表外边距
-    margin:            null,
-    // {Length} 列表圆角
-    radius:            null,
-    // {Length} 列表边框厚度
-    border-width:      0 0 1px,
-    // {Color} 列表边框色
-    border-color:      map-get($base, border-color),
-    // {Length} 列表项内补白，列表项有最小高度.44rem
-    item-padding:      .11rem .1rem .12rem,
-    // {Length} 列表组头内补白
-    label-padding:     .03rem .1rem,
-    // {Color} 列表组头背景色
-    label-bgcolor:     map-get($base, doc-bgcolor),
-    // {Color} 点击反馈背景色
-    active-bgcolor:    #f8f8f8,
-    // {Color} 选中背景色
-    on-bgcolor:        null,
-    // {Color} 选中文本色
-    on-color:          null,
-    // {Color} 列表项边框色
-    item-border-color: map-get($base, sub-border-color),
-    // {Color} 列表项组名边框色
-    label-border-color:#eee,
-    // {Length} 列表项字号
-    item-font-size:    map-get($base, font-size-baseline),
-    // {Length} 列表组头字号
-    label-font-size:   .13rem,
-    // {Length} 列表项下边线距离左侧的间隙
-    item-border-space: .1rem,
-    // {Length} 更多区域字号
-    more-font-size:    .12rem,
-    // {Length} 更多区域文本色
-    more-color:        #aaa
-);
-
 // Fragment UI calendar(26)
 $_calendar: (
     // {Length} 星期bar高度
@@ -493,6 +455,44 @@ $_carousel: (
     index-bgcolor:      #85c8d1,
     // {Color} 索引的当前项背景色
     on-index-bgcolor:   #09a5c4
+);
+
+// Fragment list(17)
+$_list: (
+    // {Length} 列表外边距
+    margin:            null,
+    // {Length} 列表圆角
+    radius:            null,
+    // {Length} 列表边框厚度
+    border-width:      0 0 1px,
+    // {Color} 列表边框色
+    border-color:      map-get($base, border-color),
+    // {Length} 列表项内补白，列表项有最小高度.44rem
+    item-padding:      .11rem .1rem .12rem,
+    // {Length} 列表组头内补白
+    label-padding:     .03rem .1rem,
+    // {Color} 列表组头背景色
+    label-bgcolor:     map-get($base, doc-bgcolor),
+    // {Color} 点击反馈背景色
+    active-bgcolor:    #f8f8f8,
+    // {Color} 选中背景色
+    on-bgcolor:        null,
+    // {Color} 选中文本色
+    on-color:          null,
+    // {Color} 列表项边框色
+    item-border-color: map-get($base, sub-border-color),
+    // {Color} 列表项组名边框色
+    label-border-color:#eee,
+    // {Length} 列表项字号
+    item-font-size:    map-get($base, font-size-baseline),
+    // {Length} 列表组头字号
+    label-font-size:   .13rem,
+    // {Length} 列表项下边线距离左侧的间隙
+    item-border-space: .1rem,
+    // {Length} 更多区域字号
+    more-font-size:    .12rem,
+    // {Color} 更多区域文本色
+    more-color:        #aaa
 );
 
 // Fragment mask(1)
