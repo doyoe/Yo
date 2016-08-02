@@ -388,100 +388,6 @@ $_proportion: (
     inner-bgcolor: red
 );
 
-// Fragment yo-search(12)
-$_search: (
-    // {Length} 搜索框区域内边距
-    padding:       .07rem .1rem,
-    // {Color} 搜索框区域底色
-    bgcolor:       #eee,
-    // {Length} 搜索区字号
-    font-size:     map-get($base, font-size-baseline),
-    // {Length} 搜索框高度
-    input-height:  .3rem,
-    // {Length} 搜索框及搜索按钮圆角
-    input-radius:  .05rem,
-    // {Color} 搜索框底色
-    input-bgcolor: #fff,
-    // {Color} 输入框文本色
-    input-color:   map-get($base, color),
-    // {Color} 输入框placeholder文本色
-    placeholder-color:#bbb,
-    // {Color} 搜索按钮底色
-    btn-bgcolor:   #1ba9ba,
-    // {Color} 搜索按钮文本色
-    btn-color:     #fff,
-    // {Length} 取消按钮区域宽度
-    cancel-width:  .6rem,
-    // {Color} 取消按钮颜色
-    cancel-color:  map-get($base, link-color)
-);
-
-// Fragment Table(10)
-$_table: (
-    // {Length} 表头部内补白
-    width:               100%,
-    // {Boolean} 是否需要纵向边框
-    has-vertical-border: false,
-    // {Length} 表头部内补白
-    thead-padding:       .05rem .1rem,
-    // {Length} 表主体内补白
-    tbody-padding:       .1rem,
-    // {Color} 边框色
-    border-color:        map-get($base, border-color),
-    // {Color} 表头部背景色
-    thead-bgcolor:       #eee,
-    // {Color} 表主体奇数行背景色
-    odd-bgcolor:         null,
-    // {Color} 表主体偶数行背景色
-    even-bgcolor:        null,
-    // {Color} 表主体激活行背景色
-    active-bgcolor:      null,
-    // {Color} 表主体选中行背景色
-    on-bgcolor:          null
-);
-
-// Fragment toolbar(11)
-$_toolbar: (
-    // {Length} 宽度
-    width:          null,
-    // {Length} 高度
-    height:         .44rem,
-    // {Length} 边框厚度
-    border-width:   1px,
-    // {Color} 边框色
-    border-color:   #d36105,
-    // {Color} 背景色
-    bgcolor:        #ff801a,
-    // {Color} 文本色
-    color:          #fff,
-    // {Color} 选中时背景色
-    on-bgcolor:     #f06d05,
-    // {Color} 选中时文本色
-    on-color:       null,
-    // {Length} 内补白
-    item-padding:    0 .15rem,
-    // {Length} 圆角半径
-    radius:         .1rem,
-    // {Length} 字号
-    font-size:      null
-);
-
-// Fragment UI vcode(6)
-$_vcode: (
-    // {Length} 输入框高度
-    height:       .44rem,
-    // {Color} 输入框背景色
-    bgcolor:      #fff,
-    // {Length} 输入框圆角半径
-    radius:       .05rem,
-    // {Length} 输入框字号
-    font-size:    .16rem,
-    // {Length} 输入框边框厚度
-    border-width: 1px,
-    // {Color} 输入框边框色
-    border-color:  #000
-);
-
 // Fragment UI calendar(26)
 $_calendar: (
     // {Length} 星期bar高度
@@ -629,6 +535,66 @@ $_picker: (
     border-color: map-get($base, border-color),
 );
 
+// Fragment switch(4)
+$_switch: (
+    // {Color} 背景色
+    bgcolor:         map-get($base, border-color),
+    // {Color} 激活背景色
+    on-bgcolor:      #4bd763,
+    // {Color} 跟随背景色
+    follow-bgcolor:  map-get($base, bgcolor),
+    // {Color} 滑块色
+    thumb-color:     #fff
+);
+
+// Fragment UI carousel(8)
+$_carousel: (
+    // {Length} 按钮大小
+    btn-size:           .44rem,
+    // {Color} 按钮背景色
+    btn-bgcolor:        rgba(#09a5c4, .8),
+    // {Color} 按钮文本色
+    btn-color:          #fff,
+    // {Color} 按钮按下时背景色
+    btn-active-bgcolor: rgba(#09a5c4, .5),
+    // {Color} 按钮按下时文本色
+    btn-active-color:   null,
+    // {Length} 索引大小
+    index-size:         .1rem,
+    // {Color} 索引背景色
+    index-bgcolor:      #85c8d1,
+    // {Color} 索引的当前项背景色
+    on-index-bgcolor:   #09a5c4
+);
+
+// Fragment yo-search(12)
+$_search: (
+    // {Length} 搜索框区域内边距
+    padding:       .07rem .1rem,
+    // {Color} 搜索框区域底色
+    bgcolor:       #eee,
+    // {Length} 搜索区字号
+    font-size:     map-get($base, font-size-baseline),
+    // {Length} 搜索框高度
+    input-height:  .3rem,
+    // {Length} 搜索框及搜索按钮圆角
+    input-radius:  .05rem,
+    // {Color} 搜索框底色
+    input-bgcolor: #fff,
+    // {Color} 输入框文本色
+    input-color:   map-get($base, color),
+    // {Color} 输入框placeholder文本色
+    placeholder-color:#bbb,
+    // {Color} 搜索按钮底色
+    btn-bgcolor:   #1ba9ba,
+    // {Color} 搜索按钮文本色
+    btn-color:     #fff,
+    // {Length} 取消按钮区域宽度
+    cancel-width:  .6rem,
+    // {Color} 取消按钮颜色
+    cancel-color:  map-get($base, link-color)
+);
+
 // Fragment UI slidermenu(2)
 $_slidermenu: (
     // {Length} action 宽度
@@ -667,38 +633,6 @@ $_suggest: (
     cont-bgcolor:     rgba(#fff, .9)
 );
 
-// Fragment switch(4)
-$_switch: (
-    // {Color} 背景色
-    bgcolor:         map-get($base, border-color),
-    // {Color} 激活背景色
-    on-bgcolor:      #4bd763,
-    // {Color} 跟随背景色
-    follow-bgcolor:  map-get($base, bgcolor),
-    // {Color} 滑块色
-    thumb-color:     #fff
-);
-
-// Fragment UI carousel(8)
-$_carousel: (
-    // {Length} 按钮大小
-    btn-size:           .44rem,
-    // {Color} 按钮背景色
-    btn-bgcolor:        rgba(#09a5c4, .8),
-    // {Color} 按钮文本色
-    btn-color:          #fff,
-    // {Color} 按钮按下时背景色
-    btn-active-bgcolor: rgba(#09a5c4, .5),
-    // {Color} 按钮按下时文本色
-    btn-active-color:   null,
-    // {Length} 索引大小
-    index-size:         .1rem,
-    // {Color} 索引背景色
-    index-bgcolor:      #85c8d1,
-    // {Color} 索引的当前项背景色
-    on-index-bgcolor:   #09a5c4
-);
-
 // Fragment tab(15)
 $_tab: (
     // {Length} 组件宽度
@@ -733,6 +667,56 @@ $_tab: (
     item-border-color:  transparent
 );
 
+// Fragment Table(10)
+$_table: (
+    // {Length} 表头部内补白
+    width:               100%,
+    // {Boolean} 是否需要纵向边框
+    has-vertical-border: false,
+    // {Length} 表头部内补白
+    thead-padding:       .05rem .1rem,
+    // {Length} 表主体内补白
+    tbody-padding:       .1rem,
+    // {Color} 边框色
+    border-color:        map-get($base, border-color),
+    // {Color} 表头部背景色
+    thead-bgcolor:       #eee,
+    // {Color} 表主体奇数行背景色
+    odd-bgcolor:         null,
+    // {Color} 表主体偶数行背景色
+    even-bgcolor:        null,
+    // {Color} 表主体激活行背景色
+    active-bgcolor:      null,
+    // {Color} 表主体选中行背景色
+    on-bgcolor:          null
+);
+
+// Fragment toolbar(11)
+$_toolbar: (
+    // {Length} 宽度
+    width:          null,
+    // {Length} 高度
+    height:         .44rem,
+    // {Length} 边框厚度
+    border-width:   1px,
+    // {Color} 边框色
+    border-color:   #d36105,
+    // {Color} 背景色
+    bgcolor:        #ff801a,
+    // {Color} 文本色
+    color:          #fff,
+    // {Color} 选中时背景色
+    on-bgcolor:     #f06d05,
+    // {Color} 选中时文本色
+    on-color:       null,
+    // {Length} 内补白
+    item-padding:    0 .15rem,
+    // {Length} 圆角半径
+    radius:         .1rem,
+    // {Length} 字号
+    font-size:      null
+);
+
 // Fragment UI tooltip(5)
 $_tooltip: (
     // {Length} 内补白
@@ -745,4 +729,20 @@ $_tooltip: (
     color:      #fff,
     // {Length} 箭头大小
     arrow-size: .08rem
+);
+
+// Fragment UI vcode(6)
+$_vcode: (
+    // {Length} 输入框高度
+    height:       .44rem,
+    // {Color} 输入框背景色
+    bgcolor:      #fff,
+    // {Length} 输入框圆角半径
+    radius:       .05rem,
+    // {Length} 输入框字号
+    font-size:    .16rem,
+    // {Length} 输入框边框厚度
+    border-width: 1px,
+    // {Color} 输入框边框色
+    border-color:  #000
 );
