@@ -267,7 +267,19 @@ $_range: (
     thumb-color:    #fff
 );
 
-// Fragment UI actionsheet(9)
+// Element switch(4)
+$_switch: (
+    // {Color} 背景色
+    bgcolor:         map-get($base, border-color),
+    // {Color} 激活背景色
+    on-bgcolor:      #4bd763,
+    // {Color} 跟随背景色
+    follow-bgcolor:  map-get($base, bgcolor),
+    // {Color} 滑块色
+    thumb-color:     #fff
+);
+
+// Fragment actionsheet(9)
 $_actionsheet: (
     // {Length} 外边距
     margin:           .1rem,
@@ -305,7 +317,7 @@ $_breadcrumb: (
     item-space:     .05rem
 );
 
-// Fragment UI calendar(26)
+// Fragment calendar(26)
 $_calendar: (
     // {Length} 星期bar高度
     week-bar-height:      .22rem,
@@ -366,18 +378,6 @@ $_calendar: (
 
     // {color} 选中日期段背景色
     range-bgcolor:         #eee
-);
-
-// Fragment switch(4)
-$_switch: (
-    // {Color} 背景色
-    bgcolor:         map-get($base, border-color),
-    // {Color} 激活背景色
-    on-bgcolor:      #4bd763,
-    // {Color} 跟随背景色
-    follow-bgcolor:  map-get($base, bgcolor),
-    // {Color} 滑块色
-    thumb-color:     #fff
 );
 
 // Fragment card(11)
