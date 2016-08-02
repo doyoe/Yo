@@ -370,24 +370,6 @@ $_list: (
     more-color:        #aaa
 );
 
-// Fragment Proportion(7)
-$_proportion: (
-    // {Length} 外边距
-    margin:        .1rem,
-    // {Color} 底色
-    bgcolor:       #eee,
-    // {Length} 高度
-    height:        .35rem,
-    // {Length} 最小高度
-    min-height:    .05rem,
-    // {Color} 文本色
-    color:         #fff,
-    // {Length} 字号
-    font-size:     map-get($base, font-size-baseline),
-    // {Color} 当前状态底色
-    inner-bgcolor: red
-);
-
 // Fragment UI calendar(26)
 $_calendar: (
     // {Length} 星期bar高度
@@ -513,18 +495,6 @@ $_number: (
     font-size:         .16rem
 );
 
-// Fragment UI rating(4)
-$_rating: (
-    // {Length} 单项宽度
-    item-width:  .18rem,
-    // {Length} 单项高度
-    item-height: .18rem,
-    // {Length} 子项间间隙
-    item-space:  .1rem,
-    // {String} 图片URL
-    url:         "star3.png"
-);
-
 // Fragment UI picker(3)
 $_picker: (
     // {Length} 默认显示几个列表项
@@ -567,6 +537,36 @@ $_carousel: (
     on-index-bgcolor:   #09a5c4
 );
 
+// Fragment Proportion(7)
+$_proportion: (
+    // {Length} 外边距
+    margin:        .1rem,
+    // {Color} 底色
+    bgcolor:       #eee,
+    // {Length} 高度
+    height:        .35rem,
+    // {Length} 最小高度
+    min-height:    .05rem,
+    // {Color} 文本色
+    color:         #fff,
+    // {Length} 字号
+    font-size:     map-get($base, font-size-baseline),
+    // {Color} 当前状态底色
+    inner-bgcolor: red
+);
+
+// Fragment rating(4)
+$_rating: (
+    // {Length} 单项宽度
+    item-width:  .18rem,
+    // {Length} 单项高度
+    item-height: .18rem,
+    // {Length} 子项间间隙
+    item-space:  .1rem,
+    // {String} 图片URL
+    url:         "star3.png"
+);
+
 // Fragment yo-search(12)
 $_search: (
     // {Length} 搜索框区域内边距
@@ -595,7 +595,7 @@ $_search: (
     cancel-color:  map-get($base, link-color)
 );
 
-// Fragment UI slidermenu(2)
+// Fragment slidermenu(2)
 $_slidermenu: (
     // {Length} action 宽度
     action-width:   1rem,
@@ -717,7 +717,7 @@ $_toolbar: (
     font-size:      null
 );
 
-// Fragment UI tooltip(5)
+// Fragment tooltip(5)
 $_tooltip: (
     // {Length} 内补白
     padding:    .06rem .15rem,
@@ -731,7 +731,7 @@ $_tooltip: (
     arrow-size: .08rem
 );
 
-// Fragment UI vcode(6)
+// Fragment vcode(6)
 $_vcode: (
     // {Length} 输入框高度
     height:       .44rem,
