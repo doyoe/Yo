@@ -6,6 +6,9 @@
 ### 修复
 * fix `yo-tab` 在 `dpr=3` 时，Node-sass新版编译除法表达式出现的问题。把 `1/3` 改为 `.33333`；
 
+### 变更
+* 移除 `yo-switchable` 中的 `$has-btn` 参数，无按钮时，移除 DOM 即可；
+
 ## v2.1.3（2016.7.4）
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v2.1.3)
