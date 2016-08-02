@@ -231,8 +231,8 @@
 @mixin overflow($overflow: auto) {
     @if $overflow == auto {
         overflow: auto;
-        // 移除此条规则，防止iOS webview崩溃
-        // -webkit-overflow-scrolling: touch;
+        // 移除此条规则，防止iOS8.0+ webview崩溃
+        -webkit-overflow-scrolling: touch;
     } @else {
         overflow: $overflow;
     }
@@ -418,7 +418,7 @@
         @include responsive(retina2x) {
             width: 200%;
             height: 200%;
-            @include transform(scale(0.5));
+            @include transform(scale(.5));
             @if $radius != null {
                 border-radius: $radius * 2;
             }
@@ -426,7 +426,7 @@
         @include responsive(retina3x) {
             width: 300%;
             height: 300%;
-            @include transform(scale(0.33333));
+            @include transform(scale(.33333));
             @if $radius != null {
                 border-radius: $radius * 3;
             }
@@ -597,13 +597,12 @@
     }
     // 现代浏览器（支持最新草案）
     flex: $flex;
-    // 修复Android Browser4.3及以下，iOS Safari6.1及以下按比例分配错误的问题
+    // 修复Android Browser4.3及以下，iOS Safari6.1及以下按比例分配错误的问题（同时还包括flex嵌套时分配错误）
     @if $direction == row {
         width: .1px;
+    } @else {
+        height: .1px;
     }
-    // @else {
-    //     height: .1px;
-    // }
 }
 
 /**

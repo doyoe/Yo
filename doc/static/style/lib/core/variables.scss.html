@@ -253,14 +253,18 @@ $_loadtip: (
     ico-color: map-get($base, link-color)
 );
 
-// Element range(3)
+// Element range(5)
 $_range: (
+    // {Length} 滑轴高度
+    track-height:   .02rem,
     // {Color} 滑轴色
-    track-color: #ccc,
+    track-color:    #ccc,
+    // {Color} 选中滑轴色
+    on-track-color: #1ba9ba,
     // {Length} 滑球高度
-    thumb-height:  .28rem,
+    thumb-height:   .28rem,
     // {Color} 滑块色
-    thumb-color:   #fff
+    thumb-color:    #fff
 );
 
 // Fragment UI actionsheet(9)
@@ -607,27 +611,27 @@ $_mask: (
 // Fragment UI number(11)
 $_number: (
     // {Length} 宽度
-    width:               1.2rem,
+    width:             1.2rem,
     // {Length} 高度
-    height:              .36rem,
+    height:            .36rem,
     // {Length} 外边框圆角半径
-    outer-radius:        .03rem,
-    // {Length} 外边框厚度
-    outer-border-width:  1px,
-    // {Length} 内边框圆角半径
-    inner-radius:        null,
-    // {Length} 内外边框厚度
-    inner-border-width:  1px,
+    radius:            .03rem,
+    // {Length} 边框厚度
+    border-width:      1px,
     // {Color} 外边框色
-    border-color:        map-get($base, border-color),
+    border-color:      map-get($base, border-color),
     // {color} 输入框文本色
-    color:               map-get($base, color),
-    // {Color} 加减号背景色
-    sign-bgcolor:        map-get($base, bgcolor),
-    // {Color} 加减号文本色
-    sign-color:          #999,
+    color:             map-get($base, color),
+    // {Length} 加减号区域圆角半径
+    sign-radius:       null,
+    // {Length} 加减号区域边框厚度
+    sign-border-width: 1px,
+    // {Color} 加减号区域背景色
+    sign-bgcolor:      map-get($base, bgcolor),
+    // {Color} 加减号区域文本色
+    sign-color:        #999,
     // {Length} 字号
-    font-size:           .16rem,
+    font-size:         .16rem
 );
 
 // Fragment UI rating(4)
@@ -695,17 +699,15 @@ $_switch: (
     // {Color} 背景色
     bgcolor:         map-get($base, border-color),
     // {Color} 激活背景色
-    checked-bgcolor: #4bd763,
+    on-bgcolor:      #4bd763,
     // {Color} 跟随背景色
     follow-bgcolor:  map-get($base, bgcolor),
     // {Color} 滑块色
     thumb-color:     #fff
 );
 
-// Fragment UI carousel(9)
+// Fragment UI carousel(8)
 $_carousel: (
-    // {Boolean} 是否有按钮
-    has-btn:            false,
     // {Length} 按钮大小
     btn-size:           .44rem,
     // {Color} 按钮背景色
@@ -721,7 +723,7 @@ $_carousel: (
     // {Color} 索引背景色
     index-bgcolor:      #85c8d1,
     // {Color} 索引的当前项背景色
-    index-on-bgcolor:   #09a5c4
+    on-index-bgcolor:   #09a5c4
 );
 
 // Fragment tab(15)
@@ -743,7 +745,7 @@ $_tab: (
     // {Color} tab激活背景色
     on-bgcolor:         null,
     // {Color} tab激活文本色
-    on-color:           #00bec8,
+    on-color:           #1ba9ba,
     // {Length} 文本大小
     font-size:          map-get($base, font-size-baseline),
     // {Length} 水平ico大小
@@ -752,7 +754,7 @@ $_tab: (
     y-ico-size:         .2rem,
     // {Length} only ico大小
     only-ico-size:      .28rem,
-    // {Color} item间隔线高度
+    // {Length} item间隔线高度
     item-border-height: 100%,
     // {Color} item间隔线颜色
     item-border-color:  transparent

@@ -59,14 +59,11 @@
             border-radius: 50%;
             background-color: map-get($carousel, index-bgcolor);
             &.on {
-                background-color: map-get($carousel, index-on-bgcolor);
+                background-color: map-get($carousel, on-index-bgcolor);
             }
         }
     }
     > .yo-ico {
-        @if map-get($carousel, has-btn) == false {
-            display: none;
-        }
         position: absolute;
         top: 50%;
         @include transform(translate(0, -50%));
@@ -96,7 +93,6 @@
  * @description 构造yo-carousel的自定义使用方法
  * @demo http://doyoe.github.io/Yo/demo/fragment/yo-carousel.html
  * @param {String} $name 定义扩展名称 <1.0.0>
- * @param {Boolen} $has-btn 是否有按钮 <1.0.0>
  * @param {Length} $btn-size 按钮大小 <1.0.0>
  * @param {Length} $btn-bgcolor 按钮背景色 <1.0.0>
  * @param {Length} $btn-color 按钮文本色 <1.0.0>
@@ -104,12 +100,11 @@
  * @param {Length} $btn-active-color 按钮按下文本色 <1.0.0>
  * @param {Length} $index-size 索引大小 <1.0.0>
  * @param {Color} $index-bgcolor 索引背景色 <1.0.0>
- * @param {Length} $index-on-bgcolor 索引当前项背景色 <1.0.0>
+ * @param {Length} $on-index-bgcolor 索引当前项背景色 <1.0.0>
  */
 
 @mixin yo-carousel(
     $name: default,
-    $has-btn: default,
     $btn-size: default,
     $btn-bgcolor: default,
     $btn-color: default,
@@ -117,13 +112,10 @@
     $btn-active-color: default,
     $index-size: default,
     $index-bgcolor: default,
-    $index-on-bgcolor: default) {
+    $on-index-bgcolor: default) {
     // 区别是否新增实例还是修改本身
     $name: if($name == default, "", "-#{$name}");
     // 如果值为default，则取config的定义
-    @if $has-btn == default {
-        $has-btn: map-get($carousel, has-btn);
-    }
     @if $btn-size == default {
         $btn-size: map-get($carousel, btn-size);
     }
@@ -145,8 +137,8 @@
     @if $index-bgcolor == default {
         $index-bgcolor: map-get($carousel, index-bgcolor);
     }
-    @if $index-on-bgcolor == default {
-        $index-on-bgcolor: map-get($carousel, index-on-bgcolor);
+    @if $on-index-bgcolor == default {
+        $on-index-bgcolor: map-get($carousel, on-index-bgcolor);
     }
     .yo-carousel#{$name} {
         > .index {
@@ -158,20 +150,13 @@
                     background-color: $index-bgcolor;
                 }
                 &.on {
-                    @if $index-on-bgcolor != map-get($carousel, index-on-bgcolor) {
-                        background-color: $index-on-bgcolor;
+                    @if $on-index-bgcolor != map-get($carousel, on-index-bgcolor) {
+                        background-color: $on-index-bgcolor;
                     }
                 }
             }
         }
         > .yo-ico {
-            @if $has-btn != map-get($carousel, has-btn) {
-                @if $has-btn == false {
-                    display: none;
-                } @else {
-                    display: inline;
-                }
-            }
             @if $btn-size != map-get($carousel, btn-size) {
                 @include square($btn-size);
                 line-height: $btn-size;
@@ -184,13 +169,14 @@
             }
             &:active {
                 @if $btn-active-bgcolor != map-get($carousel, btn-active-bgcolor) {
-                background-color: $btn-active-bgcolor;
+                    background-color: $btn-active-bgcolor;
                 }
                 @if $btn-active-color != map-get($carousel, btn-active-color) {
                     color: $btn-active-color;
                 }
             }
         }
+
         // 增量扩展
         @content;
     }

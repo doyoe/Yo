@@ -317,7 +317,7 @@
     
     <p>
         <small class="text-muted">源码位置:</small>
-        <a href="./static/style/lib/element/yo-badge.scss.html#19" target="_blank">./style/lib/element/yo-badge.scss:19</a>
+        <a href="./static/style/lib/element/yo-badge.scss.html#28" target="_blank">./style/lib/element/yo-badge.scss:28</a>
     </p>
     
     
@@ -875,7 +875,7 @@
     
     <p>
         <small class="text-muted">源码位置:</small>
-        <a href="./static/style/lib/element/yo-range.scss.html#19" target="_blank">./style/lib/element/yo-range.scss:19</a>
+        <a href="./static/style/lib/element/yo-range.scss.html#47" target="_blank">./style/lib/element/yo-range.scss:47</a>
     </p>
     
     
@@ -910,9 +910,23 @@
             </tr>
             
             <tr>
+                <td>$track-height</td>
+                <td>Length</td>
+                <td>滑轴高度 </td>
+                <td>3.0.0</td>
+            </tr>
+            
+            <tr>
                 <td>$track-color</td>
                 <td>Color</td>
                 <td>滑轴色 </td>
+                <td>3.0.0</td>
+            </tr>
+            
+            <tr>
+                <td>$on-track-color</td>
+                <td>Color</td>
+                <td>选中滑轴色 </td>
                 <td>3.0.0</td>
             </tr>
             
@@ -988,7 +1002,7 @@
             </tr>
             
             <tr>
-                <td>$checked-bgcolor</td>
+                <td>$on-bgcolor</td>
                 <td>Color</td>
                 <td>定义switch激活背景色 </td>
                 <td>3.0.0</td>
@@ -1513,7 +1527,7 @@
     
     <p>
         <small class="text-muted">源码位置:</small>
-        <a href="./static/style/lib/fragment/yo-card.scss.html#94" target="_blank">./style/lib/fragment/yo-card.scss:94</a>
+        <a href="./static/style/lib/fragment/yo-card.scss.html#95" target="_blank">./style/lib/fragment/yo-card.scss:95</a>
     </p>
     
     
@@ -1647,7 +1661,7 @@
     
     <p>
         <small class="text-muted">源码位置:</small>
-        <a href="./static/style/lib/fragment/yo-carousel.scss.html#64" target="_blank">./style/lib/fragment/yo-carousel.scss:64</a>
+        <a href="./static/style/lib/fragment/yo-carousel.scss.html#61" target="_blank">./style/lib/fragment/yo-carousel.scss:61</a>
     </p>
     
     
@@ -1678,13 +1692,6 @@
                 <td>$name</td>
                 <td>String</td>
                 <td>定义扩展名称 </td>
-                <td>1.0.0</td>
-            </tr>
-            
-            <tr>
-                <td>$has-btn</td>
-                <td>Boolen</td>
-                <td>是否有按钮 </td>
                 <td>1.0.0</td>
             </tr>
             
@@ -1738,7 +1745,7 @@
             </tr>
             
             <tr>
-                <td>$index-on-bgcolor</td>
+                <td>$on-index-bgcolor</td>
                 <td>Length</td>
                 <td>索引当前项背景色 </td>
                 <td>1.0.0</td>
@@ -2402,7 +2409,7 @@
     
     <p>
         <small class="text-muted">源码位置:</small>
-        <a href="./static/style/lib/fragment/yo-number.scss.html#53" target="_blank">./style/lib/fragment/yo-number.scss:53</a>
+        <a href="./static/style/lib/fragment/yo-number.scss.html#54" target="_blank">./style/lib/fragment/yo-number.scss:54</a>
     </p>
     
     
@@ -2446,38 +2453,17 @@
             </tr>
             
             <tr>
-                <td>$outer-radius</td>
+                <td>$radius</td>
                 <td>Length</td>
                 <td>外边框圆角半径 </td>
                 <td>2.0.0</td>
             </tr>
             
             <tr>
-                <td>$outer-border-width</td>
+                <td>$border-width</td>
                 <td>Length</td>
                 <td>外边框厚度 </td>
                 <td>2.0.0</td>
-            </tr>
-            
-            <tr>
-                <td>$inner-radius</td>
-                <td>Length</td>
-                <td>内边框圆角半径 </td>
-                <td>2.0.0</td>
-            </tr>
-            
-            <tr>
-                <td>$inner-border-width</td>
-                <td>Length</td>
-                <td>内边框厚度 </td>
-                <td>2.0.0</td>
-            </tr>
-            
-            <tr>
-                <td><del>$bordercolor</del></td>
-                <td><del>Color</del></td>
-                <td><del>外边框色  </del></td>
-                <td>1.0.0 <del>2.0.0</del></td>
             </tr>
             
             <tr>
@@ -2495,24 +2481,31 @@
             </tr>
             
             <tr>
+                <td>$sign-radius</td>
+                <td>Length</td>
+                <td>加减号区域边框圆角半径 </td>
+                <td>2.0.0</td>
+            </tr>
+            
+            <tr>
+                <td>$sign-border-width</td>
+                <td>Length</td>
+                <td>加减号区域边框厚度 </td>
+                <td>2.0.0</td>
+            </tr>
+            
+            <tr>
                 <td>$sign-bgcolor</td>
                 <td>Color</td>
-                <td>加减号背景色 </td>
+                <td>加减号区域背景色 </td>
                 <td>1.0.0</td>
             </tr>
             
             <tr>
                 <td>$sign-color</td>
                 <td>Color</td>
-                <td>加减号文本色 </td>
+                <td>加减号区域文本色 </td>
                 <td>1.0.0</td>
-            </tr>
-            
-            <tr>
-                <td><del>$disabled-sign-color</del></td>
-                <td><del>Color</del></td>
-                <td><del>加减号禁用文本色  </del></td>
-                <td>1.0.0 <del>2.0.0</del></td>
             </tr>
             
             <tr>
@@ -3183,7 +3176,7 @@
     
     <p>
         <small class="text-muted">版本:</small>
-        1.0.0
+        3.0.0
     </p>
     
     
@@ -3220,126 +3213,112 @@
                 <td>$name</td>
                 <td>String</td>
                 <td>定义扩展名称 </td>
-                <td>1.0.0</td>
+                <td>3.0.0</td>
             </tr>
             
             <tr>
                 <td>$width</td>
                 <td>Length</td>
-                <td>宽度 <1.8.3}</td>
-                <td></td>
+                <td>宽度 </td>
+                <td>3.0.0</td>
             </tr>
             
             <tr>
                 <td>$height</td>
                 <td>Length</td>
                 <td>高度 </td>
-                <td>1.0.0</td>
+                <td>3.0.0</td>
             </tr>
             
             <tr>
                 <td>$radius</td>
                 <td>Length</td>
-                <td>圆角半径长度 <1.3.1}</td>
-                <td></td>
+                <td>圆角半径长度 </td>
+                <td>3.0.0</td>
             </tr>
             
             <tr>
                 <td>$border-width</td>
                 <td>Length</td>
                 <td>边框厚度 </td>
-                <td>1.0.0</td>
-            </tr>
-            
-            <tr>
-                <td><del>$bordercolor</del></td>
-                <td><del>Color</del></td>
-                <td><del>边框色 </del></td>
-                <td>1.0.0 <del>2.0.0</del></td>
+                <td>3.0.0</td>
             </tr>
             
             <tr>
                 <td>$border-color</td>
                 <td>Color</td>
                 <td>边框色 </td>
-                <td>2.0.0</td>
+                <td>3.0.0</td>
             </tr>
             
             <tr>
                 <td>$bgcolor</td>
                 <td>Color</td>
                 <td>背景色 </td>
-                <td>1.0.0</td>
+                <td>3.0.0</td>
             </tr>
             
             <tr>
                 <td>$color</td>
                 <td>Color</td>
                 <td>文本色 </td>
-                <td>1.0.0</td>
+                <td>3.0.0</td>
             </tr>
             
             <tr>
                 <td>$on-bgcolor</td>
                 <td>Color</td>
                 <td>激活时背景色 </td>
-                <td>1.0.0</td>
+                <td>3.0.0</td>
             </tr>
             
             <tr>
                 <td>$on-color</td>
                 <td>Color</td>
                 <td>激活时文本色 </td>
-                <td>1.0.0</td>
+                <td>3.0.0</td>
             </tr>
             
             <tr>
                 <td>$font-size</td>
-                <td>Color</td>
+                <td>Length</td>
                 <td>文本字号 </td>
-                <td>1.2.0</td>
+                <td>3.0.0</td>
             </tr>
             
             <tr>
                 <td>$x-ico-size</td>
-                <td>Color</td>
+                <td>Length</td>
                 <td>子项内容为水平ico时，ico的大小 </td>
-                <td>1.2.0</td>
+                <td>3.0.0</td>
             </tr>
             
             <tr>
                 <td>$y-ico-size</td>
-                <td>Color</td>
+                <td>Length</td>
                 <td>子项内容为垂直ico时，ico的大小 </td>
-                <td>1.2.0</td>
+                <td>3.0.0</td>
             </tr>
             
             <tr>
                 <td>$only-ico-size</td>
-                <td>Color</td>
+                <td>Length</td>
                 <td>子项内容仅有ico时，ico的大小 </td>
-                <td>1.2.0</td>
+                <td>3.0.0</td>
             </tr>
             
             <tr>
                 <td>$item-border-height</td>
                 <td>Length</td>
-                <td>子项的间隔线高度 <1.3.1}</td>
-                <td></td>
-            </tr>
-            
-            <tr>
-                <td><del>$item-bordercolor</del></td>
-                <td><del>Color</del></td>
-                <td><del>子项的间隔线颜色  </del></td>
-                <td>1.3.1 <del>2.0.0</del></td>
+                <td>子项的间隔线高度 </td>
+                <td>3.0.0</td>
             </tr>
             
             <tr>
                 <td>$item-border-color</td>
                 <td>Color</td>
                 <td>子项的间隔线颜色 </td>
-                <td>2.0.0</td>
+                <td>3.0.0</td>
             </tr>
             
         </table>
