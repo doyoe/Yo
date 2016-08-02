@@ -232,7 +232,7 @@
     @if $overflow == auto {
         overflow: auto;
         // 移除此条规则，防止iOS webview崩溃
-        // -webkit-overflow-scrolling: touch;
+        -webkit-overflow-scrolling: touch;
     } @else {
         overflow: $overflow;
     }
