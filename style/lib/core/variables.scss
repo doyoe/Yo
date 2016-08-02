@@ -367,36 +367,6 @@ $_calendar: (
     range-bgcolor:         #eee
 );
 
-// Fragment UI Dialog(8)
-$_dialog: (
-    // {Length | null} 宽度
-    width:           null,
-    // {Length} 高度
-    height:          null,
-    // {Length} 圆角
-    radius:          .1rem,
-    // {Color} 边框色
-    border-color:    map-get($base, border-color),
-    // {Color} 标题颜色
-    title-color:     map-get($base, color),
-    // {Length} 标题文字大小
-    title-font-size: .16rem,
-    // {Length} 主体区域间隙
-    bd-padding:      .03rem .1rem .15rem,
-    // {Length} 主体区域文字大小
-    bd-font-size:    .16rem
-);
-
-// Fragment group(3)
-$_group: (
-    // {Length} 索引宽度
-    index-width:     .3rem,
-    // {Color} 索引文本色
-    index-color:     #555,
-    // {Length} 索引字号
-    index-font-size: .12rem
-);
-
 // Fragment switch(4)
 $_switch: (
     // {Color} 背景色
@@ -427,6 +397,36 @@ $_carousel: (
     index-bgcolor:      #85c8d1,
     // {Color} 索引的当前项背景色
     on-index-bgcolor:   #09a5c4
+);
+
+// Fragment dialog(8)
+$_dialog: (
+    // {Length} 宽度
+    width:           null,
+    // {Length} 高度
+    height:          null,
+    // {Length} 圆角
+    radius:          .1rem,
+    // {Color} 边框色
+    border-color:    map-get($base, border-color),
+    // {Color} 标题颜色
+    title-color:     map-get($base, color),
+    // {Length} 标题文字大小
+    title-font-size: .16rem,
+    // {Length} 主体区域间隙
+    bd-padding:      .03rem .1rem .15rem,
+    // {Length} 主体区域文字大小
+    bd-font-size:    .16rem
+);
+
+// Fragment group(3)
+$_group: (
+    // {Length} 索引宽度
+    index-width:     .3rem,
+    // {Color} 索引文本色
+    index-color:     #555,
+    // {Length} 索引字号
+    index-font-size: .12rem
 );
 
 // Fragment header(12)
