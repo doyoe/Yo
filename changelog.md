@@ -2,6 +2,7 @@
 
 ### 新增：
 * `yo-actionsheet` 新增 `item-light` 重要操作状态；
+* 新增隐藏页面滚动条的 `reset` 定义；
 
 ### 修复
 * fix `yo-tab` 在 `dpr=3` 时，Node-sass新版编译除法表达式出现的问题。把 `1/3` 改为 `.33333`；
