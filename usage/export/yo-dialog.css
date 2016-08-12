@@ -144,6 +144,7 @@ textarea,
 pre,
 xmp {
   overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 textarea {
@@ -258,6 +259,7 @@ a {
 .yo-flex > .flex,
 .yo-flex .flex-inherit > .flex {
   overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .yo-flex > .flex > .yo-flex,
@@ -530,6 +532,7 @@ a {
   -webkit-flex: 1;
   flex: 1;
   overflow: auto;
+  -webkit-overflow-scrolling: touch;
   min-height: .4rem;
   padding: 0.03rem 0.1rem 0.15rem;
   font-size: 0.16rem;
