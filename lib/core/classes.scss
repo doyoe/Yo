@@ -204,7 +204,7 @@
 @mixin overflow($overflow: auto) {
     @if $overflow == auto {
         overflow: auto;
-        // 改规则可能引起iOS8.0+ webview崩溃
+        // 该规则可能引起iOS8.0+ webview崩溃
         -webkit-overflow-scrolling: touch;
     } @else {
         overflow: $overflow;
