@@ -15,8 +15,8 @@ var versions = require('./gulp/versions.js');
 var hanlders = require('./gulp/hanlders.js');
 
 // style path，由业务自己配置
-var scssPath = './usage/page';
-var cssPath = './usage/export';
+var scssPath = './style/usage/page';
+var cssPath = './style/usage/export';
 
 // 编译器
 var compilers = {
@@ -60,7 +60,7 @@ gulp.task('compile', function() {
 
 // 命令: gulp watch, 监听工程中scss文件变化时，执行compile操作 [-c node-sass/sass]
 gulp.task('watch', function() {
-    gulp.watch('./**/*.scss', ['compile']);
+    gulp.watch('./**/**/*.scss', ['compile']);
 });
 
 // 命令: gulp clear, 清理 ruby sass 编译时产生的缓存
@@ -77,7 +77,7 @@ gulp.task('version', function() {
 
 // 命令: gulp doc, 生成文档
 gulp.task('doc', function() {
-    return gulp.src('./')
+    return gulp.src('./style/')
         .pipe(ydoc({
             dest: 'doc',
             template: './gulp/ydoc_template/'
@@ -88,23 +88,23 @@ gulp.task('doc', function() {
 gulp.task('uedoc', function() {
     var conf = require('./gulp/uedocConfig.js');
     conf.dest = 'uedoc';
-    return gulp.src('./')
+    return gulp.src('./style/')
         .pipe(ydoc(conf));
 });
 
 // 命令: gulp watch-doc, 监听改变生成文档
 gulp.task('watch-doc', function() {
-    gulp.watch(['./**/*.scss', './**/*.md'], ['doc']);
+    gulp.watch(['./**/**/*.scss', './**/*.md'], ['doc']);
 });
 
 // 命令: gulp test, 测试任务
 gulp.task('test', function() {
-    return gulp.src('./usage/test/test.scss')
+    return gulp.src('./style/usage/test/test.scss')
         .pipe(through.obj(combineScss))
         .pipe(nodeSass({
             outputStyle: 'expanded'
         }))
-        .pipe(gulp.dest('./usage/test'));
+        .pipe(gulp.dest('./style/usage/test'));
 });
 
 
@@ -116,12 +116,12 @@ gulp.task('default', function() {
 });
 
 gulp.task('reload', ['compile'], function() {
-    return gulp.src('./**/*.css')
+    return gulp.src('./**/**/*.css')
         .pipe(connect.reload());
 });
 
 gulp.task('watch-reload', function() {
-    gulp.watch('./**/*.scss', ['reload']);
+    gulp.watch('./**/**/*.scss', ['reload']);
 });
 
 // 命令: gulp server, 启动 Web 服务
