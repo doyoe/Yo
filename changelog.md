@@ -1,5 +1,7 @@
 ## v2.1.4（开发中）
 
+[Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v2.1.4)
+
 ### 新增：
 * `yo-actionsheet` 新增 `item-light` 重要操作状态；
 * 新增隐藏页面滚动条的 `reset` 定义；

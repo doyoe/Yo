@@ -154,9 +154,9 @@
 
 `master` 分支为开发版本，稳定版本都发布在 [releases tag](https://github.com/doyoe/Yo/releases) 中。
 
-**最新稳定版: [v2.1.3](https://github.com/doyoe/Yo/releases/tag/v2.1.3)**
+**最新稳定版: [v2.1.4](https://github.com/doyoe/Yo/releases/tag/v2.1.4)**
 
-**开发中版本: v2.1.4**
+**开发中版本: v2.1.5**
 
 如想查看更多版本变更历史，请查看 [ChangeLog](https://github.com/doyoe/Yo/blob/master/changelog.md)
 
