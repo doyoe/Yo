@@ -1,4 +1,4 @@
-## v2.1.4（开发中）
+## v2.1.4（2016.8.29）
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v2.1.4)
 
