@@ -42,6 +42,10 @@
         &:active {
             background-color: map-get($actionsheet, active-bgcolor);
         }
+        // 重要操作
+        &-light {
+            color: map-get($actionsheet, item-light-color);
+        }
     }
 }
 
@@ -60,6 +64,7 @@
  * @param {Length} $item-height 子项高度 <2.1.1>
  * @param {Length} $item-font-size 子项字号 <2.1.1>
  * @param {Color} $item-color 子项文本色 <2.1.1>
+ * @param {Color} $item-light-color 重要操作子项文本色 <2.1.4>
  */
 
 @mixin yo-actionsheet(
@@ -71,7 +76,8 @@
     $active-bgcolor: default,
     $item-height: default,
     $item-font-size: default,
-    $item-color: default) {
+    $item-color: default,
+    $item-light-color: default) {
     // 区别是否新增实例还是修改本身
     $name: if($name == default, "", "-#{$name}");
     // 如果值为default，则取config的定义
@@ -98,6 +104,9 @@
     }
     @if $item-color == default {
         $item-color: map-get($actionsheet, item-color);
+    }
+    @if $item-light-color == default {
+        $item-light-color: map-get($actionsheet, item-light-color);
     }
     .yo-actionsheet#{$name} {
         @if $margin != map-get($actionsheet, margin) {
@@ -133,6 +142,11 @@
             &:active {
                 @if $active-bgcolor != map-get($actionsheet, active-bgcolor) {
                     background-color: $active-bgcolor;
+                }
+            }
+            &-light {
+                @if $item-light-color != map-get($actionsheet, item-light-color) {
+                    color: $item-light-color;
                 }
             }
         }

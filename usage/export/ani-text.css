@@ -12,6 +12,10 @@ body {
   height: 100%;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 html {
   background-color: #ebebeb;
   color: #212121;
@@ -144,6 +148,7 @@ textarea,
 pre,
 xmp {
   overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 textarea {

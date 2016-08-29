@@ -21,3 +21,7 @@
 * ![医联](http://www.doyoe.com/pimg/medlinker.png)
 
     医联已接入使用 Yo 框架来构建移动应用UI
+
+* ![百家互联](http://www.doyoe.com/pimg/genshuixue.png)
+
+    百家互联（跟谁学）已接入使用 Yo 框架来构建移动应用UI

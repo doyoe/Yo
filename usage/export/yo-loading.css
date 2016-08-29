@@ -13,6 +13,10 @@ body {
   height: 100%;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 html {
   background-color: #ebebeb;
   color: #212121;
@@ -145,6 +149,7 @@ textarea,
 pre,
 xmp {
   overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 textarea {
@@ -259,6 +264,7 @@ a {
 .yo-flex > .flex,
 .yo-flex .flex-inherit > .flex {
   overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .yo-flex > .flex > .yo-flex,
@@ -268,11 +274,6 @@ a {
   right: 0;
   bottom: 0;
   left: 0;
-}
-
-.yo-flex > .flex,
-.yo-flex .flex-inherit > .flex {
-  -webkit-overflow-scrolling: touch;
 }
 
 .yo-header {

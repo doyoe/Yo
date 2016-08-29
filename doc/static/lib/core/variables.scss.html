@@ -37,7 +37,7 @@
 // 基本设置
 $_setting: (
     // {String} 版本号
-    version:             "2.1.3",
+    version:             "2.1.4",
     // {Boolean} 是否开启厂商前缀
     is-vendor-prefix:    true,
     // {String} 厂商前缀
@@ -133,13 +133,13 @@ $_flex: (
     direction: column
 );
 
-// Layout Stacked
+// Layout stacked
 $_stacked: (
     // {Length} 区块外边距
     margin: .2rem .1rem
 );
 
-// Element UI badge(7)
+// Element badge(7)
 $_badge: (
     // {Length} 内补白
     padding:      0 .03rem,
@@ -157,9 +157,9 @@ $_badge: (
     font-size:    .12rem
 );
 
-// Element Button(18)
+// Element btn(18)
 $_btn: (
-    // {Color} Length
+    // {Length} 边框厚度
     border-width:   1px,
     // {Color} 边框色
     border-color:   #d36105,
@@ -197,7 +197,7 @@ $_btn: (
 
 // Element checked(11)
 $_checked: (
-    // {String} 选中标记的内容，可以是自定义的webfont
+    // {String} 选中标记的内容，可以是自定义的iconfont编码
     content:        "\f078",
     // {Length} 元件大小
     size:           .2rem,
@@ -221,7 +221,7 @@ $_checked: (
     radius:         .05rem
 );
 
-// Element Input(8)
+// Element input(8)
 $_input: (
     // {Length} 输入框宽度
     width:             100%,
@@ -289,7 +289,7 @@ $_score: (
     url:         "star.png"
 );
 
-// Fragment UI actionsheet(8)
+// Fragment actionsheet(9)
 $_actionsheet: (
     // {Length} 外边距
     margin:         .1rem,
@@ -306,7 +306,9 @@ $_actionsheet: (
     // {Length} 子项字号
     item-font-size: .18rem,
     // {Color} 子项文本色
-    item-color:     map-get($base, link-color)
+    item-color:     map-get($base, link-color),
+    // {Color} 重要操作子项文本色
+    item-light-color: #f00
 );
 
 // Fragment breadcrumb(5)
@@ -411,11 +413,11 @@ $_list: (
     item-border-space: .1rem,
     // {Length} 更多区域字号
     more-font-size:    .12rem,
-    // {Length} 更多区域文本色
+    // {Color} 更多区域文本色
     more-color:        #aaa
 );
 
-// Fragment Proportion(7)
+// Fragment proportion(7)
 $_proportion: (
     // {Length} 外边距
     margin:        .1rem,
@@ -433,7 +435,7 @@ $_proportion: (
     inner-bgcolor: red
 );
 
-// Fragment yo-search(9)
+// Fragment search(9)
 $_search: (
     // {Length} 搜索框区域内边距
     padding:            .1rem,
@@ -455,7 +457,7 @@ $_search: (
     cancel-color:       #1ba9ba
 );
 
-// Fragment Table(10)
+// Fragment table(10)
 $_table: (
     // {Length} 表头部内补白
     width:               100%,
@@ -505,7 +507,7 @@ $_toolbar: (
     font-size:      null
 );
 
-// Widget UI vcode(6)
+// Fragment vcode(6)
 $_vcode: (
     // {Length} 输入框高度
     height:       .44rem,
@@ -521,7 +523,7 @@ $_vcode: (
     border-color:  #000
 );
 
-// Widget UI datepicker(26)
+// Widget datepicker(26)
 $_datepicker: (
     // {Length} 星期bar高度
     week-bar-height:      .22rem,
@@ -584,9 +586,9 @@ $_datepicker: (
     range-bgcolor:         #eee
 );
 
-// Widget UI Dialog(8)
+// Widget dialog(8)
 $_dialog: (
-    // {Length | null} 宽度
+    // {Length} 宽度
     width:           null,
     // {Length} 高度
     height:          null,
@@ -604,7 +606,7 @@ $_dialog: (
     bd-font-size:    .16rem
 );
 
-// Widget UI doublelist(2)
+// Widget doublelist(2)
 $_doublelist: (
     // {Length} 导航panel宽度
     aside-width: null,
@@ -628,13 +630,13 @@ $_index: (
     font-size: .12rem
 );
 
-// Widget UI mask(1)
+// Widget mask(1)
 $_mask: (
     // {Color} 背景色
     bgcolor: rgba(#000, .2)
 );
 
-// Widget UI number(11)
+// Widget number(11)
 $_number: (
     // {Length} 宽度
     width:               1.2rem,
@@ -660,7 +662,7 @@ $_number: (
     font-size:           .16rem,
 );
 
-// Widget UI rating(3)
+// Widget rating(3)
 $_rating: (
     // {Length} 单项宽度
     item-width:  .24rem,
@@ -670,9 +672,9 @@ $_rating: (
     url:         "star.png"
 );
 
-// Widget UI select(3)
+// Widget select(3)
 $_select: (
-    // {Length} 默认显示几个列表项
+    // {Integer} 默认显示几个列表项
     item:        5,
     // {Length} 每个列表项的高度
     item-height: .3rem,
@@ -680,7 +682,7 @@ $_select: (
     border-color: map-get($base, border-color),
 );
 
-// Widget UI slidermenu(2)
+// Widget slidermenu(2)
 $_slidermenu: (
     // {Length} action 宽度
     action-width:   1rem,
@@ -734,10 +736,8 @@ $_switch: (
     ball-color:      #fff
 );
 
-// Widget UI switchable(9)
+// Widget switchable(8)
 $_switchable: (
-    // {Boolean} 是否有按钮
-    has-btn:            false,
     // {Length} 按钮大小
     btn-size:           .44rem,
     // {Color} 按钮背景色
