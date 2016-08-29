@@ -41,8 +41,14 @@
     @include box-sizing(border-box);
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+
 // 1. 默认关闭页面滚动条
 @include root-scroll;
+
+// 1. 隐藏页面滚动条
+::-webkit-scrollbar {
+    display: none;
+}
 
 // 1. 防止用户自定义网页背景及文字颜色、大小影响
 html {
