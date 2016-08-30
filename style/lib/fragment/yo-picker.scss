@@ -22,8 +22,7 @@
         }
     }
     > .unit {
-        position: relative;
-        line-height: map-get($picker, item-height) * 5;
+        margin: auto;
         &:last-child {
             padding-right: .1rem;
         }
@@ -43,7 +42,8 @@
         position: absolute;
         top: 50%;
         left: 0;
-        content: "\0020";
+        content: ".";
+        color: transparent;
         border: 1px solid map-get($picker, border-color);
         border-width: 1px 0;
         @include responsive(retina1x) {
@@ -104,12 +104,6 @@
                     height: $item-height;
                     line-height: $item-height;
                 }
-            }
-        }
-        > .unit {
-            position: relative;
-            @if $item-height != map-get($picker, item-height) or $item != map-get($picker, item) {
-                line-height: $item-height * $item;
             }
         }
         &::before {

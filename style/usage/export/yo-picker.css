@@ -404,8 +404,7 @@ a {
 }
 
 .yo-picker > .unit {
-  position: relative;
-  line-height: 1.5rem;
+  margin: auto;
 }
 
 .yo-picker > .unit:last-child {
@@ -428,7 +427,8 @@ a {
   position: absolute;
   top: 50%;
   left: 0;
-  content: "\0020";
+  content: ".";
+  color: transparent;
   border: 1px solid #ccc;
   border-width: 1px 0;
   -webkit-transform-origin: 0 0;

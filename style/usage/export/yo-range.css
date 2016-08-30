@@ -371,9 +371,30 @@ a {
   text-align: right;
 }
 
-.yo-range {
+.yo-range > .scale {
   position: relative;
+  margin: 0 0.14rem;
+  font-size: .12rem;
+}
+
+.yo-range > .scale > .divide {
+  display: inline-block;
+  -webkit-transform: translatex(-50%);
+  transform: translatex(-50%);
+  white-space: nowrap;
+}
+
+.yo-range > .scale > .divide:not(:first-child) {
+  position: absolute;
+}
+
+.yo-range > .scale > .divide:last-child {
+  left: 100%;
+}
+
+.yo-range > .track {
   overflow: hidden;
+  position: relative;
   height: 0.3rem;
   background-image: -webkit-linear-gradient(top, #ccc, #ccc);
   background-image: linear-gradient(to bottom, #ccc, #ccc);
@@ -382,16 +403,16 @@ a {
   background-size: 100% 0.02rem;
 }
 
-.yo-range > .thumb {
+.yo-range > .track > .thumb {
   position: absolute;
 }
 
-.yo-range > .thumb::before, .yo-range > .thumb::after {
+.yo-range > .track > .thumb::before, .yo-range > .track > .thumb::after {
   display: block;
   content: "\0020";
 }
 
-.yo-range > .thumb::before {
+.yo-range > .track > .thumb::before {
   position: absolute;
   top: 50%;
   right: 0;
@@ -403,15 +424,15 @@ a {
   content: "\0020";
 }
 
-.yo-range > .thumb:not(:only-child):first-child {
+.yo-range > .track > .thumb:not(:only-child):first-child {
   z-index: 1;
 }
 
-.yo-range > .thumb:not(:only-child):first-child::before {
+.yo-range > .track > .thumb:not(:only-child):first-child::before {
   background-color: #ccc;
 }
 
-.yo-range > .thumb::after {
+.yo-range > .track > .thumb::after {
   position: relative;
   margin-top: .01rem;
   width: 0.28rem;
