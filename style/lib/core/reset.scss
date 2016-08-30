@@ -20,7 +20,9 @@
 
 // 1. 隐藏页面滚动条
 ::-webkit-scrollbar {
-    display: none;
+    @if map-get($setting, is-scrollbar) == false {
+        display: none;
+    }
 }
 
 // 1. 防止用户自定义网页背景及文字颜色、大小影响

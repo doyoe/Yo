@@ -18,7 +18,9 @@ $_setting: (
     // {String} 背景图片服务器
     bgimg-domain:        "//s.qunarzz.com/yo/bgimg/",
     // {Boolean} 是否允许横竖屏时文本字号自动调整
-    is-text-size-adjust: true
+    is-text-size-adjust: true,
+    // {Boolean} 是否显示页面滚动条
+    is-scrollbar:        false
 );
 
 // responsive media types
