@@ -210,11 +210,11 @@
     $search: $_search !global;
 }
 
-// 合并variables和config中的slidermenu map
-@if global-variable-exists(slidermenu) {
-    $slidermenu: map-merge($_slidermenu, $slidermenu) !global;
+// 合并variables和config中的swipemenu map
+@if global-variable-exists(swipemenu) {
+    $swipemenu: map-merge($_swipemenu, $swipemenu) !global;
 } @else {
-    $slidermenu: $_slidermenu !global;
+    $swipemenu: $_swipemenu !global;
 }
 
 // 合并variables和config中的suggest map

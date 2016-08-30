@@ -1,13 +1,13 @@
 @charset "utf-8";
 
-// 定义slidermenu的基础构造
-@mixin _slidermenu {
+// 定义swipemenu的基础构造
+@mixin _swipemenu {
     &,
     > .item {
         position: relative;
-        // 当yo-slidermenu被应用到yo-list里时，需要重置yo-list item的flex定义
+        // 当yo-swipemenu被应用到yo-list里时，需要重置yo-list item的flex定义
         display: block !important;
-        // 清除.item的内补白，交由yo-slidermenu的子项来处理
+        // 清除.item的内补白，交由yo-swipemenu的子项来处理
         padding: 0 !important;
     }
     .front {
@@ -24,8 +24,8 @@
         bottom: 0;
         right: 0;
         overflow: hidden;
-        width: map-get($slidermenu, action-width);
-        background-color: map-get($slidermenu, action-bgcolor);
+        width: map-get($swipemenu, action-width);
+        background-color: map-get($swipemenu, action-bgcolor);
         @include flexbox;
         > .item {
             @include flex;
@@ -36,16 +36,16 @@
 
 /**
  * @module fragment
- * @method yo-slidermenu
+ * @method yo-swipemenu
  * @version 3.0.0
- * @description 构造yo-slidermenu的自定义使用方法
- * @demo http://doyoe.github.io/Yo/demo/fragment/yo-slidermenu.html
+ * @description 构造yo-swipemenu的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/fragment/yo-swipemenu.html
  * @param {String} $name 定义扩展名称 <3.0.0>
  * @param {Length} $action-width action宽度 <3.0.0>
  * @param {Color} $action-bgcolor action背景色 <3.0.0>
  */
 
-@mixin yo-slidermenu(
+@mixin yo-swipemenu(
     $name: default,
     $action-width: default,
     $action-bgcolor: default) {
@@ -53,17 +53,17 @@
     $name: if($name == default, "", "-#{$name}");
     // 如果值为default，则取config的定义
     @if $action-width == default {
-        $action-width: map-get($slidermenu, action-width);
+        $action-width: map-get($swipemenu, action-width);
     }
     @if $action-bgcolor == default {
-        $action-bgcolor: map-get($slidermenu, action-bgcolor);
+        $action-bgcolor: map-get($swipemenu, action-bgcolor);
     }
-    .yo-slidermenu#{$name} {
+    .yo-swipemenu#{$name} {
         > .action {
-            @if $action-width != map-get($slidermenu, action-width) {
+            @if $action-width != map-get($swipemenu, action-width) {
                 width: $action-width;
             }
-            @if $action-bgcolor != map-get($slidermenu, action-bgcolor) {
+            @if $action-bgcolor != map-get($swipemenu, action-bgcolor) {
                 background-color: $action-bgcolor;
             }
         }
@@ -72,7 +72,7 @@
     }
 }
 
-// 调用本文件时载入slidermenu基础构造
-.yo-slidermenu {
-    @include _slidermenu;
+// 调用本文件时载入swipemenu基础构造
+.yo-swipemenu {
+    @include _swipemenu;
 }
