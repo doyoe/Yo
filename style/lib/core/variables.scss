@@ -312,7 +312,7 @@ $_calendar: (
     // {Color} 月份bar文本色
     month-bar-color:       #000,
     // {Length} 月份bar字号
-    month-bar-font-size:   map-get($base, font-size-baseline),
+    month-bar-font-size:   null,
 
     // {Length} 每行高度
     week-height:           .54rem,
@@ -328,7 +328,7 @@ $_calendar: (
     // {Length} 每日圆角
     day-radius:            50%,
     // {Length} 每日字号
-    day-font-size:         map-get($base, font-size-baseline),
+    day-font-size:         null,
 
     // {color} 特殊日文本色
     special-color:         #f50,
@@ -344,7 +344,7 @@ $_calendar: (
     // {color} 选中日期提示语文本色
     on-tip-color:          #1ba9ba,
     // {Length} 选中日期提示语字号
-    on-tip-font-size:      map-get($base, font-size-baseline),
+    on-tip-font-size:      null,
 
     // {String} 开始日期提示语
     start-content:         "入店",
@@ -370,7 +370,7 @@ $_card: (
     // {Color} 文本色
     color:        null,
     // {Length} 字号大小
-    font-size:    map-get($base, font-size-baseline),
+    font-size:    null,
     // {Length} 头部边框厚度
     hd-border-width: 0 0 1px,
     // {Color} 头部边框色
@@ -454,7 +454,7 @@ $_header: (
     // {Color} 两侧的子项ico颜色
     item-ico-color: #7ff,
     // {Length} 两侧的子项文本大小
-    item-font-size: map-get($base, font-size-baseline),
+    item-font-size: null,
     // {Length} 两侧的子项ico大小
     item-ico-size:  .2rem
 );
@@ -486,7 +486,7 @@ $_list: (
     // {Color} 列表项组名边框色
     label-border-color:#eee,
     // {Length} 列表项字号
-    item-font-size:    map-get($base, font-size-baseline),
+    item-font-size:    null,
     // {Length} 列表组头字号
     label-font-size:   .13rem,
     // {Length} 列表项下边线距离左侧的间隙
@@ -552,7 +552,7 @@ $_proportion: (
     // {Color} 文本色
     color:         #fff,
     // {Length} 字号
-    font-size:     map-get($base, font-size-baseline),
+    font-size:     null,
     // {Color} 当前状态底色
     inner-bgcolor: red
 );
@@ -576,7 +576,7 @@ $_search: (
     // {Color} 搜索框区域底色
     bgcolor:       #eee,
     // {Length} 搜索区字号
-    font-size:     map-get($base, font-size-baseline),
+    font-size:     null,
     // {Length} 搜索框高度
     input-height:  .3rem,
     // {Length} 搜索框及搜索按钮圆角
@@ -614,7 +614,7 @@ $_suggest: (
     // {Color} 搜索区背景色
     bgcolor:          #fff,
     // {Length} 搜索区字号
-    font-size:        map-get($base, font-size-baseline),
+    font-size:        null,
     // {Length} 输入框高度
     input-height:     .3rem,
     // {Length} 输入框圆角
@@ -656,7 +656,7 @@ $_tab: (
     // {Color} tab激活文本色
     on-color:           #1ba9ba,
     // {Length} 文本大小
-    font-size:          map-get($base, font-size-baseline),
+    font-size:          null,
     // {Length} 水平ico大小
     x-ico-size:         .12rem,
     // {Length} 垂直ico大小

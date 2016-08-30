@@ -125,7 +125,7 @@
  * @description 清除行内级元素间间隙方案
  * @method killspace
  * @version 1.0.0
- * @param {Length} $font-size 指定子元素字号，默认值：config基准字号 <2.0.0>
+ * @param {Length} $font-size 指定子元素字号，默认值：.14rem <2.0.0>
  * @example
  * <div class="demo">
  *      <span class="item">1</span>
@@ -134,7 +134,7 @@
  * </div>
  * .demo {@include killspace;}
  */
-@mixin killspace($font-size: map-get($base, font-size-baseline)) {
+@mixin killspace($font-size: .14rem) {
     font-size: 0;
     font-family: arial;
     > .item {

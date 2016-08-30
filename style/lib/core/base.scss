@@ -16,14 +16,12 @@ $_base: (
     font-size-root:         100px,
     // 适配：用于做元素随屏幕大小而变化的情况
     font-size-root-scaling: 31.25vw,
-    // body的默认字体
+    // body的默认字号（文档基准字号）
     // chrome37-45/opera24-33在body上使用rem时有个bug（其他版本未测），后续版本已被修复:
     // 只要引用了外部样式，不论里面的内容是什么，body上的rem就会失效
     // 这时在开发者工具里，关闭又开启一次该条属性，则生效，刷新又挂
     // 由于body是html的子元素，所以对于body来讲，此时rem与em的效果是相同的
     font-size:            .14em,
-    // 基准字号，随root改变而变
-    font-size-baseline:   .14rem,
     // font-family
     font-family:          #{"Helvetica Neue", Helvetica, STHeiTi, sans-serif},
     // lin-height
