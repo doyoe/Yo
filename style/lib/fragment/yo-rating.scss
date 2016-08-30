@@ -2,7 +2,7 @@
 
 // 定义rating的基础构造
 @mixin _rating {
-    display: inline-flex;
+    @include flexbox(inline-flex);
     > .item {
         width: map-get($rating, item-width);
         cursor: pointer;
