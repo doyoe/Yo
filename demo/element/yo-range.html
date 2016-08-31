@@ -21,10 +21,12 @@
     <div class="flex">
         <section class="m-demo">
             <h3 class="title">单个滑块：</h3>
-        	<ul class="yo-list">
+            <ul class="yo-list">
                 <li class="item">
                     <div class="flex yo-range">
-                        <span class="thumb" style="-webkit-transform: translatex(.5rem);"></span>
+                        <div class="track">
+                            <span class="thumb" style="-webkit-transform: translatex(.5rem);"></span>
+                        </div>
                     </div>
                 </li>
             </ul>
@@ -32,7 +34,9 @@
         <section class="m-desc">
             <h3 class="title">示例描述：</h3>
             <xmp><div class="yo-range">
-    <span class="thumb"></span>
+    <div class="track">
+        <span class="thumb" style="-webkit-transform: translatex(.5rem);"></span>
+    </div>
 </div></xmp>
         </section>
 
@@ -41,8 +45,10 @@
             <ul class="yo-list">
                 <li class="item">
                     <div class="flex yo-range">
-                        <span class="thumb" style="-webkit-transform: translatex(.5rem);"></span>
-                        <span class="thumb" style="-webkit-transform: translatex(1.5rem);"></span>
+                        <div class="track">
+                            <span class="thumb" style="-webkit-transform: translatex(.5rem);"></span>
+                            <span class="thumb" style="-webkit-transform: translatex(1.5rem);"></span>
+                        </div>
                     </div>
                 </li>
             </ul>
@@ -50,10 +56,50 @@
         <section class="m-desc">
             <h3 class="title">示例描述：</h3>
             <xmp><div class="yo-range">
-    <span class="thumb"></span>
-    <span class="thumb"></span>
+    <div class="track">
+        <span class="thumb" style="-webkit-transform: translatex(.5rem);"></span>
+        <span class="thumb" style="-webkit-transform: translatex(1.5rem);"></span>
+    </div>
 </div></xmp>
         </section>
+
+        <section class="m-demo">
+            <h3 class="title">带刻度：</h3>
+            <ul class="yo-list">
+                <li class="item">
+                    <div class="flex yo-range">
+                        <ul class="scale">
+                            <li class="divide">0</li>
+                            <li class="divide" style="left: 25%;">100</li>
+                            <li class="divide" style="left: 50%;">300</li>
+                            <li class="divide" style="left: 75%;">500</li>
+                            <li class="divide">不限</li>
+                        </ul>
+                        <div class="track">
+                            <span class="thumb" style="-webkit-transform: translatex(.5rem);"></span>
+                            <span class="thumb" style="-webkit-transform: translatex(1.5rem);"></span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section class="m-desc">
+            <h3 class="title">示例描述：</h3>
+            <xmp><div class="yo-range">
+    <ul class="scale">
+        <li class="divide">0</li>
+        <li class="divide" style="left: 25%;">100</li>
+        <li class="divide" style="left: 50%;">300</li>
+        <li class="divide" style="left: 75%;">500</li>
+        <li class="divide">不限</li>
+    </ul>
+    <div class="track">
+        <span class="thumb" style="-webkit-transform: translatex(.5rem);"></span>
+        <span class="thumb" style="-webkit-transform: translatex(1.5rem);"></span>
+    </div>
+</div></xmp>
+        </section>
+
     </div>
 </div>
 
