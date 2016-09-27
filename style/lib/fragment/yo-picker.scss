@@ -2,8 +2,7 @@
 
 // 定义picker的基础构造
 @mixin _picker {
-    @include flexbox;
-    @include justify-content;
+    @include align($type: other);
     position: relative;
     overflow: hidden;
     height: map-get($picker, item-height) * map-get($picker, item);
@@ -11,6 +10,7 @@
     > .list {
         position: relative;
         @include flex;
+        @include align-self(flex-start);
         text-align: center;
         > .item {
             height: map-get($picker, item-height);
@@ -22,7 +22,7 @@
         }
     }
     > .unit {
-        margin: auto;
+        display: block;
         &:last-child {
             padding-right: .1rem;
         }
