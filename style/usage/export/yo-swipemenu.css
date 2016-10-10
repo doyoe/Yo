@@ -397,6 +397,7 @@ a {
   overflow: hidden;
   width: 1rem;
   background-color: #ccc;
+  color: #fff;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -418,6 +419,10 @@ a {
   align-items: center;
   word-wrap: break-word;
   word-break: break-all;
+}
+
+.yo-swipemenu .action > .item:first-child {
+  background-color: red;
 }
 
 .yo-list {
@@ -836,12 +841,4 @@ a {
 
 .m-demo .yo-list img {
   width: 1rem;
-}
-
-.m-demo .yo-swipemenu .action {
-  color: #fff;
-}
-
-.m-demo .yo-swipemenu .action > .item:first-child {
-  background-color: red;
 }

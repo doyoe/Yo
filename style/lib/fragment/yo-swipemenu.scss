@@ -26,10 +26,14 @@
         overflow: hidden;
         width: map-get($swipemenu, action-width);
         background-color: map-get($swipemenu, action-bgcolor);
+        color: #fff;
         @include flexbox;
         > .item {
             @include flex;
             @include align;
+            &:first-child {
+                background-color: red;
+            }
         }
     }
 }
