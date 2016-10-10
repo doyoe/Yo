@@ -390,6 +390,9 @@ a {
 }
 
 .yo-swipemenu .action {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -398,9 +401,6 @@ a {
   width: 1rem;
   background-color: #ccc;
   color: #fff;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
 }
 
 .yo-swipemenu .action > .item {

@@ -19,6 +19,7 @@
         @include transition(transform .3s);
     }
     .action {
+        @include flexbox;
         position: absolute;
         top: 0;
         bottom: 0;
@@ -26,13 +27,12 @@
         overflow: hidden;
         width: map-get($swipemenu, action-width);
         background-color: map-get($swipemenu, action-bgcolor);
-        color: #fff;
-        @include flexbox;
+        color: map-get($swipemenu, action-color);
         > .item {
             @include flex;
             @include align;
             &:first-child {
-                background-color: red;
+                background-color: map-get($swipemenu, action-first-bgcolor);
             }
         }
     }
@@ -45,14 +45,18 @@
  * @description 构造yo-swipemenu的自定义使用方法
  * @demo http://doyoe.github.io/Yo/demo/fragment/yo-swipemenu.html
  * @param {String} $name 定义扩展名称 <3.0.0>
- * @param {Length} $action-width action宽度 <3.0.0>
- * @param {Color} $action-bgcolor action背景色 <3.0.0>
+ * @param {Length} $action-width action操作区宽度 <3.0.0>
+ * @param {Color} $action-bgcolor action操作区背景色 <3.0.0>
+ * @param {Color} $action-color action操作区文本色 <3.0.0>
+ * @param {Color} $action-first-bgcolor action操作区第一个子项的背景色 <3.0.0>
  */
 
 @mixin yo-swipemenu(
     $name: default,
     $action-width: default,
-    $action-bgcolor: default) {
+    $action-bgcolor: default,
+    $action-color: default,
+    $action-first-bgcolor: default) {
     // 区别是否新增实例还是修改本身
     $name: if($name == default, "", "-#{$name}");
     // 如果值为default，则取config的定义
@@ -62,6 +66,12 @@
     @if $action-bgcolor == default {
         $action-bgcolor: map-get($swipemenu, action-bgcolor);
     }
+    @if $action-color == default {
+        $action-color: map-get($swipemenu, action-color);
+    }
+    @if $action-first-bgcolor == default {
+        $action-first-bgcolor: map-get($swipemenu, action-first-bgcolor);
+    }
     .yo-swipemenu#{$name} {
         > .action {
             @if $action-width != map-get($swipemenu, action-width) {
@@ -69,6 +79,16 @@
             }
             @if $action-bgcolor != map-get($swipemenu, action-bgcolor) {
                 background-color: $action-bgcolor;
+            }
+            @if $action-color != map-get($swipemenu, action-color) {
+                color: $action-color;
+            }
+            > .item {
+                &:first-child {
+                    @if $action-first-bgcolor != map-get($swipemenu, action-first-bgcolor) {
+                        background-color: $action-first-bgcolor;
+                    }
+                }
             }
         }
         // 增量扩展
