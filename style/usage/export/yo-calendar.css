@@ -516,21 +516,22 @@ a {
 
 .yo-calendar .day,
 .yo-calendar .special {
-  display: inline-block;
   margin: 0.05rem 0 0.02rem;
   line-height: 0.24rem;
-  vertical-align: top;
 }
 
 .yo-calendar .day {
+  display: inline-block;
   width: 0.24rem;
   height: 0.24rem;
   border-radius: 50%;
   -webkit-background-clip: padding-box !important;
   background-clip: padding-box !important;
+  vertical-align: top;
 }
 
 .yo-calendar .special {
+  display: block;
   color: #f50;
 }
 

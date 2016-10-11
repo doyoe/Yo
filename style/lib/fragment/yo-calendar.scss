@@ -72,19 +72,20 @@
     }
     .day,
     .special {
-        display: inline-block;
         margin: map-get($calendar, day-margin);
         font-size: map-get($calendar, day-font-size);
         line-height: map-get($calendar, day-height);
-        vertical-align: top;
     }
     // 每个单日定义
     .day {
+        display: inline-block;
         @include square(map-get($calendar, day-height));
         @include border-radius(map-get($calendar, day-radius));
+        vertical-align: top;
     }
     // 特殊的日子
     .special {
+        display: block;
         color: map-get($calendar, special-color);
         // 今天是特殊日子的场景
         ~ .special {
