@@ -252,11 +252,11 @@
     $toolbar: $_toolbar !global;
 }
 
-// 合并variables和config中的tooltip map
-@if global-variable-exists(tooltip) {
-    $tooltip: map-merge($_tooltip, $tooltip) !global;
+// 合并variables和config中的toast map
+@if global-variable-exists(toast) {
+    $toast: map-merge($_toast, $toast) !global;
 } @else {
-    $tooltip: $_tooltip !global;
+    $toast: $_toast !global;
 }
 
 // 合并variables和config中的vcode map

@@ -1,11 +1,11 @@
 @charset "utf-8";
-@import "../../lib/fragment/yo-tooltip";
+@import "../../lib/fragment/yo-toast";
 
 /**
- * yo-tooltip扩展
+ * yo-toast扩展
  */
 
-@include yo-tooltip {
+@include yo-toast {
     top: 50%;
     left: 50%;
     @include transform(translate(-50%, -50%));
