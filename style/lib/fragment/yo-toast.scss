@@ -11,29 +11,6 @@
     background-color: map-get($toast, bgcolor);
     color: map-get($toast, color);
     text-align: center;
-    > .arrow {
-        position: absolute;
-        content: "\0020";
-        border-width: map-get($toast, arrow-size);
-        border-style: solid;
-        border-color: transparent;
-        &-top {
-            top: -#{map-get($toast, arrow-size) * 2};
-            border-bottom-color: map-get($toast, bgcolor);
-        }
-        &-right {
-            right: -#{map-get($toast, arrow-size) * 2};
-            border-left-color: map-get($toast, bgcolor);
-        }
-        &-bottom {
-            bottom: -#{map-get($toast, arrow-size) * 2};
-            border-top-color: map-get($toast, bgcolor);
-        }
-        &-left {
-            left: -#{map-get($toast, arrow-size) * 2};
-            border-right-color: map-get($toast, bgcolor);
-        }
-    }
 }
 
 /**
@@ -47,7 +24,6 @@
  * @param {Length} $radius 圆角半径长度 <3.0.0>
  * @param {Color} $bgcolor 背景色 <3.0.0>
  * @param {Color} $color 文本色 <3.0.0>
- * @param {Length} $arrow-size 箭头大小 <3.0.0>
  */
 
 @mixin yo-toast(
@@ -55,8 +31,7 @@
     $padding: default,
     $radius: default,
     $bgcolor: default,
-    $color: default,
-    $arrow-size: default) {
+    $color: default) {
     // 区别是否新增实例还是修改本身
     $name: if($name == default, "", "-#{$name}");
     // 如果值为default，则取config的定义
@@ -72,9 +47,6 @@
     @if $color == default {
         $color: map-get($toast, color);
     }
-    @if $arrow-size == default {
-        $arrow-size: map-get($toast, arrow-size);
-    }
     .yo-toast#{$name} {
         @if $padding != map-get($toast, padding) {
             padding: $padding;
@@ -88,43 +60,7 @@
         @if $color != map-get($toast, color) {
             color: $color;
         }
-        > .arrow {
-            @if $arrow-size != map-get($toast, arrow-size) {
-                border-width: $arrow-size;
-            }
-            &-top {
-                @if $arrow-size != map-get($toast, arrow-size) {
-                    top: -#{$arrow-size * 2};
-                }
-                @if $bgcolor != map-get($toast, bgcolor) {
-                    border-bottom-color: $bgcolor;
-                }
-            }
-            &-right {
-                @if $arrow-size != map-get($toast, arrow-size) {
-                    right: -#{$arrow-size * 2};
-                }
-                @if $bgcolor != map-get($toast, bgcolor) {
-                    border-left-color: $bgcolor;
-                }
-            }
-            &-bottom {
-                @if $arrow-size != map-get($toast, arrow-size) {
-                    bottom: -#{$arrow-size * 2};
-                }
-                @if $bgcolor != map-get($toast, bgcolor) {
-                    border-top-color: $bgcolor;
-                }
-            }
-            &-left {
-                @if $arrow-size != map-get($toast, arrow-size) {
-                    left: -#{$arrow-size * 2};
-                }
-                @if $bgcolor != map-get($toast, bgcolor) {
-                    border-right-color: $bgcolor;
-                }
-            }
-        }
+
         // 增量扩展
         @content;
     }
