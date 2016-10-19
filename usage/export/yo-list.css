@@ -407,12 +407,13 @@ a {
 
 .yo-switch > .track::after {
   position: absolute;
-  left: .15rem;
+  top: .01rem;
+  right: .01rem;
+  bottom: .01rem;
+  left: .01rem;
   content: "\0020";
-  width: .34rem;
-  height: .28rem;
   background-color: #fafafa;
-  border-radius: 0 .15rem .15rem 0;
+  border-radius: .16rem;
   -webkit-transition: -webkit-transform 0.13s ease-out;
   transition: transform 0.13s ease-out;
 }

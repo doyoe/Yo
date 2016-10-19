@@ -1,3 +1,10 @@
+## v2.1.5（2016.10.19）
+
+[Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v2.1.5)
+
+### 修复
+* fix `yo-switch` 中 `跟随色块区域` 的尺寸和圆角问题；
+
 ## v2.1.4（2016.8.29）
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v2.1.4)
