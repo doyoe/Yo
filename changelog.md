@@ -5,6 +5,9 @@
 ### 修复
 * fix `yo-switch` 中 `跟随色块区域` 的尺寸和圆角问题；
 
+### 新增：
+* `yo-slidermenu` 新增向右滑动的类 `.action-right`；
+
 ## v2.1.4（2016.8.29）
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v2.1.4)
