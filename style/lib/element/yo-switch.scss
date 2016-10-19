@@ -17,24 +17,25 @@
         background-color: map-get($switch, bgcolor);
         vertical-align: middle;
         > .handle {
-            position: absolute;
-            z-index: 1000;
-            top: 1px;
-            left: 1px;
+             position: absolute;
+            z-index: 1;
+            top: .01rem;
+            left: .01rem;
             @include square(.28rem);
-            border-radius: .14rem;
+            border-radius: 50%;
             background-color: map-get($switch, thumb-color);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, .3);
+            box-shadow: 0 .01rem .03rem rgba(0, 0, 0, .3);
             @include transition(transform .1s ease-out);
         }
         &::after {
             position: absolute;
-            left: .15rem;
+            top: .01rem;
+            right: .01rem;
+            bottom: .01rem;
+            left: .01rem;
             content: "\0020";
-            width: .34rem;
-            height: .28rem;
             background-color: map-get($switch, follow-bgcolor);
-            border-radius: 0 .15rem .15rem 0;
+            border-radius: .16rem;
             @include transition(transform .13s ease-out);
         }
     }
