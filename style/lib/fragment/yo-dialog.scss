@@ -39,7 +39,6 @@
         }
     }
     > .bd {
-        @include flex(1, column);
         @include overflow;
         min-height: .4rem;
         padding: map-get($dialog, bd-padding);
