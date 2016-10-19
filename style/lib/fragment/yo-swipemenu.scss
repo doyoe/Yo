@@ -22,12 +22,16 @@
         @include flexbox;
         position: absolute;
         top: 0;
-        bottom: 0;
         right: 0;
+        bottom: 0;
         overflow: hidden;
         width: map-get($swipemenu, action-width);
         background-color: map-get($swipemenu, action-bgcolor);
         color: map-get($swipemenu, action-color);
+        &-start {
+            right: auto;
+            left: 0;
+        }
         > .item {
             @include flex;
             @include align;

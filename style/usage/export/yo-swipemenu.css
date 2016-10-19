@@ -395,12 +395,17 @@ a {
   display: flex;
   position: absolute;
   top: 0;
-  bottom: 0;
   right: 0;
+  bottom: 0;
   overflow: hidden;
   width: 1rem;
   background-color: #ccc;
   color: #fff;
+}
+
+.yo-swipemenu .action-start {
+  right: auto;
+  left: 0;
 }
 
 .yo-swipemenu .action > .item {
