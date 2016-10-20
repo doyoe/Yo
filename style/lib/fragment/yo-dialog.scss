@@ -5,7 +5,6 @@
 @mixin _dialog {
     @include flexbox;
     @include flex-direction(column);
-    position: fixed;
     overflow: hidden;
     z-index: map-get($z-index, dialog);
     padding-top: .15rem;
@@ -13,6 +12,7 @@
     max-width: 90%;
     width: map-get($dialog, width);
     height: map-get($dialog, height);
+    margin: auto;
     border-radius: map-get($dialog, radius);
     background-color: #fff;
     text-align: center;

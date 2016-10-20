@@ -79,7 +79,7 @@ $_z-index: (
     // {Number} 下拉菜单层级范围50-100
     dropdown:    50,
     // {Number} 遮罩层级
-    mask:        1000,
+    mask:        null,
     // {Number} 弹窗层级范围1001-1500
     dialog:      1001,
     // {Number} 浮层层级范围1501-2000
@@ -89,7 +89,7 @@ $_z-index: (
     // {Number} 搜索层级范围2501-3000
     actionsheet: 2501,
     // {Number} 浮层层级范围3001-3500
-    toast:     3001,
+    toast:       3001,
     // {Number} loading层级
     loading:     9999
 );
