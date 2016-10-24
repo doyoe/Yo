@@ -44,6 +44,7 @@
     }
     .day,
     .special {
+        pointer-events: none;
         margin: map-get($calendar, day-margin);
         font-size: map-get($calendar, day-font-size);
         line-height: map-get($calendar, day-height);
