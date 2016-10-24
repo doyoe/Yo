@@ -11,8 +11,6 @@
     text-align: center;
     // 星期一，二...条（bar）
     > .week-bar {
-        position: relative;
-        z-index: 2;
         height: map-get($calendar, week-bar-height);
         line-height: map-get($calendar, week-bar-height);
         background-color: map-get($calendar, week-bar-bgcolor);
