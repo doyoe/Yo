@@ -1,3 +1,448 @@
+@charset "UTF-8";
+/**
+ * Yo框架全局base定义
+ * 本文件与variables不同地方在于，这里所定义的map可以使用在variables和任何地方
+ * lib中map使用“_”开头，本文件中不使用"_"
+ * base ⇌ extra
+ */
+/**
+ * Yo框架全局base定义
+ * 本文件与variables不同地方在于，这里所定义的map可以使用在variables和任何地方
+ * 本文件中map使用"_"开头，extra中不使用"_"
+ * base ⇌ extra
+ */
+/**
+ * 合并base和extra中的同类base map
+ * 用以解决业务方升级Yo时需比base和extra的一致性
+ * 当extra为空时，base map将以base文件里的定义作为默认值
+ * 当extra不为空时，base map使用extra文件里的定义
+ */
+/**
+ * Yo框架全局Variables
+ * Yo基础变量map，如果不想定义某属性，将其value设置为null；
+ * Yo仅使用2种长度单位：px用于边框，rem用于除边框之外的所有地方
+ * variables中map使用“_”开头，本文件中不使用"_"
+ * variables ⇌ config
+ */
+/**
+ * Yo框架全局Variables
+ * Yo基础变量map，如果不想定义某属性，将其value设置为null
+ * Yo仅使用2种长度单位：px用于边框，rem用于除边框之外的所有地方
+ * 本文件中map使用"_"开头，config中不使用"_"
+ * variables ⇌ config
+ */
+/**
+ * 合并variables和config中的同类map
+ * 用以解决业务方升级Yo时需比config和variables的一致性
+ * 当config为空时，使用variables中的map作为默认值
+ * 当config不为空时，使用config中的定义
+ */
+/**
+ * Yo框架自定义全局函数
+ * 扩充Sass默认函数库，用以增强语法
+ */
+/**
+ * @module List扩展函数
+ * @description 返回SassList中的第一项
+ * @function first
+ * @version 2.1.0
+ * @param {String} $list 指定一个Sass List <2.1.0>
+ */
+/**
+ * @module List扩展函数
+ * @description 返回SassList中的最后一项
+ * @function last
+ * @version 2.1.0
+ * @param {String} $list 指定一个Sass List <2.1.0>
+ */
+/**
+ * @module List扩展函数
+ * @description 返回SassList中的倒数第几项
+ * @function nth-last
+ * @version 2.1.0
+ * @param {String} $list 指定一个Sass List <2.1.0>
+ * @param {Integer} $index 指定需要返回的值在list中的倒数位置 <2.1.0>
+ */
+/**
+ * @module List扩展函数
+ * @description 移除SassList中的某个项目并返回新的List
+ * @function remove
+ * @version 2.1.0
+ * @param {String} $list 指定一个Sass List <2.1.0>
+ * @param {String} $value 指定需要被删除的值 <2.1.0>
+ */
+/**
+ * @module List扩展函数
+ * @description 截取SassList中的某个部分并返回新的List
+ * @function slice
+ * @version 2.1.0
+ * @param {String} $list 指定一个Sass List <2.1.0>
+ * @param {Integer} $start 指定需要截取的开始下标 <2.1.0>
+ * @param {Integer} $end 指定需要截取的结束下标（不包括end），当该值缺省时默认为末尾下标 <2.1.0>
+ */
+/**
+ * @module List扩展函数
+ * @description 从SassList中添加/删除项目，然后返回新的List。
+ * @function splice
+ * @version 2.1.0
+ * @param {String} $list 指定一个Sass List <2.1.0>
+ * @param {Integer} $index 指定需要移除的开始下标 <2.1.0>
+ * @param {Integer} $count 指定需要移除的数量，不可以为负值，0表示不移除 <2.1.0>
+ * @param {String} $values 指定需要添加的新值（可以是多个），如果该值缺省，则表示只移除不添加新值 <2.1.0>
+ */
+/**
+ * Yo框架全局基础方法
+ * 包括响应式方案，CSS3兼容性方案，厂商前缀方案，iconfont方案，flex布局等全局方法
+ */
+/**
+ * @module 功能
+ * @description 给需要的属性加厂家前缀
+ * @method _prefix
+ * @version 1.0.0
+ * @param {String} $property 指定属性 <1.0.0>
+ * @param {String} $value 指定属性值 <1.0.0>
+ * @skip
+ */
+/**
+ * @module 功能
+ * @description 定义字体图标
+ * @method _yofont
+ * @version 1.0.0
+ * @skip
+ */
+/**
+ * @module 功能
+ * @description 四则运算(iOS6.0+,Android4.4+)
+ * @method calc
+ * @version 1.7.0
+ * @param {String} $property 指定需要进行计算的CSS属性 <1.7.0>
+ * @param {String} $value 与原生CSS语法一致，区别在于需要使用引号包裹表达式 <1.7.0>
+ * @example <div class="calc">四则运算</div>
+ * .calc { @include calc(width, "100% - 100px"); }
+ */
+/**
+ * @module 功能
+ * @description 定义响应式方案
+ * @method responsive
+ * @version 1.0.0
+ * @param {String} $media 指定媒体查询条件，取值为`config`文件map `media-types`中的值 <1.0.0>
+ */
+/**
+ * @module 功能
+ * @description 清除浮动方案
+ * @method clearfix
+ * @version 1.0.0
+ * @param {String} $type 指定清除浮动的方式，包括：pseudo-element | bfc，默认值：pseudo-element <1.8.5>
+ */
+/**
+ * @module 功能
+ * @description 清除行内级元素间间隙方案
+ * @method killspace
+ * @version 1.0.0
+ * @param {Length} $font-size 指定子元素字号，默认值：.14rem <2.0.0>
+ * @example
+ * <div class="demo">
+ *      <span class="item">1</span>
+ *      <span class="item">2</span>
+ *      <span class="item">3</span>
+ * </div>
+ * .demo {@include killspace;}
+ */
+/**
+ * @module 功能
+ * @description 元素在包含块中的对齐方式，默认为水平垂直对齐
+ * @method align
+ * @version 2.0.0
+ * @param {String} $flexbox 指定包含块布局方式，可选值：flex | inline-flex，默认值：flex <2.0.0>
+ * @param {String} $type 指定居中元素类型，可选值：image | text | other，默认值：text <2.0.0>
+ * @param {Keywords} $justify-content 指定元素水平对齐方式，取值与`justify-content`属性一致，默认值：center <2.0.0>
+ * @param {Keywords} $align-items 指定元素垂直对齐方式，取值与`align-items`属性一致，默认值：center <2.0.0>
+ * @example
+ * <div class="demo">
+ *      <img class="item" alt="未知尺寸图片居中" />
+ * </div>
+ * .demo {@include align;}
+ */
+/**
+ * @module 功能
+ * @description 定义文档根节点是否允许滚动
+ * @method root-scroll
+ * @version 1.4.0
+ * @param {Boolean} $is-scroll 指定是否有滚动，默认值：false <1.8.6>
+ */
+/**
+ * @module 功能
+ * @description 定义是否有滚动条
+ * @method overflow
+ * @version 1.0.0
+ * @param {String} $overflow 取值与最新原生语法一致，默认值：auto <1.0.0>
+ */
+/**
+ * @module 功能
+ * @description 生成全屏方法
+ * @method fullscreen
+ * @version 1.7.0
+ * @param {Integer} $z-index 指定层叠级别 <1.7.0>
+ * @param {Keywords} $position 指定定位方式，取除`static | relative`之外的值，默认值：absolute <1.8.5>
+ */
+/**
+ * @module 用户界面
+ * @description 定义使用何种滤镜
+ * @method filter
+ * @version 1.7.0
+ * @param {String} $filter 取值与`filter`属性一致 <1.7.0>
+ */
+/**
+ * @module 用户界面
+ * @description 定义UA默认外观
+ * @method appearance
+ * @version 1.0.0
+ * @param {String} $appearance 取值与`appearance`属性一致，默认值：none <1.0.0>
+ */
+/**
+ * @module 用户界面
+ * @description 定义如何选中内容
+ * @method user-select
+ * @version 1.0.0
+ * @param {String} $user-select 取值与`user-select`属性一致，默认值：none <1.0.0>
+ */
+/**
+ * @module 用户界面
+ * @description 定义盒模型
+ * @method box-sizing
+ * @version 1.0.0
+ * @param {String} $box-sizing 指定盒模型类型，取值与`box-sizing`属性一致，默认值：border-box <1.0.0>
+ */
+/**
+ * @module 背景与边框
+ * @description 定义渐变色值
+ * @method gradient
+ * @version 1.0.0
+ * @param {String} $type 指定渐变的4种类型：linear, repeating-linear, radial, repeating-radial <1.0.0>
+ * @param {String} $dir 指定渐变方向，可选值：[left | right] || [top | bottom] | angle <2.0.0>
+ * @param {String} $gradient 指定渐变取值，与w3c最新原生语法一致 <1.0.0>
+ */
+/**
+ * @module 背景与边框
+ * @description 定义背景图像缩放（AndroidBrowser2.3.*还需要厂商前缀）
+ * @method background-size
+ * @version 1.4.0
+ * @param {Keywords | Length} $background-size 指定背景图缩放值，取值与`background-size`属性一致 <1.4.0>
+ */
+/**
+ * @module 背景与边框
+ * @description 定义背景裁减（AndroidBrowser2.3.*还需要厂商前缀）
+ * @method background-clip
+ * @version 1.6.0
+ * @param {Keywords} $background-clip 指定背景图缩放值，取值与`background-clip`属性一致 <1.6.0>
+ */
+/**
+ * @module 背景与边框
+ * @description 定义背景显示区域（AndroidBrowser2.3.*还需要厂商前缀）
+ * @method background-origin
+ * @version 1.6.0
+ * @param {Keywords} $background-origin 指定背景图`background-position`属性计算相对的参考点，取值与`background-origin`属性一致 <1.6.0>
+ */
+/**
+ * @module 背景与边框
+ * @description 定义圆角，用于修复某些安卓机型上“圆角+边框+背景”，背景溢出的情况
+ * @method border-radius
+ * @version 1.6.0
+ * @param {Length} $border-radius 指定元素的圆角半径，取值与`border-radius`属性一致 <1.6.0>
+ */
+/**
+ * @module 背景与边框
+ * @description 为元素添加边框（包括1px边框）
+ * @method border
+ * @version 2.0.0
+ * @param {String} $border-width 指定边框厚度（单位为px），默认值：1px，取值与`border-width`属性一致，不同方向代表边框位置 <2.0.0>
+ * @param {String} $border-color 指定边框颜色 <2.0.0>
+ * @param {String} $border-style 指定边框样式 <2.0.0>
+ * @param {String} $radius 指定边框圆角半径，默认值：null <2.0.0>
+ */
+/**
+ * @module Transform
+ * @description 定义简单变换
+ * @method transform
+ * @version 1.0.0
+ * @param {String} $transform 取值范围与`transform`属性一致 <1.0.0>
+ */
+/**
+ * @module Transform
+ * @description 定义变换原点
+ * @method transform-origin
+ * @version 1.0.0
+ * @param {Length | Percentage | Keywords} $transform-origin 取值范围与`transform-origin`属性一致 <1.0.0>
+ */
+/**
+ * @module Transform
+ * @description 指定某元素的子元素是（看起来）位于三维空间内，还是在该元素所在的平面内被扁平化
+ * @method transform-style
+ * @version 2.0.0
+ * @param {String} $transform-style 取值范围与`transform-style`属性一致 <2.0.0>
+ */
+/**
+ * @module Transform
+ * @description 指定观察者与「z=0」平面的距离，使具有三维位置变换的元素产生透视效果。「z>0」的三维元素比正常大，而「z<0」时则比正常小，大小程度由该属性的值决定。
+ * @method perspective
+ * @version 2.0.0
+ * @param {none | Length} $perspective 取值范围与`perspective`属性一致 <2.0.0>
+ */
+/**
+ * @module Transform
+ * @description 指定透视点的位置
+ * @method perspective-origin
+ * @version 2.0.0
+ * @param {Length | Percentage | Keywords} $perspective-origin 取值范围与`perspective-origin`属性一致 <2.0.0>
+ */
+/**
+ * @module Transform
+ * @description 指定元素背面面向用户时是否可见
+ * @method backface-visibility
+ * @version 2.0.0
+ * @param {Keywords} $backface-visibility 取值范围与`backface-visibility`属性一致 <2.0.0>
+ */
+/**
+ * @module Animation
+ * @description 定义动画
+ * @method animation
+ * @version 1.0.0
+ * @param {String} $animation 取值与原生语法一致 <1.0.0>
+ */
+/**
+ * @module Transition
+ * @description 定义补间
+ * @method transition
+ * @version 1.0.0
+ * @param {String} $transition 取值与原生语法一致 <1.0.0>
+ */
+/**
+ * @module Flexbox
+ * @description 定义显示类型为伸缩盒
+ * @method flexbox
+ * @version 1.0.0
+ * @param {String} $flexbox 默认值：flex，可选值：flex | inline-flex <1.0.0>
+ */
+/**
+ * @module Flexbox
+ * @description 定义伸缩盒子元素如何分配空间
+ * @method flex
+ * @version 1.0.0
+ * @param {Number} $flex 取值与`flex`属性一致，默认值：1 <1.0.0>
+ * @param {String} $direction 默认值: row，可选值：row | column <1.5.0>
+ */
+/**
+ * @module Flexbox
+ * @description 定义伸缩盒子元素的排版顺序
+ * @method order
+ * @version 1.0.0
+ * @param {Integer} $order 取值与`order`属性一致，默认值：1 <1.0.0>
+ */
+/**
+ * @module Flexbox
+ * @description 定义弹性盒子元素流动方向及遇见边界时是否换行(iOS7.0+,Android4.4+)
+ * @method flex-flow
+ * @version 2.0.0
+ * @param {String} $flex-flow 取值与`flex-flow`属性一致，默认值：row nowrap <2.0.0>
+ */
+/**
+ * @module Flexbox
+ * @description 定义伸缩盒子元素的流动方向
+ * @method flex-direction
+ * @version 1.0.0
+ * @param {String} $flex-direction 取值与`flex-direction`属性一致，默认值：row <1.0.0>
+ */
+/**
+ * @module Flexbox
+ * @description 定义弹性盒子元素溢出后排版(iOS7.0+,Android4.4+)
+ * @method flex-wrap
+ * @version 1.0.0
+ * @param {String} $flex-wrap 取值与`flex-wrap`属性一致，默认值：nowrap <1.0.0>
+ */
+/**
+ * @module Flexbox
+ * @description 定义弹性容器主轴对齐方式(其中`space-around`值需要iOS7.0+,Android4.4+)
+ * @method justify-content
+ * @version 1.0.0
+ * @param {String} $justify-content 取值与`justify-content`属性一致，默认值：center <1.0.0>
+ */
+/**
+ * @module Flexbox
+ * @description 定义多行弹性容器侧轴对齐方式(iOS7.0+,Android4.4+)
+ * @method align-content
+ * @version 1.8.5
+ * @param {String} $align-content 取值与`align-content`属性一致，默认值：center <1.8.5>
+ */
+/**
+ * @module Flexbox
+ * @description 定义单行弹性容器侧轴对齐方式
+ * @method align-items
+ * @version 1.0.0
+ * @param {String} $align-items 取值与`align-items`属性一致，默认值：center <1.0.0>
+ */
+/**
+ * @module Flexbox
+ * @description 定义弹性容器中子元素自身的在侧轴对齐方式(iOS7.0+,Android4.4+)
+ * @method align-self
+ * @version 1.0.0
+ * @param {String} $align-self 取值与`align-self`属性一致，默认值：center <1.0.0>
+ */
+/**
+ * @module 形状
+ * @description 生成矩形方法
+ * @method rect
+ * @version 1.0.0
+ * @param {Length} $width 定义矩形的长度 <1.0.0>
+ * @param {Length} $height 定义矩形的高度 <1.0.0>
+ */
+/**
+ * @module 形状
+ * @description 生成正方形方法
+ * @method square
+ * @version 1.0.0
+ * @param {Length} $size 定义正方形的边长 <1.0.0>
+ */
+/**
+ * @module 形状
+ * @description 生成圆形方法
+ * @method circle
+ * @version 1.0.0
+ * @param {Length} $size 定义圆的半径长度 <1.0.0>
+ * @param {Length} $radius 定义圆的圆角半径长度 <1.0.0>
+ */
+/**
+ * @module 文本
+ * @description 链接处理方法
+ * @method link
+ * @version 1.0.0
+ * @param {Color} $color 定义链接颜色 <1.0.0>
+ */
+/**
+ * @module 文本
+ * @description 文本碰到边界是否换行
+ * @method wrap
+ * @version 1.0.0
+ * @param {Boolean} $is-wrap 定义文本是否换行，默认值：true <2.0.0>
+ */
+/**
+ * @module 文本
+ * @description 单行文本溢出时显示省略号
+ * @method ellipsis
+ * @version 1.0.0
+ * @param {Length} $width 定义容器的宽度，默认值：null <2.0.0>
+ * @param {Integer} $line-clamp 定义需要显示的行数，默认值：1（即使用单行溢出的处理方案），需要注意的是本参数只支持webkit内核 <2.1.2>
+ */
+/**
+ * @module 文本
+ * @description 文字隐藏方案
+ * @method texthide
+ * @version 1.0.0
+ * @param {Length} $width 定义容器的宽度，默认值：null <2.0.0>
+ */
+/**
+ * Yo框架全局Reset
+ * Yo重置Mobile及高级浏览器上常见的差异
+ */
 *,
 ::before,
 ::after {
@@ -235,6 +680,15 @@ a {
   vertical-align: middle;
 }
 
+/**
+ * @module layout
+ * @method yo-flex
+ * @version 3.0.0
+ * @description 构造弹性布局使用方法，可以是横向和纵向
+ * @demo http://doyoe.github.io/Yo/demo/layout/yo-flex.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {String} $direction 指定是水平或者垂直布局 <3.0.0>
+ */
 .yo-flex {
   height: 100%;
 }
@@ -276,6 +730,29 @@ a {
   left: 0;
 }
 
+/**
+ * yo-flex扩展
+ */
+/**
+ * @module fragment
+ * @method yo-header
+ * @version 3.0.0
+ * @description 构造头的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/fragment/yo-header.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Length} $height 高度 <3.0.0>
+ * @param {Length} $item-width 两侧子项操作区宽度 <3.0.0>
+ * @param {Length} $item-space 两侧子项离边界的间隙 <3.0.0>
+ * @param {Length} $border-width 边框厚度 <3.0.0>
+ * @param {Color} $border-color 边框色 <3.0.0>
+ * @param {Color} $bgcolor 背景色 <3.0.0>
+ * @param {Color} $color 文本色 <3.0.0>
+ * @param {Length} $font-size 字号大小 <3.0.0>
+ * @param {Color} $item-color 两侧子项操作区文本色 <3.0.0>
+ * @param {Color} $item-ico-color 两侧子项操作区ico色 <3.0.0>
+ * @param {Length} $item-font-size 两侧子项操作区字号大小 <3.0.0>
+ * @param {Length} $item-ico-size 两侧子项操作区ico大小 <3.0.0>
+ */
 .yo-header {
   position: relative;
   height: 0.44rem;
@@ -371,6 +848,10 @@ a {
   text-align: right;
 }
 
+/**
+ * Yo框架动画解决方案
+ * Yo内置了超过60种动画形态，不同的动画可以任意组合
+ */
 .ani {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
@@ -383,6 +864,11 @@ a {
   animation-iteration-count: infinite;
 }
 
+/**
+ * @module rotate
+ * @description 定义旋转动画
+ * @method rotate
+ */
 @-webkit-keyframes rotate {
   from {
     -webkit-transform: rotatez(0);
@@ -406,6 +892,17 @@ a {
   animation-name: rotate;
 }
 
+/**
+ * @module element
+ * @method yo-loadtip
+ * @version 3.0.0
+ * @description 构造加载提示的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/element/yo-loadtip.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Color} $color 文本色 <3.0.0>
+ * @param {Length} $font-size 字号大小 <3.0.0>
+ * @param {Color} $ico-color ico颜色 <3.0.0>
+ */
 .yo-loadtip {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -446,6 +943,34 @@ a {
   font-size: .12rem;
 }
 
+/**
+ * yo-loadtip扩展
+ */
+/**
+ * @module fragment
+ * @method yo-list
+ * @version 3.0.0
+ * @description 构造列表的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/fragment/yo-list.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Length} $margin 外边距 <3.0.0>
+ * @param {Length} $radius 圆角半径长度 <3.0.0>
+ * @param {Length} $border-width 外边框厚度 <3.0.0>
+ * @param {Color} $border-color 边框色 <3.0.0>
+ * @param {Length} $item-padding 子项的内补白 <3.0.0>
+ * @param {Length} $label-padding 列表组头内补白 <3.0.0>
+ * @param {Color} $label-bgcolor 列表组头背景色 <3.0.0>
+ * @param {Color} $active-bgcolor 子项点击反馈背景色 <3.0.0>
+ * @param {Color} $on-bgcolor 子项选中背景色 <3.0.0>
+ * @param {Color} $on-color 子项选中文本色 <3.0.0>
+ * @param {Color} $item-border-color 子项边框色 <3.0.0>
+ * @param {Color} $label-border-color 列表组头边框色 <3.0.0>
+ * @param {Length} $item-font-size 子项字号 <3.0.0>
+ * @param {Length} $label-font-size 列表组头字号 <3.0.0>
+ * @param {Length} $item-border-space 子项边线左侧偏移量 <3.0.0>
+ * @param {Length} $more-font-size 更多区域字号 <3.0.0>
+ * @param {Color} $more-color 更多区域文本色 <3.0.0>
+ */
 .yo-list {
   position: relative;
 }
@@ -693,6 +1218,9 @@ a {
   padding: 0.11rem 0.1rem 0.12rem;
 }
 
+/**
+ * yo-list扩展
+ */
 .yo-list-inset {
   margin: 0.2rem 0.1rem 0 0.1rem;
   border-radius: 0.2rem;
@@ -814,6 +1342,11 @@ a {
   height: 0.6rem;
 }
 
+/**
+ * module: m-desc
+ * Author: joy.du(飘零雾雨)
+ * Time: 2015.6.17
+ */
 .m-desc {
   margin: .3rem .1rem;
   padding-bottom: .05rem;

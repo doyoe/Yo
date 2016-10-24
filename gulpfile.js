@@ -10,7 +10,6 @@ var connect = require('gulp-connect');
 var through = require('through2');
 var optimist = require('optimist');
 var ydoc = require('ydoc');
-var combineScss = require('./gulp/combineScss.js');
 var versions = require('./gulp/versions.js');
 var hanlders = require('./gulp/hanlders.js');
 
@@ -25,9 +24,12 @@ var compilers = {
             .pipe(plumber({
                 errorHandler: hanlders.error
             }))
-            .pipe(through.obj(combineScss))
             .pipe(nodeSass({
-                outputStyle: 'expanded'
+                outputStyle: 'expanded',
+                importer: require('node-sass-import-once'),
+                importerOnce: {
+                    css: true
+                }
             }))
             .pipe(gulp.dest(cssPath))
             .on('end', hanlders.end);
@@ -77,17 +79,22 @@ gulp.task('version', function() {
 
 // 命令: gulp doc, 生成文档
 gulp.task('doc', function() {
+    var conf = {
+        dest: 'doc'
+    };
+    if (fs.existsSync(path.join(__dirname, 'template'))) {
+        conf.template = './template';
+    }
     return gulp.src('./style/')
-        .pipe(ydoc({
-            dest: 'doc',
-            template: './gulp/ydoc_template/'
-        }));
+        .pipe(ydoc(conf));
 });
 
 // 命令: gulp uedoc, 生成UED文档
 gulp.task('uedoc', function() {
-    var conf = require('./gulp/uedocConfig.js');
+    var conf = JSON.parse(fs.readFileSync(path.join(__dirname, 'ydoc.config'), 'UTF-8'));
     conf.dest = 'uedoc';
+    conf.common.home = 'HY';
+    conf.common.homeUrl = "http://ued.qunar.com/hy/"
     return gulp.src('./style/')
         .pipe(ydoc(conf));
 });
