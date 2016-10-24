@@ -32,10 +32,8 @@
     @include yo-list(
         $item-padding: 0,
         $item-border-space: 0
-
     );
-
-    // 日期每行
+    // 每周
     .week {
         height: map-get($calendar, week-height);
         color: map-get($calendar, week-color);
@@ -46,14 +44,14 @@
         font-size: map-get($calendar, day-font-size);
         line-height: map-get($calendar, day-height);
     }
-    // 每个单日定义
+    // 每个单日
     .day {
         display: inline-block;
         @include square(map-get($calendar, day-height));
         @include border-radius(map-get($calendar, day-radius));
         vertical-align: top;
     }
-    // 特殊的日子
+    // 每个特殊的单日
     .special {
         display: block;
         color: map-get($calendar, special-color);
@@ -83,7 +81,6 @@
     .start,
     .end {
         > .day {
-            display: inline-block;
             background-color: map-get($calendar, on-bgcolor);
             color: map-get($calendar, on-color);
         }
@@ -223,50 +220,13 @@
                 font-size: $week-bar-font-size;
             }
         }
-        .month-bar,
-        .sticky-bar {
-            &::after {
-                @if $month-bar-border-color != map-get($calendar, month-bar-border-color) {
-                    border-color: $month-bar-border-color;
-                }
-            }
-        }
-        // 月份bar
-        .month-bar {
-            @if $month-bar-height != map-get($calendar, month-bar-height) {
-                height: $month-bar-height;
-                line-height: $month-bar-height;
-            }
-            @if $month-bar-bgcolor != map-get($calendar, month-bar-bgcolor) {
-                background-color: $month-bar-bgcolor;
-            }
-            @if $month-bar-color != map-get($calendar, month-bar-color) {
-                color: $month-bar-color;
-            }
-            @if $month-bar-font-size != map-get($calendar, month-bar-font-size) {
-                font-size: $month-bar-font-size;
-            }
-        }
-        // 吸顶月份bar
-        > .sticky-bar {
-            @if $month-bar-height != map-get($calendar, month-bar-height) {
-                top: $month-bar-height;
-            }
-        }
-        // 日期每行
+        // 每周
         .week {
-            &::after {
-                @if $week-border-color != map-get($calendar, week-border-color) {
-                    border-color: $week-border-color;
-                }
+            @if $week-height != map-get($calendar, week-height) {
+                height: $week-height;
             }
             @if $week-color != map-get($calendar, week-color) {
                 color: $week-color;
-            }
-            > li {
-                @if $week-height != map-get($calendar, week-height) {
-                    height: $week-height;
-                }
             }
         }
         .day,
@@ -281,7 +241,7 @@
                 line-height: $height;
             }
         }
-        // 每个单日定义
+        // 每个单日
         .day {
             @if $day-height != map-get($calendar, day-height) {
                 @include square($day-height);
@@ -290,7 +250,7 @@
                 border-radius: $day-radius;
             }
         }
-        // 特殊的日子
+        // 每个特殊的单日
         .special {
             @if $special-color != map-get($calendar, special-color) {
                 color: $special-color;
@@ -322,23 +282,13 @@
                     color: $on-color;
                 }
             }
-            &::after {
+            > .tip {
                 @if $on-tip-color != map-get($calendar, on-tip-color) {
                     color: $on-tip-color;
                 }
                 @if $on-tip-font-size != map-get($calendar, on-tip-font-size) {
                     font-size: $on-tip-font-size;
                 }
-            }
-        }
-        .start::after {
-            @if $start-content != map-get($calendar, start-content) {
-                content: $start-content;
-            }
-        }
-        .end::after {
-            @if $end-content != map-get($calendar, end-content) {
-                content: $end-content;
             }
         }
         .range {
