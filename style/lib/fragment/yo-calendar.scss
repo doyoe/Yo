@@ -32,7 +32,11 @@
     @include yo-list(
         $item-padding: 0,
         $item-border-space: 0
-    );
+    ) {
+        > .label {
+            display: block;
+        }
+    }
     // 每周
     .week {
         height: map-get($calendar, week-height);
