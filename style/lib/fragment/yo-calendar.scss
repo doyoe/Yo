@@ -239,10 +239,10 @@
                 margin: $day-margin;
             }
             @if $day-font-size != map-get($calendar, day-font-size) {
-                font-size: $font-size;
+                font-size: $day-font-size;
             }
             @if $day-height != map-get($calendar, day-height) {
-                line-height: $height;
+                line-height: $day-height;
             }
         }
         // 每个单日
