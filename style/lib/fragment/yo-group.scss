@@ -8,11 +8,6 @@
     bottom: 0;
     left: 0;
     overflow: hidden;
-    > .sticky,
-    > .index {
-        position: absolute;
-        right: 0;
-    }
     > .sticky {
         z-index: 1;
         top: 0;
@@ -20,6 +15,11 @@
         padding: map-get($list, label-padding);
         background-color: map-get($list, label-bgcolor);
         color: map-get($base, sub-color);
+        font-size: map-get($list, label-font-size);
+        @include border(
+            $border-width: 0 0 1px,
+            $border-color: map-get($list, label-bgcolor)
+        );
     }
     > .index {
         z-index: 1000;
@@ -37,6 +37,11 @@
             border-radius: 50%;
             background-color: map-get($group, index-color);
         }
+    }
+    > .sticky,
+    > .index {
+        position: absolute;
+        right: 0;
     }
     .no-data {
         @include align;

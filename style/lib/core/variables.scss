@@ -292,7 +292,7 @@ $_breadcrumb: (
     item-space:     .05rem
 );
 
-// Fragment calendar(24)
+// Fragment calendar(19)
 $_calendar: (
     // {Length} 星期bar高度
     week-bar-height:      .22rem,
@@ -303,21 +303,8 @@ $_calendar: (
     // {Length} 星期bar字号
     week-bar-font-size:   .12rem,
 
-    // {Length} 月份bar高度
-    month-bar-height:     .25rem,
-    // {Color} 月份bar边线色
-    month-bar-border-color:#ddd,
-    // {Color} 月份bar背景色
-    month-bar-bgcolor:     #f9f9f9,
-    // {Color} 月份bar文本色
-    month-bar-color:       #000,
-    // {Length} 月份bar字号
-    month-bar-font-size:   null,
-
     // {Length} 每行高度
     week-height:           .54rem,
-    // {Color} 每行边线色
-    week-border-color:      #ddd,
     // {Color} 每行文本色
     week-color:             #000,
 
@@ -469,7 +456,7 @@ $_list: (
     // {Length} 列表组头内补白
     label-padding:     .03rem .1rem,
     // {Color} 列表组头背景色
-    label-bgcolor:     map-get($base, doc-bgcolor),
+    label-bgcolor:     #eee,
     // {Color} 点击反馈背景色
     active-bgcolor:    #f8f8f8,
     // {Color} 选中背景色
