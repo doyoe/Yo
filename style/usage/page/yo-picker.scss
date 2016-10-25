@@ -8,3 +8,9 @@
 @import "../module/m-header";
 @import "../module/m-demo";
 @import "../module/m-desc";
+
+@include yo-picker{
+    > .list > .item {
+        position: static;
+    }
+}
