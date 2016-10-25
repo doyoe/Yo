@@ -11,13 +11,22 @@
         position: relative;
         @include flex;
         @include align-self(flex-start);
+        width: 100%;
         text-align: center;
         > .item {
+            width: 100%;
             height: map-get($picker, item-height);
             line-height: map-get($picker, item-height);
             padding: 0 .1rem;
             &.disabled {
                 opacity: .4;
+            }
+        }
+        &.looped {
+            > .item {
+                position: absolute;
+                top: 0;
+                left: 0;
             }
         }
     }
