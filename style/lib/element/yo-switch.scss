@@ -17,7 +17,7 @@
         background-color: map-get($switch, bgcolor);
         vertical-align: middle;
         > .handle {
-             position: absolute;
+            position: absolute;
             z-index: 1;
             top: .01rem;
             left: .01rem;
@@ -25,7 +25,7 @@
             border-radius: .14rem;
             background-color: map-get($switch, thumb-color);
             box-shadow: 0 .01rem .03rem rgba(0, 0, 0, .3);
-            @include transition(transform .1s ease-out);
+            @include transition(all .1s ease-out);
         }
         &::after {
             position: absolute;
@@ -39,13 +39,23 @@
             @include transition(transform .13s ease-out);
         }
     }
+    // 拖动时，滑块变宽
+    > .track.moving {
+        > .handle {
+            width: 0.34rem;
+        }
+    }
+    // 拖动和选中时，隐藏跟随色块
+    > .track.moving,
+    > input:checked + .track {
+        &::after {
+            @include transform(scale3d(0, 0, 0));
+        }
+    }
     > input:checked + .track {
         background-color: map-get($switch, on-bgcolor);
         > .handle {
             @include transform(translate3d(.2rem, 0, 0));
-        }
-        &::after {
-            @include transform(scale3d(0, 0, 0));
         }
     }
     > input:disabled + .track {

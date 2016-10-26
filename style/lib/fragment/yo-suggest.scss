@@ -6,7 +6,7 @@
 @mixin _suggest {
     @include flexbox;
     @include flex-direction(column);
-    @include fullscreen(map-get($z-index, suggest), fixed);
+    height: 100%;
     > .operate {
         @include flexbox;
         padding: map-get($suggest, padding);
@@ -22,6 +22,7 @@
         @include flexbox;
         @include flex;
         position: relative;
+        margin-right: map-get($suggest, cancel-width) - .1rem;
         // placeholder旁边的箭头颜色
         color: map-get($suggest, placeholder-color);
         > .input {
@@ -30,7 +31,6 @@
             @include flex;
             position: relative;
             z-index: 1;
-            margin-right: map-get($suggest, cancel-width) - .1rem;
             padding: 0 .28rem 0 .1rem;
             border: 0 none;
             border-radius: map-get($suggest, input-radius);

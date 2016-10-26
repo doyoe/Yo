@@ -746,6 +746,15 @@ a {
   align-self: stretch;
 }
 
+.yo-modal-stretch > .cont {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  width: .1px;
+  -webkit-align-self: stretch;
+  align-self: stretch;
+}
+
 .yo-modal > .cont {
   position: relative;
 }
@@ -823,12 +832,7 @@ a {
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
   flex-direction: column;
-  position: fixed;
-  z-index: 2001;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  height: 100%;
 }
 
 .yo-suggest > .operate {
@@ -890,6 +894,7 @@ a {
   flex: 1;
   width: .1px;
   position: relative;
+  margin-right: 0.5rem;
   color: #fff;
 }
 
@@ -903,7 +908,6 @@ a {
   width: .1px;
   position: relative;
   z-index: 1;
-  margin-right: 0.5rem;
   padding: 0 .28rem 0 .1rem;
   border: 0 none;
   border-radius: 0.05rem;

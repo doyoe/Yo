@@ -911,6 +911,15 @@ a {
   align-self: stretch;
 }
 
+.yo-modal-stretch > .cont {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  width: .1px;
+  -webkit-align-self: stretch;
+  align-self: stretch;
+}
+
 .yo-modal > .cont {
   position: relative;
 }

@@ -5,7 +5,7 @@
     @include fullscreen(
         $z-index: map-get($z-index, modal)
     );
-    // 内容默认水平垂直居中对齐
+    // 内容区域默认水平垂直居中对齐
     @include align;
     // 水平居中，垂直顶部对齐
     &-top {
@@ -23,15 +23,22 @@
     &-left {
         @include justify-content(flex-start);
     }
-    // 内容水平铺满
+    // 内容区域水平铺满
     &-stretch-x {
         > .cont {
             @include flex;
         }
     }
-    // 内容垂直铺满
+    // 内容区域垂直铺满
     &-stretch-y {
         > .cont {
+            @include align-self(stretch);
+        }
+    }
+    // 内容区域整个铺满
+    &-stretch {
+        > .cont {
+            @include flex;
             @include align-self(stretch);
         }
     }

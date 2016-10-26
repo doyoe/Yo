@@ -887,8 +887,8 @@ a {
   border-radius: .14rem;
   background-color: #fff;
   box-shadow: 0 0.01rem 0.03rem rgba(0, 0, 0, 0.3);
-  -webkit-transition: -webkit-transform 0.1s ease-out;
-  transition: transform 0.1s ease-out;
+  -webkit-transition: all 0.1s ease-out;
+  transition: all 0.1s ease-out;
 }
 
 .yo-switch > .track::after {
@@ -904,6 +904,16 @@ a {
   transition: transform 0.13s ease-out;
 }
 
+.yo-switch > .track.moving > .handle {
+  width: 0.34rem;
+}
+
+.yo-switch > .track.moving::after,
+.yo-switch > input:checked + .track::after {
+  -webkit-transform: scale3d(0, 0, 0);
+  transform: scale3d(0, 0, 0);
+}
+
 .yo-switch > input:checked + .track {
   background-color: #4bd763;
 }
@@ -911,11 +921,6 @@ a {
 .yo-switch > input:checked + .track > .handle {
   -webkit-transform: translate3d(0.2rem, 0, 0);
   transform: translate3d(0.2rem, 0, 0);
-}
-
-.yo-switch > input:checked + .track::after {
-  -webkit-transform: scale3d(0, 0, 0);
-  transform: scale3d(0, 0, 0);
 }
 
 .yo-switch > input:disabled + .track {
