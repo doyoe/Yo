@@ -681,6 +681,76 @@ a {
 }
 
 /**
+ * @module fragment
+ * @method yo-modal
+ * @version 3.0.0
+ * @description 构造yo-modal的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/fragment/yo-modal.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Color} $bgcolor 背景色 <3.0.0>
+ */
+.yo-modal {
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  word-wrap: break-word;
+  word-break: break-all;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.yo-modal-top {
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
+}
+
+.yo-modal-right {
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+}
+
+.yo-modal-bottom {
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+  align-items: flex-end;
+}
+
+.yo-modal-left {
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+}
+
+.yo-modal-stretch-x > .cont {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  width: .1px;
+}
+
+.yo-modal-stretch-y > .cont {
+  -webkit-align-self: stretch;
+  align-self: stretch;
+}
+
+.yo-modal > .cont {
+  position: relative;
+}
+
+/**
  * Yo框架动画解决方案
  * Yo内置了超过60种动画形态，不同的动画可以任意组合
  */
@@ -898,6 +968,8 @@ a {
   right: 0;
   bottom: 0;
   left: 0;
+  z-index: 0;
+  background-color: #fff;
 }
 
 /**

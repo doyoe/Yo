@@ -731,9 +731,6 @@ a {
 }
 
 /**
- * yo-flex扩展
- */
-/**
  * @module fragment
  * @method yo-header
  * @version 3.0.0
@@ -846,63 +843,6 @@ a {
   right: 0;
   padding-right: 0.15rem;
   text-align: right;
-}
-
-/**
- * @module fragment
- * @method yo-rating
- * @version 3.0.0
- * @description 构造yo-rating的自定义使用方法
- * @demo http://doyoe.github.io/Yo/demo/fragment/yo-rating.html
- * @param {String} $name 定义扩展名称 <3.0.0>
- * @param {Length} $item-width 单个子项的宽度 <3.0.0>
- * @param {Length} $item-height 单个子项的高度 <3.0.0>
- * @param {Length} $item-space 子项间间隙 <3.0.0>
- * @param {Color} $url 分数图像url（注意：只需要配置文件名即可） <3.0.0>
- * @example 假设你需要只读状态，可以这样：
- * <div class="yo-rating yo-rating-readonly">...</div>
- */
-.yo-rating {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: inline-flex;
-}
-
-.yo-rating > .item {
-  width: 0.18rem;
-  cursor: pointer;
-}
-
-.yo-rating > .item:not(:first-child) {
-  margin-left: 0.1rem;
-}
-
-.yo-rating > .item,
-.yo-rating > .item > span {
-  height: 0.18rem;
-  background-image: url(//s.qunarzz.com/yo/bgimg/star3.png);
-  background-repeat: no-repeat;
-  background-size: auto 200%;
-}
-
-.yo-rating > .item > span {
-  display: block;
-  overflow: hidden;
-  width: 0;
-  background-position: 0 100%;
-  font: 0/0 arial;
-}
-
-.yo-rating-readonly > .item {
-  cursor: default;
-}
-
-/**
- * yo-rating扩展
- */
-.yo-rating-test > .item,
-.yo-rating-test > .item > span {
-  background-image: url(//s.qunarzz.com/yo/bgimg/star2.png);
 }
 
 /**
@@ -1175,6 +1115,114 @@ a {
 
 .yo-list > .item > .col {
   padding: 0.11rem 0.1rem 0.12rem;
+}
+
+/**
+ * yo-list扩展
+ */
+.yo-list-inset {
+  margin: 0.2rem 0.1rem 0 0.1rem;
+  border-radius: 0.2rem;
+  overflow: hidden;
+}
+
+.yo-list-inset::after {
+  border-width: 1px;
+}
+
+@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
+  .yo-list-inset::after {
+    border-radius: 0.2rem;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
+  .yo-list-inset::after {
+    border-radius: 0.4rem;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
+  .yo-list-inset::after {
+    border-radius: 0.6rem;
+  }
+}
+
+.yo-list-group > .label {
+  padding: 0.2rem 0.1rem 0.05rem;
+}
+
+.yo-list-group > .label > .col {
+  padding: 0.2rem 0.1rem 0.05rem;
+}
+
+.yo-list-group > .label::after {
+  border-color: #ccc;
+}
+
+.yo-list-table > .label {
+  background-color: #f9f9f9;
+}
+
+.yo-list-table > .label::after {
+  border-color: #aaa;
+}
+
+/**
+ * @module fragment
+ * @method yo-rating
+ * @version 3.0.0
+ * @description 构造yo-rating的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/fragment/yo-rating.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Length} $item-width 单个子项的宽度 <3.0.0>
+ * @param {Length} $item-height 单个子项的高度 <3.0.0>
+ * @param {Length} $item-space 子项间间隙 <3.0.0>
+ * @param {Color} $url 分数图像url（注意：只需要配置文件名即可） <3.0.0>
+ * @example 假设你需要只读状态，可以这样：
+ * <div class="yo-rating yo-rating-readonly">...</div>
+ */
+.yo-rating {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: inline-flex;
+}
+
+.yo-rating > .item {
+  width: 0.18rem;
+  cursor: pointer;
+}
+
+.yo-rating > .item:not(:first-child) {
+  margin-left: 0.1rem;
+}
+
+.yo-rating > .item,
+.yo-rating > .item > span {
+  height: 0.18rem;
+  background-image: url(//s.qunarzz.com/yo/bgimg/star3.png);
+  background-repeat: no-repeat;
+  background-size: auto 200%;
+}
+
+.yo-rating > .item > span {
+  display: block;
+  overflow: hidden;
+  width: 0;
+  background-position: 0 100%;
+  font: 0/0 arial;
+}
+
+.yo-rating-readonly > .item {
+  cursor: default;
+}
+
+/**
+ * yo-rating扩展
+ */
+.yo-rating-test > .item,
+.yo-rating-test > .item > span {
+  background-image: url(//s.qunarzz.com/yo/bgimg/star2.png);
 }
 
 .m-demo {

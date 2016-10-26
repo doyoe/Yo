@@ -10,7 +10,7 @@
 // 基本设置
 $_setting: (
     // {String} 版本号
-    version:             "2.1.3",
+    version:             "3.0.0",
     // {Boolean} 是否开启厂商前缀
     is-vendor-prefix:    true,
     // {String} 厂商前缀
@@ -76,22 +76,14 @@ $_ico: (
 
 // z-index
 $_z-index: (
-    // {Number} 下拉菜单层级范围50-100
-    dropdown:    50,
     // {Number} 遮罩层级
-    mask:        null,
-    // {Number} 弹窗层级范围1001-1500
-    dialog:      1001,
+    modal:       1000,
     // {Number} 浮层层级范围1501-2000
     popup:       1501,
     // {Number} 搜索层级范围2001-2500
     suggest:     2001,
-    // {Number} 搜索层级范围2501-3000
-    actionsheet: 2501,
     // {Number} 浮层层级范围3001-3500
-    toast:       3001,
-    // {Number} loading层级
-    loading:     9999
+    toast:       3001
 );
 
 // Layout align
@@ -257,23 +249,23 @@ $_switch: (
 // Fragment actionsheet(9)
 $_actionsheet: (
     // {Length} 外边距
-    margin:           .1rem,
+    margin:               .1rem,
     // {Length} 圆角半径
-    radius:           .1rem,
+    radius:               .1rem,
     // {Color} 边线色
-    border-color:     map-get($base, border-color),
-    // {Color} 子项背景色
-    bgcolor:          rgba(#fff, .95),
-    // {Color} 子项点击反馈背景色
-    active-bgcolor:   rgba(#eee, .95),
+    border-color:         map-get($base, border-color),
+    // {Color} 背景色
+    bgcolor:              rgba(#fff, .95),
+    // {Color} 点击反馈背景色
+    active-bgcolor:       rgba(#eee, .95),
     // {Length} 子项高度
-    item-height:      .55rem,
+    item-height:          .55rem,
     // {Length} 子项字号
-    item-font-size:   .18rem,
+    item-font-size:       .18rem,
     // {Color} 子项文本色
-    item-color:       map-get($base, link-color),
+    item-color:           map-get($base, link-color),
     // {Color} 重要操作子项文本色
-    item-light-color: #f00
+    item-important-color: #f00
 );
 
 // Fragment breadcrumb(6)
@@ -304,55 +296,55 @@ $_calendar: (
     week-bar-font-size:   .12rem,
 
     // {Length} 每行高度
-    week-height:           .54rem,
+    week-height:          .54rem,
     // {Color} 每行文本色
-    week-color:             #000,
+    week-color:           #000,
 
     // {Length} 每日高度
-    day-height:            .24rem,
+    day-height:           .24rem,
     // {Length} 每日间距
-    day-margin:            .05rem 0 .02rem,
+    day-margin:           .05rem 0 .02rem,
     // {Length} 每日圆角
-    day-radius:            50%,
+    day-radius:           50%,
     // {Length} 每日字号
-    day-font-size:         null,
+    day-font-size:        null,
 
     // {color} 特殊日文本色
-    special-color:         #f50,
+    special-color:        #f50,
     // {color} 周末文本色
-    weekend-color:         #f00,
+    weekend-color:        #f00,
     // {color} 禁用日子文本色
-    disabled-color:        map-get($base, disabled-color),
+    disabled-color:       map-get($base, disabled-color),
 
     // {color} 选中日期背景色
-    on-bgcolor:            #1ba9ba,
+    on-bgcolor:           #1ba9ba,
     // {color} 选中日期文本色
-    on-color:              #fff,
+    on-color:             #fff,
     // {color} 选中日期提示语文本色
-    on-tip-color:          #1ba9ba,
+    on-tip-color:         #1ba9ba,
     // {Length} 选中日期提示语字号
-    on-tip-font-size:      null,
+    on-tip-font-size:     null,
 
     // {color} 选中日期段背景色
-    range-bgcolor:         #eee
+    range-bgcolor:        #eee
 );
 
 // Fragment card(11)
 $_card: (
     // {Length} 外边距
-    margin:       .1rem,
+    margin:          .1rem,
     // {Length} 圆角半径长度
-    radius:       null,
+    radius:          null,
     // {Length} 外边框厚度
-    border-width: 1px,
+    border-width:    1px,
     // {Color} 外边框色
-    border-color: #ccc,
+    border-color:    #ccc,
     // {Color} 背景色
-    bgcolor:      #fff,
+    bgcolor:         #fff,
     // {Color} 文本色
-    color:        null,
+    color:           null,
     // {Length} 字号大小
-    font-size:    null,
+    font-size:       null,
     // {Length} 头部边框厚度
     hd-border-width: 0 0 1px,
     // {Color} 头部边框色
@@ -479,8 +471,8 @@ $_list: (
     more-color:        #aaa
 );
 
-// Fragment mask(1)
-$_mask: (
+// Fragment modal(1)
+$_modal: (
     // {Color} 背景色
     bgcolor: rgba(#000, .2)
 );

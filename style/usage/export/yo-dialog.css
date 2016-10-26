@@ -731,9 +731,6 @@ a {
 }
 
 /**
- * yo-flex扩展
- */
-/**
  * @module fragment
  * @method yo-header
  * @version 3.0.0
@@ -849,27 +846,73 @@ a {
 }
 
 /**
- * yo-header扩展
+ * @module fragment
+ * @method yo-modal
+ * @version 3.0.0
+ * @description 构造yo-modal的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/fragment/yo-modal.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Color} $bgcolor 背景色 <3.0.0>
  */
-.yo-header-normal {
-  background-color: #eee;
-  color: #212121;
+.yo-modal {
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  word-wrap: break-word;
+  word-break: break-all;
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
-.yo-header-normal::after {
-  border-color: #ddd;
+.yo-modal-top {
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
 }
 
-.yo-header-normal > .regret,
-.yo-header-normal > .affirm {
-  color: #212121;
+.yo-modal-right {
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
 }
 
-.yo-header-normal > .regret.yo-ico,
-.yo-header-normal > .regret > .yo-ico,
-.yo-header-normal > .affirm.yo-ico,
-.yo-header-normal > .affirm > .yo-ico {
-  color: #212121;
+.yo-modal-bottom {
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+  align-items: flex-end;
+}
+
+.yo-modal-left {
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+}
+
+.yo-modal-stretch-x > .cont {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  width: .1px;
+}
+
+.yo-modal-stretch-y > .cont {
+  -webkit-align-self: stretch;
+  align-self: stretch;
+}
+
+.yo-modal > .cont {
+  position: relative;
 }
 
 /**
@@ -1010,7 +1053,6 @@ a {
   -webkit-flex-direction: column;
   flex-direction: column;
   overflow: hidden;
-  z-index: 1001;
   padding-top: .15rem;
   min-width: 2.8rem;
   max-width: 90%;

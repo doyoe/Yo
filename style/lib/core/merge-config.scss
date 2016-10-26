@@ -168,11 +168,11 @@
     $list: $_list !global;
 }
 
-// 合并variables和config中的mask map
-@if global-variable-exists(mask) {
-    $mask: map-merge($_mask, $mask) !global;
+// 合并variables和config中的modal map
+@if global-variable-exists(modal) {
+    $modal: map-merge($_modal, $modal) !global;
 } @else {
-    $mask: $_mask !global;
+    $modal: $_modal !global;
 }
 
 // 合并variables和config中的number map

@@ -731,9 +731,6 @@ a {
 }
 
 /**
- * yo-flex扩展
- */
-/**
  * @module fragment
  * @method yo-header
  * @version 3.0.0
@@ -848,37 +845,6 @@ a {
   text-align: right;
 }
 
-/**
- * @module fragment
- * @method yo-toast
- * @version 3.0.0
- * @description 构造列表的自定义使用方法
- * @demo http://doyoe.github.io/Yo/demo/fragment/yo-toast.html
- * @param {String} $name 定义扩展名称 <3.0.0>
- * @param {Length} $padding 内补白 <3.0.0>
- * @param {Length} $radius 圆角半径长度 <3.0.0>
- * @param {Color} $bgcolor 背景色 <3.0.0>
- * @param {Color} $color 文本色 <3.0.0>
- */
-.yo-toast {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  min-width: 1rem;
-  max-width: 90%;
-  z-index: 3001;
-  padding: 0.06rem 0.15rem;
-  border-radius: 0.05rem;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  text-align: center;
-}
-
-/**
- * yo-toast扩展
- */
 /**
  * @module fragment
  * @method yo-list
@@ -1151,6 +1117,88 @@ a {
   padding: 0.11rem 0.1rem 0.12rem;
 }
 
+/**
+ * yo-list扩展
+ */
+.yo-list-inset {
+  margin: 0.2rem 0.1rem 0 0.1rem;
+  border-radius: 0.2rem;
+  overflow: hidden;
+}
+
+.yo-list-inset::after {
+  border-width: 1px;
+}
+
+@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
+  .yo-list-inset::after {
+    border-radius: 0.2rem;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
+  .yo-list-inset::after {
+    border-radius: 0.4rem;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
+  .yo-list-inset::after {
+    border-radius: 0.6rem;
+  }
+}
+
+.yo-list-group > .label {
+  padding: 0.2rem 0.1rem 0.05rem;
+}
+
+.yo-list-group > .label > .col {
+  padding: 0.2rem 0.1rem 0.05rem;
+}
+
+.yo-list-group > .label::after {
+  border-color: #ccc;
+}
+
+.yo-list-table > .label {
+  background-color: #f9f9f9;
+}
+
+.yo-list-table > .label::after {
+  border-color: #aaa;
+}
+
+/**
+ * @module fragment
+ * @method yo-toast
+ * @version 3.0.0
+ * @description 构造列表的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/fragment/yo-toast.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Length} $padding 内补白 <3.0.0>
+ * @param {Length} $radius 圆角半径长度 <3.0.0>
+ * @param {Color} $bgcolor 背景色 <3.0.0>
+ * @param {Color} $color 文本色 <3.0.0>
+ */
+.yo-toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  min-width: 1rem;
+  max-width: 90%;
+  z-index: 3001;
+  padding: 0.06rem 0.15rem;
+  border-radius: 0.05rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  text-align: center;
+}
+
+/**
+ * yo-toast扩展
+ */
 .m-demo {
   position: relative;
   min-height: .88rem;

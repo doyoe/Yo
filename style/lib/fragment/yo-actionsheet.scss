@@ -1,21 +1,13 @@
 @charset "utf-8";
+@import "yo-modal";
 
 // 定义浮层actionsheet的基础构造
 @mixin _actionsheet {
-    position: absolute;
-    z-index: map-get($z-index, actionsheet);
-    right: 0;
-    bottom: 0;
-    left: 0;
-    // (设置容器可滚动)iOS中active要生效的话，内容必须放置在滚动容器中
-    overflow: auto;
     margin: map-get($actionsheet, margin);
     text-align: center;
     > .menu,
     > .action {
         overflow: hidden;
-        // (设置内容溢出容器)iOS中active要生效的话，内容必须放置在滚动容器中
-        width: 100.13%;
         border-radius: map-get($actionsheet, radius);
         background-color: map-get($actionsheet, bgcolor);
     }
@@ -39,12 +31,15 @@
                 $border-color: map-get($actionsheet, border-color)
             );
         }
-        &:active {
+        // 常规需要active的项目，没有使用到第3方组件的
+        &.item-active:active,
+        // 为第3方组件提供active状态
+        &.item-light {
             background-color: map-get($actionsheet, active-bgcolor);
         }
-        // 重要操作
-        &-light {
-            color: map-get($actionsheet, item-light-color);
+        // 高亮重要操作
+        &-important {
+            color: map-get($actionsheet, item-important-color);
         }
     }
 }
@@ -59,12 +54,12 @@
  * @param {Length} $margin 外补白 <3.0.0>
  * @param {Length} $radius 圆角半径长度 <3.0.0>
  * @param {Color} $border-color 边线色 <3.0.0>
- * @param {Color} $bgcolor 子项背景色 <3.0.0>
- * @param {Color} $active-bgcolor 子项点击反馈背景色 <3.0.0>
+ * @param {Color} $bgcolor 背景色 <3.0.0>
+ * @param {Color} $active-bgcolor 点击反馈背景色 <3.0.0>
  * @param {Length} $item-height 子项高度 <3.0.0>
  * @param {Length} $item-font-size 子项字号 <3.0.0>
  * @param {Color} $item-color 子项文本色 <3.0.0>
- * @param {Color} $item-light-color 重要操作子项文本色 <3.0.0>
+ * @param {Color} $item-important-color 重要操作子项文本色 <3.0.0>
  */
 
 @mixin yo-actionsheet(
@@ -77,7 +72,7 @@
     $item-height: default,
     $item-font-size: default,
     $item-color: default,
-    $item-light-color: default) {
+    $item-important-color: default) {
     // 区别是否新增实例还是修改本身
     $name: if($name == default, "", "-#{$name}");
     // 如果值为default，则取config的定义
@@ -105,8 +100,8 @@
     @if $item-color == default {
         $item-color: map-get($actionsheet, item-color);
     }
-    @if $item-light-color == default {
-        $item-light-color: map-get($actionsheet, item-light-color);
+    @if $item-important-color == default {
+        $item-important-color: map-get($actionsheet, item-important-color);
     }
     .yo-actionsheet#{$name} {
         @if $margin != map-get($actionsheet, margin) {
@@ -145,8 +140,8 @@
                 }
             }
             &-light {
-                @if $item-light-color != map-get($actionsheet, item-light-color) {
-                    color: $item-light-color;
+                @if $item-important-color != map-get($actionsheet, item-important-color) {
+                    color: $item-important-color;
                 }
             }
         }

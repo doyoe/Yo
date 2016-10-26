@@ -731,9 +731,6 @@ a {
 }
 
 /**
- * yo-flex扩展
- */
-/**
  * @module fragment
  * @method yo-header
  * @version 3.0.0
@@ -846,110 +843,6 @@ a {
   right: 0;
   padding-right: 0.15rem;
   text-align: right;
-}
-
-/**
- * @module element
- * @method yo-switch
- * @version 3.0.0
- * @description 构造yo-switch的自定义使用方法
- * @demo http://doyoe.github.io/Yo/demo/element/yo-switch.html
- * @param {String} $name 定义扩展名称 <3.0.0>
- * @param {Color} $on-bgcolor 定义switch激活背景色 <3.0.0>
- * @param {Color} $bgcolor 定义switch背景色 <3.0.0>
- * @param {Color} $follow-bgcolor 定义switch跟随背景色 <3.0.0>
- * @param {Color} $thumb-color 定义switch滑块色 <3.0.0>
- */
-.yo-switch {
-  display: inline-block;
-  margin: -.05rem 0;
-}
-
-.yo-switch > input {
-  display: none;
-}
-
-.yo-switch > .track {
-  display: inline-block;
-  position: relative;
-  width: .50rem;
-  height: .3rem;
-  padding: .01rem;
-  border-radius: .16rem;
-  background-color: #ccc;
-  vertical-align: middle;
-}
-
-.yo-switch > .track > .handle {
-  position: absolute;
-  z-index: 1;
-  top: .01rem;
-  left: .01rem;
-  width: 0.28rem;
-  height: 0.28rem;
-  border-radius: 50%;
-  background-color: #fff;
-  box-shadow: 0 0.01rem 0.03rem rgba(0, 0, 0, 0.3);
-  -webkit-transition: -webkit-transform 0.1s ease-out;
-  transition: transform 0.1s ease-out;
-}
-
-.yo-switch > .track::after {
-  position: absolute;
-  top: .01rem;
-  right: .01rem;
-  bottom: .01rem;
-  left: .01rem;
-  content: "\0020";
-  background-color: #fafafa;
-  border-radius: .16rem;
-  -webkit-transition: -webkit-transform 0.13s ease-out;
-  transition: transform 0.13s ease-out;
-}
-
-.yo-switch > input:checked + .track {
-  background-color: #4bd763;
-}
-
-.yo-switch > input:checked + .track > .handle {
-  -webkit-transform: translate3d(0.2rem, 0, 0);
-  transform: translate3d(0.2rem, 0, 0);
-}
-
-.yo-switch > input:checked + .track::after {
-  -webkit-transform: scale3d(0, 0, 0);
-  transform: scale3d(0, 0, 0);
-}
-
-.yo-switch > input:disabled + .track {
-  opacity: .4;
-}
-
-/**
- * yo-switch扩展
- */
-.yo-switch-a > input:checked + .track {
-  background-color: #4a87ee;
-}
-
-.yo-switch-b > input:checked + .track {
-  background-color: #43cee6;
-}
-
-.yo-switch-c > input:checked + .track {
-  background-color: #f0b840;
-}
-
-.yo-switch-d > input:checked + .track {
-  background-color: #ef4e3a;
-}
-
-.yo-switch-e > input:checked + .track {
-  background-color: #8a6de9;
-}
-
-.yo-switch-f > input:checked + .track {
-  background-color: #444;
 }
 
 /**
@@ -1273,6 +1166,110 @@ a {
 
 .yo-list-table > .label::after {
   border-color: #aaa;
+}
+
+/**
+ * @module element
+ * @method yo-switch
+ * @version 3.0.0
+ * @description 构造yo-switch的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/element/yo-switch.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Color} $on-bgcolor 定义switch激活背景色 <3.0.0>
+ * @param {Color} $bgcolor 定义switch背景色 <3.0.0>
+ * @param {Color} $follow-bgcolor 定义switch跟随背景色 <3.0.0>
+ * @param {Color} $thumb-color 定义switch滑块色 <3.0.0>
+ */
+.yo-switch {
+  display: inline-block;
+  margin: -.05rem 0;
+}
+
+.yo-switch > input {
+  display: none;
+}
+
+.yo-switch > .track {
+  display: inline-block;
+  position: relative;
+  width: .50rem;
+  height: .3rem;
+  padding: .01rem;
+  border-radius: .16rem;
+  background-color: #ccc;
+  vertical-align: middle;
+}
+
+.yo-switch > .track > .handle {
+  position: absolute;
+  z-index: 1;
+  top: .01rem;
+  left: .01rem;
+  width: 0.28rem;
+  height: 0.28rem;
+  border-radius: .14rem;
+  background-color: #fff;
+  box-shadow: 0 0.01rem 0.03rem rgba(0, 0, 0, 0.3);
+  -webkit-transition: -webkit-transform 0.1s ease-out;
+  transition: transform 0.1s ease-out;
+}
+
+.yo-switch > .track::after {
+  position: absolute;
+  top: .01rem;
+  right: .01rem;
+  bottom: .01rem;
+  left: .01rem;
+  content: "\0020";
+  background-color: #fafafa;
+  border-radius: .16rem;
+  -webkit-transition: -webkit-transform 0.13s ease-out;
+  transition: transform 0.13s ease-out;
+}
+
+.yo-switch > input:checked + .track {
+  background-color: #4bd763;
+}
+
+.yo-switch > input:checked + .track > .handle {
+  -webkit-transform: translate3d(0.2rem, 0, 0);
+  transform: translate3d(0.2rem, 0, 0);
+}
+
+.yo-switch > input:checked + .track::after {
+  -webkit-transform: scale3d(0, 0, 0);
+  transform: scale3d(0, 0, 0);
+}
+
+.yo-switch > input:disabled + .track {
+  opacity: .4;
+}
+
+/**
+ * yo-switch扩展
+ */
+.yo-switch-a > input:checked + .track {
+  background-color: #4a87ee;
+}
+
+.yo-switch-b > input:checked + .track {
+  background-color: #43cee6;
+}
+
+.yo-switch-c > input:checked + .track {
+  background-color: #f0b840;
+}
+
+.yo-switch-d > input:checked + .track {
+  background-color: #ef4e3a;
+}
+
+.yo-switch-e > input:checked + .track {
+  background-color: #8a6de9;
+}
+
+.yo-switch-f > input:checked + .track {
+  background-color: #444;
 }
 
 .m-demo {

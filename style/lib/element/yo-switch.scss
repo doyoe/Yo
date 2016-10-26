@@ -22,7 +22,7 @@
             top: .01rem;
             left: .01rem;
             @include square(.28rem);
-            border-radius: 50%;
+            border-radius: .14rem;
             background-color: map-get($switch, thumb-color);
             box-shadow: 0 .01rem .03rem rgba(0, 0, 0, .3);
             @include transition(transform .1s ease-out);

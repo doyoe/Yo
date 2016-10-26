@@ -731,9 +731,6 @@ a {
 }
 
 /**
- * yo-flex扩展
- */
-/**
  * @module fragment
  * @method yo-header
  * @version 3.0.0
@@ -848,93 +845,6 @@ a {
   text-align: right;
 }
 
-/**
- * @module element
- * @method yo-range
- * @version 3.0.0
- * @description 构造区间选择的自定义使用方法
- * @demo http://doyoe.github.io/Yo/demo/element/yo-range.html
- * @param {String} $name 定义扩展名称 <3.0.0>
- * @param {Length} $track-height 滑轴高度 <3.0.0>
- * @param {Color} $track-color 滑轴色 <3.0.0>
- * @param {Color} $on-track-color 选中滑轴色 <3.0.0>
- * @param {Length} $thumb-height 滑球高度 <3.0.0>
- * @param {Color} $thumb-color 滑球色 <3.0.0>
- */
-.yo-range > .scale {
-  position: relative;
-  margin: 0 0.14rem;
-  font-size: .12rem;
-}
-
-.yo-range > .scale > .divide {
-  display: inline-block;
-  -webkit-transform: translatex(-50%);
-  transform: translatex(-50%);
-  white-space: nowrap;
-}
-
-.yo-range > .scale > .divide:not(:first-child) {
-  position: absolute;
-}
-
-.yo-range > .scale > .divide:last-child {
-  left: 100%;
-}
-
-.yo-range > .track {
-  overflow: hidden;
-  position: relative;
-  height: 0.3rem;
-  background-image: -webkit-linear-gradient(top, #ccc, #ccc);
-  background-image: linear-gradient(to bottom, #ccc, #ccc);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100% 0.02rem;
-}
-
-.yo-range > .track > .thumb {
-  position: absolute;
-}
-
-.yo-range > .track > .thumb::before, .yo-range > .track > .thumb::after {
-  display: block;
-  content: "\0020";
-}
-
-.yo-range > .track > .thumb::before {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  left: -9999px;
-  height: 0.02rem;
-  -webkit-transform: translatey(-50%);
-  transform: translatey(-50%);
-  background-color: #1ba9ba;
-  content: "\0020";
-}
-
-.yo-range > .track > .thumb:not(:only-child):first-child {
-  z-index: 1;
-}
-
-.yo-range > .track > .thumb:not(:only-child):first-child::before {
-  background-color: #ccc;
-}
-
-.yo-range > .track > .thumb::after {
-  position: relative;
-  margin-top: .01rem;
-  width: 0.28rem;
-  height: 0.28rem;
-  border-radius: 50%;
-  box-shadow: 0 0 0.01rem rgba(0, 0, 0, 0.25), 0 0.01rem 0.02rem rgba(0, 0, 0, 0.15);
-  background-color: #fff;
-}
-
-/**
- * yo-range扩展
- */
 /**
  * @module fragment
  * @method yo-list
@@ -1258,6 +1168,93 @@ a {
   border-color: #aaa;
 }
 
+/**
+ * @module element
+ * @method yo-range
+ * @version 3.0.0
+ * @description 构造区间选择的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/element/yo-range.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Length} $track-height 滑轴高度 <3.0.0>
+ * @param {Color} $track-color 滑轴色 <3.0.0>
+ * @param {Color} $on-track-color 选中滑轴色 <3.0.0>
+ * @param {Length} $thumb-height 滑球高度 <3.0.0>
+ * @param {Color} $thumb-color 滑球色 <3.0.0>
+ */
+.yo-range > .scale {
+  position: relative;
+  margin: 0 0.14rem;
+  font-size: .12rem;
+}
+
+.yo-range > .scale > .divide {
+  display: inline-block;
+  -webkit-transform: translatex(-50%);
+  transform: translatex(-50%);
+  white-space: nowrap;
+}
+
+.yo-range > .scale > .divide:not(:first-child) {
+  position: absolute;
+}
+
+.yo-range > .scale > .divide:last-child {
+  left: 100%;
+}
+
+.yo-range > .track {
+  overflow: hidden;
+  position: relative;
+  height: 0.3rem;
+  background-image: -webkit-linear-gradient(top, #ccc, #ccc);
+  background-image: linear-gradient(to bottom, #ccc, #ccc);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 0.02rem;
+}
+
+.yo-range > .track > .thumb {
+  position: absolute;
+}
+
+.yo-range > .track > .thumb::before, .yo-range > .track > .thumb::after {
+  display: block;
+  content: "\0020";
+}
+
+.yo-range > .track > .thumb::before {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: -9999px;
+  height: 0.02rem;
+  -webkit-transform: translatey(-50%);
+  transform: translatey(-50%);
+  background-color: #1ba9ba;
+  content: "\0020";
+}
+
+.yo-range > .track > .thumb:not(:only-child):first-child {
+  z-index: 1;
+}
+
+.yo-range > .track > .thumb:not(:only-child):first-child::before {
+  background-color: #ccc;
+}
+
+.yo-range > .track > .thumb::after {
+  position: relative;
+  margin-top: .01rem;
+  width: 0.28rem;
+  height: 0.28rem;
+  border-radius: 50%;
+  box-shadow: 0 0 0.01rem rgba(0, 0, 0, 0.25), 0 0.01rem 0.02rem rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+}
+
+/**
+ * yo-range扩展
+ */
 .m-demo {
   position: relative;
   min-height: .88rem;

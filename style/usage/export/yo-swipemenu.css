@@ -731,9 +731,6 @@ a {
 }
 
 /**
- * yo-flex扩展
- */
-/**
  * @module fragment
  * @method yo-header
  * @version 3.0.0
@@ -848,80 +845,6 @@ a {
   text-align: right;
 }
 
-/**
- * @module fragment
- * @method yo-swipemenu
- * @version 3.0.0
- * @description 构造yo-swipemenu的自定义使用方法
- * @demo http://doyoe.github.io/Yo/demo/fragment/yo-swipemenu.html
- * @param {String} $name 定义扩展名称 <3.0.0>
- * @param {Length} $action-width action操作区宽度 <3.0.0>
- * @param {Color} $action-bgcolor action操作区背景色 <3.0.0>
- * @param {Color} $action-color action操作区文本色 <3.0.0>
- * @param {Color} $action-first-bgcolor action操作区第一个子项的背景色 <3.0.0>
- */
-.yo-swipemenu,
-.yo-swipemenu > .item {
-  position: relative;
-  display: block !important;
-  padding: 0 !important;
-}
-
-.yo-swipemenu .front {
-  position: relative;
-  z-index: 2;
-  background-color: #fff;
-}
-
-.yo-swipemenu .transition {
-  -webkit-transition: -webkit-transform 0.3s;
-  transition: transform 0.3s;
-}
-
-.yo-swipemenu .action {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  overflow: hidden;
-  width: 1rem;
-  background-color: #ccc;
-  color: #fff;
-}
-
-.yo-swipemenu .action-start {
-  right: auto;
-  left: 0;
-}
-
-.yo-swipemenu .action > .item {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  flex: 1;
-  width: .1px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-  word-wrap: break-word;
-  word-break: break-all;
-}
-
-.yo-swipemenu .action > .item:first-child {
-  background-color: red;
-}
-
-/**
- * yo-swipemenu扩展
- */
 /**
  * @module fragment
  * @method yo-list
@@ -1245,6 +1168,80 @@ a {
   border-color: #aaa;
 }
 
+/**
+ * @module fragment
+ * @method yo-swipemenu
+ * @version 3.0.0
+ * @description 构造yo-swipemenu的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/fragment/yo-swipemenu.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Length} $action-width action操作区宽度 <3.0.0>
+ * @param {Color} $action-bgcolor action操作区背景色 <3.0.0>
+ * @param {Color} $action-color action操作区文本色 <3.0.0>
+ * @param {Color} $action-first-bgcolor action操作区第一个子项的背景色 <3.0.0>
+ */
+.yo-swipemenu,
+.yo-swipemenu > .item {
+  position: relative;
+  display: block !important;
+  padding: 0 !important;
+}
+
+.yo-swipemenu .front {
+  position: relative;
+  z-index: 2;
+  background-color: #fff;
+}
+
+.yo-swipemenu .transition {
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+}
+
+.yo-swipemenu .action {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  width: 1rem;
+  background-color: #ccc;
+  color: #fff;
+}
+
+.yo-swipemenu .action-start {
+  right: auto;
+  left: 0;
+}
+
+.yo-swipemenu .action > .item {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  width: .1px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.yo-swipemenu .action > .item:first-child {
+  background-color: red;
+}
+
+/**
+ * yo-swipemenu扩展
+ */
 .m-demo {
   position: relative;
   min-height: .88rem;

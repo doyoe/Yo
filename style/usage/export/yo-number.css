@@ -731,9 +731,6 @@ a {
 }
 
 /**
- * yo-flex扩展
- */
-/**
  * @module fragment
  * @method yo-header
  * @version 3.0.0
@@ -846,235 +843,6 @@ a {
   right: 0;
   padding-right: 0.15rem;
   text-align: right;
-}
-
-/**
- * @module fragment
- * @method yo-number
- * @version 3.0.0
- * @description 构造列表的自定义使用方法
- * @demp http://doyoe.github.io/Yo/demo/fragment/yo-number.html
- * @param {String} $name 定义扩展名称 <3.0.0>
- * @param {Length} $width 宽度 <3.0.0>
- * @param {Length} $height 高度 <3.0.0>
- * @param {Length} $radius 外边框圆角半径 <3.0.0>
- * @param {Length} $border-width 外边框厚度 <3.0.0>
- * @param {Color} $border-color 外边框色 <3.0.0>
- * @param {Color} $color 输入框文本色 <3.0.0>
- * @param {Length} $sign-radius 加减号区域边框圆角半径 <3.0.0>
- * @param {Length} $sign-border-width 加减号区域边框厚度 <3.0.0>
- * @param {Color} $sign-bgcolor 加减号区域背景色 <3.0.0>
- * @param {Color} $sign-color 加减号区域文本色 <3.0.0>
- * @param {Length} $font-size 输入框字号 <3.0.0>
- */
-.yo-number {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: inline-flex;
-  overflow: hidden;
-  width: 1.2rem;
-  height: 0.36rem;
-  line-height: 0.36rem;
-  -webkit-transform: translate(0);
-  transform: translate(0);
-  position: relative;
-  border-radius: 0.03rem;
-  background-color: #fff;
-  text-align: center;
-}
-
-.yo-number::after {
-  pointer-events: none;
-  position: absolute;
-  z-index: 999;
-  top: 0;
-  left: 0;
-  overflow: hidden;
-  content: "\0020";
-  border-color: #ccc;
-  border-style: solid;
-  border-width: 1px;
-  -webkit-transform-origin: 0 0;
-  transform-origin: 0 0;
-}
-
-@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
-  .yo-number::after {
-    width: 100%;
-    height: 100%;
-    border-radius: 0.03rem;
-  }
-}
-
-@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
-  .yo-number::after {
-    width: 200%;
-    height: 200%;
-    -webkit-transform: scale(0.5);
-    transform: scale(0.5);
-    border-radius: 0.06rem;
-  }
-}
-
-@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
-  .yo-number::after {
-    width: 300%;
-    height: 300%;
-    -webkit-transform: scale(0.33333);
-    transform: scale(0.33333);
-    border-radius: 0.09rem;
-  }
-}
-
-.yo-number > .minus,
-.yo-number > .plus {
-  display: block;
-  width: 0.36rem;
-  height: 0.36rem;
-  position: relative;
-  background-color: #fafafa;
-  color: #999;
-  font-size: 0.31rem;
-  font-family: arial;
-  cursor: pointer;
-}
-
-.yo-number > .minus::after,
-.yo-number > .plus::after {
-  pointer-events: none;
-  position: absolute;
-  z-index: 999;
-  top: 0;
-  left: 0;
-  overflow: hidden;
-  content: "\0020";
-  border-color: #ccc;
-  border-style: solid;
-  border-width: 1px;
-  -webkit-transform-origin: 0 0;
-  transform-origin: 0 0;
-}
-
-@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
-  .yo-number > .minus::after,
-  .yo-number > .plus::after {
-    width: 100%;
-    height: 100%;
-  }
-}
-
-@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
-  .yo-number > .minus::after,
-  .yo-number > .plus::after {
-    width: 200%;
-    height: 200%;
-    -webkit-transform: scale(0.5);
-    transform: scale(0.5);
-  }
-}
-
-@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
-  .yo-number > .minus::after,
-  .yo-number > .plus::after {
-    width: 300%;
-    height: 300%;
-    -webkit-transform: scale(0.33333);
-    transform: scale(0.33333);
-  }
-}
-
-.yo-number > .minus.disabled,
-.yo-number > .plus.disabled {
-  cursor: not-allowed;
-  background-color: white;
-  color: #e6e6e6;
-}
-
-.yo-number > .minus.disabled::after,
-.yo-number > .plus.disabled::after {
-  border-color: #ebebeb;
-}
-
-.yo-number > .input {
-  display: block;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  flex: 1;
-  width: .1px;
-  border: 0 none;
-  color: #212121;
-  font-size: 0.16rem;
-  text-align: inherit;
-}
-
-.yo-number > .input, .yo-number > .input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  appearance: none;
-}
-
-/**
- * yo-number扩展
- */
-.yo-number-test {
-  width: 1rem;
-  height: 0.25rem;
-  line-height: 0.25rem;
-}
-
-.yo-number-test::after {
-  border-width: 0;
-  border-color: #1ba9ba;
-}
-
-.yo-number-test > .minus,
-.yo-number-test > .plus {
-  width: 0.25rem;
-  height: 0.25rem;
-  font-size: 0.2rem;
-  border-radius: 50%;
-  background-color: #1ba9ba;
-  color: #eee;
-}
-
-.yo-number-test > .minus::after,
-.yo-number-test > .plus::after {
-  border-color: #1ba9ba;
-}
-
-@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
-  .yo-number-test > .minus::after,
-  .yo-number-test > .plus::after {
-    border-radius: 50%;
-  }
-}
-
-@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
-  .yo-number-test > .minus::after,
-  .yo-number-test > .plus::after {
-    border-radius: 100%;
-  }
-}
-
-@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
-  .yo-number-test > .minus::after,
-  .yo-number-test > .plus::after {
-    border-radius: 150%;
-  }
-}
-
-.yo-number-test > .minus.disabled,
-.yo-number-test > .plus.disabled {
-  background-color: #3ed1e3;
-  color: white;
-}
-
-.yo-number-test > .minus.disabled::after,
-.yo-number-test > .plus.disabled::after {
-  border-color: #31cee1;
-}
-
-.yo-number-test > .input {
-  font-size: 0.14rem;
 }
 
 /**
@@ -1398,6 +1166,235 @@ a {
 
 .yo-list-table > .label::after {
   border-color: #aaa;
+}
+
+/**
+ * @module fragment
+ * @method yo-number
+ * @version 3.0.0
+ * @description 构造列表的自定义使用方法
+ * @demp http://doyoe.github.io/Yo/demo/fragment/yo-number.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Length} $width 宽度 <3.0.0>
+ * @param {Length} $height 高度 <3.0.0>
+ * @param {Length} $radius 外边框圆角半径 <3.0.0>
+ * @param {Length} $border-width 外边框厚度 <3.0.0>
+ * @param {Color} $border-color 外边框色 <3.0.0>
+ * @param {Color} $color 输入框文本色 <3.0.0>
+ * @param {Length} $sign-radius 加减号区域边框圆角半径 <3.0.0>
+ * @param {Length} $sign-border-width 加减号区域边框厚度 <3.0.0>
+ * @param {Color} $sign-bgcolor 加减号区域背景色 <3.0.0>
+ * @param {Color} $sign-color 加减号区域文本色 <3.0.0>
+ * @param {Length} $font-size 输入框字号 <3.0.0>
+ */
+.yo-number {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: inline-flex;
+  overflow: hidden;
+  width: 1.2rem;
+  height: 0.36rem;
+  line-height: 0.36rem;
+  -webkit-transform: translate(0);
+  transform: translate(0);
+  position: relative;
+  border-radius: 0.03rem;
+  background-color: #fff;
+  text-align: center;
+}
+
+.yo-number::after {
+  pointer-events: none;
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  content: "\0020";
+  border-color: #ccc;
+  border-style: solid;
+  border-width: 1px;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+
+@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
+  .yo-number::after {
+    width: 100%;
+    height: 100%;
+    border-radius: 0.03rem;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
+  .yo-number::after {
+    width: 200%;
+    height: 200%;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    border-radius: 0.06rem;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
+  .yo-number::after {
+    width: 300%;
+    height: 300%;
+    -webkit-transform: scale(0.33333);
+    transform: scale(0.33333);
+    border-radius: 0.09rem;
+  }
+}
+
+.yo-number > .minus,
+.yo-number > .plus {
+  display: block;
+  width: 0.36rem;
+  height: 0.36rem;
+  position: relative;
+  background-color: #fafafa;
+  color: #999;
+  font-size: 0.31rem;
+  font-family: arial;
+  cursor: pointer;
+}
+
+.yo-number > .minus::after,
+.yo-number > .plus::after {
+  pointer-events: none;
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  content: "\0020";
+  border-color: #ccc;
+  border-style: solid;
+  border-width: 1px;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+
+@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
+  .yo-number > .minus::after,
+  .yo-number > .plus::after {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
+  .yo-number > .minus::after,
+  .yo-number > .plus::after {
+    width: 200%;
+    height: 200%;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
+  .yo-number > .minus::after,
+  .yo-number > .plus::after {
+    width: 300%;
+    height: 300%;
+    -webkit-transform: scale(0.33333);
+    transform: scale(0.33333);
+  }
+}
+
+.yo-number > .minus.disabled,
+.yo-number > .plus.disabled {
+  cursor: not-allowed;
+  background-color: white;
+  color: #e6e6e6;
+}
+
+.yo-number > .minus.disabled::after,
+.yo-number > .plus.disabled::after {
+  border-color: #ebebeb;
+}
+
+.yo-number > .input {
+  display: block;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  width: .1px;
+  border: 0 none;
+  color: #212121;
+  font-size: 0.16rem;
+  text-align: inherit;
+}
+
+.yo-number > .input, .yo-number > .input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/**
+ * yo-number扩展
+ */
+.yo-number-test {
+  width: 1rem;
+  height: 0.25rem;
+  line-height: 0.25rem;
+}
+
+.yo-number-test::after {
+  border-width: 0;
+  border-color: #1ba9ba;
+}
+
+.yo-number-test > .minus,
+.yo-number-test > .plus {
+  width: 0.25rem;
+  height: 0.25rem;
+  font-size: 0.2rem;
+  border-radius: 50%;
+  background-color: #1ba9ba;
+  color: #eee;
+}
+
+.yo-number-test > .minus::after,
+.yo-number-test > .plus::after {
+  border-color: #1ba9ba;
+}
+
+@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
+  .yo-number-test > .minus::after,
+  .yo-number-test > .plus::after {
+    border-radius: 50%;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
+  .yo-number-test > .minus::after,
+  .yo-number-test > .plus::after {
+    border-radius: 100%;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
+  .yo-number-test > .minus::after,
+  .yo-number-test > .plus::after {
+    border-radius: 150%;
+  }
+}
+
+.yo-number-test > .minus.disabled,
+.yo-number-test > .plus.disabled {
+  background-color: #3ed1e3;
+  color: white;
+}
+
+.yo-number-test > .minus.disabled::after,
+.yo-number-test > .plus.disabled::after {
+  border-color: #31cee1;
+}
+
+.yo-number-test > .input {
+  font-size: 0.14rem;
 }
 
 .m-demo {

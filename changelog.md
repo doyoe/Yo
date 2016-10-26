@@ -2,32 +2,6 @@
 
 **全新架构设计**
 
-### 新增：
-* 新增 `yo-column` 横向弹性布局元件；
-* `yo-actionsheet` 新增 `item-light` 重要操作状态；
-* `yo-list` 增加边线右缩进的情况；
-* `yo-carousel` 增加纵向的情况；
-
-### 变更：
-* 将所有的 `widget` 迁移到 `fragment` 目录下；
-* 将 `yo-select` 变更为 `yo-picker`；
-* 将 `yo-datepicker` 变更为 `yo-calendar`；
-* 将 `yo-switchable` 变更为 `yo-carousel`；
-* 将 `yo-tip` 变更为 `yo-tooltip`；
-* 将 `yo-index` 并入 `yo-group`；
-* 将 `yo-loading` 中的 `inner` 层级移除；
-* 重构 `yo-suggest` 元件；
-* 重构 `yo-search` 元件；
-* 重构 `yo-range` 元件；
-* 重构 `yo-rating` 元件；
-* 修改 `@mixin flex` 方法纵向排版时，空间分配的bug，使用 `height: .1px` 解决；
-* 修复 `yo-tab` 中间隔线 `1/3` 的编译问题；
-
-### 删除：
-* 删除 `yo-input` 元件；
-* 删除 `yo-doublelist` 元件；
-* 删除 `yo-score` 元件，使用 `yo-rating` 的只读状态代替；
-
 **由于 Yo v3.0.0 引入了交互组件，并对原有结构做了大幅度的调整，所以不建议从旧版本升级，推荐在新项目和重构项目中使用**
 
 ## v2.1.3（2016.7.4）

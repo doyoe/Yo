@@ -731,35 +731,6 @@ a {
 }
 
 /**
- * yo-flex扩展
- */
-/**
- * @module layout
- * @method yo-column
- * @version 3.0.0
- * @description 构造弹性布局使用方法，可以是横向和纵向
- * @demo http://doyoe.github.io/Yo/demo/layout/yo-flex.html
- * @param {String} $name 定义扩展名称 <3.0.0>
- * @param {String} $size 指定容器的大小，取值：[auto|cover] <3.0.0>
- */
-.yo-column {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-}
-
-.yo-column > .item {
-  display: block;
-}
-
-.yo-column > .flex {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  flex: 1;
-  width: .1px;
-}
-
-/**
  * @module fragment
  * @method yo-header
  * @version 3.0.0
@@ -873,3 +844,33 @@ a {
   padding-right: 0.15rem;
   text-align: right;
 }
+
+/**
+ * @module layout
+ * @method yo-column
+ * @version 3.0.0
+ * @description 构造弹性布局使用方法，可以是横向和纵向
+ * @demo http://doyoe.github.io/Yo/demo/layout/yo-flex.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {String} $size 指定容器的大小，取值：[auto|cover] <3.0.0>
+ */
+.yo-column {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.yo-column > .item {
+  display: block;
+}
+
+.yo-column > .flex {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  width: .1px;
+}
+
+/**
+ * yo-column扩展
+ */

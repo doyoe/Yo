@@ -1,0 +1,76 @@
+@charset "utf-8";
+
+// 定义modal的基础构造
+@mixin _modal {
+    @include fullscreen(
+        $z-index: map-get($z-index, modal)
+    );
+    // 内容默认水平垂直居中对齐
+    @include align;
+    // 水平居中，垂直顶部对齐
+    &-top {
+        @include align-items(flex-start);
+    }
+    // 垂直居中，水平右侧对齐
+    &-right {
+        @include justify-content(flex-end);
+    }
+    // 水平居中，垂直底部对齐
+    &-bottom {
+        @include align-items(flex-end);
+    }
+    // 垂直居中，水平左侧对齐
+    &-left {
+        @include justify-content(flex-start);
+    }
+    // 内容水平铺满
+    &-stretch-x {
+        > .cont {
+            @include flex;
+        }
+    }
+    // 内容垂直铺满
+    &-stretch-y {
+        > .cont {
+            @include align-self(stretch);
+        }
+    }
+    // 模态窗底色
+    background-color: map-get($modal, bgcolor);
+    > .cont {
+        position: relative;
+    }
+}
+
+/**
+ * @module fragment
+ * @method yo-modal
+ * @version 3.0.0
+ * @description 构造yo-modal的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/fragment/yo-modal.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Color} $bgcolor 背景色 <3.0.0>
+ */
+
+@mixin yo-modal(
+    $name: default,
+    $bgcolor: default) {
+    // 区别是否新增实例还是修改本身
+    $name: if($name == default, "", "-#{$name}");
+    // 如果值为default，则取config的定义
+    @if $bgcolor == default {
+        $bgcolor: map-get($modal, bgcolor);
+    }
+    .yo-modal#{$name} {
+        @if $bgcolor != map-get($modal, bgcolor) {
+            background-color: $bgcolor;
+        }
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入modal基础构造
+.yo-modal {
+    @include _modal;
+}
