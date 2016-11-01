@@ -83,7 +83,8 @@
     }
     // 起始和结束日定义
     .start,
-    .end {
+    .end,
+    .start-end {
         > .day {
             display: inline-block;
             background-color: map-get($calendar, on-bgcolor);
@@ -278,7 +279,8 @@
         }
         // 起始和结束日定义
         .start,
-        .end {
+        .end,
+        .start-end {
             > .day {
                 @if $on-bgcolor != map-get($calendar, on-bgcolor) {
                     background-color: $on-bgcolor;

@@ -1369,19 +1369,22 @@ a {
 }
 
 .yo-calendar .start > .day,
-.yo-calendar .end > .day {
+.yo-calendar .end > .day,
+.yo-calendar .start-end > .day {
   display: inline-block;
   background-color: #1ba9ba;
   color: #fff;
 }
 
 .yo-calendar .start > .special,
-.yo-calendar .end > .special {
+.yo-calendar .end > .special,
+.yo-calendar .start-end > .special {
   display: none;
 }
 
 .yo-calendar .start > .tip,
-.yo-calendar .end > .tip {
+.yo-calendar .end > .tip,
+.yo-calendar .start-end > .tip {
   display: block;
   color: #1ba9ba;
 }
