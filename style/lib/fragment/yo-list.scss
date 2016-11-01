@@ -123,6 +123,18 @@
             padding: map-get($list, item-padding);
         }
     }
+    &-infinite {
+        > .label,
+        > .item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+        > .item:last-child::after {
+            border-width: 1px 0;
+        }
+    }
 }
 
 /**

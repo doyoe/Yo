@@ -1117,6 +1117,18 @@ a {
   padding: 0.11rem 0.1rem 0.12rem;
 }
 
+.yo-list-infinite > .label,
+.yo-list-infinite > .item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.yo-list-infinite > .item:last-child::after {
+  border-width: 1px 0;
+}
+
 /**
  * @module fragment
  * @method yo-tab
