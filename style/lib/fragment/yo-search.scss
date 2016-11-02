@@ -21,12 +21,14 @@
             @include flex;
             position: relative;
             z-index: 1;
-            padding-left: .1rem;
+            height: map-get($search, input-height);
+            padding: .05rem 0 .05rem .1rem;
             border: 0 none;
             border-radius: map-get($search, input-radius);
             background-color: map-get($search, input-bgcolor);
             color: map-get($search, input-color);
             vertical-align: top;
+            line-height: 1.1;
             &::-webkit-input-placeholder {
                 color: map-get($search, placeholder-color);
             }

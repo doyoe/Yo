@@ -1010,12 +1010,14 @@ a {
   width: .1px;
   position: relative;
   z-index: 1;
-  padding-left: .1rem;
+  height: 0.3rem;
+  padding: .05rem 0 .05rem .1rem;
   border: 0 none;
   border-radius: 0.05rem;
   background-color: #fff;
   color: #212121;
   vertical-align: top;
+  line-height: 1.1;
 }
 
 .yo-search > .action > .input::-webkit-input-placeholder {
