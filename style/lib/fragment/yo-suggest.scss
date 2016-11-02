@@ -50,7 +50,7 @@
             text-align: center;
         }
         > .yo-ico-delete,
-        > .yo-ico-fresh,
+        > .yo-ico-refresh,
         > .yo-ico-stop,
         > .yo-ico-loading {
             display: none;
@@ -222,7 +222,7 @@
                 }
             }
             > .yo-ico-delete,
-            > .yo-ico-fresh,
+            > .yo-ico-refresh,
             > .yo-ico-stop,
             > .yo-ico-loading {
                 @if $ico-color != map-get($suggest, ico-color) {
