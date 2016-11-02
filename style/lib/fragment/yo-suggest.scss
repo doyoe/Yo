@@ -6,7 +6,7 @@
 @mixin _suggest {
     @include flexbox;
     @include flex-direction(column);
-    height: 100%;
+    @include fullscreen;
     > .operate {
         @include flexbox;
         padding: map-get($suggest, padding);
@@ -22,7 +22,6 @@
         @include flexbox;
         @include flex;
         position: relative;
-        margin-right: map-get($suggest, cancel-width) - .1rem;
         // placeholder旁边的箭头颜色
         color: map-get($suggest, placeholder-color);
         > .input {
@@ -79,7 +78,18 @@
         > .result {
             @include fullscreen;
             z-index: 0;
-            background-color: #fff;
+        }
+        > .recommend {
+            background-color: map-get($suggest, recommend-bgcolor);
+        }
+        > .result {
+            display: none;
+            background-color: map-get($suggest, result-bgcolor);
+        }
+    }
+    &-modal {
+        .action {
+            margin-right: map-get($suggest, cancel-width) - .1rem;
         }
     }
 }
@@ -120,7 +130,9 @@
     $ico-color: default,
     $cancel-width: default,
     $cancel-color: default,
-    $cont-bgcolor: default) {
+    $cont-bgcolor: default,
+    $recommend-bgcolor: default,
+    $result-bgcolor: default) {
     // 区别是否新增实例还是修改本身
     $name: if($name == default, "", "-#{$name}");
     // 如果值为default，则取config的定义
@@ -163,6 +175,12 @@
     @if $cont-bgcolor == default {
         $cont-bgcolor: map-get($suggest, cont-bgcolor);
     }
+    @if $recommend-bgcolor == default {
+        $recommend-bgcolor: map-get($suggest, recommend-bgcolor);
+    }
+    @if $result-bgcolor == default {
+        $result-bgcolor: map-get($suggest, result-bgcolor);
+    }
     .yo-suggest#{$name} {
         > .operate {
             @if $padding != map-get($suggest, padding) {
@@ -188,9 +206,6 @@
                 color: $placeholder-color;
             }
             > .input {
-                @if $cancel-width != map-get($suggest, cancel-width) {
-                    margin-right: $cancel-width - .1rem;
-                }
                 @if $input-radius != map-get($suggest, input-radius) {
                     border-radius: $input-radius;
                 }
@@ -227,8 +242,24 @@
             @if $cont-bgcolor != map-get($suggest, cont-bgcolor) {
                 background-color: $cont-bgcolor;
             }
+            > .recommend {
+                @if $recommend-bgcolor != map-get($suggest, recommend-bgcolor) {
+                    background-color: $recommend-bgcolor;
+                }
+            }
+            > .result {
+                @if $result-bgcolor != map-get($suggest, result-bgcolor) {
+                    background-color: $result-bgcolor;
+                }
+            }
         }
-
+        &-modal {
+            .action {
+                @if $cancel-width != map-get($suggest, cancel-width) {
+                    margin-right: $cancel-width - .1rem;
+                }
+            }
+        }
         // 增量扩展
         @content;
     }
