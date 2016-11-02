@@ -92,6 +92,9 @@
             margin-right: map-get($suggest, cancel-width) - .1rem;
         }
     }
+    .show {
+        display: block !important;
+    }
 }
 
 /**
