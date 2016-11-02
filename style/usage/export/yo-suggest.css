@@ -989,14 +989,17 @@ a {
 }
 
 .yo-suggest > .cont > .mask {
+  z-index: 2;
   background-color: rgba(0, 0, 0, 0.2);
 }
 
 .yo-suggest > .cont > .recommend {
+  z-index: 1;
   background-color: rgba(255, 255, 255, 0.8);
 }
 
 .yo-suggest > .cont > .result {
+  z-index: 3;
   background-color: #fff;
 }
 

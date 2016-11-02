@@ -87,12 +87,15 @@
             display: none;
         }
         > .mask {
+            z-index: 2;
             background-color: map-get($suggest, mask-bgcolor);
         }
         > .recommend {
+            z-index: 1;
             background-color: map-get($suggest, recommend-bgcolor);
         }
         > .result {
+            z-index: 3;
             background-color: map-get($suggest, result-bgcolor);
         }
     }
