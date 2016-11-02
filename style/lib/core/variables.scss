@@ -579,7 +579,7 @@ $_swipemenu: (
     action-first-bgcolor: red
 );
 
-// Fragment suggest(15)
+// Fragment suggest(16)
 $_suggest: (
     // {Length} 搜索区内补白
     padding:          .07rem .1rem,
@@ -607,6 +607,8 @@ $_suggest: (
     cancel-color:     map-get($base, link-color),
     // {Color} 内容区背景色
     cont-bgcolor:     null,
+    // {Color} 遮罩背景色
+    mask-bgcolor:     rgba(#000, .2),
     // {Color} 推荐区背景色
     recommend-bgcolor:rgba(#fff, .8),
     // {Color} 结果区背景色

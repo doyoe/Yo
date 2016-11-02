@@ -823,6 +823,9 @@ a {
  * @param {Length} $cancel-width 取消按钮区域宽度 <3.0.0>
  * @param {Color} $cancel-color 取消按钮颜色 <3.0.0>
  * @param {Color} $cont-bgcolor 内容区背景色 <3.0.0>
+ * @param {Color} $mask-bgcolor 内容区背景色 <3.0.0>
+ * @param {Color} $recommend-bgcolor 内容区背景色 <3.0.0>
+ * @param {Color} $result-bgcolor 内容区背景色 <3.0.0>
  */
 .yo-suggest {
   display: -webkit-box;
@@ -967,6 +970,7 @@ a {
   height: .1px;
 }
 
+.yo-suggest > .cont > .mask,
 .yo-suggest > .cont > .recommend,
 .yo-suggest > .cont > .result {
   position: absolute;
@@ -977,12 +981,20 @@ a {
   z-index: 0;
 }
 
+.yo-suggest > .cont > .mask,
+.yo-suggest > .cont > .result {
+  display: none;
+}
+
+.yo-suggest > .cont > .mask {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
 .yo-suggest > .cont > .recommend {
   background-color: rgba(255, 255, 255, 0.8);
 }
 
 .yo-suggest > .cont > .result {
-  display: none;
   background-color: #fff;
 }
 

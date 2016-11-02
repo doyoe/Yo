@@ -74,16 +74,23 @@
         position: relative;
         @include flex(1, column);
         background-color: map-get($suggest, cont-bgcolor);
+        > .mask,
         > .recommend,
         > .result {
             @include fullscreen;
             z-index: 0;
         }
+        > .mask,
+        > .result {
+            display: none;
+        }
+        > .mask {
+            background-color: map-get($suggest, mask-bgcolor);
+        }
         > .recommend {
             background-color: map-get($suggest, recommend-bgcolor);
         }
         > .result {
-            display: none;
             background-color: map-get($suggest, result-bgcolor);
         }
     }
@@ -117,6 +124,9 @@
  * @param {Length} $cancel-width 取消按钮区域宽度 <3.0.0>
  * @param {Color} $cancel-color 取消按钮颜色 <3.0.0>
  * @param {Color} $cont-bgcolor 内容区背景色 <3.0.0>
+ * @param {Color} $mask-bgcolor 内容区背景色 <3.0.0>
+ * @param {Color} $recommend-bgcolor 内容区背景色 <3.0.0>
+ * @param {Color} $result-bgcolor 内容区背景色 <3.0.0>
  */
 
 @mixin yo-suggest(
@@ -134,6 +144,7 @@
     $cancel-width: default,
     $cancel-color: default,
     $cont-bgcolor: default,
+    $mask-bgcolor: default,
     $recommend-bgcolor: default,
     $result-bgcolor: default) {
     // 区别是否新增实例还是修改本身
@@ -177,6 +188,9 @@
     }
     @if $cont-bgcolor == default {
         $cont-bgcolor: map-get($suggest, cont-bgcolor);
+    }
+    @if $mask-bgcolor == default {
+        $mask-bgcolor: map-get($suggest, mask-bgcolor);
     }
     @if $recommend-bgcolor == default {
         $recommend-bgcolor: map-get($suggest, recommend-bgcolor);
@@ -244,6 +258,11 @@
         > .cont {
             @if $cont-bgcolor != map-get($suggest, cont-bgcolor) {
                 background-color: $cont-bgcolor;
+            }
+            > .mask {
+                @if $mask-bgcolor != map-get($suggest, mask-bgcolor) {
+                    background-color: $mask-bgcolor;
+                }
             }
             > .recommend {
                 @if $recommend-bgcolor != map-get($suggest, recommend-bgcolor) {
