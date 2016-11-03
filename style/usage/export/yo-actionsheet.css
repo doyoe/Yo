@@ -911,6 +911,7 @@ a {
  * @param {Color} $bgcolor 背景色 <3.0.0>
  */
 .yo-modal {
+  overflow: hidden;
   position: absolute;
   z-index: 1000;
   top: 0;
@@ -991,7 +992,7 @@ a {
  * @param {Length} $radius 圆角半径长度 <3.0.0>
  * @param {Color} $border-color 边线色 <3.0.0>
  * @param {Color} $bgcolor 背景色 <3.0.0>
- * @param {Color} $active-bgcolor 点击反馈背景色 <3.0.0>
+ * @param {Color} $touch-bgcolor 点击反馈背景色 <3.0.0>
  * @param {Length} $item-height 子项高度 <3.0.0>
  * @param {Length} $item-font-size 子项字号 <3.0.0>
  * @param {Color} $item-color 子项文本色 <3.0.0>
@@ -1071,7 +1072,7 @@ a {
   }
 }
 
-.yo-actionsheet .item.item-active:active, .yo-actionsheet .item.item-light {
+.yo-actionsheet .item:active, .yo-actionsheet .item-touch {
   background-color: rgba(238, 238, 238, 0.95);
 }
 

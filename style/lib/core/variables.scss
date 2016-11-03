@@ -137,11 +137,11 @@ $_btn: (
     // {Color} 文本色
     color:          #fff,
     // {Color} 激活时边框色
-    active-border-color: null,
+    touch-border-color: null,
     // {Color} 激活时背景色
-    active-bgcolor:      null,
+    touch-bgcolor:      null,
     // {Color} 激活时文本色
-    active-color:        null,
+    touch-color:        null,
     // {Length} 内补白(使用em让根据字号动态调整)
     padding:        0 1.2em,
     // {Length} 圆角半径
@@ -253,7 +253,7 @@ $_actionsheet: (
     // {Color} 背景色
     bgcolor:              rgba(#fff, .95),
     // {Color} 点击反馈背景色
-    active-bgcolor:       rgba(#eee, .95),
+    touch-bgcolor:        rgba(#eee, .95),
     // {Length} 子项高度
     item-height:          .55rem,
     // {Length} 子项字号
@@ -360,9 +360,9 @@ $_carousel: (
     // {Color} 按钮文本色
     btn-color:          #fff,
     // {Color} 按钮按下时背景色
-    btn-active-bgcolor: rgba(#09a5c4, .5),
+    touch-btn-bgcolor:  rgba(#09a5c4, .5),
     // {Color} 按钮按下时文本色
-    btn-active-color:   null,
+    touch-btn-color:    null,
     // {Length} 索引大小
     index-size:         .1rem,
     // {Color} 索引背景色
@@ -446,7 +446,7 @@ $_list: (
     // {Color} 列表组头背景色
     label-bgcolor:     #eee,
     // {Color} 点击反馈背景色
-    active-bgcolor:    #f8f8f8,
+    touch-bgcolor:     #f8f8f8,
     // {Color} 选中背景色
     on-bgcolor:        null,
     // {Color} 选中文本色
@@ -668,7 +668,7 @@ $_table: (
     // {Color} 表主体偶数行背景色
     even-bgcolor:        null,
     // {Color} 表主体激活行背景色
-    active-bgcolor:      null,
+    touch-bgcolor:       null,
     // {Color} 表主体选中行背景色
     on-bgcolor:          null
 );

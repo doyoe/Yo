@@ -911,6 +911,7 @@ a {
  * @param {Color} $bgcolor 背景色 <3.0.0>
  */
 .yo-modal {
+  overflow: hidden;
   position: absolute;
   z-index: 1000;
   top: 0;

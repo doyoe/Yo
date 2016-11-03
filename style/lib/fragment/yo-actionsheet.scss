@@ -31,11 +31,10 @@
                 $border-color: map-get($actionsheet, border-color)
             );
         }
-        // 常规需要active的项目，没有使用到第3方组件的
-        &.item-active:active,
-        // 为第3方组件提供active状态
-        &.item-light {
-            background-color: map-get($actionsheet, active-bgcolor);
+        // touch状态
+        &:active,
+        &-touch {
+            background-color: map-get($actionsheet, touch-bgcolor);
         }
         // 高亮重要操作
         &-important {
@@ -55,7 +54,7 @@
  * @param {Length} $radius 圆角半径长度 <3.0.0>
  * @param {Color} $border-color 边线色 <3.0.0>
  * @param {Color} $bgcolor 背景色 <3.0.0>
- * @param {Color} $active-bgcolor 点击反馈背景色 <3.0.0>
+ * @param {Color} $touch-bgcolor 点击反馈背景色 <3.0.0>
  * @param {Length} $item-height 子项高度 <3.0.0>
  * @param {Length} $item-font-size 子项字号 <3.0.0>
  * @param {Color} $item-color 子项文本色 <3.0.0>
@@ -68,7 +67,7 @@
     $radius: default,
     $border-color: default,
     $bgcolor: default,
-    $active-bgcolor: default,
+    $touch-bgcolor: default,
     $item-height: default,
     $item-font-size: default,
     $item-color: default,
@@ -88,8 +87,8 @@
     @if $bgcolor == default {
         $bgcolor: map-get($actionsheet, bgcolor);
     }
-    @if $active-bgcolor == default {
-        $active-bgcolor: map-get($actionsheet, active-bgcolor);
+    @if $touch-bgcolor == default {
+        $touch-bgcolor: map-get($actionsheet, touch-bgcolor);
     }
     @if $item-height == default {
         $item-height: map-get($actionsheet, item-height);
@@ -134,12 +133,15 @@
                     }
                 }
             }
-            &:active {
-                @if $active-bgcolor != map-get($actionsheet, active-bgcolor) {
-                    background-color: $active-bgcolor;
+            // touch状态
+            &:active,
+            &.item-touch {
+                @if $touch-bgcolor != map-get($actionsheet, touch-bgcolor) {
+                    background-color: $touch-bgcolor;
                 }
             }
-            &-light {
+            // 高亮重要操作
+            &.item-important {
                 @if $item-important-color != map-get($actionsheet, item-important-color) {
                     color: $item-important-color;
                 }

@@ -54,7 +54,7 @@
             $bgcolor: #fff,
             $color: map-get($base, link-color),
             $radius: 0,
-            $active-bgcolor: #f9f9f9
+            $touch-bgcolor: #f9f9f9
         ){
             display: block;
             @include flex;

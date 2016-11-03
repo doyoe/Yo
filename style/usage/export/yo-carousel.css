@@ -911,8 +911,8 @@ a {
  * @param {Length} $btn-size 按钮大小 <3.0.0>
  * @param {Color} $btn-bgcolor 按钮背景色 <3.0.0>
  * @param {Color} $btn-color 按钮文本色 <3.0.0>
- * @param {Color} $btn-active-bgcolor 按钮按下背景色 <3.0.0>
- * @param {Color} $btn-active-color 按钮按下文本色 <3.0.0>
+ * @param {Color} $touch-btn-bgcolor 按钮按下背景色 <3.0.0>
+ * @param {Color} $touch-btn-color 按钮按下文本色 <3.0.0>
  * @param {Length} $index-size 索引大小 <3.0.0>
  * @param {Color} $index-bgcolor 索引背景色 <3.0.0>
  * @param {Color} $on-index-bgcolor 索引当前项背景色 <3.0.0>
@@ -983,7 +983,7 @@ a {
   cursor: pointer;
 }
 
-.yo-carousel > .yo-ico:active {
+.yo-carousel > .yo-ico:active, .yo-carousel > .yo-ico-touch {
   background-color: rgba(9, 165, 196, 0.5);
 }
 

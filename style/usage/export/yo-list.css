@@ -997,7 +997,7 @@ a {
  * @param {Length} $item-padding 子项的内补白 <3.0.0>
  * @param {Length} $label-padding 列表组头内补白 <3.0.0>
  * @param {Color} $label-bgcolor 列表组头背景色 <3.0.0>
- * @param {Color} $active-bgcolor 子项点击反馈背景色 <3.0.0>
+ * @param {Color} $touch-bgcolor 子项点击反馈背景色 <3.0.0>
  * @param {Color} $on-bgcolor 子项选中背景色 <3.0.0>
  * @param {Color} $on-color 子项选中文本色 <3.0.0>
  * @param {Color} $item-border-color 子项边框色 <3.0.0>
@@ -1247,8 +1247,8 @@ a {
 }
 
 .yo-list > .item.item-active:active,
-.yo-list > .item.item-active:active .front, .yo-list > .item.item-light,
-.yo-list > .item.item-light .front {
+.yo-list > .item.item-active:active .front, .yo-list > .item.item-touch,
+.yo-list > .item.item-touch .front {
   background-color: #f8f8f8;
 }
 

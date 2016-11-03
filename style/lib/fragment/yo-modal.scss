@@ -2,6 +2,7 @@
 
 // 定义modal的基础构造
 @mixin _modal {
+    overflow: hidden;
     @include fullscreen(
         $z-index: map-get($z-index, modal)
     );

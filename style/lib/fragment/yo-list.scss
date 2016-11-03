@@ -108,10 +108,10 @@
         // 常规需要active的项目，没有使用到第3方组件的
         &.item-active:active,
         // 为第3方组件提供active状态
-        &.item-light {
+        &.item-touch {
             &,
             .front {
-                background-color: map-get($list, active-bgcolor);
+                background-color: map-get($list, touch-bgcolor);
             }
         }
         // 选中时背景和文本色
@@ -152,7 +152,7 @@
  * @param {Length} $item-padding 子项的内补白 <3.0.0>
  * @param {Length} $label-padding 列表组头内补白 <3.0.0>
  * @param {Color} $label-bgcolor 列表组头背景色 <3.0.0>
- * @param {Color} $active-bgcolor 子项点击反馈背景色 <3.0.0>
+ * @param {Color} $touch-bgcolor 子项点击反馈背景色 <3.0.0>
  * @param {Color} $on-bgcolor 子项选中背景色 <3.0.0>
  * @param {Color} $on-color 子项选中文本色 <3.0.0>
  * @param {Color} $item-border-color 子项边框色 <3.0.0>
@@ -173,7 +173,7 @@
     $item-padding: default,
     $label-padding: default,
     $label-bgcolor: default,
-    $active-bgcolor: default,
+    $touch-bgcolor: default,
     $on-bgcolor: default,
     $on-color: default,
     $item-border-color: default,
@@ -207,8 +207,8 @@
     @if $label-bgcolor == default {
         $label-bgcolor: map-get($list, label-bgcolor);
     }
-    @if $active-bgcolor == default {
-        $active-bgcolor: map-get($list, active-bgcolor);
+    @if $touch-bgcolor == default {
+        $touch-bgcolor: map-get($list, touch-bgcolor);
     }
     @if $on-bgcolor == default {
         $on-bgcolor: map-get($list, on-bgcolor);
@@ -325,11 +325,11 @@
                 }
             }
             &.item-active:active,
-            &.item-light {
+            &.item-touch {
                 &,
                 .front {
-                    @if $active-bgcolor != map-get($list, active-bgcolor) {
-                        background-color: $active-bgcolor;
+                    @if $touch-bgcolor != map-get($list, touch-bgcolor) {
+                        background-color: $touch-bgcolor;
                     }
                 }
             }
