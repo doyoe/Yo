@@ -1,4 +1,5 @@
 @charset "utf-8";
+@import "../core/reset";
 @import "../../lib/ani/fade-in";
 @import "../../lib/ani/fade-in-up";
 @import "../../lib/ani/fade-in-right";
@@ -64,36 +65,3 @@
 @import "../../lib/ani/sling";
 @import "../../lib/ani/wobble";
 @import "../../lib/ani/hinge";
-
-/**
-* ani演示页面
-* Author: joy.du(飘零雾雨)
-* Time: 2014.4.1
-*/
-
-.demo{
-    margin: 20px 30px;
-    text-align: center;
-    .title{
-        border-bottom: 1px solid #aaa;
-        font-size: 48px;
-    }
-
-    .animation{
-        margin: 10px 0;
-        background: #eee;
-    }
-    .content{
-        display: inline-block;
-        margin: 10px 0;
-        font-size: 48px;
-    }
-    .select{
-        opacity:.99;
-        select{
-            // -webkit-appearance: none;
-            padding: .5em;
-            font-size: 16px;
-        }
-    }
-}
