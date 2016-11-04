@@ -89,16 +89,6 @@ gulp.task('doc', function() {
         .pipe(ydoc(conf));
 });
 
-// 命令: gulp uedoc, 生成UED文档
-gulp.task('uedoc', function() {
-    var conf = JSON.parse(fs.readFileSync(path.join(__dirname, 'ydoc.config'), 'UTF-8'));
-    conf.dest = 'uedoc';
-    conf.common.home = 'HY';
-    conf.common.homeUrl = "http://ued.qunar.com/hy/"
-    return gulp.src('./lib/')
-        .pipe(ydoc(conf));
-});
-
 // 命令: gulp watch-doc, 监听改变生成文档
 gulp.task('watch-doc', function() {
     gulp.watch(['./**/*.scss', './**/*.md'], ['doc']);
