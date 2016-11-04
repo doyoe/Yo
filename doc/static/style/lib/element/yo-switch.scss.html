@@ -4,8 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
     <title>Yo : ./style/lib/element/yo-switch.scss</title>
-    <link type="text/css" rel="stylesheet" href="../../../../source/shCoreDefault.css"/>
-    <link rel="stylesheet" href="../../../../source/app.css" rel="stylesheet" />
+    <link type="text/css" rel="stylesheet" href="../../../../source/code.css"/>
     <script type="text/javascript" src="../../../../source/shCore.js"></script>
     <script type="text/javascript" src="../../../../source/shBrush-css.js"></script>
     <style>
@@ -13,19 +12,20 @@
         .syntaxhighlighter table td.gutter .line.highlight { background-color: #6ce26c !important; color: white; }
     </style>
 </head>
-<body style="background: white; font-family: Helvetica">
-<div class="docs-header" id="content" tabindex="-1">
-    <div class="container">
-        <h1>Yo : ./style/lib/element/yo-switch.scss</h1>
-        <p>源代码</p>
-    </div>
-</div>
-<div class="container docs-container">
-
-    <div class="row">
-        <div class="col-md-9" role="main">
-        <pre class="brush: css;">
-@charset "utf-8";
+<body>
+<div class="ydoc">
+    <div class="ydoc-banner-bg">
+        <div class="ydoc-banner" id="content" tabindex="-1">
+            <div class="ydoc-banner-area">
+                <h1>Yo : ./style/lib/element/yo-switch.scss</h1>
+                <p>源代码</p>
+            </div>
+        </div>
+        <div class="ydoc-container">
+            <div class="ydoc-container-content">
+                <div class="static-code-content" role="main">
+                <pre class="brush: css;">
+                @charset "utf-8";
 
 // 定义switch的基础构造
 @mixin _switch {
@@ -45,33 +45,44 @@
         vertical-align: middle;
         > .handle {
             position: absolute;
-            z-index: 1000;
-            top: 1px;
-            left: 1px;
+            z-index: 1;
+            top: .01rem;
+            left: .01rem;
             @include square(.28rem);
             border-radius: .14rem;
             background-color: map-get($switch, thumb-color);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, .3);
-            @include transition(transform .1s ease-out);
+            box-shadow: 0 .01rem .03rem rgba(0, 0, 0, .3);
+            @include transition(all .1s ease-out);
         }
         &::after {
             position: absolute;
-            left: .15rem;
+            top: .01rem;
+            right: .01rem;
+            bottom: .01rem;
+            left: .01rem;
             content: "\0020";
-            width: .34rem;
-            height: .28rem;
             background-color: map-get($switch, follow-bgcolor);
-            border-radius: 0 .15rem .15rem 0;
+            border-radius: .16rem;
             @include transition(transform .13s ease-out);
+        }
+    }
+    // 拖动时，滑块变宽
+    > .track.moving {
+        > .handle {
+            width: 0.34rem;
+        }
+    }
+    // 拖动和选中时，隐藏跟随色块
+    > .track.moving,
+    > input:checked + .track {
+        &::after {
+            @include transform(scale3d(0, 0, 0));
         }
     }
     > input:checked + .track {
         background-color: map-get($switch, on-bgcolor);
         > .handle {
             @include transform(translate3d(.2rem, 0, 0));
-        }
-        &::after {
-            @include transform(scale3d(0, 0, 0));
         }
     }
     > input:disabled + .track {
@@ -143,16 +154,24 @@
 .yo-switch {
     @include _switch;
 }
-        </pre>
+                </pre>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+    <!-- <div class="docs-header" id="content" tabindex="-1">
+        <div class="container">
+            <h1>Yo : ./style/lib/element/yo-switch.scss</h1>
+            <p>源代码</p>
+        </div>
+    </div> -->
 
-<footer class="docs-footer" role="contentinfo">
-    <div class="container">
-        <p></p>
-    </div>
-</footer>
+    <footer class="docs-footer" role="contentinfo">
+        <div class="container">
+            <p></p>
+        </div>
+    </footer>
+</div>
 <script type="text/javascript">
     SyntaxHighlighter.all();
 

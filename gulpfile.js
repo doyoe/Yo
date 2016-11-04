@@ -82,19 +82,9 @@ gulp.task('doc', function() {
     var conf = {
         dest: 'doc'
     };
-    if (fs.existsSync(path.join(__dirname, 'template'))) {
-        conf.template = './template';
+    if (fs.existsSync(path.join(__dirname, 'ydoc_template'))) {
+        conf.template = './ydoc_template';
     }
-    return gulp.src('./style/')
-        .pipe(ydoc(conf));
-});
-
-// 命令: gulp uedoc, 生成UED文档
-gulp.task('uedoc', function() {
-    var conf = JSON.parse(fs.readFileSync(path.join(__dirname, 'ydoc.config'), 'UTF-8'));
-    conf.dest = 'uedoc';
-    conf.common.home = 'HY';
-    conf.common.homeUrl = "http://ued.qunar.com/hy/"
     return gulp.src('./style/')
         .pipe(ydoc(conf));
 });

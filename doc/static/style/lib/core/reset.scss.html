@@ -4,8 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
     <title>Yo : ./style/lib/core/reset.scss</title>
-    <link type="text/css" rel="stylesheet" href="../../../../source/shCoreDefault.css"/>
-    <link rel="stylesheet" href="../../../../source/app.css" rel="stylesheet" />
+    <link type="text/css" rel="stylesheet" href="../../../../source/code.css"/>
     <script type="text/javascript" src="../../../../source/shCore.js"></script>
     <script type="text/javascript" src="../../../../source/shBrush-css.js"></script>
     <style>
@@ -13,19 +12,20 @@
         .syntaxhighlighter table td.gutter .line.highlight { background-color: #6ce26c !important; color: white; }
     </style>
 </head>
-<body style="background: white; font-family: Helvetica">
-<div class="docs-header" id="content" tabindex="-1">
-    <div class="container">
-        <h1>Yo : ./style/lib/core/reset.scss</h1>
-        <p>源代码</p>
-    </div>
-</div>
-<div class="container docs-container">
-
-    <div class="row">
-        <div class="col-md-9" role="main">
-        <pre class="brush: css;">
-@charset "utf-8";
+<body>
+<div class="ydoc">
+    <div class="ydoc-banner-bg">
+        <div class="ydoc-banner" id="content" tabindex="-1">
+            <div class="ydoc-banner-area">
+                <h1>Yo : ./style/lib/core/reset.scss</h1>
+                <p>源代码</p>
+            </div>
+        </div>
+        <div class="ydoc-container">
+            <div class="ydoc-container-content">
+                <div class="static-code-content" role="main">
+                <pre class="brush: css;">
+                @charset "utf-8";
 @import "function";
 @import "classes";
 /**
@@ -41,8 +41,16 @@
     @include box-sizing(border-box);
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-// 1. 默认关闭页面滚动条
+
+// 1. 默认禁止body滚动
 @include root-scroll;
+
+// 1. 隐藏页面滚动条
+::-webkit-scrollbar {
+    @if map-get($setting, is-scrollbar) == false {
+        display: none;
+    }
+}
 
 // 1. 防止用户自定义网页背景及文字颜色、大小影响
 html {
@@ -286,16 +294,24 @@ html + input {}
 
 // 1. 使用字体图标
 @include _yofont;
-        </pre>
+                </pre>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+    <!-- <div class="docs-header" id="content" tabindex="-1">
+        <div class="container">
+            <h1>Yo : ./style/lib/core/reset.scss</h1>
+            <p>源代码</p>
+        </div>
+    </div> -->
 
-<footer class="docs-footer" role="contentinfo">
-    <div class="container">
-        <p></p>
-    </div>
-</footer>
+    <footer class="docs-footer" role="contentinfo">
+        <div class="container">
+            <p></p>
+        </div>
+    </footer>
+</div>
 <script type="text/javascript">
     SyntaxHighlighter.all();
 

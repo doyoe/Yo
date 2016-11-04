@@ -4,8 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
     <title>Yo : ./style/lib/fragment/yo-actionsheet.scss</title>
-    <link type="text/css" rel="stylesheet" href="../../../../source/shCoreDefault.css"/>
-    <link rel="stylesheet" href="../../../../source/app.css" rel="stylesheet" />
+    <link type="text/css" rel="stylesheet" href="../../../../source/code.css"/>
     <script type="text/javascript" src="../../../../source/shCore.js"></script>
     <script type="text/javascript" src="../../../../source/shBrush-css.js"></script>
     <style>
@@ -13,36 +12,29 @@
         .syntaxhighlighter table td.gutter .line.highlight { background-color: #6ce26c !important; color: white; }
     </style>
 </head>
-<body style="background: white; font-family: Helvetica">
-<div class="docs-header" id="content" tabindex="-1">
-    <div class="container">
-        <h1>Yo : ./style/lib/fragment/yo-actionsheet.scss</h1>
-        <p>源代码</p>
-    </div>
-</div>
-<div class="container docs-container">
-
-    <div class="row">
-        <div class="col-md-9" role="main">
-        <pre class="brush: css;">
-@charset "utf-8";
+<body>
+<div class="ydoc">
+    <div class="ydoc-banner-bg">
+        <div class="ydoc-banner" id="content" tabindex="-1">
+            <div class="ydoc-banner-area">
+                <h1>Yo : ./style/lib/fragment/yo-actionsheet.scss</h1>
+                <p>源代码</p>
+            </div>
+        </div>
+        <div class="ydoc-container">
+            <div class="ydoc-container-content">
+                <div class="static-code-content" role="main">
+                <pre class="brush: css;">
+                @charset "utf-8";
+@import "yo-modal";
 
 // 定义浮层actionsheet的基础构造
 @mixin _actionsheet {
-    position: absolute;
-    z-index: map-get($z-index, actionsheet);
-    right: 0;
-    bottom: 0;
-    left: 0;
-    // (设置容器可滚动)iOS中active要生效的话，内容必须放置在滚动容器中
-    overflow: auto;
     margin: map-get($actionsheet, margin);
     text-align: center;
     > .menu,
     > .action {
         overflow: hidden;
-        // (设置内容溢出容器)iOS中active要生效的话，内容必须放置在滚动容器中
-        width: 100.13%;
         border-radius: map-get($actionsheet, radius);
         background-color: map-get($actionsheet, bgcolor);
     }
@@ -66,12 +58,14 @@
                 $border-color: map-get($actionsheet, border-color)
             );
         }
-        &:active {
-            background-color: map-get($actionsheet, active-bgcolor);
+        // touch状态
+        &:active,
+        &-touch {
+            background-color: map-get($actionsheet, touch-bgcolor);
         }
-        // 重要操作
-        &-light {
-            color: map-get($actionsheet, item-light-color);
+        // 高亮重要操作
+        &-important {
+            color: map-get($actionsheet, item-important-color);
         }
     }
 }
@@ -86,12 +80,12 @@
  * @param {Length} $margin 外补白 <3.0.0>
  * @param {Length} $radius 圆角半径长度 <3.0.0>
  * @param {Color} $border-color 边线色 <3.0.0>
- * @param {Color} $bgcolor 子项背景色 <3.0.0>
- * @param {Color} $active-bgcolor 子项点击反馈背景色 <3.0.0>
+ * @param {Color} $bgcolor 背景色 <3.0.0>
+ * @param {Color} $touch-bgcolor 点击反馈背景色 <3.0.0>
  * @param {Length} $item-height 子项高度 <3.0.0>
  * @param {Length} $item-font-size 子项字号 <3.0.0>
  * @param {Color} $item-color 子项文本色 <3.0.0>
- * @param {Color} $item-light-color 重要操作子项文本色 <3.0.0>
+ * @param {Color} $item-important-color 重要操作子项文本色 <3.0.0>
  */
 
 @mixin yo-actionsheet(
@@ -100,11 +94,11 @@
     $radius: default,
     $border-color: default,
     $bgcolor: default,
-    $active-bgcolor: default,
+    $touch-bgcolor: default,
     $item-height: default,
     $item-font-size: default,
     $item-color: default,
-    $item-light-color: default) {
+    $item-important-color: default) {
     // 区别是否新增实例还是修改本身
     $name: if($name == default, "", "-#{$name}");
     // 如果值为default，则取config的定义
@@ -120,8 +114,8 @@
     @if $bgcolor == default {
         $bgcolor: map-get($actionsheet, bgcolor);
     }
-    @if $active-bgcolor == default {
-        $active-bgcolor: map-get($actionsheet, active-bgcolor);
+    @if $touch-bgcolor == default {
+        $touch-bgcolor: map-get($actionsheet, touch-bgcolor);
     }
     @if $item-height == default {
         $item-height: map-get($actionsheet, item-height);
@@ -132,8 +126,8 @@
     @if $item-color == default {
         $item-color: map-get($actionsheet, item-color);
     }
-    @if $item-light-color == default {
-        $item-light-color: map-get($actionsheet, item-light-color);
+    @if $item-important-color == default {
+        $item-important-color: map-get($actionsheet, item-important-color);
     }
     .yo-actionsheet#{$name} {
         @if $margin != map-get($actionsheet, margin) {
@@ -166,14 +160,17 @@
                     }
                 }
             }
-            &:active {
-                @if $active-bgcolor != map-get($actionsheet, active-bgcolor) {
-                    background-color: $active-bgcolor;
+            // touch状态
+            &:active,
+            &.item-touch {
+                @if $touch-bgcolor != map-get($actionsheet, touch-bgcolor) {
+                    background-color: $touch-bgcolor;
                 }
             }
-            &-light {
-                @if $item-light-color != map-get($actionsheet, item-light-color) {
-                    color: $item-light-color;
+            // 高亮重要操作
+            &.item-important {
+                @if $item-important-color != map-get($actionsheet, item-important-color) {
+                    color: $item-important-color;
                 }
             }
         }
@@ -187,16 +184,24 @@
 .yo-actionsheet {
     @include _actionsheet;
 }
-        </pre>
+                </pre>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+    <!-- <div class="docs-header" id="content" tabindex="-1">
+        <div class="container">
+            <h1>Yo : ./style/lib/fragment/yo-actionsheet.scss</h1>
+            <p>源代码</p>
+        </div>
+    </div> -->
 
-<footer class="docs-footer" role="contentinfo">
-    <div class="container">
-        <p></p>
-    </div>
-</footer>
+    <footer class="docs-footer" role="contentinfo">
+        <div class="container">
+            <p></p>
+        </div>
+    </footer>
+</div>
 <script type="text/javascript">
     SyntaxHighlighter.all();
 

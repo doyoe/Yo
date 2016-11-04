@@ -4,8 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
     <title>Yo : ./style/lib/element/yo-btn.scss</title>
-    <link type="text/css" rel="stylesheet" href="../../../../source/shCoreDefault.css"/>
-    <link rel="stylesheet" href="../../../../source/app.css" rel="stylesheet" />
+    <link type="text/css" rel="stylesheet" href="../../../../source/code.css"/>
     <script type="text/javascript" src="../../../../source/shCore.js"></script>
     <script type="text/javascript" src="../../../../source/shBrush-css.js"></script>
     <style>
@@ -13,19 +12,20 @@
         .syntaxhighlighter table td.gutter .line.highlight { background-color: #6ce26c !important; color: white; }
     </style>
 </head>
-<body style="background: white; font-family: Helvetica">
-<div class="docs-header" id="content" tabindex="-1">
-    <div class="container">
-        <h1>Yo : ./style/lib/element/yo-btn.scss</h1>
-        <p>源代码</p>
-    </div>
-</div>
-<div class="container docs-container">
-
-    <div class="row">
-        <div class="col-md-9" role="main">
-        <pre class="brush: css;">
-@charset "utf-8";
+<body>
+<div class="ydoc">
+    <div class="ydoc-banner-bg">
+        <div class="ydoc-banner" id="content" tabindex="-1">
+            <div class="ydoc-banner-area">
+                <h1>Yo : ./style/lib/element/yo-btn.scss</h1>
+                <p>源代码</p>
+            </div>
+        </div>
+        <div class="ydoc-container">
+            <div class="ydoc-container-content">
+                <div class="static-code-content" role="main">
+                <pre class="brush: css;">
+                @charset "utf-8";
 
 // 定义btn的基础构造
 @mixin _btn {
@@ -47,12 +47,14 @@
     font-size: map-get($btn, font-size);
     text-align: center;
     cursor: pointer;
-    &:active {
+    // touch状态
+    &:active,
+    &-touch {
         &::after {
-            border-color: map-get($btn, active-border-color);
+            border-color: map-get($btn, touch-border-color);
         }
-        background-color: map-get($btn, active-bgcolor);
-        color: map-get($btn, active-color);
+        background-color: map-get($btn, touch-bgcolor);
+        color: map-get($btn, touch-color);
     }
     &-disabled {
         opacity: 1;
@@ -79,9 +81,9 @@
  * @param {Color} $border-color 边框色 <3.0.0>
  * @param {Color} $bgcolor 背景色 <3.0.0>
  * @param {Color} $color 文本色 <3.0.0>
- * @param {Color} $active-border-color 触点（鼠标，手指或其它）按下时边框色 <3.0.0>
- * @param {Color} $active-bgcolor 触点（鼠标，手指或其它）按下时背景色 <3.0.0>
- * @param {Color} $active-color 触点（鼠标，手指或其它）按下时文本色 <3.0.0>
+ * @param {Color} $touch-border-color 触点（鼠标，手指或其它）按下时边框色 <3.0.0>
+ * @param {Color} $touch-bgcolor 触点（鼠标，手指或其它）按下时背景色 <3.0.0>
+ * @param {Color} $touch-color 触点（鼠标，手指或其它）按下时文本色 <3.0.0>
  * @param {Length} $padding 内补白 <3.0.0>
  * @param {Length} $radius 圆角半径长度 <3.0.0>
  * @param {Length} $font-size 字号大小 <3.0.0>
@@ -95,9 +97,9 @@
     $border-color: default,
     $bgcolor: default,
     $color: default,
-    $active-border-color: default,
-    $active-bgcolor: default,
-    $active-color: default,
+    $touch-border-color: default,
+    $touch-bgcolor: default,
+    $touch-color: default,
     $padding: default,
     $radius: default,
     $font-size: default,
@@ -118,14 +120,14 @@
     @if $color == default {
         $color: map-get($btn, color);
     }
-    @if $active-border-color == default {
-        $active-border-color: map-get($btn, active-border-color);
+    @if $touch-border-color == default {
+        $touch-border-color: map-get($btn, touch-border-color);
     }
-    @if $active-bgcolor == default {
-        $active-bgcolor: map-get($btn, active-bgcolor);
+    @if $touch-bgcolor == default {
+        $touch-bgcolor: map-get($btn, touch-bgcolor);
     }
-    @if $active-color == default {
-        $active-color: map-get($btn, active-color);
+    @if $touch-color == default {
+        $touch-color: map-get($btn, touch-color);
     }
     @if $padding == default {
         $padding: map-get($btn, padding);
@@ -194,20 +196,21 @@
         @if $font-size != map-get($btn, font-size) {
             font-size: $font-size;
         }
-        &:active {
+        &:active,
+        &.yo-btn-touch {
             &::after {
-                // 如果$active-border-color不等于config设定，则重绘点按时边框颜色
-                @if $active-border-color != map-get($btn, active-border-color) {
-                    border-color: $active-border-color;
+                // 如果$touch-border-color不等于config设定，则重绘点按时边框颜色
+                @if $touch-border-color != map-get($btn, touch-border-color) {
+                    border-color: $touch-border-color;
                 }
             }
-            // 如果$active-bgcolor不等于config设定，则重绘点按时背景色
-            @if $active-bgcolor != map-get($btn, active-bgcolor) {
-                background-color: $active-bgcolor;
+            // 如果$touch-bgcolor不等于config设定，则重绘点按时背景色
+            @if $touch-bgcolor != map-get($btn, touch-bgcolor) {
+                background-color: $touch-bgcolor;
             }
-            // 如果$active-color不等于config设定，则重绘点按时文本色
-            @if $active-color != map-get($btn, active-color) {
-                color: $active-color;
+            // 如果$touch-color不等于config设定，则重绘点按时文本色
+            @if $touch-color != map-get($btn, touch-color) {
+                color: $touch-color;
             }
         }
         // 如果btn色彩不等于config设定，则重绘禁用时按钮的背景色
@@ -257,16 +260,24 @@
         width: 100%;
     }
 }
-        </pre>
+                </pre>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+    <!-- <div class="docs-header" id="content" tabindex="-1">
+        <div class="container">
+            <h1>Yo : ./style/lib/element/yo-btn.scss</h1>
+            <p>源代码</p>
+        </div>
+    </div> -->
 
-<footer class="docs-footer" role="contentinfo">
-    <div class="container">
-        <p></p>
-    </div>
-</footer>
+    <footer class="docs-footer" role="contentinfo">
+        <div class="container">
+            <p></p>
+        </div>
+    </footer>
+</div>
 <script type="text/javascript">
     SyntaxHighlighter.all();
 

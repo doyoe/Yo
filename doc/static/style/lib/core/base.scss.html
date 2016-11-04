@@ -4,8 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
     <title>Yo : ./style/lib/core/base.scss</title>
-    <link type="text/css" rel="stylesheet" href="../../../../source/shCoreDefault.css"/>
-    <link rel="stylesheet" href="../../../../source/app.css" rel="stylesheet" />
+    <link type="text/css" rel="stylesheet" href="../../../../source/code.css"/>
     <script type="text/javascript" src="../../../../source/shCore.js"></script>
     <script type="text/javascript" src="../../../../source/shBrush-css.js"></script>
     <style>
@@ -13,19 +12,20 @@
         .syntaxhighlighter table td.gutter .line.highlight { background-color: #6ce26c !important; color: white; }
     </style>
 </head>
-<body style="background: white; font-family: Helvetica">
-<div class="docs-header" id="content" tabindex="-1">
-    <div class="container">
-        <h1>Yo : ./style/lib/core/base.scss</h1>
-        <p>源代码</p>
-    </div>
-</div>
-<div class="container docs-container">
-
-    <div class="row">
-        <div class="col-md-9" role="main">
-        <pre class="brush: css;">
-@charset "utf-8";
+<body>
+<div class="ydoc">
+    <div class="ydoc-banner-bg">
+        <div class="ydoc-banner" id="content" tabindex="-1">
+            <div class="ydoc-banner-area">
+                <h1>Yo : ./style/lib/core/base.scss</h1>
+                <p>源代码</p>
+            </div>
+        </div>
+        <div class="ydoc-container">
+            <div class="ydoc-container-content">
+                <div class="static-code-content" role="main">
+                <pre class="brush: css;">
+                @charset "utf-8";
 /**
  * Yo框架全局base定义
  * 本文件与variables不同地方在于，这里所定义的map可以使用在variables和任何地方
@@ -43,14 +43,12 @@ $_base: (
     font-size-root:         100px,
     // 适配：用于做元素随屏幕大小而变化的情况
     font-size-root-scaling: 31.25vw,
-    // body的默认字体
-    // chrome37-45/opera24-33在body上使用rem时有个bug（其他版本未测）:
+    // body的默认字号（文档基准字号）
+    // chrome37-45/opera24-33在body上使用rem时有个bug（其他版本未测），后续版本已被修复:
     // 只要引用了外部样式，不论里面的内容是什么，body上的rem就会失效
     // 这时在开发者工具里，关闭又开启一次该条属性，则生效，刷新又挂
-    // 所以这里注释该条属性，默认字号不能从root相对而来，所以定义成px
-    font-size:            14px,
-    // 基准字号，随root改变而变
-    font-size-baseline:   .14rem,
+    // 由于body是html的子元素，所以对于body来讲，此时rem与em的效果是相同的
+    font-size:            .14em,
     // font-family
     font-family:          #{"Helvetica Neue", Helvetica, STHeiTi, sans-serif},
     // lin-height
@@ -82,16 +80,24 @@ $_base: (
     // 链接经过色
     link-hover-color:     #f60
 );
-        </pre>
+                </pre>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+    <!-- <div class="docs-header" id="content" tabindex="-1">
+        <div class="container">
+            <h1>Yo : ./style/lib/core/base.scss</h1>
+            <p>源代码</p>
+        </div>
+    </div> -->
 
-<footer class="docs-footer" role="contentinfo">
-    <div class="container">
-        <p></p>
-    </div>
-</footer>
+    <footer class="docs-footer" role="contentinfo">
+        <div class="container">
+            <p></p>
+        </div>
+    </footer>
+</div>
 <script type="text/javascript">
     SyntaxHighlighter.all();
 

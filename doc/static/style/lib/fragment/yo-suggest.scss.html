@@ -4,8 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
     <title>Yo : ./style/lib/fragment/yo-suggest.scss</title>
-    <link type="text/css" rel="stylesheet" href="../../../../source/shCoreDefault.css"/>
-    <link rel="stylesheet" href="../../../../source/app.css" rel="stylesheet" />
+    <link type="text/css" rel="stylesheet" href="../../../../source/code.css"/>
     <script type="text/javascript" src="../../../../source/shCore.js"></script>
     <script type="text/javascript" src="../../../../source/shBrush-css.js"></script>
     <style>
@@ -13,26 +12,28 @@
         .syntaxhighlighter table td.gutter .line.highlight { background-color: #6ce26c !important; color: white; }
     </style>
 </head>
-<body style="background: white; font-family: Helvetica">
-<div class="docs-header" id="content" tabindex="-1">
-    <div class="container">
-        <h1>Yo : ./style/lib/fragment/yo-suggest.scss</h1>
-        <p>源代码</p>
-    </div>
-</div>
-<div class="container docs-container">
-
-    <div class="row">
-        <div class="col-md-9" role="main">
-        <pre class="brush: css;">
-@charset "utf-8";
+<body>
+<div class="ydoc">
+    <div class="ydoc-banner-bg">
+        <div class="ydoc-banner" id="content" tabindex="-1">
+            <div class="ydoc-banner-area">
+                <h1>Yo : ./style/lib/fragment/yo-suggest.scss</h1>
+                <p>源代码</p>
+            </div>
+        </div>
+        <div class="ydoc-container">
+            <div class="ydoc-container-content">
+                <div class="static-code-content" role="main">
+                <pre class="brush: css;">
+                @charset "utf-8";
+@import "yo-modal";
 @import "../ani/rotate";
 
 // 定义suggest的基础构造
 @mixin _suggest {
     @include flexbox;
     @include flex-direction(column);
-    @include fullscreen(map-get($z-index, suggest), fixed);
+    @include fullscreen;
     > .operate {
         @include flexbox;
         padding: map-get($suggest, padding);
@@ -56,13 +57,14 @@
             @include flex;
             position: relative;
             z-index: 1;
-            margin-right: map-get($suggest, cancel-width) - .1rem;
-            padding: 0 .28rem 0 .1rem;
+            height: map-get($suggest, input-height);
+            padding: .05rem .28rem .05rem .1rem;
             border: 0 none;
             border-radius: map-get($suggest, input-radius);
             background-color: map-get($suggest, input-bgcolor);
             color: map-get($suggest, input-color);
             vertical-align: top;
+            line-height: 1.1;
             &::-webkit-input-placeholder {
                 color: map-get($suggest, placeholder-color);
             }
@@ -77,7 +79,7 @@
             text-align: center;
         }
         > .yo-ico-delete,
-        > .yo-ico-fresh,
+        > .yo-ico-refresh,
         > .yo-ico-stop,
         > .yo-ico-loading {
             display: none;
@@ -101,10 +103,36 @@
         position: relative;
         @include flex(1, column);
         background-color: map-get($suggest, cont-bgcolor);
+        > .mask,
         > .recommend,
         > .result {
             @include fullscreen;
+            z-index: 0;
         }
+        > .mask,
+        > .result {
+            display: none;
+        }
+        > .mask {
+            z-index: 2;
+            background-color: map-get($suggest, mask-bgcolor);
+        }
+        > .recommend {
+            z-index: 1;
+            background-color: map-get($suggest, recommend-bgcolor);
+        }
+        > .result {
+            z-index: 3;
+            background-color: map-get($suggest, result-bgcolor);
+        }
+    }
+    &-modal {
+        .action {
+            margin-right: map-get($suggest, cancel-width) - .1rem;
+        }
+    }
+    .show {
+        display: block !important;
     }
 }
 
@@ -128,6 +156,9 @@
  * @param {Length} $cancel-width 取消按钮区域宽度 <3.0.0>
  * @param {Color} $cancel-color 取消按钮颜色 <3.0.0>
  * @param {Color} $cont-bgcolor 内容区背景色 <3.0.0>
+ * @param {Color} $mask-bgcolor 内容区背景色 <3.0.0>
+ * @param {Color} $recommend-bgcolor 内容区背景色 <3.0.0>
+ * @param {Color} $result-bgcolor 内容区背景色 <3.0.0>
  */
 
 @mixin yo-suggest(
@@ -144,7 +175,10 @@
     $ico-color: default,
     $cancel-width: default,
     $cancel-color: default,
-    $cont-bgcolor: default) {
+    $cont-bgcolor: default,
+    $mask-bgcolor: default,
+    $recommend-bgcolor: default,
+    $result-bgcolor: default) {
     // 区别是否新增实例还是修改本身
     $name: if($name == default, "", "-#{$name}");
     // 如果值为default，则取config的定义
@@ -187,6 +221,15 @@
     @if $cont-bgcolor == default {
         $cont-bgcolor: map-get($suggest, cont-bgcolor);
     }
+    @if $mask-bgcolor == default {
+        $mask-bgcolor: map-get($suggest, mask-bgcolor);
+    }
+    @if $recommend-bgcolor == default {
+        $recommend-bgcolor: map-get($suggest, recommend-bgcolor);
+    }
+    @if $result-bgcolor == default {
+        $result-bgcolor: map-get($suggest, result-bgcolor);
+    }
     .yo-suggest#{$name} {
         > .operate {
             @if $padding != map-get($suggest, padding) {
@@ -212,8 +255,8 @@
                 color: $placeholder-color;
             }
             > .input {
-                @if $cancel-width != map-get($suggest, cancel-width) {
-                    margin-right: $cancel-width - .1rem;
+                @if $input-height != map-get($suggest, input-height) {
+                    height: $input-height;
                 }
                 @if $input-radius != map-get($suggest, input-radius) {
                     border-radius: $input-radius;
@@ -231,7 +274,7 @@
                 }
             }
             > .yo-ico-delete,
-            > .yo-ico-fresh,
+            > .yo-ico-refresh,
             > .yo-ico-stop,
             > .yo-ico-loading {
                 @if $ico-color != map-get($suggest, ico-color) {
@@ -251,8 +294,29 @@
             @if $cont-bgcolor != map-get($suggest, cont-bgcolor) {
                 background-color: $cont-bgcolor;
             }
+            > .mask {
+                @if $mask-bgcolor != map-get($suggest, mask-bgcolor) {
+                    background-color: $mask-bgcolor;
+                }
+            }
+            > .recommend {
+                @if $recommend-bgcolor != map-get($suggest, recommend-bgcolor) {
+                    background-color: $recommend-bgcolor;
+                }
+            }
+            > .result {
+                @if $result-bgcolor != map-get($suggest, result-bgcolor) {
+                    background-color: $result-bgcolor;
+                }
+            }
         }
-
+        &-modal {
+            .action {
+                @if $cancel-width != map-get($suggest, cancel-width) {
+                    margin-right: $cancel-width - .1rem;
+                }
+            }
+        }
         // 增量扩展
         @content;
     }
@@ -262,16 +326,24 @@
 .yo-suggest {
     @include _suggest;
 }
-        </pre>
+                </pre>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+    <!-- <div class="docs-header" id="content" tabindex="-1">
+        <div class="container">
+            <h1>Yo : ./style/lib/fragment/yo-suggest.scss</h1>
+            <p>源代码</p>
+        </div>
+    </div> -->
 
-<footer class="docs-footer" role="contentinfo">
-    <div class="container">
-        <p></p>
-    </div>
-</footer>
+    <footer class="docs-footer" role="contentinfo">
+        <div class="container">
+            <p></p>
+        </div>
+    </footer>
+</div>
 <script type="text/javascript">
     SyntaxHighlighter.all();
 

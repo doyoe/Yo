@@ -4,8 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
     <title>Yo : ./style/lib/fragment/yo-list.scss</title>
-    <link type="text/css" rel="stylesheet" href="../../../../source/shCoreDefault.css"/>
-    <link rel="stylesheet" href="../../../../source/app.css" rel="stylesheet" />
+    <link type="text/css" rel="stylesheet" href="../../../../source/code.css"/>
     <script type="text/javascript" src="../../../../source/shCore.js"></script>
     <script type="text/javascript" src="../../../../source/shBrush-css.js"></script>
     <style>
@@ -13,19 +12,20 @@
         .syntaxhighlighter table td.gutter .line.highlight { background-color: #6ce26c !important; color: white; }
     </style>
 </head>
-<body style="background: white; font-family: Helvetica">
-<div class="docs-header" id="content" tabindex="-1">
-    <div class="container">
-        <h1>Yo : ./style/lib/fragment/yo-list.scss</h1>
-        <p>源代码</p>
-    </div>
-</div>
-<div class="container docs-container">
-
-    <div class="row">
-        <div class="col-md-9" role="main">
-        <pre class="brush: css;">
-@charset "utf-8";
+<body>
+<div class="ydoc">
+    <div class="ydoc-banner-bg">
+        <div class="ydoc-banner" id="content" tabindex="-1">
+            <div class="ydoc-banner-area">
+                <h1>Yo : ./style/lib/fragment/yo-list.scss</h1>
+                <p>源代码</p>
+            </div>
+        </div>
+        <div class="ydoc-container">
+            <div class="ydoc-container-content">
+                <div class="static-code-content" role="main">
+                <pre class="brush: css;">
+                @charset "utf-8";
 
 // 定义list的基础构造
 @mixin _list {
@@ -119,6 +119,7 @@
                 @include appearance;
                 display: block;
                 width: 100%;
+                min-height: .21rem;
                 border: 0;
                 &::-webkit-input-placeholder {
                     color: #bbb;
@@ -134,10 +135,10 @@
         // 常规需要active的项目，没有使用到第3方组件的
         &.item-active:active,
         // 为第3方组件提供active状态
-        &.item-light {
+        &.item-touch {
             &,
             .front {
-                background-color: map-get($list, active-bgcolor);
+                background-color: map-get($list, touch-bgcolor);
             }
         }
         // 选中时背景和文本色
@@ -148,6 +149,18 @@
         // 定义单元格的padding
         > .col {
             padding: map-get($list, item-padding);
+        }
+    }
+    &-infinite {
+        > .label,
+        > .item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+        > .item:last-child::after {
+            border-width: 1px 0;
         }
     }
 }
@@ -166,7 +179,7 @@
  * @param {Length} $item-padding 子项的内补白 <3.0.0>
  * @param {Length} $label-padding 列表组头内补白 <3.0.0>
  * @param {Color} $label-bgcolor 列表组头背景色 <3.0.0>
- * @param {Color} $active-bgcolor 子项点击反馈背景色 <3.0.0>
+ * @param {Color} $touch-bgcolor 子项点击反馈背景色 <3.0.0>
  * @param {Color} $on-bgcolor 子项选中背景色 <3.0.0>
  * @param {Color} $on-color 子项选中文本色 <3.0.0>
  * @param {Color} $item-border-color 子项边框色 <3.0.0>
@@ -187,7 +200,7 @@
     $item-padding: default,
     $label-padding: default,
     $label-bgcolor: default,
-    $active-bgcolor: default,
+    $touch-bgcolor: default,
     $on-bgcolor: default,
     $on-color: default,
     $item-border-color: default,
@@ -221,8 +234,8 @@
     @if $label-bgcolor == default {
         $label-bgcolor: map-get($list, label-bgcolor);
     }
-    @if $active-bgcolor == default {
-        $active-bgcolor: map-get($list, active-bgcolor);
+    @if $touch-bgcolor == default {
+        $touch-bgcolor: map-get($list, touch-bgcolor);
     }
     @if $on-bgcolor == default {
         $on-bgcolor: map-get($list, on-bgcolor);
@@ -339,11 +352,11 @@
                 }
             }
             &.item-active:active,
-            &.item-light {
+            &.item-touch {
                 &,
                 .front {
-                    @if $active-bgcolor != map-get($list, active-bgcolor) {
-                        background-color: $active-bgcolor;
+                    @if $touch-bgcolor != map-get($list, touch-bgcolor) {
+                        background-color: $touch-bgcolor;
                     }
                 }
             }
@@ -365,16 +378,24 @@
 .yo-list {
     @include _list;
 }
-        </pre>
+                </pre>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+    <!-- <div class="docs-header" id="content" tabindex="-1">
+        <div class="container">
+            <h1>Yo : ./style/lib/fragment/yo-list.scss</h1>
+            <p>源代码</p>
+        </div>
+    </div> -->
 
-<footer class="docs-footer" role="contentinfo">
-    <div class="container">
-        <p></p>
-    </div>
-</footer>
+    <footer class="docs-footer" role="contentinfo">
+        <div class="container">
+            <p></p>
+        </div>
+    </footer>
+</div>
 <script type="text/javascript">
     SyntaxHighlighter.all();
 

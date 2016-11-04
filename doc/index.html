@@ -1,91 +1,83 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Yo Documentation Yo</title>
-    <link rel="stylesheet" href="source/app.css"/>
-    <link rel="stylesheet" href="source/highlight.min.css">
-    <style>
-    #readme {
-      margin-top: .2rem;
-    }
-
-    #readme .markdown-body h1:nth-of-type(1) {
-      display: none;
-    }
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+  <meta name="description" content="description of your site">
+  <meta name="author" content="author of the site">
+  <title>Yo Documentation 简介</title>
+  <link rel="stylesheet" href="source/main.css"/>
+  
+  <style>
     #index .docs-nav .navbar-brand.index {
       color: #555;
     }
 
-    #index .docs-header {
-      padding: 1.2rem 0;
+    #index .ydoc-banner {
+      padding: .8rem 0;
       text-align: center;
     }
 
-    #index .docs-header .container > h1 {
+    #index .ydoc-banner .ydoc-banner-area > h1 {
       margin-bottom: 20px;
       font-size: .8rem;
+      font-weight: bold;
     }
 
-    #index .docs-header .container > p {
+    #index .ydoc-banner .ydoc-banner-area > p {
       width: auto;
       margin-right: 0;
     }
 
-    #index .docs-header .container > a {
+    #index .ydoc-banner .ydoc-banner-area > a {
       display: inline-block;
       margin-top: .2rem;
       padding: 0.1rem 0.4rem;
       border: 1px solid;
       border-radius: 0.05rem;
-      -webkit-background-clip: padding-box !important;
-      -moz-background-clip: padding-box !important;
-      -ms-background-clip: padding-box !important;
-      background-clip: padding-box !important;
-      color: #9dd8fc;
+      color: #ff503f;
       font-size: .2rem;
       font-weight: bold;
     }
 
-    #index .docs-header .container > .version {
+    #index .ydoc-banner .ydoc-banner-area > .version {
       display: block;
       margin-top: .15rem;
-      color: #89CDD6;
-      font-size: .16rem;
+      color: #ff503f;
+      font-size: .14rem;
     }
 
-    #index .docs-header .container > a:hover {
+    #index .ydoc-banner .ydoc-banner-area > a:hover {
       text-decoration: none;
-      border-color: #9dd8fc;
-      background-color: rgba(157, 216, 252, 0.6);
+      border-color: #ff503f;
+      background-color: #ff503f;
       color: #fff;
     }
 
     @media (min-width: 1200px) {
-      #index .docs-header .container > p {
+      #index .ydoc-banner .ydoc-banner-area > p {
         padding: 0 1rem;
         font-size: .28rem;
       }
     }
 
     @media (min-width: 992px) and (max-width: 1199px) {
-      #index .docs-header .container > p {
+      #index .ydoc-banner .ydoc-banner-area > p {
         padding: 0 0.6rem;
         font-size: .25rem;
       }
     }
 
     @media (min-width: 768px) and (max-width: 991px) {
-      #index .docs-header .container > p {
+      #index .ydoc-banner .ydoc-banner-area > p {
         padding: 0 0.3rem;
         font-size: .21rem;
       }
     }
 
     @media (max-width: 767px) {
-      #index .docs-header .container > p {
+      #index .ydoc-banner .ydoc-banner-area > p {
         padding: 0 0.2rem;
         font-size: .2rem;
       }
@@ -93,6 +85,7 @@
 
     #index .markdown-body {
       text-align: center;
+      padding-bottom: 1rem;
     }
 
     #index .markdown-body > h2 {
@@ -195,107 +188,93 @@
     </style>
 </head>
 <body id="index">
-<a id="skippy" class="sr-only sr-only-focusable" href="#content"><div class="container"><span class="skiplink-text">Skip to main content</span></div></a>
-
-
-<!-- Docs master nav -->
-<header class="navbar navbar-static-top docs-nav" id="top" role="banner">
-    <div class="container">
-        <div class="navbar-header">
-            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a href="./index.html" class="navbar-brand">Yo</a>
-        </div>
-        <nav id="bs-navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav navbar-left">
-                
-                
-                
-                
-                
-                <li class="">
-                    <a href="getting-started.html">起步</a>
-                </li>
-                
-                
-                
-                
-                
-                <li class="">
-                    <a href="core.html">核心</a>
-                </li>
-                
-                
-                
-                
-                
-                <li class="">
-                    <a href="element.html">元件</a>
-                </li>
-                
-                
-                
-                
-                
-                <li class="">
-                    <a href="animate.html">动画</a>
-                </li>
-                
-                
-                
-                
-                
-                <li class="">
-                    <a href="changelog.html">版本</a>
-                </li>
-                
-                
-                
-                
-                
-                <li>
-                    <a href="http://doyoe.github.io/Yo/demo/" target="_blank">示例</a>
-                </li>
-                
-                
-                
-                
-                
-                <li>
-                    <a href="https://github.com/doyoe/Yo" target="_blank">Github</a>
-                </li>
-                
-                
-                
-            </ul>
-        </nav>
-    </div>
-</header>
-
-<!-- Docs page layout -->
-
-<div class="docs-header" id="content">
-    <div class="container">
-        <h1>Yo</h1>
-        <p>Yo 是基于 Mobile First 的策略而设计，并使用 Sass 开发的 CSS Framework，具备轻量，易用，可配置，强扩展等特性，同时也适应于PC端的高级浏览器</p>
-        <a href="https://github.com/doyoe/Yo/tree/v2.1.3">下载 Yo</a>
-        <span class="version">当前版本：v2.1.3</span>
-    </div>
-</div>
-
-
-
-<div class="container docs-container">
-    
-    
-    <div id="readme">
-        <article class="markdown-body">
+    <div class="ydoc">
+      <header class="ydoc-header">
+        <div class="ydoc-header-area">
             
-            <h2 id="基于 Yo 构建的网站">基于 Yo 构建的网站</h2><p>越来越多的移动Web应用基于 Yo 来构建。你可以先参观一下我们提供的 <a href="../demo/index.html">实例代码</a> 或者看一看使用 Yo 构建的案例。</p>
+            <a href="https://github.com/YMFE" class="navbar-brand">YMFE</a>
+            
+            <button class="ydocIcon navbar-toggle">&#xf020;</button>
+            <nav class="ydoc-nav">
+              <ul class="navbar-left">
+                
+                    
+                    <li class="active">
+                        
+                        <a href="index.html">简介</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="getting-started.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="core.html">核心</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="element.html">元件</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="animate.html">动画</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="changelog.html">版本</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="http://doyoe.github.io/Yo/demo/" target="_blank">示例</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="https://github.com/doyoe/Yo" target="_blank">Github</a>
+                        
+                    </li>
+                    
+                
+              </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- <header style="height:20px"></header> -->
+    
+      <!-- Docs page layout -->
+      
+      <div class="ydoc-banner-bg">
+          <div class="ydoc-banner">
+              <div class="ydoc-banner-area">
+                  <h1>Yo</h1>
+                  <p>Yo 是基于 Mobile First 的策略而设计，并使用 Sass 开发的 CSS Framework，具备轻量，易用，可配置，强扩展等特性，同时也适应于PC端的高级浏览器</p>
+                  <a href="https://github.com/doyoe/Yo/tree/v3.0.0">下载 Yo</a>
+                  <span class="version">当前版本：v3.0.0</span>
+              </div>
+          </div>
+      
+
+      <div class="ydoc-container">
+        
+          
+          <div class="ydoc-container-content" id="readme">
+              <article class="markdown-body">
+                  
+                  <h2 id="基于 Yo 构建的网站">基于 Yo 构建的网站</h2><p>越来越多的移动Web应用基于 Yo 来构建。你可以先参观一下我们提供的 <a href="../demo/index.html">实例代码</a> 或者看一看使用 Yo 构建的案例。</p>
 <ul>
 <li><p><img src="http://source.qunarzz.com/common/hf/logo.png" alt="去哪儿网"></p>
 <p>  在去哪儿网已有“近百个”移动Web应用基于 Yo 来构建</p>
@@ -314,75 +293,26 @@
 </li>
 </ul>
 
-        </article>
+              </article>
+          </div>
+          
+        
+      </div>
+     
+     </div>
+     
+      <footer class="footer">
+        <div class="copyright">
+            &copy; 2016 <a href="https://github.com/YMFE">YMFE</a> Team. Build by <a href="https://github.com/YMFE/ydoc">ydoc</a>.
+        </div>
+      </footer>
     </div>
+    <script src="source/main.js"></script>
+    <script src="source/app.js"></script>
     
     
-</div>
 
-<!-- Footer
-================================================== -->
-<footer class="docs-footer" role="contentinfo">
-    <div class="container">
-        <p>Made By Doyoe.com © 2014 - 2016</p>
-    </div>
-</footer>
+    
 
-<script src="source/jquery.min.js"></script>
-<script src="source/bootstrap.min.js"></script>
-<script src="source/docs.min.js"></script>
-<script src="source/highlight.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $('code').each(function(i, block) {
-            if (block.innerHTML.indexOf('\n') != -1) {
-                var pn = block.parentNode;
-                if (pn.tagName.toUpperCase() == 'PRE') {
-                    try {
-                        hljs.highlightBlock(block);
-                    } catch(e) {}
-                } else {
-                    pn.innerHTML = '<pre><code>' + block.innerHTML + '</code></pre>';
-                    try {
-                        hljs.highlightBlock(pn.childNodes[0].childNodes[0]);
-                    } catch(e) {}
-                }
-            }
-        });
-
-        var winHeight = $(window).height() - 40;
-
-        $('.docs-sidebar').height(winHeight);
-
-        var activeMenu,
-            sidebar = $('.docs-sidebar'),
-            barScroll = false;
-
-        sidebar.on('mouseover', function() {
-            barScroll = true;
-        });
-
-        sidebar.on('mouseout', function() {
-            barScroll = false;
-        });
-
-        $(window).on('scroll', function(e) {
-            if (!barScroll) {
-                var activeItem = $('.docs-sidebar li.active a');
-                if (activeItem.length) {
-                    if (!activeMenu || (activeMenu.attr('href') != activeItem.attr('href'))) {
-                        activeMenu = activeItem;
-                        var top = activeMenu.offset().top - sidebar.offset().top;
-                        if (top < 0) {
-                            sidebar.scrollTop(sidebar.scrollTop() + top);
-                        } else if (top > winHeight - 30) {
-                            sidebar.scrollTop(sidebar.scrollTop() + top - winHeight + 30);
-                        }
-                    }
-                }
-            }
-        });
-    });
-</script>
 </body>
 </html>

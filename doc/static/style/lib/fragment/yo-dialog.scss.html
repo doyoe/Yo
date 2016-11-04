@@ -4,8 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
     <title>Yo : ./style/lib/fragment/yo-dialog.scss</title>
-    <link type="text/css" rel="stylesheet" href="../../../../source/shCoreDefault.css"/>
-    <link rel="stylesheet" href="../../../../source/app.css" rel="stylesheet" />
+    <link type="text/css" rel="stylesheet" href="../../../../source/code.css"/>
     <script type="text/javascript" src="../../../../source/shCore.js"></script>
     <script type="text/javascript" src="../../../../source/shBrush-css.js"></script>
     <style>
@@ -13,33 +12,34 @@
         .syntaxhighlighter table td.gutter .line.highlight { background-color: #6ce26c !important; color: white; }
     </style>
 </head>
-<body style="background: white; font-family: Helvetica">
-<div class="docs-header" id="content" tabindex="-1">
-    <div class="container">
-        <h1>Yo : ./style/lib/fragment/yo-dialog.scss</h1>
-        <p>源代码</p>
-    </div>
-</div>
-<div class="container docs-container">
-
-    <div class="row">
-        <div class="col-md-9" role="main">
-        <pre class="brush: css;">
-@charset "utf-8";
+<body>
+<div class="ydoc">
+    <div class="ydoc-banner-bg">
+        <div class="ydoc-banner" id="content" tabindex="-1">
+            <div class="ydoc-banner-area">
+                <h1>Yo : ./style/lib/fragment/yo-dialog.scss</h1>
+                <p>源代码</p>
+            </div>
+        </div>
+        <div class="ydoc-container">
+            <div class="ydoc-container-content">
+                <div class="static-code-content" role="main">
+                <pre class="brush: css;">
+                @charset "utf-8";
+@import "yo-modal";
 @import "../element/yo-btn";
 
 // 定义dialog的基础构造
 @mixin _dialog {
     @include flexbox;
     @include flex-direction(column);
-    position: fixed;
     overflow: hidden;
-    z-index: map-get($z-index, dialog);
     padding-top: .15rem;
     min-width: 2.8rem;
     max-width: 90%;
     width: map-get($dialog, width);
     height: map-get($dialog, height);
+    margin: auto;
     border-radius: map-get($dialog, radius);
     background-color: #fff;
     text-align: center;
@@ -66,7 +66,6 @@
         }
     }
     > .bd {
-        @include flex(1, column);
         @include overflow;
         min-height: .4rem;
         padding: map-get($dialog, bd-padding);
@@ -82,7 +81,7 @@
             $bgcolor: #fff,
             $color: map-get($base, link-color),
             $radius: 0,
-            $active-bgcolor: #f9f9f9
+            $touch-bgcolor: #f9f9f9
         ){
             display: block;
             @include flex;
@@ -227,16 +226,24 @@
 .yo-dialog {
     @include _dialog;
 }
-        </pre>
+                </pre>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+    <!-- <div class="docs-header" id="content" tabindex="-1">
+        <div class="container">
+            <h1>Yo : ./style/lib/fragment/yo-dialog.scss</h1>
+            <p>源代码</p>
+        </div>
+    </div> -->
 
-<footer class="docs-footer" role="contentinfo">
-    <div class="container">
-        <p></p>
-    </div>
-</footer>
+    <footer class="docs-footer" role="contentinfo">
+        <div class="container">
+            <p></p>
+        </div>
+    </footer>
+</div>
 <script type="text/javascript">
     SyntaxHighlighter.all();
 

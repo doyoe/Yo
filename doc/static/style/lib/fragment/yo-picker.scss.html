@@ -4,8 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
     <title>Yo : ./style/lib/fragment/yo-picker.scss</title>
-    <link type="text/css" rel="stylesheet" href="../../../../source/shCoreDefault.css"/>
-    <link rel="stylesheet" href="../../../../source/app.css" rel="stylesheet" />
+    <link type="text/css" rel="stylesheet" href="../../../../source/code.css"/>
     <script type="text/javascript" src="../../../../source/shCore.js"></script>
     <script type="text/javascript" src="../../../../source/shBrush-css.js"></script>
     <style>
@@ -13,24 +12,25 @@
         .syntaxhighlighter table td.gutter .line.highlight { background-color: #6ce26c !important; color: white; }
     </style>
 </head>
-<body style="background: white; font-family: Helvetica">
-<div class="docs-header" id="content" tabindex="-1">
-    <div class="container">
-        <h1>Yo : ./style/lib/fragment/yo-picker.scss</h1>
-        <p>源代码</p>
-    </div>
-</div>
-<div class="container docs-container">
-
-    <div class="row">
-        <div class="col-md-9" role="main">
-        <pre class="brush: css;">
-@charset "utf-8";
+<body>
+<div class="ydoc">
+    <div class="ydoc-banner-bg">
+        <div class="ydoc-banner" id="content" tabindex="-1">
+            <div class="ydoc-banner-area">
+                <h1>Yo : ./style/lib/fragment/yo-picker.scss</h1>
+                <p>源代码</p>
+            </div>
+        </div>
+        <div class="ydoc-container">
+            <div class="ydoc-container-content">
+                <div class="static-code-content" role="main">
+                <pre class="brush: css;">
+                @charset "utf-8";
+@import "yo-modal";
 
 // 定义picker的基础构造
 @mixin _picker {
-    @include flexbox;
-    @include justify-content;
+    @include align($type: other);
     position: relative;
     overflow: hidden;
     height: map-get($picker, item-height) * map-get($picker, item);
@@ -38,8 +38,14 @@
     > .list {
         position: relative;
         @include flex;
+        @include align-self(flex-start);
+        width: 100%;
         text-align: center;
         > .item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
             height: map-get($picker, item-height);
             line-height: map-get($picker, item-height);
             padding: 0 .1rem;
@@ -49,8 +55,7 @@
         }
     }
     > .unit {
-        position: relative;
-        line-height: map-get($picker, item-height) * 5;
+        display: block;
         &:last-child {
             padding-right: .1rem;
         }
@@ -70,7 +75,8 @@
         position: absolute;
         top: 50%;
         left: 0;
-        content: "\0020";
+        content: ".";
+        color: transparent;
         border: 1px solid map-get($picker, border-color);
         border-width: 1px 0;
         @include responsive(retina1x) {
@@ -133,12 +139,6 @@
                 }
             }
         }
-        > .unit {
-            position: relative;
-            @if $item-height != map-get($picker, item-height) or $item != map-get($picker, item) {
-                line-height: $item-height * $item;
-            }
-        }
         &::before {
             @if $item-height != map-get($picker, item-height) {
                 @include responsive(retina1x) {
@@ -165,16 +165,24 @@
 .yo-picker {
     @include _picker;
 }
-        </pre>
+                </pre>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+    <!-- <div class="docs-header" id="content" tabindex="-1">
+        <div class="container">
+            <h1>Yo : ./style/lib/fragment/yo-picker.scss</h1>
+            <p>源代码</p>
+        </div>
+    </div> -->
 
-<footer class="docs-footer" role="contentinfo">
-    <div class="container">
-        <p></p>
-    </div>
-</footer>
+    <footer class="docs-footer" role="contentinfo">
+        <div class="container">
+            <p></p>
+        </div>
+    </footer>
+</div>
 <script type="text/javascript">
     SyntaxHighlighter.all();
 

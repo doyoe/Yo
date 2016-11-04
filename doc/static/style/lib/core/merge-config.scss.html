@@ -4,8 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
     <title>Yo : ./style/lib/core/merge-config.scss</title>
-    <link type="text/css" rel="stylesheet" href="../../../../source/shCoreDefault.css"/>
-    <link rel="stylesheet" href="../../../../source/app.css" rel="stylesheet" />
+    <link type="text/css" rel="stylesheet" href="../../../../source/code.css"/>
     <script type="text/javascript" src="../../../../source/shCore.js"></script>
     <script type="text/javascript" src="../../../../source/shBrush-css.js"></script>
     <style>
@@ -13,19 +12,20 @@
         .syntaxhighlighter table td.gutter .line.highlight { background-color: #6ce26c !important; color: white; }
     </style>
 </head>
-<body style="background: white; font-family: Helvetica">
-<div class="docs-header" id="content" tabindex="-1">
-    <div class="container">
-        <h1>Yo : ./style/lib/core/merge-config.scss</h1>
-        <p>源代码</p>
-    </div>
-</div>
-<div class="container docs-container">
-
-    <div class="row">
-        <div class="col-md-9" role="main">
-        <pre class="brush: css;">
-@charset "utf-8";
+<body>
+<div class="ydoc">
+    <div class="ydoc-banner-bg">
+        <div class="ydoc-banner" id="content" tabindex="-1">
+            <div class="ydoc-banner-area">
+                <h1>Yo : ./style/lib/core/merge-config.scss</h1>
+                <p>源代码</p>
+            </div>
+        </div>
+        <div class="ydoc-container">
+            <div class="ydoc-container-content">
+                <div class="static-code-content" role="main">
+                <pre class="brush: css;">
+                @charset "utf-8";
 @import "variables";
 /**
  * 合并variables和config中的同类map
@@ -195,11 +195,11 @@
     $list: $_list !global;
 }
 
-// 合并variables和config中的mask map
-@if global-variable-exists(mask) {
-    $mask: map-merge($_mask, $mask) !global;
+// 合并variables和config中的modal map
+@if global-variable-exists(modal) {
+    $modal: map-merge($_modal, $modal) !global;
 } @else {
-    $mask: $_mask !global;
+    $modal: $_modal !global;
 }
 
 // 合并variables和config中的number map
@@ -237,11 +237,11 @@
     $search: $_search !global;
 }
 
-// 合并variables和config中的slidermenu map
-@if global-variable-exists(slidermenu) {
-    $slidermenu: map-merge($_slidermenu, $slidermenu) !global;
+// 合并variables和config中的swipemenu map
+@if global-variable-exists(swipemenu) {
+    $swipemenu: map-merge($_swipemenu, $swipemenu) !global;
 } @else {
-    $slidermenu: $_slidermenu !global;
+    $swipemenu: $_swipemenu !global;
 }
 
 // 合并variables和config中的suggest map
@@ -279,11 +279,11 @@
     $toolbar: $_toolbar !global;
 }
 
-// 合并variables和config中的tooltip map
-@if global-variable-exists(tooltip) {
-    $tooltip: map-merge($_tooltip, $tooltip) !global;
+// 合并variables和config中的toast map
+@if global-variable-exists(toast) {
+    $toast: map-merge($_toast, $toast) !global;
 } @else {
-    $tooltip: $_tooltip !global;
+    $toast: $_toast !global;
 }
 
 // 合并variables和config中的vcode map
@@ -292,16 +292,24 @@
 } @else {
     $vcode: $_vcode !global;
 }
-        </pre>
+                </pre>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+    <!-- <div class="docs-header" id="content" tabindex="-1">
+        <div class="container">
+            <h1>Yo : ./style/lib/core/merge-config.scss</h1>
+            <p>源代码</p>
+        </div>
+    </div> -->
 
-<footer class="docs-footer" role="contentinfo">
-    <div class="container">
-        <p></p>
-    </div>
-</footer>
+    <footer class="docs-footer" role="contentinfo">
+        <div class="container">
+            <p></p>
+        </div>
+    </footer>
+</div>
 <script type="text/javascript">
     SyntaxHighlighter.all();
 
