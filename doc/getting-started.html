@@ -99,10 +99,10 @@
           <div class="ydoc-container-content" id="readme">
               <article class="markdown-body">
                   
-                  <h1 id="Yo">Yo</h1><p><strong>master 分支为 Yo v3.0.0 开发版本</strong></p>
-<p><code>Yo</code> 是基于 <code>Mobile First</code> 的策略而设计，并使用 <code>Sass</code> 开发的 <code>CSS Framework</code>，具备轻量，易用，可配置，强扩展等特性，同时也适应于PC端的高级浏览器。</p>
+                  <h1 id="Yo">Yo</h1><p><strong>v3.0.0 是 Yo 的一个新里程碑，我们将加入丰富的UI组件，让构建移动应用变得更简单。</strong>如果你对之前的 Yo 恋恋不舍，v3.0.0及后续版本仍然会满足，你只需要保持和之前版本的使用方式一致即可。<a href="as-before-use.html">详情</a></p>
+<p><code>Yo</code> 是一个专注于移动开发的 <code>Front-end UI Framework</code>，她轻量，易用，并且具备超强的可配置和扩展能力。</p>
 <p>在使用之前，请先确保你的机器有能够编译 <code>Sass</code> 的环境并开始去了解一些 <a href="http://sass-lang.com/">Sass</a> 相关的知识（当然，这非常简单）。</p>
-<p>与其它框架不同的是，实际上我们并不计划对外提供打包好的 <code>yo.min.css</code> 来供使用，而是推荐直接在 <code>Yo</code> 的 <code>usage</code> 目录下进行开发。这样你将能体会到 <code>Yo</code> 的众多功能和方法为开发所带来的便利，并感受到它的魅力。</p>
+<p>与其它框架不同的是，实际上我们并不计划对外提供打包好的 <code>yo.min.css</code> 来供使用，而是推荐直接在 <code>Yo</code> 的 <code>style/usage</code> 目录下进行开发。这样你将能体会到 <code>Yo</code> 的众多功能和方法为开发所带来的便利，并感受到它的魅力。</p>
 <p>好了，请仔细看下面的步骤，这可以帮你快速搞定一切：</p>
 <h2 id="内容">内容</h2><ul>
 <li><a href="#quick-stat">环境搭建</a></li>
@@ -130,20 +130,20 @@
 <li>安装依赖: <code>npm install --registry=https://registry.npm.taobao.org</code></li>
 <li>在Yo根目录下运行:<ul>
 <li><code>gulp watch</code>: 如果你想监听所有文件的变更</li>
-<li><code>gulp build</code>: 如果你只是想build一次该项目</li>
+<li><code>gulp compile</code>: 如果你只是想编译一次该项目</li>
 </ul>
 </li>
 </ul>
 <p><a name="how-to-start"></a></p>
-<h2 id="如何开始">如何开始</h2><p>通过上述的 <code>环境搭建</code>，<code>Yo</code> 就已经可以在你的机器上跑起来了，在 <code>Yo</code> 根目录下运行 <code>gulp test</code>，会在 <code>usage/test</code> 目录生成一个 <code>test.css</code>，这表示一切OK（当然，项目中你可以将test文件夹移除）。</p>
+<h2 id="如何开始">如何开始</h2><p>通过上述的 <code>环境搭建</code>，<code>Yo</code> 就已经可以在你的机器上跑起来了，在 <code>Yo</code> 根目录下运行 <code>gulp test</code>，会在 <code>style/usage/test</code> 目录生成一个 <code>test.css</code>，这表示一切OK（当然，项目中你可以将test文件夹移除）。</p>
 <p><a name="rules"></a></p>
 <h2 id="工程约束">工程约束</h2><p>真正的编码之前，先看一下 <code>Yo</code> 的目录结构是非常重要的，这有助于理解并更好的使用它：</p>
 <ul>
 <li><code>lib</code> 目录是 <code>Yo</code> 框架的底层代码，不要改动它，避免日后升级时遇到麻烦；</li>
 <li><code>usage</code> 目录正是你的舞台，在这做业务的样式编码；<ul>
 <li><code>usage/core</code> 目录下的都是配置文件，比如你想改变某些设定的初始值；</li>
-<li>需要编译使用的文件（一般来说都是page级别的文件），放在 <code>usage/page</code> 目录下，编译后，会输出到 <code>usage/export</code> 目录；</li>
-<li><code>usage</code> 下的其它目录和 <code>lib</code> 里的目录一一对应，用于放置扩展文件；</li>
+<li>需要编译使用的文件（一般来说都是page级别的文件），放在 <code>usage/page</code> 目录下，编译后，默认会输出到 <code>export</code> 目录；</li>
+<li><code>usage</code> 下的其它目录和 <code>lib</code> 里的目录一一对应，用于放置业务自定义的扩展文件；</li>
 </ul>
 </li>
 </ul>
@@ -151,9 +151,9 @@
 <h2 id="示例代码">示例代码</h2><p>我们可以开始真正的使用 <code>Yo</code> 来进行编码了，下面将会展示一段最简单的代码，我们要做一个列表页，其对应的样式表文件为：<code>list.scss</code>：</p>
 <pre><code>@charset &quot;utf-8&quot;;
 @import &quot;../core/reset&quot;;
-@import &quot;../fragment/yo-flex&quot;;
+@import &quot;../layout/yo-flex&quot;;
 @import &quot;../fragment/yo-header&quot;;
-@import &quot;../element/yo-list&quot;;
+@import &quot;../fragment/yo-list&quot;;
 
 // 下面这段模块化的代码，请新建一个 `m-xxx` 的文件并将代码移过去，然后 `@import` 到这里
 // 为了方便演示，所以下述代码直接写在了这里
@@ -202,9 +202,10 @@
 </ul>
 <p><a name="versioning"></a></p>
 <h2 id="版本">版本</h2><p><code>Yo</code> 的版本方针遵循 <a href="http://semver.org/lang/zh-CN/">SemVer</a> 规范，版本号采用 <code>主版本号.次版本号.修订号</code> 的格式。版本发布周期是透明的，并尽可能保证向前向后兼容，您可以根据我们的语义化版本方针进行版本控制。</p>
-<p><code>master</code> 分支为开发版本，稳定版本都发布在 <a href="https://github.com/doyoe/Yo/releases">releases tag</a> 中。</p>
-<p><strong>最新稳定版: <a href="https://github.com/doyoe/Yo/releases/tag/v2.1.5">v2.1.5</a></strong></p>
-<p><strong>开发中版本: v2.1.6</strong></p>
+<ul>
+<li>最新稳定版: <a href="https://github.com/doyoe/Yo/releases/tag/v2.1.5">v2.1.5</a></li>
+<li>开发中版本: v3.0.0</li>
+</ul>
 <p>如想查看更多版本变更历史，请查看 <a href="https://github.com/doyoe/Yo/blob/master/changelog.md">ChangeLog</a></p>
 <p><a name="bugs-and-feature-requests"></a></p>
 <h2 id="问题及反馈">问题及反馈</h2><p>如果您的项目正在使用<code>Yo</code>，过程中发现了任何问题，或者有任何帮助<code>Yo</code>更完善的想法和建议，请直接给我提<a href="https://github.com/doyoe/Yo/issues/new">Issues</a>和<a href="https://github.com/doyoe/Yo/pulls">Pull Requests</a>。</p>
