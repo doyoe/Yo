@@ -40,7 +40,7 @@
 * 安装依赖: `npm install --registry=https://registry.npm.taobao.org`
 * 在Yo根目录下运行:
     * `gulp watch`: 如果你想监听所有文件的变更
-    * `gulp build`: 如果你只是想build一次该项目
+    * `gulp compile`: 如果你只是想编译一次该项目
 
 
 <a name="how-to-start"></a>
