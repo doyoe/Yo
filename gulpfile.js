@@ -94,7 +94,9 @@ gulp.task('watch-doc', function() {
 // 命令: gulp test, 测试任务
 gulp.task('test', function() {
     return gulp.src('./style/usage/test/test.scss')
-        .pipe(through.obj(combineScss))
+        .pipe(plumber({
+            errorHandler: hanlders.error
+        }))
         .pipe(nodeSass({
             outputStyle: 'expanded'
         }))
