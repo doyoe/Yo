@@ -15,7 +15,7 @@ var hanlders = require('./gulp/hanlders.js');
 
 // style path，由业务自己配置
 var scssPath = './style/usage/page';
-var cssPath = './style/usage/export';
+var cssPath = './style/export';
 
 // 编译器
 var compilers = {
