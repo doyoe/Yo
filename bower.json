@@ -8,8 +8,7 @@
   "description": "Yo 是基于 Mobile First 的策略而设计，并使用 Sass 开发的 CSS Framework，具备轻量，易用，可配置，强扩展等特性，同时也适应于PC端的高级浏览器",
   "moduleType": "globals",
   "main": [
-    "style",
-    "component"
+    "style"
   ],
   "keywords": [
     "yo"
@@ -18,12 +17,17 @@
   "ignore": [
     "demo",
     "doc",
+    "component_dev",
     "node_modules",
+    "ydoc_theme",
     ".gitignore",
+    "as-before-use.md",
+    "bower.json",
     "case.md",
     "changelog.md",
     "README.md",
     "shortcut.png",
+    "ydoc.config",
     "yo.png",
     "usage/element",
     "usage/fragment",
