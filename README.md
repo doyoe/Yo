@@ -154,11 +154,8 @@
 
 `Yo` 的版本方针遵循 [SemVer](http://semver.org/lang/zh-CN/) 规范，版本号采用 `主版本号.次版本号.修订号` 的格式。版本发布周期是透明的，并尽可能保证向前向后兼容，您可以根据我们的语义化版本方针进行版本控制。
 
-`master` 分支为开发版本，稳定版本都发布在 [releases tag](https://github.com/doyoe/Yo/releases) 中。
-
-**最新稳定版: [v2.1.5](https://github.com/doyoe/Yo/releases/tag/v2.1.5)**
-
-**开发中版本: v2.1.6**
+* 最新稳定版: [v2.1.5](https://github.com/doyoe/Yo/releases/tag/v2.1.5)**
+* 开发中版本: v3.0.0
 
 如想查看更多版本变更历史，请查看 [ChangeLog](https://github.com/doyoe/Yo/blob/master/changelog.md)
 
