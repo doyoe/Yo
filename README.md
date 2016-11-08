@@ -6,7 +6,7 @@
 
 在使用之前，请先确保你的机器有能够编译 `Sass` 的环境并开始去了解一些 [Sass](http://sass-lang.com/) 相关的知识（当然，这非常简单）。
 
-与其它框架不同的是，实际上我们并不计划对外提供打包好的 `yo.min.css` 来供使用，而是推荐直接在 `Yo` 的 `usage` 目录下进行开发。这样你将能体会到 `Yo` 的众多功能和方法为开发所带来的便利，并感受到它的魅力。
+与其它框架不同的是，实际上我们并不计划对外提供打包好的 `yo.min.css` 来供使用，而是推荐直接在 `Yo` 的 `style/usage` 目录下进行开发。这样你将能体会到 `Yo` 的众多功能和方法为开发所带来的便利，并感受到它的魅力。
 
 好了，请仔细看下面的步骤，这可以帮你快速搞定一切：
 
@@ -50,7 +50,7 @@
 <a name="how-to-start"></a>
 ## 如何开始
 
-通过上述的 `环境搭建`，`Yo` 就已经可以在你的机器上跑起来了，在 `Yo` 根目录下运行 `gulp test`，会在 `usage/test` 目录生成一个 `test.css`，这表示一切OK（当然，项目中你可以将test文件夹移除）。
+通过上述的 `环境搭建`，`Yo` 就已经可以在你的机器上跑起来了，在 `Yo` 根目录下运行 `gulp test`，会在 `style/usage/test` 目录生成一个 `test.css`，这表示一切OK（当然，项目中你可以将test文件夹移除）。
 
 
 <a name="rules"></a>
@@ -61,8 +61,8 @@
 * `lib` 目录是 `Yo` 框架的底层代码，不要改动它，避免日后升级时遇到麻烦；
 * `usage` 目录正是你的舞台，在这做业务的样式编码；
     * `usage/core` 目录下的都是配置文件，比如你想改变某些设定的初始值；
-    * 需要编译使用的文件（一般来说都是page级别的文件），放在 `usage/page` 目录下，编译后，会输出到 `usage/export` 目录；
-    * `usage` 下的其它目录和 `lib` 里的目录一一对应，用于放置扩展文件；
+    * 需要编译使用的文件（一般来说都是page级别的文件），放在 `usage/page` 目录下，编译后，默认会输出到 `export` 目录；
+    * `usage` 下的其它目录和 `lib` 里的目录一一对应，用于放置业务自定义的扩展文件；
 
 
 <a name="template"></a>
@@ -72,9 +72,9 @@
 
     @charset "utf-8";
     @import "../core/reset";
-    @import "../fragment/yo-flex";
+    @import "../layout/yo-flex";
     @import "../fragment/yo-header";
-    @import "../element/yo-list";
+    @import "../fragment/yo-list";
 
     // 下面这段模块化的代码，请新建一个 `m-xxx` 的文件并将代码移过去，然后 `@import` 到这里
     // 为了方便演示，所以下述代码直接写在了这里

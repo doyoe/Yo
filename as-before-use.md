@@ -68,9 +68,9 @@
 
     @charset "utf-8";
     @import "../core/reset";
-    @import "../fragment/yo-flex";
+    @import "../layout/yo-flex";
     @import "../fragment/yo-header";
-    @import "../element/yo-list";
+    @import "../fragment/yo-list";
 
     // 下面这段模块化的代码，请新建一个 `m-xxx` 的文件并将代码移过去，然后 `@import` 到这里
     // 为了方便演示，所以下述代码直接写在了这里
