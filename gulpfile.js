@@ -82,9 +82,6 @@ gulp.task('doc', function() {
     var conf = {
         dest: 'doc'
     };
-    if (fs.existsSync(path.join(__dirname, 'ydoc_template'))) {
-        conf.template = './ydoc_template';
-    }
     return gulp.src('./style/')
         .pipe(ydoc(conf));
 });
