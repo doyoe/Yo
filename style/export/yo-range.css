@@ -518,7 +518,7 @@ body {
 }
 
 html {
-  background-color: #ebebeb;
+  background-color: #eee;
   color: #212121;
   font-size: 100px;
   -webkit-user-select: none;
@@ -1247,6 +1247,7 @@ a {
  * @param {Length} $track-height 滑轴高度 <3.0.0>
  * @param {Color} $track-color 滑轴色 <3.0.0>
  * @param {Color} $on-track-color 选中滑轴色 <3.0.0>
+ * @param {Color} $on-divide-color 选中刻度色 <3.0.0>
  * @param {Length} $thumb-height 滑球高度 <3.0.0>
  * @param {Color} $thumb-color 滑球色 <3.0.0>
  */
@@ -1269,6 +1270,10 @@ a {
 
 .yo-range > .scale > .divide:last-child {
   left: 100%;
+}
+
+.yo-range > .scale > .divide.divide-on {
+  color: #1ba9ba;
 }
 
 .yo-range > .track {
@@ -1319,6 +1324,11 @@ a {
   border-radius: 50%;
   box-shadow: 0 0 0.01rem rgba(0, 0, 0, 0.25), 0 0.01rem 0.02rem rgba(0, 0, 0, 0.15);
   background-color: #fff;
+}
+
+.yo-range > .track > .thumb.transition {
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
 }
 
 /**

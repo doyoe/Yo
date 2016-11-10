@@ -216,7 +216,7 @@ $_loadtip: (
     ico-color: map-get($base, link-color)
 );
 
-// Element range(5)
+// Element range(6)
 $_range: (
     // {Length} 滑轴高度
     track-height:   .02rem,
@@ -224,6 +224,8 @@ $_range: (
     track-color:    #ccc,
     // {Color} 选中滑轴色
     on-track-color: #1ba9ba,
+    // {Color} 选中刻度色
+    on-divide-color:#1ba9ba,
     // {Length} 滑球高度
     thumb-height:   .28rem,
     // {Color} 滑块色
