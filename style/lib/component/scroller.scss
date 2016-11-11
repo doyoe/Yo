@@ -1,0 +1,8 @@
+@charset "utf-8";
+@import "../element/yo-loadtip";
+
+.yo-load {
+    @include align;
+    position: absolute;
+    width: 100%;
+}
