@@ -1193,6 +1193,10 @@ a {
  * @description 构造yo-group自定义使用方法
  * @demo http://doyoe.github.io/Yo/demo/fragment/yo-group.html
  * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Length} $label-padding 组标题内补白 <3.0.0>
+ * @param {Color} $label-bgcolor 组标题背景色 <3.0.0>
+ * @param {Length} $label-font-size 组标题文本大小 <3.0.0>
+ * @param {Color} $label-border-color 组标题边框色 <3.0.0>
  * @param {Length} $index-width 索引区域宽度 <3.0.0>
  * @param {Color} $index-color 索引文本色 <3.0.0>
  * @param {Length} $index-font-size 索引字号 <3.0.0>
@@ -1210,6 +1214,10 @@ a {
   z-index: 1;
   top: 0;
   left: 0;
+  font-weight: normal;
+}
+
+.yo-group .label {
   padding: 0.03rem 0.1rem;
   background-color: #eee;
   color: #666;
@@ -1217,7 +1225,7 @@ a {
   position: relative;
 }
 
-.yo-group > .sticky::after {
+.yo-group .label::after {
   pointer-events: none;
   position: absolute;
   z-index: 999;
@@ -1233,14 +1241,14 @@ a {
 }
 
 @media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
-  .yo-group > .sticky::after {
+  .yo-group .label::after {
     width: 100%;
     height: 100%;
   }
 }
 
 @media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
-  .yo-group > .sticky::after {
+  .yo-group .label::after {
     width: 200%;
     height: 200%;
     -webkit-transform: scale(0.5);
@@ -1249,7 +1257,7 @@ a {
 }
 
 @media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
-  .yo-group > .sticky::after {
+  .yo-group .label::after {
     width: 300%;
     height: 300%;
     -webkit-transform: scale(0.33333);
@@ -1272,10 +1280,9 @@ a {
 
 .yo-group > .index .ellipsis {
   display: inline-block;
-  width: 0.06rem;
-  height: 0.06rem;
   border-radius: 50%;
-  background-color: #555;
+  border-width: 0.03rem;
+  border-style: solid;
 }
 
 .yo-group > .sticky,
