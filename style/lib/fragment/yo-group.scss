@@ -13,8 +13,8 @@
         z-index: 1;
         top: 0;
         left: 0;
-        font-weight: normal;
     }
+    // sticky与label通用代码
     .label {
         padding: map-get($group, label-padding);
         background-color: map-get($group, label-bgcolor);
@@ -114,8 +114,8 @@
                 font-size: $label-font-size;
             }
             &::after {
-                @if $label-bgcolor != map-get($group, label-bgcolor) {
-                    border-color: $label-bgcolor;
+                @if $label-border-color != map-get($group, label-border-color) {
+                    border-color: $label-border-color;
                 }
             }
         }
