@@ -3,6 +3,7 @@
 // 定义常见根节点布局
 @mixin _root {
     @include fullscreen;
+    background-color: map-get($root, bgcolor);
 }
 
 /**

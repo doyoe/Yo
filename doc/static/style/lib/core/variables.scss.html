@@ -129,10 +129,10 @@ $_flex: (
     direction: column
 );
 
-// Layout Stacked
-$_stacked: (
-    // {Length} 区块外边距
-    margin: .2rem .1rem
+// Layout root
+$_root: (
+    // {Color} 背景色
+    bgcolor: null
 );
 
 // Element UI badge(7)
@@ -243,7 +243,7 @@ $_loadtip: (
     ico-color: map-get($base, link-color)
 );
 
-// Element range(5)
+// Element range(6)
 $_range: (
     // {Length} 滑轴高度
     track-height:   .02rem,
@@ -251,6 +251,8 @@ $_range: (
     track-color:    #ccc,
     // {Color} 选中滑轴色
     on-track-color: #1ba9ba,
+    // {Color} 选中刻度色
+    on-divide-color:#1ba9ba,
     // {Length} 滑球高度
     thumb-height:   .28rem,
     // {Color} 滑块色
@@ -418,14 +420,22 @@ $_dialog: (
     bd-font-size:    .16rem
 );
 
-// Fragment group(3)
+// Fragment group(7)
 $_group: (
+    // {Length} 组标题内补白
+    label-padding:      .03rem .1rem,
+    // {Color} 组标题背景色
+    label-bgcolor:      #eee,
+    // {Length} 组标题文本大小
+    label-font-size:    .13rem,
+    // {Color} 组标题边框色
+    label-border-color: #eee,
     // {Length} 索引宽度
-    index-width:     .3rem,
+    index-width:        .3rem,
     // {Color} 索引文本色
-    index-color:     #555,
+    index-color:        #555,
     // {Length} 索引字号
-    index-font-size: .12rem
+    index-font-size:    .12rem
 );
 
 // Fragment header(12)

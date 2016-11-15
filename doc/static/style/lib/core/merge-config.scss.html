@@ -83,11 +83,11 @@
     $flex: $_flex !global;
 }
 
-// 合并variables和config中的stacked map
-@if global-variable-exists(stacked) {
-    $stacked: map-merge($_stacked, $stacked) !global;
+// 合并variables和config中的root map
+@if global-variable-exists(root) {
+    $root: map-merge($_root, $root) !global;
 } @else {
-    $stacked: $_stacked !global;
+    $root: $_root !global;
 }
 
 // 合并variables和config中的badge map

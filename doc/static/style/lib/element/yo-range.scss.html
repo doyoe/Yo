@@ -45,6 +45,9 @@
             &:last-child {
                 left: 100%;
             }
+            &.divide-on {
+                color: map-get($range, on-divide-color);
+            }
         }
     }
     > .track {
@@ -88,6 +91,10 @@
                 box-shadow: 0 0 .01rem rgba(0, 0, 0, 0.25), 0 .01rem .02rem rgba(0, 0, 0, 0.15);
                 background-color: map-get($range, thumb-color);
             }
+            // 放手时回弹和缓动
+            &.transition {
+                @include transition(transform .3s ease-out);
+            }
         }
     }
 }
@@ -102,6 +109,7 @@
  * @param {Length} $track-height 滑轴高度 <3.0.0>
  * @param {Color} $track-color 滑轴色 <3.0.0>
  * @param {Color} $on-track-color 选中滑轴色 <3.0.0>
+ * @param {Color} $on-divide-color 选中刻度色 <3.0.0>
  * @param {Length} $thumb-height 滑球高度 <3.0.0>
  * @param {Color} $thumb-color 滑球色 <3.0.0>
  */
@@ -111,6 +119,7 @@
     $track-height: default,
     $track-color: default,
     $on-track-color: default,
+    $on-divide-color: default,
     $thumb-height: default,
     $thumb-color: default) {
     // 区别是否新增实例还是修改本身
@@ -125,6 +134,9 @@
     @if $on-track-color == default {
         $on-track-color: map-get($range, on-track-color);
     }
+    @if $on-divide-color == default {
+        $on-divide-color: map-get($range, on-divide-color);
+    }
     @if $thumb-height == default {
         $thumb-height: map-get($range, thumb-height);
     }
@@ -132,6 +144,18 @@
         $thumb-color: map-get($range, thumb-color);
     }
     .yo-range#{$name} {
+        > .scale {
+            @if $thumb-height != map-get($range, thumb-height) {
+                margin: 0 $thumb-height / 2;
+            }
+            > .divide {
+                &.divide-on {
+                    @if $on-divide-color != map-get($range, on-track-color) {
+                        color: $on-divide-color;
+                    }
+                }
+            }
+        }
         > .track {
             @if $thumb-height != map-get($range, thumb-height) {
                 height: $thumb-height + .02rem;
