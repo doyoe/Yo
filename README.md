@@ -169,15 +169,15 @@
 <a name="author"></a>
 ## 作者
 
-### 杜瑶
+**杜瑶**
 
 * https://github.com/doyoe
 * http://weibo.com/doyoe
 * http://www.doyoe.com
 
-### 徐潇潇
+**徐潇潇**
 
-### 沈蛟
+**沈蛟**
 
 
 <a name="copyright-and-license"></a>
