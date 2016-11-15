@@ -163,7 +163,7 @@
 <a name="bugs-and-feature-requests"></a>
 ## 问题及反馈
 
-如果您的项目正在使用`Yo`，过程中发现了任何问题，或者有任何帮助`Yo`更完善的想法和建议，请直接给我们提[Issues](https://github.com/doyoe/Yo/issues/new)和[Pull Requests](https://github.com/doyoe/Yo/pulls)。
+如果您的项目正在使用`Yo`，过程中发现了任何问题，或者有任何帮助`Yo`更完善的想法和建议，请直接给我们提 [Issues](https://github.com/doyoe/Yo/issues/new) 和 [Pull Requests](https://github.com/doyoe/Yo/pulls)。
 
 
 <a name="author"></a>
