@@ -43,11 +43,13 @@
             @include align-self(stretch);
         }
     }
-    // 模态窗底色
+    // 遮罩背景底色
     background-color: map-get($modal, bgcolor);
     > .cont {
         position: relative;
         overflow: hidden;
+        // 内容区底色
+        background-color: map-get($modal, cont-bgcolor);
     }
 }
 
@@ -59,20 +61,30 @@
  * @demo http://doyoe.github.io/Yo/demo/fragment/yo-modal.html
  * @param {String} $name 定义扩展名称 <3.0.0>
  * @param {Color} $bgcolor 背景色 <3.0.0>
+ * @param {Color} $cont-bgcolor 背景色 <3.0.0>
  */
 
 @mixin yo-modal(
     $name: default,
-    $bgcolor: default) {
+    $bgcolor: default,
+    $cont-bgcolor: default) {
     // 区别是否新增实例还是修改本身
     $name: if($name == default, "", "-#{$name}");
     // 如果值为default，则取config的定义
     @if $bgcolor == default {
         $bgcolor: map-get($modal, bgcolor);
     }
+    @if $cont-bgcolor == default {
+        $cont-bgcolor: map-get($modal, cont-bgcolor);
+    }
     .yo-modal#{$name} {
         @if $bgcolor != map-get($modal, bgcolor) {
             background-color: $bgcolor;
+        }
+        > .cont {
+            @if $cont-bgcolor != map-get($modal, cont-bgcolor) {
+                background-color: $cont-bgcolor;
+            }
         }
         // 增量扩展
         @content;

@@ -477,10 +477,12 @@ $_list: (
     more-color:        #aaa
 );
 
-// Fragment modal(1)
+// Fragment modal(2)
 $_modal: (
-    // {Color} 背景色
-    bgcolor: rgba(#000, .2)
+    // {Color} 遮罩背景色
+    bgcolor:      rgba(#000, .2),
+    // {Color} 内容区背景色
+    cont-bgcolor: null
 );
 
 // Fragment number(11)
