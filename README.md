@@ -175,9 +175,9 @@
 * http://weibo.com/doyoe
 * http://www.doyoe.com
 
-**徐潇潇**
+**YMFE Team**
 
-**沈蛟**
+* https://github.com/YMFE
 
 
 <a name="copyright-and-license"></a>
