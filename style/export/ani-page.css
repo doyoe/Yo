@@ -3374,6 +3374,8 @@ a {
  */
 .yo-btn {
   display: inline-block;
+  height: 0.36rem;
+  line-height: 0.36rem;
   padding: 0 1.2em;
   vertical-align: top;
   position: relative;
@@ -3440,24 +3442,6 @@ a {
 
 .yo-btn-disabled::after, .yo-btn-disabled:active::after {
   border-color: #fa7f1c;
-}
-
-.yo-btn-s {
-  height: 0.28rem;
-  line-height: 0.28rem;
-  font-size: 0.12rem;
-}
-
-.yo-btn-m {
-  height: 0.36rem;
-  line-height: 0.36rem;
-  font-size: 0.14rem;
-}
-
-.yo-btn-l {
-  height: 0.44rem;
-  line-height: 0.44rem;
-  font-size: 0.16rem;
 }
 
 .yo-btn-stacked {

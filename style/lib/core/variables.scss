@@ -126,7 +126,7 @@ $_badge: (
     font-size:    .12rem
 );
 
-// Element Button(18)
+// Element Button(12)
 $_btn: (
     // {Color} Length
     border-width:   1px,
@@ -151,17 +151,7 @@ $_btn: (
     // {Length} 宽度
     width:          null,
     // {Length} 高度
-    height:         null,
-    // {Length} 默认预设3种尺寸按钮：
-    // small
-    s-height:       .28rem,
-    s-font-size:    .12rem,
-    // medium
-    m-height:       .36rem,
-    m-font-size:    .14rem,
-    // large
-    l-height:       .44rem,
-    l-font-size:    .16rem
+    height:         .36rem
 );
 
 // Element checked(11)
