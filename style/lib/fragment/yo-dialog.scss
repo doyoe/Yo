@@ -49,12 +49,14 @@
         text-align: center;
         @include yo-btn(
             $name: dialog,
+            $height: .44rem,
             $border-width: 1px 1px 0 0,
             $border-color: map-get($dialog, border-color),
             $bgcolor: #fff,
             $color: map-get($base, link-color),
             $radius: 0,
-            $touch-bgcolor: #f9f9f9
+            $touch-bgcolor: #f9f9f9,
+            $font-size: .16rem
         ){
             display: block;
             @include flex;
