@@ -71,7 +71,7 @@
     .yo-rating#{$name} {
         > .item {
             @if $item-width != map-get($rating, item-width) {
-                width: $item-width * 5;
+                width: $item-width;
             }
             &:not(:first-child) {
                 @if $item-space != map-get($rating, item-space) {
