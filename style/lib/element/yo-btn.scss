@@ -125,7 +125,11 @@
         // 如果$height不等于config设定，则重绘高度和行高
         @if $height != map-get($btn, height) {
             height: $height;
-            line-height: $height;
+            @if $height == auto {
+                line-height: inherit;
+            } @else {
+                line-height: $height;
+            }
         }
         // 如果$padding不等于config设定，则重绘内补白
         @if $padding != map-get($btn, padding) {

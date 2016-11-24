@@ -61,7 +61,8 @@
         $border-width: 0,
         $bgcolor: map-get($search, btn-bgcolor),
         $color: map-get($search, btn-color),
-        $radius: map-get($search, input-radius)
+        $radius: map-get($search, input-radius),
+        $height: auto
     ) {
         display: block;
         min-width: .4rem;
