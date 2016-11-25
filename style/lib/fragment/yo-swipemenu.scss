@@ -13,6 +13,7 @@
     .front {
         position: relative;
         z-index: 2;
+        width: map-get($swipemenu, padding);
         background-color: #fff;
     }
     .transition {
@@ -77,6 +78,11 @@
         $action-first-bgcolor: map-get($swipemenu, action-first-bgcolor);
     }
     .yo-swipemenu#{$name} {
+        .front {
+            @if $padding != map-get($swipemenu, padding) {
+                padding: $padding;
+            }
+        }
         > .action {
             @if $action-width != map-get($swipemenu, action-width) {
                 width: $action-width;

@@ -569,8 +569,10 @@ $_search: (
     cancel-color:  map-get($base, link-color)
 );
 
-// Fragment swipemenu(4)
+// Fragment swipemenu(5)
 $_swipemenu: (
+    // {Length} front 内补白
+    padding:              null
     // {Length} action 宽度
     action-width:         1rem,
     // {Color} action 背景色
