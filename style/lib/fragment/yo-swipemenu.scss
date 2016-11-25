@@ -50,6 +50,7 @@
  * @description 构造yo-swipemenu的自定义使用方法
  * @demo http://doyoe.github.io/Yo/demo/fragment/yo-swipemenu.html
  * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Length} $padding front区域内补白 <3.0.0>
  * @param {Length} $action-width action操作区宽度 <3.0.0>
  * @param {Color} $action-bgcolor action操作区背景色 <3.0.0>
  * @param {Color} $action-color action操作区文本色 <3.0.0>
@@ -58,6 +59,7 @@
 
 @mixin yo-swipemenu(
     $name: default,
+    $padding: default,
     $action-width: default,
     $action-bgcolor: default,
     $action-color: default,
@@ -65,6 +67,9 @@
     // 区别是否新增实例还是修改本身
     $name: if($name == default, "", "-#{$name}");
     // 如果值为default，则取config的定义
+    @if $padding == default {
+        $padding: map-get($swipemenu, padding);
+    }
     @if $action-width == default {
         $action-width: map-get($swipemenu, action-width);
     }
