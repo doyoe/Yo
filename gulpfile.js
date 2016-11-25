@@ -14,7 +14,7 @@ var versions = require('./gulp/versions.js');
 var hanlders = require('./gulp/hanlders.js');
 
 // style path，由业务自己配置
-var scssPath = './style/usage/page';
+var scssPath = './style/page';
 var cssPath = './style/export';
 
 // 编译器
