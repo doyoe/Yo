@@ -40,9 +40,6 @@
 
 * 安装ykit：`(sudo) npm install ykit -g`
 * 安装脚手架：`(sudo) npm install ykit-extension-yo -g`
-* 安装: `bower install yo`
-* 安装gulp: `npm install gulp -g --registry=https://registry.npm.taobao.org`
-* 安装依赖: `npm install --registry=https://registry.npm.taobao.org`
 * 在Yo根目录下运行:
     * `gulp watch`: 如果你想监听所有文件的变更
     * `gulp compile`: 如果你只是想编译一次该项目
