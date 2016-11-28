@@ -40,9 +40,7 @@
 
 * 安装ykit：`(sudo) npm install ykit -g`
 * 安装脚手架：`(sudo) npm install ykit-extension-yo -g`
-* 在Yo根目录下运行:
-    * `gulp watch`: 如果你想监听所有文件的变更
-    * `gulp compile`: 如果你只是想编译一次该项目
+* 在项目根目录下执行：`ykit yo init`
 
 
 <a name="how-to-start"></a>
