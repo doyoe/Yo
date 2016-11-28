@@ -36,8 +36,9 @@
 * Node.js
 * npm
 
-### 使用 `ykit` 构建：
+### 使用 `ykit` 构建
 
+* 安装ykit：`(sudo) npm install ykit -g`
 * 安装: `bower install yo`
 * 安装gulp: `npm install gulp -g --registry=https://registry.npm.taobao.org`
 * 安装依赖: `npm install --registry=https://registry.npm.taobao.org`
