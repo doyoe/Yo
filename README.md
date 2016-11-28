@@ -33,11 +33,10 @@
 
 请确保你已经安装过下述环境：
 
-* Bower
 * Node.js
 * npm
 
-### 使用gulp构建
+### 使用 `ykit` 构建：
 
 * 安装: `bower install yo`
 * 安装gulp: `npm install gulp -g --registry=https://registry.npm.taobao.org`
