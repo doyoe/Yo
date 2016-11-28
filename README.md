@@ -48,7 +48,14 @@
 
 通过上述的 `环境搭建`，`Yo` 的标准项目就创建好了。接下来，就要开始正式的开发了。
 
-首先启动 `ykit` 服务，在项目上一级执行 `(sudo) ykit server`。
+* 首先启动 `ykit` 服务，在项目上一级执行 `(sudo) ykit server`；
+* 其次在 `ykit.yo.js` 中通过 `setExports` 配置页面的 `js` 入口文件；
+* 然后再页面中添加对 `js` 和 `css` 的引用：
+```html
+<link rel="stylesheet" href="//***.com/[项目名称]/prd/page/home/index.css />
+...
+<script src="//***.com/[项目名称]/prd/page/home/index.js"></script>
+```
 
 我们可以跑一下里面自带的简单示例。
 
