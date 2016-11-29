@@ -1,12 +1,12 @@
 # Yo
 
-**v3.0.0目前还是开发中的版本，预计在12月初发布正式版，这之前请大家尽可能使用之前的稳定版本！**
+**v3.0.0 是 Yo 的一个新里程碑，我们将加入丰富的UI组件，让构建移动应用变得更简单。**如果你对之前的 Yo 恋恋不舍，v3.0.0及后续版本仍然会满足，你只需要保持和之前版本的使用方式一致即可。[详情](as-before-use.md)
 
-`Yo` 是一个专注于移动开发的 `Front-end UI Framework`，她轻量，易用，可配置，并且具备超强的扩展能力。
+`Yo` 是一个专注于移动开发的 `Front-end UI Framework`，她轻量，易用，并且具备超强的可配置和扩展能力。
 
-`v3.0.0`是`Yo`的一个新里程碑，我们将加入丰富的UI组件，让构建移动应用变得更简单。如果你对之前的`Yo`恋恋不舍，`v3.0.0及后续版本`仍然会满足，你只需要保持和之前的版本一样安装和使用即可，[使用详情](as-before-use.md)。
+在使用之前，请先确保你的机器有能够编译 `Sass` 的环境并开始去了解一些 [Sass](http://sass-lang.com/) 相关的知识（当然，这非常简单）。
 
-与其它框架不同的是，实际上我们并不计划对外提供打包好的 `yo.min.css/yo.min.js` 来供使用，而是推荐直接在 `Yo` 的标准工程目录下进行开发（通过 `Yo` 提供的脚手架将会创建一个标准的 `Yo` 工程）。这样你将能体会到 `Yo` 的众多功能和方法为开发所带来的便利，并感受到它的魅力。
+与其它框架不同的是，实际上我们并不计划对外提供打包好的 `yo.min.css` 来供使用，而是推荐直接在 `Yo` 的 `style/usage` 目录下进行开发。这样你将能体会到 `Yo` 的众多功能和方法为开发所带来的便利，并感受到它的魅力。
 
 好了，请仔细看下面的步骤，这可以帮你快速搞定一切：
 
@@ -19,7 +19,7 @@
 * [工程约束](#rules)
 * [示例代码](#template)
 * [注意](#attention)
-* [实例和文档](#documentation-and-demo)
+* [文档和实例](#documentation-and-demo)
 * [版本](#versioning)
 * [问题及反馈](#bugs-and-feature-requests)
 * [作者](#author)
@@ -33,68 +33,37 @@
 
 请确保你已经安装过下述环境：
 
+* Bower
 * Node.js
 * npm
 
-### 使用 `ykit` 构建
+### 使用gulp构建
 
-* 安装ykit：`(sudo) npm install ykit -g`
-* 安装脚手架：`(sudo) npm install ykit-extension-yo -g`
-* 在项目根目录下执行：`ykit yo init`
+* 安装: `bower install yo`
+* 安装gulp: `npm install gulp -g --registry=https://registry.npm.taobao.org`
+* 安装依赖: `npm install --registry=https://registry.npm.taobao.org`
+* 在Yo根目录下运行:
+    * `gulp watch`: 如果你想监听所有文件的变更
+    * `gulp compile`: 如果你只是想编译一次该项目
 
 
 <a name="how-to-start"></a>
 ## 如何开始
 
-通过上述的 `环境搭建`，`Yo` 的标准项目就创建好了。接下来，就要开始正式的开发了。
-
-* 首先启动 `ykit` 服务，在项目上一级执行 `(sudo) ykit server`；
-* 其次在 `ykit.yo.js` 中通过 `setExports` 配置页面的 `js` 入口文件；
-* 然后再页面中添加对 `js` 和 `css` 的引用：
-```html
-<link rel="stylesheet" href="//***.com/[项目名称]/prd/page/home/index.css />
-...
-<script src="//***.com/[项目名称]/prd/page/home/index.js"></script>
-```
-> 由于构建工具会自动帮你在 `js` 入口文件所在的目录中生成同名的 `css` 文件，所以只需要在页面上引用 `css` 文件，不需要配置入口。
-我们可以跑一下里面自带的简单示例。
+通过上述的 `环境搭建`，`Yo` 就已经可以在你的机器上跑起来了，在 `Yo` 根目录下运行 `gulp test`，会在 `style/usage/test` 目录生成一个 `test.css`，这表示一切OK（当然，项目中你可以将test文件夹移除）。
 
 
 <a name="rules"></a>
 ## 工程约束
 
-真正的编码之前，先看一下 `Yo` 标准工程的目录结构是非常必要的，这有助于理解并更好的使用它：
+真正的编码之前，先看一下 `Yo` 的目录结构是非常重要的，这有助于理解并更好的使用它：
 
-```
-|- node_modules
-|- src --------------------------// 项目源码
-|  |- common --------------------// 项目级公共配置、工具等
-|  |- component -----------------// 项目级公共组件
-|  |   |- componentA
-|  |   |    |- index.js ---------// 组件A脚本
-|  |   |    |- index.scss -------// 组件A样式
-|  |   |- componentB
-|  |   |- ...
-|  |- page ----------------------// 业务逻辑目录（页面维度）
-|  |   |- pageA
-|  |   |    |- index.js ---------// 页面入口文件
-|  |   |    |- index.scss -------// 页面样式
-|  |   |    |- component --------// 当前页面内部使用的组件（如果有）
-|  |   |- pageB
-|  |   |- ...
-|  |- html ----------------------// 页面html
-|  |- yo-config -----------------// 样式配置文件夹
-|- ...
-|- package.json
-|- ykit.yo.js // ykit配置文件
-```
-
-<!-- * `lib` 目录是 `Yo` 框架的底层代码，不要改动它，避免日后升级时遇到麻烦；
+* `lib` 目录是 `Yo` 框架的底层代码，不要改动它，避免日后升级时遇到麻烦；
 * `usage` 目录正是你的舞台，在这做业务的样式编码；
     * `usage/core` 目录下的都是配置文件，比如你想改变某些设定的初始值；
     * 需要编译使用的文件（一般来说都是page级别的文件），放在 `usage/page` 目录下，编译后，默认会输出到 `export` 目录；
     * `usage` 下的其它目录和 `lib` 里的目录一一对应，用于放置业务自定义的扩展文件；
- -->
+
 
 <a name="template"></a>
 ## 示例代码
@@ -164,9 +133,6 @@
 
 如果你长时间工作在 `PC` 平台上，这个设定可能需要一个适应的过程，但可以肯定的是，你一定会喜欢上它。
 
-### flex布局
-
-为了让你的 `flex` 布局可以正常工作，请检查 `flex子项` 是否为块级元素（可以显式的通过 `display` 来定义），在较老的平台及浏览器上，如果 `flex子项` 是行内级元素，`flex` 布局将会解析错误。
 
 <a name="supported-browsers"></a>
 ## 浏览器支持
@@ -197,24 +163,16 @@
 <a name="bugs-and-feature-requests"></a>
 ## 问题及反馈
 
-如果您的项目正在使用`Yo`，过程中发现了任何问题，或者有任何帮助`Yo`更完善的想法和建议，请直接给我们提 [Issues](https://github.com/doyoe/Yo/issues/new) 和 [Pull Requests](https://github.com/doyoe/Yo/pulls)。
+如果您的项目正在使用`Yo`，过程中发现了任何问题，或者有任何帮助`Yo`更完善的想法和建议，请直接给我提[Issues](https://github.com/doyoe/Yo/issues/new)和[Pull Requests](https://github.com/doyoe/Yo/pulls)。
 
 
 <a name="author"></a>
 ## 作者
 
-**杜瑶**
-
-* https://github.com/doyoe
-* http://weibo.com/doyoe
-* http://www.doyoe.com
-
-**YMFE Team**
-
-* https://github.com/YMFE
+杜瑶，我目前居住在北京，就职于 [Qunar](http://www.qunar.com)，您可以在 [Github](https://github.com/doyoe) 或者 [Weibo](http://weibo.com/doyoe) 看到我的最近动态。当然，也可以通过我的[个人站点](http://www.doyoe.com)，博客：[CSS探索之旅](http://blog.doyoe.com)，[CSS参考手册](http://css.doyoe.com) 和 [Web前端实验室](http://demo.doyoe.com) 等信息了解更多。
 
 
 <a name="copyright-and-license"></a>
 ## 版本和许可
 
-源码和文档版权属于 Yo 的所有开发者。源码发布基于 [the MIT license](http://opensource.org/licenses/MIT) 开源协议。文档发布基于 [Creative Commons](http://creativecommons.org/licenses/by/4.0/) 开源协议。
+源码和文档版权属于 [doyoe.com](http://www.doyoe.com)。源码发布基于 [the MIT license](http://opensource.org/licenses/MIT) 开源协议。文档发布基于 [Creative Commons](http://creativecommons.org/licenses/by/4.0/) 开源协议。

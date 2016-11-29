@@ -14,7 +14,7 @@ var versions = require('./gulp/versions.js');
 var hanlders = require('./gulp/hanlders.js');
 
 // style path，由业务自己配置
-var scssPath = './style/page';
+var scssPath = './style/usage/page';
 var cssPath = './style/export';
 
 // 编译器
@@ -25,7 +25,7 @@ var compilers = {
                 errorHandler: hanlders.error
             }))
             .pipe(nodeSass({
-                outputStyle: 'compressed',
+                outputStyle: 'expanded',
                 importer: require('node-sass-import-once'),
                 importerOnce: {
                     css: true
@@ -36,7 +36,7 @@ var compilers = {
     },
     'sass': function(scssPath, cssPath) {
         return rubySass(scssPath + '/*.scss', {
-                style: 'compressed'
+                style: 'expanded'
             })
             .pipe(plumber({
                 errorHandler: hanlders.error
@@ -77,6 +77,20 @@ gulp.task('version', function() {
     gutil.log(gutil.colors.green('Node-sass: ' + versions['node-sass']));
 });
 
+// 命令: gulp doc, 生成文档
+gulp.task('doc', function() {
+    var conf = {
+        dest: 'doc'
+    };
+    return gulp.src('./style/')
+        .pipe(ydoc(conf));
+});
+
+// 命令: gulp watch-doc, 监听改变生成文档
+gulp.task('watch-doc', function() {
+    gulp.watch(['./**/**/*.scss', './**/*.md'], ['doc']);
+});
+
 // 命令: gulp test, 测试任务
 gulp.task('test', function() {
     return gulp.src('./style/usage/test/test.scss')
@@ -84,7 +98,7 @@ gulp.task('test', function() {
             errorHandler: hanlders.error
         }))
         .pipe(nodeSass({
-            outputStyle: 'compressed'
+            outputStyle: 'expanded'
         }))
         .pipe(gulp.dest('./style/usage/test'));
 });

@@ -7,10 +7,32 @@
 node_modules
 npm-debug.log
 
-# doc
-_docs
-
 #dev
 demo
 style/page
 style/export
+
+# sass cache
+.sass-cache
+*.DS_Store
+.idea
+
+# component构建目录
+/component
+
+# gulp配置文件
+node_modules
+
+# doc
+/_docs
+
+# test
+bundle.js
+.nyc_output
+
+# ykit
+dev
+prd
+ver
+
+ykit.hosts

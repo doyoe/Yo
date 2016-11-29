@@ -1,9 +1,37 @@
 {
   "name": "yo3",
-  "version": "3.0.0-alpha01",
+  "version": "3.0.0",
   "description": "Yo 是一个专注于移动开发的 Front-end UI Framework，她轻量，易用，可配置，并且具备超强的扩展能力。",
   "compiler": "node-sass",
   "dependencies": {
+    "babel-polyfill": "^6.9.1",
+    "classnames": "^2.2.5",
+    "copy-dir": "^0.3.0",
+    "lodash": "^4.16.4",
+    "normalize-path": "^2.0.1",
+    "react": "^15.3.0",
+    "react-addons-css-transition-group": "^15.3.1",
+    "react-addons-pure-render-mixin": "^15.3.1",
+    "react-addons-shallow-compare": "^15.3.1",
+    "react-dom": "^15.3.0",
+    "react-tap-event-plugin": "^2.0.0"
+  },
+  "devDependencies": {
+    "@qnpm/ykit-config-hy": "0.1.0",
+    "@qnpm/ykit-config-qunar": "0.1.0",
+    "babel-core": "^6.10.4",
+    "babel-eslint": "^7.0.0",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-0": "^6.5.0",
+    "classnames": "^2.2.5",
+    "css-loader": "^0.23.1",
+    "eslint": "^2.9.0",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-import": "^1.8.0",
+    "eslint-plugin-jsx-a11y": "^1.2.0",
+    "eslint-plugin-react": "^5.2.2",
     "gulp": "3.9.0",
     "gulp-connect": "^4.0.0",
     "gulp-plumber": "1.0.1",
@@ -13,9 +41,20 @@
     "node-notifier": "4.2.3",
     "node-sass-china": "3.8.0",
     "optimist": "^0.6.1",
+    "rmdir-recursive": "0.0.1",
+    "sass-loader-china": "^4.0.0",
+    "style-loader": "^0.13.1",
     "through2": "2.0.0",
-    "ydoc": "^2.0.0"
+    "webpack": "^1.13.1",
+    "ydoc": "^1.0.2"
   },
-  "repository": "doyoe/Yo",
-  "license": "MIT"
+  "scripts": {
+    "start": "cd .. && sudo ykit server",
+    "lint": "ykit lint -d ./component",
+    "postinstall": "node builder/postinstall",
+    "prepublish": "node builder"
+  },
+  "repository": "https://github.com/doyoe/Yo",
+  "license": "MIT",
+  "pre-commit": []
 }
