@@ -52,6 +52,7 @@ export default class extends Component {
         const { isHeightFixed } = this.props.listModel;
 
         // 不定高无穷列表的容器是flex-box的话, 浏览器会先渲染dom然后调整高度, 这时候取到的高度不准
+        // setTimeout是无奈之举，确实没有想到更好的办法，因为这个调整高度的时机用js根本无法准确获取
         if (isHeightFixed) {
             this.updateItemHeightWhenDomRendered();
         } else {
