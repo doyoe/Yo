@@ -19,7 +19,7 @@
 * [工程约束](#rules)
 * [示例代码](#template)
 * [注意](#attention)
-* [文档和实例](#documentation-and-demo)
+* [实例和文档](#documentation-and-demo)
 * [版本](#versioning)
 * [问题及反馈](#bugs-and-feature-requests)
 * [作者](#author)
@@ -164,6 +164,12 @@
 
 如果你长时间工作在 `PC` 平台上，这个设定可能需要一个适应的过程，但可以肯定的是，你一定会喜欢上它。
 
+### flex布局
+
+为了让你的 `flex` 布局可以正常工作，请检查 `flex子项` 是否为块级元素（可以显式的通过 `display` 来定义），如果 `flex子项` 是行内级元素，在较老的平台及浏览器上，`flex子项` 如果是非块级元素，`flex布局` 将会解析错误。
+
+`Yo` 的早期版本，
+再次重申：将你的flex子项设置为非行内级元素，Yo会缓步移除对这种内部容错的代码
 
 <a name="supported-browsers"></a>
 ## 浏览器支持
