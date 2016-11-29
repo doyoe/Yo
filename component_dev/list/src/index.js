@@ -329,17 +329,15 @@ export default class List extends Component {
     componentWillMount() {
         this.listModel
             .registerEventHandler('change', (visibleList, totalHeight) => {
-                if (this.scroller && this.listModel.infinite && totalHeight !== this.state.totalHeight) {
-                    // 等待setState结束以后刷新
-                    setTimeout(() => {
-                        this.scroller.refresh({ scrollerHeight: totalHeight }, true);
-                    }, 0);
-                }
-
                 this.setState({ visibleList, totalHeight });
-                // 在组件更新后判断是否处在合法的offsetY,如果超出了范围就调整到maxScrollY
+                // setTimeout做了两件事，1. 刷新scroller的可滚动范围
+                // 2.在组件更新后判断是否处在合法的offsetY,如果超出了范围就调整到maxScrollY
                 // 不定高度模式下改变item的height, 会触发多次change, 因此需要等到所有的change结束再做调整
                 setTimeout(() => {
+                    if(this.scroller && this.listModel.infinite && totalHeight !== this.state.totalHeight) {
+                        this.scroller.refresh({ scrollerHeight: totalHeight }, true);
+                    }
+
                     if (this.scroller && -this.scroller.maxScrollY < this.listModel.offsetY) {
                         this.scrollTo(this.scroller.maxScrollY, 0);
                     }

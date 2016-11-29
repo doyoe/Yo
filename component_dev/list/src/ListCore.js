@@ -150,10 +150,8 @@ export default class ListCore extends ComponentCore {
         // grouptitle做特殊处理,因为grouptitle是grouplist组件内部的数据对象,所以不会修改到源数据
         if (item._type === 'groupTitle') {
             Object.assign(item, attr);
-        } else {
-            if (this.positionMap[item.key]) {
-                Object.assign(this.positionMap[item.key], attr);
-            }
+        } else if (this.positionMap[item.key]) {
+            Object.assign(this.positionMap[item.key], attr);
         }
     }
 
