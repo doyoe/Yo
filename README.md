@@ -13,8 +13,7 @@
 
 ## 内容
 
-* [环境搭建](#quick-stat)
-* [如何开始](#how-to-start)
+* [起步](#getting-started)
 * [浏览器支持](#supported-browsers)
 * [工程约束](#rules)
 * [示例代码](#template)
@@ -26,38 +25,11 @@
 * [版权和许可](#copyright-and-license)
 
 
-<a name="quick-stat"></a>
-## 环境搭建
+<a name="getting-started"></a>
+## 起步
 
-### 基础环境
-
-请确保你已经安装过下述环境：
-
-* Node.js
+* 根据 起步说明(http://yo.doyoe.com/_docs/getting-started.html) 安装 `Yo` 和她的依赖；
 * npm
-
-### 使用 `ykit` 构建
-
-* 安装ykit：`(sudo) npm install ykit -g`
-* 安装脚手架：`(sudo) npm install ykit-extension-yo -g`
-* 在项目根目录下执行：`ykit yo init`
-
-
-<a name="how-to-start"></a>
-## 如何开始
-
-通过上述的 `环境搭建`，`Yo` 的标准项目就创建好了。接下来，就要开始正式的开发了。
-
-* 首先启动 `ykit` 服务，在项目上一级执行 `(sudo) ykit server`；
-* 其次在 `ykit.yo.js` 中通过 `setExports` 配置页面的 `js` 入口文件；
-* 然后再页面中添加对 `js` 和 `css` 的引用：
-```html
-<link rel="stylesheet" href="//***.com/[项目名称]/prd/page/home/index.css />
-...
-<script src="//***.com/[项目名称]/prd/page/home/index.js"></script>
-```
-> 由于构建工具会自动帮你在 `js` 入口文件所在的目录中生成同名的 `css` 文件，所以只需要在页面上引用 `css` 文件，不需要配置入口。
-我们可以跑一下里面自带的简单示例。
 
 
 <a name="rules"></a>
