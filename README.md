@@ -15,8 +15,6 @@
 
 * [起步](#getting-started)
 * [浏览器支持](#supported-browsers)
-* [工程约束](#rules)
-* [示例代码](#template)
 * [注意](#attention)
 * [实例和文档](#documentation-and-demo)
 * [版本](#versioning)
@@ -29,71 +27,14 @@
 ## 起步
 
 * 根据 [起步说明](http://yo.doyoe.com/_docs/getting-started.html) 安装 `Yo` 和她的依赖；
-* npm
 
 
-<a name="rules"></a>
-## 工程约束
+<a name="supported-browsers"></a>
+## 浏览器支持
 
-真正的编码之前，先看一下 `Yo` 标准工程的目录结构是非常必要的，这有助于理解并更好的使用它：
-
-```
-|- node_modules
-|- src --------------------------// 项目源码
-|  |- common --------------------// 项目级公共配置、工具等
-|  |- component -----------------// 项目级公共组件
-|  |   |- componentA
-|  |   |    |- index.js ---------// 组件A脚本
-|  |   |    |- index.scss -------// 组件A样式
-|  |   |- componentB
-|  |   |- ...
-|  |- page ----------------------// 业务逻辑目录（页面维度）
-|  |   |- pageA
-|  |   |    |- index.js ---------// 页面入口文件
-|  |   |    |- index.scss -------// 页面样式
-|  |   |    |- component --------// 当前页面内部使用的组件（如果有）
-|  |   |- pageB
-|  |   |- ...
-|  |- html ----------------------// 页面html
-|  |- yo-config -----------------// 样式配置文件夹
-|- ...
-|- package.json
-|- ykit.yo.js // ykit配置文件
-```
-
-<!-- * `lib` 目录是 `Yo` 框架的底层代码，不要改动它，避免日后升级时遇到麻烦；
-* `usage` 目录正是你的舞台，在这做业务的样式编码；
-    * `usage/core` 目录下的都是配置文件，比如你想改变某些设定的初始值；
-    * 需要编译使用的文件（一般来说都是page级别的文件），放在 `usage/page` 目录下，编译后，默认会输出到 `export` 目录；
-    * `usage` 下的其它目录和 `lib` 里的目录一一对应，用于放置业务自定义的扩展文件；
- -->
-
-<a name="template"></a>
-## 示例代码
-
-我们可以开始真正的使用 `Yo` 来进行编码了，下面将会展示一段最简单的代码，我们要做一个列表页，其对应的样式表文件为：`list.scss`：
-
-    @charset "utf-8";
-    @import "../core/reset";
-    @import "../layout/yo-flex";
-    @import "../fragment/yo-header";
-    @import "../fragment/yo-list";
-
-    // 下面这段模块化的代码，请新建一个 `m-xxx` 的文件并将代码移过去，然后 `@import` 到这里
-    // 为了方便演示，所以下述代码直接写在了这里
-    .m-xxx {
-        // 由于这里所需要的`list`和默认展示不同，所以使用 `yo-list` 进行扩展
-        @include yo-list(
-            $margin: .1rem,
-            $border-width: 1px,
-            $border-color: #ccc,
-            $radius: .1rem
-        );
-    }
-
-首先，我们将 `reset` 引入 `list.scss`，这是必须的；该列表页由一个 `yo-header` 和 `yo-list` 组成，于是引入与之相关的2个元件；同时，我们想要使用 `flex` 布局，所以引入了 `yo-flex` 元件。
-
-在页面上请使用 `list.scss` 编译后的 `list.css` 文件。
+* iOS6.0+
+* Android4.0+
+* Latest Stable: Chrome, Safari, Opera, IE10+
 
 
 <a name="attention"></a>
@@ -139,13 +80,6 @@
 ### flex布局
 
 为了让你的 `flex` 布局可以正常工作，请检查 `flex子项` 是否为块级元素（可以显式的通过 `display` 来定义），在较老的平台及浏览器上，如果 `flex子项` 是行内级元素，`flex` 布局将会解析错误。
-
-<a name="supported-browsers"></a>
-## 浏览器支持
-
-* iOS6.0+
-* Android4.0+
-* Latest Stable: Chrome, Safari, Opera, IE10+
 
 
 <a name="documentation-and-demo"></a>
