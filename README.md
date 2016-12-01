@@ -28,7 +28,7 @@
 <a name="getting-started"></a>
 ## 起步
 
-* 根据 起步说明(http://yo.doyoe.com/_docs/getting-started.html) 安装 `Yo` 和她的依赖；
+* 根据 [起步说明](http://yo.doyoe.com/_docs/getting-started.html) 安装 `Yo` 和她的依赖；
 * npm
 
 
