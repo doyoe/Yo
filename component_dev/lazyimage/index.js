@@ -159,10 +159,14 @@ export default class extends Component {
                 tmpImg = new Image();
             this.loading = 1;
             tmpImg.onload = () => {
-                this.loading = 2;
-                this.setState({ src, loaded: true });
-                if (callback) {
-                    callback();
+                // 在lazyimage正在加载时组件unmount(主要是在SPA模式下有可能发生关闭view的情况)会报错
+                // 因此这里需要简单判断一下组件的实例是否还存在
+                if (this) {
+                    this.loading = 2;
+                    this.setState({ src, loaded: true });
+                    if (callback) {
+                        callback();
+                    }
                 }
             };
             tmpImg.src = src;
