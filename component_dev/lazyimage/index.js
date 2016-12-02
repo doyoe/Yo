@@ -120,6 +120,7 @@ export default class extends Component {
     }
 
     componentDidMount() {
+        this.canLoadImage = true;
         this.offsetY = this.context.offsetY;
         this.itemRef = this.context.itemRef;
         const scroller = this.context.list || this.context.scroller;
@@ -151,6 +152,7 @@ export default class extends Component {
         if (scroller) {
             scroller.childLazyImages.splice(scroller.childLazyImages.indexOf(this), 1);
         }
+        this.canLoadImage = false;
     }
 
     load(callback) {
@@ -161,7 +163,7 @@ export default class extends Component {
             tmpImg.onload = () => {
                 // 在lazyimage正在加载时组件unmount(主要是在SPA模式下有可能发生关闭view的情况)会报错
                 // 因此这里需要简单判断一下组件的实例是否还存在
-                if (this) {
+                if (this && this.canLoadImage) {
                     this.loading = 2;
                     this.setState({ src, loaded: true });
                     if (callback) {
