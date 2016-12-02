@@ -1,96 +1,43 @@
 # Yo
 
-**v3.0.0 是 Yo 的一个新里程碑，我们将加入丰富的UI组件，让构建移动应用变得更简单。**如果你对之前的 Yo 恋恋不舍，v3.0.0及后续版本仍然会满足，你只需要保持和之前版本的使用方式一致即可。[详情](as-before-use.md)
+**v3.0.0目前还是开发中的版本，预计在12月初发布正式版，这之前请大家尽可能使用之前的稳定版本！**
 
-`Yo` 是一个专注于移动开发的 `Front-end UI Framework`，她轻量，易用，并且具备超强的可配置和扩展能力。
+`Yo` 是一个纯粹的移动前端开发框架，专注为移动应用提供快速且专业的构建方式；她轻量，易用，可配置，并且具备超强的扩展能力。
 
-在使用之前，请先确保你的机器有能够编译 `Sass` 的环境并开始去了解一些 [Sass](http://sass-lang.com/) 相关的知识（当然，这非常简单）。
+`v3.0.0`是`Yo`的一个新里程碑，我们将加入丰富的UI组件，让构建移动应用变得更简单。如果你对之前的`Yo`恋恋不舍，只想使用她的样式，`v3.0.0及后续版本`仍然会满足，你只需要保持和之前的版本一样安装和使用即可，[查看详情](as-before-use.md)。
 
-与其它框架不同的是，实际上我们并不计划对外提供打包好的 `yo.min.css` 来供使用，而是推荐直接在 `Yo` 的 `style/usage` 目录下进行开发。这样你将能体会到 `Yo` 的众多功能和方法为开发所带来的便利，并感受到它的魅力。
+下面的内容可以帮你更好的了解 `Yo`：
 
-好了，请仔细看下面的步骤，这可以帮你快速搞定一切：
-
-
-## 内容
-
-* [环境搭建](#quick-stat)
-* [如何开始](#how-to-start)
+* [简介](#intro)
+* [起步](#getting-started)
 * [浏览器支持](#supported-browsers)
-* [工程约束](#rules)
-* [示例代码](#template)
 * [注意](#attention)
-* [文档和实例](#documentation-and-demo)
+* [实例和文档](#documentation-and-demo)
 * [版本](#versioning)
 * [问题及反馈](#bugs-and-feature-requests)
 * [作者](#author)
 * [版权和许可](#copyright-and-license)
 
 
-<a name="quick-stat"></a>
-## 环境搭建
+<a name="intro"></a>
+## 简介
 
-### 基础环境
+与其它框架不同的是，实际上我们并不计划对外提供类似打包好的 `yo.min.css/yo.min.js` 来供使用，而是推荐直接在 `Yo` 的标准工程目录下进行开发。这样你将能体会到 `Yo` 的众多功能和方法为开发所带来的便利，并感受到它的魅力。
 
-请确保你已经安装过下述环境：
+为此，我们提供了一个方便的脚手架工具，这将会为你创建一个标准的 `Yo` 工程。
 
-* Bower
-* Node.js
-* npm
+<a name="getting-started"></a>
+## 起步
 
-### 使用gulp构建
-
-* 安装: `bower install yo`
-* 安装gulp: `npm install gulp -g --registry=https://registry.npm.taobao.org`
-* 安装依赖: `npm install --registry=https://registry.npm.taobao.org`
-* 在Yo根目录下运行:
-    * `gulp watch`: 如果你想监听所有文件的变更
-    * `gulp compile`: 如果你只是想编译一次该项目
+* 根据 [起步说明](http://yo.doyoe.com/_docs/getting-started.html) 安装 `Yo` 和她的依赖；
 
 
-<a name="how-to-start"></a>
-## 如何开始
+<a name="supported-browsers"></a>
+## 浏览器支持
 
-通过上述的 `环境搭建`，`Yo` 就已经可以在你的机器上跑起来了，在 `Yo` 根目录下运行 `gulp test`，会在 `style/usage/test` 目录生成一个 `test.css`，这表示一切OK（当然，项目中你可以将test文件夹移除）。
-
-
-<a name="rules"></a>
-## 工程约束
-
-真正的编码之前，先看一下 `Yo` 的目录结构是非常重要的，这有助于理解并更好的使用它：
-
-* `lib` 目录是 `Yo` 框架的底层代码，不要改动它，避免日后升级时遇到麻烦；
-* `usage` 目录正是你的舞台，在这做业务的样式编码；
-    * `usage/core` 目录下的都是配置文件，比如你想改变某些设定的初始值；
-    * 需要编译使用的文件（一般来说都是page级别的文件），放在 `usage/page` 目录下，编译后，默认会输出到 `export` 目录；
-    * `usage` 下的其它目录和 `lib` 里的目录一一对应，用于放置业务自定义的扩展文件；
-
-
-<a name="template"></a>
-## 示例代码
-
-我们可以开始真正的使用 `Yo` 来进行编码了，下面将会展示一段最简单的代码，我们要做一个列表页，其对应的样式表文件为：`list.scss`：
-
-    @charset "utf-8";
-    @import "../core/reset";
-    @import "../layout/yo-flex";
-    @import "../fragment/yo-header";
-    @import "../fragment/yo-list";
-
-    // 下面这段模块化的代码，请新建一个 `m-xxx` 的文件并将代码移过去，然后 `@import` 到这里
-    // 为了方便演示，所以下述代码直接写在了这里
-    .m-xxx {
-        // 由于这里所需要的`list`和默认展示不同，所以使用 `yo-list` 进行扩展
-        @include yo-list(
-            $margin: .1rem,
-            $border-width: 1px,
-            $border-color: #ccc,
-            $radius: .1rem
-        );
-    }
-
-首先，我们将 `reset` 引入 `list.scss`，这是必须的；该列表页由一个 `yo-header` 和 `yo-list` 组成，于是引入与之相关的2个元件；同时，我们想要使用 `flex` 布局，所以引入了 `yo-flex` 元件。
-
-在页面上请使用 `list.scss` 编译后的 `list.css` 文件。
+* iOS6.0+
+* Android4.0+
+* Latest Stable: Chrome, Safari, Opera, IE10+
 
 
 <a name="attention"></a>
@@ -133,13 +80,9 @@
 
 如果你长时间工作在 `PC` 平台上，这个设定可能需要一个适应的过程，但可以肯定的是，你一定会喜欢上它。
 
+### flex布局
 
-<a name="supported-browsers"></a>
-## 浏览器支持
-
-* iOS6.0+
-* Android4.0+
-* Latest Stable: Chrome, Safari, Opera, IE10+
+为了让你的 `flex` 布局可以正常工作，请检查 `flex子项` 是否为块级元素（可以显式的通过 `display` 来定义），在较老的平台及浏览器上，如果 `flex子项` 是行内级元素，`flex` 布局将会解析错误。
 
 
 <a name="documentation-and-demo"></a>
@@ -163,16 +106,24 @@
 <a name="bugs-and-feature-requests"></a>
 ## 问题及反馈
 
-如果您的项目正在使用`Yo`，过程中发现了任何问题，或者有任何帮助`Yo`更完善的想法和建议，请直接给我提[Issues](https://github.com/doyoe/Yo/issues/new)和[Pull Requests](https://github.com/doyoe/Yo/pulls)。
+如果您的项目正在使用`Yo`，过程中发现了任何问题，或者有任何帮助`Yo`更完善的想法和建议，请直接给我们提 [Issues](https://github.com/doyoe/Yo/issues/new) 和 [Pull Requests](https://github.com/doyoe/Yo/pulls)。
 
 
 <a name="author"></a>
 ## 作者
 
-杜瑶，我目前居住在北京，就职于 [Qunar](http://www.qunar.com)，您可以在 [Github](https://github.com/doyoe) 或者 [Weibo](http://weibo.com/doyoe) 看到我的最近动态。当然，也可以通过我的[个人站点](http://www.doyoe.com)，博客：[CSS探索之旅](http://blog.doyoe.com)，[CSS参考手册](http://css.doyoe.com) 和 [Web前端实验室](http://demo.doyoe.com) 等信息了解更多。
+**杜瑶**
+
+* https://github.com/doyoe
+* http://weibo.com/doyoe
+* http://www.doyoe.com
+
+**YMFE Team**
+
+* https://github.com/YMFE
 
 
 <a name="copyright-and-license"></a>
 ## 版本和许可
 
-源码和文档版权属于 [doyoe.com](http://www.doyoe.com)。源码发布基于 [the MIT license](http://opensource.org/licenses/MIT) 开源协议。文档发布基于 [Creative Commons](http://creativecommons.org/licenses/by/4.0/) 开源协议。
+源码和文档版权属于 Yo 的所有开发者。源码发布基于 [the MIT license](http://opensource.org/licenses/MIT) 开源协议。文档发布基于 [Creative Commons](http://creativecommons.org/licenses/by/4.0/) 开源协议。
