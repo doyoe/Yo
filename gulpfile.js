@@ -9,7 +9,6 @@ var nodeSass = require('gulp-sass-china');
 var connect = require('gulp-connect');
 var through = require('through2');
 var optimist = require('optimist');
-var ydoc = require('ydoc');
 var versions = require('./gulp/versions.js');
 var hanlders = require('./gulp/hanlders.js');
 
@@ -75,23 +74,6 @@ gulp.task('version', function() {
     gutil.log(gutil.colors.green('Yo: ' + versions.yo));
     gutil.log(gutil.colors.green('Sass: ' + versions.sass));
     gutil.log(gutil.colors.green('Node-sass: ' + versions['node-sass']));
-});
-
-// 命令: gulp doc, 生成文档
-gulp.task('doc', function() {
-    var conf = {
-        dest: 'doc'
-    };
-    if (fs.existsSync(path.join(__dirname, 'ydoc_template'))) {
-        conf.template = './ydoc_template';
-    }
-    return gulp.src('./lib/')
-        .pipe(ydoc(conf));
-});
-
-// 命令: gulp watch-doc, 监听改变生成文档
-gulp.task('watch-doc', function() {
-    gulp.watch(['./**/*.scss', './**/*.md'], ['doc']);
 });
 
 // 命令: gulp test, 测试任务
