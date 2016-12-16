@@ -5,6 +5,7 @@ import Carousel from '../src/';
 import CarouselItem from '../src/carouselItem.js';
 // import Modal from '../../modal/src';
 import AniInfinate from '../src/aniInfinate.js';
+import AniCss from '../src/aniCss.js';
 // import inlineInfinate from '../src/inlineScrollX.js';
 // import AniInfinate2 from '../src/aniInfinate2.js';
 const dataList = [{
@@ -81,7 +82,7 @@ class Container extends React.Component {
                 afterChange={(page) => { this.updateChange(page, 'fadePageNow'); }}
                 extraClass="yo-carousel-fade"
                 defaultPage={2}
-                effect={'cssAni'}
+                aniObj={AniCss}
                 isDrag={false}
                 ref={(node) => {
                     if (node){ window.carousel = node }
@@ -216,15 +217,20 @@ class Container extends React.Component {
         return (
             <div>
                 <h2>normal Item</h2>
+                <Carousel autoplay={false}>
+                    <li className="item"><img width="100%" src="http://gma.alicdn.com/simba/img/TB14ab1KpXXXXclXFXXSutbFXXX.jpg_q50.jpg"/></li>
+                    <li className="item"><img width="100%" src="http://gma.alicdn.com/simba/img/TB14ab1KpXXXXclXFXXSutbFXXX.jpg_q50.jpg"/></li>
+                    <li className="item"><img width="100%" src="http://gma.alicdn.com/simba/img/TB14ab1KpXXXXclXFXXSutbFXXX.jpg_q50.jpg"/></li>
+                </Carousel>
                 {scrollXCarousel}
-                {/*<div className="yo-btn" onClick={()=>{window.scrollXCarousel.next()}}>next</div>*/}
-                {/*<h2>customized Item</h2>
+                <div className="yo-btn" onClick={()=>{window.scrollXCarousel.next()}}>next</div>
+                <h2>customized Item</h2>
                 {customCarousel}
                 <h2>custom fade Item</h2>
                 {fadeCarousel}
                 <h2>modal Item</h2>
                 <div id="model" style={styleList} onTouchTap={() => { this.model(true); }}>model</div>
-                <div>
+                {/*<div>
                     <Modal
                         align="center"
                         show={this.state.showModal}

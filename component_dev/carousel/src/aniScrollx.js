@@ -8,16 +8,21 @@ const AniScrollX = {
         const newChildren = React.Children.toArray(children);
         if (loop) {
             const len = children.length;
-            const header = React.cloneElement(children[len - 1], {
-                extraClass: children[len - 1].props.extraClass ?
-                    `${children[len - 1].props.extraClass} extra-item` : 'extra-item',
-                key: 0,
-                index: len
-            });
-            const footer = React.cloneElement(children[0], {
-                key: -1,
-                index: 1
-            });
+            const lastfakeDomStyle = {
+                key: 0
+            }
+            const firstFakeDomStyle = {
+                key: -1
+            }
+            if (children[0].type === 'li'){
+                lastfakeDomStyle.className =  children[len - 1].props.className ?  `${children[len - 1].props.className} extra-item` : 'extra-item';
+            } else {
+                lastfakeDomStyle.index = len;
+                lastfakeDomStyle.extraClass = children[len - 1].props.extraClass ? `${children[len - 1].props.extraClass} extra-item` : 'extra-item';
+                firstFakeDomStyle.index = 1;
+            }
+            const header = React.cloneElement(children[len - 1], lastfakeDomStyle);
+            const footer = React.cloneElement(children[0], firstFakeDomStyle);
             newChildren.unshift(header);
             newChildren.push(footer);
         }

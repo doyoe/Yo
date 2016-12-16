@@ -6,14 +6,12 @@ import '../../common/tapEventPluginInit'
 
 var guid = -1;
 function getImage(url) {
-
     return "http://himg1.qunarzz.com/imgs/" + url + "a818.jpg";
 }
 
 let dataSource = [];
 
 for (let i = 0; i < 10; i++) {
-
     let item = testData.data.commentList[parseInt(Math.random() * 50)];
     dataSource.push({
         nickname: item.nickName,
@@ -24,13 +22,6 @@ for (let i = 0; i < 10; i++) {
 }
 
 class DemoItem extends React.Component {
-
-    //mutateDataSource() {
-    //    const { item, parent }=this.props;
-    //    dataSource = dataSource.filter((it, index)=>it.guid !== item.guid);
-    //    parent.setState({ dataSource });
-    //}
-
     render() {
         return (
             <a style={{ display: 'block', overflow: 'hidden' }} href="javascript:void 0;">
@@ -55,8 +46,9 @@ class DemoItem extends React.Component {
 }
 
 class ListViewDemo extends React.Component {
-    mutateDataSource(item) {
-        const ds = this.state.dataSource.map((it, i)=> {
+    mutateDataSource(item, i, target) {
+        console.log(item, i, target);
+        const ds = this.state.dataSource.map((it, i) => {
             if (it.key === item.key) {
 
                 return {
@@ -77,7 +69,6 @@ class ListViewDemo extends React.Component {
     }
 
     constructor(props) {
-
         super(props);
         this.state = {
             dataSource: dataSource,
@@ -87,29 +78,22 @@ class ListViewDemo extends React.Component {
     }
 
     render() {
-
         return (
             <div style={{ height: "100%" }}>
                 <div style={{ position: 'absolute', top: 0, bottom: 0, width: "100%" }}>
                     <ListView
                         ref="list"
                         usePullRefresh={true}
-                        onRefresh={(ds)=>console.log(ds)}
+                        onRefresh={(ds) => console.log(ds)}
                         dataSource={this.state.dataSource}
-                        renderItem={(item, i)=><DemoItem item={item} />}
-                        infiniteSize={10}
+                        renderItem={(item, i) => <DemoItem item={item}/>}
+                        itemTouchClass="item-touch"
                         infinite={true}
-                        itemTouchClass={(item, index)=> {
-                            if (index === 0) {
-                                return 'item-touch';
-                            }
-                            return '';
-                        }}
-                        onItemTap={(item, index, ds)=>this.mutateDataSource(item, ds)}
+                        onItemTap={(item, index, target) => this.mutateDataSource(item, index, target)}
                         //给item添加额外样式
                         //可以是字符串,会被应用到所有item上
                         //也可以是函数
-                        itemExtraClass={(item, index)=>['item', index].join(' ')}
+                        itemExtraClass={(item, index) => ['item', index].join(' ')}
                     />
                 </div>
             </div>

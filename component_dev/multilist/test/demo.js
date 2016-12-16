@@ -26,7 +26,7 @@ const defaultRenderItem = ({ item, multiValue, listValue, defaultValue }) => (
 );
 
 defaultRenderItem.propTypes = {
-    item: PropTypes.Object,
+    item: PropTypes.object,
     multiValue: PropTypes.oneOfType([
         PropTypes.number,
         PropTypes.string,
@@ -310,7 +310,6 @@ class MultiListDemo extends Component {
         });
     }
     handleUpdateValue({ level, listValue, newValue }){
-        // debugger
         const i = newValue.length;
         if (effectValue && effectValue.slice(0, i).join('&') === newValue.slice(0, i).join('&')) {
             this.setState({
@@ -337,7 +336,7 @@ class MultiListDemo extends Component {
                     dataSource={this.state.dataSource}
                     updateDataSource={(data) => { this.handleUpdateData(data); }}
                     value={this.state.value}
-                    updateValue={(props) => { this.handleUpdateValue(props); }}
+                    onChange={(props) => { this.handleUpdateValue(props); }}
                 />
             </div>
       );

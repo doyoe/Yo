@@ -14,7 +14,11 @@ btn[0].addEventListener('click', function() {
 
 btn[1].addEventListener('click', function() {
     console.log('alert2')
-    Alert('the alert content2').then(function(show) {
+    Alert({
+        content:'content',
+        btnText:'nonono',
+        animation:'none'
+    }).then(function(show) {
         console.log('then function2 ' + show);
         return 'qunar';
     }).then(function(name) {

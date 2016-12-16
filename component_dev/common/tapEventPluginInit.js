@@ -11,6 +11,11 @@ if (!window.___yoTapEventInjected) {
 
     }
 
+    if (document.readyState === 'complete'
+        || document.readyState === 'interactive') {
+        FastClick.attach(document.body);
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
         FastClick.attach(document.body);
     });

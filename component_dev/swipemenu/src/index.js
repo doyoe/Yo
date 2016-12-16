@@ -124,7 +124,7 @@ const propTypes = {
      * @default () => {}
      */
     onClose: PropTypes.func,
-    children: PropTypes.element
+    children: PropTypes.oneOfType([PropTypes.object, PropTypes.array, PropTypes.string, PropTypes.number])
 };
 
 export default class SwipeMenu extends Component {
@@ -299,8 +299,7 @@ export default class SwipeMenu extends Component {
                         }
                         this.dragEvt.dragMove(evt, this.getMoveDistance.bind(this));
                         onTouchMove();
-                    }
-                    }
+                    }}
                     onTouchEnd={evt => {
                         if (disable || this.isBack) {
                             this.isBack = false;
@@ -308,16 +307,15 @@ export default class SwipeMenu extends Component {
                         }
                         onTouchEnd();
                         this.dragEvt.dragEnd(evt, this.getEndDistance.bind(this));
-                    }
-                    }
+                    }}
                     onTouchCancel={evt => this.dragEvt.dragCancel(evt)}
                 >
                     {this.props.children}
                 </div>
                 <div
                     className={replaceRedundantSpaces(`action ${actionClass}`)} ref={ref => {
-                        this.actBtn = ref;
-                    }}
+                    this.actBtn = ref;
+                }}
                 >
                     {actionElement}
                 </div>

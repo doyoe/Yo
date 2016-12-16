@@ -185,7 +185,7 @@ const propTypes = {
      * 弹性滚动回弹动画
      *
      * @property bounceEasing
-     * @type PropTypes.Object
+     * @type PropTypes.object
      * @description 弹性回滚动画。
      *
      * Scroller 提供了五种默认的动画函数：`quadratic`, `circular`, `back`, `bounce`, `elastic`，可以通过 `Scroller.ease.xxx` 来使用。
@@ -388,7 +388,7 @@ export default class Scroller extends Component {
                 this._scrollerStyle.position = 'relative';
             }
         }
-        
+
         this._setRefreshStatus(REFRESHSTATUS.PULL);
         this._setLoadStatus(LOADSTATUS.PULL);
         this._refreshLoadMore(true);
@@ -1290,7 +1290,7 @@ export default class Scroller extends Component {
                 onTransitionEnd: (evt) => this._handleTransitionEnd(evt)
             });
         } else if (this.props.children && !this.props.children.length && typeof this.props.children.type === 'string' && !this.state.usePullRefresh && !this.state.useLoadMore) {
-            
+
             if (this.props.children.props && this.props.children.props.className) {
                 _scrollerClassName = replaceRedundantSpaces(['scroller', this.props.children.props.className].join(' '));
             } else {

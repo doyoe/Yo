@@ -223,6 +223,8 @@ export default class ListCore extends ComponentCore {
                         }
                     }
                 }
+            } else {
+                ditem._index = i;
             }
         });
 

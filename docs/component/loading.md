@@ -1,7 +1,12 @@
 #### 基本用法：
-显示与隐藏
+显示与隐藏。
+
+注意：你需要使用``import {loading} from 'yo3/component/loading''``的方式引入API形式的loading组件。
+因为``import Loading from xxx``引入的是标签形式的React组件。
 
 ```javascript
+import { loading } from 'yo3/component/loading';
+
 loading.show();
 loading.hide();
 ```

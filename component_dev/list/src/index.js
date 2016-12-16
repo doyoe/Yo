@@ -20,6 +20,7 @@ import LazyImage from '../../lazyimage';
 import { replaceRedundantSpaces, getArrayByLength } from '../../common/util';
 import '../../common/tapEventPluginInit';
 import './style.scss';
+import _ from 'lodash';
 
 const defaultProps = {
     infinite: false,
@@ -33,7 +34,7 @@ const defaultProps = {
     renderItem(item) {
         return item.text;
     },
-    extraClass: '',
+    extraClass: 'yo-list-absolute',
     containerExtraClass: '',
     groupTitleExtraClass: '',
     usePullRefresh: false,
@@ -175,7 +176,7 @@ const propTypes = {
     /**
      * @property extraClass
      * @type String
-     * @default null
+     * @default yo-list-absolute(控制List撑满父容器的样式类)
      * @description 组件容器元素的额外className
      */
     extraClass: PropTypes.string,
@@ -329,19 +330,20 @@ export default class List extends Component {
     componentWillMount() {
         this.listModel
             .registerEventHandler('change', (visibleList, totalHeight) => {
-                this.setState({ visibleList, totalHeight });
                 // setTimeout做了两件事，1. 刷新scroller的可滚动范围
                 // 2.在组件更新后判断是否处在合法的offsetY,如果超出了范围就调整到maxScrollY
                 // 不定高度模式下改变item的height, 会触发多次change, 因此需要等到所有的change结束再做调整
                 setTimeout(() => {
-                    if(this.scroller && this.listModel.infinite && totalHeight !== this.state.totalHeight) {
+                    if (this.scroller && this.listModel.infinite) {
                         this.scroller.refresh({ scrollerHeight: totalHeight }, true);
                     }
-
+                }, 0);
+                setTimeout(_.debounce(() => {
                     if (this.scroller && -this.scroller.maxScrollY < this.listModel.offsetY) {
                         this.scrollTo(this.scroller.maxScrollY, 0);
                     }
-                }, 0);
+                }, 100), 0);
+                this.setState({ visibleList, totalHeight });
                 this.props.onInfiniteAppend(visibleList, totalHeight);
             })
             .registerEventHandler('scrollTo', (offsetY, time, easing) => {
@@ -603,13 +605,6 @@ export default class List extends Component {
 
         return (
             <Scroller
-                style={{
-                    position: 'absolute',
-                    top: 0,
-                    bottom: 0,
-                    left: 0,
-                    right: 0
-                }}
                 directionLockThreshold={directionLockThreshold}
                 disabled={disabled}
                 extraClass={extraClass}

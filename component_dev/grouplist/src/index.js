@@ -257,7 +257,7 @@ const defaultProps = {
     infiniteSize: 30,
     // 自定义title renderer
     renderGroupTitle(groupKey) {
-        return groupKey || null;
+        return groupKey;
     },
     // 定义item renderer
     renderGroupItem(item) {

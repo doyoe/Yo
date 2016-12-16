@@ -402,7 +402,7 @@ Suggest.defaultProps = {
     onConditionChange: () => {
     },
     extraClass: '',
-    itemTouchClass: 'item-light',
+    itemTouchClass: 'item-touch',
     noDataTmpl: null,
     onItemTap: () => {
     },

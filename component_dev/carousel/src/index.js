@@ -358,6 +358,9 @@ class Carousel extends Component {
         this.aniObj.touchendList = e.touches.length > 0 ?
             e.touches[0]
             : this.aniObj.touchmoveList;
+        if(!this.aniObj.touchendList){
+            return;
+        }
         this.aniObj.touchendLocation = [
             this.aniObj.touchendList.clientX,
             this.aniObj.touchendList.clientY
@@ -367,6 +370,7 @@ class Carousel extends Component {
             page: this.aniObj.pageNow
         });
         this.play();
+        this.clearTouchList();
     }
 
     handleTouchCancle(e) {
@@ -384,6 +388,18 @@ class Carousel extends Component {
         this.aniObj.pageNow = this.ani.touchend(this.aniObj);
         this.setState({
             page: this.aniObj.pageNow
+        });
+        this.clearTouchList();
+    }
+
+    clearTouchList(){
+        Object.assign(this.aniObj, {
+            touchstartList :[],
+            touchmoveList :[],
+            touchmoveList :[],
+            touchstartLocation :[],
+            touchmoveLocation :[],
+            touchendLocation :[]
         });
     }
 

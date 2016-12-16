@@ -29,7 +29,7 @@
 <a name="getting-started"></a>
 ## 起步
 
-* 根据 [起步说明](http://yo.doyoe.com/_docs/getting-started.html) 安装 `Yo` 和她的依赖；
+* 根据 [起步说明](http://yo.doyoe.com/_docs/getting-started.html) 了解 `Yo` 的工作原理并开始构建标准的 `Yo` 项目；
 
 
 <a name="supported-browsers"></a>

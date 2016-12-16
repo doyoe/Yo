@@ -204,7 +204,7 @@ export default class SwipeMenuList extends Component {
         infiniteSize: 20,
         itemHeight: null,
         itemExtraClass: 'swipemenu-list-item',
-        extraClass: '',
+        extraClass: 'yo-list-absolute',
         onItemTap: noop,
         usePullRefresh: false,
         onRefresh: noop,

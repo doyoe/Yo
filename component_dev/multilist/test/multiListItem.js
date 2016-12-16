@@ -13,7 +13,7 @@ export const ParentValue = ({
 };
 
 ParentValue.propTypes = {
-    item: PropTypes.Object,
+    item: PropTypes.object,
     multiValue: PropTypes.oneOfType([
         PropTypes.array,
         PropTypes.string,
@@ -64,5 +64,5 @@ CheckBoxItem.propTypes = {
         PropTypes.number,
         PropTypes.null
     ]),
-    item: PropTypes.Object
+    item: PropTypes.object
 };

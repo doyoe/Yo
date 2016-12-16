@@ -24,17 +24,30 @@ Confirm('the confirm text').then(
 );
 ```
 
+#### 定义按钮文本
+Confirm可以接受一个参数对象option，除了上面的content和title外，还可以定义一些更高级的属性值，例如改变两个按钮的文本：
+
+```
+Confirm({
+    content:'the confirm text',
+    title:'title',
+    btnText:['ok','cancel']
+});
+```
+
 #### 设置动画
 
-通过`animation`参数和CSS3动画设置组件显隐过程的动态效果，配置动画对象中的`animation`属性是一个数组，分别对应组件显、隐过程执行的动画效果，`duration`属性设置动画执行时间。
+通过给option对象传入`animation`参数和CSS3动画设置组件显隐过程的动态效果，配置动画对象中的`animation`属性是一个数组，分别对应组件显、隐过程执行的动画效果，`duration`属性设置动画执行时间。
 也可以传入组件内部支持的动画名字符串`fade`、`fade-in-up`、`fade-in-down`、`zoom`。默认没有动画。
 
 ```JavaScript
 const animation = {animation: ['actionsheet-up', 'actionsheet-down'], duration: 200};
 
-Confirm('the confirm text', 'Confirm', animation).then(
-    res => { console.log(`resolve ${res}`)}
-);
+Confirm({
+    content:'the confirm text',
+    title:'Confirm',
+    animation
+})
 ```
 
 ```css

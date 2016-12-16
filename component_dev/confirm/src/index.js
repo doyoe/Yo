@@ -31,6 +31,7 @@ class ConfirmReact extends Component {
             title: '',
             content: '',
             animation: 'none',
+            btnText: ['确定', '取消'],
             onOk() {
             },
             onCancel() {
@@ -40,11 +41,13 @@ class ConfirmReact extends Component {
     }
 
     render() {
-        const { show, title, content, animation, onOk, onCancel } = this.state;
+        const { show, title, content, animation, onOk, onCancel, btnText } = this.state;
         return (
             <Dialog
                 show={show} title={title} onOk={onOk.bind(this)}
                 animation={animation}
+                okText={btnText[0] != null && btnText[0]}
+                cancelText={btnText[1] != null && btnText[1]}
                 onCancel={onCancel ? onCancel.bind(this) : false}
             >
                 {content}
@@ -57,31 +60,47 @@ ReactDOM.render(<ConfirmReact />, container);
 
 /**
  * @method Confirm
- * @param {String} content 组件显示的内容
+ * @param {Object} option 配置对象，可以接受以下属性：
+ * @param {String} [content] 组件显示的内容
  * @param {String} [title] 组件显示标题
+ * @param {Array} [btnText] 按钮的文本，两个元素分别表示左/右按钮的文本
  * @param {Object} [animation] 组件显隐过程的动画，格式同Dialog组件
  * @param {Boolean} [cancel] 组件是否有取消按钮
  * @returns {Promise} 返回一个Promise实例对象
- * @description 确认弹框组件的调用方法
+ * @description 确认弹框组件的调用方法，调用以后在屏幕正中弹出一个Confirm，可以按照option对象参数调用，也可以使用简易
+ * 调用方式如``Confirm(content,title)``
  */
-export default function Confirm(content = '', title = '', animation = 'fade', cancel = true) {
+export default function Confirm(content = '',
+                                title = '',
+                                btnText = ['确定', '取消'],
+                                animation = 'fade',
+                                cancel = true) {
+    if (typeof content === 'object') {
+        const opt = content;
+        title = opt.title != null ? opt.title : '';
+        content = opt.content != null ? opt.content : '';
+        btnText = opt.btnText != null ? opt.btnText : ['确定', '取消'];
+        animation = opt.animation != null ? opt.animation : 'fade';
+        cancel = opt.cancel != null ? !!opt.cancel : true;
+    }
+
     return new Promise((resolve, reject) => {
         // duration的默认值是300
-        let duration = animation != null ? 300 : 0;
+        let duration = animation != 'none' ? 300 : 0;
         // 看是否有自定义animation对象
         if (animation != null && animation.duration != null) {
             duration = animation.duration;
         }
 
         function okBtn() {
-            setTimeout(()=> {
+            setTimeout(() => {
                 resolve(true);
             }, duration);
             that.setState({ show: false });
         }
 
         function cancelBtn() {
-            setTimeout(()=> {
+            setTimeout(() => {
                 resolve(false);
             }, duration);
             that.setState({ show: false });
@@ -91,6 +110,7 @@ export default function Confirm(content = '', title = '', animation = 'fade', ca
             show: true,
             title,
             content,
+            btnText,
             animation,
             onOk: okBtn,
             onCancel: cancel ? cancelBtn : false

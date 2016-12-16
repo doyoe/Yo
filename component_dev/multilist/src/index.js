@@ -21,6 +21,7 @@ import React, {
 } from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import ContainerList from './ContainerList.js';
+import { replaceRedundantSpaces } from '../../common/util';
 
 export default class MultiList extends Component {
     static propTypes = {
@@ -65,22 +66,30 @@ export default class MultiList extends Component {
         value: React.PropTypes.array,
         /**
          *
-         * @property updateValue
+         * @property onChange
          * @type PropTypes.func.isRequired
          * @description
          * 用于更新结果的回调函数
          * @example
-         * 	function({level, listValue, newValue}){
+         *    function({level, listValue, newValue}){
          *  	level 表示层级
          *  	listValue 表示当前层级的list的value
          *  	newValue 表示更新后的multiList的value
          * 	}
          *
          */
-        updateValue: PropTypes.func.isRequired
+        onChange: PropTypes.func.isRequired,
+        /**
+         * @property extraClass
+         * @type {String}
+         * @description 给组件根节点附加的额外样式类
+         * @default null
+         */
+        extraClass: PropTypes.string
     }
     static defaultProps = {
-        updateDataSource: () => {}
+        updateDataSource: () => {},
+        extraClass: ''
     }
 
     constructor(props) {
@@ -94,21 +103,24 @@ export default class MultiList extends Component {
 
     componentDidMount() {
         if (this.router.join('&') !== this.props.value.join('&')) {
-            this.props.updateValue({
+            this.props.onChange({
                 newValue: this.router
             });
         }
     }
+
     componentWillReceiveProps(nextprops) {
         const {
             value
         } = nextprops;
         this.router = value instanceof Array ? value.slice(0) : Array.of(value);
     }
+
     shouldComponentUpdate() {}
+
     componentDidUpdate() {
         if (this.router.join('&') !== this.props.value.join('&')) {
-            this.props.updateValue({
+            this.props.onChange({
                 newValue: this.router
             });
         }
@@ -130,7 +142,7 @@ export default class MultiList extends Component {
                 newValue[i] = this.router[i];
             }
         }
-        this.props.updateValue({
+        this.props.onChange({
             level,
             listValue,
             newValue
@@ -251,8 +263,11 @@ export default class MultiList extends Component {
     }
 
     render() {
+        const { extraClass } = this.props;
+        const className = replaceRedundantSpaces(`multiList-container ${extraClass}`);
+
         return (
-            <div className="multiList-container" >
+            <div className={className}>
                 {this.renderList()}
             </div>
         );

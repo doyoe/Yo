@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import GroupList from '../src';
 import { getArrayByLength } from '../../common/util';
-let id = -1;
+let id = 1;
 const testData = getArrayByLength(100).fill(0)
-    .map((item, i)=>({
+    .map((item, i) => ({
         text: Math.random() * 100,
         groupKey: i < 5 ? 'notGrouped' : i % 10,
-        id: ++id
+        id: ++id,
+        key: id
     }));
+console.log(testData)
 
 class GroupListDemo extends Component {
 
@@ -17,7 +19,7 @@ class GroupListDemo extends Component {
         super(props);
         this.state = {
             dataSource: testData,
-            sort: (a, b)=>a - b,
+            sort: (a, b) => a - b,
             infinite: true
         };
     }
@@ -25,8 +27,8 @@ class GroupListDemo extends Component {
     deleteItem(item, ds) {
 
         this.setState({
-            dataSource: ds.filter(it=>it._guid !== item._guid),
-            sort: (a, b)=>b - a
+            dataSource: ds.filter(it => it._guid !== item._guid),
+            sort: (a, b) => b - a
         });
     }
 
@@ -40,10 +42,10 @@ class GroupListDemo extends Component {
                 dataSource={this.state.dataSource}
                 infinite={true}
                 showIndexNavBar={true}
-                onItemTap={(item, index, ds)=>this.deleteItem(item, ds)}
+                onItemTap={(item, index, ds) => this.deleteItem(item, ds)}
                 sort={this.state.sort}
-                itemExtraClass={(item, index)=>'item ' + index}
-                groupTitleExtraClass={(groupKey)=> {
+                itemExtraClass={(item, index) => 'item ' + index}
+                groupTitleExtraClass={(groupKey) => {
                     return 'group-title label ' + groupKey;
                 }}
             />
