@@ -70,7 +70,7 @@
 
     @charset "utf-8";
     @import "../core/reset";
-    @import "../fragment/yo-flex";
+    @import "../layout/yo-flex";
     @import "../fragment/yo-header";
     @import "../element/yo-list";
 
