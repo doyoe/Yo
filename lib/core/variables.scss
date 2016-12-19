@@ -100,6 +100,12 @@ $_align: (
     align-items:     center
 );
 
+// Layout column(1)
+$_column: (
+    // {Length} 容器高度，取值：[auto|cover]
+    size:     auto
+);
+
 // Layout flex
 $_flex: (
     // {String} 定义是水平布局还是垂直布局: row | column

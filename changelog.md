@@ -4,6 +4,7 @@
 
 ### 新增：
 * 新增 `yo-root` 根节点全屏布局；
+* 新增 `yo-column` 横向flex布局；
 
 ### 删除：
 * 删除 `yo-stacked` 元件；
