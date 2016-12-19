@@ -681,41 +681,111 @@ a {
 }
 
 /**
- * @module element
- * @method yo-btn
+ * @module layout
+ * @method yo-flex
+ * @version 1.4.0
+ * @description 构造弹性布局使用方法，可以是横向和纵向
+ * @demo http://doyoe.github.io/Yo/demo/layout/yo-flex.html
+ * @param {String} $name 定义扩展名称 <1.4.0>
+ * @param {String} $box 指定块级或者行级弹性盒 <1.4.0, 2.0.0>
+ * @param {String} $direction 指定是水平或者垂直布局 <1.4.0>
+ */
+.yo-flex {
+  height: 100%;
+}
+
+.yo-flex,
+.yo-flex .flex-inherit {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.yo-flex > .flex,
+.yo-flex .flex-inherit,
+.yo-flex .flex-inherit > .flex {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  position: relative;
+}
+
+.yo-flex > .flex,
+.yo-flex .flex-inherit > .flex {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.yo-flex > .flex > .yo-flex,
+.yo-flex .flex-inherit > .flex > .yo-flex {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+/**
+ * yo-flex扩展
+ */
+/**
+ * @module layout
+ * @method yo-root
+ * @version 2.1.6
+ * @description 构造页面中的根节点布局，默认为全屏
+ * @demo http://doyoe.github.io/Yo/demo/layout/yo-root.html
+ * @param {String} $name 定义扩展名称 <2.1.6>
+ * @param {Color} $bgcolor 指定背景色 <2.1.6>
+ */
+.yo-root {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+/**
+ * @module fragment
+ * @method yo-header
  * @version 1.0.0
- * @description 构造按钮的自定义使用方法，勿使用`input`标签，因为边框为`::after`实现
- * @demo http://doyoe.github.io/Yo/demo/element/yo-btn.html
+ * @description 构造头的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/fragment/yo-header.html
  * @param {String} $name 定义扩展名称 <1.0.0>
- * @param {Length} $border-width 边框厚度 <1.4.0>
- * @param {Color} $bordercolor 边框色 <1.0.0, 2.0.0>
+ * @param {Length} $height 高度 <1.0.0>
+ * @param {Length} $item-width 两侧子项操作区宽度 <1.0.0>
+ * @param {Length} $item-space 两侧子项离边界的间隙 <1.0.0>
+ * @param {Length} $border-width 边框厚度 <1.8.3>
+ * @param {Color} $bordercolor 边框色  <1.0.0, 2.0.0>
  * @param {Color} $border-color 边框色 <2.0.0>
  * @param {Color} $bgcolor 背景色 <1.0.0>
  * @param {Color} $color 文本色 <1.0.0>
- * @param {Color} $active-bordercolor 触点（鼠标，手指或其它）按下时边框色  <1.3.1, 2.0.0>
- * @param {Color} $active-border-color 触点（鼠标，手指或其它）按下时边框色 <2.0.0>
- * @param {Color} $active-bgcolor 触点（鼠标，手指或其它）按下时背景色 <1.3.1>
- * @param {Color} $active-color 触点（鼠标，手指或其它）按下时文本色 <1.3.1>
- * @param {Length} $padding 内补白 <1.0.0>
- * @param {Length} $radius 圆角半径长度 <1.0.0>
  * @param {Length} $font-size 字号大小 <1.0.0>
- * @param {Length} $width 宽度 <1.8.0>
- * @param {Length} $height 高度 <1.8.0>
+ * @param {Color} $item-color 两侧子项操作区文本色 <1.2.0>
+ * @param {Color} $item-ico-color 两侧子项操作区ico色 <1.8.0>
+ * @param {Length} $item-font-size 两侧子项操作区字号大小 <1.0.0>
+ * @param {Length} $item-ico-size 两侧子项操作区ico大小 <1.4.0>
  */
-.yo-btn {
-  display: inline-block;
-  padding: 0 1.2em;
-  vertical-align: top;
+.yo-header {
   position: relative;
-  border-radius: 0.05rem;
-  border: 0 none;
-  background-color: #ff801a;
+  height: 0.44rem;
+  line-height: 0.44rem;
+  position: relative;
+  background-color: #1ba9ba;
   color: #fff;
+  font-size: 0.18rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   text-align: center;
-  cursor: pointer;
 }
 
-.yo-btn::after {
+.yo-header::after {
   pointer-events: none;
   position: absolute;
   z-index: 999;
@@ -723,188 +793,86 @@ a {
   left: 0;
   overflow: hidden;
   content: "\0020";
-  border-color: #d36105;
+  border-color: #1ba9ba;
   border-style: solid;
-  border-width: 1px;
+  border-width: 0 0 1px;
   -webkit-transform-origin: 0 0;
   transform-origin: 0 0;
 }
 
 @media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
-  .yo-btn::after {
+  .yo-header::after {
     width: 100%;
     height: 100%;
-    border-radius: 0.05rem;
   }
 }
 
 @media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
-  .yo-btn::after {
+  .yo-header::after {
     width: 200%;
     height: 200%;
     -webkit-transform: scale(0.5);
     transform: scale(0.5);
-    border-radius: 0.1rem;
   }
 }
 
 @media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
-  .yo-btn::after {
+  .yo-header::after {
     width: 300%;
     height: 300%;
     -webkit-transform: scale(0.33333);
     transform: scale(0.33333);
-    border-radius: 0.15rem;
   }
 }
 
-.yo-btn-disabled {
-  opacity: 1;
-  cursor: not-allowed;
+.yo-header > .title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0 0.6rem;
 }
 
-.yo-btn-disabled, .yo-btn-disabled:active {
-  background-color: #ffaa67;
-  color: white;
-}
-
-.yo-btn-disabled::after, .yo-btn-disabled:active::after {
-  border-color: #fa7f1c;
-}
-
-.yo-btn-s {
-  height: 0.28rem;
-  line-height: 0.28rem;
-  font-size: 0.12rem;
-}
-
-.yo-btn-m {
-  height: 0.36rem;
-  line-height: 0.36rem;
+.yo-header > .regret,
+.yo-header > .affirm {
+  position: absolute;
+  top: 0;
+  width: 0.6rem;
+  color: #fff;
+  cursor: pointer;
   font-size: 0.14rem;
 }
 
-.yo-btn-l {
-  height: 0.44rem;
-  line-height: 0.44rem;
-  font-size: 0.16rem;
+.yo-header > .regret:active,
+.yo-header > .affirm:active {
+  opacity: .5;
 }
 
-.yo-btn-stacked {
-  display: block;
-  width: 100%;
+.yo-header > .regret.yo-ico,
+.yo-header > .regret > .yo-ico,
+.yo-header > .affirm.yo-ico,
+.yo-header > .affirm > .yo-ico {
+  color: #7ff;
+  font-size: 0.2rem;
 }
 
-html,
-body {
-  background-color: #0ac2d2;
-}
-
-.m-animate {
-  height: 100%;
-}
-
-.pages {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-}
-
-.pages .page {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
+.yo-header > .regret {
   left: 0;
-  overflow: hidden;
-  visibility: hidden;
+  padding-left: 0.15rem;
+  text-align: left;
 }
 
-.pages .page.current {
-  visibility: visible;
-  z-index: 1;
+.yo-header > .affirm {
+  right: 0;
+  padding-right: 0.15rem;
+  text-align: right;
 }
 
-.pages .page-1 {
-  background: #0ac2d2;
+.m-demo {
+  padding-top: .5rem;
+  text-align: center;
 }
 
-.pages .page-2 {
-  background: #7bb7fa;
-}
-
-.pages .page-3 {
-  background: #60d7a9;
-}
-
-.pages .page-4 {
-  background: #fdc162;
-}
-
-.pages .page-5 {
-  background: #fd6a62;
-}
-
-.pages .page-6 {
-  background: #f68dbb;
-}
-
-.pages .con {
-  position: absolute;
-  z-index: 2;
-  top: 50%;
-  left: 50%;
-  width: 3rem;
-  margin: -1.9rem 0 0 -1.5rem;
-}
-
-.pages .con > h1 {
-  color: rgba(255, 255, 255, 0.6);
-  font-size: .64rem;
-}
-
-.pages .con > h2 {
-  margin-top: -.2rem;
-  color: rgba(0, 0, 0, 0.2);
-  font-size: .25rem;
-}
-
-.pages .con > p {
-  color: rgba(255, 255, 255, 0.9);
-  font-size: .36rem;
-}
-
-.pages .con > .yo-btn,
-.pages .con > select {
-  width: 100%;
-  height: .44rem;
-  margin: .1rem 0;
-  padding: 0 .15rem;
-  border: 0;
-  border-radius: .02rem;
-  line-height: .44rem;
-  box-shadow: 0 0.03rem 0 rgba(0, 0, 0, 0.1);
-  background: #fff;
-  color: #aaa;
-  cursor: pointer;
-  font-size: .16rem;
-}
-
-.pages .con .yo-btn {
-  font-weight: bold;
-}
-
-.pages .con .yo-btn::after {
-  border-width: 0;
-}
-
-.pages .con > select {
-  -webkit-appearance: none;
-  appearance: none;
-  text-transform: capitalize;
-  background-size: .1rem .1rem;
-  background-repeat: no-repeat;
-  background-position: right .1rem center;
-  background-image: radial-gradient(circle, #0ac2d2, #0ac2d2 50%, transparent, transparent);
+.m-demo > h3 {
+  padding-bottom: .1rem;
+  font-size: .28rem;
 }
