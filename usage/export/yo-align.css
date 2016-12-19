@@ -1029,6 +1029,89 @@ a {
 }
 
 /**
+ * yo-tab扩展
+ */
+.yo-tab-test {
+  width: 2rem;
+  border-radius: 0.05rem;
+  font-size: 0.12rem;
+  margin: auto;
+}
+
+.yo-tab-test::after {
+  border-width: 1px;
+  border-color: #1ba9ba;
+}
+
+@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
+  .yo-tab-test::after {
+    border-radius: 0.05rem;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
+  .yo-tab-test::after {
+    border-radius: 0.1rem;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
+  .yo-tab-test::after {
+    border-radius: 0.15rem;
+  }
+}
+
+.yo-tab-test > .item:first-child {
+  border-top-left-radius: 0.05rem;
+  border-bottom-left-radius: 0.05rem;
+}
+
+.yo-tab-test > .item:last-child {
+  border-top-right-radius: 0.05rem;
+  border-bottom-right-radius: 0.05rem;
+}
+
+.yo-tab-test > .item.item-on {
+  background-color: #1ba9ba;
+  color: #fff;
+}
+
+.yo-tab-filter {
+  height: 0.4rem;
+  line-height: 0.4rem;
+}
+
+.yo-tab-filter::after {
+  border-width: 0 0 1px 0;
+}
+
+.yo-tab-filter > .item:not(:first-child)::after {
+  border-color: #ccc;
+}
+
+@media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
+  .yo-tab-filter > .item:not(:first-child)::after {
+    height: 0.2rem;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
+  .yo-tab-filter > .item:not(:first-child)::after {
+    height: 0.4rem;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
+  .yo-tab-filter > .item:not(:first-child)::after {
+    height: 0.6rem;
+  }
+}
+
+.yo-tab-view {
+  font-size: 0.12rem;
+}
+
+/**
  * @module element
  * @method yo-btn
  * @version 1.0.0
@@ -1159,8 +1242,4 @@ a {
 
 .m-nodata .yo-btn {
   width: 1.3rem;
-}
-
-.yo-tab-view {
-  font-size: 0.12rem;
 }
