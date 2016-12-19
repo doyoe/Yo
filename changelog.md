@@ -7,8 +7,8 @@
 * 新增 `yo-column` 横向flex布局；
 
 ### 删除：
-* 删除 `yo-stacked` 元件；
-* 删除 `yo-input` 元件，如有在 `yo-list` 中使用 `yo-input` 元件的地方，直接将类名改为 `input` 既可以；
+* 删除 `yo-stacked` 元件，该元件基本上无使用场景；
+* 删除 `yo-input` 输入框元件，因为该元件几乎没有脱离 `yo-list` 使用的场景。如有在 `yo-list` 中使用 `yo-input` 元件的地方，直接将类名改为 `input` 既可以；
 
 ## v2.1.5（2016.10.19）
 
