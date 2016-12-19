@@ -24,7 +24,7 @@ var compilers = {
                 errorHandler: hanlders.error
             }))
             .pipe(nodeSass({
-                outputStyle: 'expanded',
+                outputStyle: 'compressed',
                 importer: require('node-sass-import-once'),
                 importerOnce: {
                     css: true
@@ -35,7 +35,7 @@ var compilers = {
     },
     'sass': function(scssPath, cssPath) {
         return rubySass(scssPath + '/*.scss', {
-                style: 'expanded'
+                style: 'compressed'
             })
             .pipe(plumber({
                 errorHandler: hanlders.error
@@ -79,9 +79,9 @@ gulp.task('version', function() {
 // 命令: gulp test, 测试任务
 gulp.task('test', function() {
     return gulp.src('./usage/test/test.scss')
-        .pipe(through.obj(combineScss))
+        .pipe(through.obj(compilers))
         .pipe(nodeSass({
-            outputStyle: 'expanded'
+            outputStyle: 'compressed'
         }))
         .pipe(gulp.dest('./usage/test'));
 });
