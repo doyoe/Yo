@@ -1,3 +1,13 @@
+## v2.1.6（2016.12.19）
+
+[Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v2.1.6)
+
+### 新增：
+* 新增 `yo-root` 根节点全屏布局；
+
+### 删除：
+* 删除 `yo-stacked` 元件；
+
 ## v2.1.5（2016.10.19）
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v2.1.5)
