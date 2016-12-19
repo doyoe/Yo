@@ -148,7 +148,7 @@
 ## 实例和文档
 
 * [View Demo](http://doyoe.github.io/Yo/demo/)
-* [View Documentation](http://doyoe.github.io/Yo/doc/)
+* [View Documentation](http://doyoe.github.io/Yo/_docs/)
 
 
 <a name="versioning"></a>
