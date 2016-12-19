@@ -37,7 +37,7 @@
 
 ### 使用gulp构建
 
-* 安装: `bower install yo`
+* 安装: `bower install yo@2.1.6`
 * 安装gulp: `npm install gulp -g --registry=https://registry.npm.taobao.org`
 * 安装依赖: `npm install --registry=https://registry.npm.taobao.org`
 * 在Yo根目录下运行:
