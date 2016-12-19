@@ -967,6 +967,7 @@ a {
  */
 .yo-list {
   position: relative;
+  z-index: 0;
 }
 
 .yo-list::after {
@@ -1221,6 +1222,7 @@ a {
 
 .m-demo > .title {
   padding: .18rem .1rem .03rem;
+  font-weight: normal;
   position: relative;
 }
 

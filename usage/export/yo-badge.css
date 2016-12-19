@@ -880,6 +880,7 @@ a {
  */
 .yo-list {
   position: relative;
+  z-index: 0;
 }
 
 .yo-list::after {
@@ -1132,7 +1133,7 @@ a {
  */
 .yo-list-inset {
   margin: 0.2rem 0.1rem 0 0.1rem;
-  border-radius: 0.2rem;
+  border-radius: 0.1rem;
   overflow: hidden;
 }
 
@@ -1142,19 +1143,19 @@ a {
 
 @media (max--moz-device-pixel-ratio: 1.49), (-webkit-max-device-pixel-ratio: 1.49), (max-device-pixel-ratio: 1.49), (max-resolution: 143dpi), (max-resolution: 1.49dppx) {
   .yo-list-inset::after {
-    border-radius: 0.2rem;
+    border-radius: 0.1rem;
   }
 }
 
 @media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49), (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49), (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49), (min-resolution: 144dpi) and (max-resolution: 239dpi), (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
   .yo-list-inset::after {
-    border-radius: 0.4rem;
+    border-radius: 0.2rem;
   }
 }
 
 @media (min--moz-device-pixel-ratio: 2.5), (-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5), (min-resolution: 240dpi), (min-resolution: 2.5dppx) {
   .yo-list-inset::after {
-    border-radius: 0.6rem;
+    border-radius: 0.3rem;
   }
 }
 
@@ -1346,6 +1347,7 @@ a {
 
 .m-demo > .title {
   padding: .18rem .1rem .03rem;
+  font-weight: normal;
   position: relative;
 }
 
