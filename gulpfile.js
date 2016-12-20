@@ -9,8 +9,6 @@ var nodeSass = require('gulp-sass-china');
 var connect = require('gulp-connect');
 var through = require('through2');
 var optimist = require('optimist');
-var ydoc = require('ydoc');
-var combineScss = require('./gulp/combineScss.js');
 var versions = require('./gulp/versions.js');
 var hanlders = require('./gulp/hanlders.js');
 
@@ -25,16 +23,19 @@ var compilers = {
             .pipe(plumber({
                 errorHandler: hanlders.error
             }))
-            .pipe(through.obj(combineScss))
             .pipe(nodeSass({
-                outputStyle: 'expanded'
+                outputStyle: 'compressed',
+                importer: require('node-sass-import-once'),
+                importerOnce: {
+                    css: true
+                }
             }))
             .pipe(gulp.dest(cssPath))
             .on('end', hanlders.end);
     },
     'sass': function(scssPath, cssPath) {
         return rubySass(scssPath + '/*.scss', {
-                style: 'expanded'
+                style: 'compressed'
             })
             .pipe(plumber({
                 errorHandler: hanlders.error
@@ -75,34 +76,12 @@ gulp.task('version', function() {
     gutil.log(gutil.colors.green('Node-sass: ' + versions['node-sass']));
 });
 
-// 命令: gulp doc, 生成文档
-gulp.task('doc', function() {
-    return gulp.src('./')
-        .pipe(ydoc({
-            dest: 'doc',
-            template: './gulp/ydoc_template/'
-        }));
-});
-
-// 命令: gulp uedoc, 生成UED文档
-gulp.task('uedoc', function() {
-    var conf = require('./gulp/uedocConfig.js');
-    conf.dest = 'uedoc';
-    return gulp.src('./')
-        .pipe(ydoc(conf));
-});
-
-// 命令: gulp watch-doc, 监听改变生成文档
-gulp.task('watch-doc', function() {
-    gulp.watch(['./**/*.scss', './**/*.md'], ['doc']);
-});
-
 // 命令: gulp test, 测试任务
 gulp.task('test', function() {
     return gulp.src('./usage/test/test.scss')
-        .pipe(through.obj(combineScss))
+        .pipe(through.obj(compilers))
         .pipe(nodeSass({
-            outputStyle: 'expanded'
+            outputStyle: 'compressed'
         }))
         .pipe(gulp.dest('./usage/test'));
 });

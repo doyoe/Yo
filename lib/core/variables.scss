@@ -10,7 +10,7 @@
 // 基本设置
 $_setting: (
     // {String} 版本号
-    version:             "2.1.5",
+    version:             "2.1.6",
     // {Boolean} 是否开启厂商前缀
     is-vendor-prefix:    true,
     // {String} 厂商前缀
@@ -100,16 +100,22 @@ $_align: (
     align-items:     center
 );
 
+// Layout column(1)
+$_column: (
+    // {Length} 容器高度，取值：[auto|cover]
+    size:     auto
+);
+
 // Layout flex
 $_flex: (
     // {String} 定义是水平布局还是垂直布局: row | column
     direction: column
 );
 
-// Layout stacked
-$_stacked: (
-    // {Length} 区块外边距
-    margin: .2rem .1rem
+// Layout root
+$_root: (
+    // {Color} 背景色
+    bgcolor: null
 );
 
 // Element badge(7)
@@ -192,26 +198,6 @@ $_checked: (
     on-color:       #2b94ff,
     // {Length} 圆角
     radius:         .05rem
-);
-
-// Element input(8)
-$_input: (
-    // {Length} 输入框宽度
-    width:             100%,
-    // {Length} 输入框高度
-    height:            .44rem,
-    // {Length} 输入框内补白
-    padding:           .1rem,
-    // {Length} 输入框圆角
-    radius:            .02rem,
-    // {Color} 输入框边框色
-    border-color:      map-get($base, border-color),
-    // {Color} 输入框背景色
-    bgcolor:           transparent,
-    // {Color} 文本色
-    color:             map-get($base, color),
-    // {Color} 占位符颜色
-    placeholder-color: #bbb
 );
 
 // Element loading(7)

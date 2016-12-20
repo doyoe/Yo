@@ -37,12 +37,12 @@
 
 ### 使用gulp构建
 
-* 安装: `bower install yo`
+* 安装: `bower install yo@2.1.6`
 * 安装gulp: `npm install gulp -g --registry=https://registry.npm.taobao.org`
 * 安装依赖: `npm install --registry=https://registry.npm.taobao.org`
 * 在Yo根目录下运行:
     * `gulp watch`: 如果你想监听所有文件的变更
-    * `gulp build`: 如果你只是想build一次该项目
+    * `gulp compile`: 如果你只是想build一次该项目
 
 
 <a name="how-to-start"></a>
@@ -70,9 +70,9 @@
 
     @charset "utf-8";
     @import "../core/reset";
-    @import "../fragment/yo-flex";
+    @import "../layout/yo-flex";
     @import "../fragment/yo-header";
-    @import "../element/yo-list";
+    @import "../fragment/yo-list";
 
     // 下面这段模块化的代码，请新建一个 `m-xxx` 的文件并将代码移过去，然后 `@import` 到这里
     // 为了方便演示，所以下述代码直接写在了这里
@@ -131,6 +131,10 @@
 
 如果你长时间工作在 `PC` 平台上，这个设定可能需要一个适应的过程，但可以肯定的是，你一定会喜欢上它。
 
+### flex布局
+
+为了让你的 `flex` 布局可以正常工作，请检查 `flex子项` 是否为块级元素（可以显式的通过 `display` 来定义），在较老的平台及浏览器上，如果 `flex子项` 是行内级元素，`flex` 布局将会解析错误。
+
 
 <a name="supported-browsers"></a>
 ## 浏览器支持
@@ -144,7 +148,7 @@
 ## 实例和文档
 
 * [View Demo](http://doyoe.github.io/Yo/demo/)
-* [View Documentation](http://doyoe.github.io/Yo/doc/)
+* [View Documentation](http://doyoe.github.io/Yo/_docs/)
 
 
 <a name="versioning"></a>
@@ -152,13 +156,7 @@
 
 `Yo` 的版本方针遵循 [SemVer](http://semver.org/lang/zh-CN/) 规范，版本号采用 `主版本号.次版本号.修订号` 的格式。版本发布周期是透明的，并尽可能保证向前向后兼容，您可以根据我们的语义化版本方针进行版本控制。
 
-`master` 分支为开发版本，稳定版本都发布在 [releases tag](https://github.com/doyoe/Yo/releases) 中。
-
-**最新稳定版: [v2.1.5](https://github.com/doyoe/Yo/releases/tag/v2.1.5)**
-
-**开发中版本: v2.1.6**
-
-如想查看更多版本变更历史，请查看 [ChangeLog](https://github.com/doyoe/Yo/blob/master/changelog.md)
+你可以在 [releases tag](https://github.com/doyoe/Yo/releases) 中找到当前所有已发布的稳定版本。如想查看更多版本变更历史，请查看 [ChangeLog](https://github.com/doyoe/Yo/blob/master/changelog.md)
 
 
 <a name="bugs-and-feature-requests"></a>

@@ -42,6 +42,13 @@
     $align: $_align !global;
 }
 
+// 合并variables和config中的column map
+@if global-variable-exists(column) {
+    $column: map-merge($_column, $column) !global;
+} @else {
+    $column: $_column !global;
+}
+
 // 合并variables和config中的flex map
 @if global-variable-exists(flex) {
     $flex: map-merge($_flex, $flex) !global;
@@ -49,18 +56,18 @@
     $flex: $_flex !global;
 }
 
-// 合并variables和config中的stacked map
-@if global-variable-exists(stacked) {
-    $stacked: map-merge($_stacked, $stacked) !global;
-} @else {
-    $stacked: $_stacked !global;
-}
-
 // 合并variables和config中的badge map
 @if global-variable-exists(badge) {
     $badge: map-merge($_badge, $badge) !global;
 } @else {
     $badge: $_badge !global;
+}
+
+// 合并variables和config中的root map
+@if global-variable-exists(root) {
+    $root: map-merge($_root, $root) !global;
+} @else {
+    $root: $_root !global;
 }
 
 // 合并variables和config中的btn map
@@ -75,13 +82,6 @@
     $checked: map-merge($_checked, $checked) !global;
 } @else {
     $checked: $_checked !global;
-}
-
-// 合并variables和config中的input map
-@if global-variable-exists(input) {
-    $input: map-merge($_input, $input) !global;
-} @else {
-    $input: $_input !global;
 }
 
 // 合并variables和config中的loading map

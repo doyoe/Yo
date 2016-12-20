@@ -1,40 +1,35 @@
 {
-  "name": "yo",
-  "version": "2.1.5",
-  "homepage": "https://github.com/doyoe/Yo",
-  "authors": [
-    "Joy Du"
-  ],
-  "description": "Yo 是基于 Mobile First 的策略而设计，并使用 Sass 开发的 CSS Framework，具备轻量，易用，可配置，强扩展等特性，同时也适应于PC端的高级浏览器",
-  "moduleType": "globals",
-  "main": [
-    "lib",
-    "usage"
-  ],
-  "keywords": [
-    "yo",
-    "doyoe",
-    "sass"
-  ],
-  "license": "MIT",
-  "ignore": [
-    "demo",
-    "doc",
-    "node_modules",
-    ".gitignore",
-    "case.md",
-    "changelog.md",
-    "README.md",
-    "shortcut.png",
-    "startup.png",
-    "yo.png",
-    "usage/element",
-    "usage/fragment",
-    "usage/layout",
-    "usage/module",
-    "usage/page/*.scss",
-    "usage/widget",
-    "usage/export",
-    "usage/kami"
-  ]
+    "name": "yo",
+    "version": "2.1.6",
+    "homepage": "https://github.com/doyoe/Yo",
+    "authors": [
+        "Joy Du"
+    ],
+    "description": "一个专注于移动开发的前端框",
+    "moduleType": "globals",
+    "main": [
+        "lib",
+        "usage"
+    ],
+    "keywords": [
+        "yo",
+        "doyoe",
+        "sass"
+    ],
+    "license": "MIT",
+    "ignore": [
+        "demo",
+        "_docs",
+        "node_modules",
+        ".gitignore",
+        "case.md",
+        "changelog.md",
+        "README.md",
+        "shortcut.png",
+        "yo.png",
+        "usage/module",
+        "usage/page/*.scss",
+        "usage/export",
+        "usage/kami"
+    ]
 }
