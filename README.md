@@ -151,6 +151,7 @@
 * [View Documentation](http://doyoe.github.io/Yo/doc/)
 
 > 如果你想在本地构建 `Yo` 的文档，只需要运行 `ydoc build` 即可，文档将会生成到 `doc` 目录下。
+> 在线文档默认值提供最新版本，如果你正在使用过往版本，就可以按照这种方式生成本地文档。
 
 <a name="versioning"></a>
 ## 版本
