@@ -78,14 +78,15 @@ gulp.task('version', function() {
 
 // 命令: gulp test, 测试任务
 gulp.task('test', function() {
-    return gulp.src('./usage/test/test.scss')
-        .pipe(through.obj(compilers))
-        .pipe(nodeSass({
-            outputStyle: 'compressed'
+    return gulp.src('./style/usage/test/test.scss')
+        .pipe(plumber({
+            errorHandler: hanlders.error
         }))
-        .pipe(gulp.dest('./usage/test'));
+        .pipe(nodeSass({
+            outputStyle: 'expanded'
+        }))
+        .pipe(gulp.dest('./style/usage/test'));
 });
-
 
 gulp.task('default', function() {
     gutil.log('可以使用的命令如下: ');
