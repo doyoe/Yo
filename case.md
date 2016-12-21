@@ -1,6 +1,3 @@
-<a href="getting-started.html" class="getting">Getting Yo</a>
-<p class="version">当前版本：v2.1.6</p>
-
 ## 规模化使用 Yo 的公司
 
 越来越多的移动Web应用基于 Yo 来构建。你可以先参观一下我们提供的 [实例代码](../demo/index.html) 或者看一看使用 Yo 构建的案例。
