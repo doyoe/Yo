@@ -150,7 +150,7 @@
 * [View Demo](http://doyoe.github.io/Yo/demo/)
 * [View Documentation](http://doyoe.github.io/Yo/doc/)
 
-如果你想在本地构建 `Yo` 的文档，只需要运行 `ydoc build` 即可，文档将会生成到 `doc` 目录下。
+> 如果你想在本地构建 `Yo` 的文档，只需要运行 `ydoc build` 即可，文档将会生成到 `doc` 目录下。
 
 <a name="versioning"></a>
 ## 版本
