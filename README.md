@@ -150,10 +150,10 @@
 * [View Demo](http://doyoe.github.io/Yo/demo/)
 * [View Documentation](http://doyoe.github.io/Yo/doc/)
 
-> 如果你想在本地构建 `Yo` 的文档，只需要：
+**如果你想在本地构建 `Yo` 的文档，只需要：**
 
-* 安装 ydoc：`npm install ydoc -g --registry=https://registry.npm.taobao.org`
-* 在项目根目录下执行：`ydoc build`
+    * 安装 ydoc：`npm install ydoc -g --registry=https://registry.npm.taobao.org`
+    * 在项目根目录下执行：`ydoc build`
 
 文档将会默认生成到 `doc` 目录下。
 
