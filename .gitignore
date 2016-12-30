@@ -3,11 +3,38 @@
 *.DS_Store
 .idea
 
-# gulp配置文件
+# common
 node_modules
+npm-debug.log
 
+<<<<<<< HEAD
 # new version
 builder
 style
 component
 component_dev
+=======
+#dev
+demo
+style/page
+style/export
+
+# component构建目录
+/component
+
+# doc
+/_docs
+
+# test
+bundle.js
+.nyc_output
+
+# ykit
+dev
+prd
+ver
+ykit.hosts
+
+# vscode
+.vscode
+>>>>>>> dev-v3
