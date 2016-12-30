@@ -1,0 +1,146 @@
+@charset "utf-8";
+@import "yo-list";
+
+// 定义group的基础构造
+@mixin _group {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    > .sticky {
+        z-index: 1;
+        top: 0;
+        left: 0;
+    }
+    // sticky与label通用代码
+    .label {
+        padding: map-get($group, label-padding);
+        background-color: map-get($group, label-bgcolor);
+        color: map-get($base, sub-color);
+        font-size: map-get($group, label-font-size);
+        @include border(
+            $border-width: 0 0 1px,
+            $border-color: map-get($group, label-border-color)
+        );
+    }
+    > .index {
+        z-index: 1000;
+        top: 50%;
+        @include transform(translatey(-50%));
+        width: map-get($group, index-width);
+        text-transform: uppercase;
+        color: map-get($group, index-color);
+        font-size: map-get($group, index-font-size);
+        line-height: 1.1;
+        text-align: center;
+        .ellipsis {
+            display: inline-block;
+            border-radius: 50%;
+            border-width: map-get($group, index-font-size) / 4;
+            border-style: solid;
+        }
+    }
+    > .sticky,
+    > .index {
+        position: absolute;
+        right: 0;
+    }
+    .no-data {
+        @include align;
+        text-align: center;
+    }
+}
+
+/**
+ * @module fragment
+ * @method yo-group
+ * @version 3.0.0
+ * @description 构造yo-group自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/fragment/yo-group.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Length} $label-padding 组标题内补白 <3.0.0>
+ * @param {Color} $label-bgcolor 组标题背景色 <3.0.0>
+ * @param {Length} $label-font-size 组标题文本大小 <3.0.0>
+ * @param {Color} $label-border-color 组标题边框色 <3.0.0>
+ * @param {Length} $index-width 索引区域宽度 <3.0.0>
+ * @param {Color} $index-color 索引文本色 <3.0.0>
+ * @param {Length} $index-font-size 索引字号 <3.0.0>
+ */
+
+@mixin yo-group(
+    $name: default,
+    $label-padding: default,
+    $label-bgcolor: default,
+    $label-font-size: default,
+    $label-border-color: default,
+    $index-width: default,
+    $index-color: default,
+    $index-font-size: default) {
+    // 区别是否新增实例还是修改本身
+    $name: if($name == default, "", "-#{$name}");
+    // 如果值为default，则取config的定义
+    @if $label-padding == default {
+        $label-padding: map-get($group, label-padding);
+    }
+    @if $label-bgcolor == default {
+        $label-bgcolor: map-get($group, label-bgcolor);
+    }
+    @if $label-font-size == default {
+        $label-font-size: map-get($group, label-font-size);
+    }
+    @if $label-border-color == default {
+        $label-border-color: map-get($group, label-border-color);
+    }
+    @if $index-width == default {
+        $index-width: map-get($group, index-width);
+    }
+    @if $index-color == default {
+        $index-color: map-get($group, index-color);
+    }
+    @if $index-font-size == default {
+        $index-font-size: map-get($group, index-font-size);
+    }
+    .yo-group#{$name} {
+        .label {
+            @if $label-padding != map-get($group, label-padding) {
+                padding: $label-padding;
+            }
+            @if $label-bgcolor != map-get($group, label-bgcolor) {
+                background-color: $label-bgcolor;
+            }
+            @if $label-font-size != map-get($group, label-font-size) {
+                font-size: $label-font-size;
+            }
+            &::after {
+                @if $label-border-color != map-get($group, label-border-color) {
+                    border-color: $label-border-color;
+                }
+            }
+        }
+        > .index {
+            @if $index-width != map-get($group, index-width) {
+                width: $index-width;
+            }
+            @if $index-color != map-get($group, index-color) {
+                color: $index-color;
+            }
+            @if $index-font-size != map-get($group, index-font-size) {
+                font-size: $index-font-size;
+            }
+            .ellipsis {
+                @if $index-font-size != map-get($group, index-font-size) {
+                    border-width: $index-font-size / 4;
+                }
+            }
+        }
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入group基础构造
+.yo-group {
+    @include _group;
+}

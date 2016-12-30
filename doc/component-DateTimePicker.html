@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+  <meta name="description" content="description of your site">
+  <meta name="author" content="author of the site">
+  <title>Yo Documentation 组件</title>
+  <link rel="stylesheet" href="source/main.css"/>
+  
+    
+<link rel="stylesheet" href="./theme/ydoc.css"/>
+    
+  
+</head>
+<body class=component-DateTimePicker >
+    <div class="ydoc">
+      <header class="ydoc-header">
+        <div class="ydoc-header-area">
+            
+            <a href="http://ued.qunar.com/ymfe/" class="navbar-brand">YMFE</a>
+            
+            <button class="ydocIcon navbar-toggle">&#xf020;</button>
+            <nav class="ydoc-nav">
+              <ul class="navbar-left">
+                
+                    
+                    <li class="">
+                        
+                        <a href="index.html">Yo</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="getting-started.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="core.html">核心</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="element.html">元件</a>
+                        
+                    </li>
+                    
+                    <li class="active">
+                        
+                        <a href="component.html">组件</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="animate.html">动画</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="http://ued.qunar.com/hy2/yo-router" target="_blank">Router</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="changelog.html">版本</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="http://ued.qunar.com/hy2/yo/demo/src/html/index.html" target="_blank">示例</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="https://github.com/doyoe/Yo" target="_blank">Github</a>
+                        
+                    </li>
+                    
+                
+              </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- <header style="height:20px"></header> -->
+    
+      <!-- Docs page layout -->
+      
+      <div class="ydoc-banner-bg">
+          <div class="ydoc-banner">
+              <div class="ydoc-banner-area">
+                  <h1>组件</h1>
+                  <p>组件的说明文档</p>
+              </div>
+          </div>
+      
+
+      <div class="ydoc-container">
+        
+          
+          <div class="ydoc-container-content">
+              <div class="content-left" role="complementary">
+                  <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
+                    <ul class="nav docs-sidenav">
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="component-Touchable.html">Touchable</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="component-LazyImage.html">LazyImage</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="component-Sticky.html">Sticky</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="javascript:void(0);">滚动和列表</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        
+                        <ul class="nav docs-sidenav-extend"  >
+                        
+                            <li >
+                                <a href="component-Scroller.html">Scroller</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-List.html">List</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Grouplist.html">Grouplist</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-SwipeMenuList.html">SwipeMenuList</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-MultiList.html">MultiList</a>
+                            </li>
+                        
+                        </ul>
+                        
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="javascript:void(0);">弹层</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        
+                        <ul class="nav docs-sidenav-extend"  >
+                        
+                            <li >
+                                <a href="component-Modal.html">Modal</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Dialog.html">Dialog</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Popup.html">Popup</a>
+                            </li>
+                        
+                        </ul>
+                        
+                        
+                        
+                        
+                        <!-- <li   class="active" > -->
+                        <li >
+                            
+                            <a href="javascript:void(0);">表单元素</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        
+                        <ul class="nav docs-sidenav-extend"    style="display:block;" >
+                        
+                            <li >
+                                <a href="component-Picker.html">Picker</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li  class="active" >
+                                <a href="component-DateTimePicker.html">DateTimePicker</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Rating.html">Rating</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Switch.html">Switch</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-InputNumber.html">InputNumber</a>
+                            </li>
+                        
+                        </ul>
+                        
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="javascript:void(0);">其他</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        
+                        <ul class="nav docs-sidenav-extend"  >
+                        
+                            <li >
+                                <a href="component-Calendar.html">Calendar</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Carousel.html">Carousel</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Range.html">Range</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-SwipeMenu.html">SwipeMenu</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Suggest.html">Suggest</a>
+                            </li>
+                        
+                        </ul>
+                        
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="javascript:void(0);">API</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        
+                        <ul class="nav docs-sidenav-extend"  >
+                        
+                            <li >
+                                <a href="component-ActionSheet.html">ActionSheet</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Alert.html">Alert</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Confirm.html">Confirm</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Loading.html">Loading</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Toast.html">Toast</a>
+                            </li>
+                        
+                        
+                        
+                    </ul>
+                  </nav>
+              </div>
+              <div class="content-right markdown-body" role="main">
+
+                
+                <div class="docs-section">
+<h2>
+    DateTimePicker
+    <small>日期、时间选择</small>
+    <span class="yo-badge yo-badge-danger">3.0.0</span>
+</h2>
+<div class="api-content"><p>可提供一些日期或者时间序列供用户选择，并返回用户选择的结果。</p>
+<ul>
+<li>可根据传入的value中match到的数字的数组长度来决定有几栏picker。</li>
+<li>可通过format属性，传入函数对选项进行自定义。</li>
+</ul>
+</div>
+<!-- 使用说明begin -->
+
+<div class="con-list-item">
+    <div class="con-head">使用说明</div>
+  
+    <div class="instructions">
+        <div class="instructions-con">
+            
+            <div class="instructions-con-info">
+            <h4 id="-">基本用法：</h4>
+<h5 id="-">日期选择器</h5>
+<p>和<code>Picker</code>一样，<code>DateTimePicker</code>需要同时配置<code>value</code>和<code>onChange</code>才能正常工作。
+在滑动<code>DateTimePicker</code>时会触发<code>onChange</code>回调，在参数中能够获取到当前选中的日期值（格式为<code>yyyy-mm-dd</code>或者<code>hh-mm</code>），
+你应该将<code>value</code>属性和父级组件的<code>state</code>关联起来，
+并在onChange函数中进行setState操作。</p>
+<p>使用range属性可以指定DateTimePicker的可选择范围。</p>
+<pre><code class="lang-javascript">
+import DateTimePicker from &#39;component&#39;;
+
+class Demo extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            value: &#39;2016-11-02&#39;
+        };
+    }
+
+    render() {
+        return (
+            &lt;DateTimePicker
+                value={this.state.value}
+                unitsInline={[&#39;年&#39;, &#39;月&#39;, &#39;日&#39;]}
+                range={[&#39;2016-01-01&#39;,&#39;2016-12-31&#39;]}
+                dateOrTime=&quot;date&quot;
+                onChange={value =&gt; this.setState({ value })}
+            /&gt;
+        )
+    }
+}
+</code></pre>
+<h5 id="-">时间选择器</h5>
+<pre><code class="lang-javascript">// this.state = { value: &#39;12: 00&#39; };
+
+&lt;DateTimePicker
+    value={this.state.value}
+    unitsInline={[&#39;时&#39;, &#39;分&#39;]}
+    dateOrTime=&quot;time&quot;
+    onChange={value =&gt; this.setState({ value })}
+/&gt;
+</code></pre>
+<h4 id="-">扩展用法</h4>
+<h5 id="-">自定义选项</h5>
+<p>你可以通过format属性来自定义option的文本，它能够接收两个参数，<code>value</code>对应<code>option</code>的值，<code>level</code>对应所在列的<code>index</code></p>
+<pre><code class="lang-javascript">format(value, level) {
+    return String(value).length &lt; 2 ? `0${value}` : value;
+}
+
+&lt;DateTimePicker
+    ...
+    format={this.format}
+/&gt;
+</code></pre>
+<h5 id="-">循环模式</h5>
+<p>开启循环模式后(设置<code>loop</code>属性为<code>true</code>，默认为<code>true</code>),
+DateTimePicker的option将会变成一个首尾相接的循环列表(参考iOS系统的闹钟设置):
+可以分别设置各个Picker子组件是否开启循环模式。</p>
+<pre><code>&lt;DateTimePicker
+    ...
+    loop={[false, false, true]}
+/&gt;
+</code></pre><h5 id="-">简便添加单位</h5>
+<p>可以设置unitsInline属性来设置内联单位（单位会存在于每一个选项中），
+也可设置unitsAside在每列右侧添加一个单位栏。</p>
+<pre><code>&lt;DateTimePicker
+    ...
+    unitsInline={[&#39;年&#39;, &#39;月&#39;, &#39;日&#39;]}
+/&gt;
+&lt;DateTimePicker
+    ...
+    unitsAside={[&#39;年&#39;, &#39;月&#39;, &#39;日&#39;]}
+/&gt;
+</code></pre>
+            </div>
+            
+            
+            <div class="instructions-con-runner">
+                <iframe class="instructions-iframe" src="demo/src/html/component/datetimepicker.html?hideIcon"></iframe>
+            </div>
+            
+        </div>
+    </div>
+ 
+</div>
+
+<!-- 使用说明end -->
+<div class="con-list-item">
+
+<div class="con-head">属性</div>
+
+<blockquote class="api">
+    <h3>
+    <strong>height</strong>
+     <span class="prop-type">{ Number }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>受控属性：决定容器展示的高度</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> 150
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>range</strong>
+     <span class="prop-type">{ Array<String> }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>受控属性：区间范围开始于, 结束于；可以用非数字符号做为分隔符;</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> ['1900-01-01', format(new Date(), 'xxxx-xx-xx')]
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>value</strong>
+     <span class="prop-type">{ String }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>受控属性：区间范围内当前默认值，可以用非数字符号做为分隔符；</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> '2016-8-28'
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>loop</strong>
+     <span class="prop-type">{ Array<Bool> }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>受控属性：设置为true，为无限循环滚动模式，反之为有限模式；默认为true</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> [true, true, true]
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>unitsInline</strong>
+     <span class="prop-type">{ Array<String> }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>受控属性：在对应栏里的每个选项里添加对应的单位；</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> []
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>unitsAside</strong>
+     <span class="prop-type">{ Array<String> }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>受控属性：在对应栏里的垂直居中，水平偏右位置，显示当前栏目对应的单位；</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> []
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>dateOrTime</strong>
+     <span class="prop-type">{ Enum {'date', 'time'}, }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>受控属性：&#39;date&#39;代表日期模式，即年月日模式，&#39;time&#39;代表时间模式，即时分模式</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> 'date'
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>format</strong>
+     <span class="prop-type">{ Function }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>受控属性：默认显示的date或者time是数字，传入该函数，会将数字作为参数，经该函数处理后，返回一个经过包装的字符串，这时将会以字符串作为默认的显示选项；该函数有两个参数(value, level)。</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> (value, level) => value
+</p>
+
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <!-- <col class="c4"> -->
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <!-- <th>必选</th> -->
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>value</td>
+            <td>Number</td>
+            <td>对应栏目的序列中的单个值</td>
+            <!-- <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td> -->
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>level</td>
+            <td>Number</td>
+            <td>指代对应的栏目，从左往右递增，从0开始</td>
+            <!-- <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td> -->
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>onChange</strong>
+     <span class="prop-type">{ Function }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>onChange回调函数，用以将当前选择的项目传递给上层，来触发更新。回传的参数有两个(value, item)。</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> (value, item) => {}
+</p>
+
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <!-- <col class="c4"> -->
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <!-- <th>必选</th> -->
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>value</td>
+            <td>Object</td>
+            <td>为当前组件应更新到的状态</td>
+            <!-- <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td> -->
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>item</td>
+            <td>Object</td>
+            <td>为当前滑到最中间位置的，选中的数据，包含了一些可能有用的较为详细的信息</td>
+            <!-- <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td> -->
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>extraClass</strong>
+     <span class="prop-type">{ String }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>受控属性：本组件额外的css类</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> []
+</p>
+
+
+
+
+
+
+
+
+</div>
+</div>
+
+              </div>
+          </div>
+          
+        
+      </div>
+     
+     </div>
+     
+      <footer class="footer">
+        <div class="copyright">
+            &copy; 2016 <a href="https://github.com/YMFE">YMFE</a> Team. Build by <a href="https://github.com/YMFE/ydoc">ydoc</a>.
+        </div>
+      </footer>
+    </div>
+    <div class="open-panel">=</div>
+    <script src="source/main.js"></script>
+    <script src="source/app.js"></script>
+    
+    
+
+    
+
+    
+      
+      <script type="text/javascript" src="./theme/ydoc.js"></script>
+      
+    
+
+</body>
+</html>

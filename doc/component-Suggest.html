@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+  <meta name="description" content="description of your site">
+  <meta name="author" content="author of the site">
+  <title>Yo Documentation 组件</title>
+  <link rel="stylesheet" href="source/main.css"/>
+  
+    
+<link rel="stylesheet" href="./theme/ydoc.css"/>
+    
+  
+</head>
+<body class=component-Suggest >
+    <div class="ydoc">
+      <header class="ydoc-header">
+        <div class="ydoc-header-area">
+            
+            <a href="http://ued.qunar.com/ymfe/" class="navbar-brand">YMFE</a>
+            
+            <button class="ydocIcon navbar-toggle">&#xf020;</button>
+            <nav class="ydoc-nav">
+              <ul class="navbar-left">
+                
+                    
+                    <li class="">
+                        
+                        <a href="index.html">Yo</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="getting-started.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="core.html">核心</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="element.html">元件</a>
+                        
+                    </li>
+                    
+                    <li class="active">
+                        
+                        <a href="component.html">组件</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="animate.html">动画</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="http://ued.qunar.com/hy2/yo-router" target="_blank">Router</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="changelog.html">版本</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="http://ued.qunar.com/hy2/yo/demo/src/html/index.html" target="_blank">示例</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="https://github.com/doyoe/Yo" target="_blank">Github</a>
+                        
+                    </li>
+                    
+                
+              </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- <header style="height:20px"></header> -->
+    
+      <!-- Docs page layout -->
+      
+      <div class="ydoc-banner-bg">
+          <div class="ydoc-banner">
+              <div class="ydoc-banner-area">
+                  <h1>组件</h1>
+                  <p>组件的说明文档</p>
+              </div>
+          </div>
+      
+
+      <div class="ydoc-container">
+        
+          
+          <div class="ydoc-container-content">
+              <div class="content-left" role="complementary">
+                  <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
+                    <ul class="nav docs-sidenav">
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="component-Touchable.html">Touchable</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="component-LazyImage.html">LazyImage</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="component-Sticky.html">Sticky</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="javascript:void(0);">滚动和列表</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        
+                        <ul class="nav docs-sidenav-extend"  >
+                        
+                            <li >
+                                <a href="component-Scroller.html">Scroller</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-List.html">List</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Grouplist.html">Grouplist</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-SwipeMenuList.html">SwipeMenuList</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-MultiList.html">MultiList</a>
+                            </li>
+                        
+                        </ul>
+                        
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="javascript:void(0);">弹层</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        
+                        <ul class="nav docs-sidenav-extend"  >
+                        
+                            <li >
+                                <a href="component-Modal.html">Modal</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Dialog.html">Dialog</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Popup.html">Popup</a>
+                            </li>
+                        
+                        </ul>
+                        
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="javascript:void(0);">表单元素</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        
+                        <ul class="nav docs-sidenav-extend"  >
+                        
+                            <li >
+                                <a href="component-Picker.html">Picker</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-DateTimePicker.html">DateTimePicker</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Rating.html">Rating</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Switch.html">Switch</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-InputNumber.html">InputNumber</a>
+                            </li>
+                        
+                        </ul>
+                        
+                        
+                        
+                        
+                        <!-- <li   class="active" > -->
+                        <li >
+                            
+                            <a href="javascript:void(0);">其他</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        
+                        <ul class="nav docs-sidenav-extend"    style="display:block;" >
+                        
+                            <li >
+                                <a href="component-Calendar.html">Calendar</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Carousel.html">Carousel</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Range.html">Range</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-SwipeMenu.html">SwipeMenu</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li  class="active" >
+                                <a href="component-Suggest.html">Suggest</a>
+                            </li>
+                        
+                        </ul>
+                        
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="javascript:void(0);">API</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        
+                        <ul class="nav docs-sidenav-extend"  >
+                        
+                            <li >
+                                <a href="component-ActionSheet.html">ActionSheet</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Alert.html">Alert</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Confirm.html">Confirm</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Loading.html">Loading</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Toast.html">Toast</a>
+                            </li>
+                        
+                        
+                        
+                    </ul>
+                  </nav>
+              </div>
+              <div class="content-right markdown-body" role="main">
+
+                
+                <div class="docs-section">
+<h2>
+    Suggest
+    <small></small>
+    <span class="yo-badge yo-badge-danger">3.0.0</span>
+</h2>
+<div class="api-content"><p>输入提示组件, 根据用户的输入给出待选项并展示在输入框下方。
+Suggest的内容分为两个区域, 推荐区域(recommendTmpl)会在用户输入开始前渲染, 可以用来给出一些热门推荐。
+结果区域(resultTmpl)用来响应用户的输入, 根据用户的输入给出输入提示。</p>
+</div>
+<!-- 使用说明begin -->
+
+<div class="con-list-item">
+    <div class="con-head">使用说明</div>
+  
+    <div class="instructions">
+        <div class="instructions-con">
+            
+            <div class="instructions-con-info">
+            <h4 id="-">基础使用</h4>
+<p><code>Suggest</code>一般是一个占满整个页面的组件, 它也可以配合模态框系列组件一起使用。在默认条件下, <code>Suggest</code>的根节点会撑满整个父级容器。</p>
+<p><code>Suggest</code>的最重要的属性是<code>results</code>和<code>onConditionChange</code>。使用这两个属性就可以改变结果区域的内容:</p>
+<pre><code>&lt;Suggest
+    onConditionChange={condition =&gt; {
+        this.setState({ results:results // an array which contains result datum. });
+    }}
+    results={this.state.results}
+/&gt;
+</code></pre><p>你应该把<code>results</code>属性和你应用的状态关联起来, 这样在输入框的内容发生改变的时候会触发<code>conditionChange</code>事件, 这时你可以根据新的condition字符串(<code>onConditionChange</code>的唯一参数)去改变<code>results</code>, 达到更新结果区域的目的。</p>
+<h5 id="-">定制结果列表项的渲染方式</h5>
+<p>results默认的渲染方式是<code>List</code>, 如果<code>results</code>属性数组中的每一个元素都有<code>text</code>属性, 会直接使用这个属性值作为列表项的内容。或者, 就像<code>List</code>一样,
+你也可以传入<code>renderItem</code>属性来指定列表项的渲染方式。它接收的参数和<code>List</code>的同名属性一致。以下是一个自定义<code>renderItem</code>的例子:</p>
+<pre><code>&lt;Suggest
+    results={[
+        {value:&#39;beijing&#39;},
+        {value:&#39;shanghai&#39;},
+        ...
+    ]}
+    renderItem={(item,i) =&gt; {
+        return &lt;p&gt;`第${i}项的value是${item.value}`&lt;/p&gt;
+    }}
+    noDataTmpl={&lt;div&gt;Nothing to show.&lt;/div&gt;}
+/&gt;
+</code></pre><p>通过定义<code>noDataTmpl</code>可以定制没有results数据时展示的内容, 它可以接收一个JSX, 在<code>results.length</code>为<code>0</code>时会使用这个JSX渲染结果区域。</p>
+<h5 id="-">自定义结果区域的渲染方式</h5>
+<p>如果你不希望以默认的<code>List</code>形式渲染结果区域, 可以通过定义<code>renderResult</code>属性来实现, 你需要传入一个函数, 这个函数可以接收到一个参数<code>results</code>,
+并用它返回的JSX/DOMElement来完全取代原来的<code>List</code>:</p>
+<pre><code>&lt;Suggest
+    results={...}
+    renderResult={results =&gt; {
+        // 返回一个自定义组件
+        return (
+            &lt;CustomResult&gt;
+                {results.map(result =&gt; {
+                    return (
+                        &lt;ResultItem result={result} key={result.key}/&gt;
+                    );
+                })}
+            &lt;/CustomResult&gt;
+        );
+    }}
+/&gt;
+</code></pre><h4 id="-">推荐区域</h4>
+<p>在输入框没有输入文字时, 结果区域会被隐藏, 取而代之的是推荐区域。换句话说, 用户在打开<code>Suggest</code>时首先看到的是输入框以及推荐区域。</p>
+<p>使用<code>recommendTmpl</code>可以指定推荐区域的渲染方式, 它接收一个JSX。</p>
+<p>有些时候, 你可能在聚焦到input时希望使用一个蒙层盖住下面的推荐区域, 这样用户可以很方便的通过点击推荐区域来关闭键盘。使用<code>showMask</code>属性可以控制
+蒙层是否在聚焦时展示蒙层。参见下面的例子:</p>
+<pre><code>&lt;Suggest
+    ...
+    recommentTmpl={&lt;CityGrouplist ... /&gt;}
+    showMask={true}
+    ...
+/&gt;
+</code></pre><h4 id="-">使用输入框图标</h4>
+<p>一般来说, <code>Suggest</code>的输入框的最右侧都会根据当前的输入状态展示一个图标(例如输入框中有文字时会展示一个叉子用来快速清除输入)。<code>Suggest</code>组件提供了
+四种icon:<code>delete</code>,<code>loading</code>,<code>refresh</code>和<code>stop</code>。通过定义<code>inputIcon</code>属性, 可以指定当前展示在输入框中的是哪一个图标, 如果传入<code>null</code>, 就不会
+显示图标。</p>
+<p><code>delete</code>图标的点击行为是确定的, 即清空当前输入框的内容。对于其他三种图标, 你可以指定<code>onIconTap</code>属性来定义点击它们的回调:</p>
+<pre><code>&lt;Suggest
+    ...
+    inputIcon={this.state.icon}
+    onIconTap={icon =&gt; {
+        switch (icon) {
+            case &#39;refresh&#39;:
+                // do something...
+            case &#39;stop&#39;:
+                ...
+        }
+    }}
+/&gt;
+</code></pre><p><code>onIconTap</code>可以接收一个参数<code>icon</code>, 它会是上面四种图标的名称的字符串, 这样你可以为不同的图标指定不同的点击回调。</p>
+<h4 id="-">输入事件的性能优化</h4>
+<p>每次input中value的改变都会触发<code>onConditionChange</code>, 在用户输入较快时, 可能会频繁导致dom更新, 以及向服务器发送大量的请求, 这对于App的性能十分不利。
+为此我们提供了优化性能的手段——事件截流。</p>
+<p>配置<code>throttleGap</code>属性即可开启事件截流(默认是开启的, 值为<code>300</code>)。这个属性值表示间隔多少毫秒触发一次onConditionChange, 这样可以有效地减少无用的输入导致的onChange。</p>
+<pre><code>&lt;Suggest
+    ...
+    // 每500毫秒触发一次onChange
+    throttleGap={500}
+/&gt;
+</code></pre><h4 id="-">一个完整的城市选择器示例</h4>
+<p>以下的代码就是第一个Demo的源码, 里面利用了<code>Grouplist</code>和<code>Suggest</code>实现了一个完整的城市选择器。在这份代码里包含了上面所有介绍的属性的使用。</p>
+<pre><code>class CitySelectDemo extends Component {
+    constructor() {
+        super();
+        this.state = {
+            results: [],
+            showLoadingIcon: false,
+            showCancelButton: false
+        };
+    }
+
+    filterCity(condition) {
+        return condition ? groupListDataSource
+            .filter(city=&gt;city.groupKey !== &#39;热门&#39;)
+            .filter(city=&gt;city.py.search(condition) !== -1 || city.text.search(condition) !== -1) : [];
+    }
+
+    render() {
+        //实现一个如此复杂的组件只用了不到30行代码
+        //使用React,可以很容易地像搭积木一样用小组件搭建出大组件,而不是不停地重复造轮子
+        //善用组件化,开发效率可以成倍的提升
+        return (
+            &lt;Page title=&quot;城市选择示例&quot; onLeftPress={() =&gt; location.href = &#39;../index.html&#39;}&gt;
+                &lt;Suggest
+                    showMask={true}
+                    ref=&quot;suggest&quot;
+                    noDataTmpl={(
+                        &lt;div style={{ padding: &#39;1em&#39; }}&gt;
+                            {!this.state.loading ? &#39;No Result&#39; : &#39;Loading...&#39;}
+                        &lt;/div&gt;
+                    )}
+                    showCancelButton={this.state.showCancelButton}
+                    onCancelButtonTap={()=&gt; {
+                        this.refs.suggest.clearInput();
+                    }}
+                    onFocus={()=&gt; {
+                        this.setState({ showCancelButton: true });
+                    }}
+                    onBlur={()=&gt; {
+                        this.setState({ showCancelButton: false });
+                    }}
+                    recommendTmpl={(
+                        &lt;Grouplist
+                            infinite={true}
+                            itemHeight={44}
+                            infiniteSize={25}
+                            dataSource={groupListDataSource}
+                            sort={(a, b)=&gt; {
+                                if (a === &#39;热门&#39;) {
+                                    return -1;
+                                }
+                                else if (b === &#39;热门&#39;) {
+                                    return 1;
+                                }
+                                return a.charCodeAt(0) - b.charCodeAt(0);
+                            }}
+                            showIndexNavBar={true}
+                            onIndexNavBarItemHover={(groupKey) =&gt; Toast.show(groupKey, 1000)}
+                            onItemTap={item =&gt; Toast.show(&#39;选择:&#39; + item.text, 1000)}
+                        /&gt;
+                    )}
+                    inputIcon={this.state.loading ? &#39;loading&#39; : &#39;delete&#39;}
+                    results={this.state.results}
+                    onConditionChange={value=&gt; {
+                        this.setState({ loading: true });
+                        setTimeout(()=&gt; {
+                            this.setState({ loading: false, results: this.filterCity(value) });
+                        }, 300);
+                    }}
+                    onItemTap={item =&gt; Toast.show(&#39;选择:&#39; + item.text, 1000)}
+                    placeholder=&quot;输入城市名称或拼音&quot;
+                    throttleGap={500}
+                /&gt;
+            &lt;/Page&gt;
+        );
+    }
+}
+</code></pre>
+            </div>
+            
+            
+            <div class="instructions-con-runner">
+                <iframe class="instructions-iframe" src="demo/src/html/component/suggest/city_select_example.html?hideIcon"></iframe>
+            </div>
+            
+        </div>
+    </div>
+ 
+    <div class="instructions">
+        <div class="instructions-con">
+            
+            <div class="instructions-con-info">
+            <h4 id="-suggest-">将Suggest和弹层结合使用</h4>
+<p><code>Suggest</code>最常见的使用方式有两种: 完全使用一个新的页面展示; 或者打开一个模态框来展示。
+对于后者来说, 你需要做的仅仅是把<code>Suggest</code>放入一个模态框系列组件中。</p>
+<p>在使用模态层展示时, 你可能需要在输入框的右侧显示一个&quot;取消&quot;按钮用来关闭它, 设置<code>showCancelButton</code>属性为<code>true</code>就可以展示这个取消按钮, 然后
+通过<code>onCanelButtonTap</code>来定义它的行为。</p>
+<p>下面是一个完整的例子:</p>
+<pre><code>class UseWithPopupDemo extends Component {
+    constructor() {
+        super();
+        this.state = {
+            show: false,
+            results: [],
+            defaultCondition: &#39;&#39;
+        };
+    }
+
+    render() {
+        return (
+            &lt;Page title=&quot;带弹层的Suggest&quot; onLeftPress={()=&gt;location.href = &quot;../index.html&quot;}&gt;
+                &lt;div className=&quot;container&quot;&gt;
+                    &lt;button
+                        className=&quot;yo-btn open-modal&quot;
+                        onTouchTap={()=&gt; {
+                            this.setState({ show: true });
+                        }}
+                    &gt;
+                        与Popup一起使用,点我打开
+                    &lt;/button&gt;
+                    &lt;Popup
+                        onMaskClick={()=&gt; {
+                            this.setState({ show: false })
+                        }}
+                        show={this.state.show}
+                        height=&quot;100%&quot;
+                    &gt;
+                        &lt;Suggest
+                            ref=&quot;suggest&quot;
+                            showMask={false}
+                            showCancelButton={true}
+                            onCancelButtonTap={()=&gt; {
+                                this.refs.suggest.clearInput();
+                                this.setState({ show: false });
+                            }}
+                            onConditionChange={value=&gt; {
+                                this.setState({ results: value ? getRandomDataSource(10) : [] });
+                            }}
+                            onItemTap={item=&gt;Toast.show(&#39;tapping:&#39; + item.text)}
+                            defaultCondition={this.state.defaultCondition}
+                            results={this.state.results}
+                            recommendTmpl={&lt;p style={{ padding: &#39;1em&#39; }}&gt;设置showCancelButton为true可以展示取消按钮&lt;/p&gt;}
+                            noDataTmpl={&lt;div style={{ padding: &#39;1em&#39; }}&gt;No Results&lt;/div&gt;}
+                        /&gt;
+                    &lt;/Popup&gt;
+                &lt;/div&gt;
+            &lt;/Page&gt;
+        );
+    }
+}
+</code></pre>
+            </div>
+            
+            
+            <div class="instructions-con-runner">
+                <iframe class="instructions-iframe" src="demo/src/html/component/suggest/use_with_popup.html?hideIcon"></iframe>
+            </div>
+            
+        </div>
+    </div>
+ 
+</div>
+
+<!-- 使用说明end -->
+<div class="con-list-item">
+
+<div class="con-head">属性</div>
+
+<blockquote class="api">
+    <h3>
+    <strong>results</strong>
+     <span class="prop-type">{ Array }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>渲染在结果区的数据源,数组类型,数组元素的类型可以是字符串/数字,它们会直接作为列表项的内容;</p>
+<p>也可以是对象,这个对象必须有text属性。</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> null
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>onConditionChange</strong>
+     <span class="prop-type">{ Function }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>输入框onChange事件回调,必需。</p>
+<p>为了使组件正常工作,你必须定义这个属性,根据每次的value来更新results。</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> null
+</p>
+
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <!-- <col class="c4"> -->
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <!-- <th>必选</th> -->
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>value</td>
+            <td>String</td>
+            <td>输入框当前的value</td>
+            <!-- <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td> -->
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>extraClass</strong>
+     <span class="prop-type">{ String }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>附加给组件根节点的额外类名</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> null
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>itemTouchClass</strong>
+     <span class="prop-type">{ String }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>点击结果区域列表项时添加的className</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> item-light
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>noDataTmpl</strong>
+     <span class="prop-type">{ Element }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>没有suggest结果时的模板
+noDataTpl</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> null
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>recommendTmpl</strong>
+     <span class="prop-type">{ Element }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>推荐区域内容,在搜索条件为空时展示</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> null
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>onItemTap</strong>
+     <span class="prop-type">{ Function }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>点击结果项时的回调</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> () =>{}
+</p>
+
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <!-- <col class="c4"> -->
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <!-- <th>必选</th> -->
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>item</td>
+            <td>Object</td>
+            <td>数据源中的元素</td>
+            <!-- <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td> -->
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>index</td>
+            <td>Number</td>
+            <td>item在数据源中的index</td>
+            <!-- <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td> -->
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>renderItem</strong>
+     <span class="prop-type">{ Function }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>自定义结果项的渲染方式,返回JSX或字符串。</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> Suggest.renderItem
+</p>
+
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <!-- <col class="c4"> -->
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <!-- <th>必选</th> -->
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>item</td>
+            <td>Object</td>
+            <td>结果项的数据对象,格式为{value,text}</td>
+            <!-- <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td> -->
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>renderResult</strong>
+     <span class="prop-type">{ Function }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>自定义结果容器的渲染方式,返回JSX。</p>
+<p>组件默认以List的形式渲染结果区域,如果不希望以List的形式展示结果,可以传入这个函数。组件会使用这个函数返回的JSX渲染结果区域。</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> null
+</p>
+
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <!-- <col class="c4"> -->
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <!-- <th>必选</th> -->
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>results</td>
+            <td></td>
+            <td>结果列表</td>
+            <!-- <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td> -->
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>showCancelButton</strong>
+     <span class="prop-type">{ Bool }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>是否显示取消按钮,默认不显示</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> false
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>cancelButtonText</strong>
+     <span class="prop-type">{ String }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>取消按钮文本</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> 取消
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>onCancelButtonClick</strong>
+     <span class="prop-type">{ Function }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>点击取消按钮时的回调</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> () =>{}
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>onFocus</strong>
+     <span class="prop-type">{ Function }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>输入框聚焦时的回调</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> () =>{}
+</p>
+
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <!-- <col class="c4"> -->
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <!-- <th>必选</th> -->
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>condition</td>
+            <td></td>
+            <td>当前输入框的value</td>
+            <!-- <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td> -->
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>onBlur</strong>
+     <span class="prop-type">{ Function }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>输入框失去焦点时的回调</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> () =>{}
+</p>
+
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <!-- <col class="c4"> -->
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <!-- <th>必选</th> -->
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>condition</td>
+            <td></td>
+            <td>当前输入框的value</td>
+            <!-- <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td> -->
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>defaultCondition</strong>
+     <span class="prop-type">{ String }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>展示在输入框中的默认值</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> null
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>placeholder</strong>
+     <span class="prop-type">{ String }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>输入框的placeholder</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> null
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>inputIcon</strong>
+     <span class="prop-type">{ String }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>展示在输入框右侧的icon,有四个icon可供选择:delete,loading,refresh和stop。</p>
+<p>delete图标点击以后会清除输入框的内容,其余的三个图标可以通过传入onIconTap属性来定制点击它们的回调。</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> 'delete'
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>onIconTap</strong>
+     <span class="prop-type">{ Function }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>点击input icon触发的回调</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> () =>{}
+</p>
+
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <!-- <col class="c4"> -->
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <!-- <th>必选</th> -->
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>iconName</td>
+            <td></td>
+            <td>图标名称</td>
+            <!-- <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td> -->
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>condition</td>
+            <td></td>
+            <td>当前输入框的value</td>
+            <!-- <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td> -->
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>throttleGap</strong>
+     <span class="prop-type">{ Number }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>设置此属性以后,文本框的onChange事件的触发频率会降低,例如设置为300会使得onChange每300毫秒触发一次.</p>
+<p>通过这种方式,可以控制组件结果区域的render次数,降低和服务器交互的频率。</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> 300
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>showMask</strong>
+     <span class="prop-type">{ Bool }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>在弹起键盘时，是否显示遮罩层。</p>
+</div>
+    
+</div>
+
+
+
+
+
+
+<div class="con-head">方法</div>
+
+<blockquote class="api">
+    <h3>
+    <strong>clearInput</strong>
+    
+    </h3>
+</blockquote>
+<div class="api-content"><p>清空输入框的内容</p>
+</div>
+
+
+
+
+
+
+
+</div>
+</div>
+
+              </div>
+          </div>
+          
+        
+      </div>
+     
+     </div>
+     
+      <footer class="footer">
+        <div class="copyright">
+            &copy; 2016 <a href="https://github.com/YMFE">YMFE</a> Team. Build by <a href="https://github.com/YMFE/ydoc">ydoc</a>.
+        </div>
+      </footer>
+    </div>
+    <div class="open-panel">=</div>
+    <script src="source/main.js"></script>
+    <script src="source/app.js"></script>
+    
+    
+
+    
+
+    
+      
+      <script type="text/javascript" src="./theme/ydoc.js"></script>
+      
+    
+
+</body>
+</html>

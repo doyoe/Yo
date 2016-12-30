@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+  <meta name="description" content="description of your site">
+  <meta name="author" content="author of the site">
+  <title>Yo Documentation 起步</title>
+  <link rel="stylesheet" href="source/main.css"/>
+  
+    
+<link rel="stylesheet" href="./theme/ydoc.css"/>
+    
+  
+</head>
+<body class=getting-started-附录二：关于 chunk 模式 >
+    <div class="ydoc">
+      <header class="ydoc-header">
+        <div class="ydoc-header-area">
+            
+            <a href="http://ued.qunar.com/ymfe/" class="navbar-brand">YMFE</a>
+            
+            <button class="ydocIcon navbar-toggle">&#xf020;</button>
+            <nav class="ydoc-nav">
+              <ul class="navbar-left">
+                
+                    
+                    <li class="">
+                        
+                        <a href="index.html">Yo</a>
+                        
+                    </li>
+                    
+                    <li class="active">
+                        
+                        <a href="getting-started.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="core.html">核心</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="element.html">元件</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="component.html">组件</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="animate.html">动画</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="http://ued.qunar.com/hy2/yo-router" target="_blank">Router</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="changelog.html">版本</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="http://ued.qunar.com/hy2/yo/demo/src/html/index.html" target="_blank">示例</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="https://github.com/doyoe/Yo" target="_blank">Github</a>
+                        
+                    </li>
+                    
+                
+              </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- <header style="height:20px"></header> -->
+    
+      <!-- Docs page layout -->
+      
+      <div class="ydoc-banner-bg">
+          <div class="ydoc-banner">
+              <div class="ydoc-banner-area">
+                  <h1>起步</h1>
+                  <p>本文详细描述 Yo 的使用方式，花上几分钟，下述的介绍将会帮助你快速的上手，并让自己沉浸在使用 Yo 的开发之中，感受到乐趣</p>
+              </div>
+          </div>
+      
+
+      <div class="ydoc-container">
+        
+          
+          <div class="ydoc-container-content">
+              <div class="content-left" role="complementary">
+                  <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
+                    <ul class="nav docs-sidenav">
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="start.html">起步</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="start-diy.html">附录一：在已有项目中使用</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  class="active"   class="active" > -->
+                        <li  class="active" >
+                            
+                            <a href="start-chunk.html">附录二：关于 chunk 模式</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="start-lib.html">附录三：关于 lib.js</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="start-npm.html">附录四：关于 npm 低版本</a>
+                            
+                        </li>
+                        
+                        
+                    </ul>
+                  </nav>
+              </div>
+              <div class="content-right markdown-body" role="main">
+
+                
+                <h2 id="代码分割与异步路由加载">代码分割与异步路由加载</h2><p>对于大型单页应用、多页应用以及 hy 上的应用来说，在一个页面中加载全部的静态资源都是一种浪费，因此我们在 router 中支持了根据页面按需引入页面内所需的资源。</p>
+<h3 id="代码分割">代码分割</h3><p><a href="http://webpack.github.io/docs/code-splitting.html">代码分割</a> 是 webpack 提供的一种异步加载静态资源的方式，每次 <code>require.ensure</code> 的调用会生成一个加载点，被异步引入的资源会生成一个非入口分块（<a href="http://webpack.github.io/docs/code-splitting.html#initial-chunk">non-entry chunks</a>）。</p>
+<p>代码分割让我们保证了页面入口资源大小可以得到保证，对于单页应用来说，页面的资源是异步递增的过程；对于多页应用来说，每个页面的资源也可以得到控制，仅包含自身页面的业务逻辑。这种方式与之前的全部资源全量引入相比，各有其优劣，但是对于大型项目来说，使用代码分割绝对是最好的选择。</p>
+<p>由于代码分割可能会导致资源过于分散的问题，因此找到一个控制代码分割的点就尤为重要；而 router 本身就是一个视图控制工具，用来控制代码分割的方式和位置最为合适。</p>
+<p>代码分割的基本场景如下：</p>
+<pre><code class="lang-js">require.ensure([&#39;some&#39;], function() {
+  var a = require(&#39;module-a&#39;);
+  // ...
+});
+</code></pre>
+<p>这里的 <code>require.ensure</code> 是告诉 webpack/ykit，让其构建分块代码，而不是将资源直接打包到 bundle 中去，其中第一个参数是分块代码依赖的资源，主要用于分块代码内部没有引入依赖、或多个引入代码的公共依赖，在我们路由场景中基本不会用到，所以写个空数组就行。</p>
+<p>也许有同学会关心加载的多个 chunk 之间，如果存在公共代码应该怎么处理？这里可以使用 webpack 的 <a href="http://webpack.github.io/docs/list-of-plugins.html#commonschunkplugin">CommonsChunkPlugin</a> 插件，或者在 hy2 项目里使用 <code>ykit dll</code> 进行公共依赖的构建。</p>
+<h3 id="异步路由加载">异步路由加载</h3><p>在 router 里，我们不仅支持 <strong>页面组件的异步加载</strong>，同时也支持 <strong>整个子路由的动态加载</strong>。当然，这样的加载方式会给之前 JSX 的声明式的路由构建方式带来一些不便，这种场景下使用纯对象的路由构建更加方便，当然对于纯组建的异步加载，可以尝试我们提供的 <code>require.async</code> 语法糖。</p>
+<p>组件可以定义 <code>getChildRoutes</code>、<code>getIndexRoute</code> 与 <code>getComponents</code> 方法，这些获取子路由和组件的方法是按需且异步的。</p>
+<h4 id="异步加载组件">异步加载组件</h4><p>使用异步方法加载组件，应该是项目初期最常见的一种需求，我们先看下同步加载的写法：</p>
+<pre><code class="lang-js">import User from &#39;./User&#39;
+
+&lt;Route path=&quot;/user&quot; component={User} /&gt;
+</code></pre>
+<p>这里表示在跳转到路由 <code>/user</code> 时，进行组件 <code>User</code> 的渲染，但实际上由于我们是实现 import 了该组件，因此它的全部 js 逻辑实际上已经引入到页面内部了。</p>
+<p>如果要将其转换为动态加载，可以这样编写：</p>
+<pre><code class="lang-js">&lt;Route path=&quot;/user&quot; getComponent={(nextState, cb) =&gt; {
+  require.ensure([], () =&gt; cb(null, require(&#39;./User&#39;)))
+}} /&gt;
+</code></pre>
+<p>这里要注意的一点是，<code>getComponent</code> 方法传入回调的第一参数是 <code>nextState</code>，是路由中通过历史传递的 <code>location.state</code>，这个历史 <code>state</code> 目前仅在单页的 browserHistory 中存在，在多页场景和 hash 场景中都无法使用，我们推荐使用通过生命周期的方式跨页面传递数据，因此不推荐使用这个参数。</p>
+<p>第二个参数 <code>cb</code> 就是用来异步获取组件的回调，其中该回调第一个参数是错误参数，第二个参数是组件。如果使用原生的方式进行组件动态加载，那么要注意在导出组件时不要使用 ES6 的 <code>export default</code> 语法，或者在 <code>require</code> 的时候带上 <code>default</code> 属性：</p>
+<p>即可以这样写：</p>
+<pre><code class="lang-js">// file - User
+export default User
+
+&lt;Route path=&quot;/user&quot; getComponent={(nextState, cb) =&gt; {
+  // 注意这里是 default
+  require.ensure([], () =&gt; cb(null, require(&#39;./User&#39;).default))
+}} /&gt;
+</code></pre>
+<p>也可以这样写：</p>
+<pre><code class="lang-js">// file - User
+module.exports = User
+
+&lt;Route path=&quot;/user&quot; getComponent={(nextState, cb) =&gt; {
+  // 注意这里是 default
+  require.ensure([], () =&gt; cb(null, require(&#39;./User&#39;)))
+}} /&gt;
+</code></pre>
+<p>如果觉得麻烦，在使用了 <a href="http://npm.corp.qunar.com/package/@qnpm/ykit-config-hy2">ykit-config-hy2</a> 的前提下可以尝试我们提供的 <code>require.async</code> 语法糖，用法如下：</p>
+<pre><code class="lang-js">const User = require.async(&#39;./User&#39;);
+
+&lt;Route path=&quot;/user&quot; getComponent={User} /&gt;
+</code></pre>
+<p>我们自动处理了 ES6 模块加载的问题，也隐藏了复杂的异步逻辑。</p>
+<h4 id="异步加载首页路由、子路由">异步加载首页路由、子路由</h4><p>异步加载首页路由、子路由的方式同异步加载组件类似，只不过 <code>cb</code> 回调传递的第二个参数为首页路由对象和子路由数组。之前同步配置的方式如下：</p>
+<pre><code class="lang-jsx">import A from &#39;./routes/A&#39;
+import B from &#39;./routes/B&#39;
+import Index from &#39;./routes/Index&#39;
+
+&lt;Route path=&quot;course/:courseId&quot;&gt;
+  &lt;IndexRoute component={Index}&gt;
+  &lt;Route path=&quot;/a&quot; component={A} /&gt;
+  &lt;Route path=&quot;/b&quot; component={B} /&gt;
+&lt;/Route&gt;
+</code></pre>
+<p>而异步配置的方式如下：</p>
+<pre><code class="lang-jsx">&lt;Route
+  path=&quot;course/:courseId&quot;
+  getIndexRoute={(nextState, callback) =&gt; {
+    require.ensure([], function (require) {
+      callback(null, {
+        component: require(&#39;./routes/Index&#39;),
+      })
+    })
+  }}
+  getChildRoutes={(nextState, callback) =&gt; {
+    require.ensure([], function (require) {
+      callback(null, [
+        require(&#39;./routes/A&#39;),
+        require(&#39;./routes/B&#39;)
+      ])
+    })
+  }}
+/&gt;
+</code></pre>
+<p>这样可以保证整个页面的子路由结构都是异步载入的，可以在具体的页面内部再进行路由的配置。</p>
+<p><strong>注意</strong> 在异步配置首页路由时，需要传入一个路由对象，而配置子路由时，需要传入一个数组对象。</p>
+<p>目前在这种场景下我们还没有提供更方便的语法糖配置，在后续的版本中我们会加入便捷的配置方式。</p>
+
+              </div>
+          </div>
+          
+        
+      </div>
+     
+     </div>
+     
+      <footer class="footer">
+        <div class="copyright">
+            &copy; 2016 <a href="https://github.com/YMFE">YMFE</a> Team. Build by <a href="https://github.com/YMFE/ydoc">ydoc</a>.
+        </div>
+      </footer>
+    </div>
+    <div class="open-panel">=</div>
+    <script src="source/main.js"></script>
+    <script src="source/app.js"></script>
+    
+    
+
+    
+
+    
+      
+      <script type="text/javascript" src="./theme/ydoc.js"></script>
+      
+    
+
+</body>
+</html>

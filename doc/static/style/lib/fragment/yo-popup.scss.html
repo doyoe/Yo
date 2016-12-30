@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+    <title>Yo : ./style/lib/fragment/yo-popup.scss</title>
+    <link type="text/css" rel="stylesheet" href="../../../../source/code.css"/>
+    <script type="text/javascript" src="../../../../source/shCore.js"></script>
+    <script type="text/javascript" src="../../../../source/shBrush-css.js"></script>
+    <style>
+        .syntaxhighlighter .number1 .spaces,.syntaxhighlighter .toolbar{ display: none;}
+        .syntaxhighlighter table td.gutter .line.highlight { background-color: #6ce26c !important; color: white; }
+    </style>
+</head>
+<body>
+<div class="ydoc">
+    <div class="ydoc-banner-bg">
+        <div class="ydoc-banner" id="content" tabindex="-1">
+            <div class="ydoc-banner-area">
+                <h1>Yo : ./style/lib/fragment/yo-popup.scss</h1>
+                <p>源代码</p>
+            </div>
+        </div>
+        <div class="ydoc-container">
+            <div class="ydoc-container-content">
+                <div class="static-code-content" role="main">
+                <pre class="brush: css;">
+                @charset "utf-8";
+@import "yo-modal";
+
+// 定义popup的基础构造
+@mixin _popup {
+    @include flexbox;
+    @include flex-direction(column);
+    width: 100%;
+    height: map-get($popup, height);
+    background-color: map-get($popup, bgcolor);
+    > .hd {
+        height: .4rem;
+        line-height: .4rem;
+        padding: 0 .05rem;
+        @include flexbox;
+        @include border(
+            $border-width: 1px 0 0,
+            $border-color: map-get($popup, border-color)
+        );
+        background-color: map-get($popup, hd-bgcolor);
+        > .regret {
+            @include flex;
+        }
+        .yo-ico {
+            padding: 0 .05rem;
+            font-size: .18rem;
+        }
+        .btn {
+            padding: 0 .05rem;
+            color: map-get($popup, btn-color);
+        }
+    }
+}
+
+/**
+ * @module fragment
+ * @method yo-popup
+ * @version 3.0.2
+ * @description 浮层的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/fragment/yo-popup.html
+ * @param {String} $name 定义扩展名称 <3.0.2>
+ * @param {Length} $height 高度 <3.0.2>
+ * @param {Color} $border-color 边框色 <3.0.2>
+ * @param {Color} $hd-bgcolor 头部背景色 <3.0.2>
+ * @param {Color} $btn-color 按钮文本色 <3.0.2>
+ * @param {Color} $bgcolor 背景色 <3.0.2>
+ */
+
+@mixin yo-popup(
+    $name: default,
+    $height: default,
+    $border-color: default,
+    $hd-bgcolor: default,
+    $btn-color: default,
+    $bgcolor: default) {
+    // 区别是否新增实例还是修改本身
+    $name: if($name == default, "", "-#{$name}");
+    // 如果值为default，则取config的定义
+    @if $height == default {
+        $height: map-get($popup, height);
+    }
+    @if $border-color == default {
+        $border-color: map-get($popup, border-color);
+    }
+    @if $hd-bgcolor == default {
+        $hd-bgcolor: map-get($popup, hd-bgcolor);
+    }
+    @if $btn-color == default {
+        $btn-color: map-get($popup, btn-color);
+    }
+    @if $bgcolor == default {
+        $bgcolor: map-get($popup, bgcolor);
+    }
+
+    .yo-popup#{$name} {
+        @if $height != map-get($popup, height) {
+            height: $height;
+        }
+        @if $bgcolor != map-get($popup, bgcolor) {
+            background-color: $bgcolor;
+        }
+        > .hd {
+            &::after {
+                // 如果$border-color不等于config设定，则重绘边框色
+                @if $border-color != map-get($popup, border-color) {
+                    border-color: $border-color;
+                }
+            }
+            @if $hd-bgcolor != map-get($popup, hd-bgcolor) {
+                background-color: $hd-bgcolor;
+            }
+            .btn {
+                @if $btn-color != map-get($popup, btn-color) {
+                    color: $btn-color;
+                }
+            }
+        }
+
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入popup基础构造
+.yo-popup {
+    @include _popup;
+}
+                </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="docs-header" id="content" tabindex="-1">
+        <div class="container">
+            <h1>Yo : ./style/lib/fragment/yo-popup.scss</h1>
+            <p>源代码</p>
+        </div>
+    </div> -->
+
+    <footer class="docs-footer" role="contentinfo">
+        <div class="container">
+            <p></p>
+        </div>
+    </footer>
+</div>
+<script type="text/javascript">
+    SyntaxHighlighter.all();
+
+    function getTop(node){
+        return node.offsetTop + (node.offsetParent ? getTop(node.offsetParent) : 0);
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+            try {
+                var lineNum = (parseInt(location.hash.replace(/#/g, '')) - 1) || 0,
+                    node = document.querySelectorAll('div.line')[lineNum];
+                document.body.scrollTop = getTop(node);
+                node.className += ' highlight';
+            } catch(e) {}
+        }, 500);
+    }, false);
+</script>
+</body>
+</html>
