@@ -3,13 +3,9 @@
  * 在滚动时不会触发active
  * 在active之后发生滚动会取消active状态
  */
-function isMobile() {
-    return navigator.userAgent.toLowerCase().search(/iphone|android|mobile/) !== -1;
-}
-
 import ReactDOM from 'react-dom';
 const TAP_SLOP = 5;
-export const TAP_DELAY = isMobile() ? 50 : 100;
+export const TAP_DELAY = 75;
 /**
  * @param endPoint
  * @param startPoint
@@ -59,24 +55,36 @@ function isScrolling(scroller) {
     return scroller ? scroller.isScrolling : false;
 }
 
+function isAnySwipeMenuOpen(swipeMenuList) {
+    return swipeMenuList ? swipeMenuList.openIndex !== -1 : false;
+}
+
 // touchStart的位置,是否需要放弃Tap触发,Tap周期(start,move,end)是否已经结束
 let startPoint,
     shouldAbortTap;
+let captured = null;
 
-export default function (component, scroller, activeClass, onTap, onTouchStart) {
-    return {
+export default function (component,
+                         scroller,
+                         swipeMenuList,
+                         activeClass,
+                         onTap,
+                         onTouchStart) {
+    const gestureObj = {
         onTouchStart(evt) {
             const domNode = ReactDOM.findDOMNode(component);
             removeActiveClass(domNode, activeClass);
             // 如果组件正在滚动,直接放弃Tap触发
-            shouldAbortTap = isScrolling(scroller);
+            shouldAbortTap = isScrolling(scroller) || isAnySwipeMenuOpen(swipeMenuList);
             startPoint = getTouchPoint(evt);
             onTouchStart(evt);
+            if (!captured) {
+                captured = domNode;
+            }
             // TAP_DELAY之后再次判断是否要触发Tap,如果这段时间内出现了大的位移,if后面的逻辑就不会执行
             setTimeout(() => {
                 const className = activeClass;
-
-                if (!shouldAbortTap && className) {
+                if (!shouldAbortTap && className && captured === domNode) {
                     domNode.className += ` ${className}`;
                 }
             }, TAP_DELAY);
@@ -87,6 +95,7 @@ export default function (component, scroller, activeClass, onTap, onTouchStart) 
             // 根据touchmove的距离判断是否要放弃tap
             if (onTouchMoveShouldCancelTap(currentPoint, startPoint)) {
                 shouldAbortTap = true;
+                captured = null;
                 removeActiveClass(domNode, activeClass);
             }
         },
@@ -94,11 +103,14 @@ export default function (component, scroller, activeClass, onTap, onTouchStart) 
             const target = evt.target;
             const domNode = ReactDOM.findDOMNode(component);
             // 如果需要触发tap,在TAP_DELAY之后触发onTap回调
-            if (!shouldAbortTap) {
+            if (!shouldAbortTap && captured === domNode) {
                 setTimeout(() => {
                     onTap(target);
                     removeActiveClass(domNode, activeClass);
-                }, TAP_DELAY);
+                    captured = null;
+                }, TAP_DELAY + 10);
+            } else if (shouldAbortTap) {
+                captured = null;
             }
         },
         onTouchCancel() {
@@ -106,4 +118,6 @@ export default function (component, scroller, activeClass, onTap, onTouchStart) 
             removeActiveClass(domNode, activeClass);
         }
     };
+
+    return gestureObj;
 }

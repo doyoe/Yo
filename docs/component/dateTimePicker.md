@@ -1,13 +1,17 @@
 #### 基本用法：
 ##### 日期选择器
 
-由于组件是受控驱动的，所以你必须自己来控制更新，组件会将应该更新到的状态通过回调参数value传递出来，你需要通过传递state数据给value属性（如value={this.state.value}），并在onChange函数中对state（如state.value)进行更新,即调用this.setState({ value: value })。
+和`Picker`一样，`DateTimePicker`需要同时配置`value`和`onChange`才能正常工作。
+在滑动`DateTimePicker`时会触发`onChange`回调，在参数中能够获取到当前选中的日期值（格式为`yyyy-mm-dd`或者`hh-mm`），
+你应该将`value`属性和父级组件的`state`关联起来，
+并在onChange函数中进行setState操作。
 
 使用range属性可以指定DateTimePicker的可选择范围。
 
 ```javascript
 
 import DateTimePicker from 'component';
+
 class Demo extends Component {
     constructor(props) {
         super(props);
@@ -46,7 +50,7 @@ class Demo extends Component {
 #### 扩展用法
 ##### 自定义选项
 
-你可以通过format属性来自定义选项，回调参数value--选项值，level--所在Picker的序号
+你可以通过format属性来自定义option的文本，它能够接收两个参数，`value`对应`option`的值，`level`对应所在列的`index`
 ```javascript
 format(value, level) {
     return String(value).length < 2 ? `0${value}` : value;
@@ -60,7 +64,8 @@ format(value, level) {
 
 ##### 循环模式
 
-开启循环模式后(设置loop属性为true，默认为true), DateTimePicker的option将会变成一个首尾相接的循环列表(参考iOS系统的闹钟设置):
+开启循环模式后(设置`loop`属性为`true`，默认为`true`),
+DateTimePicker的option将会变成一个首尾相接的循环列表(参考iOS系统的闹钟设置):
 可以分别设置各个Picker子组件是否开启循环模式。
 ```
 <DateTimePicker
@@ -71,7 +76,8 @@ format(value, level) {
 
 ##### 简便添加单位
 
-如果你只是想添加一些单位，你可以很方便的设置unitsInline属性来设置内联单位（单位会存在于每一个选项中）， 也可设置unitsAside在每个Picker右侧中央添加一个单位栏，此时每个Picker中只会有一个位于右侧的单位提示。
+可以设置unitsInline属性来设置内联单位（单位会存在于每一个选项中），
+也可设置unitsAside在每列右侧添加一个单位栏。
 ```
 <DateTimePicker
     ...

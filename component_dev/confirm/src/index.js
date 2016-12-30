@@ -7,11 +7,6 @@
  * - 自定义组件显隐过程动画。
  * - 返回一个Promise实例对象，可通过Then方法分别绑定确认、取消回调函数。
  *
- * #### 何时使用
- *
- * - 操作需要用户进一步确认时，弹出确认框，询问用户。
- * - 全屏居中模态展示框，自带遮罩层，返回一个Promise实例对象，绑定回调更方便。
- *
  *  @instructions {instruInfo: ./confirm.md}{instruUrl: confirm.html?hideIcon}
  * @author qingguo.xu
  */
@@ -61,14 +56,14 @@ ReactDOM.render(<ConfirmReact />, container);
 /**
  * @method Confirm
  * @param {Object} option 配置对象，可以接受以下属性：
- * @param {String} [content] 组件显示的内容
- * @param {String} [title] 组件显示标题
- * @param {Array} [btnText] 按钮的文本，两个元素分别表示左/右按钮的文本
- * @param {Object} [animation] 组件显隐过程的动画，格式同Dialog组件
- * @param {Boolean} [cancel] 组件是否有取消按钮
+ * @param {String} [option.content] 组件显示的内容
+ * @param {String} [option.title] 组件显示标题
+ * @param {Array} [option.btnText] <3.0.1> 按钮的文本，两个元素分别表示左/右按钮的文本
+ * @param {Object} [option.animation] 组件显隐过程的动画，格式同Dialog组件
+ * @param {Boolean} [option.cancel] 组件是否有取消按钮
  * @returns {Promise} 返回一个Promise实例对象
  * @description 确认弹框组件的调用方法，调用以后在屏幕正中弹出一个Confirm，可以按照option对象参数调用，也可以使用简易
- * 调用方式如``Confirm(content,title)``
+ * 调用方式如 ``Confirm(content, title, btnText, animation, cancel)``
  */
 export default function Confirm(content = '',
                                 title = '',
@@ -84,9 +79,9 @@ export default function Confirm(content = '',
         cancel = opt.cancel != null ? !!opt.cancel : true;
     }
 
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         // duration的默认值是300
-        let duration = animation != 'none' ? 300 : 0;
+        let duration = animation !== 'none' ? 300 : 0;
         // 看是否有自定义animation对象
         if (animation != null && animation.duration != null) {
             duration = animation.duration;

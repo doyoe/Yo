@@ -176,6 +176,7 @@ export default class ContainerList extends Component {
                 return (
                     <ListView
                         {...this.props}
+                        extraClass="yo-scroller-fullscreen"
                         ref={(node) => {
                             if (node) this.listView = node;
                         }}
@@ -196,8 +197,8 @@ export default class ContainerList extends Component {
     }
 
     render() {
-        const classList = ['multiList-listContainer'];
-        classList.push(`multiList-listContainer-${this.props.index}`);
+        const classList = ['item'];
+        classList.push(`item-${this.props.index}`);
         classList.push(this.props.containerListExtraClass);
         return (
             <div className={classList.join(' ')}>

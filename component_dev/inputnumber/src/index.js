@@ -37,55 +37,55 @@ const propTypes = {
     /**
      * @property value
      * @description 组件默认显示的值
-     * @type PropTypes.number
+     * @type Number
      * @default 0
      */
     value: PropTypes.number.isRequired,
     /**
      * @property step
      * @description 单次加减的步长
-     * @type PropTypes.number
+     * @type Number
      * @default 1
      */
     step: PropTypes.number,
     /**
      * @property min
      * @description 组件显示的最小值
-     * @type PropTypes.number
+     * @type Number
      * @default -10000
      */
     min: PropTypes.number,
     /**
      * @property max
      * @description 组件显示的最大值
-     * @type PropTypes.number
+     * @type Number
      * @default 10000
      */
     max: PropTypes.number,
     /**
      * @property decimalNum
      * @description 组件显示的小数位数
-     * @type PropTypes.number
+     * @type Number
      * @default 0
      */
     decimalNum: PropTypes.number,
     /**
      * @property extraClass
      * @description 组件额外的样式类
-     * @type PropTypes.string
+     * @type String
      */
     extraClass: PropTypes.string,
     /**
      * @property disable
      * @description 组件可不可用
-     * @type PropTypes.bool
+     * @type Bool
      * @default false
      */
     disable: PropTypes.bool,
     /**
      * @property inputDisable
      * @description 组件手动输入框是否不可用
-     * @type PropTypes.bool
+     * @type Bool
      * @default false
      */
     inputDisable: PropTypes.bool,

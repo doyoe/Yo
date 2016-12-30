@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import SwipeMenuList from '../src';
 import { getArrayByLength } from '../../common/util';
 import '../../common/touchEventSimulator';
+import Touchable from '../../touchable/src';
+import './demo.scss';
 
 function getRandomList(size) {
     return getArrayByLength(size).fill(1).map(num => parseInt(Math.random() * 100));
@@ -42,9 +44,29 @@ class SwipeMenuListDemo extends Component {
 
         return (
             <SwipeMenuList
+                extraClass={'yo-swipemenulist-demo'}
                 dataSource={this.state.dataSource}
                 infinite={true}
                 infiniteSize={30}
+                renderMenuContent={(item, i) => {
+                    return [
+                        <span key={0}>{i + ';'}</span>,
+                        <Touchable key={1} onTap={() => {
+                            console.log('tapped', item.text);
+                        }} touchClass='yellow'>
+                            <span style={{ marginLeft: 50 }}>{item.text}</span>
+                        </Touchable>
+                    ];
+                }}
+                onItemTap={() => {
+                    console.log('tap item')
+                }}
+                onMenuOpen={(item, i) => {
+                    console.log('open', item, i);
+                }}
+                onMenuClose={(item, i) => {
+                    console.log('close', item, i);
+                }}
             />
         );
     }

@@ -1,5 +1,7 @@
 #### 基本用法
-最简单用法，传入合法的`menu`数组，配置菜单的选项列表和对应的点击回调，点击菜单之后，组件自动关闭。
+`ActionSheet` 接收一个`option`对象作为参数。
+其中`menu`属性负责控制ActionSheet的菜单项，它是一个对象数组，每个元素有两个属性`text`和`onTap`，分别用来控制菜单项的文字和点击回调。
+需要注意的是，点击菜单之后，组件会自动关闭，这与iOS系统的ActionSheet API是一致的。
 
 ```JavaScript
 ActionSheet({
@@ -12,7 +14,7 @@ ActionSheet({
 
 #### 显示标题
 
-通过`title`参数配置组件菜单顶部的标题文字，默认为空，不显示。
+通过`title`参数配置组件菜单顶部的标题文字，默认无标题：
 
 ```JavaScript
 ActionSheet({
@@ -26,7 +28,7 @@ ActionSheet({
 
 #### 取消文字
 
-通过`cancelText`参数配置"取消"菜单的文字，默认是"取消"。
+通过`cancelText`参数配置"取消"菜单的文字：
 
 ```JavaScript
 const menu = [

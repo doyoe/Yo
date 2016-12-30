@@ -1,10 +1,8 @@
 # Yo
 
-**v3.0.0目前还是开发中的版本，预计在12月初发布正式版，这之前请大家尽可能使用之前的稳定版本！**
-
 `Yo` 是一个纯粹的移动前端开发框架，专注为移动应用提供快速且专业的构建方式；她轻量，易用，可配置，并且具备超强的扩展能力。
 
-`v3.0.0`是`Yo`的一个新里程碑，我们将加入丰富的UI组件，让构建移动应用变得更简单。如果你对之前的`Yo`恋恋不舍，只想使用她的样式，`v3.0.0及后续版本`仍然会满足，你只需要保持和之前的版本一样安装和使用即可，[查看详情](as-before-use.md)。
+`v3` 版本是 `Yo` 的一个新里程碑，我们将加入丰富的UI组件，让构建移动应用变得更简单。如果你对之前的 `Yo` 恋恋不舍，只想使用她的样式，`v3及后续版本` 仍然会满足，你只需要保持和之前的版本一样安装和使用即可，[查看详情](as-before-use.md)。
 
 下面的内容可以帮你更好的了解 `Yo`：
 
@@ -29,7 +27,7 @@
 <a name="getting-started"></a>
 ## 起步
 
-* 根据 [起步说明](http://yo.doyoe.com/_docs/getting-started.html) 了解 `Yo` 的工作原理并开始构建标准的 `Yo` 项目；
+* 根据 [起步说明](http://yo.doyoe.com/doc/getting-started.html) 了解 `Yo` 的工作原理并开始构建标准的 `Yo` 项目；
 
 
 <a name="supported-browsers"></a>
@@ -91,16 +89,16 @@
 * [View Demo](http://doyoe.github.io/Yo/demo/)
 * [View Documentation](http://doyoe.github.io/Yo/doc/)
 
+> 如果你想在本地构建 `Yo` 的文档，只需要运行 `ydoc build` 即可，文档将会生成到 `doc` 目录下。
+> 线上默认提供的只是最新版本的文档，如果你正在使用过往版本，则可以按照这种方式直接生成本地文档。
+
 
 <a name="versioning"></a>
 ## 版本
 
 `Yo` 的版本方针遵循 [SemVer](http://semver.org/lang/zh-CN/) 规范，版本号采用 `主版本号.次版本号.修订号` 的格式。版本发布周期是透明的，并尽可能保证向前向后兼容，您可以根据我们的语义化版本方针进行版本控制。
 
-* 最新稳定版: [v2.1.5](https://github.com/doyoe/Yo/releases/tag/v2.1.5)
-* 开发中版本: v3.0.0
-
-如想查看更多版本变更历史，请查看 [ChangeLog](https://github.com/doyoe/Yo/blob/master/changelog.md)
+你可以在 [releases tag](https://github.com/doyoe/Yo/releases) 中找到当前所有已发布的稳定版本。如想查看更多版本变更历史，请查看 [ChangeLog](https://github.com/doyoe/Yo/blob/master/changelog.md)
 
 
 <a name="bugs-and-feature-requests"></a>

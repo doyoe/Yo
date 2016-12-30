@@ -15,7 +15,7 @@ import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import List from '../../list/src';
 import GroupCore from './GroupCore';
-import { replaceRedundantSpaces } from '../../common/util';
+import { replaceRedundantSpaces, DELAY_TIME_FOR_INFINITE_WITHOUT_HEIGHT } from '../../common/util';
 import IndexNavBar from './IndexNavBar';
 import './style.scss';
 
@@ -146,7 +146,7 @@ const propTypes = {
     onItemTap: PropTypes.func,
     /**
      * @property itemTouchClass
-     * @type String/function
+     * @type String/Function
      * @param {Object} item 列表项数据对象
      * @param {Number} index 在数据源中的偏移
      * @default item-light
@@ -163,7 +163,7 @@ const propTypes = {
      * 下拉刷新高度
      *
      * @property pullRefreshHeight
-     * @type PropTypes.number
+     * @type Number
      * @description 触发下拉刷新状态的高度（一般即为下拉刷新提示区域的高度）
      * @default 40
      */
@@ -172,7 +172,7 @@ const propTypes = {
      * 下拉刷新渲染函数
      *
      * @property renderPullRefresh
-     * @type PropTypes.func
+     * @type Function
      * @returns {JSX} 用来渲染 pullRefresh 的 JSX
      * @description () => JSX
      *
@@ -203,7 +203,7 @@ const propTypes = {
      * 加载更多高度
      *
      * @property loadMoreHeight
-     * @type PropTypes.number
+     * @type Number
      * @description 触发加载更多状态的高度（一般即为加载更多提示区域的高度）
      * @default 40
      */
@@ -228,6 +228,14 @@ const propTypes = {
      * @description 附加给组件根节点的额外className
      */
     extraClass: PropTypes.string,
+    /**
+     * @property style
+     * @type Object
+     * @default null
+     * @description 给Grouplist容器节点绑定的额外样式。
+     * @version 3.0.2
+     */
+    style: PropTypes.object,
     shouldItemUpdate: PropTypes.func,
     /**
      * @property onIndexNavBarItemHover
@@ -243,7 +251,36 @@ const propTypes = {
      * @default groupKey=>groupKey
      * @description 定制grouplist分组导航中每一项的render函数,接收groupkey为参数,返回字符串或者jsx
      */
-    renderIndexNavBarItem: PropTypes.func
+    renderIndexNavBarItem: PropTypes.func,
+    /**
+     * @property disabled
+     * @type Bool
+     * @default false
+     * @description 是否禁止滚动,参见Scroller的同名属性
+     * @version 3.0.2
+     */
+    disabled: PropTypes.bool,
+    /**
+     * 方向锁定阈值
+     *
+     * @property directionLockThreshold
+     * @type Number
+     * @description 只允许单向滚动的时候，会根据这个阀值来判定响应哪个方向上的位移：某一方向位移减去另一个方向位移超过阀值，就会判定为这个方向的滚动。
+     * @default 5
+     * @version 3.0.2
+     */
+    directionLockThreshold: PropTypes.number,
+    /**
+     * @property scrollWithoutTouchStart
+     * @type Bool
+     * @default false
+     * @description ** 实验中的属性 **
+     * 在默认情况下一次用户触发（非调用scrollTo方法）scroller的滚动需要由touchstart事件来启动，在某些情况下，例如scroller从disable状态切换到enable状态时，
+     * 可能不能接收到这一瞬间的touchstart事件，这可能导致用户期待的滚动过程没有发生。
+     * 开启这个属性为true以后将允许scroller用touchmove启动滚动过程，这可以解决上述场景的问题。
+     * @version 3.0.2
+     */
+    scrollWithoutTouchStart: PropTypes.bool
 };
 
 const defaultProps = {
@@ -287,7 +324,10 @@ const defaultProps = {
     },
     shouldItemUpdate(ret) {
         return ret;
-    }
+    },
+    disabled: false,
+    style: null,
+    scrollWithoutTouchStart: false
 };
 
 export default class GroupList extends Component {
@@ -339,6 +379,10 @@ export default class GroupList extends Component {
 
         if (this.groupModel.isHeightFixed) {
             this.refreshStickyHeader();
+        } else {
+            setTimeout(() => {
+                this.refreshStickyHeader();
+            }, DELAY_TIME_FOR_INFINITE_WITHOUT_HEIGHT);
         }
     }
 
@@ -429,6 +473,7 @@ export default class GroupList extends Component {
 
     render() {
         const {
+            style,
             infiniteSize,
             infinite,
             itemExtraClass,
@@ -448,7 +493,10 @@ export default class GroupList extends Component {
             useLoadMore,
             renderLoadMore,
             onLoad,
-            loadMoreHeight
+            loadMoreHeight,
+            disabled,
+            directionLockThreshold,
+            scrollWithoutTouchStart
         } = this.props;
         // 不定高的无穷列表不能支持showIndexNavBar,因为无法定位到每一个item的_translateY
         const showIndexNavBar = this.props.showIndexNavBar && this.groupModel.isHeightFixed;
@@ -494,7 +542,7 @@ export default class GroupList extends Component {
         };
 
         return (
-            <div className={rootClassNames}>
+            <div className={rootClassNames} style={style}>
                 <div
                     className="sticky label"
                     ref={(dom) => {
@@ -513,6 +561,10 @@ export default class GroupList extends Component {
                         }}
                     /> : null}
                 <List
+                    scrollWithoutTouchStart={scrollWithoutTouchStart}
+                    directionLockThreshold={directionLockThreshold}
+                    disabled={disabled}
+                    extraClass="yo-grouplist-fullscreen"
                     dataSource={dataSource}
                     infinite={infinite}
                     offsetY={offsetY}
@@ -520,9 +572,9 @@ export default class GroupList extends Component {
                     itemExtraClass={wrappedItemExtraClass}
                     shouldItemUpdate={wrappedShouldItemUpdate}
                     infiniteSize={infiniteSize}
-                    onScroll={(y) => {
-                        this.refreshStickyHeader(y);
-                        onScroll(y);
+                    onScroll={(y, direction) => {
+                        this.refreshStickyHeader(-y);
+                        onScroll(y, direction);
                     }}
                     onListItemUpdate={(item, domNode) => {
                         this.groupModel.updateGroupTitle(item, domNode);

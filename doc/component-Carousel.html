@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+  <meta name="description" content="description of your site">
+  <meta name="author" content="author of the site">
+  <title>Yo Documentation 组件</title>
+  <link rel="stylesheet" href="source/main.css"/>
+  
+    
+<link rel="stylesheet" href="./theme/ydoc.css"/>
+    
+  
+</head>
+<body class=component-Carousel >
+    <div class="ydoc">
+      <header class="ydoc-header">
+        <div class="ydoc-header-area">
+            
+            <a href="http://ued.qunar.com/ymfe/" class="navbar-brand">YMFE</a>
+            
+            <button class="ydocIcon navbar-toggle">&#xf020;</button>
+            <nav class="ydoc-nav">
+              <ul class="navbar-left">
+                
+                    
+                    <li class="">
+                        
+                        <a href="index.html">Yo</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="getting-started.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="core.html">核心</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="element.html">元件</a>
+                        
+                    </li>
+                    
+                    <li class="active">
+                        
+                        <a href="component.html">组件</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="animate.html">动画</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="http://ued.qunar.com/hy2/yo-router" target="_blank">Router</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="changelog.html">版本</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="http://ued.qunar.com/hy2/yo/demo/src/html/index.html" target="_blank">示例</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="https://github.com/doyoe/Yo" target="_blank">Github</a>
+                        
+                    </li>
+                    
+                
+              </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- <header style="height:20px"></header> -->
+    
+      <!-- Docs page layout -->
+      
+      <div class="ydoc-banner-bg">
+          <div class="ydoc-banner">
+              <div class="ydoc-banner-area">
+                  <h1>组件</h1>
+                  <p>组件的说明文档</p>
+              </div>
+          </div>
+      
+
+      <div class="ydoc-container">
+        
+          
+          <div class="ydoc-container-content">
+              <div class="content-left" role="complementary">
+                  <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
+                    <ul class="nav docs-sidenav">
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="component-Touchable.html">Touchable</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="component-LazyImage.html">LazyImage</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="component-Sticky.html">Sticky</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="javascript:void(0);">滚动和列表</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        
+                        <ul class="nav docs-sidenav-extend"  >
+                        
+                            <li >
+                                <a href="component-Scroller.html">Scroller</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-List.html">List</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Grouplist.html">Grouplist</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-SwipeMenuList.html">SwipeMenuList</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-MultiList.html">MultiList</a>
+                            </li>
+                        
+                        </ul>
+                        
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="javascript:void(0);">弹层</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        
+                        <ul class="nav docs-sidenav-extend"  >
+                        
+                            <li >
+                                <a href="component-Modal.html">Modal</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Dialog.html">Dialog</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Popup.html">Popup</a>
+                            </li>
+                        
+                        </ul>
+                        
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="javascript:void(0);">表单元素</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        
+                        <ul class="nav docs-sidenav-extend"  >
+                        
+                            <li >
+                                <a href="component-Picker.html">Picker</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-DateTimePicker.html">DateTimePicker</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Rating.html">Rating</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Switch.html">Switch</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-InputNumber.html">InputNumber</a>
+                            </li>
+                        
+                        </ul>
+                        
+                        
+                        
+                        
+                        <!-- <li   class="active" > -->
+                        <li >
+                            
+                            <a href="javascript:void(0);">其他</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        
+                        <ul class="nav docs-sidenav-extend"    style="display:block;" >
+                        
+                            <li >
+                                <a href="component-Calendar.html">Calendar</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li  class="active" >
+                                <a href="component-Carousel.html">Carousel</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Range.html">Range</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-SwipeMenu.html">SwipeMenu</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Suggest.html">Suggest</a>
+                            </li>
+                        
+                        </ul>
+                        
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="javascript:void(0);">API</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        
+                        <ul class="nav docs-sidenav-extend"  >
+                        
+                            <li >
+                                <a href="component-ActionSheet.html">ActionSheet</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Alert.html">Alert</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Confirm.html">Confirm</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Loading.html">Loading</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Toast.html">Toast</a>
+                            </li>
+                        
+                        
+                        
+                    </ul>
+                  </nav>
+              </div>
+              <div class="content-right markdown-body" role="main">
+
+                
+                <div class="docs-section">
+<h2>
+    Carousel
+    <small></small>
+    <span class="yo-badge yo-badge-danger">3.0.0</span>
+</h2>
+<div class="api-content"><p>走马灯组件
+支持用户自定义动画对象，支持用户自定义css动画
+支持用户自定义子节点</p>
+<p>默认动画：
+横向滚动动画
+为当前页加上on的</p>
+<p>自定义动画对象需提供的方法：</p>
+<p>默认走马灯节点：
+支持图片lazyload 图片加载失败的替换图模板</p>
+<p>查看Demo获得实例：
+使用自定义动画实现图片查看器
+内置动画配合css动画效果</p>
+</div>
+<!-- 使用说明begin -->
+
+<div class="con-list-item">
+    <div class="con-head">使用说明</div>
+  
+    <div class="instructions">
+        <div class="instructions-con">
+            
+            <div class="instructions-con-info">
+            <h4 id="-">基础用法</h4>
+<pre><code class="lang-javascript">&lt;Carousel&gt;
+    &lt;li className=&quot;item&quot;&gt;&lt;img className=&quot;img&quot; src=&quot;//img1.qunarzz.com/qs/1610/a6/01d1ad00e4b9e102.jpg&quot; /&gt;&lt;/li&gt;  
+    &lt;li className=&quot;item&quot;&gt;&lt;img className=&quot;img&quot; src=&quot;//img1.qunarzz.com/qs/1610/a6/01d1ad00e4b9e102.jpg&quot; /&gt;&lt;/li&gt;  
+    &lt;li className=&quot;item&quot;&gt;&lt;img className=&quot;img&quot; src=&quot;//img1.qunarzz.com/qs/1610/a6/01d1ad00e4b9e102.jpg&quot; /&gt;&lt;/li&gt;  
+&lt;/Carousel&gt;
+</code></pre>
+<h4 id="-carouselitem">使用内置组件CarouselItem</h4>
+<ul>
+<li>提供图片懒加载功能</li>
+<li>配合css实现当前页切换的动画效果</li>
+</ul>
+<pre><code class="lang-javascript">const testData = [
+    {
+        img: &#39;//img.alicdn.com/tps/TB13Ha_NXXXXXbCXVXXXXXXXXXX-1125-352.jpg_q50.jpg&#39;
+    },{
+        img: &#39;//aecpm.alicdn.com/simba/img/TB1CWf9KpXXXXbuXpXXSutbFXXX.jpg_q50.jpg&#39;
+    },{
+        img: &#39;//aecpm.alicdn.com/simba/img/TB10CLcNXXXXXXVXXXXSutbFXXX.jpg_q50.jpg&#39;
+    },{
+        img: &#39;//gw.alicdn.com/imgextra/i2/5/TB2xuHoaX55V1Bjy0FnXXc5XFXa_!!5-0-yamato.jpg_q50.jpg&#39;
+    },{
+        img: &#39;//img.alicdn.com/tps/TB1XXrzNXXXXXaXXXXXXXXXXXXX-1125-352.jpg_q50.jpg&#39;
+    }
+];
+class Demo extends Component {
+    constructor() {
+        super();
+        this.state = {
+            currentPage: 1,
+        };
+    }
+
+    render() {
+        return (            
+            &lt;Carousel
+                afterChange={(page) =&gt; {
+                    this.setState({
+                        currentPage: page
+                    })
+                }}
+            &gt;
+            {
+                testData.map((item, index) =&gt; (
+                    &lt;CarouselItem
+                        index={index + 1}
+                        key={index + 1}
+                        currentPage={this.state.currentPage}
+                        {...item}
+                        pagesNum={testData.length}
+                        lazyload
+                    /&gt;
+                ))
+            }
+            &lt;/Carousel&gt;
+        )
+    }
+}
+</code></pre>
+<h4 id="-">自定义动画</h4>
+<p>传入JS动画对象，使用自定义动画</p>
+<pre><code class="lang-javascript">import aniCss from &#39;~yo/component/carousel/src/aniCss.js&#39;;
+class Demo extends Component {    
+    constructor() {
+        super();
+        this.state = {
+            currentPage: 1,
+        };
+    }
+
+    render(){
+        return (        
+            &lt;Carousel
+                aniObj={aniCss}
+                extraClass={&#39;yo-carousel-fade&#39;}
+                afterChange={(currentPage) =&gt; {
+                    this.setState({
+                        currentPage
+                    })
+                }}
+            &gt;
+            {
+                testData.map((item, index) =&gt; (
+                    &lt;CarouselItem
+                        index={index + 1}
+                        key={index + 1}
+                        currentPage={this.state.currentPage}
+                        {...item}
+                        lazyload
+                        activeClass={&#39;top&#39;}
+                        pagesNum={testData.length}
+                    /&gt;
+                ))
+            }
+            &lt;/Carousel&gt;
+        )
+    }
+}
+</code></pre>
+
+            </div>
+            
+            
+            <div class="instructions-con-runner">
+                <iframe class="instructions-iframe" src="demo/src/html/component/carousel/index.html?hideIcon"></iframe>
+            </div>
+            
+        </div>
+    </div>
+ 
+</div>
+
+<!-- 使用说明end -->
+<div class="con-list-item">
+
+<div class="con-head">属性</div>
+
+<blockquote class="api">
+    <h3>
+    <strong>dots</strong>
+     <span class="prop-type">{ Bool }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>是否使用默认坐标展示，详细可以查看demo基础用法展示</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> true
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>autoplay</strong>
+     <span class="prop-type">{ Bool }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>是否自动换页</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> true
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>loop</strong>
+     <span class="prop-type">{ Bool }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>是否循环 循环防范受动画影响，因此循环的具体方案由动画对象提供。</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> true
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>beforeChange</strong>
+     <span class="prop-type">{ Function }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>页面切换前提供的回调函数，索引值在carousel.children中设置从1开始</p>
+</div>
+    
+</div>
+
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <!-- <col class="c4"> -->
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <!-- <th>必选</th> -->
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>变化后页面索引</td>
+            <td>num</td>
+            <td></td>
+            <!-- <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td> -->
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>afterChange</strong>
+     <span class="prop-type">{ Function }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>页面切换后提供的回调函数，索引值在carousel.children中设置从1开始</p>
+</div>
+    
+</div>
+
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <!-- <col class="c4"> -->
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <!-- <th>必选</th> -->
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>变化后页面索引</td>
+            <td>num</td>
+            <td></td>
+            <!-- <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td> -->
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>extraClass</strong>
+     <span class="prop-type">{ String }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>为组件根节点提供额外的class。</p>
+</div>
+    
+</div>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>delay</strong>
+     <span class="prop-type">{ Number }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>自动播放时动画间隔，单位为s，因动画的实现方式而不同。</p>
+</div>
+    
+</div>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>speed</strong>
+     <span class="prop-type">{ Number }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>动画播放速度，单位为s,因动画的实现方式而不同。</p>
+</div>
+    
+</div>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>defaultPage</strong>
+     <span class="prop-type">{ Number }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>组件渲染时起始页面</p>
+</div>
+    
+</div>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>aniSpeed</strong>
+     <span class="prop-type">{ Number }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>如果使用css动画，该值为动画播放时间，用于在滚动循环时计算动画时机。</p>
+</div>
+    
+</div>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>aniObj</strong>
+     <span class="prop-type">{ Object }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>自定义动画对象，自定义动画需要提供以下方法</p>
+<ul>
+<li>handleData（aniObj, children）用于组件渲染前对于子节点的处理；</li>
+<li>touchstart(aniObj) 动画处理的touchstart事件；</li>
+<li>touchmove(aniObj) 动画处理的touchmove事件；</li>
+<li>touchend(aniObj) 动画处理的touchend事件；</li>
+<li>touchcancel(aniObj)动画处理的touchcancel事件；</li>
+<li>next(aniObj) 下一帧 需返回动画结束后的当前索引；</li>
+<li>arrive（aniObj,num) 跳转；</li>
+<li>prev(aniObj) 上一帧 动画结束后的当前索引；</li>
+</ul>
+<p>carousel组件提供了两种自定义动画，使用者可以按需引用：</p>
+<ul>
+<li>aniCss动画使用改变Index层级的方式来展示当前页面。</li>
+<li>aniInfinate动画用有限的节点数（3个）渲染无限数量节点，其实现类似于list组件infinte模式，相较于默认动画实现减少了dom节点的数量，增加了dom操作的次数，适用于实现图片查看器等dom节点多的场景。</li>
+</ul>
+<p><strong>aniObj格式</strong></p>
+<ul>
+<li><pre><code>{
+  aniSpeed:0,
+  containerDOM: ul.cont, //节点
+  delay: 1,
+  loop: true,
+  operationTimer: 5, //操作数动画运动的绝对值，交由动画控制
+  pageNow: 5,
+  speed: .5,
+  stageDOM: div,
+  width: 375 //这里需注意宽度在组件mount后才有
+  touchstartLocation:e
+  touchendLocation:e
+  touchmoveLocation:e
+}
+</code></pre></li>
+</ul>
+</div>
+    
+</div>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>children</strong>
+     <span class="prop-type">{ Element }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>carousel的展示内容</p>
+</div>
+    
+</div>
+
+
+
+
+
+
+<div class="con-head">方法</div>
+
+<blockquote class="api">
+    <h3>
+    <strong>arrive</strong>
+    
+    </h3>
+</blockquote>
+<div class="api-content"><p>到达方法</p>
+</div>
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <col class="c4">
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <th>必选</th>
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>num</td>
+            <td>number</td>
+            <td>到达的页数</td>
+            <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td>
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>play</strong>
+    
+    </h3>
+</blockquote>
+<div class="api-content"><p>播放动画</p>
+</div>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>pause</strong>
+    
+    </h3>
+</blockquote>
+<div class="api-content"><p>暂停动画</p>
+</div>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>prev</strong>
+    
+    </h3>
+</blockquote>
+<div class="api-content"><p>播放上一页</p>
+</div>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>next</strong>
+    
+    </h3>
+</blockquote>
+<div class="api-content"><p>播放下一页</p>
+</div>
+
+
+
+
+
+
+
+</div>
+</div>
+
+              </div>
+          </div>
+          
+        
+      </div>
+     
+     </div>
+     
+      <footer class="footer">
+        <div class="copyright">
+            &copy; 2016 <a href="https://github.com/YMFE">YMFE</a> Team. Build by <a href="https://github.com/YMFE/ydoc">ydoc</a>.
+        </div>
+      </footer>
+    </div>
+    <div class="open-panel">=</div>
+    <script src="source/main.js"></script>
+    <script src="source/app.js"></script>
+    
+    
+
+    
+
+    
+      
+      <script type="text/javascript" src="./theme/ydoc.js"></script>
+      
+    
+
+</body>
+</html>

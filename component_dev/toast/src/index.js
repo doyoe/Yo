@@ -7,10 +7,6 @@
  * - 通过调用show函数打开组件，默认显示2s。
  * - 通过调用hide函数立刻关闭组件。
  *
- * #### 何时使用]
- * - 当需要弹出一条信息告知用户时。
- * - 不影响用户其他正常操作。
- *
  * @instructions {instruInfo: ./toast.md}{instruUrl: toast.html?hideIcon}
  * @author qingguo.xu
  */
@@ -29,7 +25,7 @@ const container = document.createElement('div'),
         /**
          * @property show
          * @description 是否显示，默认false
-         * @type {Boolean}
+         * @type Boolean
          * @default false
          * @skip
          */

@@ -1,9 +1,9 @@
 /**
  * @component Touchable
  * @version 3.0.0
- * @description Touchable组件是一个"虚拟"组件, 它不会真的在文档中创建一个dom节点作为根节点, 而是返回它唯一的子组件的一个克隆, 并给它绑定一些手势事件。
- * 除了能给dom绑定tap事件之外, 它还解决了一些移动端的手势"顽疾", 例如触摸反馈和滚动/触摸的冲突问题。在需要绑定tap事件的情况下,应该优先使用Touchable,
- * 而不是直接把tap事件回调绑定给dom。
+ * @description `Touchable` 组件是一个"虚拟"组件, 它不会真的在文档中创建一个 `dom` 节点作为根节点, 而是返回它唯一的子组件的一个克隆, 并给它绑定一些手势事件。
+ * 除了能给 `dom` 绑定 `tap` 事件之外, 它还解决了一些移动端的手势"顽疾", 例如触摸反馈和滚动/触摸的冲突问题。在需要绑定 `tap` 事件的情况下,应该优先使用 `Touchable`,
+ * 而不是直接把 `tap` 事件回调绑定给 `dom`。
  *
  * @author jiao.shen
  * @instructions {instruInfo: ./touchable.md}{instruUrl: touchable.html?hideIcon}
@@ -50,7 +50,8 @@ export default class Touchable extends Component {
     };
 
     static contextTypes = {
-        scroller: PropTypes.object
+        scroller: PropTypes.object,
+        swipeMenuList: PropTypes.object
     };
 
     render() {
@@ -64,11 +65,13 @@ export default class Touchable extends Component {
         const gestureObj = gesture(
             this,
             this.context.scroller,
+            this.context.swipeMenuList,
             this.props.touchClass,
             this.props.onTap,
             this.props.onTouchStart
         );
+        const { onTouchStart, onTouchMove, onTouchEnd, onTouchCancel } = gestureObj;
 
-        return React.cloneElement(onlyChild, gestureObj);
+        return React.cloneElement(onlyChild, { onTouchStart, onTouchMove, onTouchEnd, onTouchCancel });
     }
 }

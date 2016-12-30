@@ -7,6 +7,7 @@ var componentDestRootPath = Path.resolve(__dirname, '..', 'component');
 var mainTemplate = fs.readFileSync(Path.resolve(__dirname, 'entrance_tmpl'), 'utf8');
 var styleSrcPath = Path.resolve(__dirname, '..', 'style');
 var normalize = require('normalize-path');
+var ignore = ['common', 'lazyimage', 'sticky'];
 
 function getPathInDestFolder(filepath) {
     return filepath.replace(/component_dev/, 'component');
@@ -16,7 +17,6 @@ function walkThroughComponentFiles(mode) {
     var componentSrcRootPath = Path.resolve(CWD, mode !== 'post-install' ? 'component_dev' : 'component');
     var folders = fs.readdirSync(componentSrcRootPath);
 
-    var ignore = ['common', 'lazyimage'];
     return folders.reduce(function (acc, folder) {
         var componentSrcFolderPath = ignore.indexOf(folder) === -1 ?
             Path.resolve(componentSrcRootPath, folder, 'src') :
@@ -46,7 +46,6 @@ function writeTransformedFileToDestFolder(code, filepath, componentName) {
         fs.mkdirSync(destComponentFolder);
     }
     var destComponentSrcFolder = getPathInDestFolder(Path.resolve(destComponentFolder, 'src'));
-    var ignore = ['common', 'lazyimage'];
     if (!fs.existsSync(destComponentSrcFolder) && ignore.indexOf(componentName) === -1) {
         fs.mkdirSync(destComponentSrcFolder);
     }
@@ -66,11 +65,11 @@ function replaceStyleRefRootPath(code, path, styleFolderPath, componentName) {
     var rroot = /(\.\.\/){3}style\/usage/;
     var rcharset = /@charset\s+(['"])[^'"]+\1;?\n?/g;
     var yoRefs = (scssImports ? scssImports.filter(function (imp) {
-        return rroot.test(imp);
-    }) : []).concat(componentRef);
+            return rroot.test(imp);
+        }) : []).concat(componentRef);
     var otherRefs = scssImports ? scssImports.filter(function (imp) {
-        return !rroot.test(imp);
-    }) : [];
+            return !rroot.test(imp);
+        }) : [];
     var renderedScssImports = yoRefs.map(function (imp) {
         return {
             src: imp,

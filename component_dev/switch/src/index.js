@@ -16,7 +16,7 @@ const ALLOWANCE = 4;
 const propTypes = {
   /**
    * @property disabled
-   * @type boolean
+   * @type Bool
    * @default false
    * @description 是否禁用switch组件
    * 禁用switch后，UI操作不会影响到switch Value的变化
@@ -24,26 +24,26 @@ const propTypes = {
     disabled: PropTypes.bool,
     /**
      * @property checkd
-     * @type boolean
+     * @type Bool
      * @default true
      * @description 当前switch组件的值
      */
     checked: PropTypes.bool,
     /**
      * @property extraClass
-     * @type string
+     * @type String
      * @description 额外添加到根节点上的className
      */
     extraClass: PropTypes.string,
     /**
      * @property onChange
-     * @type function
+     * @type Function
      * @description value值发生变化的时候触发
      */
     onChange: PropTypes.func,
     /**
      * @property activeColor
-     * @type string
+     * @type String
      * @default '#4bd763'
      * @description activeColor 响应颜色
      * 当组件处于拖动状态时而非结果状态时需要JS辅助设置背景色
@@ -52,7 +52,7 @@ const propTypes = {
     activeColor: PropTypes.string,
     /**
      * @property defaultColor
-     * @type string
+     * @type String
      * @default '#fafafa'
      * @description defaultColor 关闭时的颜色
      * 当组件处于拖动状态时而非结果状态时需要JS辅助设置背景色

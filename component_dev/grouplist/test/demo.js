@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import GroupList from '../src';
+import Touchable from '../../touchable/src';
 import { getArrayByLength } from '../../common/util';
 let id = 1;
 const testData = getArrayByLength(100).fill(0)
@@ -10,7 +11,6 @@ const testData = getArrayByLength(100).fill(0)
         id: ++id,
         key: id
     }));
-console.log(testData)
 
 class GroupListDemo extends Component {
 
@@ -24,10 +24,9 @@ class GroupListDemo extends Component {
         };
     }
 
-    deleteItem(item, ds) {
-
+    deleteItem(item) {
         this.setState({
-            dataSource: ds.filter(it => it._guid !== item._guid),
+            dataSource: this.state.dataSource.filter(it => it.key !== item.key),
             sort: (a, b) => b - a
         });
     }
@@ -42,7 +41,15 @@ class GroupListDemo extends Component {
                 dataSource={this.state.dataSource}
                 infinite={true}
                 showIndexNavBar={true}
-                onItemTap={(item, index, ds) => this.deleteItem(item, ds)}
+                renderGroupTitle={key => (
+                    <div style={{width:'100%'}}>
+                        <span>{key}</span>
+                        <Touchable touchClass="yellow" onTap={()=>{console.log(key)}}>
+                            <span style={{float:'right'}}>click me!</span>
+                        </Touchable>
+                    </div>
+                )}
+                onItemTap={(item, index, ds) => this.deleteItem(item)}
                 sort={this.state.sort}
                 itemExtraClass={(item, index) => 'item ' + index}
                 groupTitleExtraClass={(groupKey) => {

@@ -25,3 +25,15 @@
 * ![百家互联](http://www.doyoe.com/pimg/genshuixue.png)
 
     百家互联（跟谁学）已接入使用 Yo 框架来构建移动应用UI
+
+* ![遨游](http://www.doyoe.com/pimg/aoyou.png)
+
+    遨游移动站点已接入使用 Yo 框架
+
+* ![Opera](http://www.doyoe.com/pimg/opera.png)
+
+    Opera欧朋已接入使用 Yo 框架重构移动应用
+
+* ![携程](http://www.doyoe.com/pimg/ctrip.png)
+
+    携程已接入使用 Yo 框架来构建移动应用

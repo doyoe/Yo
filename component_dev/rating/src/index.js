@@ -23,7 +23,7 @@ const propTypes = {
      * 组件额外class
      *
      * @property extraClass
-     * @type PropTypes.string
+     * @type String
      * @description 为组件根节点提供额外的class。
      */
     extraClass: PropTypes.string,
@@ -31,7 +31,7 @@ const propTypes = {
      * 总分数
      *
      * @property total
-     * @type PropTypes.number
+     * @type Number
      * @description 图标的总数量。
      * @default 5
      */
@@ -40,7 +40,7 @@ const propTypes = {
      * 当前分数
      *
      * @property value
-     * @type PropTypes.number
+     * @type Number
      * @description 当前点亮的图标数。
      * @default 0
      */
@@ -49,7 +49,7 @@ const propTypes = {
      * 是否只读
      *
      * @property readonly
-     * @type PropTypes.bool
+     * @type Bool
      * @description 是否只读。当为 `true` 的时候，只能展示评分，不能点击；当为 `false` 的时候，可以点击评分
      * @default false
      */

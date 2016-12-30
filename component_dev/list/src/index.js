@@ -34,7 +34,7 @@ const defaultProps = {
     renderItem(item) {
         return item.text;
     },
-    extraClass: 'yo-list-absolute',
+    extraClass: '',
     containerExtraClass: '',
     groupTitleExtraClass: '',
     usePullRefresh: false,
@@ -52,7 +52,9 @@ const defaultProps = {
     onItemTouchStart() {
     },
     disabled: false,
-    directionLockThreshold: 50
+    directionLockThreshold: 50,
+    style: null,
+    scrollWithoutTouchStart: false
 };
 
 const propTypes = {
@@ -82,7 +84,7 @@ const propTypes = {
     renderItem: PropTypes.func,
     /**
      * @property onItemTap
-     * @type function
+     * @type Function
      * @default null
      * @param {Object} item 列表项对应的数据对象
      * @param {Number} index 列表项在数据源中的index
@@ -131,7 +133,7 @@ const propTypes = {
     offsetY: PropTypes.number,
     /**
      * @property itemExtraClass
-     * @type String/function
+     * @type String/Function
      * @default "item item-wrap"
      * @description 给列表项容器元素添加的class
      * @param {Object} item 列表项对应的数据对象
@@ -149,11 +151,11 @@ const propTypes = {
     groupTitleExtraClass: PropTypes.string,
     /**
      * @property itemTouchClass
-     * @type String/function
-     * @default 列表项被点击时的className
+     * @type String/Function
+     * @default item-touch
      * @param {Object} item 列表项对应的数据对象
      * @param {Number} index 列表项在数据源中的index
-     * @description 使用方式与itemExtraClass一致。
+     * @description 列表项被点击时的className, 可以接收字符串或者函数，使用方式与itemExtraClass一致。
      */
     itemTouchClass: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     /**
@@ -166,6 +168,14 @@ const propTypes = {
      */
     onScroll: PropTypes.func,
     /**
+     * @property style
+     * @type Object
+     * @default null
+     * @description 给List容器节点绑定的额外样式。
+     * @version 3.0.2
+     */
+    style: PropTypes.object,
+    /**
      * @property onInfiniteAppend
      * @type Function
      * @default null
@@ -176,7 +186,7 @@ const propTypes = {
     /**
      * @property extraClass
      * @type String
-     * @default yo-list-absolute(控制List撑满父容器的样式类)
+     * @default null
      * @description 组件容器元素的额外className
      */
     extraClass: PropTypes.string,
@@ -198,7 +208,7 @@ const propTypes = {
      * 下拉刷新高度
      *
      * @property pullRefreshHeight
-     * @type PropTypes.number
+     * @type Number
      * @description 触发下拉刷新状态的高度（一般即为下拉刷新提示区域的高度）
      * @default 40
      */
@@ -207,7 +217,7 @@ const propTypes = {
      * 下拉刷新渲染函数
      *
      * @property renderPullRefresh
-     * @type PropTypes.func
+     * @type Function
      * @returns {JSX} 用来渲染 pullRefresh 的 JSX
      * @description () => JSX
      *
@@ -233,7 +243,7 @@ const propTypes = {
      * 加载更多高度
      *
      * @property loadMoreHeight
-     * @type PropTypes.number
+     * @type Number
      * @description 触发加载更多状态的高度（一般即为加载更多提示区域的高度）
      * @default 40
      */
@@ -287,7 +297,27 @@ const propTypes = {
      */
     onItemTouchStart: PropTypes.func,
     onListItemUpdate: PropTypes.func,
-    directionLockThreshold: PropTypes.number
+    /**
+     * 方向锁定阈值
+     *
+     * @property directionLockThreshold
+     * @type Number
+     * @description 只允许单向滚动的时候，会根据这个阈值来判定响应哪个方向上的位移：某一方向位移减去另一个方向位移超过阀值，就会判定为这个方向的滚动。
+     * @default 5
+     * @version 3.0.2
+     */
+    directionLockThreshold: PropTypes.number,
+    /**
+     * @property scrollWithoutTouchStart
+     * @type Bool
+     * @default false
+     * @description ** 实验中的属性 **
+     * 在默认情况下一次用户触发（非调用scrollTo方法）scroller的滚动需要由touchstart事件来启动，在某些情况下，例如scroller从disable状态切换到enable状态时，
+     * 可能不能接收到这一瞬间的touchstart事件，这可能导致用户期待的滚动过程没有发生。
+     * 开启这个属性为true以后将允许scroller用touchmove启动滚动过程，这可以解决上述场景的问题。
+     * @version 3.0.2
+     */
+    scrollWithoutTouchStart: PropTypes.bool
 };
 
 export default class List extends Component {
@@ -422,8 +452,8 @@ export default class List extends Component {
             if (!manually) {
                 this.scroller.isScrolling = true;
             }
-            this.listModel.onScrollTo(offsetY);
-            this.props.onScroll(offsetY, this.listModel.direction);
+            this.listModel.onScrollTo(offsetY, manually);
+            this.props.onScroll(-offsetY, this.listModel.direction);
             this.tryLoadLazyImages(offsetY);
         }
     }
@@ -589,11 +619,13 @@ export default class List extends Component {
             useLoadMore,
             onLoad,
             disabled,
+            style,
             directionLockThreshold,
             pullRefreshHeight,
             renderPullRefresh,
             loadMoreHeight,
-            renderLoadMore
+            renderLoadMore,
+            scrollWithoutTouchStart
         } = this.props;
         const { infinite } = this.listModel;
         const containerClass = replaceRedundantSpaces([
@@ -605,6 +637,8 @@ export default class List extends Component {
 
         return (
             <Scroller
+                scrollWithoutTouchStart={scrollWithoutTouchStart}
+                style={style}
                 directionLockThreshold={directionLockThreshold}
                 disabled={disabled}
                 extraClass={extraClass}
@@ -640,7 +674,7 @@ export default class List extends Component {
                 >
                     {infinite ?
                         // 无穷列表模式,在列表容器内设置固定数目的槽,随着滚动不停更新这些槽内部的内容和translateY
-                        getArrayByLength(infiniteSize).fill(1).map((_, i) => {
+                        getArrayByLength(infiniteSize).fill(1).map((__, i) => {
                             const item = visibleList.find((it) => it._order === i);
                             return item ? this.renderItemWrap(item, i) : null;
                         }) :

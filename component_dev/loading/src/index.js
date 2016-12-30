@@ -3,14 +3,7 @@
  * @component loading
  * @type {Object}
  * @version 3.0.0
- * @description 像api一样调用即可，需要设置相关属性时，可传入对应的object作为参数。
- *
- * - 遮罩层可预留出顶部的宽度。
- * - 可设置组件的额外样式，如黑底白字风格的。
- *
- * #### 何时使用
- *
- * - 当内容处于加载阶段时的提示，以及防止错误操作之类的。
+ * @description Loading API，调用后弹出一个居中的Loading Icon。
  *
  * @instructions {instruInfo: ./loading.md}{instruUrl: loading.html?hideIcon}
  * @author zongze.li
@@ -29,42 +22,42 @@ let that = null;
 const loadingApiPropTypes = {
     /**
      * @property text
-     * @type PropTypes.string
+     * @type String
      * @default ''
      * @description loading伴随动画图标的文字。
      */
     text: PropTypes.string,
     /**
      * @property extraClass
-     * @type PropTypes.string
+     * @type String
      * @default ''
      * @description 附加给loading组件内层的div的额外class。
      */
     extraClass: PropTypes.string,
     /**
      * @property modalExtraClass
-     * @type PropTypes.string
+     * @type String
      * @default ''
      * @description 附加给外层modal组件的额外class。
      */
     modalExtraClass: PropTypes.string,
     /**
      * @property show
-     * @type PropTypes.bool
+     * @type Bool
      * @default false
      * @description 是否显示loading，true为显示loading动画，false为隐藏。
      */
     show: PropTypes.bool,
     /**
      * @property contentOffset
-     * @type array
+     * @type Array
      * @default [0,0]
      * @description 内容区在水平/垂直方向上的偏移,例如[0,-100]可以使模态框内容区向上偏移100个像素。
      */
     contentOffset: PropTypes.arrayOf(PropTypes.number),
     /**
      * @property maskOffset
-     * @type array
+     * @type Array
      * @default [0,0]
      * @description 蒙层遮盖的范围。如果不需要蒙层遮盖住整个屏幕,可以设置这个属性。
      *

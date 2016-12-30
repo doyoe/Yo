@@ -6,3 +6,7 @@
     position: absolute;
     width: 100%;
 }
+
+.yo-scroller-fullscreen {
+    @include fullscreen();
+}

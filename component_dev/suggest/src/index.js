@@ -61,7 +61,7 @@ const propTypes = {
     itemTouchClass: PropTypes.string,
     /**
      * @property noDataTmpl
-     * @type JSX
+     * @type Element
      * @default null
      * @description 没有suggest结果时的模板
      * noDataTpl
@@ -69,7 +69,7 @@ const propTypes = {
     noDataTmpl: PropTypes.element,
     /**
      * @property recommendTmpl
-     * @type JSX
+     * @type Element
      * @default null
      * @description 推荐区域内容,在搜索条件为空时展示
      */
@@ -176,9 +176,14 @@ const propTypes = {
      * @default 300
      * @description 设置此属性以后,文本框的onChange事件的触发频率会降低,例如设置为300会使得onChange每300毫秒触发一次.
      *
-     * 通过这种方式,可以控制组件结果区域的render次数,降低和服务器交互的频率
+     * 通过这种方式,可以控制组件结果区域的render次数,降低和服务器交互的频率。
      */
     throttleGap: PropTypes.number,
+    /**
+     * @property showMask
+     * @type Bool
+     * @description 在弹起键盘时，是否显示遮罩层。
+     */
     showMask: PropTypes.bool
 };
 

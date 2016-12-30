@@ -16,8 +16,8 @@ Alert('the alert text', 'Alert');
 
 #### 自定义按钮文本
 
-Alert可以接受一个配置对象为参数，你可以在里面指定title和content的值。
-另外，里面的btnText属性指定了Alert按钮的文本，例如:
+Alert可以接受一个配置对象option为参数，你可以在里面指定title和content的值。
+option的btnText属性指定了Alert按钮的文本，例如:
 
 ```
 // opt对象调用模式
@@ -40,8 +40,8 @@ Alert('return Promise Object').then(
 
 #### 设置动画
 
-通过opt对象的`animation`参数和CSS3动画设置组件显隐过程的动态效果，配置动画对象中的`animation`属性是一个数组，分别对应组件显、隐过程执行的动画效果，`duration`属性设置动画执行时间。
-也可以传入组件内部支持的动画名字符串`fade`、`fade-in-up`、`fade-in-down`、`zoom`。默认没有动画。
+通过opt对象的`animation`参数和CSS3动画可以设置组件显隐过程的动态效果，配置动画对象中的`animation`属性是一个数组，分别对应组件显、隐过程执行的动画效果，`duration`属性设置动画执行时间。
+也可以传入组件内部支持的动画名字符串`fade`、`fade-in-up`、`fade-in-down`、`zoom`。
 
 ```JavaScript
 const animation = {animation: ['actionsheet-up', 'actionsheet-down'], duration: 200};

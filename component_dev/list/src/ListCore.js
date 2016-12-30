@@ -124,11 +124,13 @@ export default class ListCore extends ComponentCore {
      * @returns {ListCore}
      * 在列表滚动时,根据offsetY更新visibleList
      */
-    onScrollTo(offsetY) {
+    onScrollTo(offsetY, manually) {
         this.direction = this.getDirection(offsetY);
         this.offsetY = offsetY;
+        if (manually) {
+            this.startIndex = 0;
+        }
         const cachedIndex = this.startIndex;
-
         if (this.infinite) {
             this.visibleList = this.getVisibleList(offsetY);
             // 只有当visibleList里面的内容真正发生变化的时候才触发onchange
@@ -171,7 +173,7 @@ export default class ListCore extends ComponentCore {
                 } else {
                     const di = ditem;
                     di.key = this.getGuid();
-                    console.warn('Yo-List:列表项没有key属性,将自动添加自增的key');
+                    console.warn('Yo-List:列表项没有key属性,将自动添加自增的key。这会使得列表在更新时出现大量的不必要的dom操作，请为每一个列表项指定一个唯一的key。');
                 }
             }
 
@@ -265,7 +267,7 @@ export default class ListCore extends ComponentCore {
         let startIndex = sIndex;
         // 从保存的startIndex开始循环,根据当前滚动的方向的不同,i相应增加/减少
         // 这样可以将查找的时间复杂度从线性降低到常量
-        if (direction === 'down') {
+        if (direction === 'down' || startIndex === 0) {
             for (let i = startIndex; i < len; i++) {
                 if (this.isBorderItem(i, startY)) {
                     startIndex = i;

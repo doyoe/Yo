@@ -31,6 +31,29 @@
 
 如果你没有设置`touchClass`, 将不会有触摸反馈效果, onTap的绑定依然生效。但是这个时候组件会给出一个警告, 我们的建议是尽量为所有的可触摸区域添加反馈效果。
 
+#### 嵌套的Touchable
+
+需要注意的是`Touchable`虽然允许互相嵌套，但是不能够同时触发内层和外层的touchClass改变和tap事件，
+而总是触发手指触摸到的最内层的`Touchable`的触摸反馈和事件，
+这与没有stopPropagation的`onTouchTap`事件不一致。换句话说，在同一时刻只能有一个`Touchable`响应用户的触摸事件。
+以下是一个互相嵌套的`Touchable`的例子：
+
+```
+ <Touchable touchClass='green' onTap={() => {console.log('点我变绿。')}}>
+    <div className="comment-wrap">
+        <Touchable touchClass='yellow' onTap={() => {
+            console.log('点我变黄');
+        }}>
+            <h2 className="comment-title ellipsis">如此美景，难怪志明要带春娇来这里</h2>
+        </Touchable>
+        <p className="comment-detail ellipsis">北京长城脚下的公社</p>
+        <div className="tags ellipsis">
+            度假&nbsp;/&nbsp;亲子&nbsp;/&nbsp;浪漫&nbsp;/&nbsp;美景&nbsp;/&nbsp;格调
+        </div>
+    </div>
+</Touchable>
+```
+
 #### 解决和Scroller的冲突问题
 
 `Touchable`组件在内部解决了和`Scroller`以及所有基于`Scroller`实现的组件(`List`系列等)的手势冲突,

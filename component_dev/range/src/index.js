@@ -4,11 +4,6 @@
  * @version 3.0.0
  * @description 用户可通过滑动选定一个区间，组件返回这个区间值；支持单、双滑块模式，有step和无step模式等。
  *
- * #### 使用场景提示
- *
- * - 滑动选择价格区间，作为筛选条件；
- * - 滑动调整亮度。
- *
  * @instructions {instruInfo: ./range.md}{instruUrl: range.html?hideIcon}
  * @author zongze.li
  */
@@ -24,7 +19,7 @@ const propTypes = {
      * 禁用滑块
      *
      * @property disable
-     * @type PropTypes.bool
+     * @type Bool
      * @description 受控属性：禁止滑块滑动，阻止touch事件。
      * @default false
      */
@@ -33,7 +28,7 @@ const propTypes = {
      * 滑块最右边表示的值
      *
      * @property max
-     * @type PropTypes.number
+     * @type Number
      * @description 受控属性：滑块滑到最右边应该表示的值。
      *
      * 注意：有传入step属性时，必须保证 (max - min) 能被 step 整除。
@@ -44,7 +39,7 @@ const propTypes = {
      * 滑块最左边表示的值
      *
      * @property min
-     * @type PropTypes.number
+     * @type Number
      * @description 受控属性：滑块滑到最左边应该表示的值。
      */
     min: PropTypes.number.isRequired,
@@ -52,7 +47,7 @@ const propTypes = {
      * 滑动步长
      *
      * @property step
-     * @type PropTypes.number
+     * @type Number
      * @description 受控属性：滑块单方向滑动一次后的最小步长。
      *
      * 注意：不设置该属性，表示移动时不设步长，step 必须为一正数。
@@ -77,7 +72,7 @@ const propTypes = {
      * 趋势阈值
      *
      * @property round
-     * @type PropTypes.number
+     * @type Number
      * @description 受控属性：滑块在当前滑动的方向上，累积滑动多大一段距离后，才判定应该到达该方向的下一个停驻点。默认为1/4的间距，也就是如果累积滑动了1/4间距后，即到达该方向上的一下个停驻点。
      * @default 1/4
      */
@@ -86,7 +81,7 @@ const propTypes = {
      * 方向灵敏度
      *
      * @property directionSensitivity
-     * @type PropTypes.number
+     * @type Number
      * @description 受控属性：反向移动多少"像素"算作方向改变，防止手指微动时导致方向改变，近而导致由于微动而很难移动到目标位置。
      * @default 6
      */
@@ -95,7 +90,7 @@ const propTypes = {
      * 单滑块模式
      *
      * @property isSingle
-     * @type PropTypes.bool
+     * @type Bool
      * @description 受控属性：是否启用单滑块模式，默认为 false 不展示，设置为 true 即启用。
      * @default false
      */
@@ -104,7 +99,7 @@ const propTypes = {
      * 无标签
      *
      * @property showScale
-     * @type PropTypes.bool
+     * @type Bool
      * @description 受控属性：是否展示标签，默认为 true 展示，设置为 false 即不展示且不生成标签
      * @default true
      */
@@ -113,7 +108,7 @@ const propTypes = {
      * 自定义刻度标签
      *
      * @property scaleFormat
-     * @type function
+     * @type Function
      * @param {Number} [scale] 单个标签对应的 value 值
      * @param {Number} [index] 当前标签对应的下标
      * @returns {String} 单个标签所展示的字符串，支持返回jsx。
@@ -127,7 +122,7 @@ const propTypes = {
      * 刻度标签位置
      *
      * @property scalePosition
-     * @type PropTypes.oneOf(['top', 'bottom']),
+     * @type Enum {'top','bottom'}
      * @description 受控属性：滑块在轨道线的上边显示，还是下边
      * @default 'top'
      */
@@ -136,7 +131,7 @@ const propTypes = {
      * touchStart 回调函数
      *
      * @property onSliderTouchStart
-     * @type function
+     * @type Function
      * @description 触发touchStart事件后，在事件结束前进行调用的函数，该函数有4个参数，onSliderTouchStart(value, translateX, event, sliderIndex)。
      * @param {Number/Array} [value] 当前选中区间，单滑块为Number，双滑块为Array；
      * @param {Number/Array} [translateX] 当前滑块的translateX，单滑块为Number,双滑块为Array;
@@ -149,7 +144,7 @@ const propTypes = {
      * touchMove 回调函数
      *
      * @property onSliderTouchMove
-     * @type function
+     * @type Function
      * @description 触发touchMove事件后，在事件结束前进行调用的函数，该函数有3个参数，onTouchMove(value, translateX, event, sliderIndex)。
      * @param {Number/Array} [value] 当前选中区间，单滑块为Number，双滑块为Array；
      * @param {Number/Array} [translateX] 当前滑块的translateX，单滑块为Number,双滑块为Array;
@@ -162,7 +157,7 @@ const propTypes = {
      * touchEnd 回调函数
      *
      * @property onSliderTouchEnd
-     * @type function
+     * @type Function
      * @description 触发touchEnd事件后，在事件结束前进行调用的函数，该函数有4个参数，onSliderTouchEnd(value, translateX, event, sliderIndex)，event即事件对象。
      * @param {Number/Array} [value] 当前选中区间，单滑块为Number，双滑块为Array；
      * @param {Number/Array} [translateX] 当前滑块的translateX，单滑块为Number,双滑块为Array;
@@ -175,7 +170,7 @@ const propTypes = {
      * onChange 回调函数
      *
      * @property onChange
-     * @type function
+     * @type Function
      * @description 当滑动滑块后，滑块在停下时会通过调用上级的 onChange 回调函数，以来在上一层组件中调用 setState 来更新当前组件的状态。
      * @param {Number/Array} [value] 待更新的当前选中区间的对应值
      * @default value => console.log(value)
@@ -185,7 +180,7 @@ const propTypes = {
      * 组件额外类
      *
      * @property extraClass
-     * @type PropTypes.string
+     * @type String
      * @description 受控属性：扩展range组件样式所需添加的额外的类
      */
     extraClass: PropTypes.string

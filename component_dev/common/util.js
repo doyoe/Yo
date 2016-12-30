@@ -70,3 +70,14 @@ export function shallowEqual(objA, objB) {
 
     return true;
 }
+
+export function getElementOffsetY(ele, parent) {
+    let y = 0;
+    while (ele !== parent && ele !== null) {
+        y += ele.offsetTop;
+        ele = ele.offsetParent;
+    }
+    return y;
+}
+
+export const DELAY_TIME_FOR_INFINITE_WITHOUT_HEIGHT = 250;

@@ -189,6 +189,13 @@
     $picker: $_picker !global;
 }
 
+// 合并variables和config中的popup map
+@if global-variable-exists(popup) {
+    $popup: map-merge($_popup, $popup) !global;
+} @else {
+    $popup: $_popup !global;
+}
+
 // 合并variables和config中的proportion map
 @if global-variable-exists(proportion) {
     $proportion: map-merge($_proportion, $proportion) !global;

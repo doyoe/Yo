@@ -42,7 +42,7 @@ export default class Picker extends Component {
         ).isRequired,
         /**
          * @property value
-         * @type number/string
+         * @type Number/String
          * @default null
          * @description 组件的value,参考网页select标签的value属性
          *
@@ -51,7 +51,7 @@ export default class Picker extends Component {
         value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
         /**
          * @property onChange
-         * @type function
+         * @type Function
          * @default null
          * @param value 当前的option的value
          * @description 组件划动时触发的事件回调,如果不设置这个属性,这个picker的value将无法根据picker的滚动改变。
@@ -65,7 +65,7 @@ export default class Picker extends Component {
         onChange: PropTypes.func,
         /**
          * @property height
-         * @type number
+         * @type Number
          * @default 150
          * @description picker的高度,默认150.
          *
@@ -74,28 +74,28 @@ export default class Picker extends Component {
         height: PropTypes.number.isRequired,
         /**
          * @property looped
-         * @type bool
+         * @type Bool
          * @default true
          * @description 是否采用循环模式,默认为true
          */
         looped: PropTypes.bool,
         /**
          * @property unit
-         * @type number
+         * @type Number
          * @default null
          * @description 显示在picker右侧的单位
          */
         unit: PropTypes.string,
         /**
          * @property extraClass
-         * @type string
+         * @type String
          * @default null
          * @description 附加给组件根节点的额外class
          */
         extraClass: PropTypes.string,
         /**
          * @property stopPropagation
-         * @type PropTypes.bool
+         * @type Bool
          * @default false
          * @description 是否阻止默认事件传播，默认为false不阻止。
          */

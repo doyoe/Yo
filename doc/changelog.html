@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+  <meta name="description" content="description of your site">
+  <meta name="author" content="author of the site">
+  <title>Yo Documentation 版本</title>
+  <link rel="stylesheet" href="source/main.css"/>
+  
+    
+<link rel="stylesheet" href="./theme/ydoc.css"/>
+    
+  
+</head>
+<body class=changelog >
+    <div class="ydoc">
+      <header class="ydoc-header">
+        <div class="ydoc-header-area">
+            
+            <a href="http://ued.qunar.com/ymfe/" class="navbar-brand">YMFE</a>
+            
+            <button class="ydocIcon navbar-toggle">&#xf020;</button>
+            <nav class="ydoc-nav">
+              <ul class="navbar-left">
+                
+                    
+                    <li class="">
+                        
+                        <a href="index.html">Yo</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="getting-started.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="core.html">核心</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="element.html">元件</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="component.html">组件</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="animate.html">动画</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="http://ued.qunar.com/hy2/yo-router" target="_blank">Router</a>
+                        
+                    </li>
+                    
+                    <li class="active">
+                        
+                        <a href="changelog.html">版本</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="http://ued.qunar.com/hy2/yo/demo/src/html/index.html" target="_blank">示例</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="https://github.com/doyoe/Yo" target="_blank">Github</a>
+                        
+                    </li>
+                    
+                
+              </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- <header style="height:20px"></header> -->
+    
+      <!-- Docs page layout -->
+      
+      <div class="ydoc-banner-bg">
+          <div class="ydoc-banner">
+              <div class="ydoc-banner-area">
+                  <h1>版本</h1>
+                  <p>Yo 的历史版本发布时间及变更记录，帮助你追溯到每个版本的演进过程，同时也有每个版本所对应的下载地址</p>
+              </div>
+          </div>
+      
+
+      <div class="ydoc-container">
+        
+          
+          <div class="ydoc-container-content" id="readme">
+              <article class="markdown-body">
+                  
+                  <h2 id="v3.0.2">v3.0.2</h2><h3 id="New Features">New Features</h3><ul>
+<li>新增 <code>Scroller.Sticky</code> 组件，可以便捷地给 <code>Scroller</code> 内部的节点添加吸顶效果。</li>
+<li><code>Scroller</code>, <code>List</code>, <code>Grouplist</code>, <code>SwipeMenuList</code>新增实验属性<code>scrollWithoutTouchStart</code>，允许在没有收到<code>touchstart</code>事件时开始滚动。</li>
+<li>现在 <code>List</code> 组件不再有默认的撑满父容器的内联样式，这意味着可以使用 <code>extraClass</code> 自由调整 <code>List</code> 根节点的尺寸，同时也 <strong>必须</strong> 在使用前通过 <code>extraClass</code> 或者 <code>style</code> 指定它的高度。</li>
+<li><code>List</code>、<code>Grouplist</code>、<code>SwipeMenuList</code> 组件新增 <code>style</code> 属性，可以直接给它们的容器节点设置样式（这在某些需要计算样式的情境下会有用）。</li>
+<li><code>SwipeMenuList</code> 组件现在可以通过 <code>itemTouchClass</code> 配置点击反馈效果。</li>
+<li><code>SwipeMenuList</code> 增加了 <code>onMenuOpen</code> 和 <code>onMenuClose</code> 两个事件回调，可以用来监听菜单项打开状态的变化。</li>
+</ul>
+<h3 id="Bug Fixes">Bug Fixes</h3><ul>
+<li>修复 <code>Modal</code> 组件 <code>z-index</code> 和 <code>Yo-Router</code> 容器冲突问题。</li>
+<li>修复 <code>Touchable</code> 组件在相互嵌套时手势发生冲突的bug。</li>
+<li>修复 <code>Scroller</code> 加载 <code>LazyImage</code> 时机不准的bug。</li>
+<li>修复 <code>Scroller</code> 在横竖屏切换时报在unmount组件上调用 <code>forceUpdate</code> 错误提示的bug。</li>
+<li>修复 <code>Scroller</code> 在refresh时没有重置加载更多文本的错误。</li>
+<li>修复 <code>List</code> 组件不定高<code>infinite</code>模式下，调用<code>scrollTo(0)</code>白屏的问题。</li>
+<li>修复 <code>Grouplist</code> 没有暴露 <code>disable</code> 属性的错误。</li>
+<li>修复 <code>Grouplist</code> 在不定高 <code>Infinite</code> 模式下，设置过 <code>offsetY</code> 属性后初始吸顶title不展示的bug。</li>
+<li>修复 <code>SwipeMenuList</code> 组件点击打开的列表项时，在关闭列表项的同时触发了列表项的 <code>tap</code> 事件的bug。</li>
+</ul>
+<h2 id="v3.0.1">v3.0.1</h2><h3 id="New Features">New Features</h3><ul>
+<li><code>Alert</code> 和 <code>Confirm</code> API现在支持传入一个opt对象作为参数，除了content,title和animation外，里面还可以指定btnText属性来定制&quot;确定&quot;和&quot;取消&quot;按钮的文本。</li>
+<li><code>MultiList</code> 组件增加了extraClass属性，可以给根节点绑定额外样式类。</li>
+<li><code>List</code> 现在可以通过extraClass设置样式来调整根节点的宽高，之前是直接设定的style属性为{position:absolute;top:0;bottom:0}所以无法修改。这意味着不再需要将List放入一个父容器中。</li>
+<li><code>MultiList</code> updateValue属性改名为onChange。</li>
+</ul>
+<h3 id="Bug Fixes">Bug Fixes</h3><ul>
+<li>修复 <code>CarouselItem</code> 手势滑动到最后一页时无法后退的bug。</li>
+<li>修复 <code>Grouplist</code> 组件groupkey为0或者其他假值时不能正常渲染分组标题的bug</li>
+<li>修复 <code>LazyImage</code> 组件销毁时加载图片导致控制台警告的bug。</li>
+<li>修复 <code>List</code> 组件自动调整offsetY时的位置错误。</li>
+<li>修复 <code>List</code> 组件非Infinite模式下onItemTap属性第二个参数为undefined的错误。</li>
+<li>修复 <code>SwipeMenu</code> 组件propType的警告。</li>
+<li>修复 <code>Suggest</code> 组件结果item默认touchClass的错误。</li>
+<li>修复异步载入 <code>Yo</code> 时Fastclick初始化方法未执行的错误。</li>
+</ul>
+<h2 id="v3.0.0">v3.0.0</h2><ul>
+<li>全新架构设计</li>
+</ul>
+<blockquote>
+<p>由于 <code>v3.0.0</code> 引入了交互组件，并对原有结构做了大幅度的调整，所以不建议从旧版本升级，推荐在新项目和重构项目中使用。</p>
+</blockquote>
+<h2 id="查看历史版本">查看历史版本</h2><p><a href="https://github.com/doyoe/Yo/releases/">v2及更早版本</a></p>
+
+              </article>
+          </div>
+          
+        
+      </div>
+     
+     </div>
+     
+      <footer class="footer">
+        <div class="copyright">
+            &copy; 2016 <a href="https://github.com/YMFE">YMFE</a> Team. Build by <a href="https://github.com/YMFE/ydoc">ydoc</a>.
+        </div>
+      </footer>
+    </div>
+    <div class="open-panel">=</div>
+    <script src="source/main.js"></script>
+    <script src="source/app.js"></script>
+    
+    
+
+    
+
+    
+      
+      <script type="text/javascript" src="./theme/ydoc.js"></script>
+      
+    
+
+</body>
+</html>

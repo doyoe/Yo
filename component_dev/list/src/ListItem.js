@@ -2,7 +2,7 @@
  * 列表项组件
  */
 import React, { Component, PropTypes } from 'react';
-import { replaceRedundantSpaces } from '../../common/util';
+import { replaceRedundantSpaces, DELAY_TIME_FOR_INFINITE_WITHOUT_HEIGHT } from '../../common/util';
 import Touchable from '../../touchable/src';
 
 export default class extends Component {
@@ -60,7 +60,7 @@ export default class extends Component {
             setTimeout(() => {
                 this.updateItemHeightWhenDomRendered();
                 this.domNode.style.visibility = 'visible';
-            }, 250);
+            }, DELAY_TIME_FOR_INFINITE_WITHOUT_HEIGHT);
         }
     }
 
@@ -128,10 +128,10 @@ export default class extends Component {
                 this.domNode = dom;
             },
             style: listModel.infinite ? {
-                WebkitTransform: transform,
-                transform,
-                height: item.height
-            } : null
+                    WebkitTransform: transform,
+                    transform,
+                    height: item.height
+                } : null
         };
         const additionalProps = {
             className: replaceRedundantSpaces(

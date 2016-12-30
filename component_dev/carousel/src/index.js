@@ -32,7 +32,7 @@ import CarouselItem from './carouselItem';
 const Dots = props => {
     let liNodes = [];
     for (let i = 0; i < props.num; i++) {
-        liNodes.push(<li key={i} className={props.page === i + 1 ? 'on' : ''} />);
+        liNodes.push(<li key={i} className={props.page === i + 1 ? 'on' : ''}/>);
     }
     return (
         <ul className="index">
@@ -48,72 +48,72 @@ Dots.propTypes = {
 const propTypes = {
     /**
      * @property dots
-     * @type PropTypes.bool
+     * @type Bool
      * @default true
      * @description 是否使用默认坐标展示，详细可以查看demo基础用法展示
      */
     dots: PropTypes.bool,
     /**
      * @property autoplay
-     * @type PropTypes.bool
+     * @type Bool
      * @default true
      * @description 是否自动换页
      */
     autoplay: PropTypes.bool,
     /**
      * @property loop
-     * @type PropTypes.bool
+     * @type Bool
      * @default true
      * @description 是否循环 循环防范受动画影响，因此循环的具体方案由动画对象提供。
      */
     loop: PropTypes.bool,
     /**
      * @property beforeChange
-     * @type PropTypes.func
+     * @type Function
      * @param {num} 变化后页面索引
      * @description 页面切换前提供的回调函数，索引值在carousel.children中设置从1开始
      */
     beforeChange: PropTypes.func,
     /**
      * @property afterChange
-     * @type PropTypes.func
+     * @type Function
      * @param {num} 变化后页面索引
      * @description 页面切换后提供的回调函数，索引值在carousel.children中设置从1开始
      */
     afterChange: PropTypes.func,
     /**
      * @property extraClass
-     * @type PropTypes.string
+     * @type String
      * @description 为组件根节点提供额外的class。
      */
     extraClass: PropTypes.string,
     /**
      * @property delay
-     * @type PropTypes.number
+     * @type Number
      * @description 自动播放时动画间隔，单位为s，因动画的实现方式而不同。
      */
     delay: PropTypes.number,
     /**
      * @property speed
-     * @type PropTypes.number
+     * @type Number
      * @description 动画播放速度，单位为s,因动画的实现方式而不同。
      */
     speed: PropTypes.number,
     /**
      * @property defaultPage
-     * @type PropTypes.number
+     * @type Number
      * @description 组件渲染时起始页面
      */
     defaultPage: PropTypes.number,
     /**
      * @property aniSpeed
-     * @type property.number
+     * @type Number
      * @description 如果使用css动画，该值为动画播放时间，用于在滚动循环时计算动画时机。
      */
     aniSpeed: PropTypes.number,
     /**
      * @property aniObj
-     * @type property.object
+     * @type Object
      * @description 自定义动画对象，自定义动画需要提供以下方法
      *
      * - handleData（aniObj, children）用于组件渲染前对于子节点的处理；
@@ -131,9 +131,9 @@ const propTypes = {
      *
      * **aniObj格式**
      *
-     * ``
+     * ```
      * {
-     * 	  aniSpeed:0,
+     *    aniSpeed:0,
      *    containerDOM: ul.cont, //节点
      *    delay: 1,
      *    loop: true,
@@ -146,12 +146,12 @@ const propTypes = {
      *    touchendLocation:e
      *    touchmoveLocation:e
      * }
-     * ``
+     * ```
      */
     aniObj: PropTypes.object,
     /**
      * @property children
-     * @type PropTypes.element
+     * @type Element
      * @description carousel的展示内容
      */
     children: PropTypes.array.isRequired
@@ -358,7 +358,7 @@ class Carousel extends Component {
         this.aniObj.touchendList = e.touches.length > 0 ?
             e.touches[0]
             : this.aniObj.touchmoveList;
-        if(!this.aniObj.touchendList){
+        if (!this.aniObj.touchendList) {
             return;
         }
         this.aniObj.touchendLocation = [
@@ -392,14 +392,13 @@ class Carousel extends Component {
         this.clearTouchList();
     }
 
-    clearTouchList(){
+    clearTouchList() {
         Object.assign(this.aniObj, {
-            touchstartList :[],
-            touchmoveList :[],
-            touchmoveList :[],
-            touchstartLocation :[],
-            touchmoveLocation :[],
-            touchendLocation :[]
+            touchstartList: [],
+            touchmoveList: [],
+            touchstartLocation: [],
+            touchmoveLocation: [],
+            touchendLocation: []
         });
     }
 
@@ -434,7 +433,7 @@ class Carousel extends Component {
                 <ul className={'cont'}>
                     {children}
                 </ul>
-                {this.props.dots ? <Dots num={this.aniObj.pagesNum} page={this.state.page} /> : ''}
+                {this.props.dots ? <Dots num={this.aniObj.pagesNum} page={this.state.page}/> : ''}
             </div>
         );
     }

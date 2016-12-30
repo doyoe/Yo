@@ -82,7 +82,7 @@ export default class SwipeMenuList extends Component {
         itemHeight: PropTypes.number,
         /**
          * @property itemExtraClass
-         * @type function
+         * @type Function
          * @default "item swipemenu-list-item"
          * @param {Object} item 列表项对应的数据对象
          * @param {Number} index 列表项在数据源中的偏移
@@ -91,16 +91,26 @@ export default class SwipeMenuList extends Component {
         itemExtraClass: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
         /**
          * @property onItemTap
-         * @type function
+         * @type Function
          * @default null
          * @param {Object} item 列表项对应的数据对象
          * @param {Number} index 列表项在数据源中的偏移
          * @param {Array} dataSource 数据源
          * @description item点击事件回调,参考List同名属性。
          *
-         * 注意:点击swipemenu的按钮区域不会触发这个事件
+         * 注意:点击swipemenu的按钮区域以及菜单展开时不会触发这个事件。
          */
         onItemTap: PropTypes.func,
+        /**
+         * @property itemTouchClass
+         * @type String/Function
+         * @default item-touch
+         * @param {Object} item 列表项对应的数据对象
+         * @param {Number} index 列表项在数据源中的index
+         * @description 列表项被点击时的className, 可以接收字符串或者函数，使用方式与itemExtraClass一致。
+         * @version 3.0.2
+         */
+        itemTouchClass: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
         /**
          * @property extraClass
          * @type String
@@ -108,6 +118,14 @@ export default class SwipeMenuList extends Component {
          * @description 给List容器dom添加的额外class
          */
         extraClass: PropTypes.string,
+        /**
+         * @property style
+         * @type Object
+         * @default null
+         * @description 给组件容器节点绑定的额外样式
+         * @version 3.0.2
+         */
+        style: PropTypes.object,
         /**
          * @property usePullRefresh
          * @type Bool
@@ -119,7 +137,7 @@ export default class SwipeMenuList extends Component {
          * 下拉刷新高度
          *
          * @property pullRefreshHeight
-         * @type PropTypes.number
+         * @type Number
          * @description 触发下拉刷新状态的高度（一般即为下拉刷新提示区域的高度）
          * @default 40
          */
@@ -128,9 +146,9 @@ export default class SwipeMenuList extends Component {
          * 下拉刷新渲染函数
          *
          * @property renderPullRefresh
-         * @type PropTypes.func
-         * @returns {JSX} 用来渲染 pullRefresh 的 JSX
-         * @description () => JSX
+         * @type Function
+         * @returns {Element} 用来渲染 pullRefresh 的 JSX
+         * @description
          *
          * 自定义的下拉刷新渲染函数
          */
@@ -154,7 +172,7 @@ export default class SwipeMenuList extends Component {
          * 加载更多高度
          *
          * @property loadMoreHeight
-         * @type PropTypes.number
+         * @type Number
          * @description 触发加载更多状态的高度（一般即为加载更多提示区域的高度）
          * @default 40
          */
@@ -164,9 +182,8 @@ export default class SwipeMenuList extends Component {
          *
          * @property renderLoadMore
          * @type Function
-         * @returns {JSX} 用来渲染 loadMore 的 JSX
-         * @description () => JSX
-         *
+         * @returns {Element} 用来渲染 loadMore 的 JSX
+         * @description
          * 自定义的加载更多渲染函数
          */
         renderLoadMore: PropTypes.func,
@@ -193,7 +210,38 @@ export default class SwipeMenuList extends Component {
          * @description 列表滚动时触发的回调
          */
         onScroll: PropTypes.func,
-        onInfiniteAppend: PropTypes.func
+        onInfiniteAppend: PropTypes.func,
+        /**
+         * @property onMenuOpen
+         * @type Function
+         * @default ()=>{}
+         * @param {Object} item 打开的菜单项对应的数据对象
+         * @param {Number} index 打开的菜单项在dataSource中的index
+         * @description 在某个菜单项打开的时候触发的回调函数。
+         * @version 3.0.2
+         */
+        onMenuOpen: PropTypes.func,
+        /**
+         * @property onMenuClose
+         * @type Function
+         * @default ()=>{}
+         * @param {Object} item 打开的菜单项对应的数据对象
+         * @param {Number} index 打开的菜单项在dataSource中的index
+         * @description 在某个菜单项关闭时触发的回调函数。
+         * @version 3.0.2
+         */
+        onMenuClose: PropTypes.func,
+        /**
+         * @property scrollWithoutTouchStart
+         * @type Bool
+         * @default false
+         * @description ** 实验中的属性 **
+         * 在默认情况下一次用户触发（非调用scrollTo方法）scroller的滚动需要由touchstart事件来启动，在某些情况下，例如scroller从disable状态切换到enable状态时，
+         * 可能不能接收到这一瞬间的touchstart事件，这可能导致用户期待的滚动过程没有发生。
+         * 开启这个属性为true以后将允许scroller用touchmove启动滚动过程，这可以解决上述场景的问题。
+         * @version 3.0.2
+         */
+        scrollWithoutTouchStart: PropTypes.bool
     };
 
     static defaultProps = {
@@ -211,7 +259,16 @@ export default class SwipeMenuList extends Component {
         useLoadMore: false,
         onLoad: noop,
         offsetY: 0,
-        onInfiniteAppend: noop
+        onInfiniteAppend: noop,
+        onMenuOpen() {
+        },
+        onMenuClose() {
+        },
+        scrollWithoutTouchStart: false
+    };
+
+    static childContextTypes = {
+        swipeMenuList: PropTypes.object
     };
 
     constructor(props) {
@@ -225,6 +282,10 @@ export default class SwipeMenuList extends Component {
             dataSource: this.ds,
             openIndex: this.openIndex
         };
+    }
+
+    getChildContext() {
+        return { swipeMenuList: this };
     }
 
     componentWillReceiveProps() {
@@ -252,6 +313,13 @@ export default class SwipeMenuList extends Component {
         // 此时this.cachedOpenIndex!==this.openIndex
         this.openIndex = index;
         this.setState({ openIndex: index });
+
+        const { onMenuOpen, onMenuClose } = this.props;
+        if (index !== -1) {
+            onMenuOpen(this.props.dataSource[index], index);
+        } else {
+            onMenuClose(this.props.dataSource[this.cachedOpenIndex], this.cachedOpenIndex);
+        }
     }
 
     /**
@@ -300,10 +368,7 @@ export default class SwipeMenuList extends Component {
             if (i !== this.openIndex) {
                 swipeMenu.close();
             }
-            // 等待关闭动画结束再enable其他的swipemenu
-            setTimeout(() => {
-                this.updateOpenIndex(-1);
-            }, 500);
+            this.updateOpenIndex(-1);
         }
     }
 
@@ -315,7 +380,7 @@ export default class SwipeMenuList extends Component {
                 {...this.props}
                 // 如果有菜单被打开,锁定滚动
                 disabled={this.openIndex !== -1}
-                directionLockThreshold={5}
+                directionLockThreshold={3}
                 ref={(list) => {
                     if (list) this.list = list;
                 }}
@@ -362,10 +427,9 @@ export default class SwipeMenuList extends Component {
                         </SwipeMenu>
                     );
                 }}
-                itemTouchClass={null}
                 onItemTap={(item, i, target) => {
                     // 只有在内容区域的点击才触发onItemTap
-                    if (target.className.search('front') !== -1) {
+                    if (target.className.search('front') !== -1 && this.openIndex === -1) {
                         this.props.onItemTap(item, i, target);
                     }
                 }}

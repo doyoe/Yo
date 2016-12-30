@@ -1,6 +1,6 @@
 {
   "name": "yo",
-  "version": "3.0.0",
+  "version": "3.0.2",
   "homepage": "https://github.com/doyoe/Yo",
   "authors": [
     "Joy Du"
@@ -15,26 +15,18 @@
   ],
   "license": "MIT",
   "ignore": [
+    "component_dev",
     "demo",
     "doc",
-    "component_dev",
     "node_modules",
-    "ydoc_theme",
+    ".eslintignore",
+    ".eslintrc.json",
     ".gitignore",
-    "as-before-use.md",
-    "bower.json",
-    "case.md",
-    "changelog.md",
-    "README.md",
+    ".npmignore",
     "shortcut.png",
-    "ydoc.config",
+    "ykit.hy.js",
     "yo.png",
-    "usage/element",
-    "usage/fragment",
-    "usage/layout",
-    "usage/module",
-    "usage/page/*.scss",
-    "usage/kami",
+    "style/page/*.scss",
     "style/export"
   ]
 }

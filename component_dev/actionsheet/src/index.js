@@ -6,10 +6,6 @@
  * - 类似浏览器原生API调用方式。
  * - 点击菜单选项后自动关闭组件。
  *
- *
- * #### 何时使用
- * 当需要从底部弹出额外操作菜单时。
- *
  * @instructions {instruInfo: ./actionSheet.md}{instruUrl: actionsheet.html?hideIcon}
  */
 import React, { Component } from 'react';

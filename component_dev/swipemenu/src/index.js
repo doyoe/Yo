@@ -8,10 +8,6 @@
  * - 组件拖动条可拖离足够远位置。
  * - 组件处于开启状态时，下次拖动不作响应，且组件会自动关闭，可通过轻点方式来关闭组件。
  *
- * #### 何时使用
- *
- * 当需要操作列表项时。
- *
  * @instructions {instruInfo: ./swipeMenu.md}{instruUrl: swipemenu.html?hideIcon}
  * @author qingguo.xu
  */
@@ -65,62 +61,62 @@ const propTypes = {
     /**
      * @property open
      * @description 默认组件是否打开
-     * @type PropTypes.bool
+     * @type Bool
      * @default false
      */
     open: PropTypes.bool,
     /**
      * @property direction
      * @description 组件可以拖动的方向
-     * @type PropTypes.oneOf(['left', 'right'])
+     * @type Enum {'left', 'right'}
      * @default left
      */
     direction: PropTypes.oneOf(['left', 'right']),
     /**
      * @property extraClass
      * @description 组件的额外样式类
-     * @type PropTypes.string
+     * @type String
      */
     extraClass: PropTypes.string,
     /**
      * @property disable
      * @description 组件是否不可用
-     * @type PropTypes.bool
+     * @type Bool
      * @default false
      */
     disable: PropTypes.bool,
     /**
      * @method onTouchStart
      * @description touchStart时期触发的回调
-     * @type PropTypes.func
+     * @type Function
      * @default () => {}
      */
     onTouchStart: PropTypes.func,
     /**
      * @method onTouchMove
      * @description touchMove时期触发的回调
-     * @type PropTypes.func
+     * @type Function
      * @default () => {}
      */
     onTouchMove: PropTypes.func,
     /**
      * @method onTouchEnd
      * @description touchEnd时期触发的回调
-     * @type PropTypes.func
+     * @type Function
      * @default () => {}
      */
     onTouchEnd: PropTypes.func,
     /**
      * @method onOpen
      * @description 组件打开时期触发的回调
-     * @type PropTypes.func
+     * @type Function
      * @default () => {}
      */
     onOpen: PropTypes.func,
     /**
      * @method onClose
      * @description 组件关闭时期触发的回调
-     * @type PropTypes.func
+     * @type Function
      * @default () => {}
      */
     onClose: PropTypes.func,
@@ -235,9 +231,9 @@ export default class SwipeMenu extends Component {
     }
 
     /**
-     * @method 组件打开，是否无过渡动画
-     * 返回给外部的回调函数， 为swipeMenuList特制，
-     * @param isClearTransition {Boolean} 默认false， 有过渡动画
+     * @method open
+     * @description 打开SwipeMenu，能够接收一个参数，表示是否有过渡动画效果。
+     * @param {Boolean} isClearTransition
      */
     open(isClearTransition = false) {
         this.isBack = true;
@@ -248,9 +244,9 @@ export default class SwipeMenu extends Component {
     }
 
     /**
-     * @method 组件关闭，无过渡动画
-     * 返回给外部的回调函数， 为swipeMenuList特制，
-     * @param isClearTransition {Boolean}
+     * @method close
+     * @description 关闭SwipeMenu，能够接收一个参数，表示是否有过渡动画效果。
+     * @param {Boolean} isClearTransition
      */
     close(isClearTransition = false) {
         this.isBack = false;
@@ -264,16 +260,17 @@ export default class SwipeMenu extends Component {
     render() {
         const { action, extraClass, disable, direction, onTouchStart, onTouchMove, onTouchEnd } = this.props;
         const actionClass = direction === 'left' ? '' : 'action-start';
-        const actionElement = isValidElement(action) ? action : action.map((item, i) => {
-            item.className = item.className || '';
-            return (
-                <span
-                    className={replaceRedundantSpaces(`item ${item.className}`)}
-                    key={i}
-                    onTouchTap={() => item.onTap(this)}
-                >{item.text}</span>
-            );
-        });
+        const actionElement = isValidElement(action) ?
+            action : action.map((item, i) => {
+                item.className = item.className || '';
+                return (
+                    <span
+                        className={replaceRedundantSpaces(`item ${item.className}`)}
+                        key={i}
+                        onTouchTap={() => item.onTap(this)}
+                    >{item.text}</span>
+                );
+            });
         return (
             <div className={replaceRedundantSpaces(`yo-swipemenu ${extraClass}`)}>
                 <div
@@ -313,9 +310,10 @@ export default class SwipeMenu extends Component {
                     {this.props.children}
                 </div>
                 <div
-                    className={replaceRedundantSpaces(`action ${actionClass}`)} ref={ref => {
-                    this.actBtn = ref;
-                }}
+                    className={replaceRedundantSpaces(`action ${actionClass}`)}
+                    ref={ref => {
+                        this.actBtn = ref;
+                    }}
                 >
                     {actionElement}
                 </div>

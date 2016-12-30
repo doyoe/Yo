@@ -1,0 +1,1629 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+  <meta name="description" content="description of your site">
+  <meta name="author" content="author of the site">
+  <title>Yo Documentation 组件</title>
+  <link rel="stylesheet" href="source/main.css"/>
+  
+    
+<link rel="stylesheet" href="./theme/ydoc.css"/>
+    
+  
+</head>
+<body class=component-SwipeMenuList >
+    <div class="ydoc">
+      <header class="ydoc-header">
+        <div class="ydoc-header-area">
+            
+            <a href="http://ued.qunar.com/ymfe/" class="navbar-brand">YMFE</a>
+            
+            <button class="ydocIcon navbar-toggle">&#xf020;</button>
+            <nav class="ydoc-nav">
+              <ul class="navbar-left">
+                
+                    
+                    <li class="">
+                        
+                        <a href="index.html">Yo</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="getting-started.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="core.html">核心</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="element.html">元件</a>
+                        
+                    </li>
+                    
+                    <li class="active">
+                        
+                        <a href="component.html">组件</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="animate.html">动画</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="http://ued.qunar.com/hy2/yo-router" target="_blank">Router</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="changelog.html">版本</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="http://ued.qunar.com/hy2/yo/demo/src/html/index.html" target="_blank">示例</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="https://github.com/doyoe/Yo" target="_blank">Github</a>
+                        
+                    </li>
+                    
+                
+              </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- <header style="height:20px"></header> -->
+    
+      <!-- Docs page layout -->
+      
+      <div class="ydoc-banner-bg">
+          <div class="ydoc-banner">
+              <div class="ydoc-banner-area">
+                  <h1>组件</h1>
+                  <p>组件的说明文档</p>
+              </div>
+          </div>
+      
+
+      <div class="ydoc-container">
+        
+          
+          <div class="ydoc-container-content">
+              <div class="content-left" role="complementary">
+                  <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
+                    <ul class="nav docs-sidenav">
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="component-Touchable.html">Touchable</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="component-LazyImage.html">LazyImage</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="component-Sticky.html">Sticky</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li   class="active" > -->
+                        <li >
+                            
+                            <a href="javascript:void(0);">滚动和列表</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        
+                        <ul class="nav docs-sidenav-extend"    style="display:block;" >
+                        
+                            <li >
+                                <a href="component-Scroller.html">Scroller</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-List.html">List</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Grouplist.html">Grouplist</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li  class="active" >
+                                <a href="component-SwipeMenuList.html">SwipeMenuList</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-MultiList.html">MultiList</a>
+                            </li>
+                        
+                        </ul>
+                        
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="javascript:void(0);">弹层</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        
+                        <ul class="nav docs-sidenav-extend"  >
+                        
+                            <li >
+                                <a href="component-Modal.html">Modal</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Dialog.html">Dialog</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Popup.html">Popup</a>
+                            </li>
+                        
+                        </ul>
+                        
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="javascript:void(0);">表单元素</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        
+                        <ul class="nav docs-sidenav-extend"  >
+                        
+                            <li >
+                                <a href="component-Picker.html">Picker</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-DateTimePicker.html">DateTimePicker</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Rating.html">Rating</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Switch.html">Switch</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-InputNumber.html">InputNumber</a>
+                            </li>
+                        
+                        </ul>
+                        
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="javascript:void(0);">其他</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        
+                        <ul class="nav docs-sidenav-extend"  >
+                        
+                            <li >
+                                <a href="component-Calendar.html">Calendar</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Carousel.html">Carousel</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Range.html">Range</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-SwipeMenu.html">SwipeMenu</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Suggest.html">Suggest</a>
+                            </li>
+                        
+                        </ul>
+                        
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="javascript:void(0);">API</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        
+                        <ul class="nav docs-sidenav-extend"  >
+                        
+                            <li >
+                                <a href="component-ActionSheet.html">ActionSheet</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Alert.html">Alert</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Confirm.html">Confirm</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Loading.html">Loading</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Toast.html">Toast</a>
+                            </li>
+                        
+                        
+                        
+                    </ul>
+                  </nav>
+              </div>
+              <div class="content-right markdown-body" role="main">
+
+                
+                <div class="docs-section">
+<h2>
+    SwipeMenuList
+    <small></small>
+    <span class="yo-badge yo-badge-danger">3.0.0</span>
+</h2>
+<div class="api-content"><p>SwipeMenuList组件,使用List实现,列表项全部为SwipeMenu。</p>
+<p>它的数据源和List组件的区别在于,对于每一个数据对象,你需要定义action属性来配置每个SwipeMenu的按钮。</p>
+<p>另外它以renderMenuContent属性代替了renderItem,这个新属性可以配置组件应该如何渲染SwipeMenu的内容区域。</p>
+</div>
+<!-- 使用说明begin -->
+
+<div class="con-list-item">
+    <div class="con-head">使用说明</div>
+  
+    <div class="instructions">
+        <div class="instructions-con">
+            
+            <div class="instructions-con-info">
+            <h4 id="-">基础使用</h4>
+<p><code>SwipeMenuList</code>是一个定制化的<code>List</code>, 和<code>List</code>的不同之处在于它的每一个列表项都是<code>SwipeMenu</code>, 因此它的<code>dataSource</code>和
+<code>List</code>稍有不同。实际上<code>dataSource</code>中的每一个元素都是一个<code>SwipeMenu</code>组件的配置项。它的格式如下:</p>
+<pre><code>{
+    // 配置菜单的按钮
+    action:[
+        {
+            text: string // 按钮文本,必须
+            onTap: function // 按钮的点击事件回调,接受参数item(这个配置对象的引用),index(配置对象在数据源的index)以及component(该对象对应的SwipeMenu组件的引用)
+            className: // 给按钮附加的额外类名
+        },
+        ...
+    ],
+    // List dataSource原有的属性
+    height: number // 组件高度(参考List组件的数据源中相应的属性),如果开启了infinite模式并且没有设置高度,则会使用不定高的无穷列表
+    text: string // SwipeMenu内容区文本,可选,如果不配置renderMenuContent,则会使用这个属性作为内容区的内容,
+    key: // 列表项的key
+}
+</code></pre><p><code>action</code>属性用来配置<code>SwipeMenu</code>按钮的表现和行为, 下面是一个具体的例子:</p>
+<pre><code>[
+    {
+        text: &#39;点我&#39;,
+        onTap(item, i, swipeMenu){
+            ToolTip.show(item.text, 1000);
+            swipeMenu.close();
+        }
+    },
+    {
+        text: &#39;删除&#39;,
+        onTap(item, i, swipeMenu){
+            self.deleteItem(item);
+        }
+    }
+]
+</code></pre><p>需要注意的是, 每个按钮的<code>onTap</code>回调可以接收到三个参数, 这与<code>SwipeMenu</code>不同。前两个参数<code>item</code>和<code>i</code>是列表项的数据对象和index, 第三个参数
+是当前列表项对应的<code>SwipeMenu</code>的组件实例的引用。实例里通过这个实例的引用调用了<code>SwipeMenu</code>的<code>close</code>方法, 这样就可以在点击按钮以后关闭这个列表项。</p>
+<p>另外, <code>renderItem</code>属性被<code>renderMenuContent</code>取代, 你能指定的渲染区域只有<code>SwipeMenu</code>的内容区域。它使用的方式与<code>renderItem</code>完全一致。</p>
+<p><code>SwipeMenuList</code>继承了<code>List</code>的所有特性, 无穷模式(指定高度和不指定高度), 加载更多和下拉刷新都可以使用。可以参考<code>List</code>的文档。</p>
+<h4 id="-">监听菜单项的打开/关闭</h4>
+<p><code>SwipeMenuList</code> 提供了两个事件回调函数 <code>onMenuOpen</code>和<code>onMenuClose</code> 来监听菜单项打开状态的变化，这在某些场景下会有用
+（可以观察一下iOS的信息功能，在短信上左划整个页面会发生什么变化）。参考下面的代码：</p>
+<pre><code>&lt;SwipeMenuList
+    dataSource={this.state.dataSource}
+    infinite={true}
+    infiniteSize={30}
+    onMenuOpen={(item, index) =&gt; {
+        // 参数可以取到当前打开的菜单项的数据和index
+        console.log(&#39;open&#39;, item, index);
+    }}
+    onMenuClose={(item,index) =&gt; {
+        // 同上
+        console.log(&#39;close&#39;, item, index);
+    }}
+/&gt;
+</code></pre><h4 id="-">一个完整的例子</h4>
+<p>下面的代码就是右侧Demo的源码, 这个Demo实现了常见的删除列表项的功能:</p>
+<pre><code>class SwipeMenuListDemo extends Component {
+
+    static guid = -1;
+
+    append(origDs = this.state.dataSource) {
+        this.setState({
+            dataSource: origDs.concat(this.renderDataSource(getRandomDataSource(20)))
+        });
+    }
+
+    refresh() {
+        this.setState({ dataSource: this.renderDataSource(getRandomDataSource(20)) })
+    }
+
+    deleteItem(item) {
+        const newDataSource = this.state.dataSource.filter((it, index)=&gt;it.key !== item.key);
+
+        if (newDataSource.length &lt; this.page * 20) {
+            this.append(newDataSource);
+        }
+        else {
+            this.setState({
+                dataSource: newDataSource
+            });
+        }
+    }
+
+    renderDataSource(ds) {
+        const self = this;
+        return ds.map((item, i)=&gt; {
+            return {
+                ...item,
+                key: ++SwipeMenuListDemo.guid,
+                action: [
+                    {
+                        text: &#39;点我&#39;,
+                        onTap(item, i, swipeMenu){
+                            ToolTip.show(item.text, 1000);
+                            swipeMenu.close();
+                        }
+                    },
+                    {
+                        text: &#39;删除&#39;,
+                        onTap(item, i, swipeMenu){
+                            self.deleteItem(item);
+                        }
+                    }
+                ]
+            };
+        });
+    }
+
+    constructor() {
+        super();
+        const self = this;
+        const testData = this.renderDataSource(getRandomDataSource(20));
+        this.page = 1;
+        this.state = {
+            dataSource: testData
+        };
+    }
+
+    render() {
+        return (
+            &lt;Page title=&quot;SwipeMenuList Demo&quot; onLeftPress={()=&gt;location.href = &#39;../index/index.html&#39;}&gt;
+                &lt;SwipeMenuList
+                    offsetY={-100}
+                    ref=&quot;swipemenulist&quot;
+                    dataSource={this.state.dataSource}
+                    infinite={true}
+                    infiniteSize={15}
+                    renderMenuContent={(item, i)=&gt;(
+                        &lt;div style={{ height: 60 }}&gt;
+                            {&#39;第&#39; + i + &#39;个item:&#39; + item.text}
+                        &lt;/div&gt;
+                    )}
+                    usePullRefresh={true}
+                    onRefresh={()=&gt; {
+                        setTimeout(()=&gt; {
+                            this.refresh();
+                            this.refs.swipemenulist.stopRefreshing(true);
+                        }, 500);
+                    }}
+                    useLoadMore={true}
+                    onLoad={()=&gt; {
+                        setTimeout(()=&gt; {
+                            this.append();
+                            ++this.page;
+                            this.refs.swipemenulist.stopLoading(true);
+                        }, 500);
+                    }}
+                /&gt;
+            &lt;/Page&gt;
+        );
+    }
+}
+</code></pre>
+            </div>
+            
+            
+            <div class="instructions-con-runner">
+                <iframe class="instructions-iframe" src="demo/src/html/component/swipemenulist.html?hideIcon"></iframe>
+            </div>
+            
+        </div>
+    </div>
+ 
+</div>
+
+<!-- 使用说明end -->
+<div class="con-list-item">
+
+<div class="con-head">属性</div>
+
+<blockquote class="api">
+    <h3>
+    <strong>dataSource</strong>
+     <span class="prop-type">{ Array }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>组件数据源,数组类型,里面的元素对应着一个SwipeMenu的配置对象,需要符合如下格式:</p>
+<ul>
+<li><pre><code>{
+// 配置菜单的按钮
+action:[
+  {
+    content: string // 按钮文本,必须
+    tap: function // 按钮的点击事件回调,接受参数item(这个配置对象的引用),index(配置对象在数据源的index)以及component(该对象对应的SwipeMenu组件的引用)
+    className: ddd
+  },
+  ...
+],
+height:number // 组件高度(参考List组件的数据源中相应的属性),如果开启了infinite模式并且没有设置高度,则会使用不定高的无穷列表
+text:string // SwipeMenu内容区文本,可选,如果不配置renderMenuContent,则会使用这个属性作为内容区的内容
+}
+</code></pre></li>
+</ul>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> null
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>renderMenuContent</strong>
+     <span class="prop-type">{ Function }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>渲染列表项的函数,接受参数item(该项对应的数据源中的配置对象),index(配置对象在数据源中的index),返回JSX或者string
+作为SwipeMenu的内容</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> null
+</p>
+
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <!-- <col class="c4"> -->
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <!-- <th>必选</th> -->
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>item</td>
+            <td>Object</td>
+            <td>列表项对应的数据对象</td>
+            <!-- <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td> -->
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>index</td>
+            <td>Number</td>
+            <td>列表项在数据源中的index</td>
+            <!-- <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td> -->
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>infinite</strong>
+     <span class="prop-type">{ Bool }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>是否开启无穷列表模式,参考List同名属性</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> false
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>infiniteSize</strong>
+     <span class="prop-type">{ Bool }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>无穷列表模式中,设置保留在容器中的列表项数量,参考List同名属性</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> 20
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>itemHeight</strong>
+     <span class="prop-type">{ Number }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>列表项高度,参考List同名属性</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> null
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>itemExtraClass</strong>
+     <span class="prop-type">{ Function }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>列表项class,可以传入函数/字符串,参考List同名属性</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> "item swipemenu-list-item"
+</p>
+
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <!-- <col class="c4"> -->
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <!-- <th>必选</th> -->
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>item</td>
+            <td>Object</td>
+            <td>列表项对应的数据对象</td>
+            <!-- <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td> -->
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>index</td>
+            <td>Number</td>
+            <td>列表项在数据源中的偏移</td>
+            <!-- <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td> -->
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>onItemTap</strong>
+     <span class="prop-type">{ Function }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>item点击事件回调,参考List同名属性。</p>
+<p>注意:点击swipemenu的按钮区域以及菜单展开时不会触发这个事件。</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> null
+</p>
+
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <!-- <col class="c4"> -->
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <!-- <th>必选</th> -->
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>item</td>
+            <td>Object</td>
+            <td>列表项对应的数据对象</td>
+            <!-- <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td> -->
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>index</td>
+            <td>Number</td>
+            <td>列表项在数据源中的偏移</td>
+            <!-- <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td> -->
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>dataSource</td>
+            <td>Array</td>
+            <td>数据源</td>
+            <!-- <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td> -->
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>itemTouchClass</strong>
+     <span class="prop-type">{ String/Function }</span>
+    
+    <span class="yo-badge yo-badge-danger">3.0.2</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>列表项被点击时的className, 可以接收字符串或者函数，使用方式与itemExtraClass一致。</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> item-touch
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>extraClass</strong>
+     <span class="prop-type">{ String }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>给List容器dom添加的额外class</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> null
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>style</strong>
+     <span class="prop-type">{ Object }</span>
+    
+    <span class="yo-badge yo-badge-danger">3.0.2</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>给组件容器节点绑定的额外样式</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> null
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>usePullRefresh</strong>
+     <span class="prop-type">{ Bool }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>是否开启下拉刷新</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> false
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>pullRefreshHeight</strong>
+     <span class="prop-type">{ Number }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>触发下拉刷新状态的高度（一般即为下拉刷新提示区域的高度）</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> 40
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>renderPullRefresh</strong>
+     <span class="prop-type">{ Function }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>自定义的下拉刷新渲染函数</p>
+</div>
+    
+</div>
+
+
+
+<p class="api-content">
+    <small class="text-muted">返回值:</small>
+    <mark>Element</mark>
+    用来渲染
+</p>
+
+
+<blockquote class="api">
+    <h3>
+    <strong>onRefresh</strong>
+     <span class="prop-type">{ Function }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>下拉刷新完成回调</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> null
+</p>
+
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <!-- <col class="c4"> -->
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <!-- <th>必选</th> -->
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>dataSource</td>
+            <td>Array</td>
+            <td>列表数据源</td>
+            <!-- <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td> -->
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>useLoadMore</strong>
+     <span class="prop-type">{ Bool }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>是否开启加载更多</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> false
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>loadMoreHeight</strong>
+     <span class="prop-type">{ Number }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>触发加载更多状态的高度（一般即为加载更多提示区域的高度）</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> 40
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>renderLoadMore</strong>
+     <span class="prop-type">{ Function }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>自定义的加载更多渲染函数</p>
+</div>
+    
+</div>
+
+
+
+<p class="api-content">
+    <small class="text-muted">返回值:</small>
+    <mark>Element</mark>
+    用来渲染
+</p>
+
+
+<blockquote class="api">
+    <h3>
+    <strong>onLoad</strong>
+     <span class="prop-type">{ Function }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>加载更多回调</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> null
+</p>
+
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <!-- <col class="c4"> -->
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <!-- <th>必选</th> -->
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>dataSource</td>
+            <td>Array</td>
+            <td>列表数据源</td>
+            <!-- <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td> -->
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>offsetY</strong>
+     <span class="prop-type">{ Number }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>列表初始Y轴偏移</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> 0
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>onScroll</strong>
+     <span class="prop-type">{ Function }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>列表滚动时触发的回调</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> null
+</p>
+
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <!-- <col class="c4"> -->
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <!-- <th>必选</th> -->
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>offsetY</td>
+            <td>Number</td>
+            <td>y坐标</td>
+            <!-- <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td> -->
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>onMenuOpen</strong>
+     <span class="prop-type">{ Function }</span>
+    
+    <span class="yo-badge yo-badge-danger">3.0.2</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>在某个菜单项打开的时候触发的回调函数。</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> ()=>{}
+</p>
+
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <!-- <col class="c4"> -->
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <!-- <th>必选</th> -->
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>item</td>
+            <td>Object</td>
+            <td>打开的菜单项对应的数据对象</td>
+            <!-- <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td> -->
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>index</td>
+            <td>Number</td>
+            <td>打开的菜单项在dataSource中的index</td>
+            <!-- <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td> -->
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>onMenuClose</strong>
+     <span class="prop-type">{ Function }</span>
+    
+    <span class="yo-badge yo-badge-danger">3.0.2</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>在某个菜单项关闭时触发的回调函数。</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> ()=>{}
+</p>
+
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <!-- <col class="c4"> -->
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <!-- <th>必选</th> -->
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>item</td>
+            <td>Object</td>
+            <td>打开的菜单项对应的数据对象</td>
+            <!-- <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td> -->
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>index</td>
+            <td>Number</td>
+            <td>打开的菜单项在dataSource中的index</td>
+            <!-- <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td> -->
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>scrollWithoutTouchStart</strong>
+     <span class="prop-type">{ Bool }</span>
+    
+    <span class="yo-badge yo-badge-danger">3.0.2</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p><strong> 实验中的属性 </strong>
+在默认情况下一次用户触发（非调用scrollTo方法）scroller的滚动需要由touchstart事件来启动，在某些情况下，例如scroller从disable状态切换到enable状态时，
+可能不能接收到这一瞬间的touchstart事件，这可能导致用户期待的滚动过程没有发生。
+开启这个属性为true以后将允许scroller用touchmove启动滚动过程，这可以解决上述场景的问题。</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> false
+</p>
+
+
+
+
+
+
+<div class="con-head">方法</div>
+
+<blockquote class="api">
+    <h3>
+    <strong>scrollTo</strong>
+    
+    </h3>
+</blockquote>
+<div class="api-content"><p>滚动到某个位置</p>
+</div>
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <col class="c4">
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <th>必选</th>
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>y</td>
+            <td>Number</td>
+            <td>y坐标</td>
+            <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>time</td>
+            <td>Number</td>
+            <td>动画持续时间</td>
+            <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td>
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>stopRefreshing</strong>
+    
+    </h3>
+</blockquote>
+<div class="api-content"><p>停止下拉刷新</p>
+</div>
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <col class="c4">
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <th>必选</th>
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>success</td>
+            <td>Bool</td>
+            <td>刷新成功/刷新失败</td>
+            <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td>
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>startRefreshing</strong>
+    
+    </h3>
+</blockquote>
+<div class="api-content"><p>模拟下拉刷新</p>
+</div>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>stopLoading</strong>
+    
+    </h3>
+</blockquote>
+<div class="api-content"><p>停止加载更多</p>
+</div>
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <col class="c4">
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <th>必选</th>
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>success</td>
+            <td>Bool</td>
+            <td>加载成功/加载失败</td>
+            <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td>
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
+
+
+
+
+
+
+
+</div>
+</div>
+
+              </div>
+          </div>
+          
+        
+      </div>
+     
+     </div>
+     
+      <footer class="footer">
+        <div class="copyright">
+            &copy; 2016 <a href="https://github.com/YMFE">YMFE</a> Team. Build by <a href="https://github.com/YMFE/ydoc">ydoc</a>.
+        </div>
+      </footer>
+    </div>
+    <div class="open-panel">=</div>
+    <script src="source/main.js"></script>
+    <script src="source/app.js"></script>
+    
+    
+
+    
+
+    
+      
+      <script type="text/javascript" src="./theme/ydoc.js"></script>
+      
+    
+
+</body>
+</html>

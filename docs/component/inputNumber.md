@@ -1,5 +1,6 @@
 #### 基本用法
-最简单用法。由于这是一个 `受控的` 组件，所以需要通过 `onChange` 回调来设置当前值。
+和原生的表单组件（例如`input`和`select`）一样，
+你需要同时配置 `value`和`onChange`来驱动组件的更新：
 
 ```javascript
 <InputNumber
@@ -9,7 +10,7 @@
 ```
 
 #### 小数
-通过`decimalNum`属性，配置组件显示数字的小数位数，默认为0，即不支持小数。
+通过`decimalNum`属性，配置组件显示数字的小数位数，默认为`0`。
 
 ```javascript
 <InputNumber
@@ -48,7 +49,7 @@
 
 #### 输入框不可用
 
-通过`inputDisable`属性，设置组件的输入框不可用，只能通过加减按钮改变组件数值。
+设置`inputDisable`属性为`true`可以让组件的输入框不可用，这时只能通过加减按钮改变组件数值。
 
 ```javascript
 <InputNumber
@@ -63,7 +64,7 @@
 ```
 
 #### 不可用
-通过`disable`属性，设置组件不可用。只是简单的数值显示，不能修改数值。
+设置`disable`属性为`true`后，整个组件都会处于不可用状态。此时组件只能展示数值而不能修改。
 
 ```javascript
 <InputNumber

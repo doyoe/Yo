@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+  <meta name="description" content="description of your site">
+  <meta name="author" content="author of the site">
+  <title>Yo Documentation 起步</title>
+  <link rel="stylesheet" href="source/main.css"/>
+  
+    
+<link rel="stylesheet" href="./theme/ydoc.css"/>
+    
+  
+</head>
+<body class=getting-started-附录三：关于 lib.js >
+    <div class="ydoc">
+      <header class="ydoc-header">
+        <div class="ydoc-header-area">
+            
+            <a href="http://ued.qunar.com/ymfe/" class="navbar-brand">YMFE</a>
+            
+            <button class="ydocIcon navbar-toggle">&#xf020;</button>
+            <nav class="ydoc-nav">
+              <ul class="navbar-left">
+                
+                    
+                    <li class="">
+                        
+                        <a href="index.html">Yo</a>
+                        
+                    </li>
+                    
+                    <li class="active">
+                        
+                        <a href="getting-started.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="core.html">核心</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="element.html">元件</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="component.html">组件</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="animate.html">动画</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="http://ued.qunar.com/hy2/yo-router" target="_blank">Router</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="changelog.html">版本</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="http://ued.qunar.com/hy2/yo/demo/src/html/index.html" target="_blank">示例</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="https://github.com/doyoe/Yo" target="_blank">Github</a>
+                        
+                    </li>
+                    
+                
+              </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- <header style="height:20px"></header> -->
+    
+      <!-- Docs page layout -->
+      
+      <div class="ydoc-banner-bg">
+          <div class="ydoc-banner">
+              <div class="ydoc-banner-area">
+                  <h1>起步</h1>
+                  <p>本文详细描述 Yo 的使用方式，花上几分钟，下述的介绍将会帮助你快速的上手，并让自己沉浸在使用 Yo 的开发之中，感受到乐趣</p>
+              </div>
+          </div>
+      
+
+      <div class="ydoc-container">
+        
+          
+          <div class="ydoc-container-content">
+              <div class="content-left" role="complementary">
+                  <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
+                    <ul class="nav docs-sidenav">
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="start.html">起步</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="start-diy.html">附录一：在已有项目中使用</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="start-chunk.html">附录二：关于 chunk 模式</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  class="active"   class="active" > -->
+                        <li  class="active" >
+                            
+                            <a href="start-lib.html">附录三：关于 lib.js</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="start-npm.html">附录四：关于 npm 低版本</a>
+                            
+                        </li>
+                        
+                        
+                    </ul>
+                  </nav>
+              </div>
+              <div class="content-right markdown-body" role="main">
+
+                
+                <h2 id="动态链接库">动态链接库</h2><h3 id="基本使用">基本使用</h3><p>由于 <code>Yo</code> 依赖的 <code>React</code> 和周边组件的模块(<code>React</code>, <code>ReactDOM</code>, <code>Yo-Router</code>, <code>Babel-Polyfill</code>, <code>lodash</code> 等等)数量达到了548个之多（取当前版本，可能以后有出入）
+，使用 <code>webpack</code> 编译的性能很差，我们采用了 <code>webpack</code> 的 <code>DLLPlugin</code> 作为提升开发时编译性能的手段。</p>
+<p>使用这个插件以后会将以上的五个库打包成一个 <code>lib.js</code> 文件，在编译时会直接跳过这些模块，这能够将编译速度提升几倍甚至十几倍。除此之外，相比于之前将所有页面的代码打包到一个文件中的做法，这样也能更有效地利用浏览器缓存从而大幅提升页面的加载速度，以及减少流量消耗。</p>
+<p>使用脚手架工具 <code>ykit-config-yo</code> 生成的项目模板里面已经有一份构建好的 <code>lib.js</code>，你需要做的是在你的页面中添加引用 <code>lib.js</code> 的 <code>&lt;script&gt;</code> 标签，如下:</p>
+<pre><code>&lt;!-- common lib包 --&gt;
+&lt;script src=&quot;[项目路径]/prd/lib@VERSION.js&quot;&gt;&lt;/script&gt;
+&lt;!-- 业务代码 --&gt;
+&lt;script src=&quot;[项目路径]/prd/page/pageA/index@VERSION.js&quot;&gt;&lt;/script&gt;
+</code></pre><p>你还可以调用<code>ykit dll</code>命令来手动生成 <code>lib.js</code>，在以上四个依赖的版本发生变化时，你可能需要手动重新生成它。</p>
+<p>在构建和发布时，脚本会自动生成压缩后的 <code>lib.js</code> 和版本号。</p>
+<h3 id="修改 lib.js 中的内容">修改 lib.js 中的内容</h3><p>DLLPlugin的配置中内置了五个依赖：<code>React</code>, <code>ReactDOM</code>, <code>Babel-Polyfill</code>，<code>Yo-Router</code>和<code>lodash</code>。如果你的业务中还依赖了其他的公共模块，可以通过配置<code>ykit.yo.js</code>
+中的 <code>modifyWebpackConfig</code> 属性来修改 <code>lib.js</code> 中的内容：</p>
+<pre><code>...
+modifyWebpackConfig: function (config) {
+    config.getVendor = function (vendor) {
+        return vendor.concat(&#39;a-custom-module&#39;);
+    };
+});
+...
+</code></pre><p>getVendor函数可以接收一个数组参数 <code>vendor</code>，里面是 <code>lib.js</code> 中内置的四个依赖，它返回的新数组将会覆盖掉原有的配置。</p>
+<p>dll也可以支持内置非 <code>node_modules</code> 的模块，你需要填写一个相对于 <code>./src</code> 目录的路径：</p>
+<pre><code>config.getVendor = function (vendors) {
+    return vendors.concat([
+        &#39;immutable&#39;,
+        &#39;keymirror&#39;,
+        &#39;isomorphic-fetch&#39;,
+        &#39;flux&#39;,
+        &#39;@qnpm/hysdk&#39;,
+        &#39;@qnpm/hysdk-qunar&#39;,
+        // 业务模块
+        &#39;./page/car/model/modelMap.js&#39;
+    ]);
+};
+</code></pre><p>在修改 <code>vendor</code> 的配置后，你需要重新运行一次<code>ykit dll</code>命令并重启server。</p>
+<h3 id="关闭动态链接库">关闭动态链接库</h3><p>如果你不希望使用DLL，可以设置 <code>getVendor</code> 返回一个空数组：</p>
+<pre><code>config.getVendor = function() {
+    return [];
+}
+</code></pre><p>然后你需要重新调用<code>ykit dll</code>并重启server。</p>
+<p>这时lib.js里面不会有内容，所有的代码都会被打包到export的js中，这也意味着页面里的 <code>lib.js</code> 引用也可以删掉了。</p>
+<p><strong> 关闭以后记得手动在export中加入babel-polyfill的依赖！ </strong></p>
+
+              </div>
+          </div>
+          
+        
+      </div>
+     
+     </div>
+     
+      <footer class="footer">
+        <div class="copyright">
+            &copy; 2016 <a href="https://github.com/YMFE">YMFE</a> Team. Build by <a href="https://github.com/YMFE/ydoc">ydoc</a>.
+        </div>
+      </footer>
+    </div>
+    <div class="open-panel">=</div>
+    <script src="source/main.js"></script>
+    <script src="source/app.js"></script>
+    
+    
+
+    
+
+    
+      
+      <script type="text/javascript" src="./theme/ydoc.js"></script>
+      
+    
+
+</body>
+</html>

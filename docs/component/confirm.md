@@ -16,7 +16,7 @@ Confirm('the confirm text', 'Confirm');
 #### 绑定回调函数
 
 通过返回的`Promise`实例对象的`then`方法分别绑定确认、取消按钮的回调函数。
-如果res为true，说明点击的是确定按钮，反之为取消按钮。
+如果res的值为true，说明点击的是确定按钮，反之为取消按钮。
 
 ```JavaScript
 Confirm('the confirm text').then(

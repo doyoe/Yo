@@ -2,17 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ListView from '../src';
 import testData from './testdata';
-import '../../common/tapEventPluginInit'
+import '../../common/tapEventPluginInit';
+import Touchable from '../../touchable/src';
+import './demo.scss';
 
-var guid = -1;
+let guid = -1;
 function getImage(url) {
-    return "http://himg1.qunarzz.com/imgs/" + url + "a818.jpg";
+    return `http://himg1.qunarzz.com/imgs/${url}a818.jpg`;
 }
 
-let dataSource = [];
+const dataSource = [];
 
-for (let i = 0; i < 10; i++) {
-    let item = testData.data.commentList[parseInt(Math.random() * 50)];
+for (let i = 0; i < 1000; i++) {
+    const item = testData.data.commentList[parseInt(Math.random() * 50, 10)];
     dataSource.push({
         nickname: item.nickName,
         avatar: getImage(item.imgUrl),
@@ -32,25 +34,48 @@ class DemoItem extends React.Component {
                     src={this.props.item.avatar}
                 />
                 <span>{this.props.item.guid}</span>
-                <div className="comment-wrap">
-                    <h2 className="comment-title ellipsis">如此美景，难怪志明要带春娇来这里</h2>
-                    <p className="comment-detail ellipsis">北京长城脚下的公社</p>
+                <Touchable
+                    touchClass="green"
+                    onTap={() => {
+                        console.log('taped');
+                    }}
+                >
+                    <div className="comment-wrap">
+                        <Touchable
+                            touchClass="yellow"
+                            onTap={() => {
+                                console.log('tap inner');
+                            }}
+                        >
+                            <h2 className="comment-title ellipsis">如此美景，难怪志明要带春娇来这里</h2>
+                        </Touchable>
+                        <p className="comment-detail ellipsis">北京长城脚下的公社</p>
 
-                    <div className="tags ellipsis">
-                        度假&nbsp;/&nbsp;亲子&nbsp;/&nbsp;浪漫&nbsp;/&nbsp;美景&nbsp;/&nbsp;格调
+                        <div className="tags ellipsis">
+                            度假&nbsp;/&nbsp;亲子&nbsp;/&nbsp;浪漫&nbsp;/&nbsp;美景&nbsp;/&nbsp;格调
+                        </div>
                     </div>
-                </div>
+                </Touchable>
             </a>
         );
     }
 }
 
 class ListViewDemo extends React.Component {
-    mutateDataSource(item, i, target) {
-        console.log(item, i, target);
-        const ds = this.state.dataSource.map((it, i) => {
-            if (it.key === item.key) {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            dataSource,
+            infiniteSize: 10,
+            infinite: true,
+            disabled: true
+        };
+    }
+
+    mutateDataSource(item) {
+        const ds = this.state.dataSource.map((it) => {
+            if (it.key === item.key) {
                 return {
                     ...it,
                     imageHeight: it.imageHeight + 20,
@@ -68,31 +93,20 @@ class ListViewDemo extends React.Component {
         });
     }
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            dataSource: dataSource,
-            infiniteSize: 10,
-            infinite: true
-        };
-    }
-
     render() {
         return (
-            <div style={{ height: "100%" }}>
-                <div style={{ position: 'absolute', top: 0, bottom: 0, width: "100%" }}>
+            <div style={{ height: '100%' }}>
+                <div style={{ position: 'absolute', top: 0, bottom: 0, width: '100%' }}>
                     <ListView
+                        extraClass="yo-list-demo"
                         ref="list"
                         usePullRefresh={true}
                         onRefresh={(ds) => console.log(ds)}
                         dataSource={this.state.dataSource}
-                        renderItem={(item, i) => <DemoItem item={item}/>}
+                        renderItem={(item) => <DemoItem item={item}/>}
                         itemTouchClass="item-touch"
                         infinite={true}
                         onItemTap={(item, index, target) => this.mutateDataSource(item, index, target)}
-                        //给item添加额外样式
-                        //可以是字符串,会被应用到所有item上
-                        //也可以是函数
                         itemExtraClass={(item, index) => ['item', index].join(' ')}
                     />
                 </div>

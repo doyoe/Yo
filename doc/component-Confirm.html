@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+  <meta name="description" content="description of your site">
+  <meta name="author" content="author of the site">
+  <title>Yo Documentation 组件</title>
+  <link rel="stylesheet" href="source/main.css"/>
+  
+    
+<link rel="stylesheet" href="./theme/ydoc.css"/>
+    
+  
+</head>
+<body class=component-Confirm >
+    <div class="ydoc">
+      <header class="ydoc-header">
+        <div class="ydoc-header-area">
+            
+            <a href="http://ued.qunar.com/ymfe/" class="navbar-brand">YMFE</a>
+            
+            <button class="ydocIcon navbar-toggle">&#xf020;</button>
+            <nav class="ydoc-nav">
+              <ul class="navbar-left">
+                
+                    
+                    <li class="">
+                        
+                        <a href="index.html">Yo</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="getting-started.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="core.html">核心</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="element.html">元件</a>
+                        
+                    </li>
+                    
+                    <li class="active">
+                        
+                        <a href="component.html">组件</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="animate.html">动画</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="http://ued.qunar.com/hy2/yo-router" target="_blank">Router</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="changelog.html">版本</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="http://ued.qunar.com/hy2/yo/demo/src/html/index.html" target="_blank">示例</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="https://github.com/doyoe/Yo" target="_blank">Github</a>
+                        
+                    </li>
+                    
+                
+              </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- <header style="height:20px"></header> -->
+    
+      <!-- Docs page layout -->
+      
+      <div class="ydoc-banner-bg">
+          <div class="ydoc-banner">
+              <div class="ydoc-banner-area">
+                  <h1>组件</h1>
+                  <p>组件的说明文档</p>
+              </div>
+          </div>
+      
+
+      <div class="ydoc-container">
+        
+          
+          <div class="ydoc-container-content">
+              <div class="content-left" role="complementary">
+                  <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
+                    <ul class="nav docs-sidenav">
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="component-Touchable.html">Touchable</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="component-LazyImage.html">LazyImage</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="component-Sticky.html">Sticky</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="javascript:void(0);">滚动和列表</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        
+                        <ul class="nav docs-sidenav-extend"  >
+                        
+                            <li >
+                                <a href="component-Scroller.html">Scroller</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-List.html">List</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Grouplist.html">Grouplist</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-SwipeMenuList.html">SwipeMenuList</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-MultiList.html">MultiList</a>
+                            </li>
+                        
+                        </ul>
+                        
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="javascript:void(0);">弹层</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        
+                        <ul class="nav docs-sidenav-extend"  >
+                        
+                            <li >
+                                <a href="component-Modal.html">Modal</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Dialog.html">Dialog</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Popup.html">Popup</a>
+                            </li>
+                        
+                        </ul>
+                        
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="javascript:void(0);">表单元素</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        
+                        <ul class="nav docs-sidenav-extend"  >
+                        
+                            <li >
+                                <a href="component-Picker.html">Picker</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-DateTimePicker.html">DateTimePicker</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Rating.html">Rating</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Switch.html">Switch</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-InputNumber.html">InputNumber</a>
+                            </li>
+                        
+                        </ul>
+                        
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="javascript:void(0);">其他</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        
+                        <ul class="nav docs-sidenav-extend"  >
+                        
+                            <li >
+                                <a href="component-Calendar.html">Calendar</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Carousel.html">Carousel</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Range.html">Range</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-SwipeMenu.html">SwipeMenu</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Suggest.html">Suggest</a>
+                            </li>
+                        
+                        </ul>
+                        
+                        
+                        
+                        
+                        <!-- <li   class="active" > -->
+                        <li >
+                            
+                            <a href="javascript:void(0);">API</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        
+                        <ul class="nav docs-sidenav-extend"    style="display:block;" >
+                        
+                            <li >
+                                <a href="component-ActionSheet.html">ActionSheet</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Alert.html">Alert</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li  class="active" >
+                                <a href="component-Confirm.html">Confirm</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Loading.html">Loading</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Toast.html">Toast</a>
+                            </li>
+                        
+                        
+                        
+                    </ul>
+                  </nav>
+              </div>
+              <div class="content-right markdown-body" role="main">
+
+                
+                <div class="docs-section">
+<h2>
+    Confirm
+    <small></small>
+    <span class="yo-badge yo-badge-danger">3.0.0</span>
+</h2>
+<div class="api-content"><p>确认弹框组件，居中显示需要关注的对话弹框组件，基于Dialog组件实现。</p>
+<ul>
+<li>类似浏览器原生API调用形式。</li>
+<li>自定义组件显隐过程动画。</li>
+<li>返回一个Promise实例对象，可通过Then方法分别绑定确认、取消回调函数。</li>
+</ul>
+</div>
+<!-- 使用说明begin -->
+
+<div class="con-list-item">
+    <div class="con-head">使用说明</div>
+  
+    <div class="instructions">
+        <div class="instructions-con">
+            
+            <div class="instructions-con-info">
+            <h4 id="-">基本用法</h4>
+<p>最简单的用法，传入需要显示的内容参数。用于简单的弹出确认框。</p>
+<pre><code class="lang-JavaScript">Confirm(&#39;the confirm text&#39;);
+</code></pre>
+<h4 id="-">含有标题</h4>
+<p>通过第二个参数传入组件显示的标题，默认不显示标题。。</p>
+<pre><code class="lang-JavaScript">Confirm(&#39;the confirm text&#39;, &#39;Confirm&#39;);
+</code></pre>
+<h4 id="-">绑定回调函数</h4>
+<p>通过返回的<code>Promise</code>实例对象的<code>then</code>方法分别绑定确认、取消按钮的回调函数。
+如果res的值为true，说明点击的是确定按钮，反之为取消按钮。</p>
+<pre><code class="lang-JavaScript">Confirm(&#39;the confirm text&#39;).then(
+    res =&gt; console.log(`resolve ${res}`)
+);
+</code></pre>
+<h4 id="-">定义按钮文本</h4>
+<p>Confirm可以接受一个参数对象option，除了上面的content和title外，还可以定义一些更高级的属性值，例如改变两个按钮的文本：</p>
+<pre><code>Confirm({
+    content:&#39;the confirm text&#39;,
+    title:&#39;title&#39;,
+    btnText:[&#39;ok&#39;,&#39;cancel&#39;]
+});
+</code></pre><h4 id="-">设置动画</h4>
+<p>通过给option对象传入<code>animation</code>参数和CSS3动画设置组件显隐过程的动态效果，配置动画对象中的<code>animation</code>属性是一个数组，分别对应组件显、隐过程执行的动画效果，<code>duration</code>属性设置动画执行时间。
+也可以传入组件内部支持的动画名字符串<code>fade</code>、<code>fade-in-up</code>、<code>fade-in-down</code>、<code>zoom</code>。默认没有动画。</p>
+<pre><code class="lang-JavaScript">const animation = {animation: [&#39;actionsheet-up&#39;, &#39;actionsheet-down&#39;], duration: 200};
+
+Confirm({
+    content:&#39;the confirm text&#39;,
+    title:&#39;Confirm&#39;,
+    animation
+})
+</code></pre>
+<pre><code class="lang-css">
+.actionsheet-up {
+  -webkit-animation-name: actionsheet-up;
+  animation-name: actionsheet-up;
+}
+
+.actionsheet-down {
+  -webkit-animation-name: actionsheet-down;
+  animation-name: actionsheet-down;
+}
+
+@keyframes actionsheet-up {
+    from {
+        transform: translate3d(0, 100%, 0);
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes actionsheet-down {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+    to {
+        transform: translate3d(0, 100%, 0);
+    }
+}
+</code></pre>
+<h4 id="-">隐藏取消按钮</h4>
+<p>此种形式下的组件效果等同于Alert警告提示组件。</p>
+
+            </div>
+            
+            
+            <div class="instructions-con-runner">
+                <iframe class="instructions-iframe" src="demo/src/html/component/confirm.html?hideIcon"></iframe>
+            </div>
+            
+        </div>
+    </div>
+ 
+</div>
+
+<!-- 使用说明end -->
+<div class="con-list-item">
+
+
+<div class="con-head">方法</div>
+
+<blockquote class="api">
+    <h3>
+    <strong>Confirm</strong>
+    
+    </h3>
+</blockquote>
+<div class="api-content"><p>确认弹框组件的调用方法，调用以后在屏幕正中弹出一个Confirm，可以按照option对象参数调用，也可以使用简易
+调用方式如 <code>Confirm(content, title, btnText, animation, cancel)</code></p>
+</div>
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <col class="c4">
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <th>必选</th>
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>option</td>
+            <td>Object</td>
+            <td>配置对象，可以接受以下属性：</td>
+            <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>option.content</td>
+            <td>String</td>
+            <td>组件显示的内容</td>
+            <td>
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>option.title</td>
+            <td>String</td>
+            <td>组件显示标题</td>
+            <td>
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>option.btnText</td>
+            <td>Array</td>
+            <td> 按钮的文本，两个元素分别表示左/右按钮的文本</td>
+            <td>
+                
+            </td>
+            <td>3.0.1</td>
+        </tr>
+        
+        <tr>
+            <td>option.animation</td>
+            <td>Object</td>
+            <td>组件显隐过程的动画，格式同Dialog组件</td>
+            <td>
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>option.cancel</td>
+            <td>Boolean</td>
+            <td>组件是否有取消按钮</td>
+            <td>
+                
+            </td>
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
+
+
+<p class="api-content">
+    <small class="text-muted">返回值:</small>
+    <mark>Promise</mark>
+    返回一个Promise实例对象
+</p>
+
+
+
+
+
+
+</div>
+</div>
+
+              </div>
+          </div>
+          
+        
+      </div>
+     
+     </div>
+     
+      <footer class="footer">
+        <div class="copyright">
+            &copy; 2016 <a href="https://github.com/YMFE">YMFE</a> Team. Build by <a href="https://github.com/YMFE/ydoc">ydoc</a>.
+        </div>
+      </footer>
+    </div>
+    <div class="open-panel">=</div>
+    <script src="source/main.js"></script>
+    <script src="source/app.js"></script>
+    
+    
+
+    
+
+    
+      
+      <script type="text/javascript" src="./theme/ydoc.js"></script>
+      
+    
+
+</body>
+</html>

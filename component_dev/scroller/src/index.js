@@ -20,9 +20,11 @@
 
 // TODO: 干掉各种 magic number！！！
 import React, { Component, PropTypes } from 'react';
+import ReactDOM from 'react-dom';
 import utils from './utils';
-import { replaceRedundantSpaces } from '../../common/util';
+import { replaceRedundantSpaces, getElementOffsetY } from '../../common/util';
 import LazyImage from '../../lazyimage';
+import Sticky from '../../sticky';
 import './style.scss';
 
 const REFRESHSTATUS = {
@@ -74,7 +76,8 @@ const defaultProps = {
     onLoad: null,
     autoRefresh: true,
     wrapper: null,
-    enableLazyLoad: true
+    enableLazyLoad: true,
+    scrollWithouTouchStart: false
 };
 
 const propTypes = {
@@ -82,7 +85,7 @@ const propTypes = {
      * 组件额外class
      *
      * @property extraClass
-     * @type PropTypes.string
+     * @type String
      * @description 为组件根节点提供额外的class。
      * @default ''
      */
@@ -91,7 +94,7 @@ const propTypes = {
      * 内容容器额外class
      *
      * @property containerExtraClass
-     * @type PropTypes.string
+     * @type String
      * @description 为组件中的内容容器提供额外的class。
      * @default ''
      */
@@ -100,7 +103,7 @@ const propTypes = {
      * 内容位移
      *
      * @property contentOffset
-     * @type {x: PropTypes.number, y: PropTypes.number}
+     * @type {x: Number, y: Mumber}
      * @description 组件中内容的初始位移，这个属性变化时，会重置内容的位移。
      * @default {x: 0, y: 0}
      */
@@ -112,7 +115,7 @@ const propTypes = {
      * 是否禁止滚动
      *
      * @property disabled
-     * @type PropTypes.bool
+     * @type Bool
      * @description 是否禁止滚动，默认允许滚动。
      * @default false
      */
@@ -121,7 +124,7 @@ const propTypes = {
      * 横向滚动
      *
      * @property scrollX
-     * @type PropTypes.bool
+     * @type Bool
      * @description 是否开启横向滚动，默认关闭。
      * @default false
      */
@@ -130,7 +133,7 @@ const propTypes = {
      * 纵向滚动
      *
      * @property scrollY
-     * @type PropTypes.bool
+     * @type Bool
      * @description 是否开启纵向滚动,默认开启。
      * @default true
      */
@@ -139,17 +142,17 @@ const propTypes = {
      * 自由滚动
      *
      * @property freeScroll
-     * @type PropTypes.bool
+     * @type Bool
      * @description 是否开启自由滚动。当设置为 `false` 时，只能响应某一个方向的滚动；当设置为 `true` 时，可以同时响应横向和纵向滚动（`scrollX` 和 `scrollY` 必须同时为 `true`）。
      * @default false
      * @skip
      */
     freeScroll: PropTypes.bool,
     /**
-     * 方向锁定阀值
+     * 方向锁定阈值
      *
      * @property directionLockThreshold
-     * @type PropTypes.number
+     * @type Number
      * @description 只允许单向滚动的时候，会根据这个阀值来判定响应哪个方向上的位移：某一方向位移减去另一个方向位移超过阀值，就会判定为这个方向的滚动。
      * @default 5
      */
@@ -158,7 +161,7 @@ const propTypes = {
      * 惯性滚动
      *
      * @property momentum
-     * @type PropTypes.bool
+     * @type Bool
      * @description 是否允许惯性滚动。当设置为 `true`，手指离开时，如果还有速度会继续滚动一段距离；当设置为 `false` ，手指离开时会立即停止滚动。
      * @default true
      */
@@ -167,7 +170,7 @@ const propTypes = {
      * 弹性滚动
      *
      * @property bounce
-     * @type PropTypes.bool
+     * @type Bool
      * @description 当滚动超出内容范围时，是否可以继续滚动一截。
      * @default true
      */
@@ -176,7 +179,7 @@ const propTypes = {
      * 弹性滚动回弹时间
      *
      * @property bounceTime
-     * @type PropTypes.number
+     * @type Number
      * @description 当弹性滚动一截之后，回到滚动范围内位置的时间，单位为毫秒（ms）。
      * @default 600
      */
@@ -185,7 +188,7 @@ const propTypes = {
      * 弹性滚动回弹动画
      *
      * @property bounceEasing
-     * @type PropTypes.object
+     * @type Object
      * @description 弹性回滚动画。
      *
      * Scroller 提供了五种默认的动画函数：`quadratic`, `circular`, `back`, `bounce`, `elastic`，可以通过 `Scroller.ease.xxx` 来使用。
@@ -207,7 +210,7 @@ const propTypes = {
      * transition开关
      *
      * @property useTransition
-     * @type PropTypes.bool
+     * @type Bool
      * @description 如果设置为true,会使用transition来实现滚动效果;如果设置为false,会使用requestAnimationFrame来实现。
      * @default true
      */
@@ -216,7 +219,7 @@ const propTypes = {
      * transform开关
      *
      * @property useTransform
-     * @type PropTypes.bool
+     * @type Bool
      * @description 如果设置为true,会使用transform来实现位移;如果设置为false,会使用left和top来实现位移（position: absolute）。
      * @default true
      */
@@ -236,7 +239,7 @@ const propTypes = {
      * 自动刷新高度
      *
      * @property autoRefresh
-     * @type PropTypes.bool
+     * @type Bool
      * @description 默认为true,在componentDidUpdate的时候会自动刷新高度;如果设置为false,则在内容发生变化时，需要用户主动调用refresh方法来刷新高度。
      * @default true
      * @skip
@@ -246,7 +249,7 @@ const propTypes = {
      * 硬件加速
      *
      * @property HWCompositing
-     * @type PropTypes.bool
+     * @type Bool
      * @description 是否开启硬件加速
      * @default true
      */
@@ -259,7 +262,7 @@ const propTypes = {
      * 下拉刷新
      *
      * @property usePullRefresh
-     * @type PropTypes.bool
+     * @type Bool
      * @description 是否开启下拉刷新功能
      * @default false
      * hasPullRefresh
@@ -280,7 +283,7 @@ const propTypes = {
      * 下拉刷新高度
      *
      * @property pullRefreshHeight
-     * @type PropTypes.number
+     * @type Number
      * @description 触发下拉刷新状态的高度（一般即为下拉刷新提示区域的高度）
      * @default 40
      * 可以考虑不要
@@ -290,7 +293,7 @@ const propTypes = {
      * 下拉刷新渲染函数
      *
      * @property renderPullRefresh
-     * @type PropTypes.func
+     * @type Function
      * @returns {JSX} 用来渲染 pullRefresh 的 JSX
      * @description () => JSX
      *
@@ -301,7 +304,7 @@ const propTypes = {
      * 加载更多
      *
      * @property useLoadMore
-     * @type PropTypes.bool
+     * @type Bool
      * @description 是否开启加载更多功能.『加载更多』与『下拉刷新』略有不同，加载更多的提示区域是追加在内容区域的最后
      * @default false
      * hasLoadMore
@@ -322,7 +325,7 @@ const propTypes = {
      * 加载更多高度
      *
      * @property loadMoreHeight
-     * @type PropTypes.number
+     * @type Number
      * @description 触发加载更多状态的高度（一般即为加载更多提示区域的高度）
      * @default 40
      */
@@ -348,7 +351,18 @@ const propTypes = {
      * @type Bool
      * @description 是否开启图片lazyload,默认为true
      */
-    enableLazyLoad: PropTypes.bool
+    enableLazyLoad: PropTypes.bool,
+    /**
+     * @property scrollWithoutTouchStart
+     * @type Bool
+     * @default false
+     * @description ** 实验中的属性 **
+     * 在默认情况下一次用户触发（非调用scrollTo方法）scroller的滚动需要由touchstart事件来启动，在某些情况下，例如scroller从disable状态切换到enable状态时，
+     * 可能不能接收到这一瞬间的touchstart事件，这可能导致用户期待的滚动过程没有发生。
+     * 开启这个属性为true以后将允许scroller用touchmove启动滚动过程，这可以解决上述场景的问题。
+     * @version 3.0.2
+     */
+    scrollWithoutTouchStart: PropTypes.bool
 };
 
 export default class Scroller extends Component {
@@ -372,6 +386,10 @@ export default class Scroller extends Component {
         this._resetProps(props, true);
 
         this.childLazyImages = [];
+        this.stickyHeaders = [];
+        this.stickyIndex = null;
+        this.stickyOffset = null;
+        this.wrapperOffsetTop = null;
     }
 
     getChildContext() {
@@ -397,15 +415,19 @@ export default class Scroller extends Component {
         this._resetPosition();
         this.scrollTo(this.props.contentOffset.x, this.props.contentOffset.y);
 
-        window.addEventListener('orientationchange', () => {
+        this._resize = () => {
             this.forceUpdate();
-        }, false);
+        };
 
-        window.addEventListener('resize', () => {
-            this.forceUpdate();
-        }, false);
+        window.addEventListener('orientationchange', this._resize, false);
+        window.addEventListener('resize', this._resize, false);
 
         this._tryLoadLazyImages();
+        this._refreshSticky(true);
+
+        if (this.stickyHeaders.length) {
+            this.useTransition = false;
+        }
     }
 
     componentWillReceiveProps(nextProps) {
@@ -440,7 +462,17 @@ export default class Scroller extends Component {
             this._refreshLoadMore(true);
         }
 
+        if (this.stickyHeaders.length) {
+            this.useTransition = false;
+        }
+
         this._tryLoadLazyImages();
+        this._refreshSticky(true);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('orientationchange', this._resize, false);
+        window.removeEventListener('resize', this._resize, false);
     }
 
     _resetProps(props, init) {
@@ -480,9 +512,12 @@ export default class Scroller extends Component {
             this.wrapper = props.wrapper;
         }
 
+        // 如果disable状态发生了变化，需要重置initiated
+        if (this.disabled !== props.disabled) {
+            this.initiated = 0;
+        }
         // 重置 disabled
         this.disabled = props.disabled;
-
         this.freeScroll = props.freeScroll && !this.eventPassthrough;
         this.directionLockThreshold = this.eventPassthrough ? 0 : props.directionLockThreshold;
     }
@@ -524,15 +559,23 @@ export default class Scroller extends Component {
     }
 
     _handleTouchMove(e) {
-        if (this.disabled || utils.eventType[e.type] !== this.initiated) {
+        if (this.disabled) {
             return;
+        }
+
+        if (utils.eventType[e.type] !== this.initiated) {
+            if (this.props.scrollWithoutTouchStart) {
+                this._handleTouchStart(e);
+            } else {
+                return;
+            }
         }
 
         if (this.preventDefault) {	// increases performance on Android? TODO: check!
             e.preventDefault();
         }
 
-        if (this.stopPropagation) {
+        if (this.props.stopPropagation) {
             e.stopPropagation();
         }
 
@@ -588,9 +631,6 @@ export default class Scroller extends Component {
             deltaX = 0;
         }
 
-        deltaX = this.props.bounce ? deltaX : 0;
-        deltaY = this.props.bounce ? deltaY : 0;
-
         newX = this.x + deltaX;
         newY = this.y + deltaY;
 
@@ -637,9 +677,7 @@ export default class Scroller extends Component {
             this.startY = this.y;
         }
 
-        if (this.props.onScroll) {
-            this._execEvent('onScroll');
-        }
+        this._execEvent('onScroll');
     }
 
     _handleTouchEnd(e) {
@@ -687,7 +725,7 @@ export default class Scroller extends Component {
         // jiao.shen:此处将y<=max改成了y<max
         // 因为如果scroller正好滚到下边缘停住的时候,这时候如果scroller render,就会立刻触发loadmore,和使用习惯不符
         if (this.state.useLoadMore && this.y < this.maxScrollY) {
-            if (this.loadState !== LOADSTATUS.LOAD) {
+            if (this.loadState !== LOADSTATUS.NOMORE && this.loadState !== LOADSTATUS.LOAD) {
                 this._setLoadStatus(LOADSTATUS.LOAD);
                 this._execEvent('onLoad');
             }
@@ -702,14 +740,18 @@ export default class Scroller extends Component {
 
         // start momentum animation if needed
         if (this.props.momentum && duration < 300) {
-            momentumX = this.hasHorizontalScroll ? utils.momentum(this.x, this.startX, duration, this.maxScrollX, this.props.bounce ? this.wrapperWidth : 0, this.props.deceleration) : {
-                destination: newX,
-                duration: 0
-            };
-            momentumY = this.hasVerticalScroll ? utils.momentum(this.y, this.startY, duration, this.maxScrollY, this.props.bounce ? this.wrapperHeight : 0, this.props.deceleration) : {
-                destination: newY,
-                duration: 0
-            };
+            momentumX = this.hasHorizontalScroll ?
+                utils.momentum(this.x, this.startX, duration, this.maxScrollX, this.horizontalBounce ? this.wrapperWidth : 0, this.props.deceleration)
+                : {
+                    destination: newX,
+                    duration: 0
+                };
+            momentumY = this.hasVerticalScroll ?
+                utils.momentum(this.y, this.startY, duration, this.maxScrollY, this.verticalBounce ? this.wrapperHeight : 0, this.props.deceleration)
+                : {
+                    destination: newY,
+                    duration: 0
+                };
             newX = momentumX.destination;
             newY = momentumY.destination;
             time = Math.max(momentumX.duration, momentumY.duration);
@@ -755,7 +797,7 @@ export default class Scroller extends Component {
         if (this.childLazyImages.length) {
             const self = this;
             this.childLazyImages.forEach((child) => {
-                const _top = child.offsetTop + this.y;
+                const _top = child.offsetTop - this.wrapperOffsetTop + this.y;
 
                 // if (_top >= -child.img.height && _top < self.wrapperHeight) {  // 只有出现在当前可视区域才加载
                 if (_top < self.wrapperHeight) { // 出现在当前可视区域和可视区域上方都加载
@@ -767,6 +809,65 @@ export default class Scroller extends Component {
                     });
                 }
             });
+        }
+    }
+
+    _getCurrentSticky() {
+        let ret = null;
+        if (this.y < 0) {
+            const absY = Math.abs(this.y);
+            const wrapperTop = this.wrapperOffsetTop;
+            const upperHeaders = this.stickyHeaders.filter(header => header.offsetTop - wrapperTop <= absY);
+
+            if (upperHeaders.length) {
+                const currentHeader = upperHeaders[upperHeaders.length - 1];
+                const nextHeader = this.stickyHeaders[upperHeaders.length];
+                const index = upperHeaders.length - 1;
+                if (nextHeader) {
+                    const distToNext = nextHeader.offsetTop - wrapperTop - absY;
+                    const adjustOffset = distToNext > currentHeader.height ? 0 : -(currentHeader.height - distToNext);
+                    ret = { currentHeader, adjustOffset, index };
+                } else {
+                    ret = { currentHeader, adjustOffset: 0, index };
+                }
+            } else {
+                ret = null;
+            }
+        } else {
+            ret = null;
+        }
+        return ret;
+    }
+
+    _refreshSticky(forceRefresh) {
+        if (this.stickyHeaders.length) {
+            const currentSticky = this._getCurrentSticky();
+            const stickyNode = this.refs.stickyNode;
+
+            if (currentSticky) {
+                const { currentHeader, adjustOffset } = currentSticky;
+
+                if (currentSticky.index !== this.stickyIndex
+                    || currentSticky.adjustOffset !== this.stickyOffset
+                    || forceRefresh) {
+                    const transform = `translate(0px,${adjustOffset}px) translateZ(0px)`;
+                    stickyNode.style.transform = transform;
+                    stickyNode.style.webkitTransform = transform;
+                    stickyNode.style.display = 'block';
+                    stickyNode.className = currentHeader.stickyExtraClass;
+                    if (forceRefresh) {
+                        ReactDOM.unmountComponentAtNode(stickyNode);
+                    }
+                    ReactDOM.render(React.cloneElement(currentHeader.onlyChild), stickyNode);
+
+                    this.stickyIndex = currentSticky.index;
+                    this.stickyOffset = currentSticky.adjustOffset;
+                }
+            } else {
+                this.stickyIndex = null;
+                this.stickyOffset = null;
+                stickyNode.style.display = 'none';
+            }
         }
     }
 
@@ -822,8 +923,10 @@ export default class Scroller extends Component {
      * @skip
      */
     _execEvent(eventType, param) {
+        // console.log(eventType)
         if (eventType === 'onScroll' || eventType === 'onScrollEnd') {
             this._tryLoadLazyImages();
+            this._refreshSticky();
         }
         if (eventType === 'onScrollStart') {
             this.isScrolling = true;
@@ -854,6 +957,10 @@ export default class Scroller extends Component {
     refresh(refreshOption = {}) {
         this.wrapperWidth = typeof refreshOption.wrapperWidth !== 'undefined' ? refreshOption.wrapperWidth : this.wrapper.clientWidth;
         this.wrapperHeight = typeof refreshOption.wrapperHeight !== 'undefined' ? refreshOption.wrapperHeight : this.wrapper.clientHeight;
+
+        if (this.refs.wrapper) {
+            this.wrapperOffsetTop = getElementOffsetY(this.refs.wrapper, null);
+        }
 
         this.scrollerWidth = typeof refreshOption.scrollerWidth !== 'undefined' ? refreshOption.scrollerWidth : this.scroller.offsetWidth;
         this.scrollerHeight = typeof refreshOption.scrollerHeight !== 'undefined' ? refreshOption.scrollerHeight : this.scroller.offsetHeight;
@@ -1045,9 +1152,7 @@ export default class Scroller extends Component {
 
             self._translate(newX, newY);
 
-            if (self.props.onScroll) {
-                self._execEvent('onScroll');
-            }
+            this._execEvent('onScroll');
 
             if (self.isAnimating) {
                 cancelrAF(self.rAF);
@@ -1154,6 +1259,7 @@ export default class Scroller extends Component {
             this.disabled = true;
             setTimeout(() => {
                 this._setRefreshStatus(REFRESHSTATUS.PULL);
+                this._setLoadStatus(LOADSTATUS.PULL);
                 this.disabled = false;
             }, config.duration);
         }
@@ -1179,7 +1285,7 @@ export default class Scroller extends Component {
      * 本方法会被两个地方调用：
      * 1. loadMore发生变化时，需要重置这个属性
      * 2. 每次刷新scroller或wrapper高度时，需要重置这个属性。
-     *
+     * @skip
      * @private
      */
     _refreshLoadMore(shouldReCalculateHeight) {
@@ -1275,7 +1381,7 @@ export default class Scroller extends Component {
             loadMoreContent = this.props.renderLoadMore ? this.props.renderLoadMore() : loadMoreTpl;
         }
 
-        let wrapperStyle = Object.assign({overflow: 'hidden'}, this.props.style);
+        let wrapperStyle = Object.assign({ overflow: 'hidden' }, this.props.style);
         let scrollerContent;
         let _wrapperClassName = replaceRedundantSpaces(['yo-scroller', extraClass].join(' '));
         let _scrollerClassName = replaceRedundantSpaces(['scroller', containerExtraClass].join(' '));
@@ -1290,7 +1396,6 @@ export default class Scroller extends Component {
                 onTransitionEnd: (evt) => this._handleTransitionEnd(evt)
             });
         } else if (this.props.children && !this.props.children.length && typeof this.props.children.type === 'string' && !this.state.usePullRefresh && !this.state.useLoadMore) {
-
             if (this.props.children.props && this.props.children.props.className) {
                 _scrollerClassName = replaceRedundantSpaces(['scroller', this.props.children.props.className].join(' '));
             } else {
@@ -1328,6 +1433,11 @@ export default class Scroller extends Component {
                     onTransitionEnd={(evt) => this._handleTransitionEnd(evt)}
                     style={wrapperStyle}
                 >
+                    <div
+                        ref="stickyNode"
+                        style={{ position: 'absolute', top: 0, left: 0, right: 0, zIndex: 9999 }}
+                        className="sticky"
+                    />
                     <div className={_scrollerClassName} ref="scroller" style={this._scrollerStyle}>
                         {this.props.children}
                         {pullRefreshContent}
@@ -1343,4 +1453,5 @@ export default class Scroller extends Component {
 
 Scroller.defaultProps = defaultProps;
 Scroller.propTypes = propTypes;
+Scroller.Sticky = Sticky;
 Scroller.LazyImage = LazyImage;

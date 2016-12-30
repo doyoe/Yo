@@ -1,12 +1,10 @@
 /**
  * @component Modal
- * @description 带遮罩层的模态弹层组件。
- *
- * #### 何时使用
- * 当需要用户处理事务，又不希望跳转页面以致打断工作流程时。
+ * @description 带遮罩层的模态弹层组件。支持多种位置和动画效果。
  *
  * @instructions {instruInfo: ./modal.md}{instruUrl: modal.html?hideIcon}
  * @author jiao.shen
+ * @version 3.0.2
  */
 import React, { Component, PropTypes } from 'react';
 import { replaceRedundantSpaces } from '../../common/util';
@@ -35,49 +33,49 @@ const defaultProps = {
 const propTypes = {
     /**
      * @property show
-     * @type bool
+     * @type Bool
      * @default false
      * @description 是否显示模态框
      */
     show: PropTypes.bool.isRequired,
     /**
      * @property extraClass
-     * @type string
+     * @type String
      * @default null
      * @description 附加给模态框容器(包含了内容区和蒙层)的额外class
      */
     extraClass: PropTypes.string,
     /**
      * @property contentExtraClass
-     * @type string
+     * @type String
      * @default null
      * @description 附加给模态框内容区的额外class
      */
     contentExtraClass: PropTypes.string,
     /**
      * @property align
-     * @type string
+     * @type String
      * @default center
      * @description 模态框的位置,默认为center。可选值为cetner/top/bottom
      */
     align: PropTypes.oneOf(['center', 'top', 'bottom', 'left', 'right']),
     /**
      * @property onMaskTap
-     * @type function
+     * @type Function
      * @default ()=>{}
      * @description 点击蒙层时的回调
      */
     onMaskTap: PropTypes.func,
     /**
      * @property contentOffset
-     * @type array
+     * @type Array
      * @default [0,0]
      * @description 内容区在水平/垂直方向上的偏移,例如[0,-100]可以使模态框内容区向上偏移100个像素
      */
     contentOffset: PropTypes.arrayOf(PropTypes.number),
     /**
      * @property maskOffset
-     * @type array
+     * @type Array
      * @default [0,0]
      * @description 蒙层遮盖的范围。如果不需要蒙层遮盖住整个屏幕,可以设置这个属性。
      *
@@ -86,35 +84,35 @@ const propTypes = {
     maskOffset: PropTypes.arrayOf(PropTypes.number),
     /**
      * @property onShow
-     * @type function
+     * @type Function
      * @default ()=>{}
      * @description 打开模态框时，动画触发之前的事件回调
      */
     onShow: PropTypes.func,
     /**
      * @property onHide
-     * @type function
+     * @type Function
      * @default ()=>{}
      * @description 关闭模态框时，动画触发之前的事件回调
      */
     onHide: PropTypes.func,
     /**
      * @property width
-     * @type number/string
+     * @type Number/String
      * @default 'auto'
      * @description 内容区宽度,默认为auto,可以传入数字或者百分比
      */
     width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     /**
      * @property height
-     * @type number/string
+     * @type Number/String
      * @default 'auto'
      * @description 内容区高度,默认为auto,可以传入数字或者百分比
      */
     height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     /**
      * @property animation
-     * @type string/object
+     * @type String/Object
      * @default "none"
      * @description 打开/关闭动画
      *

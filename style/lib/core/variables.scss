@@ -10,7 +10,7 @@
 // 基本设置
 $_setting: (
     // {String} 版本号
-    version:             "3.0.0",
+    version:             "3.0.2",
     // {Boolean} 是否开启厂商前缀
     is-vendor-prefix:    true,
     // {String} 厂商前缀
@@ -508,7 +508,21 @@ $_picker: (
     // {Length} 每个列表项的高度
     item-height: .3rem,
     // {Color} 边框色
-    border-color: map-get($base, border-color),
+    border-color: map-get($base, border-color)
+);
+
+// Fragment popup(5)
+$_popup: (
+    // {Color} 高度
+    height:       null,
+    // {Color} 边框色
+    border-color: #999,
+    // {Color} 头部背景色
+    hd-bgcolor:   #f0f0f0,
+    // {Color} 按钮文本色
+    btn-color:    map-get($base, link-color),
+    // {Color} 背景色
+    bgcolor:      #fff
 );
 
 // Fragment proportion(7)

@@ -43,7 +43,7 @@ const propTypes = {
     /**
      * @property show
      * @description 组件是否显示
-     * @type PropTypes.bool
+     * @type Bool
      * @default false
      */
     show: PropTypes.bool,
@@ -60,7 +60,7 @@ const propTypes = {
      *    })
      * ])
      * ```
-     * @type String | Object
+     * @type String/Object
      * @default 'none'
      */
     animation: PropTypes.oneOfType([
@@ -73,75 +73,75 @@ const propTypes = {
     /**
      * @property title
      * @description 组件显示的标题
-     * @type PropTypes.oneOfType([PropTypes.element, PropTypes.string])
+     * @type Element/String
      */
     title: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
     /**
      * @property width
      * @description 组件显示的内容宽度
-     * @type PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+     * @type Number/String
      * @default 'auto'
      */
     width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     /**
      * @property height
      * @description 组件显示的内容高度
-     * @type PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+     * @type Number/String
      * @default 'auto'
      */
     height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     /**
      * @property align
      * @description 组件显示内容的垂直方向位置
-     * @type PropTypes.oneOf(['top', 'center', 'bottom'])
+     * @type Enum {'top', 'bottom', 'center'}
      * @default "center"
      */
     align: PropTypes.oneOf(['top', 'center', 'bottom']),
     /**
      * @property contentOffset
      * @description 组件显示内容的X轴、Y轴偏移量
-     * @type PropTypes.arrayOf(PropTypes.number)
+     * @type Array<Number>
      * @default [0, 0]
      */
     contentOffset: PropTypes.arrayOf(PropTypes.number),
     /**
      * @property maskOffset
      * @description 组件遮罩层的顶部、底部偏移量
-     * @type PropTypes.arrayOf(PropTypes.number)
+     * @type Array<Number>
      * @default [0, 0]
      */
     maskOffset: PropTypes.arrayOf(PropTypes.number),
     /**
      * @property extraClass
      * @description 组件额外样式类
-     * @type PropTypes.string
+     * @type String
      */
     extraClass: PropTypes.string,
     /**
      * @property okText
      * @description 组件确定按钮的内容
-     * @type PropTypes.string
+     * @type String
      * @default '确定'
      */
     okText: PropTypes.string,
     /**
      * @property cancelText
      * @description 组件取消按钮的内容
-     * @type PropTypes.string
+     * @type String
      * @default '取消'
      */
     cancelText: PropTypes.string,
     /**
      * @property onOk
      * @description 组件确定按钮的回调函数，`false`表示不显示确定按钮
-     * @type PropTypes.oneOfType([PropTypes.bool, PropTypes.func])
+     * @type Bool/Function
      * @default () => {}
      */
     onOk: PropTypes.oneOfType([PropTypes.bool, PropTypes.func]),
     /**
      * @property onCancel
      * @description 组件取消按钮的回调函数，`false`表示不显示取消按钮
-     * @type PropTypes.oneOfType([PropTypes.bool, PropTypes.func])
+     * @type Bool/Function
      * @default () => {}
      */
     onCancel: PropTypes.oneOfType([PropTypes.bool, PropTypes.func]),

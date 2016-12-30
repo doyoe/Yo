@@ -9,6 +9,10 @@
         $border-color: map-get($list, border-color),
         $radius: map-get($list, radius)
     );
+    // 修复webkit下 `定位子元素背景色溢出父元素圆角` 的Bug
+    // 使用 `z-index` 值不为 `auto` 或其它任何一种可以创建新的堆叠上下文的属性
+    // 当子元素的堆叠级别被限定在父元素内时，圆角将会生效
+    z-index: 0;
     > .label,
     > .item,
     .front {

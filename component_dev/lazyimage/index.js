@@ -5,8 +5,10 @@
  *
  * 使用这个组件代替img标签后,会延迟加载这个图片,直到List组件的滚动使得该图片位于可视区域之内。
  * @instructions {instruInfo: ./lazyimage.md}{instruUrl: scroller/lazyimage.html?hideIcon}
+ * @version  3.0.2
  */
 import React, { Component, PropTypes } from 'react';
+import { getElementOffsetY } from '../common/util';
 
 export default class extends Component {
     static contextTypes = {
@@ -108,24 +110,14 @@ export default class extends Component {
         };
     }
 
-    getOffsetTop(ele) {
-        let ret = 0;
-
-        while (ele.offsetParent) {
-            ret += ele.offsetTop;
-            ele = ele.offsetParent;
-        }
-
-        return ret;
-    }
-
     componentDidMount() {
         this.canLoadImage = true;
         this.offsetY = this.context.offsetY;
         this.itemRef = this.context.itemRef;
         const scroller = this.context.list || this.context.scroller;
         if (this.context.scroller) {
-            this.offsetTop = this.getOffsetTop(this.img);
+            this.offsetTop = getElementOffsetY(this.img);
+            this.height = this.img.offsetHeight;
         }
 
         if (scroller) {
@@ -139,7 +131,7 @@ export default class extends Component {
         this.offsetY = nextContext.offsetY;
         this.itemRef = nextContext.itemRef;
         if (this.context.scroller) {
-            this.offsetTop = this.getOffsetTop(this.img);
+            this.offsetTop = getElementOffsetY(this.img);
         }
 
         if (nextProps.src !== this.props.src) {

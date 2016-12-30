@@ -5,7 +5,7 @@
  *
  * - 采用树形结构datasource组织层级关系。
  * - 实现了异步加载列表。
- * - 支持多选&单选。
+ * - 支持多选和单选。
  * - 支持不同级别列表的样式自定义。
  *
  * @author eva.li
@@ -28,7 +28,7 @@ export default class MultiList extends Component {
         /**
          * 原始数据用于生成列表
          * @property dataSource
-         * @type PropTypes.array or PropTypes.func
+         * @type Array
          * @description
          * dataSource 是一个树形的结构，每一个层级会有defaultValue，表示默认展开该哪个item，subList为当点选该层级的时候，下一层级的内容。
          * 余下所有的属性都会被传给list组件。
@@ -50,8 +50,9 @@ export default class MultiList extends Component {
             ])
         }),
         /**
+         * @skip
          * @property updateDataSource
-         * @type PropTypes.func
+         * @type Function
          * @param dataSource 处理好的datasource
          * @param data 异步处理后的data
          * @description 更新数据的回调函数，使用异步时必须配置，将异步函数处理结果传给的回调交由父层更新dataSource
@@ -60,20 +61,22 @@ export default class MultiList extends Component {
         /**
          *
          * @property value
-         * @type  PropTypes.array
+         * @type  Array
          * @description mutliList的值,该值为点选的路径，及当前展开路径
          */
         value: React.PropTypes.array,
         /**
          *
          * @property onChange
-         * @type PropTypes.func.isRequired
+         * @type Function
          * @description
          * 用于更新结果的回调函数
+         * @version 3.0.1
+         * @param {Object} sth 哈哈哈
          * @example
-         *    function({level, listValue, newValue}){
-         *  	level 表示层级
-         *  	listValue 表示当前层级的list的value
+         *  function({level, listValue, newValue}){
+         *  	level 表示当前菜单层级
+         *  	listValue 表示当前multiList的value
          *  	newValue 表示更新后的multiList的value
          * 	}
          *
@@ -81,8 +84,9 @@ export default class MultiList extends Component {
         onChange: PropTypes.func.isRequired,
         /**
          * @property extraClass
-         * @type {String}
+         * @type String
          * @description 给组件根节点附加的额外样式类
+         * @version 3.0.1
          * @default null
          */
         extraClass: PropTypes.string
@@ -264,7 +268,7 @@ export default class MultiList extends Component {
 
     render() {
         const { extraClass } = this.props;
-        const className = replaceRedundantSpaces(`multiList-container ${extraClass}`);
+        const className = replaceRedundantSpaces(`yo-multilist ${extraClass}`);
 
         return (
             <div className={className}>

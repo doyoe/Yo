@@ -48,6 +48,27 @@
 
 `SwipeMenuList`继承了`List`的所有特性, 无穷模式(指定高度和不指定高度), 加载更多和下拉刷新都可以使用。可以参考`List`的文档。
 
+#### 监听菜单项的打开/关闭
+
+`SwipeMenuList` 提供了两个事件回调函数 `onMenuOpen`和`onMenuClose` 来监听菜单项打开状态的变化，这在某些场景下会有用
+（可以观察一下iOS的信息功能，在短信上左划整个页面会发生什么变化）。参考下面的代码：
+
+```
+<SwipeMenuList
+    dataSource={this.state.dataSource}
+    infinite={true}
+    infiniteSize={30}
+    onMenuOpen={(item, index) => {
+        // 参数可以取到当前打开的菜单项的数据和index
+        console.log('open', item, index);
+    }}
+    onMenuClose={(item,index) => {
+        // 同上
+        console.log('close', item, index);
+    }}
+/>
+```
+
 #### 一个完整的例子
 
 下面的代码就是右侧Demo的源码, 这个Demo实现了常见的删除列表项的功能:

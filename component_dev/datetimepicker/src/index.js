@@ -21,7 +21,7 @@ const propTypes = {
      * 容器高度
      *
      * @property height
-     * @type PropTypes.number
+     * @type Number
      * @description 受控属性：决定容器展示的高度
      * @default 150
      */
@@ -30,7 +30,7 @@ const propTypes = {
      * 起止区间
      *
      * @property range
-     * @type PropTypes.arrayOf(PropTypes.string)
+     * @type Array<String>
      * @description 受控属性：区间范围开始于, 结束于；可以用非数字符号做为分隔符;
      * @default ['1900-01-01', format(new Date(), 'xxxx-xx-xx')]
      */
@@ -39,7 +39,7 @@ const propTypes = {
      * 当前区间默认显示的点
      *
      * @property value
-     * @type PropTypes.string
+     * @type String
      * @description 受控属性：区间范围内当前默认值，可以用非数字符号做为分隔符；
      * @default '2016-8-28'
      */
@@ -48,7 +48,7 @@ const propTypes = {
      * 循环滚动模式
      *
      * @property loop
-     * @type PropTypes.arrayOf(PropTypes.bool)
+     * @type Array<Bool>
      * @description 受控属性：设置为true，为无限循环滚动模式，反之为有限模式；默认为true
      * @default [true, true, true]
      */
@@ -57,7 +57,7 @@ const propTypes = {
      * 内联单位
      *
      * @property unitsInline
-     * @type PropTypes.arrayOf(PropTypes.string)
+     * @type Array<String>
      * @description 受控属性：在对应栏里的每个选项里添加对应的单位；
      * @default []
      */
@@ -66,7 +66,7 @@ const propTypes = {
      * 右旁单位
      *
      * @property unitsAside
-     * @type PropTypes.arrayOf(PropTypes.string)
+     * @type Array<String>
      * @description 受控属性：在对应栏里的垂直居中，水平偏右位置，显示当前栏目对应的单位；
      * @default []
      */
@@ -75,7 +75,7 @@ const propTypes = {
      * 日期或者时间模式
      *
      * @property dateOrTime
-     * @type PropTypes.oneOf(['date', 'time']),
+     * @type Enum {'date', 'time'},
      * @description 受控属性：'date'代表日期模式，即年月日模式，'time'代表时间模式，即时分模式
      * @default 'date'
      */
@@ -84,10 +84,10 @@ const propTypes = {
      * 数字映射字符串函数
      *
      * @property format
-     * @type function
+     * @type Function
      * @description 受控属性：默认显示的date或者time是数字，传入该函数，会将数字作为参数，经该函数处理后，返回一个经过包装的字符串，这时将会以字符串作为默认的显示选项；该函数有两个参数(value, level)。
-     * @param {PropTypes.number} value 对应栏目的序列中的单个值
-     * @param {PropTypes.number} level 指代对应的栏目，从左往右递增，从0开始
+     * @param {Number} value 对应栏目的序列中的单个值
+     * @param {Number} level 指代对应的栏目，从左往右递增，从0开始
      * @default (value, level) => value
      */
     format: PropTypes.func,
@@ -95,10 +95,10 @@ const propTypes = {
      * onChange回调函数
      *
      * @property onChange
-     * @type function
+     * @type Function
      * @description onChange回调函数，用以将当前选择的项目传递给上层，来触发更新。回传的参数有两个(value, item)。
-     * @param {PropTypes.object} value 为当前组件应更新到的状态
-     * @param {PropTypes.object} item 为当前滑到最中间位置的，选中的数据，包含了一些可能有用的较为详细的信息
+     * @param {Object} value 为当前组件应更新到的状态
+     * @param {Object} item 为当前滑到最中间位置的，选中的数据，包含了一些可能有用的较为详细的信息
      * @default (value, item) => {}
      */
     onChange: PropTypes.func,
@@ -106,7 +106,7 @@ const propTypes = {
      * 额外类名
      *
      * @property extraClass
-     * @type PropTypes.string,
+     * @type String
      * @description 受控属性：本组件额外的css类
      * @default []
      */
