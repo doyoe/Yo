@@ -2,7 +2,8 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+  <meta name="format-detection" content="telephone=no,email=no" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
   <meta name="description" content="description of your site">
   <meta name="author" content="author of the site">
@@ -477,7 +478,6 @@ class Demo extends Component {
 <p>在touchMove滑动过程中，鉴于通过state数据来控制滑块移动的性能极差（事件触发太过频繁），故而选择直接改变Dom属性，如果你想利用touchMove中的回调参数做一些事情，也极力推荐直接操作Dom，下面有示范。</p>
 <pre><code class="lang-javascript">&lt;span
     ref=&quot;tip&quot;
-    style={{ transform: `translateX(${this.state.translateX}px)` }}
 &gt;
 &lt;Range
     onSliderTouchMove={(val, translateX, evt, sliderIndex) =&gt; {
@@ -1132,6 +1132,7 @@ class Demo extends Component {
 </div>
 
               </div>
+              <div class="open-panel"></div>
           </div>
           
         
@@ -1145,7 +1146,7 @@ class Demo extends Component {
         </div>
       </footer>
     </div>
-    <div class="open-panel">=</div>
+
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
     

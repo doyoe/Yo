@@ -98,7 +98,7 @@
     -moz-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    padding: 0;
+    padding: .2rem 0 0;
     list-style: none;
 }
 .index .markdown-body ul > li {
@@ -151,7 +151,15 @@
     max-width: 90%;
     max-height: 90%;
 }
-
+@media (max-width: 767px) {
+    .index .markdown-body ul > li {
+        width: 120px;
+        height: 120px;
+    }
+    .index .markdown-body ul > li:hover > p:not(:only-child):first-child {
+        margin-top: -118px;
+    }
+}
 
 
 
