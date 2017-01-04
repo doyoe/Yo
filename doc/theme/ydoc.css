@@ -152,6 +152,12 @@
     max-height: 90%;
 }
 @media (max-width: 767px) {
+    #readme .markdown-body {
+        padding: 30px 20px;
+    }
+    .index .markdown-body > p {
+        width: 90%;
+    }
     .index .markdown-body ul > li {
         width: 120px;
         height: 120px;
