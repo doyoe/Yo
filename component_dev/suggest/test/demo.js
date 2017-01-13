@@ -3,7 +3,7 @@
  */
 import Suggest from '../src';
 import Modal from '../../modal/src';
-import ActionSheet from '../../actionsheet/src';
+import Popup from '../../popup/src';
 import React from 'react';
 import ReactDom from 'react-dom';
 
@@ -34,7 +34,7 @@ class SuggestDemo extends React.Component {
     render() {
         return (
             <div className="suggest-demo">
-                <ActionSheet
+                <Popup
                     maskExtraClass="test-mask"
                     show={this.state.show}
                     height={window.screen.height}
@@ -62,7 +62,7 @@ class SuggestDemo extends React.Component {
                         placeholder="搜索"
                         defaultCondition="hahah"
                     />
-                </ActionSheet>
+                </Popup>
                 <button onClick={()=> {
                     this.setState({show: true})
                 }}>

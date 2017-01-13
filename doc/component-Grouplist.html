@@ -2,7 +2,8 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+  <meta name="format-detection" content="telephone=no,email=no" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
   <meta name="description" content="description of your site">
   <meta name="author" content="author of the site">
@@ -521,7 +522,7 @@
             
             
             <div class="instructions-con-runner">
-                <iframe class="instructions-iframe" src="demo/src/html/component/grouplist.html?hideIcon"></iframe>
+                <iframe class="instructions-iframe" src="http://ued.qunar.com/hy2/yo/demo/src/html/component/grouplist.html?hideIcon"></iframe>
             </div>
             
         </div>
@@ -750,6 +751,51 @@
         
     </table>
 </div>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>staticSection</strong>
+     <span class="prop-type">{ Element }</span>
+    
+    <span class="yo-badge yo-badge-danger">3.0.3</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>在所有列表项之上渲染的一块静态区域，在开启Infinite模式时，这块区域不会参与列表项的回收复用。
+注意：在设置staticSection以后，你还必须设置staticSectionHeight属性指定它的高度。</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> null
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>staticSectionHeight</strong>
+     <span class="prop-type">{ Number }</span>
+    
+    <span class="yo-badge yo-badge-danger">3.0.3</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>静态区域的高度，在设置了staticSection以后必须为它指定一个高度。</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> 0
+</p>
+
 
 
 
@@ -1648,6 +1694,7 @@
 </div>
 
               </div>
+              <div class="open-panel"></div>
           </div>
           
         
@@ -1657,11 +1704,11 @@
      
       <footer class="footer">
         <div class="copyright">
-            &copy; 2016 <a href="https://github.com/YMFE">YMFE</a> Team. Build by <a href="https://github.com/YMFE/ydoc">ydoc</a>.
+            &copy; 2017 <a href="https://github.com/YMFE">YMFE</a> Team. Build by <a href="https://github.com/YMFE/ydoc">ydoc</a>.
         </div>
       </footer>
     </div>
-    <div class="open-panel">=</div>
+
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
     

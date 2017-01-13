@@ -3,16 +3,7 @@
  * @version 3.0.0
  * @description 多列表组件，该组件基于list组件封装，支持列表展示，支持自定义模板展示。
  *
- * - 采用树形结构datasource组织层级关系。
- * - 实现了异步加载列表。
- * - 支持多选和单选。
- * - 支持不同级别列表的样式自定义。
- *
- * @author eva.li
- * @instructions {instruInfo: ./multilist/index.md}{instruUrl: multilist/index.html?hideIcon}
- * @instructions {instruInfo: ./multilist/basic.md}{instruUrl: multilist/radio.html?hideIcon}
- * @instructions {instruInfo: ./multilist/async.md}{instruUrl: multilist/async.html?hideIcon}
- * @instructions {instruInfo: ./multilist/personal.md}{instruUrl: multilist/product.html?hideIcon}
+ * ** 本组件正在重构中，请等待3.0.4版本 **
  */
 
 import React, {
@@ -26,6 +17,7 @@ import { replaceRedundantSpaces } from '../../common/util';
 export default class MultiList extends Component {
     static propTypes = {
         /**
+         * @skip
          * 原始数据用于生成列表
          * @property dataSource
          * @type Array
@@ -59,14 +51,14 @@ export default class MultiList extends Component {
          */
         updateDataSource: PropTypes.func,
         /**
-         *
+         * @skip
          * @property value
          * @type  Array
          * @description mutliList的值,该值为点选的路径，及当前展开路径
          */
         value: React.PropTypes.array,
         /**
-         *
+         * @skip
          * @property onChange
          * @type Function
          * @description
@@ -83,6 +75,7 @@ export default class MultiList extends Component {
          */
         onChange: PropTypes.func.isRequired,
         /**
+         * @skip
          * @property extraClass
          * @type String
          * @description 给组件根节点附加的额外样式类

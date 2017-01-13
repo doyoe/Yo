@@ -2,7 +2,8 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+  <meta name="format-detection" content="telephone=no,email=no" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
   <meta name="description" content="description of your site">
   <meta name="author" content="author of the site">
@@ -429,8 +430,8 @@
     &lt;/Scroller.Sticky&gt;
     ...
 &lt;/Scroller&gt;
-</code></pre><p><strong> 需要注意的是，这个组件只能在<code>Scroller</code>组件内部使用，如果需要给<code>List</code>中的元素添加吸顶效果，建议
-直接使用<code>Grouplist</code>组件。 </strong></p>
+</code></pre><p><strong> 需要注意的是，这个组件只能在<code>Scroller</code>组件内部，以及列表系列组件的<code>staticSection</code>中使用，
+如果需要给<code>List</code>中的列表项添加吸顶效果，建议直接使用<code>Grouplist</code>组件。 </strong></p>
 <p><strong> 这个组件可以在<code>Scroller</code>内部的任何位置使用，无需考虑dom结构。 </strong></p>
 <h4 id="-sticky-">给sticky容器添加额外样式类</h4>
 <p>吸顶效果的实现借助了一个始终定位在<code>Scroller</code>容器顶部的一个dom容器来实现，
@@ -503,7 +504,7 @@ function getRandomColors(num) {
             
             
             <div class="instructions-con-runner">
-                <iframe class="instructions-iframe" src="demo/src/html/component/scroller/sticky.html?hideIcon"></iframe>
+                <iframe class="instructions-iframe" src="http://ued.qunar.com/hy2/yo/demo/src/html/component/scroller/sticky.html?hideIcon"></iframe>
             </div>
             
         </div>
@@ -544,6 +545,7 @@ function getRandomColors(num) {
 </div>
 
               </div>
+              <div class="open-panel"></div>
           </div>
           
         
@@ -553,11 +555,11 @@ function getRandomColors(num) {
      
       <footer class="footer">
         <div class="copyright">
-            &copy; 2016 <a href="https://github.com/YMFE">YMFE</a> Team. Build by <a href="https://github.com/YMFE/ydoc">ydoc</a>.
+            &copy; 2017 <a href="https://github.com/YMFE">YMFE</a> Team. Build by <a href="https://github.com/YMFE/ydoc">ydoc</a>.
         </div>
       </footer>
     </div>
-    <div class="open-panel">=</div>
+
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
     

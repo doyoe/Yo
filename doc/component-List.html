@@ -2,7 +2,8 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+  <meta name="format-detection" content="telephone=no,email=no" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
   <meta name="description" content="description of your site">
   <meta name="author" content="author of the site">
@@ -401,7 +402,7 @@
 </h2>
 <div class="api-content"><p>列表组件,继承了Scroller的特性,有下拉刷新和加载更多功能。</p>
 <p>除此之外, List优化了长列表的性能,在数据源较大时能够提升滚动的性能并避免内存溢出。</p>
-<p>使用列表组件实现的组件:Grouplist,Calendar,SwipeMenuList。</p>
+<p>使用列表组件实现的组件:GroupList,Calendar,SwipeMenuList。</p>
 <p>特别感谢大明哥(leeds.li)和她的不定高无穷列表的实现思路。</p>
 </div>
 <!-- 使用说明begin -->
@@ -559,7 +560,7 @@
             
             
             <div class="instructions-con-runner">
-                <iframe class="instructions-iframe" src="demo/src/html/component/list/infinite_mode_with_height.html?hideIcon"></iframe>
+                <iframe class="instructions-iframe" src="http://ued.qunar.com/hy2/yo/demo/src/html/component/list/infinite_mode_with_height.html?hideIcon"></iframe>
             </div>
             
         </div>
@@ -628,7 +629,138 @@
             
             
             <div class="instructions-con-runner">
-                <iframe class="instructions-iframe" src="demo/src/html/component/list/base.html?hideIcon"></iframe>
+                <iframe class="instructions-iframe" src="http://ued.qunar.com/hy2/yo/demo/src/html/component/list/base.html?hideIcon"></iframe>
+            </div>
+            
+        </div>
+    </div>
+ 
+    <div class="instructions">
+        <div class="instructions-con">
+            
+            <div class="instructions-con-info">
+            <h4 id="static-section">Static Section</h4>
+<p>在业务需求中经常会遇到界面的一部分是列表形式，一部分是静态内容的情况（可以看一下大客户端首页）。
+这种场景可以借助<code>staticSection</code>属性实现，给这个属性传入的JSX将会被渲染到所有列表项之上，例如：</p>
+<pre><code>&lt;List
+    ...
+    staticSection={&lt;div&gt;static section...&lt;/div&gt;}
+    staticSectionHeight={300}
+/&gt;
+</code></pre><p>需要注意的是如果你的列表开启了<code>Infinite</code>模式，
+你必须同时设置<code>staticSection</code>和<code>staticSectionHeight</code>才能生效，也就是说这个静态区域必须是定高的。
+下面的代码是一个更复杂的例子，这个例子实现的是类似大客户端首页的效果，上部区域是静态内容，下半部分是一个Infinite的列表，
+还实现了一个横向的可滚动Tab，你可以在右边的Demo中查看效果：</p>
+<pre><code>class Demo extends Component {
+
+    constructor() {
+        super();
+        this.state = {
+            dataSource: getRandomDataSource(25),
+            x: 0
+        };
+    }
+
+    getContent() {
+        return [1, 2, 3, 4, 5].map((item) =&gt; {
+            return &lt;div className=&quot;item&quot; style={{ background: &#39;green&#39; }} key={item}&gt;{item}&lt;/div&gt;;
+        });
+    }
+
+    getGroup(i) {
+        return (
+            &lt;div key={i} className=&quot;demo-group&quot;&gt;
+                &lt;Scroller.Sticky&gt;
+                    &lt;div style={{ height: 50, lineHeight: 50 + &#39;px&#39; }} className=&quot;sticky-title&quot;&gt;
+                        &lt;span&gt;{&#39;Sticky Header &#39; + i}&lt;/span&gt;
+                        &lt;Touchable touchClass=&#39;touchable-opacity&#39; onTap={() =&gt; {
+                            Toast.show(&#39;sticky header &#39; + i);
+                        }}&gt;
+                            &lt;span className=&quot;touchable-right&quot; style={{ float: &#39;right&#39; }}&gt;tap!&lt;/span&gt;
+                        &lt;/Touchable&gt;
+                    &lt;/div&gt;
+                &lt;/Scroller.Sticky&gt;
+                {this.getContent()}
+            &lt;/div&gt;
+        );
+    }
+
+    refresh() {
+        this.setState({ dataSource: getRandomDataSource(25) });
+    }
+
+    fetch() {
+        this.setState({ dataSource: this.state.dataSource.concat(getRandomDataSource(15)) });
+    }
+
+    render() {
+        return (
+            &lt;Page title=&quot;List: Static Section&quot; onLeftPress={() =&gt; location.href = &quot;./index.html&quot;}&gt;
+                &lt;List
+                    // 这个属性用来改变竖向滚动的阈值，因为这个例子中存在横向滚动容器，设置一个小的阈值可以解决方向冲突问题
+                    directionLockThreshold={3}
+                    // 新增属性staticSection，可以在list顶部渲染一个静态区域
+                    staticSection={
+                        &lt;div className=&quot;demo-static-header&quot;&gt;
+                            {[0, 1, 2].map(num =&gt; this.getGroup(num))}
+                            &lt;Scroller.Sticky&gt;
+                                &lt;div&gt;
+                                    &lt;div style={{ height: 50, lineHeight: 50 + &#39;px&#39; }} className=&quot;sticky-title&quot;&gt;
+                                        &lt;span&gt;{&#39;Sticky Header For List&#39;}&lt;/span&gt;
+                                    &lt;/div&gt;
+                                    &lt;Scroller
+                                        style={{ height: 50, width: &#39;100%&#39;, background: &#39;white&#39; }}
+                                        scrollX={true}
+                                        scrollY={false}
+                                        bounce={false}
+                                        contentOffset={{ x: this.state.x || 0, y: 0 }}
+                                        // 这里很重要，因为吸顶的节点实际上是原来节点的克隆
+                                        // 因此在改变吸顶的横向滚动容器的x偏移时，需要同步原来元素的x偏移
+                                        onScrollEnd={(evt) =&gt; {
+                                            const x = evt.contentOffset.x;
+                                            this.setState({ x })
+                                        }}
+                                    &gt;
+                                        &lt;div style={{ height: &#39;100%&#39;, width: 600 }}&gt;
+                                            {[1, 2, 3, 4, 5, 6, 7].map(num =&gt; (
+                                                &lt;span key={num} className=&quot;scroller-item&quot;&gt;{num}&lt;/span&gt;
+                                            ))}
+                                        &lt;/div&gt;
+                                    &lt;/Scroller&gt;
+                                &lt;/div&gt;
+                            &lt;/Scroller.Sticky&gt;
+                        &lt;/div&gt;
+                    }
+                    // Static Section必须定高
+                    staticSectionHeight={1000}
+                    ref=&quot;list&quot;
+                    extraClass=&quot;yo-scroller-fullscreen&quot;
+                    dataSource={this.state.dataSource}
+                    renderItem={(item, i) =&gt; &lt;div&gt;{i + &#39;:&#39; + item.text}&lt;/div&gt;}
+                    infinite={true}
+                    infiniteSize={20}
+                    itemHeight={44}
+                    useLoadMore={true}
+                    onLoad={() =&gt; {
+                        setTimeout(() =&gt; {
+                            this.fetch();
+                            this.refs.list.stopLoading(true);
+                        }, 500);
+                    }}
+                    onItemTap={(item, i) =&gt; {
+                        Toast.show(&#39;item&#39; + i + &#39; clicked.&#39;, 2000);
+                    }}
+                /&gt;
+            &lt;/Page&gt;
+        );
+    }
+}
+</code></pre>
+            </div>
+            
+            
+            <div class="instructions-con-runner">
+                <iframe class="instructions-iframe" src="http://ued.qunar.com/hy2/yo/demo/src/html/component/list/static_section.html?hideIcon"></iframe>
             </div>
             
         </div>
@@ -1030,6 +1162,51 @@
         
     </table>
 </div>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>staticSection</strong>
+     <span class="prop-type">{ Element }</span>
+    
+    <span class="yo-badge yo-badge-danger">3.0.3</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>在所有列表项之上渲染的一块静态区域，在开启Infinite模式时，这块区域不会参与列表项的回收复用。
+注意：在设置staticSection以后，你还必须设置staticSectionHeight属性指定它的高度。</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> null
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>staticSectionHeight</strong>
+     <span class="prop-type">{ Number }</span>
+    
+    <span class="yo-badge yo-badge-danger">3.0.3</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>静态区域的高度，在设置了staticSection以后必须为它指定一个高度。</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> 0
+</p>
+
 
 
 
@@ -1643,6 +1820,7 @@ nowItem(ListItem当前的props的item属性),返回一个布尔值,false则会�
 </div>
 
               </div>
+              <div class="open-panel"></div>
           </div>
           
         
@@ -1652,11 +1830,11 @@ nowItem(ListItem当前的props的item属性),返回一个布尔值,false则会�
      
       <footer class="footer">
         <div class="copyright">
-            &copy; 2016 <a href="https://github.com/YMFE">YMFE</a> Team. Build by <a href="https://github.com/YMFE/ydoc">ydoc</a>.
+            &copy; 2017 <a href="https://github.com/YMFE">YMFE</a> Team. Build by <a href="https://github.com/YMFE/ydoc">ydoc</a>.
         </div>
       </footer>
     </div>
-    <div class="open-panel">=</div>
+
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
     

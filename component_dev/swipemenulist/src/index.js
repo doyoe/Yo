@@ -3,9 +3,6 @@
  * @version 3.0.0
  * @description SwipeMenuList组件,使用List实现,列表项全部为SwipeMenu。
  *
- * 它的数据源和List组件的区别在于,对于每一个数据对象,你需要定义action属性来配置每个SwipeMenu的按钮。
- *
- * 另外它以renderMenuContent属性代替了renderItem,这个新属性可以配置组件应该如何渲染SwipeMenu的内容区域。
  * @instructions {instruInfo: ./swipeMenuList.md}{instruUrl: swipemenulist.html?hideIcon}
  * @author jiao.shen
  */
@@ -24,33 +21,25 @@ export default class SwipeMenuList extends Component {
          * @property dataSource
          * @type Array
          * @default null
-         * @description 组件数据源,数组类型,里面的元素对应着一个SwipeMenu的配置对象,需要符合如下格式:
-         * ```
-         * {
-         *  // 配置菜单的按钮
-         *  action:[
-         *    {
-         *      content: string // 按钮文本,必须
-         *      tap: function // 按钮的点击事件回调,接受参数item(这个配置对象的引用),index(配置对象在数据源的index)以及component(该对象对应的SwipeMenu组件的引用)
-         *      className: ddd
-         *    },
-         *    ...
-         *  ],
-         *  height:number // 组件高度(参考List组件的数据源中相应的属性),如果开启了infinite模式并且没有设置高度,则会使用不定高的无穷列表
-         *  text:string // SwipeMenu内容区文本,可选,如果不配置renderMenuContent,则会使用这个属性作为内容区的内容
-         * }
-         * ```
+         * @description 组件数据源，数组类型，与`List`同名属性完全一致。
          */
         dataSource: PropTypes.arrayOf(PropTypes.shape({
-            action: PropTypes.arrayOf(PropTypes.shape({
-                text: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-                onTap: PropTypes.func.isRequired
-            })),
             height: PropTypes.number,
             text: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
         })).isRequired,
         /**
-         * @property renderMenuContent
+         * @property getMenuConfig
+         * @default null
+         * @type Function/Object
+         * @param {Object} item 列表项对应的数据对象
+         * @param {Number} index 列表项在数据源中的index
+         * @description 列表项菜单对应的SwipeMenu组件配置对象，可配置的属性请参考`SwipeMenu`组件。
+         *
+         * 如果传入对象，会应用于所有的列表项；如果传入函数，可以给不同的列表项定制不同的配置。
+         */
+        getMenuConfig: PropTypes.oneOfType([PropTypes.object, PropTypes.func]).isRequired,
+        /**
+         * @property renderItem
          * @type Function
          * @default null
          * @param {Object} item 列表项对应的数据对象
@@ -58,7 +47,24 @@ export default class SwipeMenuList extends Component {
          * @description 渲染列表项的函数,接受参数item(该项对应的数据源中的配置对象),index(配置对象在数据源中的index),返回JSX或者string
          * 作为SwipeMenu的内容
          */
-        renderMenuContent: PropTypes.func,
+        renderItem: PropTypes.func,
+        /**
+         * @property staticSection
+         * @type Element
+         * @default null
+         * @version 3.0.3
+         * @description 在所有列表项之上渲染的一块静态区域，在开启Infinite模式时，这块区域不会参与列表项的回收复用。
+         * 注意：在设置staticSection以后，你还必须设置staticSectionHeight属性指定它的高度。
+         */
+        staticSection: PropTypes.element,
+        /**
+         * @property staticSectionHeight
+         * @type Number
+         * @default 0
+         * @version 3.0.3
+         * @description 静态区域的高度，在设置了staticSection以后必须为它指定一个高度。
+         */
+        staticSectionHeight: PropTypes.number,
         /**
          * @property infinite
          * @type Bool
@@ -245,7 +251,7 @@ export default class SwipeMenuList extends Component {
     };
 
     static defaultProps = {
-        renderMenuContent(item) {
+        renderItem(item) {
             return item.text;
         },
         infinite: false,
@@ -264,7 +270,9 @@ export default class SwipeMenuList extends Component {
         },
         onMenuClose() {
         },
-        scrollWithoutTouchStart: false
+        scrollWithoutTouchStart: false,
+        staticSection: null,
+        staticSectionHeight: 0
     };
 
     static childContextTypes = {
@@ -373,7 +381,12 @@ export default class SwipeMenuList extends Component {
     }
 
     render() {
-        const { renderMenuContent } = this.props;
+        const { renderItem } = this.props;
+
+        let { getMenuConfig } = this.props;
+        if (typeof getMenuConfig === 'object') {
+            getMenuConfig = () => this.props.getMenuConfig;
+        }
 
         return (
             <List
@@ -393,7 +406,8 @@ export default class SwipeMenuList extends Component {
                 }}
                 // 渲染列表项
                 renderItem={(item, i) => {
-                    let action = item.action;
+                    const menuConfig = getMenuConfig(item, i);
+                    const { action } = menuConfig;
                     // 重新包装action 菜单配置对象的tap方法,使其能够接收item,i,component为参数
                     action.forEach((actionObj) => {
                         const origTap = actionObj.onTap;
@@ -408,6 +422,7 @@ export default class SwipeMenuList extends Component {
                     });
                     return (
                         <SwipeMenu
+                            {...menuConfig}
                             ref={(component) => {
                                 if (component) {
                                     this.swipeMenuList[i] = component;
@@ -423,20 +438,35 @@ export default class SwipeMenuList extends Component {
                             action={action}
                             extraClass="swipemenu-list-menu"
                         >
-                            {renderMenuContent(item, i)}
+                            {renderItem(item, i)}
                         </SwipeMenu>
                     );
                 }}
                 onItemTap={(item, i, target) => {
                     // 只有在内容区域的点击才触发onItemTap
-                    if (target.className.search('front') !== -1 && this.openIndex === -1) {
-                        this.props.onItemTap(item, i, target);
-                    }
+                    this.props.onItemTap(item, i, target);
                 }}
                 onItemTouchStart={(item, i, evt) => {
                     evt.preventDefault();
-                    // 在列表项touchstart时关闭打开的菜单并解锁滚动
-                    if (evt.target.className.search('front') !== -1) {
+
+                    const currentTarget = evt.currentTarget;
+                    const front = currentTarget.childNodes[0].childNodes[0];
+                    const action = currentTarget.childNodes[0].childNodes[1];
+                    let target = evt.target;
+                    let touchInFront = target === front;
+                    while (target !== front && target !== action) {
+                        if (target.parentNode === front) {
+                            touchInFront = true;
+                            break;
+                        }
+                        if (target.parentNode === action) {
+                            touchInFront = false;
+                            break;
+                        }
+                        target = target.parentNode;
+                    }
+
+                    if (touchInFront) {
                         this.closeAll(i, evt);
                     }
                 }}

@@ -17,6 +17,7 @@ export default class GroupCore extends ComponentCore {
      */
     constructor(dataSource,
                 itemHeight = null,
+                staticSectionHeight = 0,
                 titleHeight,
                 sortFunc,
                 infinite,
@@ -30,6 +31,7 @@ export default class GroupCore extends ComponentCore {
             dataSource,
             sortFunc,
             infinite,
+            staticSectionHeight,
             itemHeight,
             titleHeight
         );
@@ -48,6 +50,7 @@ export default class GroupCore extends ComponentCore {
                dataSource,
                sortFunc = this.sortFunc,
                infinite = this.infinite,
+               staticSectionHeight,
                itemHeight = this.itemHeight,
                titleHeight = this.titleHeight) {
         this.infinite = infinite;
@@ -55,6 +58,7 @@ export default class GroupCore extends ComponentCore {
         this.titleHeight = titleHeight;
         this.currentGroup = {};
         this.dataSource = this.renderData(dataSource, itemHeight, titleHeight, sortFunc);
+        this.staticSectionHeight = staticSectionHeight;
         this.groupTitles = this.getTitles();
         this.isHeightFixed = this.dataSource.every((item) => !!item.height) || !infinite;
         this.offsetY = this.isHeightFixed ? offsetY : this.offsetY;
@@ -70,8 +74,9 @@ export default class GroupCore extends ComponentCore {
     refresh(dataSource = this.dataSource,
             sortFunc = this.sortFunc,
             infinite = this.infinite,
+            staticSectionHeight = this.staticSectionHeight,
             offsetY = this.offsetY) {
-        this.initialize(offsetY, dataSource, sortFunc, infinite);
+        this.initialize(offsetY, dataSource, sortFunc, infinite, staticSectionHeight);
         this.emitEvent('refresh', this.dataSource, this.groupTitles);
     }
 
@@ -146,8 +151,8 @@ export default class GroupCore extends ComponentCore {
                 );
 
             return key !== 'notGrouped' ? ret : ret.filter((item) =>
-                !(item._type === 'groupTitle' && item.groupKey === 'notGrouped')
-            );
+                    !(item._type === 'groupTitle' && item.groupKey === 'notGrouped')
+                );
         }, []);
     }
 
@@ -188,6 +193,7 @@ export default class GroupCore extends ComponentCore {
      * @param offsetY
      */
     refreshStickyHeader(offsetY = this.offsetY) {
+        offsetY = offsetY - this.staticSectionHeight;
         const title = this.getCurrentTitle(offsetY),
             offset = this.getCurrentTitleOffsetY(offsetY),
             groupKey = title ? title.groupKey : null;
@@ -261,7 +267,7 @@ export default class GroupCore extends ComponentCore {
         const targetGroup = this.groupTitles.find((title) => title.groupKey === groupKey);
 
         if (targetGroup) {
-            return targetGroup._translateY;
+            return targetGroup._translateY + this.staticSectionHeight;
         }
 
         return null;

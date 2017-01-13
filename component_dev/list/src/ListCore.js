@@ -19,7 +19,8 @@ export default class ListCore extends ComponentCore {
                 offsetY = 0,
                 infinite = true,
                 itemHeight,
-                visibleSize = 12) {
+                visibleSize = 12,
+                staticSectionHeight = 0) {
         super('list');
         // 静态属性
         // 这些属性不会随着父组件render改变
@@ -27,7 +28,7 @@ export default class ListCore extends ComponentCore {
         // 保存列表项定位信息的表,List组件不定高模式的核心数据结构
         this.positionMap = {};
         // 在refresh中设置的属性可以通过父组件的render改变
-        this.refresh(dataSource, false, visibleSize, offsetY, infinite);
+        this.refresh(dataSource, false, visibleSize, staticSectionHeight, offsetY, infinite);
     }
 
     /**
@@ -44,6 +45,7 @@ export default class ListCore extends ComponentCore {
     refresh(ds = this.dataSource,
             refreshAll = false,
             visibleSize = this.visibleSize,
+            staticSectionHeight,
             offsetY = this.offsetY,
             infinite = this.infinite) {
         if (!ds.length) {
@@ -57,6 +59,7 @@ export default class ListCore extends ComponentCore {
         this.offsetY = offsetY;
         this.startIndex = this.refreshStartIndexByOffsetY(offsetY);
         this.visibleList = this.getVisibleList(offsetY);
+        this.staticSectionHeight = staticSectionHeight;
         this.totalHeight = this.getTotalHeight();
 
         this.emitChange();
@@ -136,7 +139,8 @@ export default class ListCore extends ComponentCore {
             // 只有当visibleList里面的内容真正发生变化的时候才触发onchange
             // 这样可以确保setState调用次数最少
             if (this.startIndex !== cachedIndex ||
-                (this.startIndex === 0 && this.offsetY === 0)) {
+                (this.startIndex === 0 && this.offsetY === 0)
+                || manually) {
                 this.emitChange();
             }
         }
@@ -314,6 +318,7 @@ export default class ListCore extends ComponentCore {
     getVisibleList(offsetY = this.offsetY,
                    sIndex = null,
                    dataSource = this.dataSource) {
+        offsetY = offsetY - this.staticSectionHeight;
         let ret = null;
 
         if (this.infinite) {
@@ -425,12 +430,13 @@ export default class ListCore extends ComponentCore {
      * 计算列表中所有项的高度,用来refresh Scroller
      */
     getTotalHeight(dataSource = this.dataSource) {
-        return dataSource.reduce((acc, item) => {
-            let ret = acc;
-            const itemPosData = this.getItemPositionData(item);
-            ret += itemPosData._resolved ? itemPosData.height : 0;
-            return ret;
-        }, 0);
+        return dataSource
+                .reduce((acc, item) => {
+                    let ret = acc;
+                    const itemPosData = this.getItemPositionData(item);
+                    ret += itemPosData._resolved ? itemPosData.height : 0;
+                    return ret;
+                }, 0) + this.staticSectionHeight;
     }
 
     /**

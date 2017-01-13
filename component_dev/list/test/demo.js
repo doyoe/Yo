@@ -98,6 +98,12 @@ class ListViewDemo extends React.Component {
             <div style={{ height: '100%' }}>
                 <div style={{ position: 'absolute', top: 0, bottom: 0, width: '100%' }}>
                     <ListView
+                        staticSection={
+                            <div className="haha,haha">
+                                Heallo
+                            </div>
+                        }
+                        staticSectionHeight={800}
                         extraClass="yo-list-demo"
                         ref="list"
                         usePullRefresh={true}

@@ -2,7 +2,8 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+  <meta name="format-detection" content="telephone=no,email=no" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
   <meta name="description" content="description of your site">
   <meta name="author" content="author of the site">
@@ -408,11 +409,6 @@
 入住时间在离店时间之后，则互换。
 默认selectionStart、selectionEnd可选择同一天。</li>
 </ul>
-<h4 id="-">何时使用</h4>
-<ul>
-<li>当用户需要选择日期范围时，可以在弹出日期界面进行选择。</li>
-<li>起、始选中日期默认显示的文字是入店、离店，可通过CSS伪类修改。</li>
-</ul>
 </div>
 <!-- 使用说明begin -->
 
@@ -496,7 +492,7 @@
             
             
             <div class="instructions-con-runner">
-                <iframe class="instructions-iframe" src="demo/src/html/component/calendar.html?hideIcon"></iframe>
+                <iframe class="instructions-iframe" src="http://ued.qunar.com/hy2/yo/demo/src/html/component/calendar.html?hideIcon"></iframe>
             </div>
             
         </div>
@@ -517,7 +513,8 @@
     </h3>
 </blockquote>
 <div class="api-content">
-    <div><p>允许用户选择的日期范围</p>
+    <div><p>允许用户选择的日期范围，支持两种形式：传入数字，则表示从今天开始到N天后；传入形式为[&#39;yyyy-mm-dd&#39;,&#39;yyyy-mm-dd&#39;]的数组，
+可以直接设置起始日期和终止日期。</p>
 </div>
     
 </div>
@@ -714,6 +711,7 @@
 </div>
 
               </div>
+              <div class="open-panel"></div>
           </div>
           
         
@@ -723,11 +721,11 @@
      
       <footer class="footer">
         <div class="copyright">
-            &copy; 2016 <a href="https://github.com/YMFE">YMFE</a> Team. Build by <a href="https://github.com/YMFE/ydoc">ydoc</a>.
+            &copy; 2017 <a href="https://github.com/YMFE">YMFE</a> Team. Build by <a href="https://github.com/YMFE/ydoc">ydoc</a>.
         </div>
       </footer>
     </div>
-    <div class="open-panel">=</div>
+
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
     

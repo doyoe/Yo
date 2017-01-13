@@ -2,7 +2,8 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+  <meta name="format-detection" content="telephone=no,email=no" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
   <meta name="description" content="description of your site">
   <meta name="author" content="author of the site">
@@ -291,10 +292,14 @@ import Toast from &#39;$yo-component/toast&#39;
 |- ykit.yo.js // ykit配置文件
 </code></pre><p><a name="upgrade"></a></p>
 <h2 id="更新升级">更新升级</h2><p>相比于之前的升级方式，现在的 <code>Yo</code> 升级也更加简便，只需要在项目目录执行 <code>npm install</code> 即可。</p>
-<p><code>Yo</code> 升级时，只会对 <code>node_modules</code> 中的 <code>yo3</code> 模块进行更新，而不会侵入用户目录中的其它地方。假设 <code>Yo</code> 新增了一些组件，升级时，会增量的将这些新组件添加到项目的 <code>yo-config</code> 目录中，而不会改动任何已存在的文件。</p>
-<p>所以，当你需要升级 <code>Yo</code> 的时候，只需要仔细阅读一遍 <a href="changelog.html">版本变更</a> 既可。</p>
+<p><code>Yo</code> 升级时，只会对 <code>node_modules</code> 中的 <code>yo3</code> 模块进行更新，而不会侵入用户目录中的其它地方。假设 <code>Yo</code> 新增了一些组件，升级时，会增量的将这些新组件添加到项目的 <code>yo-config</code> 目录中，而不会改动任何已存在的文件。
+这时你会在npm install结束后在控制台看到如下信息：</p>
+<pre><code>yo:新增文件[文件名]已经被拷贝到[目录路径]
+</code></pre><p>请注意，这时候你应该手动执行一次<code>git add ./src/yo-config</code>，否则新增的文件不会被加入到版本控制中。</p>
+<p>当你需要升级 <code>Yo</code> 的时候，请仔细阅读 <a href="changelog.html">版本变更</a> 。</p>
 
               </div>
+              <div class="open-panel"></div>
           </div>
           
         
@@ -304,11 +309,11 @@ import Toast from &#39;$yo-component/toast&#39;
      
       <footer class="footer">
         <div class="copyright">
-            &copy; 2016 <a href="https://github.com/YMFE">YMFE</a> Team. Build by <a href="https://github.com/YMFE/ydoc">ydoc</a>.
+            &copy; 2017 <a href="https://github.com/YMFE">YMFE</a> Team. Build by <a href="https://github.com/YMFE/ydoc">ydoc</a>.
         </div>
       </footer>
     </div>
-    <div class="open-panel">=</div>
+
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
     

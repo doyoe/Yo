@@ -1,36 +1,34 @@
 import Calendar from '../src';
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
 class CalendarDemo extends Component {
     constructor() {
         super();
         this.state = {
-            endDate: '2017-01-01',
-            checkIn: '2016-12-31',
-            checkOut: '2017-01-01',
-        }
+            duration: ['2017-01-01', '2017-3-29']
+        };
     }
 
     onChange(obj) {
-        const { checkIn, checkOut } = obj;
+        const { selectionStart, selectionEnd } = obj;
         this.setState({
-            checkIn,
-            checkOut,
+            selectionStart,
+            selectionEnd
         });
     }
 
     render() {
         return (
             <Calendar
-                extraClass='demo'
-                checkIn={this.state.checkIn}
-                checkOut={this.state.checkOut}
-                endDate={this.state.endDate}
+                extraClass="demo"
+                duration={this.state.duration}
+                selectionStart={this.state.selectionStart}
+                selectionEnd={this.state.selectionEnd}
                 allowSingle={false}
                 onChange={str => this.onChange(str)}
             />
-        )
+        );
     }
 }
 

@@ -16,7 +16,7 @@
 <script src="[项目路径]/prd/page/pageA/index@VERSION.js"></script>
 ```
 
-你还可以调用`ykit dll`命令来手动生成 `lib.js`，在以上四个依赖的版本发生变化时，你可能需要手动重新生成它。
+你还可以调用`ykit dll`命令来手动生成 `lib.js`，在以上五个依赖的版本发生变化时，你可能需要手动重新生成它。
 
 在构建和发布时，脚本会自动生成压缩后的 `lib.js` 和版本号。
 
@@ -35,7 +35,8 @@ modifyWebpackConfig: function (config) {
 ...
 ```
 
-getVendor函数可以接收一个数组参数 `vendor`，里面是 `lib.js` 中内置的四个依赖，它返回的新数组将会覆盖掉原有的配置。
+getVendor函数可以接收一个数组参数 `vendor`，里面是 `lib.js` 中内置的五个依赖，它返回的新数组将会覆盖掉原有的配置。我们推荐
+你将所有的公共模块都内置到lib.js中。
 
 dll也可以支持内置非 `node_modules` 的模块，你需要填写一个相对于 `./src` 目录的路径：
 

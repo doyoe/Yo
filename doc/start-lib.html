@@ -2,7 +2,8 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+  <meta name="format-detection" content="telephone=no,email=no" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
   <meta name="description" content="description of your site">
   <meta name="author" content="author of the site">
@@ -172,7 +173,7 @@
 &lt;script src=&quot;[项目路径]/prd/lib@VERSION.js&quot;&gt;&lt;/script&gt;
 &lt;!-- 业务代码 --&gt;
 &lt;script src=&quot;[项目路径]/prd/page/pageA/index@VERSION.js&quot;&gt;&lt;/script&gt;
-</code></pre><p>你还可以调用<code>ykit dll</code>命令来手动生成 <code>lib.js</code>，在以上四个依赖的版本发生变化时，你可能需要手动重新生成它。</p>
+</code></pre><p>你还可以调用<code>ykit dll</code>命令来手动生成 <code>lib.js</code>，在以上五个依赖的版本发生变化时，你可能需要手动重新生成它。</p>
 <p>在构建和发布时，脚本会自动生成压缩后的 <code>lib.js</code> 和版本号。</p>
 <h3 id="修改 lib.js 中的内容">修改 lib.js 中的内容</h3><p>DLLPlugin的配置中内置了五个依赖：<code>React</code>, <code>ReactDOM</code>, <code>Babel-Polyfill</code>，<code>Yo-Router</code>和<code>lodash</code>。如果你的业务中还依赖了其他的公共模块，可以通过配置<code>ykit.yo.js</code>
 中的 <code>modifyWebpackConfig</code> 属性来修改 <code>lib.js</code> 中的内容：</p>
@@ -183,7 +184,8 @@ modifyWebpackConfig: function (config) {
     };
 });
 ...
-</code></pre><p>getVendor函数可以接收一个数组参数 <code>vendor</code>，里面是 <code>lib.js</code> 中内置的四个依赖，它返回的新数组将会覆盖掉原有的配置。</p>
+</code></pre><p>getVendor函数可以接收一个数组参数 <code>vendor</code>，里面是 <code>lib.js</code> 中内置的五个依赖，它返回的新数组将会覆盖掉原有的配置。我们推荐
+你将所有的公共模块都内置到lib.js中。</p>
 <p>dll也可以支持内置非 <code>node_modules</code> 的模块，你需要填写一个相对于 <code>./src</code> 目录的路径：</p>
 <pre><code>config.getVendor = function (vendors) {
     return vendors.concat([
@@ -207,6 +209,7 @@ modifyWebpackConfig: function (config) {
 <p><strong> 关闭以后记得手动在export中加入babel-polyfill的依赖！ </strong></p>
 
               </div>
+              <div class="open-panel"></div>
           </div>
           
         
@@ -216,11 +219,11 @@ modifyWebpackConfig: function (config) {
      
       <footer class="footer">
         <div class="copyright">
-            &copy; 2016 <a href="https://github.com/YMFE">YMFE</a> Team. Build by <a href="https://github.com/YMFE/ydoc">ydoc</a>.
+            &copy; 2017 <a href="https://github.com/YMFE">YMFE</a> Team. Build by <a href="https://github.com/YMFE/ydoc">ydoc</a>.
         </div>
       </footer>
     </div>
-    <div class="open-panel">=</div>
+
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
     

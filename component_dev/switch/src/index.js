@@ -211,7 +211,7 @@ class Switch extends Component {
                 <div
                     className={this.state.isMoving ? 'track moving' : 'track'}
                 >
-                    <span className="handle"></span>
+                    <span className="handle" />
                 </div>
             </label>
         );

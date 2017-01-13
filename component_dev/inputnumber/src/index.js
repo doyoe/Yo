@@ -9,9 +9,6 @@
  * - 可手动输入任意字符，若输入的不是数字，会自动回退到之前的数字。
  * - 支持小数、负数形式。
  *
- * #### 何时使用
- * 当需要获取标准数值时。
- *
  * @instructions {instruInfo: ./inputNumber.md}{instruUrl: inputnumber.html?hideIcon}
  * @author qingguo.xu
  */

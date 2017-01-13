@@ -127,11 +127,7 @@ export default class extends Component {
             ref: (dom) => {
                 this.domNode = dom;
             },
-            style: listModel.infinite ? {
-                    WebkitTransform: transform,
-                    transform,
-                    height: item.height
-                } : null
+            style: listModel.infinite ? { WebkitTransform: transform, transform, height: item.height } : null
         };
         const additionalProps = {
             className: replaceRedundantSpaces(

@@ -23,17 +23,7 @@ class SwipeMenuListDemo extends Component {
         const testData = getRandomDataSource(100).map((item, i) => ({
             ...item,
             id: i,
-            randomHeight: parseInt(10 + Math.random() * 40, 10),
-            action: [
-                {
-                    text: '删除',
-                    onTap(item, i, swipeMenu){
-                        self.setState({
-                            dataSource: self.state.dataSource.filter((it, index) => it.id !== item.id)
-                        });
-                    }
-                }
-            ]
+            randomHeight: parseInt(10 + Math.random() * 40, 10)
         }));
         this.state = {
             dataSource: testData
@@ -41,14 +31,35 @@ class SwipeMenuListDemo extends Component {
     }
 
     render() {
-
+        const self = this;
         return (
             <SwipeMenuList
+                staticSection={<div>static!</div>}
+                staticSectionHeight={200}
+                getMenuConfig={(item) => ({
+                    direction: 'right',
+                    action: [
+                        {
+                            text: 'haha,haha',
+                            onTap(item, i, swipeMenu){
+                                self.setState({
+                                    dataSource: self.state.dataSource.filter((it, index) => it.id !== item.id)
+                                });
+                            }
+                        },
+                        {
+                            text: 'try',
+                            onTap(){
+                                console.log(123);
+                            }
+                        }
+                    ]
+                })}
                 extraClass={'yo-swipemenulist-demo'}
                 dataSource={this.state.dataSource}
                 infinite={true}
                 infiniteSize={30}
-                renderMenuContent={(item, i) => {
+                renderItem={(item, i) => {
                     return [
                         <span key={0}>{i + ';'}</span>,
                         <Touchable key={1} onTap={() => {

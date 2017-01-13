@@ -13,6 +13,7 @@ import React, { Component, PropTypes } from 'react';
 import './style.scss';
 import '../../common/tapEventPluginInit';
 import List from '../../list/src';
+import Touchable from '../../touchable/src';
 import throttle from 'lodash/throttle';
 import { replaceRedundantSpaces } from '../../common/util';
 
@@ -286,6 +287,7 @@ export default class Suggest extends Component {
             if (results.length) {
                 ret = (
                     <List
+                        extraClass="yo-scroller-fullscreen"
                         ref={(component) => {
                             this.resultList = component;
                         }}
@@ -346,7 +348,6 @@ export default class Suggest extends Component {
                             }}
                             onBlur={(evt) => {
                                 this.props.onBlur(evt.target.value);
-                                // 留出键盘收起的时间
                                 this.setState({ showRecommendMask: false });
                             }}
                             type="search"
@@ -354,37 +355,45 @@ export default class Suggest extends Component {
                             id="yo-suggest-input"
                             placeholder={placeholder}
                         />
-                        <i
-                            className={deleteIconClass}
-                            onTouchTap={() => {
+                        <Touchable
+                            touchClass="icon-touch"
+                            onTap={() => {
                                 this.clearInput();
                                 this.input.focus();
                             }}
                         >
-                            &#xf077;
-                        </i>
+                            <i className={deleteIconClass}>
+                                &#xf077;
+                            </i>
+                        </Touchable>
                         <i className={loadingIconClass}>&#xf089;</i>
-                        <i
-                            onTouchTap={() => onIconTap('refresh', condition)}
-                            className={refreshIconClass}
+                        <Touchable
+                            touchClass="icon-touch"
+                            onTap={() => onIconTap('refresh', condition)}
                         >
-                            &#xf07a;
-                        </i>
-                        <i
-                            onTouchTap={() => onIconTap('stop', condition)}
-                            className={stopIconClass}
+                            <i className={refreshIconClass}>
+                                &#xf07a;
+                            </i>
+                        </Touchable>
+                        <Touchable
+                            touchClass="icon-touch"
+                            onTap={() => onIconTap('stop', condition)}
                         >
-                            &#xf063;
-                        </i>
+                            <i className={stopIconClass}>
+                                &#xf063;
+                            </i>
+                        </Touchable>
                     </form>
-                    <span
-                        className="cancel"
-                        onTouchTap={(evt) => {
-                            onCancelButtonTap(evt);
+                    <Touchable
+                        touchClass="cancel-btn-touch"
+                        onTap={() => {
+                            onCancelButtonTap();
                         }}
                     >
-                        {this.props.cancelButtonText}
-                    </span>
+                        <span className="cancel">
+                            {this.props.cancelButtonText}
+                        </span>
+                    </Touchable>
                 </div>
                 <div className="cont" onTouchTap={() => this.input.blur()}>
                     <div
