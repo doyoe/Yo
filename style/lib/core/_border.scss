@@ -1,0 +1,57 @@
+@charset "utf-8";
+/**
+ * @module 背景与边框
+ * @description 为元素添加边框（包括1px边框）
+ * @method border
+ * @version 2.0.0
+ * @param {String} $border-width 指定边框厚度（单位为px），默认值：1px，取值与`border-width`属性一致，不同方向代表边框位置 <2.0.0>
+ * @param {String} $border-color 指定边框颜色 <2.0.0>
+ * @param {String} $border-style 指定边框样式 <2.0.0>
+ * @param {String} $radius 指定边框圆角半径，默认值：null <2.0.0>
+ */
+@mixin border($border-width: 1px, $border-color: map-get($base, border-color), $border-style: solid, $radius: null) {
+    // 为边框位置提供定位参考
+    position: relative;
+    @if $border-width == null {
+        $border-width: 0;
+    }
+    border-radius: $radius;
+    &::after {
+        // 用以解决边框layer遮盖内容
+        pointer-events: none;
+        position: absolute;
+        z-index: 999;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        content: "\0020";
+        border-color: $border-color;
+        border-style: $border-style;
+        border-width: $border-width;
+        // 适配dpr进行缩放
+        @include responsive(retina1x) {
+            width: 100%;
+            height: 100%;
+            @if $radius != null {
+                border-radius: $radius;
+            }
+        }
+        @include responsive(retina2x) {
+            width: 200%;
+            height: 200%;
+            @include transform(scale(.5));
+            @if $radius != null {
+                border-radius: $radius * 2;
+            }
+        }
+        @include responsive(retina3x) {
+            width: 300%;
+            height: 300%;
+            @include transform(scale(.33333));
+            @if $radius != null {
+                border-radius: $radius * 3;
+            }
+        }
+        @include transform-origin(0 0);
+    }
+}
