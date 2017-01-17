@@ -10,8 +10,8 @@
         // 配置菜单的按钮
         action:[
             {
-                text: string, // 按钮文本,必须
-                onTap: function, // 按钮的点击事件回调,接受参数item(这个配置对象的引用),index(配置对象在数据源的index)以及component(该对象对应的SwipeMenu组件的引用)
+                text: string, // 按钮文本，必须
+                onTap: function, // 按钮的点击事件回调，接受参数item(这个配置对象的引用)，index(配置对象在数据源的index)以及component(该对象对应的SwipeMenu组件的引用)
                 className: yo-btn-test // 给按钮附加的额外类名
             },
             ...
