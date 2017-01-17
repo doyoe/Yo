@@ -9,8 +9,8 @@
     getMenuContent = {{
         action:[
             {
-                text: string,
-                onTap: function,
+                text: string
+                onTap: function
                 className: yo-btn-test
             },
             ...
