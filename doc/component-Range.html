@@ -478,6 +478,7 @@ class Demo extends Component {
 <p>在touchMove滑动过程中，鉴于通过state数据来控制滑块移动的性能极差（事件触发太过频繁），故而选择直接改变Dom属性，如果你想利用touchMove中的回调参数做一些事情，也极力推荐直接操作Dom，下面有示范。</p>
 <pre><code class="lang-javascript">&lt;span
     ref=&quot;tip&quot;
+    style={{ transform: `translateX(${this.state.translateX}px)` }}
 &gt;
 &lt;Range
     onSliderTouchMove={(val, translateX, evt, sliderIndex) =&gt; {
