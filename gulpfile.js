@@ -83,7 +83,7 @@ gulp.task('test', function() {
             errorHandler: hanlders.error
         }))
         .pipe(nodeSass({
-            outputStyle: 'expanded'
+            outputStyle: 'compressed'
         }))
         .pipe(gulp.dest('./style/usage/test'));
 });
