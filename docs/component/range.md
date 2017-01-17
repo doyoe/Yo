@@ -75,7 +75,6 @@ scaleFormat(value, index) {
 ```javascript
 <span
     ref="tip"
-    style={{ transform: `translateX(${this.state.translateX}px)` }}
 >
 <Range
     onSliderTouchMove={(val, translateX, evt, sliderIndex) => {
