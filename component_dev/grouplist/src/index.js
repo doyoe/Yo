@@ -71,6 +71,23 @@ const propTypes = {
      */
     renderGroupItem: PropTypes.func,
     /**
+     * @property staticSection
+     * @type Element
+     * @default null
+     * @version 3.0.3
+     * @description 在所有列表项之上渲染的一块静态区域，在开启Infinite模式时，这块区域不会参与列表项的回收复用。
+     * 注意：在设置staticSection以后，你还必须设置staticSectionHeight属性指定它的高度。
+     */
+    staticSection: PropTypes.element,
+    /**
+     * @property staticSectionHeight
+     * @type Number
+     * @version 3.0.3
+     * @default 0
+     * @description 静态区域的高度，在设置了staticSection以后必须为它指定一个高度。
+     */
+    staticSectionHeight: PropTypes.number,
+    /**
      * @property showIndexNavBar
      * @type Bool
      * @default false
@@ -327,7 +344,9 @@ const defaultProps = {
     },
     disabled: false,
     style: null,
-    scrollWithoutTouchStart: false
+    scrollWithoutTouchStart: false,
+    staticSection: null,
+    staticSectionHeight: 0
 };
 
 export default class GroupList extends Component {
@@ -338,8 +357,15 @@ export default class GroupList extends Component {
      */
     constructor(props) {
         super(props);
-        const { dataSource, itemHeight, titleHeight, sort, infinite } = this.props;
-        this.groupModel = new GroupCore(dataSource, itemHeight, titleHeight, sort, infinite);
+        const {
+            dataSource,
+            itemHeight,
+            titleHeight,
+            sort,
+            infinite,
+            staticSectionHeight
+        } = this.props;
+        this.groupModel = new GroupCore(dataSource, itemHeight, staticSectionHeight, titleHeight, sort, infinite);
         this.state = {
             dataSource: this.groupModel.dataSource,
             groupTitles: this.groupModel.groupTitles
@@ -387,8 +413,8 @@ export default class GroupList extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        const { dataSource, sort, infinite } = nextProps;
-        this.groupModel.refresh(dataSource, sort, infinite);
+        const { dataSource, sort, infinite, staticSectionHeight } = nextProps;
+        this.groupModel.refresh(dataSource, sort, infinite, staticSectionHeight);
     }
 
     componentDidUpdate() {
@@ -496,7 +522,9 @@ export default class GroupList extends Component {
             loadMoreHeight,
             disabled,
             directionLockThreshold,
-            scrollWithoutTouchStart
+            scrollWithoutTouchStart,
+            staticSection,
+            staticSectionHeight
         } = this.props;
         // 不定高的无穷列表不能支持showIndexNavBar,因为无法定位到每一个item的_translateY
         const showIndexNavBar = this.props.showIndexNavBar && this.groupModel.isHeightFixed;
@@ -594,6 +622,8 @@ export default class GroupList extends Component {
                     onLoad={onLoad}
                     renderLoadMore={renderLoadMore}
                     loadMoreHeight={loadMoreHeight}
+                    staticSection={staticSection}
+                    staticSectionHeight={staticSectionHeight}
                 />
             </div>
         );

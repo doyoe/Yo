@@ -1,6 +1,6 @@
 ## 规模化使用 Yo 的公司
 
-越来越多的公司和企业基于 Yo 来构建移动 Web 应用。你可以先参观一下我们提供的 [实例代码](../demo/index.html) 或者看一看使用 Yo 构建的案例。
+越来越多的公司和企业基于 Yo 来构建移动 Web 应用。你可以先参观一下我们提供的 [示例代码](//ued.qunar.com/hy2/yo/demo/src/html/index.html) 或者看一看使用 Yo 构建的案例。
 
 * ![去哪儿网](http://source.qunarzz.com/common/hf/logo.png)
 

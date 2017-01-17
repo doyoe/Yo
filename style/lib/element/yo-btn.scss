@@ -21,7 +21,6 @@
     text-align: center;
     cursor: pointer;
     // touch状态
-    &:active,
     &-touch {
         &::after {
             border-color: map-get($btn, touch-border-color);
@@ -32,14 +31,11 @@
     &-disabled {
         opacity: 1;
         cursor: not-allowed;
-        &,
-        &:active {
-            &::after {
-                border-color: lighten(map-get($btn, border-color), 12%);
-            }
-            background-color: lighten(map-get($btn, bgcolor), 15%);
-            color: lighten(map-get($btn, color), 40%);
+        &::after {
+            border-color: lighten(map-get($btn, border-color), 12%);
         }
+        background-color: lighten(map-get($btn, bgcolor), 15%);
+        color: lighten(map-get($btn, color), 40%);
     }
 }
 
@@ -48,7 +44,7 @@
  * @method yo-btn
  * @version 3.0.0
  * @description 构造按钮的自定义使用方法，勿使用`input`标签，因为边框为`::after`实现
- * @demo http://doyoe.github.io/Yo/demo/element/yo-btn.html
+ * @demo http://ued.qunar.com/hy2/yo/demo/src/html/element/yo-btn.html
  * @param {String} $name 定义扩展名称 <3.0.0>
  * @param {Length} $border-width 边框厚度 <3.0.0>
  * @param {Color} $border-color 边框色 <3.0.0>
@@ -173,7 +169,6 @@
         @if $font-size != map-get($btn, font-size) {
             font-size: $font-size;
         }
-        &:active,
         &.yo-btn-touch {
             &::after {
                 // 如果$touch-border-color不等于config设定，则重绘点按时边框颜色
@@ -192,19 +187,16 @@
         }
         // 如果btn色彩不等于config设定，则重绘禁用时按钮的背景色
         &.yo-btn-disabled {
-            &,
-            &:active {
-                &::after {
-                    @if $border-color != map-get($btn, border-color) {
-                        border-color: lighten($border-color, 12%);
-                    }
+            &::after {
+                @if $border-color != map-get($btn, border-color) {
+                    border-color: lighten($border-color, 12%);
                 }
-                @if $bgcolor != map-get($btn, bgcolor) {
-                    background-color: lighten($bgcolor, 15%);
-                }
-                @if $color != map-get($btn, color) {
-                    color: lighten($color, 40%);
-                }
+            }
+            @if $bgcolor != map-get($btn, bgcolor) {
+                background-color: lighten($bgcolor, 15%);
+            }
+            @if $color != map-get($btn, color) {
+                color: lighten($color, 40%);
             }
         }
         // 增量扩展

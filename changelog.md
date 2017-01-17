@@ -1,3 +1,26 @@
+## v3.0.3
+
+### New Features
+
+- `List`，`GroupList`和`SwipeMenuList`新增属性`staticSection`和`staticSectionHeight`，
+可以在所有的列表项之上渲染一个静态区域，在开启`Infinite`模式时，这一部分的节点不会参与回收复用的逻辑。
+- `SwipeMenuList`组件现在将菜单的配置从`dataSource`中分离出来，可以通过属性`getMenuConfig`配置。另外`renderMenuContent`属性
+已经改名为`renderItem`，这样可以让所有列表系列组件使用相似的属性名。
+- classes 里的 `killspace` mixin 重命名为 `clearspace`，因为 `kill` 这个单词给人一种不安的感觉。
+
+### Bug Fixes
+
+- 修复 `Scroller` 在传入多余wrapper节点时`Sticky`不生效的bug。
+- 修复 `Scroller` 重置 `useLoadMore` 参数时loadMore节点位置不正确的bug。
+- 修复 `List` 在惯性滑动到底部时加载更多Icon频繁调换方向的bug。
+- 修复 `Suggest` 结果区域无法滚动的bug。
+- 修复 `Suggest` 取消按钮和输入框图标无触摸反馈效果的bug。
+- 修复 `Grouplist` 在存在未分组元素的情况下，通过导航栏快速跳转到第一个分组时白屏的bug。
+- 修复 `SwipeMenuList` 的 `onItemTap` 在内容区域存在dom嵌套时不触发的bug。
+- 修复 `SwipeMenuList` 列表项内容区存在嵌套dom时点击内容区域不会自动关闭菜单项的bug。
+- 修复 `Calendar` 最后一周不满七天时自动补齐会出现某月第32天的情况。
+- 修复 `Dialog` 和 `ActionSheet` 组件在某些安卓手机上按钮触摸反馈效果不消失的bug。
+
 ## v3.0.2
 
 ### New Features

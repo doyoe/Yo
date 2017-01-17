@@ -24,7 +24,7 @@ var compilers = {
                 errorHandler: hanlders.error
             }))
             .pipe(nodeSass({
-                outputStyle: 'expanded',
+                outputStyle: 'compressed',
                 importer: require('node-sass-import-once'),
                 importerOnce: {
                     css: true
@@ -35,7 +35,7 @@ var compilers = {
     },
     'sass': function(scssPath, cssPath) {
         return rubySass(scssPath + '/*.scss', {
-                style: 'expanded'
+                style: 'compressed'
             })
             .pipe(plumber({
                 errorHandler: hanlders.error
@@ -83,7 +83,7 @@ gulp.task('test', function() {
             errorHandler: hanlders.error
         }))
         .pipe(nodeSass({
-            outputStyle: 'expanded'
+            outputStyle: 'compressed'
         }))
         .pipe(gulp.dest('./style/usage/test'));
 });

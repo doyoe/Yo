@@ -407,11 +407,12 @@ export default class Scroller extends Component {
             }
         }
 
+        this.refresh();
+
         this._setRefreshStatus(REFRESHSTATUS.PULL);
         this._setLoadStatus(LOADSTATUS.PULL);
-        this._refreshLoadMore(true);
+        this._refreshLoadMore();
 
-        this.refresh();
         this._resetPosition();
         this.scrollTo(this.props.contentOffset.x, this.props.contentOffset.y);
 
@@ -453,13 +454,18 @@ export default class Scroller extends Component {
             }
         }
 
+        // 重新获取容器和内容尺寸
+        if (this.props.autoRefresh) {
+            this.refresh();
+        }
+
         // 重置 pullRefresh 和 loadMore
         if (prevState.usePullRefresh !== this.state.usePullRefresh) {
             this._setRefreshStatus(REFRESHSTATUS.PULL);
         }
         if (prevState.useLoadMore !== this.state.useLoadMore) {
             this._setLoadStatus(LOADSTATUS.PULL);
-            this._refreshLoadMore(true);
+            this._refreshLoadMore();
         }
 
         if (this.stickyHeaders.length) {
@@ -855,9 +861,6 @@ export default class Scroller extends Component {
                     stickyNode.style.webkitTransform = transform;
                     stickyNode.style.display = 'block';
                     stickyNode.className = currentHeader.stickyExtraClass;
-                    if (forceRefresh) {
-                        ReactDOM.unmountComponentAtNode(stickyNode);
-                    }
                     ReactDOM.render(React.cloneElement(currentHeader.onlyChild), stickyNode);
 
                     this.stickyIndex = currentSticky.index;
@@ -965,7 +968,15 @@ export default class Scroller extends Component {
         this.scrollerWidth = typeof refreshOption.scrollerWidth !== 'undefined' ? refreshOption.scrollerWidth : this.scroller.offsetWidth;
         this.scrollerHeight = typeof refreshOption.scrollerHeight !== 'undefined' ? refreshOption.scrollerHeight : this.scroller.offsetHeight;
 
-        this._refreshLoadMore();
+        // 如果有下拉刷新，设置下拉刷新的位置，重置scrollerHeight
+        if (this.state.useLoadMore && this.refs.LoadMore) {
+            this.refs.LoadMore.style.visibility = this.scrollerHeight > 0 ? 'visible' : 'hidden';
+            this.refs.LoadMore.style.top = `${this.scrollerHeight}px`;
+            this.scrollerHeight += this.props.loadMoreHeight;
+        }
+
+        this.maxScrollX = this.wrapperWidth - this.scrollerWidth;
+        this.maxScrollY = this.wrapperHeight - this.scrollerHeight;
 
         this.hasHorizontalScroll = this.props.scrollX && this.maxScrollX < 0;
         this.hasVerticalScroll = this.props.scrollY && this.maxScrollY < 0;
@@ -1278,35 +1289,21 @@ export default class Scroller extends Component {
 
     /**
      * @method _refreshLoadMore
-     * @description 根据loadMore重新设置Scroller和Wrapper的高度。
-     *
-     * 由于loadmore相当于在页面最后追加了一行，所以需要在用户的内容高度上追加这一行的高度，才能正常的滚动。
-     *
-     * 本方法会被两个地方调用：
-     * 1. loadMore发生变化时，需要重置这个属性
-     * 2. 每次刷新scroller或wrapper高度时，需要重置这个属性。
      * @skip
      * @private
+     * @description 更新useLoadMore属性时的逻辑（该逻辑必须放到refresh之后，因为refresh才会计算的到正确的scrollerHeight）
+     *
+     * 1. 如果是去掉useLoadMore，需要重新设置位置（因为scrollerHeight变少了）
+     * 2. 如果是加上useLoadMore，需要设置LoadMore的位置（此时的scrollerHeight是包括loadMoreHeight的，所以需要减去loadMoreHHeight）
      */
-    _refreshLoadMore(shouldReCalculateHeight) {
-        if (shouldReCalculateHeight) { // 1. 属性更改导致的 refresh
-            if (!this.state.useLoadMore) {
-                this.scrollerHeight -= this.props.loadMoreHeight;
-            } else {
-                if (this.refs.LoadMore) {
-                    this.refs.LoadMore.style.top = `${this.scrollerHeight}px`;
-                }
-
-                this.scrollerHeight += this.props.loadMoreHeight;
+    _refreshLoadMore() {
+        if (!this.state.useLoadMore) {
+            this._resetPosition();
+        } else {
+            if (this.refs.LoadMore) {
+                this.refs.LoadMore.style.top = `${this.scrollerHeight - this.props.loadMoreHeight}px`;
             }
-        } else if (this.state.useLoadMore && this.refs.LoadMore) { // 2. 容器变化导致的 refresh
-            this.refs.LoadMore.style.visibility = this.scrollerHeight > 0 ? 'visible' : 'hidden';
-            this.refs.LoadMore.style.top = `${this.scrollerHeight}px`;
-            this.scrollerHeight += this.props.loadMoreHeight;
         }
-
-        this.maxScrollX = this.wrapperWidth - this.scrollerWidth;
-        this.maxScrollY = this.wrapperHeight - this.scrollerHeight;
     }
 
     render() {
@@ -1418,6 +1415,11 @@ export default class Scroller extends Component {
                     onTransitionEnd={(evt) => this._handleTransitionEnd(evt)}
                     style={wrapperStyle}
                 >
+                    <div
+                        ref="stickyNode"
+                        style={{ position: 'absolute', top: 0, left: 0, right: 0, zIndex: 9999 }}
+                        className="sticky"
+                    />
                     {content}
                 </div>
             );

@@ -10,11 +10,6 @@
  * 入住时间在离店时间之后，则互换。
  * 默认selectionStart、selectionEnd可选择同一天。
  *
- * #### 何时使用
- *
- * - 当用户需要选择日期范围时，可以在弹出日期界面进行选择。
- * - 起、始选中日期默认显示的文字是入店、离店，可通过CSS伪类修改。
- *
  * @instructions {instruInfo: ./calendar.md}{instruUrl: calendar.html?hideIcon}
  * @author qingguo.xu
  */
@@ -41,7 +36,8 @@ const defaultProps = {
 const propTypes = {
     /**
      * @property duration
-     * @description 允许用户选择的日期范围
+     * @description 允许用户选择的日期范围，支持两种形式：传入数字，则表示从今天开始到N天后；传入形式为['yyyy-mm-dd','yyyy-mm-dd']的数组，
+     * 可以直接设置起始日期和终止日期。
      * @type Number/Array
      * @default 90
      */

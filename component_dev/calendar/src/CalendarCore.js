@@ -242,6 +242,7 @@ export default class CalendarCore extends ComponentCore {
     getCheckArr(beginDate, endDate) {
         const [beginYear, beginMonth] = getDateInfoArr(beginDate);
         const [endYear, endMonth, endDay, endDayNum] = getDateInfoArr(endDate);
+        const endMonthLastDate = getLastDayOfMonth(endYear, endMonth).getDate();
         let tempYear = beginYear;
         let tempMonth = beginMonth;
         let resArr = [];
@@ -249,18 +250,24 @@ export default class CalendarCore extends ComponentCore {
         let dayFirst = getFirstDayOfMonth(beginYear, beginMonth - 1).getDay();
         let index = 0; // 基数值，用于补足日期显示范围最后一周的剩下几天
         let disable = false; // 同上，最后一周补上额外的几天不可点击
-        const mapFn = (item, i) => ({
-            day: index + i + 1,
-            date: formatMonth(tempYear, tempMonth),
-            lunar: solar2lunar(tempYear, tempMonth, i + 1).str,
-            today: this.hasToday ? false : this.isToday(tempYear, tempMonth, i + 1),
-            isCheckIn: false,
-            isCheck: false,
-            isCheckOut: false,
-            weekend: isWeekend(i + 1, dayFirst),
-            holiday: isHoliday(tempYear, tempMonth, i + 1),
-            disabled: disable || this.beforeToday <= 0 && !this.hasToday
-        });
+        const addMapFn = (item, i, addNormalDateFlag) => {
+            const day = index + i + 1;
+            if (addNormalDateFlag || day <= endMonthLastDate) {
+                return {
+                    day,
+                    date: formatMonth(tempYear, tempMonth),
+                    lunar: solar2lunar(tempYear, tempMonth, i + 1).str,
+                    today: this.hasToday ? false : this.isToday(tempYear, tempMonth, i + 1),
+                    isCheckIn: false,
+                    isCheck: false,
+                    isCheckOut: false,
+                    weekend: isWeekend(i + 1, dayFirst),
+                    holiday: isHoliday(tempYear, tempMonth, i + 1),
+                    disabled: disable || this.beforeToday <= 0 && !this.hasToday
+                };
+            }
+            return { disabled: true };
+        };
         while (tempYear < endYear || (tempYear === endYear && tempMonth <= endMonth)) {
             const tempDateObj = getLastDayOfMonth(tempYear, tempMonth);
             const dayLast = tempMonth === endMonth ? endDay : tempDateObj.getDay();
@@ -273,13 +280,13 @@ export default class CalendarCore extends ComponentCore {
             const lastMonthArr = getArrayByLength(6 - dayLast).fill({ disabled: true });
 
             // 某月具体每个天数的信息对象
-            let tempMonthArr = getArrayByLength(dayLength).fill(0).map(mapFn);
+            let tempMonthArr = getArrayByLength(dayLength).fill(0).map((item, i) => addMapFn(item, i, true));
 
             // 补足显示日期范围最后一周的剩下几天情况, 为了美观
             if (tempMonth === endMonth) {
                 index = endDayNum;
                 disable = true;
-                const lastWeekArr = getArrayByLength(6 - endDay).fill(0).map(mapFn);
+                const lastWeekArr = getArrayByLength(6 - endDay).fill(0).map((item, i) => addMapFn(item, i, false));
                 tempMonthArr = tempMonthArr.concat(lastWeekArr);
             }
             const monthArr = firstMonthArr.concat(tempMonthArr, lastMonthArr);

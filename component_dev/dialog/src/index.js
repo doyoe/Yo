@@ -7,10 +7,6 @@
  * - 可自定义组件背景阴影遮罩层的上偏移、下偏移。
  * - 弹层显隐的动画可使用自定义的css3动画或modal组件默认的fade动画。
  *
- * #### 何时使用
- * - 显示额外内容。
- * - 显示额外操作。
- *
  * @instructions {instruInfo: ./dialog.md}{instruUrl: dialog.html?hideIcon}
  * @author qingguo.xu
  */

@@ -59,7 +59,6 @@
             );
         }
         // touch状态
-        &:active,
         &-touch {
             background-color: map-get($actionsheet, touch-bgcolor);
         }
@@ -75,7 +74,7 @@
  * @method yo-actionsheet
  * @version 3.0.0
  * @description 构造actionsheet的自定义使用方法
- * @demo http://doyoe.github.io/Yo/demo/fragment/yo-actionsheet.html
+ * @demo http://ued.qunar.com/hy2/yo/demo/src/html/fragment/yo-actionsheet.html
  * @param {String} $name 定义扩展名称 <3.0.0>
  * @param {Length} $margin 外补白 <3.0.0>
  * @param {Length} $radius 圆角半径长度 <3.0.0>
@@ -161,7 +160,6 @@
                 }
             }
             // touch状态
-            &:active,
             &.item-touch {
                 @if $touch-bgcolor != map-get($actionsheet, touch-bgcolor) {
                     background-color: $touch-bgcolor;

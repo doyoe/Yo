@@ -5,19 +5,20 @@
  *
  * 除此之外, List优化了长列表的性能,在数据源较大时能够提升滚动的性能并避免内存溢出。
  *
- * 使用列表组件实现的组件:Grouplist,Calendar,SwipeMenuList。
+ * 使用列表组件实现的组件:GroupList,Calendar,SwipeMenuList。
  *
  * 特别感谢大明哥(leeds.li)和她的不定高无穷列表的实现思路。
  * @author jiao.shen
  *  @instructions {instruInfo: ./list/list.md}{instruUrl: list/infinite_mode_with_height.html?hideIcon}
  *  @instructions {instruInfo: ./list/example.md}{instruUrl: list/base.html?hideIcon}
+ *  @instructions {instruInfo: ./list/static_section.md}{instruUrl: list/static_section.html?hideIcon}
  */
 import ListModel from './ListCore';
 import React, { Component, PropTypes } from 'react';
 import Scroller from '../../scroller/src';
 import ListItem from './ListItem';
 import LazyImage from '../../lazyimage';
-import { replaceRedundantSpaces, getArrayByLength } from '../../common/util';
+import { replaceRedundantSpaces, getArrayByLength, DELAY_TIME_FOR_INFINITE_WITHOUT_HEIGHT } from '../../common/util';
 import '../../common/tapEventPluginInit';
 import './style.scss';
 import _ from 'lodash';
@@ -54,7 +55,9 @@ const defaultProps = {
     disabled: false,
     directionLockThreshold: 50,
     style: null,
-    scrollWithoutTouchStart: false
+    scrollWithoutTouchStart: false,
+    staticSection: null,
+    staticSectionHeight: 0
 };
 
 const propTypes = {
@@ -183,6 +186,23 @@ const propTypes = {
      * @description 无穷列表中列表项update时触发的事件回调,接收参数visibleList(数组),为目前渲染在列表容器中的数据项
      */
     onInfiniteAppend: PropTypes.func,
+    /**
+     * @property staticSection
+     * @type Element
+     * @default null
+     * @version 3.0.3
+     * @description 在所有列表项之上渲染的一块静态区域，在开启Infinite模式时，这块区域不会参与列表项的回收复用。
+     * 注意：在设置staticSection以后，你还必须设置staticSectionHeight属性指定它的高度。
+     */
+    staticSection: PropTypes.element,
+    /**
+     * @property staticSectionHeight
+     * @type Number
+     * @version 3.0.3
+     * @default 0
+     * @description 静态区域的高度，在设置了staticSection以后必须为它指定一个高度。
+     */
+    staticSectionHeight: PropTypes.number,
     /**
      * @property extraClass
      * @type String
@@ -335,7 +355,8 @@ export default class List extends Component {
             offsetY,
             itemHeight,
             infinite,
-            infiniteSize
+            infiniteSize,
+            staticSectionHeight
         } = props;
 
         this.childLazyImages = [];
@@ -345,7 +366,8 @@ export default class List extends Component {
             offsetY,
             infinite,
             itemHeight,
-            infiniteSize
+            infiniteSize,
+            staticSectionHeight
         );
         this.state = {
             visibleList: this.listModel.visibleList,
@@ -369,7 +391,7 @@ export default class List extends Component {
                     }
                 }, 0);
                 setTimeout(_.debounce(() => {
-                    if (this.scroller && -this.scroller.maxScrollY < this.listModel.offsetY) {
+                    if (this.scroller && -this.scroller.maxScrollY < this.listModel.offsetY && !this.scroller.isScrolling) {
                         this.scrollTo(this.scroller.maxScrollY, 0);
                     }
                 }, 100), 0);
@@ -405,6 +427,14 @@ export default class List extends Component {
             // 所以didmount时间触发的时候,列表项还没有完成定位
             this.tryLoadLazyImages(offsetY);
         }, 0);
+
+        setTimeout(() => {
+            // 如果设置了offsetY,滚动到offsetY
+            const { offsetY } = this.props;
+            if (offsetY !== 0) {
+                this.scrollTo(offsetY, 0);
+            }
+        }, DELAY_TIME_FOR_INFINITE_WITHOUT_HEIGHT);
     }
 
     /**
@@ -413,8 +443,8 @@ export default class List extends Component {
      * 其他属性不需要reset
      */
     componentWillReceiveProps(nextProps) {
-        const { dataSource, infiniteSize, offsetY } = nextProps;
-        this.listModel.refresh(dataSource, true, infiniteSize);
+        const { dataSource, infiniteSize, offsetY, staticSectionHeight } = nextProps;
+        this.listModel.refresh(dataSource, true, infiniteSize, staticSectionHeight);
 
         // 等待dom更新结束后再做以下操作
         setTimeout(() => {
@@ -500,7 +530,7 @@ export default class List extends Component {
             this.scroller.isScrolling = false;
         }
 
-        if (this.listModel.infinite && this.listModel.offsetY > List.INFINITE_SCROLLTO_WITH_ANIMATION_DISTANCE) {
+        if (this.listModel.infinite) {
             this.scroller.startRefreshing(0);
             this.onScroll(0, true);
         } else {
@@ -542,8 +572,7 @@ export default class List extends Component {
         if (this.scroller) {
             // 考虑到infinite的渲染机制,滚动一个过长的距离会触发大量的dom更新,性能会很差
             // 因此当当前offetY大于一定数值时就将time设为0,2000是个magic number,凭感觉设的
-            const aniDuration = this.listModel.infinite && this.listModel.offsetY > List.INFINITE_SCROLLTO_WITH_ANIMATION_DISTANCE
-                ? 0 : time;
+            const aniDuration = this.listModel.infinite ? 0 : time;
             this.scroller.scrollTo(0, offsetY, aniDuration);
             this.onScroll(-offsetY, true);
         }
@@ -666,6 +695,13 @@ export default class List extends Component {
                 renderLoadMore={renderLoadMore}
                 enableLazyLoad={false}
             >
+                {this.props.staticSection != null ?
+                    <div
+                        style={{ height: this.props.staticSectionHeight }}
+                        className="yo-list-static-section"
+                    >
+                        {this.props.staticSection}
+                    </div> : null}
                 <ul
                     className={containerClass}
                     ref={(dom) => {

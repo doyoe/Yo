@@ -2,12 +2,12 @@ var webpack = require('webpack');
 
 function getEntry(name, demojs) {
     if (!demojs) {
-        demojs = 'demo.js'
+        demojs = 'demo.js';
     }
     return ['babel-polyfill', './component_dev/' + name + '/test/' + demojs];
 }
 
-exports.config = function (options, cwd) {
+exports.config = function () {
     this.setExports([
         getEntry('swipemenulist'),
         getEntry('actionsheet'),
@@ -33,21 +33,12 @@ exports.config = function (options, cwd) {
         getEntry('scroller', 'demo_sticky.js')
     ]);
 
-    this.commands.push({
-        name: 'project_cmd',
-        module: {
-            usage: '项目自定义的命令',
-            run: function () {
-            }
-        }
-    });
-
-    this.setConfig((config) => {
+    this.setConfig(function (config) {
         config.context = './';
 
         var plugin = new webpack.DefinePlugin({
-            "process.env": {
-                NODE_ENV: JSON.stringify("production")
+            'process.env': {
+                NODE_ENV: JSON.stringify('dev')
             }
         });
 
@@ -56,26 +47,20 @@ exports.config = function (options, cwd) {
         config.output.prd.filename = '[name][ext]';
 
         config.module = {
-            preLoaders: [],
-            loaders: config.module.loaders.map((loader) => {
-                if (loader.test.test('.scss')) {
-                    return {
-                        test: /\.scss$/,
-                        loaders: ['style', 'css', require.resolve('@qnpm/ykit-config-qunar/loaders/sass.js')]
+            loaders: [
+                {
+                    test: /\.scss$/,
+                    loaders: ['style', 'css', 'sass']
+                },
+                {
+                    test: /\.js$/,
+                    exclude: /node_modules/,
+                    loader: 'babel',
+                    query: {
+                        presets: ['es2015', 'react', 'stage-0']
                     }
                 }
-                if (loader.test.test('.js')) {
-                    return {
-                        test: /\.js$/,
-                        exclude: /node_modules/,
-                        loader: 'babel',
-                        query: {
-                            presets: ['es2015', 'react', 'stage-0']
-                        }
-                    }
-                }
-                return loader;
-            })
+            ]
         };
 
         config.devtool = 'source-map';

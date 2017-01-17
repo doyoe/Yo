@@ -15,7 +15,6 @@ const testData = getArrayByLength(100).fill(0)
 class GroupListDemo extends Component {
 
     constructor(props) {
-
         super(props);
         this.state = {
             dataSource: testData,
@@ -32,29 +31,38 @@ class GroupListDemo extends Component {
     }
 
     render() {
-
         return (
             <GroupList
+                staticSection={
+                    <div style={{ background: 'yellow', height: '100%' }}>
+                        static header!!
+                    </div>
+                }
+                staticSectionHeight={200}
                 usePullRefesh={true}
-                offsetY={-500}
+                offsetY={-200}
+                itemHeight={44}
                 ref="grouplist"
                 dataSource={this.state.dataSource}
                 infinite={true}
                 showIndexNavBar={true}
                 renderGroupTitle={key => (
-                    <div style={{width:'100%'}}>
+                    <div style={{ width: '100%' }}>
                         <span>{key}</span>
-                        <Touchable touchClass="yellow" onTap={()=>{console.log(key)}}>
-                            <span style={{float:'right'}}>click me!</span>
+                        <Touchable
+                            touchClass="yellow"
+                            onTap={() => {
+                                console.log(key);
+                            }}
+                        >
+                            <span style={{ float: 'right' }}>click me!</span>
                         </Touchable>
                     </div>
                 )}
-                onItemTap={(item, index, ds) => this.deleteItem(item)}
+                onItemTap={(item) => this.deleteItem(item)}
                 sort={this.state.sort}
-                itemExtraClass={(item, index) => 'item ' + index}
-                groupTitleExtraClass={(groupKey) => {
-                    return 'group-title label ' + groupKey;
-                }}
+                itemExtraClass={(item, index) => `item ${index}`}
+                groupTitleExtraClass={(groupKey) => `group-title label ${groupKey}`}
             />
         );
     }
