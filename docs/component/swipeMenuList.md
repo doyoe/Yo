@@ -3,24 +3,7 @@
 `SwipeMenuList`是一个定制化的`List`, 和`List`的不同之处在于它的每一个列表项都是`SwipeMenu`, 因此除了列表的`dataSource`之外
 你还需要指定菜单项的配置，这可以通过`getMenuContent`属性实现：
 
-```
-<SwipeMenuList
-    ...
-    getMenuContent = {{
-        action:[
-            {
-                text: string
-                onTap: function
-                className: yo-btn-test
-            },
-            ...
-        ],
-        disabled: true,
-        direciton: 'right'
-    }}
-    ...
-/>
-```
+
 
 `getMenuContent`属性也可以接收函数，例如:
 
