@@ -7,7 +7,6 @@
 <SwipeMenuList
     ...
     getMenuContent = {{
-        // 配置菜单的按钮
         action:[
             {
                 text: string,
@@ -16,7 +15,6 @@
             },
             ...
         ],
-        // SwipeMenu的其他属性
         disabled: true,
         direciton: 'right'
     }}
