@@ -114,7 +114,8 @@ export const distanceData = [{
 }];
 export const reginData = [{
     name: '不限',
-    value: 0
+    value: 0,
+    itemType: 'RADIO'
 }, {
     name: '东城区',
     value: 1
@@ -321,6 +322,7 @@ export const toturistAttractionData = {
 export const subWayData = {
     1: [{
         name: '不限',
+        itemType: 'RADIO',
         value: 0
     }, {
         name: '四惠东地铁站',

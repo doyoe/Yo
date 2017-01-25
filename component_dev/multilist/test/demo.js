@@ -2,8 +2,6 @@ import './demo.scss';
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import MultiList from '../src';
-import { PlanItem } from '../src/listItems.js';
-import { CheckBoxItem, ParentValue } from './multiListItem.js';
 import {
     trafficData,
     localData,
@@ -12,335 +10,138 @@ import {
     toturistAttractionData,
     subWayData
 } from './testdata.js';
-import { Product } from './product.js';
-let effectValue;
 
-const defaultRenderItem = ({ item, multiValue, listValue, defaultValue }) => (
-    <PlanItem
-        item={item}
-        multiValue={multiValue}
-        listValue={listValue}
-        defaultValue={defaultValue}
-        effectValue={effectValue}
-    />
-);
+function fetchDataOfSubway() {
+    return new Promise((resolve) => {
+        window.setTimeout(() => {
+            resolve(subWayData[2]);
+        }, 2000);
+    });
+}
 
-defaultRenderItem.propTypes = {
-    item: PropTypes.object,
-    multiValue: PropTypes.oneOfType([
-        PropTypes.number,
-        PropTypes.string,
-        PropTypes.array
-    ]),
-    listValue: PropTypes.oneOfType([
-        PropTypes.number,
-        PropTypes.string,
-        PropTypes.array
-    ]),
-    defaultValue: PropTypes.oneOfType([
-        PropTypes.number,
-        PropTypes.string,
-        PropTypes.array
-    ])
+const originalData = {
+    subList: [
+        {
+            name: '距离我',
+            value: 'distance',
+            subItemType: 'RADIO',
+            subList: distanceData,
+            defaultValue: 0
+        }, {
+            name: '商圈',
+            value: 'downtown',
+            subItemType: 'RADIO',
+            subList: localData,
+            defaultValue: 0
+        }, {
+            name: '行政区',
+            value: 'region',
+            subItemType: 'CHECKBOX',
+            subList: reginData,
+            defaultValue: 0
+        }, {
+            name: '热门景点',
+            value: 'scenic',
+            subItemType: 'MENU',
+            subList: [
+                {
+                    value: 'city',
+                    name: '观光景点',
+                    subItemType: 'RADIO',
+                    defaultValue: 0,
+                    subList: toturistAttractionData.urban
+                }, {
+                    value: 'nearby',
+                    name: '郊游景点',
+                    subItemType: 'RADIO',
+                    defaultValue: 0,
+                    subList: toturistAttractionData.suburbs
+                }
+            ]
+        }, {
+            value: 'traffic',
+            name: '机场车站',
+            subItemType: 'RADIO',
+            subList: trafficData,
+            defaultValue: 0
+        }, {
+            value: 'subWay',
+            name: '地铁线路',
+            subItemType: 'MENU',
+            subList: [{
+                value: '1',
+                name: '1号线',
+                subItemType: 'CHECKBOX',
+                defaultValue: 0,
+                subList: subWayData[1]
+            }, {
+                value: '2',
+                name: '2号线',
+                subItemType: 'CHECKBOX',
+                subList: 'ASYNC',
+                asyncType: 'SUBWAY-2'
+            }, {
+                value: '3',
+                name: '3号线',
+                subItemType: 'CHECKBOX',
+                subList: 'FAULT'
+            }, {
+                value: '4',
+                name: '4号线',
+                subItemType: 'CHECKBOX',
+                subList: 'EMPTY'
+            }]
+        }
+    ],
+    subItemType: 'MENU',
+    onItemTapType: 'DEFAULT',
+    defaultValue: 'downtown'
 };
-
-const parentItem = (props) => <ParentValue {...props} effectValue={effectValue} />;
-let effect;
-const touristAttraction = [{
-    name: '观光景点',
-    value: '1',
-    renderItem: defaultRenderItem,
-    defaultValue: 0,
-    onItemTap: (listValue, itemValue) => {
-        const newlistValue = itemValue;
-        if (itemValue !== 0) {
-            effect = 1;
-        } else {
-            effect = -1;
-        }
-        return newlistValue;
-    },
-    subList: toturistAttractionData.urban
-}, {
-    name: '郊游景点',
-    value: '2',
-    defaultValue: 0,
-    renderItem: defaultRenderItem,
-    onItemTap: (listValue, itemValue) => {
-        const newlistValue = itemValue;
-        if (itemValue !== 0) {
-            effect = 1;
-        } else {
-            effect = -1;
-        }
-        return newlistValue;
-    },
-    subList: toturistAttractionData.suburbs
-}];
-
-const subWay = [{
-    name: '1号线',
-    value: 1,
-    defaultValue: 0,
-    renderItem: (p) => {
-        if (p.item.value === 0) {
-            return <PlanItem {...p} />;
-        }
-        return <CheckBoxItem {...p} />;
-    },
-    onItemTap: (listValue, itemValue) => {
-        let newValue;
-        if (itemValue === 0) {
-            newValue = itemValue;
-            effect = -1;
-        } else {
-            if (!(listValue instanceof Array)) { listValue =[]; }
-            if (!~listValue.indexOf(itemValue)) {
-                newValue = listValue.slice(0);
-                newValue.push(itemValue);
-                effect = 1;
-            } else {
-                newValue = listValue.slice(0);
-                newValue.splice(listValue.indexOf(itemValue), 1);
-                effect = 1;
-            }
-            if (newValue.length === 0) {
-                newValue = 0;
-                effect = -1;
-            }
-        }
-        return newValue;
-    },
-    subList: subWayData[1]
-}, {
-    name: '2号线',
-    value: 2,
-    defaultValue: 0,
-    renderItem: (p) => {
-        if (p.item.value === 0) {
-            return <PlanItem {...p} />;
-        }
-        return <CheckBoxItem {...p} />;
-    },
-    onItemTap: (listValue, itemValue) => {
-        let newValue;
-        if (itemValue === 0) {
-            newValue = itemValue;
-            effect = -1;
-        } else {
-            if(!(listValue instanceof Array)){ listValue =[];}
-            if (!~listValue.indexOf(itemValue)) {
-                newValue = listValue.slice(0);
-                newValue.push(itemValue);
-                effect = 1;
-            } else {
-                newValue = listValue.slice(0);
-                newValue.splice(listValue.indexOf(itemValue), 1);
-                effect = 1;
-            }
-            if (newValue.length === 0) {
-                newValue = 0;
-                effect = -1;
-            }
-        }
-        return newValue;
-    },
-    subList: () => (
-        new Promise((resolve) => {
-            window.setTimeout(() => {
-                resolve(subWayData[2]);
-            }, 500);
-        })
-    )
-}, {
-    name: '3号线',
-    value: 3,
-    subList: []
-}];
 
 class MultiListDemo extends Component {
     constructor(props) {
         super(props);
-
-        const multiData = {
-            defaultValue: 3,
-            renderItem: parentItem,
-            itemExtraClass: (item) => (
-                this.state && this.state.value && this.state.value[0] === item.value ?
-                'spread item'
-                : 'item'
-            ),
-            subList: [{
-                name: '距离我',
-                value: 0,
-                defaultValue: 0,
-                subList: distanceData,
-                onItemTap: (listValue, itemValue) => {
-                    const newlistValue = itemValue;
-                    if (itemValue !== 0) {
-                        effect = 1;
-                    } else {
-                        effect = -1;
-                    }
-                    return newlistValue;
-                }
-            }, {
-                name: '商圈',
-                value: 1,
-                subList: localData,
-                defaultValue: 0,
-                renderItem: (p) => {
-                    if (p.item.value === 0) {
-                        return <PlanItem {...p} effectValue={effectValue} />;
-                    }
-                    return <CheckBoxItem {...p} />;
-                },
-                onItemTap: (listValue, itemValue) => {
-                    let newValue;
-                    if (itemValue === 0) {
-                        newValue = itemValue;
-                        effect = 1;
-                    } else {
-                        if(!(listValue instanceof Array)){ listValue = [];}
-                        if (!~listValue.indexOf(itemValue)){
-                            newValue = listValue.slice(0);
-                            newValue.push(itemValue);
-                            effect = 1;
-                        } else {
-                            newValue = listValue.slice(0);
-                            newValue.splice(listValue.indexOf(itemValue), 1);
-                            effect = 1;
-                        }
-                        if (newValue.length === 0) {
-                            effect = -1;
-                            newValue = 0;
-                        }
-                    }
-                    return newValue;
-                }
-            }, {
-                name: '行政区',
-                value: 2,
-                defaultValue: 0,
-                subList: reginData,
-                renderItem: (props) => {
-                    if (props.item.value === 0) {
-                        return <PlanItem {...props} effectValue={effectValue} />;
-                    }
-                    return <CheckBoxItem {...props} />;
-                },
-                onItemTap: (listValue, itemValue) => {
-                    let newValue;
-                    if (itemValue === 0) {
-                        newValue = itemValue;
-                    } else {
-                        if(!(listValue instanceof Array)){ listValue =[];}
-                        if (!~listValue.indexOf(itemValue)) {
-                            newValue = listValue.slice(0);
-                            newValue.push(itemValue);
-                            effect = 1;
-                        } else {
-                            newValue = listValue.slice(0);
-                            newValue.splice(listValue.indexOf(itemValue), 1);
-                            effect = 1;
-                        }
-                        if (newValue.length === 0) {
-                            newValue = 0;
-                            effect = -1;
-                        }
-                    }
-                    return newValue;
-                }
-            }, {
-                name: '热门景点',
-                value: 3,
-                defaultValue: '1',
-                renderItem: parentItem,
-                subList: touristAttraction,
-                extraClass: 'subList',
-                itemExtraClass: (item) => (
-                    this.state && this.state.value && this.state.value[1] === item.value ?
-                    'spread-item item'
-                    : 'item'
-                )
-            }, {
-                name: '机场车站',
-                value: 4,
-                subList: trafficData,
-                defaultValue: 0,
-                renderItem: defaultRenderItem,
-                onItemTap: (listValue, itemValue) => {
-                    const newlistValue = itemValue;
-                    if (itemValue !== 0) {
-                        effect = 1;
-                    } else {
-                        effect = -1;
-                    }
-                    return newlistValue;
-                }
-            }, {
-                name: '地铁线路',
-                value: 5,
-                subList: subWay,
-                defaultValue: 1,
-                renderItem: parentItem,
-                onItemTap: (listValue, itemValue) => itemValue,
-                extraClass: 'subList',
-                itemExtraClass: (item) => (
-                    this.state && this.state.value && this.state.value[1] === item.value ?
-                    'spread-item item'
-                    : 'item'
-                )
-            }, {
-                name: '产品推荐',
-                value: 9,
-                renderContent: () => (<Product />)
-            }]
-        };
         this.state = {
-            dataSource: multiData,
-            value: [],
-            effectValue: [],
-            effect: false
+            multiValue: [],
+            dataSource: originalData 
         };
     }
-    handleUpdateData(data) {
+    handleUpdateData() {}
+    handleValueChange({newValue}) {
+        let value;
+        if (newValue[newValue.length - 1] === 0) {
+            value = [];
+        } else {
+            value = newValue;
+        }
         this.setState({
-            dataSource: data
+            multiValue: value
         });
     }
-    handleUpdateValue({ level, listValue, newValue }){
-        const i = newValue.length;
-        if (effectValue && effectValue.slice(0, i).join('&') === newValue.slice(0, i).join('&')) {
+    handleRenderContent() {}
+    async handleAsyncData(item) {
+        switch (item.asyncType) {
+        case 'SUBWAY-2':
+            originalData.subList[5].subList[1].subList = await fetchDataOfSubway();
             this.setState({
-                value: effectValue
+                dataSource: Object.assign({}, originalData)
             });
-            return;
+            break;
+        default:
+            break;
         }
-        // 用于处理默认选项的 如不限
-        if (effect === 1) {
-            effectValue = newValue.slice(0);
-            effect = 0;
-        } else if (effect === -1) {
-            effectValue = null;
-            effect = 0;
-        }
-        this.setState({
-            value: newValue
-        });
     }
     render() {
         return (
-            <div id="content">
-                <MultiList
-                    dataSource={this.state.dataSource}
-                    updateDataSource={(data) => { this.handleUpdateData(data); }}
-                    value={this.state.value}
-                    onChange={(props) => { this.handleUpdateValue(props); }}
-                />
-            </div>
-      );
+            <MultiList
+                dataSource={this.state.dataSource}
+                value={this.state.multiValue}
+                onItemTap={() => this.handleItemTap()}
+                onChange={this.handleValueChange.bind(this)}
+                renderContent={() => this.handleRenderContent()}
+                onUpdateData={this.handleAsyncData.bind(this)}
+            />
+        );
     }
 }
-
 ReactDOM.render(<MultiListDemo />, document.querySelector('#container'));

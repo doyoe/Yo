@@ -124,11 +124,9 @@ class Container extends React.Component {
                 dataList.map((item, index)=>{
                     return (
                         <CarouselItem
-                            index = {index + 1}
-                            key = {index + 1}
-                            currentPage={this.state.pageNow}
+                            key={index + 1}
+                            // currentPage={this.state.pageNow}
                             {...item}
-                            pagesNum = {dataList.length}
                             lazyload={false}
                         ></CarouselItem>);
                     })
@@ -148,13 +146,10 @@ class Container extends React.Component {
                 dataList.map((item, index)=>{
                     return (
                         <CarouselItem
-                            index = {index + 1}
-                            key = {index + 1}
-                            currentPage = {this.state.customPageNow}
+                            key={index + 1}
                             {...item}
                             lazyload={true}
-                            extraClass ={'scale'}
-                            pagesNum = {dataList.length}
+                            extraClass={'scale'}
                         ></CarouselItem>
                     )
                 })
@@ -176,60 +171,21 @@ class Container extends React.Component {
                 dataList.map((item, index)=>{
                     return (
                         <CarouselItem
-                            index = {index + 1}
-                            key = {index + 1}
-                            currentPage = {this.state.infinatePage}
+                            key={index + 1}
                             {...item}
                             lazyload={false}
-                            extraClass ={'scale'}
-                            pagesNum = {dataList.length}
+                            extraClass={'scale'}
                         ></CarouselItem>
                     )
                 })
             }
             </Carousel>
         );
-        const verticalCarousel = (
-            <Carousel
-                key={6}
-                beforeChange={(page)=>{this.beforeChange(page,'pageNow')}}
-                afterChange={(page)=>{this.updateChange(page,'pageNow')}}
-                dots={true}
-                autoplay={true}
-                isVertical={true}
-            >
-            {
-                dataList.map((item, index)=>{
-                    return (
-                        <CarouselItem
-                            index = {index + 1}
-                            key = {index + 1}
-                            currentPage={this.state.pageNow}
-                            {...item}
-                            pagesNum = {dataList.length}
-                            lazyload={false}
-                        ></CarouselItem>);
-                    })
-            }
-            </Carousel>
-        );
-
         return (
             <div>
                 <h2>normal Item</h2>
-                <Carousel autoplay={false}>
-                    <li className="item"><img width="100%" src="http://gma.alicdn.com/simba/img/TB14ab1KpXXXXclXFXXSutbFXXX.jpg_q50.jpg"/></li>
-                    <li className="item"><img width="100%" src="http://gma.alicdn.com/simba/img/TB14ab1KpXXXXclXFXXSutbFXXX.jpg_q50.jpg"/></li>
-                    <li className="item"><img width="100%" src="http://gma.alicdn.com/simba/img/TB14ab1KpXXXXclXFXXSutbFXXX.jpg_q50.jpg"/></li>
-                </Carousel>
                 {scrollXCarousel}
                 <div className="yo-btn" onClick={()=>{window.scrollXCarousel.next()}}>next</div>
-                <h2>customized Item</h2>
-                {customCarousel}
-                <h2>custom fade Item</h2>
-                {fadeCarousel}
-                <h2>modal Item</h2>
-                <div id="model" style={styleList} onTouchTap={() => { this.model(true); }}>model</div>
                 {/*<div>
                     <Modal
                         align="center"

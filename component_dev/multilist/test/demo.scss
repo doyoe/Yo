@@ -1,25 +1,17 @@
 @import "../../../style/usage/core/reset";
 #container{
     height: 100%;
-}
-#content{
-    height: 100%;
-    display: flex;
-}
-.demo-content{
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-.scroller{
-    flex: 1
+    .yo-multilist{
+        width: 100%;
+        height: 100%;
+    }
 }
 .product-container{
     padding: 10px 0;
     flex: 1;
     display: flex;
 }
-.product-tit{
+/*.product-tit{
     width: 100%;
     color: #333;
     font-weight: normal;
@@ -42,35 +34,4 @@
     color: #fff;
     line-height: 100px;
     text-align: center;
-}
-
-.spread-item{
-  $line-clolr:#ccc;
-  position: relative;
-  overflow: visible !important;
-  // border-right: 1px solid $line-clolr;
-  &:before{
-      border-bottom: 1px solid $line-clolr;
-      border-left: 1px solid $line-clolr;
-      width: 10px;
-      height: 10px;
-      @include transform(rotate(45deg) translateY(-50%));
-      content: ' ';
-      position: absolute;
-      right: 0;
-      margin-right: -3px;
-      top: 50%;
-      background-color: $line-clolr;
-  }
-}
-
-.subList{
-  background-color: #fff;
-  @include border(
-    $border-width: 0 1px 0 0
-  );
-}
-
-.multiList-container-tip{
-  margin: 45% auto;
-}
+}*/

@@ -248,21 +248,22 @@ export default class CalendarCore extends ComponentCore {
         let resArr = [];
         // 当月第一天的星期数
         let dayFirst = getFirstDayOfMonth(beginYear, beginMonth - 1).getDay();
-        let index = 0; // 基数值，用于补足日期显示范围最后一周的剩下几天
-        let disable = false; // 同上，最后一周补上额外的几天不可点击
-        const addMapFn = (item, i, addNormalDateFlag) => {
-            const day = index + i + 1;
+        // baseIndex 基数值，用于补足日期显示范围最后一周的剩下几天
+        // addNormalDateFlag 避免超过当前月的最大值，如32
+        // disable 同上，最后一周补上额外的几天不可点击
+        const addMapFn = (item, i, { baseIndex = 0, addNormalDateFlag = true, disable = false }) => {
+            const day = baseIndex + i + 1;
             if (addNormalDateFlag || day <= endMonthLastDate) {
                 return {
                     day,
                     date: formatMonth(tempYear, tempMonth),
-                    lunar: solar2lunar(tempYear, tempMonth, i + 1).str,
-                    today: this.hasToday ? false : this.isToday(tempYear, tempMonth, i + 1),
+                    lunar: solar2lunar(tempYear, tempMonth, day).str,
+                    today: this.hasToday ? false : this.isToday(tempYear, tempMonth, day),
                     isCheckIn: false,
                     isCheck: false,
                     isCheckOut: false,
-                    weekend: isWeekend(i + 1, dayFirst),
-                    holiday: isHoliday(tempYear, tempMonth, i + 1),
+                    weekend: isWeekend(day, dayFirst),
+                    holiday: isHoliday(tempYear, tempMonth, day),
                     disabled: disable || this.beforeToday <= 0 && !this.hasToday
                 };
             }
@@ -280,13 +281,15 @@ export default class CalendarCore extends ComponentCore {
             const lastMonthArr = getArrayByLength(6 - dayLast).fill({ disabled: true });
 
             // 某月具体每个天数的信息对象
-            let tempMonthArr = getArrayByLength(dayLength).fill(0).map((item, i) => addMapFn(item, i, true));
+            let tempMonthArr = getArrayByLength(dayLength).fill(0).map(addMapFn);
 
             // 补足显示日期范围最后一周的剩下几天情况, 为了美观
             if (tempMonth === endMonth) {
-                index = endDayNum;
-                disable = true;
-                const lastWeekArr = getArrayByLength(6 - endDay).fill(0).map((item, i) => addMapFn(item, i, false));
+                const lastWeekArr = getArrayByLength(6 - endDay).fill(0).map((item, i) => addMapFn(item, i, {
+                    baseIndex: endDayNum,
+                    addNormalDateFlag: false,
+                    disable: true
+                }));
                 tempMonthArr = tempMonthArr.concat(lastWeekArr);
             }
             const monthArr = firstMonthArr.concat(tempMonthArr, lastMonthArr);
@@ -313,7 +316,7 @@ export default class CalendarCore extends ComponentCore {
     getMonthArr(monthArr, groupKey) {
         const resMonthArr = [];
         let tempWeekArr = [];
-        monthArr.map((item, i) => {
+        monthArr.forEach((item, i) => {
             const itemDayObj = item;
             if (!itemDayObj.disabled && !!this.checkIn) {
                 const itemStr = `${itemDayObj.date}/${itemDayObj.day}`;
@@ -341,7 +344,6 @@ export default class CalendarCore extends ComponentCore {
             } else {
                 tempWeekArr.push(itemDayObj);
             }
-            return itemDayObj;
         });
         return resMonthArr.map((item, i) => ({ ...item, key: item.groupKey + i }));
     }
@@ -361,9 +363,9 @@ export default class CalendarCore extends ComponentCore {
         if (!this.checkIn) {
             return resObj;
         }
-        weekArr.map(item => {
+        weekArr.forEach(item => {
             if (item.disabled) {
-                return item;
+                return;
             }
             const itemStr = `${item.date}/${item.day}`;
             const itemDate = new Date(itemStr);
@@ -381,7 +383,6 @@ export default class CalendarCore extends ComponentCore {
                 resObj.isRender = true;
                 this.isRender = true;
             }
-            return item;
         });
         // console.log(this.isRender)
         return resObj;

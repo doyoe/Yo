@@ -12,6 +12,7 @@
 
 import Modal from '../../modal/src';
 import React, { Component, PropTypes } from 'react';
+import './style.scss';
 
 const noop = () => {
 };

@@ -27,7 +27,7 @@ class DemoItem extends React.Component {
     render() {
         return (
             <a style={{ display: 'block', overflow: 'hidden' }} href="javascript:void 0;">
-                <img
+                <ListView.LazyImage
                     style={{ display: 'block' }}
                     width={"100%"}
                     height={this.props.item.imageHeight}

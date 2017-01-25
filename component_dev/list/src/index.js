@@ -1,11 +1,11 @@
 /**
  * @component List
  * @version 3.0.0
- * @description 列表组件,继承了Scroller的特性,有下拉刷新和加载更多功能。
+ * @description 列表组件，继承了Scroller的特性，有下拉刷新和加载更多功能。
  *
- * 除此之外, List优化了长列表的性能,在数据源较大时能够提升滚动的性能并避免内存溢出。
+ * 除此之外，List优化了长列表的性能，在数据源较大时能够提升滚动的性能并避免内存溢出。
  *
- * 使用列表组件实现的组件:GroupList,Calendar,SwipeMenuList。
+ * 使用列表组件实现的组件：GroupList、Calendar、SwipeMenuList。
  *
  * 特别感谢大明哥(leeds.li)和她的不定高无穷列表的实现思路。
  * @author jiao.shen
@@ -65,10 +65,10 @@ const propTypes = {
      * @property dataSource
      * @type Array
      * @default none
-     * @description 组件的数据源,数组形式,内部元素必须是对象。
-     * 如果需要给无穷列表的项定高度,可以在对象里添加height属性(数字类型),
-     * 也可以通过itemHeight属性统一设置列表项的高度(见itemHeight属性的描述),
-     * 如果列表元素有text属性且没有传入renderItem,会直接以text的值作为listitem的内容渲染。
+     * @description 组件的数据源，数组形式，内部元素必须是对象。
+     * 如果需要给无穷列表的项定高度，可以在对象里添加height属性(数字类型)，
+     * 也可以通过itemHeight属性统一设置列表项的高度(见itemHeight属性的描述)，
+     * 如果列表元素有text属性且没有传入renderItem，会直接以text的值作为listitem的内容渲染。
      */
     dataSource: PropTypes.arrayOf(PropTypes.shape({
         height: PropTypes.number,
@@ -79,8 +79,8 @@ const propTypes = {
      * @property renderItem
      * @type Function
      * @default (item)=>item.text
-     * @description 定制如何根据列表项数据对象渲染列表项的函数,接收参数item(数据对象)和index(在数据源中的index),返回一个JSX。
-     * 如果传入字符串,则会应用于所有列表项。
+     * @description 定制如何根据列表项数据对象渲染列表项的函数，接收参数item(数据对象)和index(在数据源中的index)，返回一个JSX。
+     * 如果传入字符串，则会应用于所有列表项。
      *
      * 例子:`` renderItem={(item)=><p>{item.someAttr}</p>} ``
      */
@@ -92,9 +92,9 @@ const propTypes = {
      * @param {Object} item 列表项对应的数据对象
      * @param {Number} index 列表项在数据源中的index
      * @param {DOMElement} target 当前tap事件的target
-     * @description 点击列表项时的事件回调,接收三个参数item(列表项对应的数据对象),index(列表项在数据源中的index)以及target(当前事件的event.target),
+     * @description 点击列表项时的事件回调，接收三个参数item(列表项对应的数据对象)，index(列表项在数据源中的index)以及target(当前事件的event.target)，
      *
-     * List实现了独特的手势系统以达到iOS列表的手势效果,任何情况下都应该使用这个属性为ListItem绑定事件,而不是给ListItem中的节点绑定onTouchTap事件。
+     * List实现了独特的手势系统以达到iOS列表的手势效果，任何情况下都应该使用这个属性为ListItem绑定事件，而不是给ListItem中的节点绑定onTouchTap事件。
      */
     onItemTap: PropTypes.func,
     /**
@@ -103,18 +103,18 @@ const propTypes = {
      * @default false
      * @description 是否使用无穷列表模式。
      *
-     * 开启无穷列表模式后,列表中只会保留infiniteSize个节点,并随着滚动复用这些节点,以此来优化大列表的性能,但是滚动过程中会有性能损耗。
-     * 如果你的列表项数量不大(比如只有几十个),请不要开启无穷模式。
+     * 开启无穷列表模式后，列表中只会保留infiniteSize个节点，并随着滚动复用这些节点，以此来优化大列表的性能，但是滚动过程中会有性能损耗。
+     * 如果你的列表项数量不大(比如只有几十个)，请不要开启无穷模式。
      */
     infinite: PropTypes.bool,
     /**
      * @property infiniteSize
      * @type Number
      * @default 12
-     * @description 无穷列表模式下,保留在列表容器中列表项的个数(参见无穷列表模式的说明).
+     * @description 无穷列表模式下，保留在列表容器中列表项的个数(参见无穷列表模式的说明).
      *
-     * 注意:这个值应该随着列表容器的高度和列表项高度选取一个合适的值,否则可能出现列表容器底部出现空白的情况。
-     * 如果这个值设置的过大,会降低列表的滚动性能,因此请根据实际情况(List容器的高度和列表项的高度)灵活配置。
+     * 注意:这个值应该随着列表容器的高度和列表项高度选取一个合适的值，否则可能出现列表容器底部出现空白的情况。
+     * 如果这个值设置的过大，会降低列表的滚动性能，因此请根据实际情况(List容器的高度和列表项的高度)灵活配置。
      */
     infiniteSize: PropTypes.number,
     /**
@@ -123,8 +123,8 @@ const propTypes = {
      * @default null
      * @description 无穷列表中列表项的高度。
      *
-     * 如果数据源中的对象没有height属性,也没有设置itemHeight,则会使用不定高的无穷列表模式。
-     * 在不定高模式下,每个项的高度会在渲染进容器以后确定,因此比定高模式多一次offsetHeight的查询,性能会差一些。
+     * 如果数据源中的对象没有height属性，也没有设置itemHeight，则会使用不定高的无穷列表模式。
+     * 在不定高模式下，每个项的高度会在渲染进容器以后确定，因此比定高模式多一次offsetHeight的查询，性能会差一些。
      */
     itemHeight: PropTypes.number,
     /**
@@ -138,18 +138,18 @@ const propTypes = {
      * @property itemExtraClass
      * @type String/Function
      * @default "item item-wrap"
-     * @description 给列表项容器元素添加的class
      * @param {Object} item 列表项对应的数据对象
      * @param {Number} index 列表项在数据源中的index
-     * 可以接受字符串形式。例如"custom-list-item"(会自动应用在所有列表项容器上)
-     * 或者一个函数,这个函数接受参数item(列表项对应的dataSource中的数据对象),index(数据源index),
+     * 可以接受字符串形式。例如"custom-list-item"（会自动应用在所有列表项容器上）
+     * 或者一个函数，这个函数接受参数item（列表项对应的dataSource中的数据对象），index（数据源index）
      *
-     * 例:(item)=>{return item.customClassName}/'custom-item-classname'
+     * 例:(item)=>{return item.customClassName}/'custom-item-classname'。
+     * @description 给列表项容器元素添加的class
      */
     itemExtraClass: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     /**
      * @skip
-     * 给grouptitle定制的属性,不会向外暴露
+     * 给grouptitle定制的属性,不会向外暴露。
      */
     groupTitleExtraClass: PropTypes.string,
     /**
@@ -158,7 +158,7 @@ const propTypes = {
      * @default item-touch
      * @param {Object} item 列表项对应的数据对象
      * @param {Number} index 列表项在数据源中的index
-     * @description 列表项被点击时的className, 可以接收字符串或者函数，使用方式与itemExtraClass一致。
+     * @description 列表项被点击时的className，可以接收字符串或者函数，使用方式与itemExtraClass一致。
      */
     itemTouchClass: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     /**
@@ -167,7 +167,7 @@ const propTypes = {
      * @default null
      * @param {Number} y 当前列表的y轴偏移
      * @param {Enum {'up','down'}} direction 列表滚动的方向,向上('up')或者向下('down')
-     * @description 绑定给list内部scroller的onScroll回调,在列表滚动时触发
+     * @description 绑定给list内部scroller的onScroll回调,在列表滚动时触发。
      */
     onScroll: PropTypes.func,
     /**
@@ -183,7 +183,7 @@ const propTypes = {
      * @type Function
      * @default null
      * @param {Array} visibleList 当前渲染在列表容器中的数据项数组
-     * @description 无穷列表中列表项update时触发的事件回调,接收参数visibleList(数组),为目前渲染在列表容器中的数据项
+     * @description 无穷列表中列表项update时触发的事件回调，接收参数visibleList(数组)，为目前渲染在列表容器中的数据项。
      */
     onInfiniteAppend: PropTypes.func,
     /**
@@ -207,21 +207,21 @@ const propTypes = {
      * @property extraClass
      * @type String
      * @default null
-     * @description 组件容器元素的额外className
+     * @description 组件容器元素的额外className。
      */
     extraClass: PropTypes.string,
     /**
      * @property containerExtraClass
      * @type String
      * @default null
-     * @description 列表容器元素额外的className(对应ul.yo-list节点)
+     * @description 列表容器元素额外的className(对应ul.yo-list节点)。
      */
     containerExtraClass: PropTypes.string,
     /**
      * @property usePullRefresh
      * @type Bool
      * @default false
-     * @description 是否使用下拉刷新,见Scroller同名属性
+     * @description 是否使用下拉刷新，见Scroller同名属性。
      */
     usePullRefresh: PropTypes.bool,
     /**
@@ -229,7 +229,7 @@ const propTypes = {
      *
      * @property pullRefreshHeight
      * @type Number
-     * @description 触发下拉刷新状态的高度（一般即为下拉刷新提示区域的高度）
+     * @description 触发下拉刷新状态的高度（一般即为下拉刷新提示区域的高度）。
      * @default 40
      */
     pullRefreshHeight: PropTypes.number,
@@ -241,7 +241,7 @@ const propTypes = {
      * @returns {JSX} 用来渲染 pullRefresh 的 JSX
      * @description () => JSX
      *
-     * 自定义的下拉刷新渲染函数
+     * 自定义的下拉刷新渲染函数。
      */
     renderPullRefresh: PropTypes.func,
     /**
@@ -249,14 +249,14 @@ const propTypes = {
      * @type Function
      * @param {Array} dataSource 当前的数据源
      * @default null
-     * @description 下拉刷新触发的事件回调
+     * @description 下拉刷新触发的事件回调。
      */
     onRefresh: PropTypes.func,
     /**
      * @property useLoadMore
      * @type Bool
      * @default false
-     * @description 是否开启加载更多,见Scroller同名属性
+     * @description 是否开启加载更多，见Scroller同名属性。
      */
     useLoadMore: PropTypes.bool,
     /**
@@ -264,7 +264,7 @@ const propTypes = {
      *
      * @property loadMoreHeight
      * @type Number
-     * @description 触发加载更多状态的高度（一般即为加载更多提示区域的高度）
+     * @description 触发加载更多状态的高度（一般即为加载更多提示区域的高度）。
      * @default 40
      */
     loadMoreHeight: PropTypes.number,
@@ -276,7 +276,7 @@ const propTypes = {
      * @returns {JSX} 用来渲染 loadMore 的 JSX
      * @description () => JSX
      *
-     * 自定义的加载更多渲染函数
+     * 自定义的加载更多渲染函数。
      */
     renderLoadMore: PropTypes.func,
     /**
@@ -284,7 +284,7 @@ const propTypes = {
      * @type Function
      * @param {Array} dataSource 当前数据源
      * @default null
-     * @description 加载更多时触发的事件回调
+     * @description 加载更多时触发的事件回调。
      */
     onLoad: PropTypes.func,
     /**
@@ -294,26 +294,26 @@ const propTypes = {
      * @param {Bool} ret 列表项shouldComponentUpdate原结果
      * @param {Object} nextItem 即将传给列表项组件的item对象
      * @param {Object} nowItem 当前列表项组件对应的item对象
-     * @description 绑定给列表项组件的shouldComponentUpdate,可以避免额外的render,用于提升列表的滚动性能。
+     * @description 绑定给列表项组件的shouldComponentUpdate，可以避免额外的render，用于提升列表的滚动性能。
      *
-     * 实验表明,组件的render开销对于某些老式手机(例如三星Note2)是不能忽视的,因此list默认为所有的列表项组件配置了shouldComponentUpdate,会根据
-     * item的_guid属性(List组件自己做的,不需要使用者传入)做比较决定是否需要render,这样可以最小化render的次数。有些情况下,这种比较方式会阻止使用者期待触发的render,导致组件更新行为违反了使用者的意愿,这时候需要通过设置shouldItemUpdate属性改变默认的shouldComponentUpdate的返回值
+     * 实验表明，组件的render开销对于某些老式手机(例如三星Note2)是不能忽视的，因此list默认为所有的列表项组件配置了shouldComponentUpdate，会根据
+     * item的_guid属性(List组件自己做的，不需要使用者传入)做比较决定是否需要render，这样可以最小化render的次数。有些情况下，这种比较方式会阻止使用者期待触发的render，导致组件更新行为违反了使用者的意愿，这时候需要通过设置shouldItemUpdate属性改变默认的shouldComponentUpdate的返回值
      *
-     * shouldItemUpdate能够接受三个参数,ret(默认的shouldComponentUpdate的return结果,布尔类型),nextItem(ListItem组件的下一个props中的item属性),
-     * nowItem(ListItem当前的props的item属性),返回一个布尔值,false则会跳过render,true会继续执行render(与shouldComponentUpdate返回值的含义相同)
+     * shouldItemUpdate能够接受三个参数，ret(默认的shouldComponentUpdate的return结果，布尔类型)，nextItem(ListItem组件的下一个props中的item属性)，
+     * nowItem(ListItem当前的props的item属性)，返回一个布尔值。false则会跳过render，true会继续执行render(与shouldComponentUpdate返回值的含义相同)。
      */
     shouldItemUpdate: PropTypes.func,
     /**
      * @property disabled
      * @type Bool
      * @default false
-     * @description 是否禁止滚动,参见Scroller的同名属性
+     * @description 是否禁止滚动，参见Scroller的同名属性。
      */
     disabled: PropTypes.bool,
     /**
      * @skip
      * @property onItemTouchStart
-     * 专门给SwipeMenuList使用的属性,不向外暴露
+     * 专门给SwipeMenuList使用的属性，不向外暴露
      */
     onItemTouchStart: PropTypes.func,
     onListItemUpdate: PropTypes.func,
@@ -322,7 +322,7 @@ const propTypes = {
      *
      * @property directionLockThreshold
      * @type Number
-     * @description 只允许单向滚动的时候，会根据这个阈值来判定响应哪个方向上的位移：某一方向位移减去另一个方向位移超过阀值，就会判定为这个方向的滚动。
+     * @description 只允许单向滚动的时候，会根据这个阈值来判定响应哪个方向上的位移：某一方向位移减去另一个方向位移超过阈值，就会判定为这个方向的滚动。
      * @default 5
      * @version 3.0.2
      */
@@ -426,15 +426,7 @@ export default class List extends Component {
             // 加setTimeout是为了处理不定高的场景,因为不定高的列表会先把列表项渲染进容器然后再去做定位
             // 所以didmount时间触发的时候,列表项还没有完成定位
             this.tryLoadLazyImages(offsetY);
-        }, 0);
-
-        setTimeout(() => {
-            // 如果设置了offsetY,滚动到offsetY
-            const { offsetY } = this.props;
-            if (offsetY !== 0) {
-                this.scrollTo(offsetY, 0);
-            }
-        }, DELAY_TIME_FOR_INFINITE_WITHOUT_HEIGHT);
+        }, this.listModel.isHeightFixed ? 0 : DELAY_TIME_FOR_INFINITE_WITHOUT_HEIGHT);
     }
 
     /**
@@ -543,11 +535,12 @@ export default class List extends Component {
      * @param y
      */
     tryLoadLazyImages(y) {
+        y = y - this.props.staticSectionHeight;
         if (this.childLazyImages.length && this.scroller) {
             this.childLazyImages.forEach((child) => {
                 const containerBottomY = y + this.scroller.wrapper.offsetHeight;
                 if (this.listModel.infinite) {
-                    if (containerBottomY > child.offsetY) {
+                    if (containerBottomY > child.itemRef.translateY) {
                         child.load();
                     }
                 } else if (child.loading !== 2) {
@@ -671,6 +664,12 @@ export default class List extends Component {
                 directionLockThreshold={directionLockThreshold}
                 disabled={disabled}
                 extraClass={extraClass}
+                pullRefreshHeight={pullRefreshHeight}
+                renderPullRefresh={renderPullRefresh}
+                loadMoreHeight={loadMoreHeight}
+                renderLoadMore={renderLoadMore}
+                useLoadMore={useLoadMore}
+                usePullRefresh={usePullRefresh}
                 tap={true}
                 autoRefresh={!infinite}
                 ref={(scroller) => {
@@ -681,18 +680,12 @@ export default class List extends Component {
                 onScroll={(evt) => this.onScroll(-evt.contentOffset.y)}
                 deceleration={0.0020}
                 onScrollEnd={() => this.onScrollEnd()}
-                usePullRefresh={usePullRefresh}
                 onRefresh={() => {
                     onRefresh(this.listModel.dataSource);
                 }}
-                useLoadMore={useLoadMore}
                 onLoad={() => {
                     onLoad(this.listModel.dataSource);
                 }}
-                pullRefreshHeight={pullRefreshHeight}
-                renderPullRefresh={renderPullRefresh}
-                loadMoreHeight={loadMoreHeight}
-                renderLoadMore={renderLoadMore}
                 enableLazyLoad={false}
             >
                 {this.props.staticSection != null ?

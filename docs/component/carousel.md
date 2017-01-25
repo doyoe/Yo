@@ -1,6 +1,6 @@
 #### 基础用法
 
-```javascript
+```
 <Carousel>
     <li className="item"><img className="img" src="//img1.qunarzz.com/qs/1610/a6/01d1ad00e4b9e102.jpg" /></li>  
     <li className="item"><img className="img" src="//img1.qunarzz.com/qs/1610/a6/01d1ad00e4b9e102.jpg" /></li>  
@@ -13,7 +13,7 @@
 + 提供图片懒加载功能
 + 配合css实现当前页切换的动画效果
 
-```javascript
+```
 const testData = [
     {
         img: '//img.alicdn.com/tps/TB13Ha_NXXXXXbCXVXXXXXXXXXX-1125-352.jpg_q50.jpg'
@@ -47,11 +47,8 @@ class Demo extends Component {
             {
                 testData.map((item, index) => (
                     <CarouselItem
-                        index={index + 1}
                         key={index + 1}
-                        currentPage={this.state.currentPage}
                         {...item}
-                        pagesNum={testData.length}
                         lazyload
                     />
                 ))
@@ -66,7 +63,7 @@ class Demo extends Component {
 #### 自定义动画
 传入JS动画对象，使用自定义动画
 
-```javascript
+```
 import aniCss from '~yo/component/carousel/src/aniCss.js';
 class Demo extends Component {    
     constructor() {
@@ -90,13 +87,10 @@ class Demo extends Component {
             {
                 testData.map((item, index) => (
                     <CarouselItem
-                        index={index + 1}
                         key={index + 1}
-                        currentPage={this.state.currentPage}
                         {...item}
                         lazyload
                         activeClass={'top'}
-                        pagesNum={testData.length}
                     />
                 ))
             }
@@ -105,3 +99,6 @@ class Demo extends Component {
     }
 }
 ```
+
+> 注意
+> carousel组件需要挂载的父节点有宽度，组件内置动画需要宽度计算位置，组件本身宽度是'100%'，因此请使用者保证父节点宽度。

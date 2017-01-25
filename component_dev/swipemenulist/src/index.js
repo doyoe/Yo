@@ -1,7 +1,7 @@
 /**
  * @component SwipeMenuList
  * @version 3.0.0
- * @description SwipeMenuList组件,使用List实现,列表项全部为SwipeMenu。
+ * @description SwipeMenuList组件，使用List实现，列表项全部为SwipeMenu。
  *
  * @instructions {instruInfo: ./swipeMenuList.md}{instruUrl: swipemenulist.html?hideIcon}
  * @author jiao.shen
@@ -30,6 +30,7 @@ export default class SwipeMenuList extends Component {
         /**
          * @property getMenuConfig
          * @default null
+         * @version 3.0.3
          * @type Function/Object
          * @param {Object} item 列表项对应的数据对象
          * @param {Number} index 列表项在数据源中的index
@@ -44,7 +45,7 @@ export default class SwipeMenuList extends Component {
          * @default null
          * @param {Object} item 列表项对应的数据对象
          * @param {Number} index 列表项在数据源中的index
-         * @description 渲染列表项的函数,接受参数item(该项对应的数据源中的配置对象),index(配置对象在数据源中的index),返回JSX或者string
+         * @description 渲染列表项的函数，接受参数item(该项对应的数据源中的配置对象)，index(配置对象在数据源中的index)，返回JSX或者string
          * 作为SwipeMenu的内容
          */
         renderItem: PropTypes.func,
@@ -69,21 +70,21 @@ export default class SwipeMenuList extends Component {
          * @property infinite
          * @type Bool
          * @default false
-         * @description 是否开启无穷列表模式,参考List同名属性
+         * @description 是否开启无穷列表模式，参考List同名属性
          */
         infinite: PropTypes.bool,
         /**
          * @property infiniteSize
          * @type Bool
          * @default 20
-         * @description 无穷列表模式中,设置保留在容器中的列表项数量,参考List同名属性
+         * @description 无穷列表模式中，设置保留在容器中的列表项数量，参考List同名属性
          */
         infiniteSize: PropTypes.number,
         /**
          * @property itemHeight
          * @type Number
          * @default null
-         * @description 列表项高度,参考List同名属性
+         * @description 列表项高度，参考List同名属性
          */
         itemHeight: PropTypes.number,
         /**
@@ -92,7 +93,7 @@ export default class SwipeMenuList extends Component {
          * @default "item swipemenu-list-item"
          * @param {Object} item 列表项对应的数据对象
          * @param {Number} index 列表项在数据源中的偏移
-         * @description 列表项class,可以传入函数/字符串,参考List同名属性
+         * @description 列表项class，可以传入函数/字符串，参考List同名属性
          */
         itemExtraClass: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
         /**
@@ -102,7 +103,7 @@ export default class SwipeMenuList extends Component {
          * @param {Object} item 列表项对应的数据对象
          * @param {Number} index 列表项在数据源中的偏移
          * @param {Array} dataSource 数据源
-         * @description item点击事件回调,参考List同名属性。
+         * @description item点击事件回调，参考List同名属性。
          *
          * 注意:点击swipemenu的按钮区域以及菜单展开时不会触发这个事件。
          */
@@ -113,7 +114,7 @@ export default class SwipeMenuList extends Component {
          * @default item-touch
          * @param {Object} item 列表项对应的数据对象
          * @param {Number} index 列表项在数据源中的index
-         * @description 列表项被点击时的className, 可以接收字符串或者函数，使用方式与itemExtraClass一致。
+         * @description 列表项被点击时的className，可以接收字符串或者函数，使用方式与itemExtraClass一致。
          * @version 3.0.2
          */
         itemTouchClass: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
@@ -304,14 +305,14 @@ export default class SwipeMenuList extends Component {
     }
 
     /**
-     * 在render结束时重置缓存的上一个打开菜单的index,此时this.cachedOpenIndex===this.openIndex
+     * 在render结束时重置缓存的上一个打开菜单的index，此时this.cachedOpenIndex===this.openIndex
      */
     componentDidUpdate() {
         this.cachedOpenIndex = this.openIndex;
     }
 
     /**
-     * 在一个菜单被打开/关闭时触发,改变openIndex
+     * 在一个菜单被打开/关闭时触发，改变openIndex
      * @param index
      */
     updateOpenIndex(index) {
@@ -334,7 +335,7 @@ export default class SwipeMenuList extends Component {
      * @description 滚动到某个位置
      * @method scrollTo
      * @param {Number} y y坐标
-     * @param {Number} time 动画持续时间
+     * @param {Number} [time] 动画持续时间
      */
     scrollTo(y, time) {
         if (this.list) this.list.scrollTo.call(this.list, y, time);
@@ -343,7 +344,7 @@ export default class SwipeMenuList extends Component {
     /**
      * @description 停止下拉刷新
      * @method stopRefreshing
-     * @param {Bool} success  刷新成功/刷新失败
+     * @param {Bool} success 刷新成功/刷新失败
      */
     stopRefreshing(success) {
         if (this.list) this.list.stopRefreshing(success);

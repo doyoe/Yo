@@ -4,18 +4,12 @@
 @import "../ani/fade-in-right";
 
 .yo-multilist {
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-    flex: 1;
-    // @include flex(1);
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-
-    &-tip {
+    @include flexbox;
+    width: auto;
+    .multiList-container-tip {
         margin-top: 45%;
+        color: #333;
     }
-
     > .item {
         $active-color: #0faad6;
         $line-color: #ccc;
@@ -26,93 +20,92 @@
         @include yo-checked( $name: checkbox, $on-color: $active-color, $border-width: 1px, $bgcolor: #fff, $border-color: $active-color, $on-border-color: $active-color ) {
             margin-right: 0.1rem;
         };
-        @include yo-checked( $name: dot, $content:'\f083', $on-color: $active-color );
+        @include yo-checked( $name: dot, $content:'\f083', $on-color: $active-color ){
+            margin-left: -0.1rem;
+        };
         position: relative;
+        width: 25%;
         min-width: 90px;
-        max-width: 90px;
-        @include flex(1);
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: flex;
+        @include flexbox;
         background-color: #fff;
-        overflow: hidden;
-
-        .content {
-            @include flex(1);
-        }
-
         .yo-list > .item {
-
             label {
-                width: 100%;
-                display: -webkit-box;
-                display: -webkit-flex;
-                display: flex;
+                @include flexbox;
             }
-
-            .effect {
-                position: relative;
-
-                &::before {
-                    position: absolute;
-                    top: 50%;
-                    left: 7%;
-                    @include transform(translateY(-50%));
-                    height: 6px;
-                    width: 6px;
-                    border-radius: 50%;
-                    content: ' ';
-                }
-            }
-
             &:after {
                 left: 0.18rem;
             }
-
-            .spread-item {
-                text-indent: 0.02rem;
-                background-color: $default-bg-color;
-                @include border( $border-width: 1px 1px 0 0 );
-            }
-
         }
 
+
+        .yo-scroller {
+            @include border(0 1px 0 0, $line-color, solid);
+            position: absolute;
+        }
+        .yo-list > .item{
+            &.spread{
+                position: relative;
+                overflow: visible;
+                &::before{
+                    position: absolute;
+                    top: 50%;
+                    right: -3px;
+                    content: ' ';
+                    width: 6px;
+                    height: 6px;
+                    border-top: 1px solid $line-color;
+                    border-left: 1px solid $line-color;
+                    background-color: $line-color;
+                    @include transform(rotate(-45deg) translate(50%, -50%));
+                }
+            }
+        }
         &:first-child {
             background-color: $default-bg-color;
-
             .yo-list > .item {
                 background-color: $default-bg-color;
-
                 &::after {
                     left: 0;
                 }
-
                 &.spread {
                     background-color: #fff;
-
+                    @include border(1px 1px 0 0, $line-color #fff $line-color $line-color, solid);
+                    &::before{
+                        content: none;
+                    }
                     &:after {
                         content: '';
                     }
                 }
             }
         }
-
         &:last-child {
-            @include flex(2);
+            @include flex(1);
             width: auto;
-            max-width: none;
             @include justify-content(center);
-
+            .yo-scroller{
+                @include border(0 0 0 0, transparent, solid);
+                position: absolute;
+            }
             .yo-list > .item {
-
-                .checked {
+                .checked{
                     color: $active-color;
                 }
-
                 &::after {
                     left: 0.35rem;
                 }
             }
         }
     }    
+}
+
+.select-checkbox{
+  @include flexbox;
+  .yo-checked{
+      display: block;
+  }
+  .content{
+      @include flex(1);
+      width: auto;
+  }
 }

@@ -1,9 +1,9 @@
 /**
  * @component LazyImage
  * @author jiao.shen
- * @description 懒加载图片组件,只能在 `Scroller` 和 `List` 中使用。
+ * @description 懒加载图片组件，只能在 `Scroller` 和 `List` 中使用。
  *
- * 使用这个组件代替img标签后,会延迟加载这个图片,直到List组件的滚动使得该图片位于可视区域之内。
+ * 使用这个组件代替img标签后，会延迟加载这个图片，直到List组件的滚动使得该图片位于可视区域之内。
  * @instructions {instruInfo: ./lazyimage.md}{instruUrl: scroller/lazyimage.html?hideIcon}
  * @version  3.0.2
  */
@@ -29,65 +29,69 @@ export default class extends Component {
          * @property defaultImage
          * @type String
          * @default null
-         * @description 默认图片,在原图片还没有完成加载时展示
+         * @description 默认图片，在原图片还没有完成加载时展示。
          */
         defaultImage: PropTypes.string,
         /**
          * @property src
          * @type String
          * @default null
-         * @description 图片src,必需
+         * @description 图片src，必需。
          */
         src: PropTypes.string.isRequired,
         /**
          * @property className
          * @type String
          * @default null
-         * @description 给img标签加的类名
+         * @description 给img标签加的类名。
          */
         className: PropTypes.string,
         /**
          * @property width
          * @type Number
          * @default null
-         * @description 图片宽度
+         * @description 图片宽度。
          */
         width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
         /**
          * @property height
          * @type Number
          * @default null
-         * @description 图片高度
+         * @description 图片高度。
          */
         height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
         /**
          * @property customAttr
          * @type Object
          * @default null
-         * @description 附加给img dom节点的自定义属性,属性名需要以data-开头
+         * @description 附加给img dom节点的自定义属性，属性名需要以data-开头。
          */
         customAttr: PropTypes.object,
         /**
          * @property style
          * @type Object
          * @default null
-         * @description 附加给img dom节点的style
+         * @description 附加给img dom节点的style。
          */
         style: PropTypes.object,
         /**
          * @property alt
          * @type String
          * @default null
-         * @description 和img标签的alt属性相同
+         * @description 和img标签的alt属性相同。
          */
         alt: PropTypes.string,
         /**
          * @property title
          * @type String
          * @default null
-         * @description 和img标签的title属性相同
+         * @description 和img标签的title属性相同。
          */
-        title: PropTypes.string
+        title: PropTypes.string,
+        onTouchStart: PropTypes.func,
+        onTouchMove: PropTypes.func,
+        onTouchEnd: PropTypes.func,
+        onTouchCancel: PropTypes.func
     };
 
     static defaultProps = {
@@ -169,6 +173,8 @@ export default class extends Component {
 
     render() {
         const { width, height, style, className, customAttr, alt, title } = this.props;
+        // 解决和touchable组件结合使用的问题，必须能够接收这四个属性
+        const { onTouchStart, onTouchMove, onTouchEnd, onTouchCancel } = this.props;
 
         if (this.context.list) {
             if (height == null && style.height == null) {
@@ -178,6 +184,10 @@ export default class extends Component {
 
         return (
             <img
+                onTouchStart={onTouchStart}
+                onTouchMove={onTouchMove}
+                onTouchEnd={onTouchEnd}
+                onTouchCancel={onTouchCancel}
                 alt={alt}
                 title={title}
                 ref={(img) => {

@@ -4,9 +4,6 @@
  * @version 3.0.0
  * @description 可提供一些日期或者时间序列供用户选择，并返回用户选择的结果。
  *
- * - 可根据传入的value中match到的数字的数组长度来决定有几栏picker。
- * - 可通过format属性，传入函数对选项进行自定义。
- *
  * @instructions {instruInfo: ./dateTimePicker.md}{instruUrl: datetimepicker.html?hideIcon}
  * @author zongze.li
  */
@@ -114,7 +111,7 @@ const propTypes = {
 };
 
 function toStandardDateStr(value) {
-    return String(value).length < 2 ? `0${value}` : value
+    return String(value).length < 2 ? `0${value}` : value;
 }
 
 const DateTimePickerDefaultProps = {
@@ -182,7 +179,7 @@ export default class DateTimePicker extends Component {
 
     _handleOnChange(item, level) {
         const nextValue = this.dateTimeModel.getNextValue(item.value, level),
-            newValueState = nextValue.map(value=>toStandardDateStr(value)).join(this.symbol),
+            newValueState = nextValue.map(value => toStandardDateStr(value)).join(this.symbol),
             text = nextValue.map((val, index) => this.props.format(val, index)).join(this.symbol);
 
         if (this.props.onChange) {

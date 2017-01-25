@@ -6,19 +6,21 @@
  * 支持用户自定义子节点
  *
  * 默认动画：
- * 横向滚动动画
- * 为当前页加上on的
+ * + 横向滚动动画
+ * + 为当前页加上on的类名，因此可以附加css动画效果。
  *
- * 自定义动画对象需提供的方法：
- *
- *
- * 默认走马灯节点：
- * 支持图片lazyload 图片加载失败的替换图模板
+ * 默认走马灯子节点：
+ * + 支持图片懒加载
+ * + 图片加载失败的替换图模板
  *
  * 查看Demo获得实例：
  * 使用自定义动画实现图片查看器
  * 内置动画配合css动画效果
  *
+ * 使用注意：
+ * - `Carousel`组件的父节点需要有宽度，`Carousel`组件默认宽度为‘100%’，如果父节点没有宽度会导致默认滚动动画失效。
+ * - `Carousel`组件不能直接嵌套在`Touchable`组件中，请使用`CarouselItem`的`onTap`来给它的Item绑定tap事件回调，
+ * 或者用`Touchable`组件包裹Item。
  * @author eva.li
  * @instructions {instruInfo: ./carousel.md}{instruUrl: carousel/index.html?hideIcon}
  */
@@ -45,141 +47,148 @@ Dots.propTypes = {
     page: PropTypes.number
 };
 
-const propTypes = {
-    /**
-     * @property dots
-     * @type Bool
-     * @default true
-     * @description 是否使用默认坐标展示，详细可以查看demo基础用法展示
-     */
-    dots: PropTypes.bool,
-    /**
-     * @property autoplay
-     * @type Bool
-     * @default true
-     * @description 是否自动换页
-     */
-    autoplay: PropTypes.bool,
-    /**
-     * @property loop
-     * @type Bool
-     * @default true
-     * @description 是否循环 循环防范受动画影响，因此循环的具体方案由动画对象提供。
-     */
-    loop: PropTypes.bool,
-    /**
-     * @property beforeChange
-     * @type Function
-     * @param {num} 变化后页面索引
-     * @description 页面切换前提供的回调函数，索引值在carousel.children中设置从1开始
-     */
-    beforeChange: PropTypes.func,
-    /**
-     * @property afterChange
-     * @type Function
-     * @param {num} 变化后页面索引
-     * @description 页面切换后提供的回调函数，索引值在carousel.children中设置从1开始
-     */
-    afterChange: PropTypes.func,
-    /**
-     * @property extraClass
-     * @type String
-     * @description 为组件根节点提供额外的class。
-     */
-    extraClass: PropTypes.string,
-    /**
-     * @property delay
-     * @type Number
-     * @description 自动播放时动画间隔，单位为s，因动画的实现方式而不同。
-     */
-    delay: PropTypes.number,
-    /**
-     * @property speed
-     * @type Number
-     * @description 动画播放速度，单位为s,因动画的实现方式而不同。
-     */
-    speed: PropTypes.number,
-    /**
-     * @property defaultPage
-     * @type Number
-     * @description 组件渲染时起始页面
-     */
-    defaultPage: PropTypes.number,
-    /**
-     * @property aniSpeed
-     * @type Number
-     * @description 如果使用css动画，该值为动画播放时间，用于在滚动循环时计算动画时机。
-     */
-    aniSpeed: PropTypes.number,
-    /**
-     * @property aniObj
-     * @type Object
-     * @description 自定义动画对象，自定义动画需要提供以下方法
-     *
-     * - handleData（aniObj, children）用于组件渲染前对于子节点的处理；
-     * - touchstart(aniObj) 动画处理的touchstart事件；
-     * - touchmove(aniObj) 动画处理的touchmove事件；
-     * - touchend(aniObj) 动画处理的touchend事件；
-     * - touchcancel(aniObj)动画处理的touchcancel事件；
-     * - next(aniObj) 下一帧 需返回动画结束后的当前索引；
-     * - arrive（aniObj,num) 跳转；
-     * - prev(aniObj) 上一帧 动画结束后的当前索引；
-     *
-     * carousel组件提供了两种自定义动画，使用者可以按需引用：
-     * + aniCss动画使用改变Index层级的方式来展示当前页面。
-     * + aniInfinate动画用有限的节点数（3个）渲染无限数量节点，其实现类似于list组件infinte模式，相较于默认动画实现减少了dom节点的数量，增加了dom操作的次数，适用于实现图片查看器等dom节点多的场景。
-     *
-     * **aniObj格式**
-     *
-     * ```
-     * {
-     *    aniSpeed:0,
-     *    containerDOM: ul.cont, //节点
-     *    delay: 1,
-     *    loop: true,
-     *    operationTimer: 5, //操作数动画运动的绝对值，交由动画控制
-     *    pageNow: 5,
-     *    speed: .5,
-     *    stageDOM: div,
-     *    width: 375 //这里需注意宽度在组件mount后才有
-     *    touchstartLocation:e
-     *    touchendLocation:e
-     *    touchmoveLocation:e
-     * }
-     * ```
-     */
-    aniObj: PropTypes.object,
-    /**
-     * @property children
-     * @type Element
-     * @description carousel的展示内容
-     */
-    children: PropTypes.array.isRequired
-};
-
-const defaultProps = {
-    dots: true,
-    autoplay: true,
-    loop: true,
-    effect: 'scrollX',
-    delay: 1.5,
-    speed: 0.5,
-    defaultPage: 1,
-    aniSpeed: 0,
-    beforeChange() {
-    },
-    afterChange() {
-    }
-};
-
-// const ANILIST = {
-//     'scrollX': AniScrollX,
-//     'cssAni': AniCss
-// };
-
 const DEFAULTANI = AniScrollX;
 
 class Carousel extends Component {
+    static propTypes = {
+        /**
+         * @property dots
+         * @type Bool
+         * @default true
+         * @description 是否使用默认坐标展示，详细可以查看demo基础用法展示。
+         */
+        dots: PropTypes.bool,
+        /**
+         * @property autoplay
+         * @type Bool
+         * @default true
+         * @description 是否自动换页。
+         */
+        autoplay: PropTypes.bool,
+        /**
+         * @property loop
+         * @type Bool
+         * @default true
+         * @description 是否循环 循环防范受动画影响，因此循环的具体方案由动画对象提供。
+         */
+        loop: PropTypes.bool,
+        /**
+         * @property beforeChange
+         * @type Function
+         * @param {num} 变化后页面索引
+         * @description 页面切换前提供的回调函数，索引值在carousel.children中设置从1开始。
+         */
+        beforeChange: PropTypes.func,
+        /**
+         * @property afterChange
+         * @type Function
+         * @param {num} 变化后页面索引
+         * @description 页面切换后提供的回调函数，索引值在carousel.children中设置从1开始。
+         */
+        afterChange: PropTypes.func,
+        /**
+         * @property extraClass
+         * @type String
+         * @description 为组件根节点提供额外的class。
+         */
+        extraClass: PropTypes.string,
+        /**
+         * @property delay
+         * @type Number
+         * @description 自动播放时动画间隔，单位为s，因动画的实现方式而不同。
+         */
+        delay: PropTypes.number,
+        /**
+         * @property speed
+         * @type Number
+         * @description 动画播放速度，单位为s,因动画的实现方式而不同。
+         */
+        speed: PropTypes.number,
+        /**
+         * @property defaultPage
+         * @type Number
+         * @description 组件渲染时起始页面。
+         */
+        defaultPage: PropTypes.number,
+        /**
+         * @property aniSpeed
+         * @type Number
+         * @description 如果使用css动画，该值为动画播放时间，用于在滚动循环时计算动画时机。
+         */
+        aniSpeed: PropTypes.number,
+        /**
+         * @property aniObj
+         * @type Object
+         * @description 自定义动画对象，自定义动画需要提供以下方法。
+         *
+         * - handleData（aniObj, children）用于组件渲染前对于子节点的处理；
+         * - touchstart(aniObj) 动画处理的touchstart事件；
+         * - touchmove(aniObj) 动画处理的touchmove事件；
+         * - touchend(aniObj) 动画处理的touchend事件；
+         * - touchcancel(aniObj)动画处理的touchcancel事件；
+         * - next(aniObj) 下一帧 需返回动画结束后的当前索引；
+         * - arrive（aniObj,num) 跳转；
+         * - prev(aniObj) 上一帧 动画结束后的当前索引；
+         *
+         * carousel组件提供了两种自定义动画，使用者可以按需引用：
+         * + aniCss动画使用改变Index层级的方式来展示当前页面。
+         * + aniInfinate动画用有限的节点数（3个）渲染无限数量节点，其实现类似于list组件infinte模式，相较于默认动画实现减少了dom节点的数量，增加了dom操作的次数，适用于实现图片查看器等dom节点多的场景。
+         *
+         * **aniObj格式**
+         *
+         * ```
+         * {
+         *    aniSpeed:0,
+         *    containerDOM: ul.cont, //节点
+         *    delay: 1,
+         *    loop: true,
+         *    operationTimer: 5, //操作数动画运动的绝对值，交由动画控制
+         *    pageNow: 5,
+         *    speed: .5,
+         *    stageDOM: div,
+         *    width: 375 //这里需注意宽度在组件mount后才有
+         *    touchstartLocation:e
+         *    touchendLocation:e
+         *    touchmoveLocation:e
+         * }
+         * ```
+         */
+        aniObj: PropTypes.object,
+        /**
+         * @property children
+         * @type Element
+         * @description carousel的展示内容。
+         */
+        children: PropTypes.array.isRequired
+    }
+    static defaultProps = {
+        dots: true,
+        autoplay: true,
+        loop: true,
+        effect: 'scrollX',
+        delay: 1.5,
+        speed: 0.5,
+        defaultPage: 1,
+        aniSpeed: 0,
+        beforeChange() {
+        },
+        afterChange() {
+        }
+    }
+    static childContextTypes = {
+        /**
+         * @property currentPage
+         * @type PropTypes.number
+         * @description 子组件通过context获取到currentPage，currentPage表示当前展示的page索引。
+         */
+        currentPage: PropTypes.number,
+        /**
+         * @property pagesNum
+         * @type PropTypes.number
+         * @description 子组件通过context获取到pagesNum，pagesNum表示carousel组件children的数量。
+         */
+        pagesNum: PropTypes.number
+    }
 
     constructor(props) {
         super(props);
@@ -189,6 +198,13 @@ class Carousel extends Component {
         this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
         this.dragDom = null;
         this.dragEvt = null;
+    }
+
+    getChildContext() {
+        return {
+            currentPage: this.state.page,
+            pagesNum: this.props.children.length
+        };
     }
 
     componentWillMount() {
@@ -275,7 +291,12 @@ class Carousel extends Component {
     }
 
     format(children) {
-        return this.ani.handleData(this.aniObj, children);
+        const childrenList = React.Children.map(children, (childElement, index) => (
+            React.cloneElement(childElement, {
+                index: index + 1
+            })
+        ));
+        return this.ani.handleData(this.aniObj, childrenList);
     }
 
     // getEndX(distanceX) {
@@ -439,9 +460,7 @@ class Carousel extends Component {
     }
 
 }
-
-Carousel.propTypes = propTypes;
-Carousel.defaultProps = defaultProps;
+Carousel.CarouselItem = CarouselItem;
 Carousel.Item = CarouselItem;
 
 export default Carousel;

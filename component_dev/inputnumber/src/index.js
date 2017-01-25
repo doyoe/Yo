@@ -15,6 +15,7 @@
 
 import '../../common/tapEventPluginInit';
 import React, { Component, PropTypes } from 'react';
+import Touchable from '../../touchable/src';
 import { replaceRedundantSpaces } from '../../common/util.js';
 import './style.scss';
 
@@ -27,7 +28,8 @@ const defaultProps = {
     extraClass: '',
     disable: false,
     inputDisable: false,
-    onChange() {}
+    onChange() {
+    }
 };
 
 const propTypes = {
@@ -236,14 +238,18 @@ export default class Number extends Component {
         const plusDisableClass = plusDisable ? 'disabled' : '';
         return (
             <div className={replaceRedundantSpaces(`yo-number ${this.props.extraClass}`)}>
-                <span
-                    className={replaceRedundantSpaces(`minus ${minusDisableClass}`)}
-                    onTouchTap={() => this.minusValue(this._node.value)}
-                >-</span>
+                <Touchable
+                    touchClass={minusDisable ? '' : 'action-touch'}
+                    onTap={() => this.minusValue(this._node.value)}
+                >
+                    <span className={replaceRedundantSpaces(`minus ${minusDisableClass}`)}>-</span>
+                </Touchable>
                 <input
                     className="input" type="text" value={this.state.value}
                     disabled={inputDisable ? 'disabled' : ''}
-                    ref={target => { this._node = target; }}
+                    ref={target => {
+                        this._node = target;
+                    }}
                     onChange={evt => {
                         // 允许使用者输入任意字符，在blur的时候再去检测他的输入是否合法
                         this.setState({ value: evt.target.value });
@@ -259,10 +265,12 @@ export default class Number extends Component {
                         this.setState({ plusDisable: true, minusDisable: true });
                     }}
                 />
-                <span
-                    className={replaceRedundantSpaces(`plus ${plusDisableClass}`)}
-                    onTouchTap={() => this.plusValue(this._node.value)}
-                >+</span>
+                <Touchable
+                    touchClass={plusDisable ? '' : 'action-touch'}
+                    onTap={() => this.plusValue(this._node.value)}
+                >
+                    <span className={replaceRedundantSpaces(`plus ${plusDisableClass}`)}>+</span>
+                </Touchable>
             </div>
         );
     }

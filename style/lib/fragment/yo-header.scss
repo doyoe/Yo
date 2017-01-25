@@ -2,7 +2,6 @@
 
 // 定义header的基础构造
 @mixin _header {
-    position: relative;
     height: map-get($header, height);
     line-height: map-get($header, height);
     @include border(
@@ -26,9 +25,6 @@
         color: map-get($header, item-color);
         cursor: pointer;
         font-size: map-get($header, item-font-size);
-        &:active {
-            opacity: .5;
-        }
         &.yo-ico,
         > .yo-ico {
             color: map-get($header, item-ico-color);
@@ -44,6 +40,10 @@
         right: 0;
         padding-right: map-get($header, item-space);
         text-align: right;
+    }
+    // 头部两侧操作区Touchable状态
+    .action-touch {
+        opacity: .5;
     }
 }
 

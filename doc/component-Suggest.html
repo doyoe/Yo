@@ -10,8 +10,9 @@
   <title>Yo Documentation 组件</title>
   <link rel="stylesheet" href="source/main.css"/>
   
+  
     
-<link rel="stylesheet" href="./theme/ydoc.css"/>
+        <link rel="stylesheet" href="./theme/ydoc.css"/>
     
   
 </head>
@@ -314,6 +315,14 @@
                         
                         
                             <li >
+                                <a href="component-Carousel.CarouselItem.html">Carousel.CarouselItem</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
                                 <a href="component-Range.html">Range</a>
                             </li>
                         
@@ -414,164 +423,163 @@ Suggest的内容分为两个区域, 推荐区域(recommendTmpl)会在用户输�
             
             <div class="instructions-con-info">
             <h4 id="-">基础使用</h4>
-<p><code>Suggest</code>一般是一个占满整个页面的组件, 它也可以配合模态框系列组件一起使用。在默认条件下, <code>Suggest</code>的根节点会撑满整个父级容器。</p>
+<p><code>Suggest</code>一般是一个占满整个页面的组件，它也可以配合模态框系列组件一起使用。在默认条件下，<code>Suggest</code>的根节点会撑满整个父级容器。</p>
 <p><code>Suggest</code>的最重要的属性是<code>results</code>和<code>onConditionChange</code>。使用这两个属性就可以改变结果区域的内容:</p>
-<pre><code>&lt;Suggest
-    onConditionChange={condition =&gt; {
-        this.setState({ results:results // an array which contains result datum. });
-    }}
-    results={this.state.results}
-/&gt;
-</code></pre><p>你应该把<code>results</code>属性和你应用的状态关联起来, 这样在输入框的内容发生改变的时候会触发<code>conditionChange</code>事件, 这时你可以根据新的condition字符串(<code>onConditionChange</code>的唯一参数)去改变<code>results</code>, 达到更新结果区域的目的。</p>
+<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Suggest</span>
+    <span class="token attr-name">onConditionChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>condition <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> results <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span></span><span class="token attr-name">}</span>
+    <span class="token attr-name">results</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>results<span class="token punctuation">}</span></span>
+<span class="token punctuation">/></span></span>
+</code></pre><p>你应该把<code>results</code>属性和你应用的状态关联起来，这样在输入框的内容发生改变的时候会触发<code>conditionChange</code>事件，这时你可以根据新的condition字符串(<code>onConditionChange</code>的唯一参数)去改变<code>results</code>，达到更新结果区域的目的。</p>
 <h5 id="-">定制结果列表项的渲染方式</h5>
-<p>results默认的渲染方式是<code>List</code>, 如果<code>results</code>属性数组中的每一个元素都有<code>text</code>属性, 会直接使用这个属性值作为列表项的内容。或者, 就像<code>List</code>一样,
+<p>results默认的渲染方式是<code>List</code>，如果<code>results</code>属性数组中的每一个元素都有<code>text</code>属性, 会直接使用这个属性值作为列表项的内容。或者，就像<code>List</code>一样，
 你也可以传入<code>renderItem</code>属性来指定列表项的渲染方式。它接收的参数和<code>List</code>的同名属性一致。以下是一个自定义<code>renderItem</code>的例子:</p>
-<pre><code>&lt;Suggest
-    results={[
-        {value:&#39;beijing&#39;},
-        {value:&#39;shanghai&#39;},
-        ...
-    ]}
-    renderItem={(item,i) =&gt; {
-        return &lt;p&gt;`第${i}项的value是${item.value}`&lt;/p&gt;
-    }}
-    noDataTmpl={&lt;div&gt;Nothing to show.&lt;/div&gt;}
-/&gt;
-</code></pre><p>通过定义<code>noDataTmpl</code>可以定制没有results数据时展示的内容, 它可以接收一个JSX, 在<code>results.length</code>为<code>0</code>时会使用这个JSX渲染结果区域。</p>
+<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Suggest</span>
+    <span class="token attr-name">results</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>value<span class="token punctuation">:</span><span class="token string">'beijing'</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>value<span class="token punctuation">:</span><span class="token string">'shanghai'</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+    <span class="token punctuation">]</span><span class="token punctuation">}</span></span>
+    <span class="token attr-name">renderItem</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span>i<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span><span class="token template-string"><span class="token string">`第</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>i<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">项的value是</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>item<span class="token punctuation">.</span>value<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+    <span class="token punctuation">}</span></span><span class="token attr-name">}</span>
+    <span class="token attr-name">noDataTmpl={&lt;div</span><span class="token punctuation">></span></span>Nothing to show<span class="token punctuation">.</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span class="token punctuation">}</span>
+<span class="token operator">/</span><span class="token operator">></span>
+</code></pre><p>通过定义<code>noDataTmpl</code>可以定制没有results数据时展示的内容，它可以接收一个JSX，在<code>results.length</code>为<code>0</code>时会使用这个JSX渲染结果区域。</p>
 <h5 id="-">自定义结果区域的渲染方式</h5>
-<p>如果你不希望以默认的<code>List</code>形式渲染结果区域, 可以通过定义<code>renderResult</code>属性来实现, 你需要传入一个函数, 这个函数可以接收到一个参数<code>results</code>,
+<p>如果你不希望以默认的<code>List</code>形式渲染结果区域，可以通过定义<code>renderResult</code>属性来实现，你需要传入一个函数，这个函数可以接收到一个参数<code>results</code>，
 并用它返回的JSX/DOMElement来完全取代原来的<code>List</code>:</p>
-<pre><code>&lt;Suggest
-    results={...}
-    renderResult={results =&gt; {
-        // 返回一个自定义组件
-        return (
-            &lt;CustomResult&gt;
-                {results.map(result =&gt; {
-                    return (
-                        &lt;ResultItem result={result} key={result.key}/&gt;
-                    );
-                })}
-            &lt;/CustomResult&gt;
-        );
-    }}
-/&gt;
+<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Suggest</span>
+    <span class="token attr-name">results</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span></span>
+    <span class="token attr-name">renderResult</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>results <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>CustomResult</span><span class="token punctuation">></span></span>
+                <span class="token punctuation">{</span>results<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>result <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+                        <span class="token operator">&lt;</span>ResultItem result<span class="token punctuation">=</span><span class="token punctuation">{</span>result<span class="token punctuation">}</span> key<span class="token punctuation">=</span><span class="token punctuation">{</span>result<span class="token punctuation">.</span>key<span class="token punctuation">}</span></span><span class="token punctuation">/></span></span>
+                    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>CustomResult</span><span class="token punctuation">></span></span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token operator">/</span><span class="token operator">></span>
 </code></pre><h4 id="-">推荐区域</h4>
-<p>在输入框没有输入文字时, 结果区域会被隐藏, 取而代之的是推荐区域。换句话说, 用户在打开<code>Suggest</code>时首先看到的是输入框以及推荐区域。</p>
-<p>使用<code>recommendTmpl</code>可以指定推荐区域的渲染方式, 它接收一个JSX。</p>
-<p>有些时候, 你可能在聚焦到input时希望使用一个蒙层盖住下面的推荐区域, 这样用户可以很方便的通过点击推荐区域来关闭键盘。使用<code>showMask</code>属性可以控制
+<p>在输入框没有输入文字时，结果区域会被隐藏，取而代之的是推荐区域。换句话说，用户在打开<code>Suggest</code>时首先看到的是输入框以及推荐区域。</p>
+<p>使用<code>recommendTmpl</code>可以指定推荐区域的渲染方式，它接收一个JSX。</p>
+<p>有些时候，你可能在聚焦到input时希望使用一个蒙层盖住下面的推荐区域，这样用户可以很方便的通过点击推荐区域来关闭键盘。使用<code>showMask</code>属性可以控制
 蒙层是否在聚焦时展示蒙层。参见下面的例子:</p>
-<pre><code>&lt;Suggest
-    ...
-    recommentTmpl={&lt;CityGrouplist ... /&gt;}
-    showMask={true}
-    ...
-/&gt;
+<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Suggest</span>
+    <span class="token attr-name">...</span>
+    <span class="token attr-name">recommentTmpl={&lt;CityGrouplist</span> <span class="token attr-name">...</span> <span class="token punctuation">/></span></span><span class="token punctuation">}</span>
+    showMask<span class="token operator">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span>
+    <span class="token operator">...</span>
+<span class="token operator">/</span><span class="token operator">></span>
 </code></pre><h4 id="-">使用输入框图标</h4>
-<p>一般来说, <code>Suggest</code>的输入框的最右侧都会根据当前的输入状态展示一个图标(例如输入框中有文字时会展示一个叉子用来快速清除输入)。<code>Suggest</code>组件提供了
-四种icon:<code>delete</code>,<code>loading</code>,<code>refresh</code>和<code>stop</code>。通过定义<code>inputIcon</code>属性, 可以指定当前展示在输入框中的是哪一个图标, 如果传入<code>null</code>, 就不会
+<p>一般来说，<code>Suggest</code>的输入框的最右侧都会根据当前的输入状态展示一个图标(例如输入框中有文字时会展示一个叉子用来快速清除输入)。<code>Suggest</code>组件提供了
+四种icon:<code>delete</code>，<code>loading</code>，<code>refresh</code>和<code>stop</code>。通过定义<code>inputIcon</code>属性，可以指定当前展示在输入框中的是哪一个图标，如果传入<code>null</code>，就不会
 显示图标。</p>
-<p><code>delete</code>图标的点击行为是确定的, 即清空当前输入框的内容。对于其他三种图标, 你可以指定<code>onIconTap</code>属性来定义点击它们的回调:</p>
-<pre><code>&lt;Suggest
-    ...
-    inputIcon={this.state.icon}
-    onIconTap={icon =&gt; {
-        switch (icon) {
-            case &#39;refresh&#39;:
-                // do something...
-            case &#39;stop&#39;:
-                ...
-        }
-    }}
-/&gt;
-</code></pre><p><code>onIconTap</code>可以接收一个参数<code>icon</code>, 它会是上面四种图标的名称的字符串, 这样你可以为不同的图标指定不同的点击回调。</p>
+<p><code>delete</code>图标的点击行为是确定的，即清空当前输入框的内容。对于其他三种图标，你可以指定<code>onIconTap</code>属性来定义点击它们的回调:</p>
+<pre><code><span class="token operator">&lt;</span>Suggest
+    <span class="token operator">...</span>
+    inputIcon<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>icon<span class="token punctuation">}</span>
+    onIconTap<span class="token operator">=</span><span class="token punctuation">{</span>icon <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        <span class="token keyword">switch</span> <span class="token punctuation">(</span>icon<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">case</span> <span class="token string">'refresh'</span><span class="token punctuation">:</span>
+                <span class="token comment" spellcheck="true">// do something...</span>
+            <span class="token keyword">case</span> <span class="token string">'stop'</span><span class="token punctuation">:</span>
+                <span class="token operator">...</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token operator">/</span><span class="token operator">></span>
+</code></pre><p><code>onIconTap</code>可以接收一个参数<code>icon</code>，它会是上面四种图标的名称的字符串，这样你可以为不同的图标指定不同的点击回调。</p>
 <h4 id="-">输入事件的性能优化</h4>
-<p>每次input中value的改变都会触发<code>onConditionChange</code>, 在用户输入较快时, 可能会频繁导致dom更新, 以及向服务器发送大量的请求, 这对于App的性能十分不利。
+<p>每次input中value的改变都会触发<code>onConditionChange</code>，在用户输入较快时，可能会频繁导致dom更新，以及向服务器发送大量的请求，这对于App的性能十分不利。
 为此我们提供了优化性能的手段——事件截流。</p>
-<p>配置<code>throttleGap</code>属性即可开启事件截流(默认是开启的, 值为<code>300</code>)。这个属性值表示间隔多少毫秒触发一次onConditionChange, 这样可以有效地减少无用的输入导致的onChange。</p>
-<pre><code>&lt;Suggest
-    ...
-    // 每500毫秒触发一次onChange
-    throttleGap={500}
-/&gt;
-</code></pre><h4 id="-">一个完整的城市选择器示例</h4>
-<p>以下的代码就是第一个Demo的源码, 里面利用了<code>Grouplist</code>和<code>Suggest</code>实现了一个完整的城市选择器。在这份代码里包含了上面所有介绍的属性的使用。</p>
-<pre><code>class CitySelectDemo extends Component {
-    constructor() {
-        super();
-        this.state = {
-            results: [],
-            showLoadingIcon: false,
-            showCancelButton: false
-        };
-    }
+<p>配置<code>throttleGap</code>属性即可开启事件截流(默认是开启的，值为<code>300</code>)。这个属性值表示间隔多少毫秒触发一次onConditionChange，这样可以有效地减少无用的输入导致的onChange。</p>
+<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Suggest</span>
+    <span class="token attr-name">...</span>
+    <span class="token attr-name">throttleGap</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token number">500</span><span class="token punctuation">}</span></span>
+<span class="token punctuation">/></span></span>
+</code></pre><p>这样可以让<code>onConditionChange</code>每<code>500</code>毫秒触发一次。</p>
+<h4 id="-">一个完整的城市选择器示例</h4>
+<p>以下的代码就是第一个Demo的源码，里面利用了<code>Grouplist</code>和<code>Suggest</code>实现了一个完整的城市选择器。在这份代码里包含了上面所有介绍的属性的使用。</p>
+<pre><code><span class="token keyword">class</span> <span class="token class-name">CitySelectDemo</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>state <span class="token operator">=</span> <span class="token punctuation">{</span>
+            results<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            showLoadingIcon<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+            showCancelButton<span class="token punctuation">:</span> <span class="token boolean">false</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    filterCity(condition) {
-        return condition ? groupListDataSource
-            .filter(city=&gt;city.groupKey !== &#39;热门&#39;)
-            .filter(city=&gt;city.py.search(condition) !== -1 || city.text.search(condition) !== -1) : [];
-    }
+    <span class="token function">filterCity</span><span class="token punctuation">(</span>condition<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> condition <span class="token operator">?</span> groupListDataSource
+            <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>city<span class="token operator">=</span><span class="token operator">></span>city<span class="token punctuation">.</span>groupKey <span class="token operator">!==</span> <span class="token string">'热门'</span><span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>city<span class="token operator">=</span><span class="token operator">></span>city<span class="token punctuation">.</span>py<span class="token punctuation">.</span><span class="token function">search</span><span class="token punctuation">(</span>condition<span class="token punctuation">)</span> <span class="token operator">!==</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">||</span> city<span class="token punctuation">.</span>text<span class="token punctuation">.</span><span class="token function">search</span><span class="token punctuation">(</span>condition<span class="token punctuation">)</span> <span class="token operator">!==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    render() {
-        //实现一个如此复杂的组件只用了不到30行代码
-        //使用React,可以很容易地像搭积木一样用小组件搭建出大组件,而不是不停地重复造轮子
-        //善用组件化,开发效率可以成倍的提升
-        return (
-            &lt;Page title=&quot;城市选择示例&quot; onLeftPress={() =&gt; location.href = &#39;../index.html&#39;}&gt;
-                &lt;Suggest
-                    showMask={true}
-                    ref=&quot;suggest&quot;
-                    noDataTmpl={(
-                        &lt;div style={{ padding: &#39;1em&#39; }}&gt;
-                            {!this.state.loading ? &#39;No Result&#39; : &#39;Loading...&#39;}
-                        &lt;/div&gt;
-                    )}
-                    showCancelButton={this.state.showCancelButton}
-                    onCancelButtonTap={()=&gt; {
-                        this.refs.suggest.clearInput();
-                    }}
-                    onFocus={()=&gt; {
-                        this.setState({ showCancelButton: true });
-                    }}
-                    onBlur={()=&gt; {
-                        this.setState({ showCancelButton: false });
-                    }}
-                    recommendTmpl={(
-                        &lt;Grouplist
-                            infinite={true}
-                            itemHeight={44}
-                            infiniteSize={25}
-                            dataSource={groupListDataSource}
-                            sort={(a, b)=&gt; {
-                                if (a === &#39;热门&#39;) {
-                                    return -1;
-                                }
-                                else if (b === &#39;热门&#39;) {
-                                    return 1;
-                                }
-                                return a.charCodeAt(0) - b.charCodeAt(0);
-                            }}
-                            showIndexNavBar={true}
-                            onIndexNavBarItemHover={(groupKey) =&gt; Toast.show(groupKey, 1000)}
-                            onItemTap={item =&gt; Toast.show(&#39;选择:&#39; + item.text, 1000)}
-                        /&gt;
-                    )}
-                    inputIcon={this.state.loading ? &#39;loading&#39; : &#39;delete&#39;}
-                    results={this.state.results}
-                    onConditionChange={value=&gt; {
-                        this.setState({ loading: true });
-                        setTimeout(()=&gt; {
-                            this.setState({ loading: false, results: this.filterCity(value) });
-                        }, 300);
-                    }}
-                    onItemTap={item =&gt; Toast.show(&#39;选择:&#39; + item.text, 1000)}
-                    placeholder=&quot;输入城市名称或拼音&quot;
-                    throttleGap={500}
-                /&gt;
-            &lt;/Page&gt;
-        );
-    }
-}
+    <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//实现一个如此复杂的组件只用了不到30行代码</span>
+        <span class="token comment" spellcheck="true">//使用React,可以很容易地像搭积木一样用小组件搭建出大组件,而不是不停地重复造轮子</span>
+        <span class="token comment" spellcheck="true">//善用组件化,开发效率可以成倍的提升</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Page</span> <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>城市选择示例<span class="token punctuation">"</span></span> <span class="token attr-name">onLeftPress</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> location<span class="token punctuation">.</span>href <span class="token operator">=</span> <span class="token string">'../index.html'</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Suggest</span>
+                    <span class="token attr-name">showMask</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span></span>
+                    <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>suggest<span class="token punctuation">"</span></span>
+                    <span class="token attr-name">noDataTmpl</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>
+                        <span class="token operator">&lt;</span>div style<span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span> padding<span class="token punctuation">:</span> <span class="token string">'1em'</span> <span class="token punctuation">}</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
+                            <span class="token punctuation">{</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>loading <span class="token operator">?</span> <span class="token string">'No Result'</span> <span class="token punctuation">:</span> <span class="token string">'Loading...'</span><span class="token punctuation">}</span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+                    <span class="token punctuation">)</span><span class="token punctuation">}</span>
+                    showCancelButton<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>showCancelButton<span class="token punctuation">}</span>
+                    onCancelButtonTap<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                        <span class="token keyword">this</span><span class="token punctuation">.</span>refs<span class="token punctuation">.</span>suggest<span class="token punctuation">.</span><span class="token function">clearInput</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">}</span>
+                    onFocus<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> showCancelButton<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">}</span>
+                    onBlur<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> showCancelButton<span class="token punctuation">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">}</span>
+                    recommendTmpl<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Grouplist</span>
+                            <span class="token attr-name">infinite</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span></span>
+                            <span class="token attr-name">itemHeight</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token number">44</span><span class="token punctuation">}</span></span>
+                            <span class="token attr-name">infiniteSize</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token number">25</span><span class="token punctuation">}</span></span>
+                            <span class="token attr-name">dataSource</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>groupListDataSource<span class="token punctuation">}</span></span>
+                            <span class="token attr-name">sort</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                                <span class="token keyword">if</span> <span class="token punctuation">(</span>a <span class="token operator">===</span> <span class="token string">'热门'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                                    <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+                                <span class="token punctuation">}</span>
+                                <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>b <span class="token operator">===</span> <span class="token string">'热门'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                                    <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+                                <span class="token punctuation">}</span>
+                                <span class="token keyword">return</span> a<span class="token punctuation">.</span><span class="token function">charCodeAt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">-</span> b<span class="token punctuation">.</span><span class="token function">charCodeAt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                            <span class="token punctuation">}</span></span><span class="token attr-name">}</span>
+                            <span class="token attr-name">showIndexNavBar</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span></span>
+                            <span class="token attr-name">onIndexNavBarItemHover</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>groupKey<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> Toast<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span>groupKey<span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>
+                            <span class="token attr-name">onItemTap</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>item <span class="token operator">=</span><span class="token operator">></span> Toast<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token string">'选择:'</span> <span class="token operator">+</span> item<span class="token punctuation">.</span>text<span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>
+                        <span class="token punctuation">/></span></span>
+                    <span class="token punctuation">)</span><span class="token punctuation">}</span>
+                    inputIcon<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>loading <span class="token operator">?</span> <span class="token string">'loading'</span> <span class="token punctuation">:</span> <span class="token string">'delete'</span><span class="token punctuation">}</span>
+                    results<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>results<span class="token punctuation">}</span>
+                    onConditionChange<span class="token operator">=</span><span class="token punctuation">{</span>value<span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> loading<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> loading<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> results<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">filterCity</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">300</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">}</span>
+                    onItemTap<span class="token operator">=</span><span class="token punctuation">{</span>item <span class="token operator">=</span><span class="token operator">></span> Toast<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token string">'选择:'</span> <span class="token operator">+</span> item<span class="token punctuation">.</span>text<span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+                    placeholder<span class="token operator">=</span><span class="token string">"输入城市名称或拼音"</span>
+                    throttleGap<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">500</span><span class="token punctuation">}</span>
+                <span class="token operator">/</span><span class="token operator">></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Page</span><span class="token punctuation">></span></span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
             </div>
             
@@ -589,62 +597,62 @@ Suggest的内容分为两个区域, 推荐区域(recommendTmpl)会在用户输�
             <div class="instructions-con-info">
             <h4 id="-suggest-">将Suggest和弹层结合使用</h4>
 <p><code>Suggest</code>最常见的使用方式有两种: 完全使用一个新的页面展示; 或者打开一个模态框来展示。
-对于后者来说, 你需要做的仅仅是把<code>Suggest</code>放入一个模态框系列组件中。</p>
-<p>在使用模态层展示时, 你可能需要在输入框的右侧显示一个&quot;取消&quot;按钮用来关闭它, 设置<code>showCancelButton</code>属性为<code>true</code>就可以展示这个取消按钮, 然后
+对于后者来说，你需要做的仅仅是把<code>Suggest</code>放入一个模态框系列组件中。</p>
+<p>在使用模态层展示时，你可能需要在输入框的右侧显示一个&quot;取消&quot;按钮用来关闭它，设置<code>showCancelButton</code>属性为<code>true</code>就可以展示这个取消按钮，然后
 通过<code>onCanelButtonTap</code>来定义它的行为。</p>
 <p>下面是一个完整的例子:</p>
-<pre><code>class UseWithPopupDemo extends Component {
-    constructor() {
-        super();
-        this.state = {
-            show: false,
-            results: [],
-            defaultCondition: &#39;&#39;
-        };
-    }
+<pre><code><span class="token keyword">class</span> <span class="token class-name">UseWithPopupDemo</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>state <span class="token operator">=</span> <span class="token punctuation">{</span>
+            show<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+            results<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            defaultCondition<span class="token punctuation">:</span> <span class="token string">''</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    render() {
-        return (
-            &lt;Page title=&quot;带弹层的Suggest&quot; onLeftPress={()=&gt;location.href = &quot;../index.html&quot;}&gt;
-                &lt;div className=&quot;container&quot;&gt;
-                    &lt;button
-                        className=&quot;yo-btn open-modal&quot;
-                        onTouchTap={()=&gt; {
-                            this.setState({ show: true });
-                        }}
-                    &gt;
-                        与Popup一起使用,点我打开
-                    &lt;/button&gt;
-                    &lt;Popup
-                        onMaskClick={()=&gt; {
-                            this.setState({ show: false })
-                        }}
-                        show={this.state.show}
-                        height=&quot;100%&quot;
-                    &gt;
-                        &lt;Suggest
-                            ref=&quot;suggest&quot;
-                            showMask={false}
-                            showCancelButton={true}
-                            onCancelButtonTap={()=&gt; {
-                                this.refs.suggest.clearInput();
-                                this.setState({ show: false });
-                            }}
-                            onConditionChange={value=&gt; {
-                                this.setState({ results: value ? getRandomDataSource(10) : [] });
-                            }}
-                            onItemTap={item=&gt;Toast.show(&#39;tapping:&#39; + item.text)}
-                            defaultCondition={this.state.defaultCondition}
-                            results={this.state.results}
-                            recommendTmpl={&lt;p style={{ padding: &#39;1em&#39; }}&gt;设置showCancelButton为true可以展示取消按钮&lt;/p&gt;}
-                            noDataTmpl={&lt;div style={{ padding: &#39;1em&#39; }}&gt;No Results&lt;/div&gt;}
-                        /&gt;
-                    &lt;/Popup&gt;
-                &lt;/div&gt;
-            &lt;/Page&gt;
-        );
-    }
-}
+    <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Page</span> <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>带弹层的Suggest<span class="token punctuation">"</span></span> <span class="token attr-name">onLeftPress</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span>location<span class="token punctuation">.</span>href <span class="token operator">=</span> <span class="token string">"../index.html"</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>container<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span>
+                        <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>yo-btn</span> <span class="token attr-name">open-modal"</span>
+                        <span class="token attr-name">onTouchTap</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> show<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token punctuation">}</span></span><span class="token attr-name">}</span>
+                    <span class="token punctuation">></span></span>
+                        与Popup一起使用<span class="token punctuation">,</span>点我打开
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Popup</span>
+                        <span class="token attr-name">onMaskClick</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> show<span class="token punctuation">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+                        <span class="token punctuation">}</span></span><span class="token attr-name">}</span>
+                        <span class="token attr-name">show</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>show<span class="token punctuation">}</span></span>
+                        <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>100%<span class="token punctuation">"</span></span>
+                    <span class="token punctuation">></span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Suggest</span>
+                            <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>suggest<span class="token punctuation">"</span></span>
+                            <span class="token attr-name">showMask</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token boolean">false</span><span class="token punctuation">}</span></span>
+                            <span class="token attr-name">showCancelButton</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span></span>
+                            <span class="token attr-name">onCancelButtonTap</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                                <span class="token keyword">this</span><span class="token punctuation">.</span>refs<span class="token punctuation">.</span>suggest<span class="token punctuation">.</span><span class="token function">clearInput</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                                <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> show<span class="token punctuation">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                            <span class="token punctuation">}</span></span><span class="token attr-name">}</span>
+                            <span class="token attr-name">onConditionChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>value<span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                                <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> results<span class="token punctuation">:</span> value <span class="token operator">?</span> <span class="token function">getRandomDataSource</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                            <span class="token punctuation">}</span></span><span class="token attr-name">}</span>
+                            <span class="token attr-name">onItemTap</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>item<span class="token operator">=</span><span class="token operator">></span>Toast<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token string">'tapping:'</span> <span class="token operator">+</span> item<span class="token punctuation">.</span>text<span class="token punctuation">)</span><span class="token punctuation">}</span></span>
+                            <span class="token attr-name">defaultCondition</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>defaultCondition<span class="token punctuation">}</span></span>
+                            <span class="token attr-name">results</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>results<span class="token punctuation">}</span></span>
+                            <span class="token attr-name">recommendTmpl</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token operator">&lt;</span>p style<span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span> padding<span class="token punctuation">:</span> <span class="token string">'1em'</span> <span class="token punctuation">}</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span>设置showCancelButton为<span class="token boolean">true</span>可以展示取消按钮<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><span class="token punctuation">}</span>
+                            noDataTmpl<span class="token operator">=</span><span class="token punctuation">{</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">style</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span> padding<span class="token punctuation">:</span> <span class="token string">'1em'</span> <span class="token punctuation">}</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span>No Results<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span class="token punctuation">}</span>
+                        <span class="token operator">/</span><span class="token operator">></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Popup</span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Page</span><span class="token punctuation">></span></span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
             </div>
             
@@ -995,6 +1003,66 @@ noDataTpl</p>
         
     </table>
 </div>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>infinite</strong>
+     <span class="prop-type">{ Bool }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>是否在结果区域的列表开启Infinite模式。注意：开启Infinite模式后，你需要为列表项配置key属性。</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> false
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>itemHeight</strong>
+     <span class="prop-type">{ Number }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>结果区域列表项的高度，只在Infinite模式下生效。</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> 44
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>infiniteSize</strong>
+     <span class="prop-type">{ Number }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>无穷列表模式下,保留在列表容器中列表项的个数(参见List组件无穷列表模式的说明).</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> 20
+</p>
+
 
 
 
@@ -1355,7 +1423,6 @@ noDataTpl</p>
 </div>
 
               </div>
-              <div class="open-panel"></div>
           </div>
           
         
@@ -1370,6 +1437,11 @@ noDataTpl</p>
       </footer>
     </div>
 
+    
+       <div class="open-panel"></div>
+    
+    
+
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
     
@@ -1377,6 +1449,7 @@ noDataTpl</p>
 
     
 
+    
     
       
       <script type="text/javascript" src="./theme/ydoc.js"></script>

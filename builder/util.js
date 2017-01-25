@@ -118,7 +118,7 @@ function tryUpdateUsageFolder(styleFolderPath) {
             var destPath = Path.resolve(styleFolderPath, folder, scss);
             if (!fs.existsSync(destPath)) {
                 fs.writeFileSync(destPath, fs.readFileSync(Path.resolve(usageFolder, folder, scss), 'utf8'));
-                console.log('yo:新增文件' + scss + '已经被拷贝到' + destPath);
+                console.log('yo:新增文件' + scss + '已经被拷贝到' + destPath + '，请调用git add将它加入到版本控制中。');
             }
         });
     });

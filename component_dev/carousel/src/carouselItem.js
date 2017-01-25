@@ -1,91 +1,70 @@
+/**
+ * @component Carousel.CarouselItem
+ * @description Carousel组件内部的Item组件，和普通的dom节点相比增加了懒加载图片功能。也可以使用`onTap`给Item绑定tap事件回调。
+ *
+ * ** 注意：`CarouselItem`不能和`Touchable`一起使用，请使用它的`onTap`属性来绑定事件回调。 **
+ */
 import './style.scss';
 import '../../common/tapEventPluginInit';
 import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
+import shallowCompare from 'react-addons-shallow-compare';
 
 const ALLOWANCE = 1;
 
 class CarouselItem extends Component {
     static propTypes = {
         /**
-         * 图片地址
-         * @type PropTypes.string
+         * @type String
          * @property img
-         * @description 图片地址
+         * @description 图片地址。
          */
         img: PropTypes.string,
         /**
-         * 图片加载失败时的替换图片
-         * @type PropTypes.string
+         * @type String
          * @property errorImg
-         * @description 图片加载失败时的替换图片
+         * @description 图片加载失败时的替换图片。
          */
         errorImg: PropTypes.string,
         /**
-         * 图片检查函数
-         * @type PropTypes.func
+         * @type Function
          * @property checkImgFun
-         * @description 目标图片onload时触发进行判断的函数
+         * @description 目标图片onload时触发进行判断的函数。
          * @param 图片实例
          */
         checkImgFun: PropTypes.func,
         /**
-         * 当前展示的item
-         * @type PropTypes.number
-         * @property currentPage
-         * @description 当前展示图片的索引 用于切换active样式等
-         */
-        currentPage: PropTypes.number,
-        /**
-         * item点击事件处理函数
-         * @type PropTypes.func
+         * @type Function
          * @property onTap
          * @param {e} 事件对象，传入组件数据
-         * @description
+         * @description item点击事件处理函数。
          */
         onTap: PropTypes.func,
         /**
-         * 组件额外class
          * @property extraClass
-         * @type PropTypes.string
+         * @type String
          * @description 为组件根节点提供额外的class。
          */
         extraClass: PropTypes.string,
         /**
-         * 图片加载时的loading Element
-         * @type PropTypes.element
+         * @type Element
          * @property loadingEle
-         * @description 图片加载中时的React节点
+         * @description 图片加载时的loading Element。
          */
         loadingEle: PropTypes.element,
         /**
-         * 是否需要图片懒加载
-         * @type PropTypes.bool
+         * @type Bool
          * @property lazyload
-         * @description 默认值为true,当前图片的前后两个节点图片被加载
+         * @description 是否需要图片懒加载。默认值为true,当前图片的前后两个节点图片被加载。
          */
         lazyload: PropTypes.bool,
         /**
          * item是当前展示item的样式名
-         * @type PropTypes.string
+         * @type String
          * @property activeClass
-         * @description 默认值为'on'
+         * @description item是当前展示item的样式名，默认值为'on'。
          */
         activeClass: PropTypes.string,
-        /**
-         * CarouselItem的总个数
-         * @type PropTypes.number
-         * @property pagesNum
-         * @description 用于懒加载时的计算
-         */
-        pagesNum: PropTypes.number,
-        /**
-         * @type PropTypes.number
-         * @property index
-         * @description 用于定义索引值，该值又动画生成处理
-         * @skip
-         */
         index: PropTypes.number,
         style: PropTypes.object
     }
@@ -94,11 +73,12 @@ class CarouselItem extends Component {
         loadingEle: null,
         lazyload: true,
         activeClass: 'on',
-        onTap: () => {
-          console.log('响应点击事件');
-        }
+        onTap: () => {}
     }
-
+    static contextTypes = {
+        currentPage: React.PropTypes.number.isRequired,
+        pagesNum: React.PropTypes.number.isRequired
+    }
     constructor(props) {
         super(props);
         if (props.img) {
@@ -108,13 +88,16 @@ class CarouselItem extends Component {
         }
         this.handleTap = this.handleTap.bind(this);
         this.hasUnmount = false;
-        this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
     }
 
     componentWillMount() {
         this.lazyload(this.props);
     }
-
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+        const propsChange = shallowCompare(this, nextProps, nextState);
+        const contextChange = this.context.currentPage !== nextContext.currentPage || this.context.pagesNum !== nextContext.pagesNum;
+        return propsChange || contextChange;
+    }
     componentWillUpdate(props) {
         this.lazyload(props);
     }
@@ -154,16 +137,16 @@ class CarouselItem extends Component {
         this.imgNode.src = this.props.img;
     }
 
-    lazyload(props) {
+    lazyload() {
         if (this.state.img) {
             return;
         }
         if (!this.props.lazyload) {
             this.loadImg();
         } else {
-            if (Math.abs(props.currentPage - this.props.index) <= ALLOWANCE
+            if (Math.abs(this.context.currentPage - this.props.index) <= ALLOWANCE
             || this.props.index === 1
-            || this.props.index === this.props.pagesNum) {
+            || this.props.index === this.context.pagesNum) {
                 this.loadImg();
             }
         }
@@ -176,12 +159,12 @@ class CarouselItem extends Component {
         const activeClass = {};
         if (this.props.img) {
             img = this.state.img === 1
-                ? <img src={this.props.img} className="img" draggable="false"/>
+                ? <img alt="" src={this.props.img} className="img" draggable="false" />
                 : this.state.img === 2
-                    ? <img src={this.props.errorImg} className="img" draggable="false"/>
+                    ? <img alt="" src={this.props.errorImg} className="img" draggable="false" />
                     : this.props.loadingEle;
         }
-        activeClass[this.props.activeClass] = this.props.currentPage === this.props.index;
+        activeClass[this.props.activeClass] = this.context.currentPage === this.props.index;
         if (this.props.extraClass) {
             activeClass[this.props.extraClass] = true;
         }

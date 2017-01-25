@@ -34,6 +34,10 @@ export default class ItemNavBar extends Component {
         return props.list !== this.props.list;
     }
 
+    componentDidUpdate() {
+        this.baseY = this.containerDom.getBoundingClientRect().top;
+    }
+
     /**
      * 导航项目被hover时触发的回调
      * @param item
@@ -81,15 +85,21 @@ export default class ItemNavBar extends Component {
      * @returns {*}
      */
     getNavItemByOffsetY(offsetY) {
-        return offsetY <= 0 ? this.navItemList[0] : this.navItemList.find((item, i) => {
-            const list = this.navItemList;
-            if (i < list.length - 1) {
-                return item.top <= offsetY && list[i + 1].top > offsetY;
-            } else if (item.top <= offsetY) {
-                return true;
-            }
-            return false;
-        });
+        let ret = null;
+        if (offsetY <= 0) {
+            ret = this.navItemList[0];
+        } else {
+            ret = this.navItemList.find((item, i) => {
+                const list = this.navItemList;
+                if (i < list.length - 1) {
+                    return item.top <= offsetY && list[i + 1].top > offsetY;
+                } else if (item.top <= offsetY) {
+                    return true;
+                }
+                return false;
+            });
+        }
+        return ret;
     }
 
     /**
@@ -103,6 +113,8 @@ export default class ItemNavBar extends Component {
 
     render() {
         const { renderItem, list } = this.props;
+        // 每次itemlist可能发生变化时必须重置navItemList
+        this.navItemList = [];
 
         return (
             <ul

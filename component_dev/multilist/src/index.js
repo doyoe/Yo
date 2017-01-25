@@ -1,270 +1,406 @@
 /**
  * @component MultiList
- * @version 3.0.0
- * @description 多列表组件，该组件基于list组件封装，支持列表展示，支持自定义模板展示。
- *
- * ** 本组件正在重构中，请等待3.0.4版本 **
+ * @version 3.0.4
+ * @description 多级选择列表组件，该组件基于list组件封装，支持列表展示，支持自定义模板展示，内容异步加载等功能。
+ * @instructions {instruInfo: ./multilist/product.md}{instruUrl: multilist/transport.html?hideIcon}
+ * @instructions {instruInfo: ./multilist/async.md}{instruUrl: multilist/async.html?hideIcon}
+ * @instructions {instruInfo: ./multilist/personal.md}{instruUrl: multilist/product.html?hideIcon}
  */
-
+import './style.scss';
 import React, {
     Component,
     PropTypes
 } from 'react';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
-import ContainerList from './ContainerList.js';
-import { replaceRedundantSpaces } from '../../common/util';
+import classNames from 'classnames';
+import List from '../../list/src';
+import {
+    CheckboxItem,
+    RadioItem,
+    MenuItem,
+    EmptyList,
+    FaultList,
+    LoadingList
+} from './multilistitem.js';
 
 export default class MultiList extends Component {
     static propTypes = {
         /**
-         * @skip
          * 原始数据用于生成列表
          * @property dataSource
          * @type Array
          * @description
-         * dataSource 是一个树形的结构，每一个层级会有defaultValue，表示默认展开该哪个item，subList为当点选该层级的时候，下一层级的内容。
-         * 余下所有的属性都会被传给list组件。
+         * dataSource 是一个树形的结构，每一个层级会有defaultValue，表示默认展开该哪个item或者默认选中项（非必填），subList为下级层级的内容，subList的每个字项设置内容如下。
          *
-         * - renderItem用于表示该层级item的模板
-         * - subList支持数组和返回promise的函数,返回Promise的函数的用法适用于异步加载列表。
-         * - defaultValue 表示该层级的默认值
+         * - name 为文字描述
+         * - value 该项value
+         * - subItemType 用于设置下一层级的list item使用的组件，内置 `MENU`,`RADIO`,`CHECKBOX`。如果传入的字符不在默认序列中会触发组件的renderItem方法，由用户自行渲染。
+         * - itemType 用于定义当前item 使用的组件，优先级高于父层级的 `subItemType`。
+         * - subList支持数组和String类型，当传入array类型渲染为列表，
+         * 内置String为`FAULT`，`ASYNC`，`EMPTY`对应内置模板分别用于展示加载错误，加载中，加载内容为空三种情况，
+         * 其中加载`ASYNC`会触发onUpdateData事件，通知用户更新数据。用户可以通过自定义字符串，触发renderContent方法，
+         * 返回ReactElement作为内容并进行其他操作。
+         * - defaultValue 表示该层级的默认值，若下一级为最后一层级表示，默认值[注意：默认值不会作为value]。
          *
+         * @example
+         * const dataSource = {
+         *   defaultValue: 1,
+         *   subItemType: 'MENU',
+         *   subList: [{
+         *       name: '同步',
+         *      value: 1,
+         *      defaultValue: '1-1',
+         *      subItemType: 'RADIO',
+         *      subList: [{
+         *          name: '1-1  默认选项',
+         *          value: '1-1'
+         *      }, {
+         *          name: '1-2',
+         *          value: '1-2'
+         *      }, {
+         *          name: '1-3',
+         *          value: '1-3'
+         *      }, {
+         *          name: '1-4',
+         *          value: '1-4'
+         *      }]
+         *  }, {
+         *      name: '异步',
+         *      value: 2,
+         *      subItemType: 'RADIO',
+         *      defaultValue: '2-2',
+         *      subList: 'ASYNC',
+         *      asyncType: '2-2'
+         *   }]
+         *  };
          */
         dataSource: React.PropTypes.shape({
-            subList: React.PropTypes.oneOfType([
-                React.PropTypes.array,
-                React.PropTypes.func
-            ]).isRequired,
+            subItemType: React.PropTypes.string.isRequired,
+            onItemTapType: React.PropTypes.string,
+            subList: React.PropTypes.array.isRequired,
             defaultValue: React.PropTypes.oneOfType([
                 React.PropTypes.array,
                 React.PropTypes.string,
                 React.PropTypes.number
             ])
-        }),
+        }).isRequired,
         /**
-         * @skip
-         * @property updateDataSource
-         * @type Function
-         * @param dataSource 处理好的datasource
-         * @param data 异步处理后的data
-         * @description 更新数据的回调函数，使用异步时必须配置，将异步函数处理结果传给的回调交由父层更新dataSource
-         */
-        updateDataSource: PropTypes.func,
-        /**
-         * @skip
          * @property value
          * @type  Array
-         * @description mutliList的值,该值为点选的路径，及当前展开路径
+         * @description mutliList的值，该值为点选的value
          */
         value: React.PropTypes.array,
         /**
-         * @skip
          * @property onChange
          * @type Function
          * @description
          * 用于更新结果的回调函数
-         * @version 3.0.1
-         * @param {Object} sth 哈哈哈
          * @example
          *  function({level, listValue, newValue}){
          *  	level 表示当前菜单层级
-         *  	listValue 表示当前multiList的value
+         *  	oldValue 表示当前multiList的value
          *  	newValue 表示更新后的multiList的value
          * 	}
-         *
          */
         onChange: PropTypes.func.isRequired,
         /**
-         * @skip
          * @property extraClass
          * @type String
          * @description 给组件根节点附加的额外样式类
-         * @version 3.0.1
          * @default null
          */
-        extraClass: PropTypes.string
+        extraClass: PropTypes.string,
+        /**
+         * @property onItemTap
+         * @type Function
+         * @description 当Item的类型不是'MENU'、'CHECKBOX'、'RADIO'，该事件将会被触发。事件处理函数需要有返回值，该值将会作为`newValue`触发组件的`onChange`事件。
+         * @param {data, level, item, index, target} 父层数据，层级，改节点数据，该节点索引，
+         */
+        onItemTap: PropTypes.oneOfType([
+            PropTypes.func,
+            PropTypes.String
+        ]),
+        /**
+         * @property renderItem
+         * @type Function
+         * @description 当Item的类型不是'MENU'、'CHECKBOX'、'RADIO'，该事件将会被触发。事件处理函数需要有返回值，返回值是`PropsTypes.element`类型作为`List`的 `item`。
+         * @param {itemType, data, level, item, index, target}  父层数据，节点所在层级，节点数据，该节点在父节点`subList`中的索引，
+         * @example
+         * renderItem={(item)=>{
+         *      const {itemType, data, isSpread, index} = item;
+         *      JSON.stringify(item);
+         *      // {  "itemType":"ProductMenu", 节点的Type类型（此时的`itemType`是组件根据父节点`subItemType`和该节点`itemType`按照优先级处理过的值。）
+         *      //    "level":0, item所在层级
+         *      //    "index":"2", item所在父节点subList
+         *      //    "isLeaf":false, 该节点是否为叶子节点
+         *      //    "isSpread":false, 如果该节点为父节点时该值表示该节点是否是展开的
+         *      //    "isChecked":false, 该节点是否是有效值
+         *      //    "data":{"name":"产品2","value":2,"subList":"product2","key":1,"_index":1} 原数据内容`key`值为组建计算由于优化List性能，如原数据中有设置则使用原数据，单请调用者保证key值在该层级中的唯一性。
+         *      // }
+         *      switch (itemType){
+         *          case 'ProductMenu':
+         *              return <ProductMenu data={data} isSpread={isSpread} index={index}/>
+         *      }
+         * }}
+         */
+        renderItem: PropTypes.oneOfType([
+            PropTypes.func,
+            PropTypes.String
+        ]),
+        /**
+         * @property renderContent
+         * @type Function
+         * @description 当subList的类型不是array，该事件将会被触发，事件处理函数需要有返回值，返回值是`PropsTypes.element`类型作为`List`的 `item`。
+         * @param {itemType, data, level} 节点的Type类型， 父层数据，层级，改节点数据，该节点索引，
+         * @example
+         * renderContent={(item) => {
+         *      const {type} = item;
+         *      console.log(JSON.stringify(item));
+         *      // {"type":"product1","data":{"name":"产品1","value":1,"subList":"product1","key":"1"},"level":1}
+         *      switch (type){
+         *          case 'product1':
+         *              return <Product tit="product1" />;
+         *          case 'product2':
+         *              return <Product tit="product2" />;
+         *      }
+         *  }}
+         */
+        renderContent: PropTypes.func,
+        /**
+         * @property onUpdateData
+         * @type Function
+         * @description 当加载的层级为`ASYNC`时触发，用于用户更新dataSource，用户通过获取数据中的内容判断如何更新dataSource。
+         * @param data 父节点的数据
+         */
+        onUpdateData: PropTypes.func
     }
     static defaultProps = {
-        updateDataSource: () => {},
-        extraClass: ''
+        extraClass: '',
+        value: []
     }
 
     constructor(props) {
         super(props);
-        const {
-            value
-        } = props;
-        this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
-        this.router = value instanceof Array ? value.slice(0) : Array.of(value);
+        this.state = {
+            router: [],
+            dataSource: this._handleDataSource(Object.assign({}, this.props.dataSource), [])
+        };
+        this.path = [];
     }
-
-    componentDidMount() {
-        if (this.router.join('&') !== this.props.value.join('&')) {
-            this.props.onChange({
-                newValue: this.router
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.dataSource !== this.props.dataSource) {
+            this.setState({
+                dataSource: this._handleDataSource(Object.assign({}, this.props.dataSource), [])
             });
         }
     }
-
-    componentWillReceiveProps(nextprops) {
-        const {
-            value
-        } = nextprops;
-        this.router = value instanceof Array ? value.slice(0) : Array.of(value);
+    shouldComponentUpdate(nextProps, nextState) {
+        const shouldItemUpdate = nextProps.dataSource !== this.props.dataSource
+        || this.state.router.join('-') !== nextState.router.join('-')
+        || this.props.value !== nextProps.value;
+        return shouldItemUpdate;
     }
-
-    shouldComponentUpdate() {}
-
-    componentDidUpdate() {
-        if (this.router.join('&') !== this.props.value.join('&')) {
-            this.props.onChange({
-                newValue: this.router
+    componentWillUpdate(nextProps) {
+        this.dataSourceChanged = nextProps.dataSource === this.props.dataSource;
+        this.prevValue = this.props.value.slice(0);
+    }
+    calcPath() {
+        this.path = [];
+        this.pathIndex = [];
+        this._recursionDataSourceForPath(this.props.dataSource, 0);
+    }
+    _handleDataSource(dataSource, prev) {
+        if (Array.isArray(dataSource.subList)) {
+            dataSource.subList.forEach((item) => {
+                const key = prev.concat(item.value);
+                if (!item.key) {
+                    item.key = key.join('-');
+                }
+                if (item.subList) {
+                    this._handleDataSource(item, key);
+                }
             });
         }
+        return dataSource;
     }
-
-    /**
-     * @param  {Number} p 列表层级
-     * @param  {Array|string} v 对应层级列表选择结果
-     * @description 用于同步列表结果
-     */
-    updateValue(level, listValue) {
-        const newValue = this.props.value ?
-            this.props.value.slice(0, level) :
-            Array.from(level + 1);
-        newValue[level] = listValue;
-        for (let i = newValue.length - 1; i >= 0; i--) {
-            const item = newValue[i];
-            if (item == null) {
-                newValue[i] = this.router[i];
+    _recursionDataSourceForPath(data, level) {
+        if (!Array.isArray(data.subList) || data.subList.length === 0) {
+            return;
+        }
+        const len = this.props.value.length;
+        let effectValue;
+        if (new RegExp(`^${this.state.router.slice(0, len - 1).join('-')}`).test(this.props.value.slice(0, len - 1).join('-'))) {
+            effectValue = this.props.value.slice(0)[level];
+            effectValue = Array.isArray(effectValue) ? effectValue[0] : effectValue;
+        }
+        const value = this.state.router[level] || effectValue || data.defaultValue || data.subList[0].value;
+        data.subList.some((item, index) => {
+            if (item.value === value) {
+                this.pathIndex[level] = index;
+                this.path[level] = value;
+                if (item.subList) {
+                    this._recursionDataSourceForPath(item, level + 1);
+                }
+                return true;
             }
-        }
-        this.props.onChange({
-            level,
-            listValue,
-            newValue
+            return false;
         });
     }
-
-    /**
-     * @param  {Array} data [获取到的用于展示的数据列表内容]
-     * @description 异步数据处理函数，异步数据请求结束后根据路径替换指定subList，并调用接口通知父层更新数据
-     */
-    _handleAjaxData(data) {
-        const newDataSource = Object.assign({}, this.props.dataSource);
-        let tmp = newDataSource;
-        while (this.valueLink.length > 0) {
-            tmp = tmp.subList[this.valueLink.shift()];
-        }
-        tmp.subList = data;
-        this.props.updateDataSource(newDataSource, data);
-    }
-
-    /**
-     * @param  {Object} listData 渲染列表的所有数据
-     * @param  {Number} p          当前列表的层级
-     * @description 渲染多级listView
-     */
-    _recursionRenderSignalList(listData, p) {
-        if (listData.subList instanceof Array) {
-            // let key = Number(Math.random()*1000);
-            this.children.push(
-                <ContainerList
-                    {...listData}
-                    key={p}
-                    index={p}
-                    value={this.props.value[p]}
-                    valueChange={
-                        (level, listValue) => {
-                            this.updateValue(level, listValue);
-                        }
-                    }
-                    dataStatus
-                    multiValue={
-                        this.props.value
-                    }
-                />
-            );
-            // 取value值
-            let target = this.router[p] instanceof Array ?
-                this.router[p][0] :
-                this.router[p];
-            // 没有值取defaultValue
-            if (target == null) {
-                if (listData.defaultValue != null) {
-                    target = listData.defaultValue;
-                    const newRouter = this.router.slice(0);
-                    newRouter[p] = target;
-                    this.router = newRouter;
-                } else {
-                    return;
-                }
+    _handleItemChecked({ item, level, data }) {
+        if (this.path.slice(0, level).join('-') !== this.props.value.slice(0, level).join('-')) {
+            if (!item.subList && (item.value === data.defaultValue)) {
+                return true;
             }
-            // const next = listData.subList.some((item, i) => {
-            listData.subList.some((item, i) => {
-                if (item.value === target && (item.subList || item.renderContent)) {
-                    this.valueLink.push(i);
-                    this._recursionRenderSignalList(item, p + 1);
-                    return true;
+            return false;
+        }
+        if (Array.isArray(this.props.value[level])) {
+            return !!~this.props.value[level].indexOf(item.value);
+        }
+        if (item.value === this.props.value[level]) return true;
+        if (this.props.value[level] == null && !item.subList && (item.value === data.defaultValue)) {
+            return true;
+        }
+        return false;
+    }
+    _handleItemRender(data, level, item, i) {
+        const isChecked = this._handleItemChecked({ item, level, data, index: i });
+        const type = item.itemType || data.subItemType;
+        const itemState = {
+            level,
+            index: this.path.slice(0, level).concat(item.value).join('-'),
+            isLeaf: !item.subList,
+            isSpread: item.value === this.path[level] && !!item.subList,
+            isChecked,
+            data: item
+        };
+        switch (type) {
+        case 'MENU':
+            return <MenuItem {...itemState} />;
+        case 'RADIO':
+            return <RadioItem {...itemState} />;
+        case 'CHECKBOX':
+            return <CheckboxItem {...itemState} />;
+        default:
+            return this.props.renderItem({ itemType: type, ...itemState });
+        }
+    }
+    _handleShouldItemUpdate(level, isLastLevel, ret, nextItem, nowItem) {
+        let isUpdate = false;
+        if (isLastLevel) {
+            return true;
+        }
+        if (nextItem.value !== nowItem.value) {
+            isUpdate = true;
+        }
+        if (!isUpdate && this.prevValue[level] !== this.props.value[level]
+            && (nowItem.value === this.prevValue[level] || nowItem.value === this.props.value[level])) {
+            isUpdate = true;
+        }
+        // 路径的更改
+        if (!isUpdate && this.prevPath[level] !== this.path[level]) {
+            isUpdate = nowItem.value === this.prevPath[level] || nowItem.value === this.path[level];
+        }
+        return isUpdate;
+    }
+    _handleItemExtraClass(data, level, item) {
+        return item.value === this.path[level] && item.subList ? 'spread' : '';
+    }
+    _handleItemTap(data, level, item, index, target) {
+        const type = item.itemType || data.subItemType;
+        const upLevel = level;
+        let newValue;
+        this.setState({
+            router: item.subList ? this.path.slice(0, level).concat(item.value) : this.path.slice(0, level)
+        });
+        switch (type) {
+        case 'MENU':
+            return;
+        case 'RADIO':
+            newValue = this.path.slice(0, upLevel).concat(item.value);
+            break;
+        case 'CHECKBOX':
+            if (this.path.slice(0, upLevel).join('-') === this.props.value.slice(0, upLevel).join('-')) {
+                newValue = this.props.value.slice(0);
+                let tmpValue = newValue[level];
+                if (Array.isArray(tmpValue) && tmpValue.length > 0) {
+                    if (tmpValue.indexOf(item.value) !== -1) {
+                        tmpValue.splice(tmpValue.indexOf(item.value), 1);
+                    } else {
+                        tmpValue.push(item.value);
+                    }
+                } else {
+                    tmpValue = [item.value];
                 }
-                return false;
-            });
-            // if (!next) {
-            //     const len = this.children.length;
-            //     this.children[len - 1].props.containerListExtraClass += 'last-multiList-listcontainer';
-            // }
-        } else if (listData.subList != null) {
-            // 异步逻辑处理
-            listData.subList().then((data) => {
-                this._handleAjaxData(data);
-            }, () => {
-                this._handleAjaxData([]);
-            });
+                newValue[level] = tmpValue.length > 0 ? tmpValue : null;
+            } else {
+                newValue = this.path.slice(0, upLevel);
+                newValue.push([item.value]);
+            }
+            break;
+        default:
+            newValue = this.props.onItemTap({ data, level, item, index, target });
+        }
+        if (newValue[newValue.length - 1] == null) {
+            newValue = [];
+        }
+        this.props.onChange({ newValue, oldValue: this.props.value, level });
+    }
+    _recursionRender(data, level) {
+        if (!data.subList) {
+            return;
+        }
+        if (Array.isArray(data.subList) && data.subList.length > 0) {
             this.children.push(
-                <ContainerList
-                    key={p}
-                    index={p}
-                    value={this.props.value[p]}
-                    dataStatus={false}
-                    multiValue={this.props.value}
-                />
+                <div className={classNames('item', `item-${level}`)} key={this.path.slice(0, level).join('-')}>
+                    <List
+                        dataSource={data.subList}
+                        infinite={false}
+                        extraClass={classNames(['yo-scroller-fullscreen', 'item', `item-${level}`])}
+                        onItemTap={this._handleItemTap.bind(this, data, level)}
+                        renderItem={this._handleItemRender.bind(this, data, level)}
+                        itemExtraClass={this._handleItemExtraClass.bind(this, data, level)}
+                        shouldItemUpdate={this._handleShouldItemUpdate.bind(this, level, !data.subList[this.pathIndex[level]].subList)}
+                    />
+                </div>
             );
-        } else {
-            // 数据为空的处理 或者使用客制化模板
+            this._recursionRender(data.subList[this.pathIndex[level]], level + 1);
+            return;
+        }
+        switch (data.subList) {
+        case 'EMPTY':
+            this.children.push(<div className={classNames('item', `item-${level}`)} key={this.path.slice(0, level).join('-')}><EmptyList /></div>);
+            break;
+        case 'FAULT':
+            this.children.push(<div className={classNames('item', `item-${level}`)} key={this.path.slice(0, level).join('-')}><FaultList /></div>);
+            break;
+        case 'ASYNC':
+            this.children.push(<div className={classNames('item', `item-${level}`)} key={this.path.slice(0, level).join('-')}><LoadingList /></div>);
+            this.props.onUpdateData(data);
+            break;
+        default:
             this.children.push(
-                <ContainerList
-                    {...listData}
-                    key={p}
-                    index={p}
-                    value={
-                        this.props.value[p]
-                    }
-                    dataStatus
-                    multiValue={
-                        this.props.value
-                    }
-                />
+                <div className={classNames('item', `item-${level}`)} key={this.path.slice(0, level).join('-')}>
+                    {this.props.renderContent({ type: data.subList, data, level })}
+                </div>
             );
         }
     }
-
     /**
+     * @skip
      * @description 渲染多级列表的调用函数
      * @return {Array} 列表的虚拟dom树
      */
     renderList() {
         this.children = [];
-        this.valueLink = [];
-        this._recursionRenderSignalList(this.props.dataSource, 0);
+        this.prevPath = this.path.slice(0);
+        this.calcPath();
+        this._recursionRender(this.state.dataSource, 0);
         return this.children;
     }
 
     render() {
         const { extraClass } = this.props;
-        const className = replaceRedundantSpaces(`yo-multilist ${extraClass}`);
-
         return (
-            <div className={className}>
+            <div className={classNames(['yo-multilist'], extraClass)}>
                 {this.renderList()}
             </div>
         );

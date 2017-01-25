@@ -2,7 +2,7 @@
 
 展示一个给用户评分的组件，`value` 属性为当前的评分。由于这是一个 `受控的` 组件，所以需要通过 `onChange` 回调来设置当前值。
 
-```JavaScript
+```
 <Rating
     value={this.state.value}
     onChange={value => this.setState({value: value})}
@@ -13,7 +13,7 @@
 
 展示一个显示评分的组件，`value` 属性为需要展示的评分。将 `readonly` 属性设置为 `true` 即可。
 
-```JavaScript
+```
 <Rating
     value={3.5}
     readonly={true}
@@ -34,7 +34,7 @@
 );
 ```
 
-```JavaScript
+```
 <Rating
     extraClass="yo-rating-test"
     value={this.state.value}

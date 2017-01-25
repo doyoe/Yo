@@ -27,6 +27,7 @@ exports.config = function () {
         getEntry('calendar'),
         getEntry('swipemenu'),
         getEntry('picker'),
+        getEntry('popuppicker'),
         getEntry('loading'),
         getEntry('multilist'),
         getEntry('datetimepicker'),
@@ -35,17 +36,13 @@ exports.config = function () {
 
     this.setConfig(function (config) {
         config.context = './';
-
         var plugin = new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: JSON.stringify('dev')
             }
         });
-
         config.plugins.push(plugin);
-
         config.output.prd.filename = '[name][ext]';
-
         config.module = {
             loaders: [
                 {
@@ -62,9 +59,7 @@ exports.config = function () {
                 }
             ]
         };
-
         config.devtool = 'source-map';
-
         return config;
     });
 };

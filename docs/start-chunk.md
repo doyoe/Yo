@@ -2,6 +2,25 @@
 
 对于大型单页应用、多页应用以及 hy 上的应用来说，在一个页面中加载全部的静态资源都是一种浪费，因此我们在 router 中支持了根据页面按需引入页面内所需的资源。
 
+### chunk 文件打入离线包
+
+> 在使用该功能前，请务必升级 `ykit-config-yo` 到 1.1.7+ 版本。
+
+**注意**：使用 chunk 之后，由于 chunk 不是非入口文件，不会被自动加入到离线包当中，因此需要在离线包入口页面 html 模板（在发布的时候，配置发布信息 -> 远程文件，一般是项目的入口 index.html）的 header 中添加一个 `<meta>` 标签帮助离线包工具抓取 chunk。配置如下：
+
+```
+<meta cache-files="qp" href="//q.qunarzz.com/projectName/prd/chunk@version.json">
+```
+
+meta 包含两个重要的属性：
+
+1. `cache-files`：该属性必须设置为 `qp`；
+2. `href`：这里需要配置一个 json 文件，它在线上打包的时候会自动生成，位于项目的 prd 目录中，带版本号。比如项目名称为 `trainapp_intl`，获取版本号的方式时使用 .ver 文件，就可以这样写：
+
+```
+<meta cache-files="qp" href="//q.qunarzz.com/trainapp_intl/prd/chunk@<!--#include virtual='/ver/trainapp_intl/ver/chunk.json.ver' -->.json">
+```
+
 ### 代码分割
 
 [代码分割](http://webpack.github.io/docs/code-splitting.html) 是 webpack 提供的一种异步加载静态资源的方式，每次 `require.ensure` 的调用会生成一个加载点，被异步引入的资源会生成一个非入口分块（[non-entry chunks](http://webpack.github.io/docs/code-splitting.html#initial-chunk)）。

@@ -1,4 +1,21 @@
+## v3.0.4
+
+发布时间：2017-01-25
+
+### New Features
+- `Suggest` 结果列表现在支持开启 `Infinite` 模式，可以配置 `infinite`, `infiniteSize` 和 `itemHeight` 三个属性。
+- `MultiList` 重构版本重新上线，`dataSource`的配置方式做了大幅调整，现在可以通过`renderItem`和`renderContent`属性更方便的配置组件子菜单的展示方式。
+- `CarouselItem` 组件的属性做了大幅度精简，删除了冗余的`index`，`currentPage`和`pagesNum`三个属性。
+
+### Bug Fixes
+- 修复 `Suggest` 在输入条件改变时，结果列表没有自动重置到顶部的bug。
+- 修复 `GroupList` 在分组变化以后导航栏拖动时定位不准的bug。
+- 修复 `LazyImage` 在`List`不定高`Infinite`模式下更新时机不准确的bug。
+- 修复 `Touchable` 内部嵌套 `LazyImage`时无效的bug。
+
 ## v3.0.3
+
+发布时间：2017-01-13
 
 ### New Features
 
@@ -23,6 +40,8 @@
 
 ## v3.0.2
 
+发布时间：2016-12-30
+
 ### New Features
 
 - 新增 `Scroller.Sticky` 组件，可以便捷地给 `Scroller` 内部的节点添加吸顶效果。
@@ -46,6 +65,8 @@
 
 ## v3.0.1
 
+发布时间：2016-12-16
+
 ### New Features
 
 - `Alert` 和 `Confirm` API现在支持传入一个opt对象作为参数，除了content,title和animation外，里面还可以指定btnText属性来定制"确定"和"取消"按钮的文本。
@@ -65,6 +86,8 @@
 - 修复异步载入 `Yo` 时Fastclick初始化方法未执行的错误。
 
 ## v3.0.0
+
+发布时间：2016-11-29
 
 * 全新架构设计
 

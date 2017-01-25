@@ -11,7 +11,7 @@
     3. 调用 `Scroller` 实例的 `stopRefreshing` 方法来停止加载中状态，该方法的第一个参数为一个 `bool` 值，用来告诉 `Scroller` 是否刷新成功。
     如果为 `true`，会显示『加载成功』；如果为 `false`，会显示『加载失败』。
 
-```JavaScript
+```
 <Scroller
     ref="scroller"
     usePullRefresh={true}
@@ -36,7 +36,7 @@
     3. 调用 `Scroller` 实例的 `stopLoading` 方法来停止加载中状态，该方法的第一个参数为一个 `bool` 值，用来告诉 `Scroller` 后面是否还有更多数据。
     如果为 `false` 会显示『没有更多了...』。
 
-```JavaScript
+```
 <Scroller
     ref="scroller"
     useLoadMore={true}

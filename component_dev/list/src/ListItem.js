@@ -87,7 +87,6 @@ export default class extends Component {
         if (shouldItemUpdate) {
             return shouldItemUpdate(ret, nextProps.item, this.props.item);
         }
-
         return ret;
     }
 

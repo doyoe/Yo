@@ -22,8 +22,6 @@
 
 与其它框架不同的是，实际上我们并不计划对外提供类似打包好的 `yo.min.css/yo.min.js` 来供使用，而是推荐直接在 `Yo` 的标准工程目录下进行开发。这样你将能体会到 `Yo` 的众多功能和方法为开发所带来的便利，并感受到它的魅力。
 
-为此，我们提供了一个方便的脚手架工具，这将会为你创建一个标准的 `Yo` 工程。
-
 <a name="getting-started"></a>
 ## 起步
 
@@ -98,7 +96,7 @@
 
 `Yo` 的版本方针遵循 [SemVer](http://semver.org/lang/zh-CN/) 规范，版本号采用 `主版本号.次版本号.修订号` 的格式。版本发布周期是透明的，并尽可能保证向前向后兼容，您可以根据我们的语义化版本方针进行版本控制。
 
-你可以在 [releases tag](https://github.com/doyoe/Yo/releases) 中找到当前所有已发布的稳定版本。如想查看更多版本变更历史，请查看 [ChangeLog](https://github.com/doyoe/Yo/blob/master/changelog.md)
+你可以在 [releases tag](https://github.com/doyoe/Yo/releases) 中找到当前所有已发布的稳定版本。如想查看更多版本变更历史，请查看 [ChangeLog](changelog.md)
 
 
 <a name="bugs-and-feature-requests"></a>

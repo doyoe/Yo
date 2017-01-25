@@ -1,13 +1,13 @@
 /**
- * @component Grouplist
+ * @component GroupList
  * @version 3.0.0
- * @description 分组列表组件,继承了List的大部分特性。
+ * @description 分组列表组件，继承了List的大部分特性。
  *
- * 为列表数据提供分组展示形式,每个组有一个标题,在滚动时当前组的标题有吸顶效果。
+ * 为列表数据提供分组展示形式，每个组有一个标题，在滚动时当前组的标题有吸顶效果。
  *
- * 同样支持无穷模式(指定高度和未知高度)。
+ * 同样支持无穷模式（指定高度和未知高度）。
  *
- * 提供分组导航(参考常见的字母导航),但是不定高的无穷列表模式无法使用。
+ * 提供分组导航（参考常见的字母导航），但是不定高的无穷列表模式无法使用。
  *  @instructions {instruInfo: ./grouplist.md}{instruUrl: grouplist.html?hideIcon}
  * @author jiao.shen
  */
@@ -24,14 +24,14 @@ const propTypes = {
      * @property dataSource
      * @type Array
      * @default null
-     * @description 组件的数据源,每个元素必须有groupKey属性(String),如果是不需要分组的元素,groupKey属性为'notGrouped'
+     * @description 组件的数据源，每个元素必须有groupKey属性(String)，如果是不需要分组的元素，groupKey属性为'notGrouped'。
      *
      * 示例:
      * ```
      * [
      *   {
-     *     text: String //如果传入了这个属性并且没有配置renderItem,会以text文本作为列表项的内容
-     *     groupKey: String //列表项的groupKey,将根据这个属性对元素进行分组,如果是不需要分组的元素,应设置为'notGrouped'
+     *     text: String //如果传入了这个属性并且没有配置renderItem，会以text文本作为列表项的内容
+     *     groupKey: String //列表项的groupKey，将根据这个属性对元素进行分组，如果是不需要分组的元素,应设置为'notGrouped'。
      *   },
      *   ...
      * ]
@@ -49,8 +49,8 @@ const propTypes = {
      * @default null
      * @param {String} a 两个title之中在前面的那个
      * @param {String} b 两个title之中在后面的那个
-     * @description 组的排序规则,使用方式与array.sort相同,能够接受两个参数a和b,返回一个数字。
-     * 负数表示a在b前,正数表示a在b后。
+     * @description 组的排序规则，使用方式与array.sort相同，能够接受两个参数a和b，返回一个数字。
+     * 负数表示a在b前，正数表示a在b后。
      */
     sort: PropTypes.func,
     /**
@@ -67,7 +67,7 @@ const propTypes = {
      * @param {Object} item 列表项数据
      * @param {Number} index 在数据源中的index
      * @default item=>item.text
-     * @description 根据列表项数据渲染列表项,返回JSX或者字符串,默认会返回数据对象的text(如果定义了的话)。
+     * @description 根据列表项数据渲染列表项，返回JSX或者字符串，默认会返回数据对象的text(如果定义了的话)。
      */
     renderGroupItem: PropTypes.func,
     /**
@@ -91,36 +91,36 @@ const propTypes = {
      * @property showIndexNavBar
      * @type Bool
      * @default false
-     * @description 是否显示分组导航
+     * @description 是否显示分组导航。
      */
     showIndexNavBar: PropTypes.bool,
     /**
      * @property infinite
      * @type Bool
      * @default false
-     * @description 是否使用无穷列表模式(参考List的无穷列表模式)
+     * @description 是否使用无穷列表模式(参考List的无穷列表模式)。
      */
     infinite: PropTypes.bool,
     /**
      * @property infiniteSize
      * @type Number
      * @default 30
-     * @description 无穷列表模式中,保留在容器中列表项的数量
-     * 由于grouplist中列表项的高度一般较小,因此默认值为30
+     * @description 无穷列表模式中，保留在容器中列表项的数量。
+     * 由于grouplist中列表项的高度一般较小，因此默认值为30。
      */
     infiniteSize: PropTypes.number,
     /**
      * @property itemHeight
      * @type Number
      * @default null
-     * @description 无穷列表模式下列表项的高度
+     * @description 无穷列表模式下列表项的高度。
      */
     itemHeight: PropTypes.number,
     /**
      * @property titleHeight
      * @type Number
      * @default 25
-     * @description group title的高度,使用infinite模式时通过这个属性设置title项的高度,参见List的无穷列表模式
+     * @description group title的高度，使用infinite模式时通过这个属性设置title项的高度，参见List的无穷列表模式。
      */
     titleHeight: PropTypes.number,
     /**
@@ -129,9 +129,9 @@ const propTypes = {
      * @default null
      * @param {Object} item 列表项数据对象
      * @param {Number} index 在数据源中的偏移
-     * @description grouplist列表项的extraClass,使用方式参考List的itemExtraClass属性。
+     * @description grouplist列表项的extraClass，使用方式参考List的itemExtraClass属性。
      *
-     * 注意:这个属性的值/结果会完全覆盖掉默认的className.
+     * 注意:这个属性的值/结果会完全覆盖掉默认的className。
      */
     itemExtraClass: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     /**
@@ -139,7 +139,7 @@ const propTypes = {
      * @type String
      * @default null
      * @param {String} groupKey 分组名
-     * @description grouptitle的extraClass,可以是字符串或者函数,如果传入函数,可以接收一个参数,为当前元素的groupKey。
+     * @description grouptitle的extraClass，可以是字符串或者函数，如果传入函数，可以接收一个参数，为当前元素的groupKey。
      *
      * 注意:这个属性的值/返回的结果会完全覆盖掉默认的className而不是追加。
      */
@@ -148,7 +148,7 @@ const propTypes = {
      * @property offsetY
      * @type Number
      * @default 0
-     * @description 列表的初始位置
+     * @description 列表的初始位置。
      */
     offsetY: PropTypes.number,
     /**
@@ -158,7 +158,7 @@ const propTypes = {
      * @param {Object} item 列表项数据对象
      * @param {Number} index 在数据源中的偏移
      * @param {element} target 当前event对象的target
-     * @description 点击列表项时触发的事件回调,接受的参数和使用方式与List相同
+     * @description 点击列表项时触发的事件回调，接受的参数和使用方式与List相同。
      */
     onItemTap: PropTypes.func,
     /**
@@ -167,13 +167,13 @@ const propTypes = {
      * @param {Object} item 列表项数据对象
      * @param {Number} index 在数据源中的偏移
      * @default item-light
-     * @description 列表项被点击时附加的className,参见List同名属性
+     * @description 列表项被点击时附加的className，参见List同名属性。
      */
     itemTouchClass: PropTypes.string,
     /**
      * @property usePullRefresh
      * @type Bool
-     * @description 是否使用下拉刷新
+     * @description 是否使用下拉刷新。
      */
     usePullRefresh: PropTypes.bool,
     /**
@@ -181,7 +181,7 @@ const propTypes = {
      *
      * @property pullRefreshHeight
      * @type Number
-     * @description 触发下拉刷新状态的高度（一般即为下拉刷新提示区域的高度）
+     * @description 触发下拉刷新状态的高度（一般即为下拉刷新提示区域的高度）。
      * @default 40
      */
     pullRefreshHeight: PropTypes.number,
@@ -193,27 +193,27 @@ const propTypes = {
      * @returns {JSX} 用来渲染 pullRefresh 的 JSX
      * @description () => JSX
      *
-     * 自定义的下拉刷新渲染函数
+     * 自定义的下拉刷新渲染函数。
      */
     renderPullRefresh: PropTypes.func,
     /**
      * @property onRefresh
      * @type Function
      * @param {Array} dataSource 当前数据源
-     * @description 下拉刷新回调
+     * @description 下拉刷新回调。
      */
     onRefresh: PropTypes.func,
 
     /**
      * @property useLoadMore
      * @type Bool
-     * @description 是否开启加载更多功能
+     * @description 是否开启加载更多功能。
      */
     useLoadMore: PropTypes.bool,
     /**
      * @property onLoad
      * @type Function
-     * @description 加载更多触发时的回调函数
+     * @description 加载更多触发时的回调函数。
      */
     onLoad: PropTypes.func,
     /**
@@ -221,7 +221,7 @@ const propTypes = {
      *
      * @property loadMoreHeight
      * @type Number
-     * @description 触发加载更多状态的高度（一般即为加载更多提示区域的高度）
+     * @description 触发加载更多状态的高度（一般即为加载更多提示区域的高度）。
      * @default 40
      */
     loadMoreHeight: PropTypes.number,
@@ -229,27 +229,27 @@ const propTypes = {
      * @property renderLoadMore
      * @type Function
      * @return JSX
-     * @description 自定义加载更多区域的渲染方式,用返回的JSX节点取代原节点
+     * @description 自定义加载更多区域的渲染方式，用返回的JSX节点取代原节点。
      */
     renderLoadMore: PropTypes.func,
     /**
      * @property onScroll
      * @type Function
      * @param {Number} offsetY 当前Scroller的y轴偏移量
-     * @description Scroller滚动时触发的回调
+     * @description Scroller滚动时触发的回调。
      */
     onScroll: PropTypes.func,
     /**
      * @property extraClass
      * @type String
-     * @description 附加给组件根节点的额外className
+     * @description 附加给组件根节点的额外className。
      */
     extraClass: PropTypes.string,
     /**
      * @property style
      * @type Object
      * @default null
-     * @description 给Grouplist容器节点绑定的额外样式。
+     * @description 给GroupList容器节点绑定的额外样式。
      * @version 3.0.2
      */
     style: PropTypes.object,
@@ -266,7 +266,7 @@ const propTypes = {
      * @type Function
      * @param {String/Number} groupKey
      * @default groupKey=>groupKey
-     * @description 定制grouplist分组导航中每一项的render函数,接收groupkey为参数,返回字符串或者jsx
+     * @description 定制grouplist分组导航中每一项的render函数，接收groupkey为参数，返回字符串或者jsx
      */
     renderIndexNavBarItem: PropTypes.func,
     /**
@@ -444,17 +444,17 @@ export default class GroupList extends Component {
     }
 
     /**
-     * @description 调用List同名方法,滚动到某个位置y
+     * @description 调用List同名方法,滚动到某个位置y。
      * @method scrollTo
      * @param {Number} y y坐标
-     * @param {Number} time 动画持续时间
+     * @param {Number} [time] 动画持续时间
      */
     scrollTo(y, time) {
         this.list.scrollTo(y, time);
     }
 
     /**
-     * @description 调用List同名方法,中止正在执行的滚动
+     * @description 调用List同名方法,中止正在执行的滚动。
      * @method stopAnimate
      */
     stopAnimate() {
@@ -462,16 +462,16 @@ export default class GroupList extends Component {
     }
 
     /**
-     * @description 调用List同名方法,停止下拉刷新过程
+     * @description 调用List同名方法,停止下拉刷新过程。
      * @method stopRefreshing
-     * @param {Bool} success 下拉刷新是否成功
+     * @param {Bool} [success] 下拉刷新是否成功
      */
     stopRefreshing(success) {
         this.list.stopRefreshing(success);
     }
 
     /**
-     * @description 调用List同名方法,模拟下拉刷新过程
+     * @description 调用List同名方法,模拟下拉刷新过程。
      * @method startRefreshing
      */
     startRefreshing() {
@@ -480,8 +480,8 @@ export default class GroupList extends Component {
 
     /**
      * @method stopLoading
-     * @param {Bool} success 加载更多是否成功
-     * @description 调用List同名方法,中止加载更多过程
+     * @param {Bool} [success] 加载更多是否成功
+     * @description 调用List同名方法,中止加载更多过程。
      */
     stopLoading(success) {
         this.list.stopLoading(success);
@@ -592,14 +592,23 @@ export default class GroupList extends Component {
                     scrollWithoutTouchStart={scrollWithoutTouchStart}
                     directionLockThreshold={directionLockThreshold}
                     disabled={disabled}
-                    extraClass="yo-grouplist-fullscreen"
                     dataSource={dataSource}
                     infinite={infinite}
+                    infiniteSize={infiniteSize}
                     offsetY={offsetY}
+                    usePullRefresh={usePullRefresh}
+                    pullRefreshHeight={pullRefreshHeight}
+                    renderPullRefresh={renderPullRefresh}
+                    useLoadMore={useLoadMore}
+                    onLoad={onLoad}
+                    renderLoadMore={renderLoadMore}
+                    loadMoreHeight={loadMoreHeight}
+                    staticSection={staticSection}
+                    staticSectionHeight={staticSectionHeight}
+                    extraClass="yo-grouplist-fullscreen"
                     renderItem={(item, index) => this.renderItem(item, index)}
                     itemExtraClass={wrappedItemExtraClass}
                     shouldItemUpdate={wrappedShouldItemUpdate}
-                    infiniteSize={infiniteSize}
                     onScroll={(y, direction) => {
                         this.refreshStickyHeader(-y);
                         onScroll(y, direction);
@@ -614,16 +623,7 @@ export default class GroupList extends Component {
                             this.list = list;
                         }
                     }}
-                    usePullRefresh={usePullRefresh}
-                    pullRefreshHeight={pullRefreshHeight}
-                    renderPullRefresh={renderPullRefresh}
                     onRefresh={wrappedOnPullRefresh}
-                    useLoadMore={useLoadMore}
-                    onLoad={onLoad}
-                    renderLoadMore={renderLoadMore}
-                    loadMoreHeight={loadMoreHeight}
-                    staticSection={staticSection}
-                    staticSectionHeight={staticSectionHeight}
                 />
             </div>
         );

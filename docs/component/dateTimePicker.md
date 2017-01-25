@@ -8,7 +8,7 @@
 
 使用range属性可以指定DateTimePicker的可选择范围。
 
-```javascript
+```
 
 import DateTimePicker from 'component';
 
@@ -34,9 +34,25 @@ class Demo extends Component {
 }
 ```
 
+##### 只选择年份和月份
+
+`DateTimePicker` 支持只选择年和月。这时候`value`属性的值需要省略掉第三部分：
+
+```
+<DateTimePicker
+    value={entrytime /* 日期格式为xxxx-xx */}
+    range={['1980-01','2017-12']}
+    unitsInline={['年', '月']}
+    dateOrTime="date"
+    onChange={value => {
+        // onchange
+    }}
+/>
+```
+
 ##### 时间选择器
 
-```javascript
+```
 // this.state = { value: '12: 00' };
 
 <DateTimePicker
@@ -51,7 +67,7 @@ class Demo extends Component {
 ##### 自定义选项
 
 你可以通过format属性来自定义option的文本，它能够接收两个参数，`value`对应`option`的值，`level`对应所在列的`index`
-```javascript
+```
 format(value, level) {
     return String(value).length < 2 ? `0${value}` : value;
 }

@@ -1,11 +1,11 @@
 /**
  * @component Picker
  * @version 3.0.0
- * @description Picker组件,行为和特性与iOS原生的picker完全一致
+ * @description Picker组件，行为和特性与iOS原生的picker完全一致。
  *
  * 支持两种模式:静态模式和循环模式。
  *
- * 静态模式会完全按照传入的options渲染待选项,而循环模式会将options变成一个首尾循环的数据结构,可以无限地向上/向下滚动。
+ * 静态模式会完全按照传入的options渲染待选项，而循环模式会将options变成一个首尾循环的数据结构，可以无限地向上/向下滚动。
  * @instructions {instruInfo: ./picker.md}{instruUrl: picker.html?hideIcon}
  * @author jiao.shen
  */
@@ -26,11 +26,11 @@ export default class Picker extends Component {
          * @property options
          * @type Array
          * @default null
-         * @description picker的options,数组形式,元素的格式为{text:string,value:string}
+         * @description picker的options，数组形式，元素的格式为{text:string,value:string}。
          *
-         * text为option显示的文本,value为option对应的真实值(参考网页option标签)
+         * text为option显示的文本，value为option对应的真实值(参考网页option标签)。
          *
-         * text的缺省值为value,value必须传入,且只能为字符串/数字类型
+         * text的缺省值为value，value必须传入，且只能为字符串/数字类型。
          */
         options: PropTypes.arrayOf(
             PropTypes.shape(
@@ -44,9 +44,9 @@ export default class Picker extends Component {
          * @property value
          * @type Number/String
          * @default null
-         * @description 组件的value,参考网页select标签的value属性
+         * @description 组件的value，参考网页select标签的value属性。
          *
-         * value是一个严格受控属性,只能通过picker的父组件改变,你需要设置onChange属性来控制value属性的变化
+         * value是一个严格受控属性，只能通过picker的父组件改变，你需要设置onChange属性来控制value属性的变化。
          */
         value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
         /**
@@ -54,11 +54,11 @@ export default class Picker extends Component {
          * @type Function
          * @default null
          * @param value 当前的option的value
-         * @description 组件划动时触发的事件回调,如果不设置这个属性,这个picker的value将无法根据picker的滚动改变。
+         * @description 组件划动时触发的事件回调，如果不设置这个属性，这个picker的value将无法根据picker的滚动改变。
          *
-         * onChange能够接收一个参数option,为当前选中的option的数据对象。
+         * onChange能够接收一个参数option，为当前选中的option的数据对象。
          *
-         * 如果你不重新设置value,那么组件将会回滚到之前的值。
+         * 如果你不重新设置value，那么组件将会回滚到之前的值。
          *
          * onChange和value的使用和网页中select对应属性的使用完全一致。
          */
@@ -67,30 +67,30 @@ export default class Picker extends Component {
          * @property height
          * @type Number
          * @default 150
-         * @description picker的高度,默认150.
+         * @description picker的高度，默认150。
          *
-         * Picker组件不能自适应容器的高度,必须为Picker组件显式地指定高度。
+         * Picker组件不能自适应容器的高度，必须为Picker组件显式地指定高度。
          */
         height: PropTypes.number.isRequired,
         /**
          * @property looped
          * @type Bool
          * @default true
-         * @description 是否采用循环模式,默认为true
+         * @description 是否采用循环模式，默认为true。
          */
         looped: PropTypes.bool,
         /**
          * @property unit
          * @type Number
          * @default null
-         * @description 显示在picker右侧的单位
+         * @description 显示在picker右侧的单位。
          */
         unit: PropTypes.string,
         /**
          * @property extraClass
          * @type String
          * @default null
-         * @description 附加给组件根节点的额外class
+         * @description 附加给组件根节点的额外class。
          */
         extraClass: PropTypes.string,
         /**

@@ -116,7 +116,7 @@ const propTypes = {
      * @default "none"
      * @description 打开/关闭动画
      *
-     * 有已经实现好的动画fade(淡入淡出效果),也可以自己传入classNames,实现定制的动画效果,例如
+     * 有已经实现好的动画fade,fade-in-down,fade-in-up,zoom,也可以自己传入classNames,实现定制的动画效果,例如
      * {animation:['actionsheet-up', 'actionsheet-down'],duration:200}
      * 数组中的第一个元素是打开模态框时附加到内容区的className,第二个是关闭时附加到内容区的className,duration是动画的持续时间,
      * action-sheet-up的css规则如下:

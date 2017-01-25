@@ -10,8 +10,9 @@
   <title>Yo Documentation 组件</title>
   <link rel="stylesheet" href="source/main.css"/>
   
+  
     
-<link rel="stylesheet" href="./theme/ydoc.css"/>
+        <link rel="stylesheet" href="./theme/ydoc.css"/>
     
   
 </head>
@@ -314,6 +315,14 @@
                         
                         
                             <li >
+                                <a href="component-Carousel.CarouselItem.html">Carousel.CarouselItem</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
                                 <a href="component-Range.html">Range</a>
                             </li>
                         
@@ -421,58 +430,52 @@
             <h4 id="-">基本用法</h4>
 <p>和原生的表单组件（例如<code>input</code>和<code>select</code>）一样，
 你需要同时配置 <code>value</code>和<code>onChange</code>来驱动组件的更新：</p>
-<pre><code class="lang-javascript">&lt;InputNumber
-    value={this.state.value}
-    onChange={value =&gt; this.setState({value})}
-/&gt;
-</code></pre>
-<h4 id="-">小数</h4>
+<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>InputNumber</span>
+    <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value<span class="token punctuation">}</span></span>
+    <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>value <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>value<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>
+<span class="token punctuation">/></span></span>
+</code></pre><h4 id="-">小数</h4>
 <p>通过<code>decimalNum</code>属性，配置组件显示数字的小数位数，默认为<code>0</code>。</p>
-<pre><code class="lang-javascript">&lt;InputNumber
-    value={this.state.value}
-    decimalNum={2}
-    onChange={value =&gt; this.setState({value})}
-/&gt;
-</code></pre>
-<h4 id="-">设置范围</h4>
+<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>InputNumber</span>
+    <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value<span class="token punctuation">}</span></span>
+    <span class="token attr-name">decimalNum</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token number">2</span><span class="token punctuation">}</span></span>
+    <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>value <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>value<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>
+<span class="token punctuation">/></span></span>
+</code></pre><h4 id="-">设置范围</h4>
 <p>通过<code>max</code>和<code>min</code>属性设置组件数值的最大值、最小值。</p>
-<pre><code class="lang-javascript">&lt;InputNumber
-    value={this.state.value}
-    onChange={val =&gt; this.onChange(value)}
-    min={-2}
-    max={5}
-/&gt;
-</code></pre>
-<h4 id="-">设置步长</h4>
+<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>InputNumber</span>
+    <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value<span class="token punctuation">}</span></span>
+    <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>val <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">onChange</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">}</span></span>
+    <span class="token attr-name">min</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">}</span></span>
+    <span class="token attr-name">max</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token number">5</span><span class="token punctuation">}</span></span>
+<span class="token punctuation">/></span></span>
+</code></pre><h4 id="-">设置步长</h4>
 <p>通过<code>step</code>属性设置组件一次加减操作改变的数值步长。默认是1。</p>
-<pre><code class="lang-javascript">&lt;InputNumber
-    value={this.state.value}
-    onChange={val =&gt; this.onChange(val)}
-    min={-10}
-    max={10}
-    step={2}
-/&gt;
-</code></pre>
-<h4 id="-">输入框不可用</h4>
+<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>InputNumber</span>
+    <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value<span class="token punctuation">}</span></span>
+    <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>val <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">onChange</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">}</span></span>
+    <span class="token attr-name">min</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token operator">-</span><span class="token number">10</span><span class="token punctuation">}</span></span>
+    <span class="token attr-name">max</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token number">10</span><span class="token punctuation">}</span></span>
+    <span class="token attr-name">step</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token number">2</span><span class="token punctuation">}</span></span>
+<span class="token punctuation">/></span></span>
+</code></pre><h4 id="-">输入框不可用</h4>
 <p>设置<code>inputDisable</code>属性为<code>true</code>可以让组件的输入框不可用，这时只能通过加减按钮改变组件数值。</p>
-<pre><code class="lang-javascript">&lt;InputNumber
-    value={this.state.value}
-    onChange={val =&gt; this.onChange(val)}
-    min={-10}
-    max={10}
-    decimalNum={2}
-    step={0.5}
-    inputDisable={true}
-/&gt;
-</code></pre>
-<h4 id="-">不可用</h4>
+<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>InputNumber</span>
+    <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value<span class="token punctuation">}</span></span>
+    <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>val <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">onChange</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">}</span></span>
+    <span class="token attr-name">min</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token operator">-</span><span class="token number">10</span><span class="token punctuation">}</span></span>
+    <span class="token attr-name">max</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token number">10</span><span class="token punctuation">}</span></span>
+    <span class="token attr-name">decimalNum</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token number">2</span><span class="token punctuation">}</span></span>
+    <span class="token attr-name">step</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token number">0.5</span><span class="token punctuation">}</span></span>
+    <span class="token attr-name">inputDisable</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span></span>
+<span class="token punctuation">/></span></span>
+</code></pre><h4 id="-">不可用</h4>
 <p>设置<code>disable</code>属性为<code>true</code>后，整个组件都会处于不可用状态。此时组件只能展示数值而不能修改。</p>
-<pre><code class="lang-javascript">&lt;InputNumber
-    value={2}
-    disable={true}
-/&gt;
+<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>InputNumber</span>
+    <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token number">2</span><span class="token punctuation">}</span></span>
+    <span class="token attr-name">disable</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span></span>
+<span class="token punctuation">/></span></span>
 </code></pre>
-
             </div>
             
             
@@ -709,7 +712,6 @@
 </div>
 
               </div>
-              <div class="open-panel"></div>
           </div>
           
         
@@ -724,6 +726,11 @@
       </footer>
     </div>
 
+    
+       <div class="open-panel"></div>
+    
+    
+
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
     
@@ -731,6 +738,7 @@
 
     
 
+    
     
       
       <script type="text/javascript" src="./theme/ydoc.js"></script>

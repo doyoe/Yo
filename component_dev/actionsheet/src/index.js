@@ -3,7 +3,7 @@
  * @version 3.0.0
  * @description 底部弹出菜单组件，基于Popup组件实现。
  *
- * - 类似浏览器原生API调用方式。
+ * - 类似iOS原生API调用方式。
  * - 点击菜单选项后自动关闭组件。
  *
  * @instructions {instruInfo: ./actionSheet.md}{instruUrl: actionsheet.html?hideIcon}
@@ -80,11 +80,11 @@ ReactDOM.render(<ActionSheet />, container);
 
 /**
  * @method ActionSheet
- * @param {Object} obj 组件需要的对象参数，主要包含标题、菜单数组、取消按钮文字
+ * @param {Object} obj 组件需要的对象参数，主要包含标题、菜单数组、取消按钮文字。
  * @param {Array} obj.menu 菜单选项数组，包含每个选项的文字和回调函数。
- * @param {String} obj.title 菜单选项标题，默认不消失。
- * @param {String} obj.cancelText 组件取消按钮文字，默认'取消'
- * @description 打开ActionSheet组件
+ * @param {String} [obj.title] 菜单选项标题，默认为空。
+ * @param {String} [obj.cancelText] 组件取消按钮文字，默认'取消'。
+ * @description 打开ActionSheet组件。
  */
 export default ({ menu, title = '', cancelText = '取消' }) => that.setState({
     show: true,

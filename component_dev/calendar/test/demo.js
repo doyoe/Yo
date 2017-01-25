@@ -6,7 +6,7 @@ class CalendarDemo extends Component {
     constructor() {
         super();
         this.state = {
-            duration: ['2017-01-01', '2017-3-29']
+            duration: ['2017-01-01', '2017-4-8']
         };
     }
 

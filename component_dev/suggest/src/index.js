@@ -103,6 +103,27 @@ const propTypes = {
      */
     renderResult: PropTypes.func,
     /**
+     * @property infinite
+     * @type Bool
+     * @default false
+     * @description 是否在结果区域的列表开启Infinite模式。注意：开启Infinite模式后，你需要为列表项配置key属性。
+     */
+    infinite: PropTypes.bool,
+    /**
+     * @property itemHeight
+     * @type Number
+     * @default 44
+     * @description 结果区域列表项的高度，只在Infinite模式下生效。
+     */
+    itemHeight: PropTypes.number,
+    /**
+     * @property infiniteSize
+     * @type Number
+     * @default 20
+     * @description 无穷列表模式下,保留在列表容器中列表项的个数(参见List组件无穷列表模式的说明).
+     */
+    infiniteSize: PropTypes.number,
+    /**
      * @property showCancelButton
      * @type Bool
      * @default false
@@ -220,6 +241,10 @@ export default class Suggest extends Component {
     onConditionChange(value) {
         this.onConditionChangeHandler(value);
         this.setState({ condition: value });
+        if(this.resultList) {
+            this.resultList.stopAnimate();
+            this.resultList.scrollTo(0, 0);
+        }
     }
 
     getIconClass(iconName, animation) {
@@ -279,7 +304,10 @@ export default class Suggest extends Component {
             renderItem,
             onItemTap,
             noDataTmpl,
-            itemTouchClass
+            itemTouchClass,
+            infinite,
+            infiniteSize,
+            itemHeight
         } = this.props;
 
         let ret = null;
@@ -289,13 +317,20 @@ export default class Suggest extends Component {
                     <List
                         extraClass="yo-scroller-fullscreen"
                         ref={(component) => {
-                            this.resultList = component;
+                            if(component) {
+                                this.resultList = component;
+                            }
                         }}
                         dataSource={results}
                         renderItem={renderItem}
-                        infinite={false}
+                        infinite={infinite}
+                        infiniteSize={infiniteSize}
+                        itemHeight={itemHeight}
                         onItemTap={onItemTap}
                         itemTouchClass={itemTouchClass}
+                        onScroll={()=>{
+                            this.input.blur();
+                        }}
                     />
                 );
             } else {
@@ -438,7 +473,10 @@ Suggest.defaultProps = {
     recommendTmpl: null,
     throttleGap: null,
     cancelButtonText: '取消',
-    showMask: false
+    showMask: false,
+    infinite: false,
+    infiniteSize: 20,
+    itemHeight: 44
 };
 
 Suggest.propTypes = propTypes;
