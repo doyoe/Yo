@@ -10,8 +10,9 @@
   <title>Yo Documentation 组件</title>
   <link rel="stylesheet" href="source/main.css"/>
   
+  
     
-<link rel="stylesheet" href="./theme/ydoc.css"/>
+        <link rel="stylesheet" href="./theme/ydoc.css"/>
     
   
 </head>
@@ -432,16 +433,16 @@
 <h4 id="-">使用方式</h4>
 <p><code>Touchable</code>是一个&quot;虚拟&quot;的组件，它没有根节点，而是以传给它的唯一子元素作为根节点。换句话说，它不会改变原本的dom结构。
 需要注意的是，它只能有一个子元素，如果传入多个子元素React会抛出一个错误，以下是例子:</p>
-<pre><code>&lt;Touchable
-    touchClass=&quot;touchable-highlight&quot;
-    onTap={()=&gt; {
-        Toast.show(&#39;touchable pressed.&#39;);
-    }}
-&gt;
-    &lt;div style={{ height: 200 }}&gt;
+<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Touchable</span>
+    <span class="token attr-name">touchClass</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>touchable-highlight<span class="token punctuation">"</span></span>
+    <span class="token attr-name">onTap</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        Toast<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token string">'touchable pressed.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">}</span></span>
+<span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">style</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span> height<span class="token punctuation">:</span> <span class="token number">200</span> <span class="token punctuation">}</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
         点击会出现深色背景的Touchable
-    &lt;/div&gt;
-&lt;/Touchable&gt;
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Touchable</span><span class="token punctuation">></span></span>
 </code></pre><p>这里有两个比较重要的属性<code>onTap</code>和<code>touchClass</code>: <code>onTap</code>是你希望绑定给它的唯一子元素的Tap事件回调，而
 <code>touchClass</code>是触摸过程中(<code>touchstart</code>到<code>touchend</code>过程中)为唯一子元素添加的className。</p>
 <p>如果你没有设置<code>touchClass</code>，将不会有触摸反馈效果，onTap的绑定依然生效。但是这个时候组件会给出一个警告，我们的建议是尽量为所有的可触摸区域添加反馈效果。</p>
@@ -454,63 +455,63 @@
 而总是触发手指触摸到的最内层的<code>Touchable</code>的触摸反馈和事件，
 这与没有stopPropagation的<code>onTouchTap</code>事件不一致。换句话说，在同一时刻只能有一个<code>Touchable</code>响应用户的触摸事件。
 以下是一个互相嵌套的<code>Touchable</code>的例子：</p>
-<pre><code> &lt;Touchable touchClass=&#39;green&#39; onTap={() =&gt; {console.log(&#39;点我变绿。&#39;)}}&gt;
-    &lt;div className=&quot;comment-wrap&quot;&gt;
-        &lt;Touchable touchClass=&#39;yellow&#39; onTap={() =&gt; {
-            console.log(&#39;点我变黄&#39;);
-        }}&gt;
-            &lt;h2 className=&quot;comment-title ellipsis&quot;&gt;如此美景，难怪志明要带春娇来这里&lt;/h2&gt;
-        &lt;/Touchable&gt;
-        &lt;p className=&quot;comment-detail ellipsis&quot;&gt;北京长城脚下的公社&lt;/p&gt;
-        &lt;div className=&quot;tags ellipsis&quot;&gt;
-            度假&amp;nbsp;/&amp;nbsp;亲子&amp;nbsp;/&amp;nbsp;浪漫&amp;nbsp;/&amp;nbsp;美景&amp;nbsp;/&amp;nbsp;格调
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/Touchable&gt;
+<pre><code> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Touchable</span> <span class="token attr-name">touchClass</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>green<span class="token punctuation">'</span></span> <span class="token attr-name">onTap</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'点我变绿。'</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>comment-wrap<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Touchable</span> <span class="token attr-name">touchClass</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>yellow<span class="token punctuation">'</span></span> <span class="token attr-name">onTap</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'点我变黄'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>comment-title</span> <span class="token attr-name">ellipsis"</span><span class="token punctuation">></span></span>如此美景，难怪志明要带春娇来这里<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Touchable</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>comment-detail</span> <span class="token attr-name">ellipsis"</span><span class="token punctuation">></span></span>北京长城脚下的公社<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tags</span> <span class="token attr-name">ellipsis"</span><span class="token punctuation">></span></span>
+            度假<span class="token entity" title="&nbsp;">&amp;nbsp;</span><span class="token operator">/</span><span class="token entity" title="&nbsp;">&amp;nbsp;</span>亲子<span class="token entity" title="&nbsp;">&amp;nbsp;</span><span class="token operator">/</span><span class="token entity" title="&nbsp;">&amp;nbsp;</span>浪漫<span class="token entity" title="&nbsp;">&amp;nbsp;</span><span class="token operator">/</span><span class="token entity" title="&nbsp;">&amp;nbsp;</span>美景<span class="token entity" title="&nbsp;">&amp;nbsp;</span><span class="token operator">/</span><span class="token entity" title="&nbsp;">&amp;nbsp;</span>格调
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Touchable</span><span class="token punctuation">></span></span>
 </code></pre><h4 id="-scroller-">解决和Scroller的冲突问题</h4>
 <p><code>Touchable</code>组件在内部解决了和<code>Scroller</code>以及所有基于<code>Scroller</code>实现的组件(<code>List</code>系列等)的手势冲突，
 <strong> 你不需要做任何额外的配置, 正常使用即可 </strong>。
 下面是一个在<code>Scroller</code>内部使用<code>Touchable</code>的例子，这些代码就是右侧Demo的源码:</p>
-<pre><code>class TouchableDemo extends Component {
-    render() {
-        return (
-            &lt;Page title=&quot;Touchable Demo&quot; onLeftPress={() =&gt; {
-                location.href = &#39;../index/index.html&#39;;
-            }}&gt;
-                &lt;Scroller style={{ background: &#39;white&#39;, position: &#39;absolute&#39;, top: 0, bottom: 0, width: &#39;100%&#39; }}&gt;
-                    &lt;Touchable onTap={()=&gt; {
-                        Toast.show(&#39;touchable pressed.&#39;);
-                    }}&gt;
-                        &lt;div style={{ height: 200, background: &#39;white&#39; }}&gt;
+<pre><code><span class="token keyword">class</span> <span class="token class-name">TouchableDemo</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+    <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Page</span> <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Touchable</span> <span class="token attr-name">Demo"</span> <span class="token attr-name">onLeftPress</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                location<span class="token punctuation">.</span>href <span class="token operator">=</span> <span class="token string">'../index/index.html'</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Scroller</span> <span class="token attr-name">style</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span> background<span class="token punctuation">:</span> <span class="token string">'white'</span><span class="token punctuation">,</span> position<span class="token punctuation">:</span> <span class="token string">'absolute'</span><span class="token punctuation">,</span> top<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span> bottom<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span> width<span class="token punctuation">:</span> <span class="token string">'100%'</span> <span class="token punctuation">}</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Touchable</span> <span class="token attr-name">onTap</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                        Toast<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token string">'touchable pressed.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">style</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span> height<span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">,</span> background<span class="token punctuation">:</span> <span class="token string">'white'</span> <span class="token punctuation">}</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
                             这是一个没有任何反馈的Touchable。
-                        &lt;/div&gt;
-                    &lt;/Touchable&gt;
-                    &lt;Touchable touchClass=&quot;touchable-highlight&quot; onTap={()=&gt; {
-                        Toast.show(&#39;touchable pressed.&#39;);
-                    }}&gt;
-                        &lt;div style={{ height: 200 }}&gt;
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Touchable</span><span class="token punctuation">></span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Touchable</span> <span class="token attr-name">touchClass</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>touchable-highlight<span class="token punctuation">"</span></span> <span class="token attr-name">onTap</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                        Toast<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token string">'touchable pressed.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">style</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span> height<span class="token punctuation">:</span> <span class="token number">200</span> <span class="token punctuation">}</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
                             点击会出现深色背景的Touchable
-                        &lt;/div&gt;
-                    &lt;/Touchable&gt;
-                    &lt;Touchable touchClass=&quot;touchable-opacity&quot; onTap={()=&gt; {
-                        Toast.show(&#39;touchable pressed.&#39;);
-                    }}&gt;
-                        &lt;div style={{ height: 200 }}&gt;
-                            点击后透明度变为0.7的Touchable
-                        &lt;/div&gt;
-                    &lt;/Touchable&gt;
-                    &lt;Touchable touchClass=&quot;touchable-opacity touchable-highlight&quot; onTap={()=&gt; {
-                        Toast.show(&#39;touchable pressed.&#39;);
-                    }}&gt;
-                        &lt;div style={{ height: 200 }}&gt;
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Touchable</span><span class="token punctuation">></span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Touchable</span> <span class="token attr-name">touchClass</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>touchable-opacity<span class="token punctuation">"</span></span> <span class="token attr-name">onTap</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                        Toast<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token string">'touchable pressed.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">style</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span> height<span class="token punctuation">:</span> <span class="token number">200</span> <span class="token punctuation">}</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
+                            点击后透明度变为<span class="token number">0.7</span>的Touchable
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Touchable</span><span class="token punctuation">></span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Touchable</span> <span class="token attr-name">touchClass</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>touchable-opacity</span> <span class="token attr-name">touchable-highlight"</span> <span class="token attr-name">onTap</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                        Toast<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token string">'touchable pressed.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">style</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span> height<span class="token punctuation">:</span> <span class="token number">200</span> <span class="token punctuation">}</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
                             同时具有以上两种效果的Touchable
-                        &lt;/div&gt;
-                    &lt;/Touchable&gt;
-                &lt;/Scroller&gt;
-            &lt;/Page&gt;
-        );
-    }
-}
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Touchable</span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Scroller</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Page</span><span class="token punctuation">></span></span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
             </div>
             
@@ -612,7 +613,6 @@
 </div>
 
               </div>
-              <div class="open-panel"></div>
           </div>
           
         
@@ -627,6 +627,11 @@
       </footer>
     </div>
 
+    
+       <div class="open-panel"></div>
+    
+    
+
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
     
@@ -634,6 +639,7 @@
 
     
 
+    
     
       
       <script type="text/javascript" src="./theme/ydoc.js"></script>

@@ -10,8 +10,9 @@
   <title>Yo Documentation 起步</title>
   <link rel="stylesheet" href="source/main.css"/>
   
+  
     
-<link rel="stylesheet" href="./theme/ydoc.css"/>
+        <link rel="stylesheet" href="./theme/ydoc.css"/>
     
   
 </head>
@@ -170,100 +171,99 @@
 <p>在使用该功能前，请务必升级 <code>ykit-config-yo</code> 到 1.1.7+ 版本。</p>
 </blockquote>
 <p><strong>注意</strong>：使用 chunk 之后，由于 chunk 不是非入口文件，不会被自动加入到离线包当中，因此需要在离线包入口页面 html 模板（在发布的时候，配置发布信息 -&gt; 远程文件，一般是项目的入口 index.html）的 header 中添加一个 <code>&lt;meta&gt;</code> 标签帮助离线包工具抓取 chunk。配置如下：</p>
-<pre><code>&lt;meta cache-files=&quot;qp&quot; href=&quot;//q.qunarzz.com/projectName/prd/chunk@version.json&quot;&gt;
+<pre><code><span class="token operator">&lt;</span>meta cache<span class="token operator">-</span>files<span class="token operator">=</span><span class="token string">"qp"</span> href<span class="token operator">=</span><span class="token string">"//q.qunarzz.com/projectName/prd/chunk@version.json"</span><span class="token operator">></span>
 </code></pre><p>meta 包含两个重要的属性：</p>
 <ol>
 <li><code>cache-files</code>：该属性必须设置为 <code>qp</code>；</li>
 <li><code>href</code>：这里需要配置一个 json 文件，它在线上打包的时候会自动生成，位于项目的 prd 目录中，带版本号。比如项目名称为 <code>trainapp_intl</code>，获取版本号的方式时使用 .ver 文件，就可以这样写：</li>
 </ol>
-<pre><code>&lt;meta cache-files=&quot;qp&quot; href=&quot;//q.qunarzz.com/trainapp_intl/prd/chunk@&lt;!--#include virtual=&#39;/ver/trainapp_intl/ver/chunk.json.ver&#39; --&gt;.json&quot;&gt;
+<pre><code><span class="token operator">&lt;</span>meta cache<span class="token operator">-</span>files<span class="token operator">=</span><span class="token string">"qp"</span> href<span class="token operator">=</span><span class="token string">"//q.qunarzz.com/trainapp_intl/prd/chunk@&lt;!--#include virtual='/ver/trainapp_intl/ver/chunk.json.ver' -->.json"</span><span class="token operator">></span>
 </code></pre><h3 id="代码分割">代码分割</h3><p><a href="http://webpack.github.io/docs/code-splitting.html">代码分割</a> 是 webpack 提供的一种异步加载静态资源的方式，每次 <code>require.ensure</code> 的调用会生成一个加载点，被异步引入的资源会生成一个非入口分块（<a href="http://webpack.github.io/docs/code-splitting.html#initial-chunk">non-entry chunks</a>）。</p>
 <p>代码分割让我们保证了页面入口资源大小可以得到保证，对于单页应用来说，页面的资源是异步递增的过程；对于多页应用来说，每个页面的资源也可以得到控制，仅包含自身页面的业务逻辑。这种方式与之前的全部资源全量引入相比，各有其优劣，但是对于大型项目来说，使用代码分割绝对是最好的选择。</p>
 <p>由于代码分割可能会导致资源过于分散的问题，因此找到一个控制代码分割的点就尤为重要；而 router 本身就是一个视图控制工具，用来控制代码分割的方式和位置最为合适。</p>
 <p>代码分割的基本场景如下：</p>
-<pre><code class="lang-js">require.ensure([&#39;some&#39;], function() {
-  var a = require(&#39;module-a&#39;);
-  // ...
-});
+<pre><code class="lang-js">require<span class="token punctuation">.</span><span class="token function">ensure</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'some'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'module-a'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// ...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>这里的 <code>require.ensure</code> 是告诉 webpack/ykit，让其构建分块代码，而不是将资源直接打包到 bundle 中去，其中第一个参数是分块代码依赖的资源，主要用于分块代码内部没有引入依赖、或多个引入代码的公共依赖，在我们路由场景中基本不会用到，所以写个空数组就行。</p>
 <p>也许有同学会关心加载的多个 chunk 之间，如果存在公共代码应该怎么处理？这里可以使用 webpack 的 <a href="http://webpack.github.io/docs/list-of-plugins.html#commonschunkplugin">CommonsChunkPlugin</a> 插件，或者在 hy2 项目里使用 <code>ykit dll</code> 进行公共依赖的构建。</p>
 <h3 id="异步路由加载">异步路由加载</h3><p>在 router 里，我们不仅支持 <strong>页面组件的异步加载</strong>，同时也支持 <strong>整个子路由的动态加载</strong>。当然，这样的加载方式会给之前 JSX 的声明式的路由构建方式带来一些不便，这种场景下使用纯对象的路由构建更加方便，当然对于纯组建的异步加载，可以尝试我们提供的 <code>require.async</code> 语法糖。</p>
 <p>组件可以定义 <code>getChildRoutes</code>、<code>getIndexRoute</code> 与 <code>getComponents</code> 方法，这些获取子路由和组件的方法是按需且异步的。</p>
 <h4 id="异步加载组件">异步加载组件</h4><p>使用异步方法加载组件，应该是项目初期最常见的一种需求，我们先看下同步加载的写法：</p>
-<pre><code class="lang-js">import User from &#39;./User&#39;
+<pre><code class="lang-js"><span class="token keyword">import</span> User <span class="token keyword">from</span> <span class="token string">'./User'</span>
 
-&lt;Route path=&quot;/user&quot; component={User} /&gt;
+<span class="token operator">&lt;</span>Route path<span class="token operator">=</span><span class="token string">"/user"</span> component<span class="token operator">=</span><span class="token punctuation">{</span>User<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
 </code></pre>
 <p>这里表示在跳转到路由 <code>/user</code> 时，进行组件 <code>User</code> 的渲染，但实际上由于我们是实现 import 了该组件，因此它的全部 js 逻辑实际上已经引入到页面内部了。</p>
 <p>如果要将其转换为动态加载，可以这样编写：</p>
-<pre><code class="lang-js">&lt;Route path=&quot;/user&quot; getComponent={(nextState, cb) =&gt; {
-  require.ensure([], () =&gt; cb(null, require(&#39;./User&#39;)))
-}} /&gt;
+<pre><code class="lang-js"><span class="token operator">&lt;</span>Route path<span class="token operator">=</span><span class="token string">"/user"</span> getComponent<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>nextState<span class="token punctuation">,</span> cb<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  require<span class="token punctuation">.</span><span class="token function">ensure</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">cb</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./User'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
 </code></pre>
 <p>这里要注意的一点是，<code>getComponent</code> 方法传入回调的第一参数是 <code>nextState</code>，是路由中通过历史传递的 <code>location.state</code>，这个历史 <code>state</code> 目前仅在单页的 browserHistory 中存在，在多页场景和 hash 场景中都无法使用，我们推荐使用通过生命周期的方式跨页面传递数据，因此不推荐使用这个参数。</p>
 <p>第二个参数 <code>cb</code> 就是用来异步获取组件的回调，其中该回调第一个参数是错误参数，第二个参数是组件。如果使用原生的方式进行组件动态加载，那么要注意在导出组件时不要使用 ES6 的 <code>export default</code> 语法，或者在 <code>require</code> 的时候带上 <code>default</code> 属性：</p>
 <p>即可以这样写：</p>
-<pre><code class="lang-js">// file - User
-export default User
+<pre><code class="lang-js"><span class="token comment" spellcheck="true">// file - User</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> User
 
-&lt;Route path=&quot;/user&quot; getComponent={(nextState, cb) =&gt; {
-  // 注意这里是 default
-  require.ensure([], () =&gt; cb(null, require(&#39;./User&#39;).default))
-}} /&gt;
+<span class="token operator">&lt;</span>Route path<span class="token operator">=</span><span class="token string">"/user"</span> getComponent<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>nextState<span class="token punctuation">,</span> cb<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// 注意这里是 default</span>
+  require<span class="token punctuation">.</span><span class="token function">ensure</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">cb</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./User'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">default</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
 </code></pre>
 <p>也可以这样写：</p>
-<pre><code class="lang-js">// file - User
-module.exports = User
+<pre><code class="lang-js"><span class="token comment" spellcheck="true">// file - User</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> User
 
-&lt;Route path=&quot;/user&quot; getComponent={(nextState, cb) =&gt; {
-  // 注意这里是 default
-  require.ensure([], () =&gt; cb(null, require(&#39;./User&#39;)))
-}} /&gt;
+<span class="token operator">&lt;</span>Route path<span class="token operator">=</span><span class="token string">"/user"</span> getComponent<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>nextState<span class="token punctuation">,</span> cb<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// 注意这里是 default</span>
+  require<span class="token punctuation">.</span><span class="token function">ensure</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">cb</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./User'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
 </code></pre>
 <p>如果觉得麻烦，在使用了 <a href="http://npm.corp.qunar.com/package/@qnpm/ykit-config-hy2">ykit-config-hy2</a> 的前提下可以尝试我们提供的 <code>require.async</code> 语法糖，用法如下：</p>
-<pre><code class="lang-js">const User = require.async(&#39;./User&#39;);
+<pre><code class="lang-js"><span class="token keyword">const</span> User <span class="token operator">=</span> require<span class="token punctuation">.</span><span class="token keyword">async</span><span class="token punctuation">(</span><span class="token string">'./User'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-&lt;Route path=&quot;/user&quot; getComponent={User} /&gt;
+<span class="token operator">&lt;</span>Route path<span class="token operator">=</span><span class="token string">"/user"</span> getComponent<span class="token operator">=</span><span class="token punctuation">{</span>User<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
 </code></pre>
 <p>我们自动处理了 ES6 模块加载的问题，也隐藏了复杂的异步逻辑。</p>
 <h4 id="异步加载首页路由、子路由">异步加载首页路由、子路由</h4><p>异步加载首页路由、子路由的方式同异步加载组件类似，只不过 <code>cb</code> 回调传递的第二个参数为首页路由对象和子路由数组。之前同步配置的方式如下：</p>
-<pre><code class="lang-jsx">import A from &#39;./routes/A&#39;
-import B from &#39;./routes/B&#39;
-import Index from &#39;./routes/Index&#39;
+<pre><code class="lang-jsx"><span class="token keyword">import</span> A <span class="token keyword">from</span> <span class="token string">'./routes/A'</span>
+<span class="token keyword">import</span> B <span class="token keyword">from</span> <span class="token string">'./routes/B'</span>
+<span class="token keyword">import</span> Index <span class="token keyword">from</span> <span class="token string">'./routes/Index'</span>
 
-&lt;Route path=&quot;course/:courseId&quot;&gt;
-  &lt;IndexRoute component={Index}&gt;
-  &lt;Route path=&quot;/a&quot; component={A} /&gt;
-  &lt;Route path=&quot;/b&quot; component={B} /&gt;
-&lt;/Route&gt;
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Route</span> <span class="token attr-name">path</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>course/:courseId<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>IndexRoute</span> <span class="token attr-name">component</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>Index<span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Route</span> <span class="token attr-name">path</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/a<span class="token punctuation">"</span></span> <span class="token attr-name">component</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>A<span class="token punctuation">}</span></span> <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Route</span> <span class="token attr-name">path</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/b<span class="token punctuation">"</span></span> <span class="token attr-name">component</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>B<span class="token punctuation">}</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Route</span><span class="token punctuation">></span></span>
 </code></pre>
 <p>而异步配置的方式如下：</p>
-<pre><code class="lang-jsx">&lt;Route
-  path=&quot;course/:courseId&quot;
-  getIndexRoute={(nextState, callback) =&gt; {
-    require.ensure([], function (require) {
-      callback(null, {
-        component: require(&#39;./routes/Index&#39;),
-      })
-    })
-  }}
-  getChildRoutes={(nextState, callback) =&gt; {
-    require.ensure([], function (require) {
-      callback(null, [
-        require(&#39;./routes/A&#39;),
-        require(&#39;./routes/B&#39;)
-      ])
-    })
-  }}
-/&gt;
+<pre><code class="lang-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Route</span>
+  <span class="token attr-name">path</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>course/:courseId<span class="token punctuation">"</span></span>
+  <span class="token attr-name">getIndexRoute</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>nextState<span class="token punctuation">,</span> callback<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    require<span class="token punctuation">.</span><span class="token function">ensure</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>require<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">callback</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        component<span class="token punctuation">:</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./routes/Index'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span></span><span class="token attr-name">)</span>
+  <span class="token attr-name">}}</span>
+  <span class="token attr-name">getChildRoutes</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>nextState<span class="token punctuation">,</span> callback<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    require<span class="token punctuation">.</span><span class="token function">ensure</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>require<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">callback</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>
+        <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./routes/A'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./routes/B'</span><span class="token punctuation">)</span>
+      <span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span></span><span class="token attr-name">}</span>
+<span class="token punctuation">/></span></span>
 </code></pre>
 <p>这样可以保证整个页面的子路由结构都是异步载入的，可以在具体的页面内部再进行路由的配置。</p>
 <p><strong>注意</strong> 在异步配置首页路由时，需要传入一个路由对象，而配置子路由时，需要传入一个数组对象。</p>
 <p>目前在这种场景下我们还没有提供更方便的语法糖配置，在后续的版本中我们会加入便捷的配置方式。</p>
 
               </div>
-              <div class="open-panel"></div>
           </div>
           
         
@@ -278,6 +278,11 @@ import Index from &#39;./routes/Index&#39;
       </footer>
     </div>
 
+    
+       <div class="open-panel"></div>
+    
+    
+
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
     
@@ -285,6 +290,7 @@ import Index from &#39;./routes/Index&#39;
 
     
 
+    
     
       
       <script type="text/javascript" src="./theme/ydoc.js"></script>

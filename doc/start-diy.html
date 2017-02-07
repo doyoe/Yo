@@ -10,8 +10,9 @@
   <title>Yo Documentation 起步</title>
   <link rel="stylesheet" href="source/main.css"/>
   
+  
     
-<link rel="stylesheet" href="./theme/ydoc.css"/>
+        <link rel="stylesheet" href="./theme/ydoc.css"/>
     
   
 </head>
@@ -169,9 +170,9 @@
 <h2 id="环境与构建">环境与构建</h2><ul>
 <li>安装 <a href="http://ued.qunar.com/ykit/">ykit</a>：<code>(sudo) npm install ykit -g</code></li>
 <li><p>在 <code>package.json</code> 中添加 <code>Yo</code> 的配置</p>
-<pre><code>  &quot;yo&quot; : {
-      &quot;path&quot;: &quot;./src/yo-config&quot;
-  }
+<pre><code>  <span class="token string">"yo"</span> <span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      <span class="token string">"path"</span><span class="token punctuation">:</span> <span class="token string">"./src/yo-config"</span>
+  <span class="token punctuation">}</span>
 </code></pre><blockquote>
 <p>如果项目中没有 <code>package.json</code>，请执行 <code>npm init</code> 进行初始化</p>
 <p><code>path</code> 属性为 <code>Yo</code> 的样式配置文件的路径，在安装完 <code>Yo</code> 之后，会在该位置生成 <code>Yo</code> 的样式配置文件。</p>
@@ -185,45 +186,45 @@
 <blockquote>
 <p>由于 <code>Yo</code> 采用了 <code>ES6 + React</code> 的开发方式，所以需要在 <code>package.json</code> 中添加以下依赖后，再执行 <code>npm install</code></p>
 </blockquote>
-<pre><code>  {
-      ...
-      &quot;dependencies&quot;: {
-          &quot;ykit-config-yo&quot;: &quot;^1.0.0&quot;,
-          &quot;yo-router&quot;: &quot;^1.0.0&quot;, // 如果不需要使用router, 可以不写这一项
-          &quot;babel-polyfill&quot;: &quot;^6.16.0&quot;,
-          &quot;react&quot;: &quot;^15.3.2&quot;,
-          &quot;react-dom&quot;: &quot;^15.3.2&quot;
-      }
-      ...
-  }
+<pre><code>  <span class="token punctuation">{</span>
+      <span class="token operator">...</span>
+      <span class="token string">"dependencies"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+          <span class="token string">"ykit-config-yo"</span><span class="token punctuation">:</span> <span class="token string">"^1.0.0"</span><span class="token punctuation">,</span>
+          <span class="token string">"yo-router"</span><span class="token punctuation">:</span> <span class="token string">"^1.0.0"</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 如果不需要使用router, 可以不写这一项</span>
+          <span class="token string">"babel-polyfill"</span><span class="token punctuation">:</span> <span class="token string">"^6.16.0"</span><span class="token punctuation">,</span>
+          <span class="token string">"react"</span><span class="token punctuation">:</span> <span class="token string">"^15.3.2"</span><span class="token punctuation">,</span>
+          <span class="token string">"react-dom"</span><span class="token punctuation">:</span> <span class="token string">"^15.3.2"</span>
+      <span class="token punctuation">}</span>
+      <span class="token operator">...</span>
+  <span class="token punctuation">}</span>
 </code></pre></li>
 </ul>
 <h2 id="配置 ykit">配置 ykit</h2><ul>
 <li><p>在项目根目录下新建 <code>ykit.yo.js</code> 文件，并添加以下内容：</p>
-<pre><code>  exports.config = function () {
-      return {
-          // [配置] 项目资源入口
-          export: [&#39;./page/demo/index.js&#39;],
-          // [配置] webpack
-          modifyWebpackConfig: function(config) {
-              // [配置] chunk 的路径
-              config.output.local.publicPath = &#39;//127.0.0.1/[#项目名]/prd/&#39;;
+<pre><code>  exports<span class="token punctuation">.</span>config <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token punctuation">{</span>
+          <span class="token comment" spellcheck="true">// [配置] 项目资源入口</span>
+          <span class="token keyword">export</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'./page/demo/index.js'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token comment" spellcheck="true">// [配置] webpack</span>
+          modifyWebpackConfig<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>config<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              <span class="token comment" spellcheck="true">// [配置] chunk 的路径</span>
+              config<span class="token punctuation">.</span>output<span class="token punctuation">.</span>local<span class="token punctuation">.</span>publicPath <span class="token operator">=</span> <span class="token string">'//127.0.0.1/[#项目名]/prd/'</span><span class="token punctuation">;</span>
 
-              // [配置] 项目中的别名，推荐所有的别名都以 $ 开头，既能一眼识别出是别名，也能避免命名冲突
-              config.resolve = {
-                  alias: {
-                      &#39;$yo&#39;: &#39;yo3&#39;,
-                      &#39;$yo-config&#39;: &#39;/src/yo-config&#39;,
-                      &#39;$yo-component&#39;: &#39;yo3/component&#39;,
-                      &#39;$component&#39;: &#39;/src/component&#39;,
-                      &#39;$common&#39;: &#39;/src/common&#39;,
-                      &#39;$router&#39;: &#39;yo-router&#39;
-                  }
-              };
-              return config;
-          }
-      }
-  };
+              <span class="token comment" spellcheck="true">// [配置] 项目中的别名，推荐所有的别名都以 $ 开头，既能一眼识别出是别名，也能避免命名冲突</span>
+              config<span class="token punctuation">.</span>resolve <span class="token operator">=</span> <span class="token punctuation">{</span>
+                  alias<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                      <span class="token string">'$yo'</span><span class="token punctuation">:</span> <span class="token string">'yo3'</span><span class="token punctuation">,</span>
+                      <span class="token string">'$yo-config'</span><span class="token punctuation">:</span> <span class="token string">'/src/yo-config'</span><span class="token punctuation">,</span>
+                      <span class="token string">'$yo-component'</span><span class="token punctuation">:</span> <span class="token string">'yo3/component'</span><span class="token punctuation">,</span>
+                      <span class="token string">'$component'</span><span class="token punctuation">:</span> <span class="token string">'/src/component'</span><span class="token punctuation">,</span>
+                      <span class="token string">'$common'</span><span class="token punctuation">:</span> <span class="token string">'/src/common'</span><span class="token punctuation">,</span>
+                      <span class="token string">'$router'</span><span class="token punctuation">:</span> <span class="token string">'yo-router'</span>
+                  <span class="token punctuation">}</span>
+              <span class="token punctuation">}</span><span class="token punctuation">;</span>
+              <span class="token keyword">return</span> config<span class="token punctuation">;</span>
+          <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre></li>
 </ul>
 <h2 id="构建 lib.js">构建 lib.js</h2><ul>
@@ -232,7 +233,6 @@
 <h2 id="开始开发">开始开发</h2><p>完成上述操作之后，就可以如 <a href="start.html#start-developing">起步</a> 中所述进行正常开发了。</p>
 
               </div>
-              <div class="open-panel"></div>
           </div>
           
         
@@ -247,6 +247,11 @@
       </footer>
     </div>
 
+    
+       <div class="open-panel"></div>
+    
+    
+
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
     
@@ -254,6 +259,7 @@
 
     
 
+    
     
       
       <script type="text/javascript" src="./theme/ydoc.js"></script>

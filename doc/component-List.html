@@ -10,8 +10,9 @@
   <title>Yo Documentation 组件</title>
   <link rel="stylesheet" href="source/main.css"/>
   
+  
     
-<link rel="stylesheet" href="./theme/ydoc.css"/>
+        <link rel="stylesheet" href="./theme/ydoc.css"/>
     
   
 </head>
@@ -426,39 +427,39 @@
 <h5 id="-">根节点尺寸</h5>
 <p>和<code>Scroller</code>组件一样，<code>List</code>需要一个固定的高度才能正常工作。
 你可以通过给它指定<code>extraClass</code>来扩展它的样式， 这个额外的class会被添加到List组件的根节点上。例如</p>
-<pre><code>.yo-list-fullscreen {
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    position: absolute;
-}
+<pre><code><span class="token punctuation">.</span>yo<span class="token operator">-</span>list<span class="token operator">-</span>fullscreen <span class="token punctuation">{</span>
+    top<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    bottom<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    left<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    right<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    position<span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-&lt;List
-    ...
-    extraClass = {&#39;yo-list-fullscreen&#39;}
-/&gt;
+<span class="token operator">&lt;</span>List
+    <span class="token operator">...</span>
+    extraClass <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'yo-list-fullscreen'</span><span class="token punctuation">}</span>
+<span class="token operator">/</span><span class="token operator">></span>
 </code></pre><p>这样就可以让这个<code>List</code>撑满它的父容器。</p>
 <h5 id="-">数据源</h5>
 <p>List最基础的属性是<code>dataSource</code>数组，通过它可以配置列表的数据源。你还需要配置<code>renderItem</code>属性来指定列表项的渲染方式，示例如下:</p>
-<pre><code>let guid = -1;
-...
+<pre><code><span class="token keyword">let</span> guid <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token operator">...</span>
 
-&lt;List
-    dataSource={[
-        {content: &quot;元素1&quot;, key: ++guid},
-        {content: &quot;元素2&quot;, key: ++guid},
-        {content: &quot;元素3&quot;, key: ++guid},
-        ...
-    ]}
-    renderItem={(item,i)=&gt;{
-        return (
-            &lt;p&gt;
-                {`第${i}项的内容是${item.content}`}
-            &lt;/p&gt;
-        );
-    }}
-/&gt;
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>List</span>
+    <span class="token attr-name">dataSource</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>content<span class="token punctuation">:</span> <span class="token string">"元素1"</span><span class="token punctuation">,</span> key<span class="token punctuation">:</span> <span class="token operator">++</span>guid<span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>content<span class="token punctuation">:</span> <span class="token string">"元素2"</span><span class="token punctuation">,</span> key<span class="token punctuation">:</span> <span class="token operator">++</span>guid<span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>content<span class="token punctuation">:</span> <span class="token string">"元素3"</span><span class="token punctuation">,</span> key<span class="token punctuation">:</span> <span class="token operator">++</span>guid<span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+    <span class="token punctuation">]</span><span class="token punctuation">}</span></span>
+    <span class="token attr-name">renderItem</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span>i<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>
+                <span class="token punctuation">{</span><span class="token template-string"><span class="token string">`第</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>i<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">项的内容是</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>item<span class="token punctuation">.</span>content<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">}</span></span>
+            <span class="token attr-name">&lt;</span>/<span class="token attr-name">p</span><span class="token punctuation">></span>
+        <span class="token attr-name">);</span>
+    <span class="token attr-name">}}</span>
+<span class="token punctuation">/></span></span>
 </code></pre><p>你也可以不配置<code>renderItem</code>属性，这样如果你的<code>dataSource</code>中的元素有text属性，会直接以text的值作为列表项的内容。</p>
 <p><code>dataSource</code>中每个数据元素需要有一个唯一的<code>key</code>标识，这和<code>React</code>列表类型的JSX是一致的，
 这个标识会被用来优化长列表的性能。关于这个<code>key</code>的选取有多种方式，如果列表和某个
@@ -469,33 +470,33 @@
 <p>List组件提供了优化长列表性能的方式：无穷模式(Infinite)。开启无穷模式以后，列表内只会保留可见区域附近的列表项，然后随着列表的滚动实时更新。这样
 就可以避免列表项过多导致的滚动困难和内存溢出问题。但是由于在滚动时会做dom的更新操作，它的滚动性能要比静态的列表稍差。所以对于列表项不多的List，无需开启无穷模式。</p>
 <p>配置属性<code>infinite = true</code>即可开启无穷模式的列表。如下:</p>
-<pre><code>&lt;List
-    dataSource={/* a very long array... */}
-    infinite={true}
-    renderItem={...}
-/&gt;
+<pre><code><span class="token operator">&lt;</span>List
+    dataSource<span class="token operator">=</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">/* a very long array... */</span><span class="token punctuation">}</span>
+    infinite<span class="token operator">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span>
+    renderItem<span class="token operator">=</span><span class="token punctuation">{</span><span class="token operator">...</span><span class="token punctuation">}</span>
+<span class="token operator">/</span><span class="token operator">></span>
 </code></pre><h5 id="infinite-">infinite模式列表项的高度</h5>
 <p>无穷列表的运作机制有两种：指定高度和不指定高度。如果指定了列表项的高度，那么实际上所有的列表项在初始化时即可完成定位，反之只有在列表项渲染进容器后才可以完成定位。</p>
 <p>指定高度的无穷列表的滚动性能要稍好于无高度的列表(无高度的列表要多一次列表项的高度查询开销)，因此请尽量使用指定高度的无穷列表。
 实际上，大多数场景下列表项的高度都是可以确定的，但是对于类似微博首页列表的场景，只能使用不定高度的无穷列表。</p>
 <p>为列表项指定高度有两种方式，通过<code>itemHeight</code>属性可以为所有列表项指定一个高度，这样所有的列表项是等高的；也可以给<code>dataSource</code>中的数组元素添加一个<code>height</code>属性，这样可以给每一个元素分别指定一个高度。例子如下：</p>
 <p>为所有列表项配置相同的高度：</p>
-<pre><code>&lt;List
-    dataSource={/* a very long array... */}
-    infinite={true}
-    itemHeight={44}
-    ...
-/&gt;
+<pre><code><span class="token operator">&lt;</span>List
+    dataSource<span class="token operator">=</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">/* a very long array... */</span><span class="token punctuation">}</span>
+    infinite<span class="token operator">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span>
+    itemHeight<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">44</span><span class="token punctuation">}</span>
+    <span class="token operator">...</span>
+<span class="token operator">/</span><span class="token operator">></span>
 </code></pre><p>给每个列表项配置不同的高度：</p>
-<pre><code>&lt;List
-    dataSource={[
-        { text:&#39;item1&#39;, height:100 },
-        { text:&#39;item2&#39;, height:200 },
-        ...
-    ]}
-    infinite={true}
-    ...
-/&gt;
+<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>List</span>
+    <span class="token attr-name">dataSource</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span>
+        <span class="token punctuation">{</span> text<span class="token punctuation">:</span><span class="token string">'item1'</span><span class="token punctuation">,</span> height<span class="token punctuation">:</span><span class="token number">100</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span> text<span class="token punctuation">:</span><span class="token string">'item2'</span><span class="token punctuation">,</span> height<span class="token punctuation">:</span><span class="token number">200</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+    <span class="token punctuation">]</span><span class="token punctuation">}</span></span>
+    <span class="token attr-name">infinite</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span></span>
+    <span class="token attr-name">...</span>
+<span class="token punctuation">/></span></span>
 </code></pre><p>如果既没有配置<code>itemHeight</code>，也没有配置数据源中数据元素的<code>height</code>属性，
 那么会启动不指定高度模式，列表项的高度会随着列表的滚动计算并保存起来，当所有列表项的高度都被计算之后实际上就切换到了指定高度的模式。</p>
 <p>另外一个很重要的属性是<code>infiniteSize</code>，它决定了列表将把多少个列表项保留在容器内，默认值为<code>12</code>。如果这个值设置的过小，可能会出现保留的列表项内容填不满容器的情况，
@@ -504,34 +505,34 @@
 显著降低这个开销，因此请尽量优化列表项的dom结构，减少层级和不必要的标签。</p>
 <h4 id="-">列表项的触摸事件</h4>
 <p>可以通过<code>onItemTap</code>属性为每个列表项指定一个tap事件回调，可以接收三个参数<code>item</code>(列表项对应的数据元素)，<code>index</code>(列表项的index)以及<code>target</code>(当前触发tap事件的dom)：</p>
-<pre><code>&lt;List
-    ...
-    onItemTap={(item,index,target) =&gt; {
-        ...
-    }}
-/&gt;
+<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>List</span>
+    <span class="token attr-name">...</span>
+    <span class="token attr-name">onItemTap</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span>index<span class="token punctuation">,</span>target<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+    <span class="token punctuation">}</span><span class="token punctuation">}</span></span>
+<span class="token punctuation">/></span></span>
 </code></pre><p>你也可以使用<code>Touchable</code>组件为列表项内部的元素绑定tap事件，详见<code>Touchable</code>文档。</p>
 <p>在设置了<code>onItemTap</code>属性的情况下，可以通过设置<code>itemTouchClass</code>来指定列表项的触摸反馈效果(通过在touchstart时给列表项添加一个className)，默认值是<code>item-touch</code>。
 这个属性可以接收两种形式的值：当传入一个字符串时，会给所有的列表项绑定相同的touchClass；传入函数时，可以根据item为不同的列表项定制touchClass。
 如果是一个纯展示功能的<code>List</code>，你可以设置<code>itemTouchClass = null</code>来取消触摸反馈效果。</p>
-<pre><code>&lt;List
-    ...
-    onItemTap={...}
-    itemTouchClass={&#39;custom-active-class&#39; /* 传入字符串 */}
-    itemTouchClass={(item,i) =&gt; { return item.activeClassName; } /* 传入函数 */}
-/&gt;
+<pre><code><span class="token operator">&lt;</span>List
+    <span class="token operator">...</span>
+    onItemTap<span class="token operator">=</span><span class="token punctuation">{</span><span class="token operator">...</span><span class="token punctuation">}</span>
+    itemTouchClass<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'custom-active-class'</span> <span class="token comment" spellcheck="true">/* 传入字符串 */</span><span class="token punctuation">}</span>
+    itemTouchClass<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span>i<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span> <span class="token keyword">return</span> item<span class="token punctuation">.</span>activeClassName<span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token comment" spellcheck="true">/* 传入函数 */</span><span class="token punctuation">}</span>
+<span class="token operator">/</span><span class="token operator">></span>
 </code></pre><h4 id="-">列表项的性能优化和更新</h4>
 <p>在开启了无穷列表模式的情况下，在滚动过程中会实时更新容器内部的列表项，这会触发大量的<code>render</code>过程，虽然React的虚拟dom diff的开销并不大，
 但是对于某些老式手机，如此频繁的触发dom diff依然会有不可忽视的性能开销。</p>
 <p>为了最大限度地优化滚动的性能，无穷列表的列表项都默认配置了<code>shouldComponentUpdate</code>，它会根据列表项对应的<code>item.key</code>是否发生了变化来决定是否触发<code>render</code>，
 这样可以确保<code>render</code>的触发次数达到最小。</p>
 <p>有的时候这会导致用户期待的<code>render</code>没有发生，这时候可以通过配置<code>shouldItemUpdate</code>属性来覆盖掉默认的<code>shouldComponentUpdate</code>返回的结果。例如：</p>
-<pre><code>&lt;List
-    ...
-    shouldItemUpdate={(ret,nextItem,nowItem) =&gt; {
-        // return ...; //true or false
-    }}
-/&gt;
+<pre><code><span class="token operator">&lt;</span>List
+    <span class="token operator">...</span>
+    shouldItemUpdate<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>ret<span class="token punctuation">,</span>nextItem<span class="token punctuation">,</span>nowItem<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// return ...; //true or false</span>
+    <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token operator">/</span><span class="token operator">></span>
 </code></pre><p>这个函数接收三个参数，第一个<code>ret</code>代表了默认的<code>shouldComponentUpdate</code>返回的原结果(true/false)，第二个参数和第三个参数分别对应着<code>shouldComponentUpdate</code>的<code>nextProps</code>和<code>this.props</code>。
 这个函数返回的布尔值会作为shouldComponentUpdate的新结果返回。</p>
 <p>在不覆盖默认的<code>shouldComponentUpdate</code>的情况下，如果你想修改列表中某一项的数据，
@@ -544,23 +545,23 @@
 <h4 id="-">图片的懒加载</h4>
 <p>图片的懒加载（<code>lazyload</code>）是最常见的性能优化手段（<code>List</code>的示例中也应用了懒加载），使用<code>LazyImage</code>组件可以很轻易地实现这个功能。
 你需要做的是使用<code>LazyImage</code>组件取代列表项内部的<code>&lt;img/&gt;</code>标签, 并且给这个图片指定一个高度，如下：</p>
-<pre><code>&lt;List
-    ...
-    renderItem={(item,i) =&gt; {
-        return (
-            &lt;a className=&quot;img-wrap&quot;&gt;
-                &lt;List.LazyImage
-                    src={item.imgUrl}
-                    defaultImage={null}
-                    style={{
-                        width: &#39;100%&#39;,
-                        height: 200
-                    }}
-                /&gt;
-            &lt;/a&gt;
-        )
-    }}
-/&gt;
+<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>List</span>
+    <span class="token attr-name">...</span>
+    <span class="token attr-name">renderItem</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span>i<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>img-wrap<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+                <span class="token operator">&lt;</span>List<span class="token punctuation">.</span>LazyImage
+                    src<span class="token punctuation">=</span><span class="token punctuation">{</span>item<span class="token punctuation">.</span>imgUrl<span class="token punctuation">}</span>
+                    defaultImage<span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">null</span><span class="token punctuation">}</span>
+                    style<span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span>
+                        width<span class="token punctuation">:</span> <span class="token string">'100%'</span><span class="token punctuation">,</span>
+                        height<span class="token punctuation">:</span> <span class="token number">200</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">}</span></span>
+                <span class="token punctuation">/></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+        <span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token operator">/</span><span class="token operator">></span>
 </code></pre><p>更详细的使用方式请参考<code>LazyImage</code>组件的说明文档。</p>
 
             </div>
@@ -580,57 +581,57 @@
             <h4 id="-">下拉刷新和加载更多</h4>
 <p>这两个功能继承自<code>Scroller</code>组件， 可以查看<code>Scroller</code>的文档来了解如何使用，这里仅仅给出一个完整的例子。
 可以尝试玩一下右边的Demo来看看这段代码究竟做了什么：</p>
-<pre><code>class ListBase extends Component {
+<pre><code><span class="token keyword">class</span> <span class="token class-name">ListBase</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
 
-    constructor() {
-        super();
-        this.state = {
-            dataSource: getRandomDataSource(25)
-        };
-    }
+    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>state <span class="token operator">=</span> <span class="token punctuation">{</span>
+            dataSource<span class="token punctuation">:</span> <span class="token function">getRandomDataSource</span><span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    // 刷新List
-    refresh() {
-        this.setState({ dataSource: getRandomDataSource(25) });
-    }
+    <span class="token comment" spellcheck="true">// 刷新List</span>
+    <span class="token function">refresh</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> dataSource<span class="token punctuation">:</span> <span class="token function">getRandomDataSource</span><span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    // 加载更多
-    fetch() {
-        this.setState({ dataSource: this.state.dataSource.concat(getRandomDataSource(15)) });
-    }
+    <span class="token comment" spellcheck="true">// 加载更多</span>
+    <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> dataSource<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>dataSource<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span><span class="token function">getRandomDataSource</span><span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    render() {
-        return (
-            &lt;Page title=&quot;List Demo&quot; onLeftPress={()=&gt;location.href = &quot;../index.html&quot;}&gt;
-                &lt;List
-                    ref=&quot;list&quot;
-                    dataSource={this.state.dataSource}
-                    renderItem={(item, i)=&gt;&lt;div&gt;{i + &#39;:&#39; + item.text}&lt;/div&gt;}
-                    infinite={true}
-                    infiniteSize={20}
-                    itemHeight={44}
-                    usePullRefresh={true}
-                    onRefresh={()=&gt; {
-                        setTimeout(()=&gt; {
-                            this.refresh();
-                            this.refs.list.stopRefreshing(true);
-                        }, 500);
-                    }}
-                    useLoadMore={true}
-                    onLoad={()=&gt; {
-                        setTimeout(()=&gt; {
-                            this.fetch();
-                            this.refs.list.stopLoading(true);
-                        }, 500);
-                    }}
-                    onItemTap={(item, i)=&gt; {
-                        Toast.show(&#39;item&#39; + i + &#39; clicked.&#39;, 2000);
-                    }}
-                /&gt;
-            &lt;/Page&gt;
-        );
-    }
-}
+    <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Page</span> <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>List</span> <span class="token attr-name">Demo"</span> <span class="token attr-name">onLeftPress</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span>location<span class="token punctuation">.</span>href <span class="token operator">=</span> <span class="token string">"../index.html"</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>List</span>
+                    <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>list<span class="token punctuation">"</span></span>
+                    <span class="token attr-name">dataSource</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>dataSource<span class="token punctuation">}</span></span>
+                    <span class="token attr-name">renderItem</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span><span class="token punctuation">{</span>i <span class="token operator">+</span> <span class="token string">':'</span> <span class="token operator">+</span> item<span class="token punctuation">.</span>text<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span class="token punctuation">}</span></span>
+                    <span class="token attr-name">infinite</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span></span>
+                    <span class="token attr-name">infiniteSize</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token number">20</span><span class="token punctuation">}</span></span>
+                    <span class="token attr-name">itemHeight</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token number">44</span><span class="token punctuation">}</span></span>
+                    <span class="token attr-name">usePullRefresh</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span></span>
+                    <span class="token attr-name">onRefresh</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                        <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">refresh</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                            <span class="token keyword">this</span><span class="token punctuation">.</span>refs<span class="token punctuation">.</span>list<span class="token punctuation">.</span><span class="token function">stopRefreshing</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span></span><span class="token attr-name">}</span>
+                    <span class="token attr-name">useLoadMore</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span></span>
+                    <span class="token attr-name">onLoad</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                        <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">fetch</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                            <span class="token keyword">this</span><span class="token punctuation">.</span>refs<span class="token punctuation">.</span>list<span class="token punctuation">.</span><span class="token function">stopLoading</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span></span><span class="token attr-name">}</span>
+                    <span class="token attr-name">onItemTap</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                        Toast<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token string">'item'</span> <span class="token operator">+</span> i <span class="token operator">+</span> <span class="token string">' clicked.'</span><span class="token punctuation">,</span> <span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">}</span></span>
+                <span class="token punctuation">/></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Page</span><span class="token punctuation">></span></span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
             </div>
             
@@ -1711,7 +1712,6 @@ nowItem(ListItem当前的props的item属性)，返回一个布尔值。false则�
 </div>
 
               </div>
-              <div class="open-panel"></div>
           </div>
           
         
@@ -1726,6 +1726,11 @@ nowItem(ListItem当前的props的item属性)，返回一个布尔值。false则�
       </footer>
     </div>
 
+    
+       <div class="open-panel"></div>
+    
+    
+
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
     
@@ -1733,6 +1738,7 @@ nowItem(ListItem当前的props的item属性)，返回一个布尔值。false则�
 
     
 
+    
     
       
       <script type="text/javascript" src="./theme/ydoc.js"></script>

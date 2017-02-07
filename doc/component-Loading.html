@@ -10,8 +10,9 @@
   <title>Yo Documentation 组件</title>
   <link rel="stylesheet" href="source/main.css"/>
   
+  
     
-<link rel="stylesheet" href="./theme/ydoc.css"/>
+        <link rel="stylesheet" href="./theme/ydoc.css"/>
     
   
 </head>
@@ -423,26 +424,26 @@
 <p>注意：你需要使用<code>import {loading} from &#39;yo3/component/loading&#39;</code>的方式引入API形式的loading组件。
 因为<code>import Loading from &#39;yo3/component/loading&#39;</code>引入的是标签形式的React组件。</p>
 <p>调用<code>loading.show</code>和<code>loading.hide</code>可以控制组件的显示与隐藏：</p>
-<pre><code class="lang-javascript">import { loading } from &#39;yo3/component/loading&#39;;
+<pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> loading <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'yo3/component/loading'</span><span class="token punctuation">;</span>
 
-loading.show();
-loading.hide();
+loading<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+loading<span class="token punctuation">.</span><span class="token function">hide</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h4 id="-">设置遮罩的范围</h4>
 <p>设置maskOffset属性可以控制loading的遮罩层的范围，<code>maskOffset</code>是一个数组，
 其中第一个元素对应遮罩上边缘距离顶部的距离，而第二个元素对应遮罩下边缘距离底部的距离：</p>
-<pre><code class="lang-javascript">// 这个loading的遮罩没有遮盖住导航条
-loading.show({
-    maskOffset: [44, 0]
-});
+<pre><code class="lang-javascript"><span class="token comment" spellcheck="true">// 这个loading的遮罩没有遮盖住导航条</span>
+loading<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    maskOffset<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">44</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h4 id="-">扩展用法：</h4>
 <p>你还可以通过设置<code>extraClass</code>来给<code>loading</code>的根节点添加额外的样式类（比如这里改变了遮罩的透明度）。</p>
 <p>设置<code>text</code>属性，可以给loading的图标下面添加描述文字：</p>
-<pre><code class="lang-javascript">loading.show({
-    extraClass: &#39;yo-loading-b&#39;,
-    text: &#39;loading&#39;
-});
+<pre><code class="lang-javascript">loading<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    extraClass<span class="token punctuation">:</span> <span class="token string">'yo-loading-b'</span><span class="token punctuation">,</span>
+    text<span class="token punctuation">:</span> <span class="token string">'loading'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 
             </div>
@@ -657,7 +658,6 @@ loading.show({
 </div>
 
               </div>
-              <div class="open-panel"></div>
           </div>
           
         
@@ -672,6 +672,11 @@ loading.show({
       </footer>
     </div>
 
+    
+       <div class="open-panel"></div>
+    
+    
+
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
     
@@ -679,6 +684,7 @@ loading.show({
 
     
 
+    
     
       
       <script type="text/javascript" src="./theme/ydoc.js"></script>

@@ -10,8 +10,9 @@
   <title>Yo Documentation 组件</title>
   <link rel="stylesheet" href="source/main.css"/>
   
+  
     
-<link rel="stylesheet" href="./theme/ydoc.css"/>
+        <link rel="stylesheet" href="./theme/ydoc.css"/>
     
   
 </head>
@@ -434,17 +435,17 @@
 <li>通过 <code>flex</code> 来设置高度，例如：<code>&lt;div className=&quot;yo-flex&quot;&gt;&lt;Scroller className=&quot;flex&quot; /&gt;&lt;/div&gt;</code></li>
 <li>通过 <code>position: absolute</code> 来设置高度，例如：<code>&lt;Scroller style={position: &#39;absolute&#39;, left: 0, right: 0, top: 0, bottom: 0} /&gt;</code></li>
 </ul>
-<pre><code>&lt;Scroller&gt;
-    &lt;h1&gt;这是内容区域&lt;/h1&gt;
-&lt;/Scroller&gt;
+<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Scroller</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>这是内容区域<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Scroller</span><span class="token punctuation">></span></span>
 </code></pre><h4 id="-">横向滚动</h4>
 <p><code>Scroller</code> 可以提供一个横向滚动区域，只需要将 <code>scrollX</code> 设置为 <code>true</code> 将 <code>scrollY</code> 设置为 <code>false</code> 即可。</p>
-<pre><code>&lt;Scroller
-    scrollX={true}
-    scrollY={false}
-&gt;
-    &lt;h1&gt;这是内容区域&lt;/h1&gt;
-&lt;/Scroller&gt;
+<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Scroller</span>
+    <span class="token attr-name">scrollX</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span></span>
+    <span class="token attr-name">scrollY</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token boolean">false</span><span class="token punctuation">}</span></span>
+<span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>这是内容区域<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Scroller</span><span class="token punctuation">></span></span>
 </code></pre>
             </div>
             
@@ -473,19 +474,19 @@
 </ol>
 </li>
 </ul>
-<pre><code>&lt;Scroller
-    ref=&quot;scroller&quot;
-    usePullRefresh={true}
-    onRefresh={() =&gt; {
-        // 刷新数据 start
-        // ...
-        // 刷新数据 end
+<pre><code><span class="token operator">&lt;</span>Scroller
+    ref<span class="token operator">=</span><span class="token string">"scroller"</span>
+    usePullRefresh<span class="token operator">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span>
+    onRefresh<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 刷新数据 start</span>
+        <span class="token comment" spellcheck="true">// ...</span>
+        <span class="token comment" spellcheck="true">// 刷新数据 end</span>
 
-        this.refs.scroller.stopRefreshing(true); // 这个调用也可以放在异步操作的回调里之后
-    }}
-&gt;
-    &lt;h1&gt;这是内容区域&lt;/h1&gt;
-&lt;/Scroller&gt;
+        <span class="token keyword">this</span><span class="token punctuation">.</span>refs<span class="token punctuation">.</span>scroller<span class="token punctuation">.</span><span class="token function">stopRefreshing</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 这个调用也可以放在异步操作的回调里之后</span>
+    <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token operator">></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>这是内容区域<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Scroller</span><span class="token punctuation">></span></span>
 </code></pre><h5 id="2-">2. 加载更多</h5>
 <ul>
 <li>功能：在滚动到 <code>Scroller</code> 底部之后，继续滚动一段距离就会触发 <code>加载更多</code> 功能。该功能可以用来加载 <code>Scroller</code> 中更多的内容，比如：查看详情。</li>
@@ -497,19 +498,19 @@
 </ol>
 </li>
 </ul>
-<pre><code>&lt;Scroller
-    ref=&quot;scroller&quot;
-    useLoadMore={true}
-    onLoad={() =&gt; {
-        // 加载数据 start
-        // ...
-        // 加载数据 end
+<pre><code><span class="token operator">&lt;</span>Scroller
+    ref<span class="token operator">=</span><span class="token string">"scroller"</span>
+    useLoadMore<span class="token operator">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span>
+    onLoad<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 加载数据 start</span>
+        <span class="token comment" spellcheck="true">// ...</span>
+        <span class="token comment" spellcheck="true">// 加载数据 end</span>
 
-        this.refs.scroller.stopLoading(true); // 这个调用也可以放在异步操作的回调里之后
-    }}
-&gt;
-    &lt;h1&gt;这是内容区域&lt;/h1&gt;
-&lt;/Scroller&gt;
+        <span class="token keyword">this</span><span class="token punctuation">.</span>refs<span class="token punctuation">.</span>scroller<span class="token punctuation">.</span><span class="token function">stopLoading</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 这个调用也可以放在异步操作的回调里之后</span>
+    <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token operator">></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>这是内容区域<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Scroller</span><span class="token punctuation">></span></span>
 </code></pre>
             </div>
             
@@ -532,13 +533,13 @@
 <li>弹性滚动：<code>bounce</code> 滚动是否能够超出屏幕范围</li>
 <li>惯性滚动：<code>momentum</code> 在松手之后有一定的速度，是否能够继续滚动一段距离</li>
 </ul>
-<pre><code>&lt;Scroller
-    disabled={false}
-    bounce={false}
-    momentum={false}
-&gt;
-    &lt;h1&gt;这是内容区域&lt;/h1&gt;
-&lt;/Scroller&gt;
+<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Scroller</span>
+    <span class="token attr-name">disabled</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token boolean">false</span><span class="token punctuation">}</span></span>
+    <span class="token attr-name">bounce</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token boolean">false</span><span class="token punctuation">}</span></span>
+    <span class="token attr-name">momentum</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token boolean">false</span><span class="token punctuation">}</span></span>
+<span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>这是内容区域<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Scroller</span><span class="token punctuation">></span></span>
 </code></pre><h4 id="-">滚动到某一位置</h4>
 <p><code>Scroller</code> 提供了 <code>scrollTo(x, y, time)</code> 方法来滚动到某个位置。</p>
 <ul>
@@ -546,21 +547,21 @@
 <li>y：纵向目标位置</li>
 <li>time：滚动动画时间，单位ms，默认为 0</li>
 </ul>
-<pre><code>&lt;Scroller ref=&quot;scroller&quot;&gt;
-    &lt;h1&gt;这是内容区域&lt;/h1&gt;
-&lt;/Scroller&gt;
-</code></pre><pre><code>this.refs.scroller.scrollTo(0, -100, 300);
+<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Scroller</span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>scroller<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>这是内容区域<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Scroller</span><span class="token punctuation">></span></span>
+</code></pre><pre><code><span class="token keyword">this</span><span class="token punctuation">.</span>refs<span class="token punctuation">.</span>scroller<span class="token punctuation">.</span><span class="token function">scrollTo</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">300</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><h4 id="-">监听滚动事件</h4>
 <p><code>Scroller</code> 提供了 <code>onScroll</code> 方法来监听滚动事件。一旦设置了这个回调，会强制使用 <code>requestAnimationFrame</code> 来实现滚动动画（包括：回弹、惯性滚动和 <code>scrollTo</code> 方法的动画），即使设置 <code>useTransition</code> 属性为 <code>true</code>。
 这样会导致 <code>Scroller</code> 的性能变差，请谨慎使用。</p>
-<pre><code>&lt;Scroller
-    onScroll={(evt) =&gt; {
-        console.log(evt.contentOffset.x); // 当前横向位移
-        console.log(evt.contentOffset.y); // 当前纵向位移
-    }}
-&gt;
-    &lt;h1&gt;这是内容区域&lt;/h1&gt;
-&lt;/Scroller&gt;
+<pre><code><span class="token operator">&lt;</span>Scroller
+    onScroll<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>evt<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>evt<span class="token punctuation">.</span>contentOffset<span class="token punctuation">.</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 当前横向位移</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>evt<span class="token punctuation">.</span>contentOffset<span class="token punctuation">.</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 当前纵向位移</span>
+    <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token operator">></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>这是内容区域<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Scroller</span><span class="token punctuation">></span></span>
 </code></pre>
             </div>
             
@@ -1487,7 +1488,6 @@ hasLoadMore
 </div>
 
               </div>
-              <div class="open-panel"></div>
           </div>
           
         
@@ -1502,6 +1502,11 @@ hasLoadMore
       </footer>
     </div>
 
+    
+       <div class="open-panel"></div>
+    
+    
+
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
     
@@ -1509,6 +1514,7 @@ hasLoadMore
 
     
 
+    
     
       
       <script type="text/javascript" src="./theme/ydoc.js"></script>

@@ -10,8 +10,9 @@
   <title>Yo Documentation 组件</title>
   <link rel="stylesheet" href="source/main.css"/>
   
+  
     
-<link rel="stylesheet" href="./theme/ydoc.css"/>
+        <link rel="stylesheet" href="./theme/ydoc.css"/>
     
   
 </head>
@@ -425,26 +426,26 @@
             <h4 id="-">基础使用</h4>
 <p><code>GroupList</code>是一个定制化的<code>List</code>，它会把<code>List</code>的<code>dataSource</code>中的元素进行分组展示，并且给每一组添加一个组标题。
 因此它的<code>dataSource</code>与<code>List</code>中的稍有不同，你需要给每一个元素指定一个<code>groupKey</code>，这是一个必须添加的属性:</p>
-<pre><code>let guid = -1;
-...
+<pre><code><span class="token keyword">let</span> guid <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token operator">...</span>
 
-&lt;GroupList
-    dataSource={[
-        {text: &#39;北京&#39;, key:++guid, groupKey:&#39;B&#39;},
-        {text: &#39;上海&#39;, key:++guid, groupKey:&#39;S&#39;},
-        ...
-    ]}
-    sort={(a,b) =&gt; { //return a positive or negative number... }}
-    ...
-/&gt;
+<span class="token operator">&lt;</span>GroupList
+    dataSource<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>text<span class="token punctuation">:</span> <span class="token string">'北京'</span><span class="token punctuation">,</span> key<span class="token punctuation">:</span><span class="token operator">++</span>guid<span class="token punctuation">,</span> groupKey<span class="token punctuation">:</span><span class="token string">'B'</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>text<span class="token punctuation">:</span> <span class="token string">'上海'</span><span class="token punctuation">,</span> key<span class="token punctuation">:</span><span class="token operator">++</span>guid<span class="token punctuation">,</span> groupKey<span class="token punctuation">:</span><span class="token string">'S'</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token operator">...</span>
+    <span class="token punctuation">]</span><span class="token punctuation">}</span>
+    sort<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">//return a positive or negative number... }}</span>
+    <span class="token operator">...</span>
+<span class="token operator">/</span><span class="token operator">></span>
 </code></pre><p>如果设置<code>groupKey</code>为<code>notGrouped</code>，那么这些元素组成的组没有标题，并且会放置在所有分组的上方。使用<code>sort</code>属性可以给分组排序，它的使用方式与数组的sort完全一致。</p>
 <p>除了必须给<code>dataSource</code>中的元素添加<code>groupKey</code>之外，和<code>List</code>不同的一点是<code>GroupList</code>的<code>renderItem</code>属性现在被分成了两个属性: <code>renderGroupItem</code>
 和<code>renderGroupTitle</code>:</p>
-<pre><code>&lt;GroupList
-    ...
-    renderGroupItem={(item,i) =&gt; { /* return a JSX ,array of element or string... */ }}
-    renderGroupTitle={groupKey =&gt; { /* the same to renderGroupItem... */ }}
-/&gt;
+<pre><code><span class="token operator">&lt;</span>GroupList
+    <span class="token operator">...</span>
+    renderGroupItem<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span>i<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">/* return a JSX ,array of element or string... */</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+    renderGroupTitle<span class="token operator">=</span><span class="token punctuation">{</span>groupKey <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">/* the same to renderGroupItem... */</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token operator">/</span><span class="token operator">></span>
 </code></pre><p>你可以分别指定普通的列表项和分组标题的渲染方式，<code>renderGroupItem</code>的使用与<code>List</code>的<code>renderItem</code>完全一致；<code>renderGroupTitle</code>可以指定分组标题的渲染方式,
 它可以接收一个参数<code>groupKey</code>，即你在dataSource中为每个元素添加的groupKey。</p>
 <p>对于一些其它<code>List</code>中的属性，<code>GroupList</code>也与之有细微的差别: <code>itemTouchClass</code>在<code>GroupList</code>里只能够指定普通列表项的触摸反馈效果，对于分组标题无效,
@@ -456,73 +457,73 @@
 <p>需要注意的是，在不指定高度的无穷模式下，分组导航栏无法使用，因为在所有列表项完成定位之前无法获取每一个分组的位置。</p>
 <h4 id="-">一个完整的例子</h4>
 <p>下面的代码就是右侧Demo的源码:</p>
-<pre><code class="lang-js">class GroupListDemo extends Component {
+<pre><code class="lang-js"><span class="token keyword">class</span> <span class="token class-name">GroupListDemo</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
 
-    static guid = -1;
+    <span class="token keyword">static</span> guid <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
 
-    constructor() {
-        super();
-        this.state = {
-            dataSource: this.renderDataSource(getRandomDataSource(100))
-        };
-    }
+    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>state <span class="token operator">=</span> <span class="token punctuation">{</span>
+            dataSource<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">renderDataSource</span><span class="token punctuation">(</span><span class="token function">getRandomDataSource</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    renderDataSource(dataSource) {
-        return dataSource.map((item, index)=&gt; {
-            return {
-                groupKey: index &lt; 5 ? &#39;notGrouped&#39; : parseInt(item.text / 10, 10),
-                text: index &lt; 5 ? (&#39;没有被分组的元素&#39; + item.text) : item.text,
-                key: ++GroupListDemo.guid
-            };
-        });
-    }
+    <span class="token function">renderDataSource</span><span class="token punctuation">(</span>dataSource<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> dataSource<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> index<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token punctuation">{</span>
+                groupKey<span class="token punctuation">:</span> index <span class="token operator">&lt;</span> <span class="token number">5</span> <span class="token operator">?</span> <span class="token string">'notGrouped'</span> <span class="token punctuation">:</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>text <span class="token operator">/</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                text<span class="token punctuation">:</span> index <span class="token operator">&lt;</span> <span class="token number">5</span> <span class="token operator">?</span> <span class="token punctuation">(</span><span class="token string">'没有被分组的元素'</span> <span class="token operator">+</span> item<span class="token punctuation">.</span>text<span class="token punctuation">)</span> <span class="token punctuation">:</span> item<span class="token punctuation">.</span>text<span class="token punctuation">,</span>
+                key<span class="token punctuation">:</span> <span class="token operator">++</span>GroupListDemo<span class="token punctuation">.</span>guid
+            <span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    loadMore() {
-        this.setState({
-            dataSource: this.state.dataSource.concat(this.renderDataSource(getRandomDataSource(10)))
-        });
-    }
+    <span class="token function">loadMore</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+            dataSource<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>dataSource<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">renderDataSource</span><span class="token punctuation">(</span><span class="token function">getRandomDataSource</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    render() {
-        return (
-            &lt;Page title=&#39;GroupList Demo&#39; onLeftPress={()=&gt;location.href = &#39;../index/index.html&#39;}&gt;
-                &lt;GroupList
-                    ref=&#39;grouplist&#39;
-                    dataSource={this.state.dataSource}
-                    offsetY={-220}
-                    infinite={true}
-                    itemHeight={44}
-                    showIndexNavBar={true /* 注意:没有指定高度的无穷分组列表无法使用indexNavBar,这个属性设置为true也不会生效 */}
-                    renderIndexNavBarItem={(groupKey)=&gt;DIGIT_TO_CHN[groupKey] /* 同上 */}
-                    onIndexNavBarItemHover={(groupKey)=&gt; {
-                        ToolTip.show(DIGIT_TO_CHN[groupKey], 2000);
-                    }}
-                    renderGroupItem={(item, index)=&gt;&lt;div&gt;{index + &#39;:&#39; + item.text}&lt;/div&gt;}
-                    renderGroupTitle={(groupKey)=&gt;DIGIT_TO_CHN[groupKey]}
-                    groupTitleExtraClass={title=&gt;&#39;label demo-group-title&#39;}
-                    onItemTap={(item, index)=&gt;ToolTip.show(&#39;tapping:&#39; + item.text, 2000)}
-                    sort={(a, b)=&gt; {
-                        return a - b;
-                    }}
-                    usePullRefresh={true}
-                    onRefresh={()=&gt; {
-                        setTimeout(()=&gt; {
-                            this.setState({ dataSource: this.renderDataSource(getRandomDataSource(500)) })
-                            this.refs.grouplist.stopRefreshing(true);
-                        }, 500);
-                    }}
-                    useLoadMore={true}
-                    onLoad={()=&gt; {
-                        setTimeout(()=&gt; {
-                            this.loadMore();
-                            this.refs.grouplist.stopLoading(true);
-                        }, 500);
-                    }}
-                /&gt;
-            &lt;/Page&gt;
-        );
-    }
-}
+    <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>
+            <span class="token operator">&lt;</span>Page title<span class="token operator">=</span><span class="token string">'GroupList Demo'</span> onLeftPress<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span>location<span class="token punctuation">.</span>href <span class="token operator">=</span> <span class="token string">'../index/index.html'</span><span class="token punctuation">}</span><span class="token operator">></span>
+                <span class="token operator">&lt;</span>GroupList
+                    ref<span class="token operator">=</span><span class="token string">'grouplist'</span>
+                    dataSource<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>dataSource<span class="token punctuation">}</span>
+                    offsetY<span class="token operator">=</span><span class="token punctuation">{</span><span class="token operator">-</span><span class="token number">220</span><span class="token punctuation">}</span>
+                    infinite<span class="token operator">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span>
+                    itemHeight<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">44</span><span class="token punctuation">}</span>
+                    showIndexNavBar<span class="token operator">=</span><span class="token punctuation">{</span><span class="token boolean">true</span> <span class="token comment" spellcheck="true">/* 注意:没有指定高度的无穷分组列表无法使用indexNavBar,这个属性设置为true也不会生效 */</span><span class="token punctuation">}</span>
+                    renderIndexNavBarItem<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>groupKey<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span>DIGIT_TO_CHN<span class="token punctuation">[</span>groupKey<span class="token punctuation">]</span> <span class="token comment" spellcheck="true">/* 同上 */</span><span class="token punctuation">}</span>
+                    onIndexNavBarItemHover<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>groupKey<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                        ToolTip<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span>DIGIT_TO_CHN<span class="token punctuation">[</span>groupKey<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">}</span>
+                    renderGroupItem<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> index<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token operator">&lt;</span>div<span class="token operator">></span><span class="token punctuation">{</span>index <span class="token operator">+</span> <span class="token string">':'</span> <span class="token operator">+</span> item<span class="token punctuation">.</span>text<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span><span class="token punctuation">}</span>
+                    renderGroupTitle<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>groupKey<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span>DIGIT_TO_CHN<span class="token punctuation">[</span>groupKey<span class="token punctuation">]</span><span class="token punctuation">}</span>
+                    groupTitleExtraClass<span class="token operator">=</span><span class="token punctuation">{</span>title<span class="token operator">=</span><span class="token operator">></span><span class="token string">'label demo-group-title'</span><span class="token punctuation">}</span>
+                    onItemTap<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> index<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span>ToolTip<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token string">'tapping:'</span> <span class="token operator">+</span> item<span class="token punctuation">.</span>text<span class="token punctuation">,</span> <span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+                    sort<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                        <span class="token keyword">return</span> a <span class="token operator">-</span> b<span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">}</span>
+                    usePullRefresh<span class="token operator">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span>
+                    onRefresh<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                        <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> dataSource<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">renderDataSource</span><span class="token punctuation">(</span><span class="token function">getRandomDataSource</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+                            <span class="token keyword">this</span><span class="token punctuation">.</span>refs<span class="token punctuation">.</span>grouplist<span class="token punctuation">.</span><span class="token function">stopRefreshing</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">}</span>
+                    useLoadMore<span class="token operator">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span>
+                    onLoad<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                        <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">loadMore</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                            <span class="token keyword">this</span><span class="token punctuation">.</span>refs<span class="token punctuation">.</span>grouplist<span class="token punctuation">.</span><span class="token function">stopLoading</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">}</span>
+                <span class="token operator">/</span><span class="token operator">></span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>Page<span class="token operator">></span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
             </div>
@@ -553,13 +554,13 @@
     <div><p>组件的数据源，每个元素必须有groupKey属性(String)，如果是不需要分组的元素，groupKey属性为&#39;notGrouped&#39;。</p>
 <p>示例:</p>
 <ul>
-<li><pre><code>[
- {
-   text: String //如果传入了这个属性并且没有配置renderItem，会以text文本作为列表项的内容
-   groupKey: String //列表项的groupKey，将根据这个属性对元素进行分组，如果是不需要分组的元素,应设置为&#39;notGrouped&#39;。
- },
- ...
-]
+<li><pre><code><span class="token punctuation">[</span>
+ <span class="token punctuation">{</span>
+   text<span class="token punctuation">:</span> String <span class="token comment" spellcheck="true">//如果传入了这个属性并且没有配置renderItem，会以text文本作为列表项的内容</span>
+   groupKey<span class="token punctuation">:</span> String <span class="token comment" spellcheck="true">//列表项的groupKey，将根据这个属性对元素进行分组，如果是不需要分组的元素,应设置为'notGrouped'。</span>
+ <span class="token punctuation">}</span><span class="token punctuation">,</span>
+ <span class="token operator">...</span>
+<span class="token punctuation">]</span>
 </code></pre></li>
 </ul>
 </div>
@@ -1698,7 +1699,6 @@
 </div>
 
               </div>
-              <div class="open-panel"></div>
           </div>
           
         
@@ -1713,6 +1713,11 @@
       </footer>
     </div>
 
+    
+       <div class="open-panel"></div>
+    
+    
+
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
     
@@ -1720,6 +1725,7 @@
 
     
 
+    
     
       
       <script type="text/javascript" src="./theme/ydoc.js"></script>

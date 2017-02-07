@@ -10,8 +10,9 @@
   <title>Yo Documentation 组件</title>
   <link rel="stylesheet" href="source/main.css"/>
   
+  
     
-<link rel="stylesheet" href="./theme/ydoc.css"/>
+        <link rel="stylesheet" href="./theme/ydoc.css"/>
     
   
 </head>
@@ -425,27 +426,27 @@
             <div class="instructions-con-info">
             <h4 id="-">基本用法</h4>
 <p>最简单用法，从页面底部弹出一个模态浮层。</p>
-<pre><code class="lang-javascript">&lt;Popup show={this.state.show}&gt;
+<pre><code class="lang-javascript"><span class="token operator">&lt;</span>Popup show<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>show<span class="token punctuation">}</span><span class="token operator">></span>
     Popup content
-&lt;/Popup&gt;
+<span class="token operator">&lt;</span><span class="token operator">/</span>Popup<span class="token operator">></span>
 </code></pre>
 <h4 id="-">从上向下</h4>
 <p>通过<code>direction</code>属性设置组件的动画方向，默认从页面底部自下向上。</p>
-<pre><code class="lang-javascript">&lt;Popup show={this.state.show} direction=&quot;down&quot;&gt;
+<pre><code class="lang-javascript"><span class="token operator">&lt;</span>Popup show<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>show<span class="token punctuation">}</span> direction<span class="token operator">=</span><span class="token string">"down"</span><span class="token operator">></span>
     Popup content
-&lt;/Popup&gt;
+<span class="token operator">&lt;</span><span class="token operator">/</span>Popup<span class="token operator">></span>
 </code></pre>
 <h4 id="-">遮罩层偏移</h4>
 <p>通过<code>maskOffset</code>属性设置组件背景遮罩层的偏移量。该属性是一个数组，分别对应上、下偏移量，默认<code>[0, 0]</code>。</p>
-<pre><code class="lang-javascript">&lt;Popup show={this.state.show} maskOffset={[44, 0]}&gt;
+<pre><code class="lang-javascript"><span class="token operator">&lt;</span>Popup show<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>show<span class="token punctuation">}</span> maskOffset<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span><span class="token number">44</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token operator">></span>
     Popup content
-&lt;/Popup&gt;
+<span class="token operator">&lt;</span><span class="token operator">/</span>Popup<span class="token operator">></span>
 </code></pre>
 <h4 id="-">动画执行时间</h4>
 <p>通过<code>duration</code>属性设置组件打开、关闭过程中的动画执行时间。默认200ms。</p>
-<pre><code class="lang-javascript">&lt;Popup show={this.state.show} duration={1000}&gt;
+<pre><code class="lang-javascript"><span class="token operator">&lt;</span>Popup show<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>show<span class="token punctuation">}</span> duration<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1000</span><span class="token punctuation">}</span><span class="token operator">></span>
     Popup content
-&lt;/Popup&gt;
+<span class="token operator">&lt;</span><span class="token operator">/</span>Popup<span class="token operator">></span>
 </code></pre>
 
             </div>
@@ -628,7 +629,6 @@
 </div>
 
               </div>
-              <div class="open-panel"></div>
           </div>
           
         
@@ -643,6 +643,11 @@
       </footer>
     </div>
 
+    
+       <div class="open-panel"></div>
+    
+    
+
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
     
@@ -650,6 +655,7 @@
 
     
 
+    
     
       
       <script type="text/javascript" src="./theme/ydoc.js"></script>

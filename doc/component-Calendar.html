@@ -10,8 +10,9 @@
   <title>Yo Documentation 组件</title>
   <link rel="stylesheet" href="source/main.css"/>
   
+  
     
-<link rel="stylesheet" href="./theme/ydoc.css"/>
+        <link rel="stylesheet" href="./theme/ydoc.css"/>
     
   
 </head>
@@ -430,67 +431,67 @@
             <h4 id="-">基本用法</h4>
 <p>最简单用法，默认显示未来90天的可选日期范围，同时选中日期范围的起、始日期可为同一天。
 用户选中范围的起始日期分别是<code>selectionStart</code>和<code>selectionEnd</code>属性。由于这是一个受控组件，所以需要通过 <code>onChange</code> 回调来设置当前值。</p>
-<pre><code>&lt;Calendar 
-    selectionStart={this.state.selectionStart}
-    selectionEnd={this.state.selectionEnd}
-    onChange={obj =&gt; this.setState({
-        selectionStart: obj.selectionStart,
-        selectionEnd: obj.selectionEnd
-    })}
-/&gt;
+<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Calendar</span> 
+    <span class="token attr-name">selectionStart</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>selectionStart<span class="token punctuation">}</span></span>
+    <span class="token attr-name">selectionEnd</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>selectionEnd<span class="token punctuation">}</span></span>
+    <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>obj <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        selectionStart<span class="token punctuation">:</span> obj<span class="token punctuation">.</span>selectionStart<span class="token punctuation">,</span>
+        selectionEnd<span class="token punctuation">:</span> obj<span class="token punctuation">.</span>selectionEnd
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>
+<span class="token punctuation">/></span></span>
 </code></pre><h4 id="-">显示特定日期范围</h4>
 <p>使用<code>duration</code>属性，配置显示特定阶段的日期范围，传入具体的数值显示未来可选择的天数范围，还可传入一个数组，显示特定起始范围的可选日期。
 另外，可以在<code>onChange</code>函数中决定用户选择的日期范围的起、始日期不能为同一天。</p>
-<pre><code>class Demo extends Component {
-    constructor() {
-        super();
-        this.state = {
-            selectionStart: &#39;2017-01-01&#39;,
-            selectionEnd: &#39;2017-01-10&#39;
-        };
-    }
+<pre><code><span class="token keyword">class</span> <span class="token class-name">Demo</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>state <span class="token operator">=</span> <span class="token punctuation">{</span>
+            selectionStart<span class="token punctuation">:</span> <span class="token string">'2017-01-01'</span><span class="token punctuation">,</span>
+            selectionEnd<span class="token punctuation">:</span> <span class="token string">'2017-01-10'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    onChange(obj) {
-        const { selectionStart, selectionEnd } = obj;
-        if (selectionStart === selectionEnd) {
-            return;
-        }
-        this.setState({
-            selectionStart,
+    <span class="token function">onChange</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> <span class="token punctuation">{</span> selectionStart<span class="token punctuation">,</span> selectionEnd <span class="token punctuation">}</span> <span class="token operator">=</span> obj<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>selectionStart <span class="token operator">===</span> selectionEnd<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+            selectionStart<span class="token punctuation">,</span>
             selectionEnd
-        });
-    }
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    render() {
-        return (
-             &lt;Calendar
-                 duration={[&#39;2017-01-01&#39;, &#39;2017-12-31&#39;]}
-                 selectionStart={this.state.selectionStart}
-                 selectionEnd={this.state.selectionEnd}
-                 onChange={obj =&gt; this.onChange(obj)}
-             /&gt;
-        );
-    }
-}
+    <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>
+             <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Calendar</span>
+                 <span class="token attr-name">duration</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span><span class="token string">'2017-01-01'</span><span class="token punctuation">,</span> <span class="token string">'2017-12-31'</span><span class="token punctuation">]</span><span class="token punctuation">}</span></span>
+                 <span class="token attr-name">selectionStart</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>selectionStart<span class="token punctuation">}</span></span>
+                 <span class="token attr-name">selectionEnd</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>selectionEnd<span class="token punctuation">}</span></span>
+                 <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>obj <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">onChange</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">}</span></span>
+             <span class="token punctuation">/></span></span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre><h4 id="-">只允许选择单日</h4>
 <p>配置<code>allowSingle</code>属性为<code>true</code>，只允许用户选择单个日期，即仅有<code>selectionStart</code>属性生效。</p>
-<pre><code>&lt;Calendar
-    allowSingle={true}
-    selectionStart={this.state.selectionStart}
-    onChange={obj =&gt; this.setState({
-        selectionStart: obj.selectionStart,
-    })}    
-/&gt;
+<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Calendar</span>
+    <span class="token attr-name">allowSingle</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span></span>
+    <span class="token attr-name">selectionStart</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>selectionStart<span class="token punctuation">}</span></span>
+    <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>obj <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        selectionStart<span class="token punctuation">:</span> obj<span class="token punctuation">.</span>selectionStart<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>    
+<span class="token punctuation">/></span></span>
 </code></pre><h4 id="-">个性化选中日期标记</h4>
 <p>通过设置<code>selectionStartText</code>和<code>selectionEndText</code>属性自定义选中日期的标记内容，同时可传入<a href="http://iconfont.corp.qunar.com/repositories/7">Yo支持的iconfont</a>。
 另外，可以在<code>onChange</code>函数中动态设置<code>selectionStartText</code>的文字内容，在用户前后两次选中同一天和选择一个日期范围两种情况之间的标记切换。</p>
-<pre><code>&lt;Calendar
-    selectionStart={this.state.selectionStart}
-    selectionEnd={this.state.selectionEnd}
-    selectionStartText=&quot;起飞&quot;
-    selectionEndText=&quot;&amp;#xf04a;&quot;
-    onChange={obj =&gt; this.onChange(obj)}
-/&gt;
+<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Calendar</span>
+    <span class="token attr-name">selectionStart</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>selectionStart<span class="token punctuation">}</span></span>
+    <span class="token attr-name">selectionEnd</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>selectionEnd<span class="token punctuation">}</span></span>
+    <span class="token attr-name">selectionStartText</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>起飞<span class="token punctuation">"</span></span>
+    <span class="token attr-name">selectionEndText</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>&amp;#xf04a;<span class="token punctuation">"</span></span>
+    <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>obj <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">onChange</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">}</span></span>
+<span class="token punctuation">/></span></span>
 </code></pre>
             </div>
             
@@ -715,7 +716,6 @@
 </div>
 
               </div>
-              <div class="open-panel"></div>
           </div>
           
         
@@ -730,6 +730,11 @@
       </footer>
     </div>
 
+    
+       <div class="open-panel"></div>
+    
+    
+
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
     
@@ -737,6 +742,7 @@
 
     
 
+    
     
       
       <script type="text/javascript" src="./theme/ydoc.js"></script>
