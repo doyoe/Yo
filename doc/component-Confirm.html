@@ -10,8 +10,9 @@
   <title>Yo Documentation 组件</title>
   <link rel="stylesheet" href="source/main.css"/>
   
+  
     
-<link rel="stylesheet" href="./theme/ydoc.css"/>
+        <link rel="stylesheet" href="./theme/ydoc.css"/>
     
   
 </head>
@@ -314,6 +315,14 @@
                         
                         
                             <li >
+                                <a href="component-Carousel.CarouselItem.html">Carousel.CarouselItem</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
                                 <a href="component-Range.html">Range</a>
                             </li>
                         
@@ -418,65 +427,65 @@
             <div class="instructions-con-info">
             <h4 id="-">基本用法</h4>
 <p>最简单的用法，传入需要显示的内容参数。用于简单的弹出确认框。</p>
-<pre><code class="lang-JavaScript">Confirm(&#39;the confirm text&#39;);
+<pre><code class="lang-JavaScript"><span class="token function">Confirm</span><span class="token punctuation">(</span><span class="token string">'the confirm text'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h4 id="-">含有标题</h4>
 <p>通过第二个参数传入组件显示的标题，默认不显示标题。。</p>
-<pre><code class="lang-JavaScript">Confirm(&#39;the confirm text&#39;, &#39;Confirm&#39;);
+<pre><code class="lang-JavaScript"><span class="token function">Confirm</span><span class="token punctuation">(</span><span class="token string">'the confirm text'</span><span class="token punctuation">,</span> <span class="token string">'Confirm'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h4 id="-">绑定回调函数</h4>
 <p>通过返回的<code>Promise</code>实例对象的<code>then</code>方法分别绑定确认、取消按钮的回调函数。
 如果res的值为true，说明点击的是确定按钮，反之为取消按钮。</p>
-<pre><code class="lang-JavaScript">Confirm(&#39;the confirm text&#39;).then(
-    res =&gt; console.log(`resolve ${res}`)
-);
+<pre><code class="lang-JavaScript"><span class="token function">Confirm</span><span class="token punctuation">(</span><span class="token string">'the confirm text'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>
+    res <span class="token operator">=</span><span class="token operator">></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`resolve </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>res<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h4 id="-">定义按钮文本</h4>
 <p>Confirm可以接受一个参数对象option，除了上面的content和title外，还可以定义一些更高级的属性值，例如改变两个按钮的文本：</p>
-<pre><code>Confirm({
-    content:&#39;the confirm text&#39;,
-    title:&#39;title&#39;,
-    btnText:[&#39;ok&#39;,&#39;cancel&#39;]
-});
+<pre><code><span class="token function">Confirm</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    content<span class="token punctuation">:</span><span class="token string">'the confirm text'</span><span class="token punctuation">,</span>
+    title<span class="token punctuation">:</span><span class="token string">'title'</span><span class="token punctuation">,</span>
+    btnText<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'ok'</span><span class="token punctuation">,</span><span class="token string">'cancel'</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><h4 id="-">设置动画</h4>
 <p>通过给option对象传入<code>animation</code>参数和CSS3动画设置组件显隐过程的动态效果，配置动画对象中的<code>animation</code>属性是一个数组，分别对应组件显、隐过程执行的动画效果，<code>duration</code>属性设置动画执行时间。
 也可以传入组件内部支持的动画名字符串<code>fade</code>、<code>fade-in-up</code>、<code>fade-in-down</code>、<code>zoom</code>。默认没有动画。</p>
-<pre><code class="lang-JavaScript">const animation = {animation: [&#39;actionsheet-up&#39;, &#39;actionsheet-down&#39;], duration: 200};
+<pre><code class="lang-JavaScript"><span class="token keyword">const</span> animation <span class="token operator">=</span> <span class="token punctuation">{</span>animation<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'actionsheet-up'</span><span class="token punctuation">,</span> <span class="token string">'actionsheet-down'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> duration<span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-Confirm({
-    content:&#39;the confirm text&#39;,
-    title:&#39;Confirm&#39;,
+<span class="token function">Confirm</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    content<span class="token punctuation">:</span><span class="token string">'the confirm text'</span><span class="token punctuation">,</span>
+    title<span class="token punctuation">:</span><span class="token string">'Confirm'</span><span class="token punctuation">,</span>
     animation
-})
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
 </code></pre>
 <pre><code class="lang-css">
-.actionsheet-up {
-  -webkit-animation-name: actionsheet-up;
-  animation-name: actionsheet-up;
-}
+<span class="token selector">.actionsheet-up</span> <span class="token punctuation">{</span>
+  <span class="token property">-webkit-animation-name</span><span class="token punctuation">:</span> actionsheet-up<span class="token punctuation">;</span>
+  <span class="token property">animation-name</span><span class="token punctuation">:</span> actionsheet-up<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-.actionsheet-down {
-  -webkit-animation-name: actionsheet-down;
-  animation-name: actionsheet-down;
-}
+<span class="token selector">.actionsheet-down</span> <span class="token punctuation">{</span>
+  <span class="token property">-webkit-animation-name</span><span class="token punctuation">:</span> actionsheet-down<span class="token punctuation">;</span>
+  <span class="token property">animation-name</span><span class="token punctuation">:</span> actionsheet-down<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-@keyframes actionsheet-up {
-    from {
-        transform: translate3d(0, 100%, 0);
-    }
-    to {
-        transform: translate3d(0, 0, 0);
-    }
-}
+<span class="token atrule"><span class="token rule">@keyframes</span> actionsheet-up</span> <span class="token punctuation">{</span>
+    <span class="token selector">from</span> <span class="token punctuation">{</span>
+        <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translate3d</span><span class="token punctuation">(</span>0, 100%, 0<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector">to</span> <span class="token punctuation">{</span>
+        <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translate3d</span><span class="token punctuation">(</span>0, 0, 0<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-@keyframes actionsheet-down {
-    from {
-        transform: translate3d(0, 0, 0);
-    }
-    to {
-        transform: translate3d(0, 100%, 0);
-    }
-}
+<span class="token atrule"><span class="token rule">@keyframes</span> actionsheet-down</span> <span class="token punctuation">{</span>
+    <span class="token selector">from</span> <span class="token punctuation">{</span>
+        <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translate3d</span><span class="token punctuation">(</span>0, 0, 0<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector">to</span> <span class="token punctuation">{</span>
+        <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translate3d</span><span class="token punctuation">(</span>0, 100%, 0<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <h4 id="-">隐藏取消按钮</h4>
 <p>此种形式下的组件效果等同于Alert警告提示组件。</p>
@@ -610,7 +619,6 @@ Confirm({
 </div>
 
               </div>
-              <div class="open-panel"></div>
           </div>
           
         
@@ -625,6 +633,11 @@ Confirm({
       </footer>
     </div>
 
+    
+       <div class="open-panel"></div>
+    
+    
+
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
     
@@ -632,6 +645,7 @@ Confirm({
 
     
 
+    
     
       
       <script type="text/javascript" src="./theme/ydoc.js"></script>

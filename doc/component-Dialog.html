@@ -10,8 +10,9 @@
   <title>Yo Documentation 组件</title>
   <link rel="stylesheet" href="source/main.css"/>
   
+  
     
-<link rel="stylesheet" href="./theme/ydoc.css"/>
+        <link rel="stylesheet" href="./theme/ydoc.css"/>
     
   
 </head>
@@ -314,6 +315,14 @@
                         
                         
                             <li >
+                                <a href="component-Carousel.CarouselItem.html">Carousel.CarouselItem</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
                                 <a href="component-Range.html">Range</a>
                             </li>
                         
@@ -418,82 +427,76 @@
             <div class="instructions-con-info">
             <h4 id="-">基本用法</h4>
 <p>最简单用法。全屏居中模态显示组件包含的内容，没有过渡动画。</p>
-<pre><code class="lang-JavaScript">&lt;Dialog show={this.state.show}&gt;
-    &lt;p&gt;the dialog context&lt;/p&gt;
-&lt;/Dialog&gt;
-</code></pre>
-<h4 id="-">含有标题</h4>
+<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Dialog</span> <span class="token attr-name">show</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>show<span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>the dialog context<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Dialog</span><span class="token punctuation">></span></span>
+</code></pre><h4 id="-">含有标题</h4>
 <p>通过<code>title</code>属性，配置含有标题文字的对话弹框组件。</p>
-<pre><code class="lang-JavaScript">&lt;Dialog title=&quot;Dialog&quot; show={this.state.show}&gt;
-    &lt;p&gt;the dialog context&lt;/p&gt;
-&lt;/Dialog&gt;
-</code></pre>
-<h4 id="-">国际化</h4>
+<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Dialog</span> <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Dialog<span class="token punctuation">"</span></span> <span class="token attr-name">show</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>show<span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>the dialog context<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Dialog</span><span class="token punctuation">></span></span>
+</code></pre><h4 id="-">国际化</h4>
 <p>通过<code>okText</code>和<code>cancelText</code>属性，可配置确定、取消按钮显示的文字。</p>
-<pre><code class="lang-JavaScript">&lt;Dialog show={this.state.show} okText=&quot;Yes&quot; cancelText=&quot;No&quot;&gt;
-    &lt;p&gt;the dialog context&lt;/p&gt;
-&lt;/Dialog&gt;
-</code></pre>
-<h4 id="-">位置</h4>
+<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Dialog</span> <span class="token attr-name">show</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>show<span class="token punctuation">}</span></span> <span class="token attr-name">okText</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Yes<span class="token punctuation">"</span></span> <span class="token attr-name">cancelText</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>No<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>the dialog context<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Dialog</span><span class="token punctuation">></span></span>
+</code></pre><h4 id="-">位置</h4>
 <p>通过设置<code>align</code>和<code>contentOffset</code>属性，自定义组件的内容显示位置。<code>align</code>属性配置内容的垂直方向显示位置，<code>contentOffset</code>属性是一个数组，可配置内容相对于当前位置的X轴、Y轴偏移量。</p>
-<pre><code class="lang-JavaScript">&lt;Dialog
-    show={this.state.show}
-    align=&quot;top&quot;
-    contentOffset={[50, 50]}
-&gt;
-    &lt;p&gt;the dialog context&lt;/p&gt;
-&lt;/Dialog&gt;
-</code></pre>
-<h4 id="-">绑定回调函数</h4>
+<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Dialog</span>
+    <span class="token attr-name">show</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>show<span class="token punctuation">}</span></span>
+    <span class="token attr-name">align</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>top<span class="token punctuation">"</span></span>
+    <span class="token attr-name">contentOffset</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span><span class="token number">50</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">]</span><span class="token punctuation">}</span></span>
+<span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>the dialog context<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Dialog</span><span class="token punctuation">></span></span>
+</code></pre><h4 id="-">绑定回调函数</h4>
 <p>通过<code>onOk</code>和<code>onCancel</code>属性，分别设置确定、取消按钮的回调函数。</p>
-<pre><code class="lang-JavaScript">&lt;Dialog
-    show={this.state.show}
-    onOk={() =&gt; this.callback()}
-    onCancel={() =&gt; this.callback()}
-&gt;
-    &lt;p&gt;the dialog context&lt;/p&gt;
-&lt;/Dialog&gt;
-</code></pre>
-<h4 id="-">设置动画</h4>
+<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Dialog</span>
+    <span class="token attr-name">show</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>show<span class="token punctuation">}</span></span>
+    <span class="token attr-name">onOk</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">callback</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>
+    <span class="token attr-name">onCancel</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">callback</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>
+<span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>the dialog context<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Dialog</span><span class="token punctuation">></span></span>
+</code></pre><h4 id="-">设置动画</h4>
 <p>通过<code>animation</code>参数和CSS3动画设置组件显隐过程的动态效果，配置动画对象中的<code>animation</code>属性是一个数组，分别对应组件显、隐过程执行的动画效果，<code>duration</code>属性设置动画执行时间。
 也可以传入组件内部支持的动画名字符串<code>fade</code>、<code>fade-in-up</code>、<code>fade-in-down</code>、<code>zoom</code>。默认没有动画。</p>
-<pre><code class="lang-JavaScript">&lt;Dialog
-    show={this.state.show}
-    onOk={() =&gt; this.callback()}
-    onCancel={() =&gt; this.callback()}
-    animation={{animation: [&#39;actionsheet-up&#39;, &#39;actionsheet-down&#39;], duration: 200}}
-&gt;
-    &lt;p&gt;the dialog context&lt;/p&gt;
-&lt;/Dialog&gt;
-</code></pre>
-<pre><code class="lang-css">
-.actionsheet-up {
-  -webkit-animation-name: actionsheet-up;
-  animation-name: actionsheet-up;
-}
+<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Dialog</span>
+    <span class="token attr-name">show</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>show<span class="token punctuation">}</span></span>
+    <span class="token attr-name">onOk</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">callback</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>
+    <span class="token attr-name">onCancel</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">callback</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>
+    <span class="token attr-name">animation</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span>animation<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'actionsheet-up'</span><span class="token punctuation">,</span> <span class="token string">'actionsheet-down'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> duration<span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">}</span><span class="token punctuation">}</span></span>
+<span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>the dialog context<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Dialog</span><span class="token punctuation">></span></span>
+</code></pre><pre><code class="lang-css">
+<span class="token selector">.actionsheet-up</span> <span class="token punctuation">{</span>
+  <span class="token property">-webkit-animation-name</span><span class="token punctuation">:</span> actionsheet-up<span class="token punctuation">;</span>
+  <span class="token property">animation-name</span><span class="token punctuation">:</span> actionsheet-up<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-.actionsheet-down {
-  -webkit-animation-name: actionsheet-down;
-  animation-name: actionsheet-down;
-}
+<span class="token selector">.actionsheet-down</span> <span class="token punctuation">{</span>
+  <span class="token property">-webkit-animation-name</span><span class="token punctuation">:</span> actionsheet-down<span class="token punctuation">;</span>
+  <span class="token property">animation-name</span><span class="token punctuation">:</span> actionsheet-down<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-@keyframes actionsheet-up {
-    from {
-        transform: translate3d(0, 100%, 0);
-    }
-    to {
-        transform: translate3d(0, 0, 0);
-    }
-}
+<span class="token atrule"><span class="token rule">@keyframes</span> actionsheet-up</span> <span class="token punctuation">{</span>
+    <span class="token selector">from</span> <span class="token punctuation">{</span>
+        <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translate3d</span><span class="token punctuation">(</span>0, 100%, 0<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector">to</span> <span class="token punctuation">{</span>
+        <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translate3d</span><span class="token punctuation">(</span>0, 0, 0<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-@keyframes actionsheet-down {
-    from {
-        transform: translate3d(0, 0, 0);
-    }
-    to {
-        transform: translate3d(0, 100%, 0);
-    }
-}
+<span class="token atrule"><span class="token rule">@keyframes</span> actionsheet-down</span> <span class="token punctuation">{</span>
+    <span class="token selector">from</span> <span class="token punctuation">{</span>
+        <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translate3d</span><span class="token punctuation">(</span>0, 0, 0<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector">to</span> <span class="token punctuation">{</span>
+        <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translate3d</span><span class="token punctuation">(</span>0, 100%, 0<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
             </div>
@@ -543,13 +546,13 @@
 <div class="api-content">
     <div><p>组件显隐时采用的动画</p>
 <ul>
-<li><pre><code>PropTypes.oneOfType([
-PropTypes.string,
-PropTypes.shape({
-     animation: PropTypes.arrayOf(PropTypes.string).isRequired,
-      duration: PropTypes.number.isRequired
-  })
-])
+<li><pre><code>PropTypes<span class="token punctuation">.</span><span class="token function">oneOfType</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+PropTypes<span class="token punctuation">.</span>string<span class="token punctuation">,</span>
+PropTypes<span class="token punctuation">.</span><span class="token function">shape</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+     animation<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span><span class="token function">arrayOf</span><span class="token punctuation">(</span>PropTypes<span class="token punctuation">.</span>string<span class="token punctuation">)</span><span class="token punctuation">.</span>isRequired<span class="token punctuation">,</span>
+      duration<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>number<span class="token punctuation">.</span>isRequired
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
 </code></pre></li>
 </ul>
 </div>
@@ -783,7 +786,6 @@ PropTypes.shape({
 </div>
 
               </div>
-              <div class="open-panel"></div>
           </div>
           
         
@@ -798,6 +800,11 @@ PropTypes.shape({
       </footer>
     </div>
 
+    
+       <div class="open-panel"></div>
+    
+    
+
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
     
@@ -805,6 +812,7 @@ PropTypes.shape({
 
     
 
+    
     
       
       <script type="text/javascript" src="./theme/ydoc.js"></script>

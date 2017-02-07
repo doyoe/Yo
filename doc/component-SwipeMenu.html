@@ -10,8 +10,9 @@
   <title>Yo Documentation 组件</title>
   <link rel="stylesheet" href="source/main.css"/>
   
+  
     
-<link rel="stylesheet" href="./theme/ydoc.css"/>
+        <link rel="stylesheet" href="./theme/ydoc.css"/>
     
   
 </head>
@@ -314,6 +315,14 @@
                         
                         
                             <li >
+                                <a href="component-Carousel.CarouselItem.html">Carousel.CarouselItem</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
                                 <a href="component-Range.html">Range</a>
                             </li>
                         
@@ -419,46 +428,43 @@
             <div class="instructions-con-info">
             <h4 id="-">基本用法</h4>
 <p>最简单用法，提供显示菜单选项数组。<code>text</code>属性是菜单按钮文字，<code>onTap</code>属性绑定点击按钮的回调函数。</p>
-<pre><code class="lang-javascript">&lt;SwipeMenu
-    action={[
-        {
-            text: &#39;delete&#39;,
-            onTap: () =&gt; console.log(&#39;click delete&#39;)
-        }
-    ]}
-&gt;
-    &lt;p&gt;要不要左滑试试?&lt;/p&gt;
-&lt;/SwipeMenu&gt;
-</code></pre>
-<h4 id="-">向右滑动</h4>
+<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>SwipeMenu</span>
+    <span class="token attr-name">action</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            text<span class="token punctuation">:</span> <span class="token string">'delete'</span><span class="token punctuation">,</span>
+            onTap<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'click delete'</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span><span class="token punctuation">}</span></span>
+<span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>要不要左滑试试<span class="token operator">?</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>SwipeMenu</span><span class="token punctuation">></span></span>
+</code></pre><h4 id="-">向右滑动</h4>
 <p>通过<code>direction</code>属性设置滑动方向，默认向左滑动。</p>
-<pre><code class="lang-javascript">&lt;SwipeMenu
-    action={[
-        {
-            text: &#39;delete&#39;,
-            onTap: () =&gt; console.log(&#39;click delete&#39;)
-        }
-    ]}
-    direction=&quot;right&quot;
-&gt;
-    &lt;p&gt;要不要左滑试试?&lt;/p&gt;
-&lt;/SwipeMenu&gt;
-</code></pre>
-<h4 id="-">不可用</h4>
+<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>SwipeMenu</span>
+    <span class="token attr-name">action</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            text<span class="token punctuation">:</span> <span class="token string">'delete'</span><span class="token punctuation">,</span>
+            onTap<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'click delete'</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span><span class="token punctuation">}</span></span>
+    <span class="token attr-name">direction</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>right<span class="token punctuation">"</span></span>
+<span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>要不要左滑试试<span class="token operator">?</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>SwipeMenu</span><span class="token punctuation">></span></span>
+</code></pre><h4 id="-">不可用</h4>
 <p>通过<code>disable</code>属性，设置组件不可用状态。此时组件不能滑动。</p>
-<pre><code class="lang-javascript">&lt;SwipeMenu
-    action={[
-        {
-            text: &#39;delete&#39;,
-            onTap: () =&gt; console.log(&#39;click delete&#39;)
-        }
-    ]}
-    disable={false}
-&gt;
-    &lt;p&gt;要不要左滑试试?&lt;/p&gt;
-&lt;/SwipeMenu&gt;
+<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>SwipeMenu</span>
+    <span class="token attr-name">action</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            text<span class="token punctuation">:</span> <span class="token string">'delete'</span><span class="token punctuation">,</span>
+            onTap<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'click delete'</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span><span class="token punctuation">}</span></span>
+    <span class="token attr-name">disable</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token boolean">false</span><span class="token punctuation">}</span></span>
+<span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>要不要左滑试试<span class="token operator">?</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>SwipeMenu</span><span class="token punctuation">></span></span>
 </code></pre>
-
             </div>
             
             
@@ -486,13 +492,13 @@
 <div class="api-content">
     <div><p>组件打开状态显示菜单内容，额外类名，回调函数</p>
 <ul>
-<li><pre><code>PropTypes.arrayOf(
-   PropTypes.shape({
-       text: PropTypes.string.isRequired,
-       className: PropTypes.string,
-       onTap: PropTypes.func.isRequired
-   })
-)
+<li><pre><code>PropTypes<span class="token punctuation">.</span><span class="token function">arrayOf</span><span class="token punctuation">(</span>
+   PropTypes<span class="token punctuation">.</span><span class="token function">shape</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+       text<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>string<span class="token punctuation">.</span>isRequired<span class="token punctuation">,</span>
+       className<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>string<span class="token punctuation">,</span>
+       onTap<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>func<span class="token punctuation">.</span>isRequired
+   <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
 </code></pre></li>
 </ul>
 </div>
@@ -747,7 +753,6 @@
 </div>
 
               </div>
-              <div class="open-panel"></div>
           </div>
           
         
@@ -762,6 +767,11 @@
       </footer>
     </div>
 
+    
+       <div class="open-panel"></div>
+    
+    
+
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
     
@@ -769,6 +779,7 @@
 
     
 
+    
     
       
       <script type="text/javascript" src="./theme/ydoc.js"></script>
