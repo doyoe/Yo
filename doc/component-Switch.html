@@ -10,9 +10,8 @@
   <title>Yo Documentation 组件</title>
   <link rel="stylesheet" href="source/main.css"/>
   
-  
     
-        <link rel="stylesheet" href="./theme/ydoc.css"/>
+<link rel="stylesheet" href="./theme/ydoc.css"/>
     
   
 </head>
@@ -426,33 +425,33 @@
             <div class="instructions-con-info">
             <h4 id="-">基本用法</h4>
 <p>展示一个给用户评分的组件，<code>switch1</code> 属性为当前的评分。由于这是一个受控的组件，所以需要通过<code>onChange</code>回调来设置当前值。</p>
-<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Switch</span>
-    <span class="token attr-name">checked</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>switch1<span class="token punctuation">}</span></span>
-    <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getValue</span><span class="token punctuation">(</span><span class="token string">'switch1'</span><span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">}</span></span>
-<span class="token punctuation">/></span></span>
+<pre><code>&lt;Switch
+    checked={this.state.switch1}
+    onChange={(value) =&gt; { this.getValue(&#39;switch1&#39;, value); }}
+/&gt;
 </code></pre><h4 id="-">禁用组件</h4>
 <p>展示一个处于不可操作状态的<code>switch</code>组件 <code>checked</code>表示当前的组件的状态。</p>
-<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Switch</span> <span class="token attr-name">disabled</span> <span class="token attr-name">checked</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token boolean">false</span><span class="token punctuation">}</span></span> <span class="token punctuation">/></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Switch</span> <span class="token attr-name">disabled</span> <span class="token punctuation">/></span></span>
+<pre><code>&lt;Switch disabled checked={false} /&gt;
+&lt;Switch disabled /&gt;
 </code></pre><h4 id="-">自定义样式扩展</h4>
 <p>自定义扩展样式需要在sass中配合使用<a href="/yo/_docs/element.html#yo-switch">yo-switch</a> 扩展。</p>
-<pre><code class="lang-css"><span class="token comment" spellcheck="true">/**
+<pre><code class="lang-css">/**
  * yo-switch 扩展
  * @param  {[type]} name   扩展名
  * @param  {[type]} on-bgcolor 定义switch激活背景色
  * @return {[type]} bgcolor     定义switch背景色
  * @return {[type]} follow-bgcolor   定义switch跟随背景色
  * @return {[type]} thumb-color     定义switch滑块色
- */</span>
-<span class="token atrule"><span class="token rule">@include</span> <span class="token function">yo-switch</span><span class="token punctuation">(</span>blue,#43cee6<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+ */
+@include yo-switch(blue,#43cee6);
 </code></pre>
 <p>并将扩展后的类名通过<code>extraClass</code>传给<code>switch</code>组件。如果更改了active状态时的颜色，需要通过<code>activeColor</code>传给组件。</p>
-<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Switch</span>
-  <span class="token attr-name">checked</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>switch3<span class="token punctuation">}</span></span>
-  <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getValue</span><span class="token punctuation">(</span><span class="token string">'switch3'</span><span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">}</span></span>
-  <span class="token attr-name">activeColor</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#43cee6<span class="token punctuation">"</span></span>
-  <span class="token attr-name">extraClass</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>yo-switch-blue<span class="token punctuation">"</span></span>
-<span class="token punctuation">/></span></span>
+<pre><code>&lt;Switch
+  checked={this.state.switch3}
+  onChange={(value) =&gt; { this.getValue(&#39;switch3&#39;, value); }}
+  activeColor=&quot;#43cee6&quot;
+  extraClass=&quot;yo-switch-blue&quot;
+/&gt;
 </code></pre>
             </div>
             
@@ -596,6 +595,7 @@
 </div>
 
               </div>
+              <div class="open-panel"></div>
           </div>
           
         
@@ -610,11 +610,6 @@
       </footer>
     </div>
 
-    
-       <div class="open-panel"></div>
-    
-    
-
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
     
@@ -622,7 +617,6 @@
 
     
 
-    
     
       
       <script type="text/javascript" src="./theme/ydoc.js"></script>

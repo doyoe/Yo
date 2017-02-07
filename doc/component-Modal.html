@@ -10,9 +10,8 @@
   <title>Yo Documentation 组件</title>
   <link rel="stylesheet" href="source/main.css"/>
   
-  
     
-        <link rel="stylesheet" href="./theme/ydoc.css"/>
+<link rel="stylesheet" href="./theme/ydoc.css"/>
     
   
 </head>
@@ -423,9 +422,9 @@
             <h4 id="-">基础用法</h4>
 <p><code>Modal</code> 是所有弹层系列组件的基础组件，可以指定多种位置和开/关动画效果。
 但是它只需要一个属性就可以工作起来，即控制它显示/隐藏的<code>show</code>属性：</p>
-<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Modal</span> <span class="token attr-name">show</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>show<span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>The Modal content<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
- <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Modal</span><span class="token punctuation">></span></span>
+<pre><code>&lt;Modal show={this.state.show}&gt;
+    &lt;p&gt;The Modal content&lt;/p&gt;
+ &lt;/Modal&gt;
 </code></pre><p><strong> 注意：<code>Modal</code>组件可以在文档的任何位置使用, 组件内部会将它重新渲染到<code>document.body</code>下面。 </strong></p>
 <h4 id="-">位置</h4>
 <p>通过设置<code>align</code>和<code>contentOffset</code>属性可以自定义组件的内容显示位置。
@@ -434,62 +433,62 @@
 第一个元素对应水平方向的偏移（负值-&gt;向左偏移，正值-&gt;向右偏移），
 第二个元素对应竖直方向上的偏移（负值-&gt;向上偏移，正值-&gt;向下偏移）。</p>
 <p>下面的<code>Modal</code>向右偏移了150像素，向下偏移了100像素：</p>
-<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Modal</span>
-    <span class="token attr-name">show</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>show<span class="token punctuation">}</span></span>
-    <span class="token attr-name">align</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>left<span class="token punctuation">"</span></span>
-    <span class="token attr-name">contentOffset</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span><span class="token number">150</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">]</span><span class="token punctuation">}</span></span>
-<span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>The Modal content<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Modal</span><span class="token punctuation">></span></span>
+<pre><code>&lt;Modal
+    show={this.state.show}
+    align=&quot;left&quot;
+    contentOffset={[150, 100]}
+&gt;
+    &lt;p&gt;The Modal content&lt;/p&gt;
+&lt;/Modal&gt;
 </code></pre><h4 id="-">遮罩层偏移</h4>
 <p>通过<code>maskOffset</code>属性可以设置组件背景遮罩层的遮罩范围。
 它可以接收一个数组，其中第一个元素对应距离顶部的偏移，第二个是距离底部的偏移。
 比如当你希望遮罩层顶部不遮盖页面导航条的时候, 可以通过设置这个属性实现。</p>
 <p>下面的<code>Modal</code>的遮罩层将从<code>top:44px</code>的位置开始：</p>
-<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Modal</span>
-    <span class="token attr-name">show</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>show<span class="token punctuation">}</span></span>
-    <span class="token attr-name">maskOffset</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span><span class="token number">44</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">}</span></span>
-<span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>The Modal content<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Modal</span><span class="token punctuation">></span></span>
+<pre><code>&lt;Modal
+    show={this.state.show}
+    maskOffset={[44, 0]}
+&gt;
+    &lt;p&gt;The Modal content&lt;/p&gt;
+&lt;/Modal&gt;
 </code></pre><h4 id="-">动画</h4>
 <p>通过<code>animation</code>参数和CSS3动画设置组件显隐过程的动态效果
 ，配置动画对象中的<code>animation</code>属性是一个数组，分别对应组件显、隐过程执行的动画效果，<code>duration</code>属性设置动画执行时间。
 也可以传入组件内部支持的动画名字符串<code>fade</code>、<code>fade-in-up</code>、<code>fade-in-down</code>、<code>zoom</code>。默认无动画。</p>
-<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Modal</span>
-    <span class="token attr-name">show</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>show<span class="token punctuation">}</span></span>
-    <span class="token attr-name">animation</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span>animation<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'actionsheet-up'</span><span class="token punctuation">,</span> <span class="token string">'actionsheet-down'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> duration<span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">}</span><span class="token punctuation">}</span></span>
-<span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>The Modal content<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Modal</span><span class="token punctuation">></span></span>
+<pre><code>&lt;Modal
+    show={this.state.show}
+    animation={{animation: [&#39;actionsheet-up&#39;, &#39;actionsheet-down&#39;], duration: 200}}
+&gt;
+    &lt;p&gt;The Modal content&lt;/p&gt;
+&lt;/Modal&gt;
 </code></pre><pre><code class="lang-css">
-<span class="token selector">.actionsheet-up</span> <span class="token punctuation">{</span>
-  <span class="token property">-webkit-animation-name</span><span class="token punctuation">:</span> actionsheet-up<span class="token punctuation">;</span>
-  <span class="token property">animation-name</span><span class="token punctuation">:</span> actionsheet-up<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+.actionsheet-up {
+  -webkit-animation-name: actionsheet-up;
+  animation-name: actionsheet-up;
+}
 
-<span class="token selector">.actionsheet-down</span> <span class="token punctuation">{</span>
-  <span class="token property">-webkit-animation-name</span><span class="token punctuation">:</span> actionsheet-down<span class="token punctuation">;</span>
-  <span class="token property">animation-name</span><span class="token punctuation">:</span> actionsheet-down<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+.actionsheet-down {
+  -webkit-animation-name: actionsheet-down;
+  animation-name: actionsheet-down;
+}
 
-<span class="token atrule"><span class="token rule">@keyframes</span> actionsheet-up</span> <span class="token punctuation">{</span>
-    <span class="token selector">from</span> <span class="token punctuation">{</span>
-        <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translate3d</span><span class="token punctuation">(</span>0, 100%, 0<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token selector">to</span> <span class="token punctuation">{</span>
-        <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translate3d</span><span class="token punctuation">(</span>0, 0, 0<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+@keyframes actionsheet-up {
+    from {
+        transform: translate3d(0, 100%, 0);
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
 
-<span class="token atrule"><span class="token rule">@keyframes</span> actionsheet-down</span> <span class="token punctuation">{</span>
-    <span class="token selector">from</span> <span class="token punctuation">{</span>
-        <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translate3d</span><span class="token punctuation">(</span>0, 0, 0<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token selector">to</span> <span class="token punctuation">{</span>
-        <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translate3d</span><span class="token punctuation">(</span>0, 100%, 0<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+@keyframes actionsheet-down {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+    to {
+        transform: translate3d(0, 100%, 0);
+    }
+}
 </code></pre>
 
             </div>
@@ -744,14 +743,14 @@
 数组中的第一个元素是打开模态框时附加到内容区的className,第二个是关闭时附加到内容区的className,duration是动画的持续时间,
 action-sheet-up的css规则如下:</p>
 <ul>
-<li><pre><code class="lang-css"><span class="token atrule"><span class="token rule">@keyframes</span> actionsheet-up</span> <span class="token punctuation">{</span>
-   <span class="token selector">0%</span> <span class="token punctuation">{</span>
-       <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translate3d</span><span class="token punctuation">(</span>0, 100%, 0<span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token punctuation">}</span>
-   <span class="token selector">100%</span> <span class="token punctuation">{</span>
-       <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translate3d</span><span class="token punctuation">(</span>0, 0, 0<span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+<li><pre><code class="lang-css">@keyframes actionsheet-up {
+   0% {
+       transform: translate3d(0, 100%, 0);
+   }
+   100% {
+       transform: translate3d(0, 0, 0);
+   }
+}
 </code></pre>
 </li>
 </ul>
@@ -774,6 +773,7 @@ action-sheet-up的css规则如下:</p>
 </div>
 
               </div>
+              <div class="open-panel"></div>
           </div>
           
         
@@ -788,11 +788,6 @@ action-sheet-up的css规则如下:</p>
       </footer>
     </div>
 
-    
-       <div class="open-panel"></div>
-    
-    
-
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
     
@@ -800,7 +795,6 @@ action-sheet-up的css规则如下:</p>
 
     
 
-    
     
       
       <script type="text/javascript" src="./theme/ydoc.js"></script>

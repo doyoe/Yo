@@ -10,9 +10,8 @@
   <title>Yo Documentation 组件</title>
   <link rel="stylesheet" href="source/main.css"/>
   
-  
     
-        <link rel="stylesheet" href="./theme/ydoc.css"/>
+<link rel="stylesheet" href="./theme/ydoc.css"/>
     
   
 </head>
@@ -427,15 +426,15 @@
             <div class="instructions-con-info">
             <h4 id="-">基本用法</h4>
 <p>最简单用法。居中显示一条通知，不影响其他可视区域正常操作。</p>
-<pre><code class="lang-javascript">Toast<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token string">'Toast content'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-javascript">Toast.show(&#39;Toast content&#39;);
 </code></pre>
 <h4 id="-">显示时间</h4>
 <p>通过传入时间参数，修改内容显示时间。默认显示2s。</p>
-<pre><code class="lang-javascript">Toast<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token string">'显示3s'</span><span class="token punctuation">,</span> <span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-javascript">Toast.show(&#39;显示3s&#39;, 3000);
 </code></pre>
 <h4 id="-">立即隐藏</h4>
 <p>立即隐藏显示的内容，支持简单的链式调用。</p>
-<pre><code class="lang-javascript">Toast<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token string">'Toast content'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">hide</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-javascript">Toast.show(&#39;Toast content&#39;).hide();
 </code></pre>
 
             </div>
@@ -532,6 +531,7 @@
 </div>
 
               </div>
+              <div class="open-panel"></div>
           </div>
           
         
@@ -546,11 +546,6 @@
       </footer>
     </div>
 
-    
-       <div class="open-panel"></div>
-    
-    
-
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
     
@@ -558,7 +553,6 @@
 
     
 
-    
     
       
       <script type="text/javascript" src="./theme/ydoc.js"></script>

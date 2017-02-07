@@ -10,9 +10,8 @@
   <title>Yo Documentation 组件</title>
   <link rel="stylesheet" href="source/main.css"/>
   
-  
     
-        <link rel="stylesheet" href="./theme/ydoc.css"/>
+<link rel="stylesheet" href="./theme/ydoc.css"/>
     
   
 </head>
@@ -423,95 +422,95 @@
             <h4 id="-">基本用法：</h4>
 <p>双滑块用法。</p>
 <p>由于组件是受控驱动的，所以你必须自己来控制更新，组件会将应该更新到的状态通过回调参数value传递出来，你需要通过传递state数据给value属性（如value={this.state.value}），并在onChange函数中对state（如state.value)进行更新,即调用this.setState({ value: value })。</p>
-<pre><code class="lang-javascript"><span class="token keyword">import</span> Range <span class="token keyword">from</span> <span class="token string">'component'</span><span class="token punctuation">;</span>
-<span class="token keyword">class</span> <span class="token class-name">Demo</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
-    <span class="token function">constructor</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">super</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>state <span class="token operator">=</span> <span class="token punctuation">{</span>
-            value<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">200</span><span class="token punctuation">,</span> <span class="token number">300</span><span class="token punctuation">]</span>
-        <span class="token punctuation">}</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+<pre><code class="lang-javascript">import Range from &#39;component&#39;;
+class Demo extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            value: [200, 300]
+        };
+    }
 
-    <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token punctuation">(</span>
-            <span class="token operator">&lt;</span>Range
-                max<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">500</span><span class="token punctuation">}</span>
-                min<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">100</span><span class="token punctuation">}</span>
-                step<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">100</span><span class="token punctuation">}</span>
-                value<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value<span class="token punctuation">}</span>
-                onChange<span class="token operator">=</span><span class="token punctuation">{</span>value <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> value <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
-            <span class="token operator">/</span><span class="token operator">></span>
-        <span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+    render() {
+        return (
+            &lt;Range
+                max={500}
+                min={100}
+                step={100}
+                value={this.state.value}
+                onChange={value =&gt; this.setState({ value })}
+            /&gt;
+        )
+    }
+}
 </code></pre>
 <h4 id="-">基本用法：</h4>
 <p>单滑块用法。</p>
-<pre><code class="lang-javascript"><span class="token comment" spellcheck="true">// this.state = { value: 200 };</span>
+<pre><code class="lang-javascript">// this.state = { value: 200 };
 
-<span class="token operator">&lt;</span>Range
-    max<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">500</span><span class="token punctuation">}</span>
-    min<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">100</span><span class="token punctuation">}</span>
-    step<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">100</span><span class="token punctuation">}</span>
-    isSingle<span class="token operator">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span>
-    value<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value<span class="token punctuation">}</span>
-    onChange<span class="token operator">=</span><span class="token punctuation">{</span>value <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> value <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
-<span class="token operator">/</span><span class="token operator">></span>
+&lt;Range
+    max={500}
+    min={100}
+    step={100}
+    isSingle={true}
+    value={this.state.value}
+    onChange={value =&gt; this.setState({ value })}
+/&gt;
 </code></pre>
 <h4 id="-">扩展用法</h4>
 <p>自定义标签，支持JSX</p>
-<pre><code class="lang-javascript"><span class="token function">scaleFormat</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> index<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">const</span> text <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'￥0'</span><span class="token punctuation">,</span> <span class="token string">'￥150'</span><span class="token punctuation">,</span> <span class="token string">'￥300'</span><span class="token punctuation">,</span> <span class="token string">'￥500'</span><span class="token punctuation">,</span> <span class="token string">'￥800'</span><span class="token punctuation">,</span> <span class="token string">'不限'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token punctuation">(</span>
-        <span class="token operator">&lt;</span>div key<span class="token operator">=</span><span class="token punctuation">{</span><span class="token template-string"><span class="token string">`tick</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>index<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">}</span><span class="token operator">></span>
-            <span class="token operator">&lt;</span>span<span class="token operator">></span>
-                <span class="token punctuation">{</span>text<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">}</span>
-            <span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
-            <span class="token operator">&lt;</span>i className<span class="token operator">=</span><span class="token string">"yo-ico"</span><span class="token operator">></span><span class="token punctuation">{</span><span class="token string">'\uf083'</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>i<span class="token operator">></span>
-        <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-    <span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<pre><code class="lang-javascript">scaleFormat(value, index) {
+    const text = [&#39;￥0&#39;, &#39;￥150&#39;, &#39;￥300&#39;, &#39;￥500&#39;, &#39;￥800&#39;, &#39;不限&#39;];
+    return (
+        &lt;div key={`tick${index}`}&gt;
+            &lt;span&gt;
+                {text[index]}
+            &lt;/span&gt;
+            &lt;i className=&quot;yo-ico&quot;&gt;{&#39;\uf083&#39;}&lt;/i&gt;
+        &lt;/div&gt;
+    );
+}
 
-<span class="token operator">&lt;</span>Range
-    ref<span class="token operator">=</span><span class="token string">"range"</span>
-    max<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">750</span><span class="token punctuation">}</span>
-    min<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">}</span>
-    step<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">150</span><span class="token punctuation">}</span>
-    value<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value<span class="token punctuation">}</span>
-    scaleFormat<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>scaleFormat<span class="token punctuation">}</span>
-    onChange<span class="token operator">=</span><span class="token punctuation">{</span>value <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> value <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
-<span class="token operator">/</span><span class="token operator">></span>
+&lt;Range
+    ref=&quot;range&quot;
+    max={750}
+    min={0}
+    step={150}
+    value={this.state.value}
+    scaleFormat={this.scaleFormat}
+    onChange={value =&gt; { this.setState({ value }); }}
+/&gt;
 </code></pre>
 <h4 id="-">扩展用法</h4>
 <p>借助onSliderTouchMove回调参数，可实时获取value值和滑块的translateX</p>
 <p>在touchMove滑动过程中，鉴于通过state数据来控制滑块移动的性能极差（事件触发太过频繁），故而选择直接改变Dom属性，如果你想利用touchMove中的回调参数做一些事情，也极力推荐直接操作Dom，下面有示范。</p>
-<pre><code class="lang-javascript"><span class="token operator">&lt;</span>span
-    ref<span class="token operator">=</span><span class="token string">"tip"</span>
-    style<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span> transform<span class="token punctuation">:</span> <span class="token template-string"><span class="token string">`translateX(</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>translateX<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">px)`</span></span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
-<span class="token operator">></span>
-<span class="token operator">&lt;</span>Range
-    onSliderTouchMove<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>val<span class="token punctuation">,</span> translateX<span class="token punctuation">,</span> evt<span class="token punctuation">,</span> sliderIndex<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-        <span class="token keyword">const</span> $tip <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>refs<span class="token punctuation">.</span>tip<span class="token punctuation">,</span>
-        $tip<span class="token punctuation">.</span>innerText <span class="token operator">=</span> val<span class="token punctuation">[</span>sliderIndex<span class="token punctuation">]</span><span class="token punctuation">;</span>
-        $tip<span class="token punctuation">.</span>style<span class="token punctuation">.</span>transform <span class="token operator">=</span> <span class="token template-string"><span class="token string">`translateX(</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>translateX<span class="token punctuation">[</span>sliderIndex<span class="token punctuation">]</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">px)`</span></span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">}</span>
-    onChange<span class="token operator">=</span><span class="token punctuation">{</span>value <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> value <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
-    <span class="token punctuation">{</span><span class="token operator">...</span>otherProps<span class="token punctuation">}</span>
-<span class="token operator">/</span><span class="token operator">></span>
+<pre><code class="lang-javascript">&lt;span
+    ref=&quot;tip&quot;
+    style={{ transform: `translateX(${this.state.translateX}px)` }}
+&gt;
+&lt;Range
+    onSliderTouchMove={(val, translateX, evt, sliderIndex) =&gt; {
+        const $tip = this.refs.tip,
+        $tip.innerText = val[sliderIndex];
+        $tip.style.transform = `translateX(${translateX[sliderIndex]}px)`;
+    }}
+    onChange={value =&gt; { this.setState({ value }); }}
+    {...otherProps}
+/&gt;
 </code></pre>
 <h4 id="-range-resize-">使用Range.resize()方法刷新滑块位置</h4>
 <p>与Popup组件复合时，从display: none到展示时，可通过ref调用resize()来将滑块位置重置到正确的位置上，必须得在Range组件渲染的Dom有实际宽度后调用才能生效。</p>
-<pre><code class="lang-javascript"><span class="token operator">&lt;</span>Popup
-    onShow<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>refs<span class="token punctuation">.</span>range<span class="token punctuation">.</span><span class="token function">resize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">}</span>
-    <span class="token punctuation">{</span><span class="token operator">...</span>otherProps<span class="token punctuation">}</span>
-<span class="token operator">></span>
-    <span class="token operator">&lt;</span>Range
-        ref<span class="token operator">=</span><span class="token string">"range"</span>
-        <span class="token punctuation">{</span><span class="token operator">...</span>otherProps<span class="token punctuation">}</span>
-    <span class="token operator">/</span><span class="token operator">></span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>Popup<span class="token operator">></span>
+<pre><code class="lang-javascript">&lt;Popup
+    onShow={() =&gt; {
+        this.refs.range.resize();
+    }}
+    {...otherProps}
+&gt;
+    &lt;Range
+        ref=&quot;range&quot;
+        {...otherProps}
+    /&gt;
+&lt;/Popup&gt;
 </code></pre>
 
             </div>
@@ -1142,6 +1141,7 @@
 </div>
 
               </div>
+              <div class="open-panel"></div>
           </div>
           
         
@@ -1156,11 +1156,6 @@
       </footer>
     </div>
 
-    
-       <div class="open-panel"></div>
-    
-    
-
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
     
@@ -1168,7 +1163,6 @@
 
     
 
-    
     
       
       <script type="text/javascript" src="./theme/ydoc.js"></script>

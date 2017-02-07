@@ -10,9 +10,8 @@
   <title>Yo Documentation 起步</title>
   <link rel="stylesheet" href="source/main.css"/>
   
-  
     
-        <link rel="stylesheet" href="./theme/ydoc.css"/>
+<link rel="stylesheet" href="./theme/ydoc.css"/>
     
   
 </head>
@@ -196,9 +195,9 @@
 <li>基于React：<code>Yo</code> 全面拥抱 <code>ES6</code> 语法和 <code>React</code>，在使用 <code>Yo</code> 开发之前，你应该首先熟悉一下 <a href="https://facebook.github.io/react/">React</a>。</li>
 <li><p>样式革新：<code>Yo</code> 不再要求必须使用传统的 <code>css</code> 和 <code>js</code> 分离的方式，而是推荐直接在 <code>js</code> 文件里引入 <code>scss</code> 文件，构建工具会自动帮你在该 <code>js</code> 文件所在目录生成一个同名的 <code>css</code> 文件。</p>
 <p>  例如：page/demo/index.js</p>
-<pre><code>  <span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
-  <span class="token keyword">import</span> ReactDOM <span class="token keyword">from</span> <span class="token string">'react-dom'</span><span class="token punctuation">;</span>
-  <span class="token keyword">import</span> <span class="token string">'./index.scss'</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 引入这个页面的scss</span>
+<pre><code>  import React from &#39;react&#39;;
+  import ReactDOM from &#39;react-dom&#39;;
+  import &#39;./index.scss&#39;; // 引入这个页面的scss
 </code></pre></li>
 <li><p>使用chunk模式：<code>Yo</code> 默认使用了 <code>webpack</code> 的 <code>chunk</code> 模式，即不管是单页还是多页模式，<code>js</code> 资源都是按需加载的。<a href="./start-chunk.html">查看详情</a></p>
 </li>
@@ -209,15 +208,15 @@
 <li>启动ykit：在项目上一级目录执行 <code>(sudo) ykit server</code></li>
 <li><p>添加资源引用：</p>
 <p>  首先，在项目根目录找到 <code>ykit.yo.js</code> 文件（该文件是在项目初始化时自动创建的），并通过 <code>export</code> 参数配置 <code>js</code> 文件的入口。</p>
-<pre><code>  <span class="token keyword">export</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'./page/demo/index.js'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<pre><code>  export: [&#39;./page/demo/index.js&#39;],
 </code></pre><blockquote>
 <p>由于构建工具会帮你在 <code>js</code> 文件所在目录生成一个同名 <code>css</code> 文件，所以在配置入口时只需添加 <code>js</code>，不需要添加 <code>css</code>。</p>
 </blockquote>
 <p>  然后，在页面中引用 <code>js</code> 和 <code>css</code> 资源。</p>
-<pre><code class="lang-html">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>[项目路径]/prd/page/home/index.css<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<pre><code class="lang-html">  &lt;link rel=&quot;stylesheet&quot; href=&quot;[项目路径]/prd/page/home/index.css&quot; /&gt;
   ...
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>[项目路径]/prd/lib.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>[项目路径]/prd/page/home/index.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+  &lt;script src=&quot;[项目路径]/prd/lib.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;[项目路径]/prd/page/home/index.js&quot;&gt;&lt;/script&gt;
 </code></pre>
 <blockquote>
 <ul>
@@ -234,23 +233,23 @@
 </ul>
 <p><a name="basic-usage"></a></p>
 <h2 id="基础用法">基础用法</h2><h3 id="配置别名">配置别名</h3><p>项目初始化时，会在生成的 <code>ykit.yo.js</code> 文件中对一些常用的路径配置别名。开发时，你将不再需要关心它们的引用路径深度。</p>
-<pre><code>alias<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-    <span class="token string">'$yo'</span><span class="token punctuation">:</span> <span class="token string">'yo3'</span><span class="token punctuation">,</span>
-    <span class="token string">'$yo-config'</span><span class="token punctuation">:</span> <span class="token string">'/src/yo-config'</span><span class="token punctuation">,</span>
-    <span class="token string">'$yo-component'</span><span class="token punctuation">:</span> <span class="token string">'yo3/component'</span><span class="token punctuation">,</span>
-    <span class="token string">'$component'</span><span class="token punctuation">:</span> <span class="token string">'/src/component'</span><span class="token punctuation">,</span>
-    <span class="token string">'$common'</span><span class="token punctuation">:</span> <span class="token string">'/src/common'</span><span class="token punctuation">,</span>
-    <span class="token string">'$router'</span><span class="token punctuation">:</span> <span class="token string">'yo-router'</span>
-<span class="token punctuation">}</span>
+<pre><code>alias: {
+    &#39;$yo&#39;: &#39;yo3&#39;,
+    &#39;$yo-config&#39;: &#39;/src/yo-config&#39;,
+    &#39;$yo-component&#39;: &#39;yo3/component&#39;,
+    &#39;$component&#39;: &#39;/src/component&#39;,
+    &#39;$common&#39;: &#39;/src/common&#39;,
+    &#39;$router&#39;: &#39;yo-router&#39;
+}
 </code></pre><p>这是默认配置（推荐），实际开发中，你也可以对它们进行修改，或者配置一些新的别名。<strong>注意：不要在配置的路径最后加 &quot;/&quot;</strong></p>
 <blockquote>
 <p>大家可能会奇怪为什么在项目初始化时，会安装一个 <code>yo3</code> 而不是 <code>yo</code> 的模块。这是因为 <code>yo</code> 在 <code>npm</code> 上已经被占用，所以我们只好将包名改为了 <code>yo3</code>。但是通过上述的别名配置后，基本上也无伤大雅。</p>
 </blockquote>
 <h3 id="使用Yo Component">使用Yo Component</h3><p><code>Yo v3</code> 提供了数量众多的React组件，需要使用时将它们 <code>import</code> 进来即可。当然，首先你需要引入 <code>React</code> 和 <code>ReactDOM</code>：</p>
-<pre><code><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> ReactDOM <span class="token keyword">from</span> <span class="token string">'react-dom'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> GroupList <span class="token keyword">from</span> <span class="token string">'$yo-component/grouplist'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> Toast <span class="token keyword">from</span> <span class="token string">'$yo-component/toast'</span>
+<pre><code>import React, { Component } from &#39;react&#39;;
+import ReactDOM from &#39;react-dom&#39;;
+import GroupList from &#39;$yo-component/grouplist&#39;;
+import Toast from &#39;$yo-component/toast&#39;
 </code></pre><ul>
 <li><p>引用方式：组件的样式无需单独再引入一次，组件的js内部已经有了样式的引用。这意味着你再也不需要为管理样式的依赖操心了，excited！</p>
 </li>
@@ -261,45 +260,46 @@
 <p>不太一样的是，<code>Yo</code> 的脚手架会在项目工程下生成一个 <code>yo-config</code> 目录，它对应的是以前的 <code>usage</code> 目录。对于 <code>Yo</code> 的所有元件，我们仍然可以在 <code>yo-config</code> 目录下的对应文件中进行扩展，推荐大家在这里扩展全局和通用性的元件，特殊或者单一性的扩展可以放到具体的页面级样式文件中进行。</p>
 <p>同时，<code>Yo</code> 的样式 <code>lib</code> 目录不再直接放在项目工程目录下，而是在项目初始化时被安装到了 <code>node_modules</code> 目录下，规避在业务开发中被修改的可能性，降低升级的风险。</p>
 <p>如果需要在项目中直接引用 <code>lib</code> 中的文件，这样做即可：</p>
-<pre><code class="lang-css"><span class="token atrule"><span class="token rule">@import</span> <span class="token string">"$yo/style/lib/layout/yo-flex"</span><span class="token punctuation">;</span></span>
-<span class="token atrule"><span class="token rule">@import</span> <span class="token string">"$yo/style/lib/element/yo-btn"</span><span class="token punctuation">;</span></span>
+<pre><code class="lang-css">@import &quot;$yo/style/lib/layout/yo-flex&quot;;
+@import &quot;$yo/style/lib/element/yo-btn&quot;;
 </code></pre>
 <p>而引用 <code>yo-config</code> 中的扩展时，可以这样：</p>
-<pre><code class="lang-css"><span class="token atrule"><span class="token rule">@import</span> <span class="token string">"$yo-config/core/reset"</span><span class="token punctuation">;</span></span>
-<span class="token atrule"><span class="token rule">@import</span> <span class="token string">"$yo-config/layout/yo-flex"</span><span class="token punctuation">;</span></span>
+<pre><code class="lang-css">@import &quot;$yo-config/core/reset&quot;;
+@import &quot;$yo-config/layout/yo-flex&quot;;
 </code></pre>
 <p><a name="directory-structure"></a></p>
 <h2 id="项目目录结构">项目目录结构</h2><p>在构建完成之后会生成下面的目录结构：</p>
-<pre><code><span class="token operator">|</span><span class="token operator">-</span> node_modules
-<span class="token operator">|</span><span class="token operator">-</span> src <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token comment" spellcheck="true">// 项目源码</span>
-<span class="token operator">|</span>  <span class="token operator">|</span><span class="token operator">-</span> common <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token comment" spellcheck="true">// 公共配置、工具等</span>
-<span class="token operator">|</span>  <span class="token operator">|</span><span class="token operator">-</span> component <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span><span class="token comment" spellcheck="true">// 公共组件</span>
-<span class="token operator">|</span>  <span class="token operator">|</span>   <span class="token operator">|</span><span class="token operator">-</span> componentA
-<span class="token operator">|</span>  <span class="token operator">|</span>   <span class="token operator">|</span>    <span class="token operator">|</span><span class="token operator">-</span> index<span class="token punctuation">.</span>js <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span><span class="token comment" spellcheck="true">// 组件代码</span>
-<span class="token operator">|</span>  <span class="token operator">|</span>   <span class="token operator">|</span>    <span class="token operator">|</span><span class="token operator">-</span> style<span class="token punctuation">.</span>scss <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span><span class="token comment" spellcheck="true">// 组件样式</span>
-<span class="token operator">|</span>  <span class="token operator">|</span>   <span class="token operator">|</span><span class="token operator">-</span> componentB
-<span class="token operator">|</span>  <span class="token operator">|</span>   <span class="token operator">|</span><span class="token operator">-</span> <span class="token operator">...</span>
-<span class="token operator">|</span>  <span class="token operator">|</span><span class="token operator">-</span> page <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token comment" spellcheck="true">// 业务逻辑目录（页面维度）</span>
-<span class="token operator">|</span>  <span class="token operator">|</span>   <span class="token operator">|</span><span class="token operator">-</span> pageA <span class="token comment" spellcheck="true">//页面目录</span>
-<span class="token operator">|</span>  <span class="token operator">|</span>   <span class="token operator">|</span>    <span class="token operator">|</span><span class="token operator">-</span> index<span class="token punctuation">.</span>js <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span><span class="token comment" spellcheck="true">// 页面入口文件</span>
-<span class="token operator">|</span>  <span class="token operator">|</span>   <span class="token operator">|</span>    <span class="token operator">|</span><span class="token operator">-</span> index<span class="token punctuation">.</span>scss <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span><span class="token comment" spellcheck="true">// 页面样式</span>
-<span class="token operator">|</span>  <span class="token operator">|</span>   <span class="token operator">|</span>    <span class="token operator">|</span><span class="token operator">-</span> component <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token comment" spellcheck="true">// 页面内部使用的组件</span>
-<span class="token operator">|</span>  <span class="token operator">|</span>   <span class="token operator">|</span><span class="token operator">-</span> pageB
-<span class="token operator">|</span>  <span class="token operator">|</span>   <span class="token operator">|</span><span class="token operator">-</span> <span class="token operator">...</span>
-<span class="token operator">|</span>  <span class="token operator">|</span><span class="token operator">-</span> html <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token comment" spellcheck="true">// 页面html</span>
-<span class="token operator">|</span>  <span class="token operator">|</span><span class="token operator">-</span> yo<span class="token operator">-</span>config <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span><span class="token comment" spellcheck="true">// 样式配置文件夹</span>
-<span class="token operator">|</span><span class="token operator">-</span> <span class="token operator">...</span>
-<span class="token operator">|</span><span class="token operator">-</span> <span class="token keyword">package</span><span class="token punctuation">.</span>json <span class="token comment" spellcheck="true">// npm配置文件</span>
-<span class="token operator">|</span><span class="token operator">-</span> ykit<span class="token punctuation">.</span>yo<span class="token punctuation">.</span>js <span class="token comment" spellcheck="true">// ykit配置文件</span>
+<pre><code>|- node_modules
+|- src --------------------------// 项目源码
+|  |- common --------------------// 公共配置、工具等
+|  |- component -----------------// 公共组件
+|  |   |- componentA
+|  |   |    |- index.js ---------// 组件代码
+|  |   |    |- style.scss -------// 组件样式
+|  |   |- componentB
+|  |   |- ...
+|  |- page ----------------------// 业务逻辑目录（页面维度）
+|  |   |- pageA //页面目录
+|  |   |    |- index.js ---------// 页面入口文件
+|  |   |    |- index.scss -------// 页面样式
+|  |   |    |- component --------// 页面内部使用的组件
+|  |   |- pageB
+|  |   |- ...
+|  |- html ----------------------// 页面html
+|  |- yo-config -----------------// 样式配置文件夹
+|- ...
+|- package.json // npm配置文件
+|- ykit.yo.js // ykit配置文件
 </code></pre><p><a name="upgrade"></a></p>
 <h2 id="更新升级">更新升级</h2><p>相比于之前的升级方式，现在的 <code>Yo</code> 升级也更加简便，只需要在项目目录执行 <code>npm install</code> 即可。</p>
 <p><code>Yo</code> 升级时，只会对 <code>node_modules</code> 中的 <code>yo3</code> 模块进行更新，而不会侵入用户目录中的其它地方。假设 <code>Yo</code> 新增了一些组件，升级时，会增量的将这些新组件添加到项目的 <code>yo-config</code> 目录中，而不会改动任何已存在的文件。
 这时你会在npm install结束后在控制台看到如下信息：</p>
-<pre><code>yo<span class="token punctuation">:</span>新增文件<span class="token punctuation">[</span>文件名<span class="token punctuation">]</span>已经被拷贝到<span class="token punctuation">[</span>目录路径<span class="token punctuation">]</span>
+<pre><code>yo:新增文件[文件名]已经被拷贝到[目录路径]
 </code></pre><p>请注意，这时候你应该手动执行一次<code>git add ./src/yo-config</code>，否则新增的文件不会被加入到版本控制中。</p>
 <p>当你需要升级 <code>Yo</code> 的时候，请仔细阅读 <a href="changelog.html">版本变更</a> 。</p>
 
               </div>
+              <div class="open-panel"></div>
           </div>
           
         
@@ -314,11 +314,6 @@
       </footer>
     </div>
 
-    
-       <div class="open-panel"></div>
-    
-    
-
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
     
@@ -326,7 +321,6 @@
 
     
 
-    
     
       
       <script type="text/javascript" src="./theme/ydoc.js"></script>
