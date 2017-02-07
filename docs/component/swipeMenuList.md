@@ -2,30 +2,6 @@
 
 `SwipeMenuList`是一个定制化的`List`，和`List`的不同之处在于它的每一个列表项都是`SwipeMenu`。因此除了列表的`dataSource`之外
 你还需要指定菜单项的配置，这可以通过`getMenuConfig`属性实现：
-
-```
-<SwipeMenuList
-    ...
-    getMenuConfig={{
-        // 配置菜单的按钮
-        action:[
-            {
-                text: string // 按钮文本,必须
-                onTap: function // 按钮的点击事件回调,接受参数item(这个配置对象的引用),index(配置对象在数据源的index)以及component(该对象对应的SwipeMenu组件的引用)
-                className: // 给按钮附加的额外类名
-            },
-            ...
-        ],
-        // SwipeMenu的其他属性
-        disabled: true,
-        direciton: 'right'
-    }}
-    ...
-/>
-```
-
-`getMenuConfig`属性也可以接收函数，例如:
-
 ```
 <SwipeMenuList
     ...
@@ -154,7 +130,7 @@ class SwipeMenuListDemo extends Component {
                 <SwipeMenuList
                     ref="swipemenulist"
                     extraClass="yo-list-fullscreen"
-                    getMenuConfig={{
+                    getMenuConfig={() => ({
                         action: [
                             {
                                 text: '点我',
@@ -170,7 +146,7 @@ class SwipeMenuListDemo extends Component {
                                 }
                             }
                         ]
-                    }}
+                    })}
                     dataSource={this.state.dataSource}
                     infinite={true}
                     infiniteSize={15}
