@@ -102,7 +102,7 @@
           <div class="ydoc-banner">
               <div class="ydoc-banner-area">
                   <h1>核心</h1>
-                  <p>详细介绍 Yo 的内置扩展函数和扩展方法</p>
+                  <p>Yo 提供了非常多的方法，以供大家方便的实现某些常用的功能，比如处理厂商前缀，1像素边框，响应式等。同时，Yo 还为 sass List 扩展了更多的函数，大家可以更方便的操作 List 了。</p>
               </div>
           </div>
       
@@ -119,7 +119,7 @@
                         <!-- <li  > -->
                         <li >
                             
-                            <a href="#功能">功能</a>
+                            <a href="#常用方法">常用方法</a>
                             
                         </li>
                         
@@ -699,7 +699,7 @@
                 
                 <div class="docs-section">
     
-    <h2 id="功能" class="page-header">功能</h2>
+    <h2 id="常用方法" class="page-header">常用方法</h2>
     
     <div class="con-list-item">
         <blockquote class="api">
@@ -709,7 +709,7 @@
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
-            元素在包含块中的对齐方式，默认为水平垂直对齐
+            描述元素内容在横、纵方向上的对齐方式，默认为水平垂直居中对齐
         </p>
         
         <p>
@@ -720,7 +720,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_align.scss.html#1" target="_blank">./style/lib/core/_align.scss:1</a>
+            <a href="./static/style/lib/core/classes/_align.scss.html#1" target="_blank">./style/lib/core/classes/_align.scss:1</a>
         </p>
         
         
@@ -745,28 +745,21 @@
                 <tr>
                     <td>$flexbox</td>
                     <td>String</td>
-                    <td>指定包含块布局方式，可选值：flex | inline-flex，默认值：flex </td>
-                    <td>2.0.0</td>
-                </tr>
-                
-                <tr>
-                    <td>$type</td>
-                    <td>String</td>
-                    <td>指定居中元素类型，可选值：image | text | other，默认值：text </td>
+                    <td>元素布局方式，可选值：flex | inline-flex，默认值：flex </td>
                     <td>2.0.0</td>
                 </tr>
                 
                 <tr>
                     <td>$justify-content</td>
-                    <td>Keywords</td>
-                    <td>指定元素水平对齐方式，取值与`justify-content`属性一致，默认值：center </td>
+                    <td>Keyword</td>
+                    <td>元素内容的水平对齐方式，取值与`justify-content`属性一致，默认值：center </td>
                     <td>2.0.0</td>
                 </tr>
                 
                 <tr>
                     <td>$align-items</td>
-                    <td>Keywords</td>
-                    <td>指定元素垂直对齐方式，取值与`align-items`属性一致，默认值：center </td>
+                    <td>Keyword</td>
+                    <td>元素内容的垂直对齐方式，取值与`align-items`属性一致，默认值：center </td>
                     <td>2.0.0</td>
                 </tr>
                 
@@ -782,7 +775,7 @@
 }
 
 &lt;div class="demo"&gt;
-     &lt;img class="item" alt="未知尺寸图片居中" /&gt;
+     &lt;img alt="未知尺寸图片居中" /&gt;
 &lt;/div&gt;</code></pre>
         
     </div>
@@ -806,7 +799,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_calc.scss.html#1" target="_blank">./style/lib/core/_calc.scss:1</a>
+            <a href="./static/style/lib/core/classes/_calc.scss.html#1" target="_blank">./style/lib/core/classes/_calc.scss:1</a>
         </p>
         
         
@@ -876,7 +869,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_clearfix.scss.html#1" target="_blank">./style/lib/core/_clearfix.scss:1</a>
+            <a href="./static/style/lib/core/classes/_clearfix.scss.html#1" target="_blank">./style/lib/core/classes/_clearfix.scss:1</a>
         </p>
         
         
@@ -930,7 +923,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_clearspace.scss.html#1" target="_blank">./style/lib/core/_clearspace.scss:1</a>
+            <a href="./static/style/lib/core/classes/_clearspace.scss.html#1" target="_blank">./style/lib/core/classes/_clearspace.scss:1</a>
         </p>
         
         
@@ -997,7 +990,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_fullscreen.scss.html#1" target="_blank">./style/lib/core/_fullscreen.scss:1</a>
+            <a href="./static/style/lib/core/classes/_fullscreen.scss.html#1" target="_blank">./style/lib/core/classes/_fullscreen.scss:1</a>
         </p>
         
         
@@ -1058,7 +1051,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_overflow.scss.html#1" target="_blank">./style/lib/core/_overflow.scss:1</a>
+            <a href="./static/style/lib/core/classes/_overflow.scss.html#1" target="_blank">./style/lib/core/classes/_overflow.scss:1</a>
         </p>
         
         
@@ -1112,7 +1105,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_responsive.scss.html#1" target="_blank">./style/lib/core/_responsive.scss:1</a>
+            <a href="./static/style/lib/core/classes/_responsive.scss.html#1" target="_blank">./style/lib/core/classes/_responsive.scss:1</a>
         </p>
         
         
@@ -1169,7 +1162,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_animation.scss.html#1" target="_blank">./style/lib/core/_animation.scss:1</a>
+            <a href="./static/style/lib/core/classes/_animation.scss.html#1" target="_blank">./style/lib/core/classes/_animation.scss:1</a>
         </p>
         
         
@@ -1223,7 +1216,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_animation.scss.html#12" target="_blank">./style/lib/core/_animation.scss:12</a>
+            <a href="./static/style/lib/core/classes/_animation.scss.html#12" target="_blank">./style/lib/core/classes/_animation.scss:12</a>
         </p>
         
         
@@ -1277,7 +1270,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_animation.scss.html#23" target="_blank">./style/lib/core/_animation.scss:23</a>
+            <a href="./static/style/lib/core/classes/_animation.scss.html#23" target="_blank">./style/lib/core/classes/_animation.scss:23</a>
         </p>
         
         
@@ -1331,7 +1324,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_animation.scss.html#34" target="_blank">./style/lib/core/_animation.scss:34</a>
+            <a href="./static/style/lib/core/classes/_animation.scss.html#34" target="_blank">./style/lib/core/classes/_animation.scss:34</a>
         </p>
         
         
@@ -1385,7 +1378,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_animation.scss.html#45" target="_blank">./style/lib/core/_animation.scss:45</a>
+            <a href="./static/style/lib/core/classes/_animation.scss.html#45" target="_blank">./style/lib/core/classes/_animation.scss:45</a>
         </p>
         
         
@@ -1439,7 +1432,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_animation.scss.html#56" target="_blank">./style/lib/core/_animation.scss:56</a>
+            <a href="./static/style/lib/core/classes/_animation.scss.html#56" target="_blank">./style/lib/core/classes/_animation.scss:56</a>
         </p>
         
         
@@ -1493,7 +1486,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_animation.scss.html#67" target="_blank">./style/lib/core/_animation.scss:67</a>
+            <a href="./static/style/lib/core/classes/_animation.scss.html#67" target="_blank">./style/lib/core/classes/_animation.scss:67</a>
         </p>
         
         
@@ -1547,7 +1540,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_animation.scss.html#78" target="_blank">./style/lib/core/_animation.scss:78</a>
+            <a href="./static/style/lib/core/classes/_animation.scss.html#78" target="_blank">./style/lib/core/classes/_animation.scss:78</a>
         </p>
         
         
@@ -1601,7 +1594,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_animation.scss.html#89" target="_blank">./style/lib/core/_animation.scss:89</a>
+            <a href="./static/style/lib/core/classes/_animation.scss.html#89" target="_blank">./style/lib/core/classes/_animation.scss:89</a>
         </p>
         
         
@@ -1658,7 +1651,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_background.scss.html#1" target="_blank">./style/lib/core/_background.scss:1</a>
+            <a href="./static/style/lib/core/classes/_background.scss.html#1" target="_blank">./style/lib/core/classes/_background.scss:1</a>
         </p>
         
         
@@ -1726,7 +1719,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_background.scss.html#34" target="_blank">./style/lib/core/_background.scss:34</a>
+            <a href="./static/style/lib/core/classes/_background.scss.html#34" target="_blank">./style/lib/core/classes/_background.scss:34</a>
         </p>
         
         
@@ -1780,7 +1773,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_background.scss.html#45" target="_blank">./style/lib/core/_background.scss:45</a>
+            <a href="./static/style/lib/core/classes/_background.scss.html#45" target="_blank">./style/lib/core/classes/_background.scss:45</a>
         </p>
         
         
@@ -1834,7 +1827,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_background.scss.html#56" target="_blank">./style/lib/core/_background.scss:56</a>
+            <a href="./static/style/lib/core/classes/_background.scss.html#56" target="_blank">./style/lib/core/classes/_background.scss:56</a>
         </p>
         
         
@@ -1888,7 +1881,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_border-radius.scss.html#1" target="_blank">./style/lib/core/_border-radius.scss:1</a>
+            <a href="./static/style/lib/core/classes/_border-radius.scss.html#1" target="_blank">./style/lib/core/classes/_border-radius.scss:1</a>
         </p>
         
         
@@ -1942,7 +1935,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_border.scss.html#1" target="_blank">./style/lib/core/_border.scss:1</a>
+            <a href="./static/style/lib/core/classes/_border.scss.html#1" target="_blank">./style/lib/core/classes/_border.scss:1</a>
         </p>
         
         
@@ -2020,7 +2013,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_flex.scss.html#1" target="_blank">./style/lib/core/_flex.scss:1</a>
+            <a href="./static/style/lib/core/classes/_flex.scss.html#1" target="_blank">./style/lib/core/classes/_flex.scss:1</a>
         </p>
         
         
@@ -2074,7 +2067,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_flex.scss.html#34" target="_blank">./style/lib/core/_flex.scss:34</a>
+            <a href="./static/style/lib/core/classes/_flex.scss.html#34" target="_blank">./style/lib/core/classes/_flex.scss:34</a>
         </p>
         
         
@@ -2135,7 +2128,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_flex.scss.html#67" target="_blank">./style/lib/core/_flex.scss:67</a>
+            <a href="./static/style/lib/core/classes/_flex.scss.html#67" target="_blank">./style/lib/core/classes/_flex.scss:67</a>
         </p>
         
         
@@ -2189,7 +2182,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_flex.scss.html#92" target="_blank">./style/lib/core/_flex.scss:92</a>
+            <a href="./static/style/lib/core/classes/_flex.scss.html#92" target="_blank">./style/lib/core/classes/_flex.scss:92</a>
         </p>
         
         
@@ -2243,7 +2236,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_flex.scss.html#104" target="_blank">./style/lib/core/_flex.scss:104</a>
+            <a href="./static/style/lib/core/classes/_flex.scss.html#104" target="_blank">./style/lib/core/classes/_flex.scss:104</a>
         </p>
         
         
@@ -2297,7 +2290,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_flex.scss.html#162" target="_blank">./style/lib/core/_flex.scss:162</a>
+            <a href="./static/style/lib/core/classes/_flex.scss.html#162" target="_blank">./style/lib/core/classes/_flex.scss:162</a>
         </p>
         
         
@@ -2351,7 +2344,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_flex.scss.html#175" target="_blank">./style/lib/core/_flex.scss:175</a>
+            <a href="./static/style/lib/core/classes/_flex.scss.html#175" target="_blank">./style/lib/core/classes/_flex.scss:175</a>
         </p>
         
         
@@ -2405,7 +2398,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_flex.scss.html#255" target="_blank">./style/lib/core/_flex.scss:255</a>
+            <a href="./static/style/lib/core/classes/_flex.scss.html#255" target="_blank">./style/lib/core/classes/_flex.scss:255</a>
         </p>
         
         
@@ -2459,7 +2452,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_flex.scss.html#329" target="_blank">./style/lib/core/_flex.scss:329</a>
+            <a href="./static/style/lib/core/classes/_flex.scss.html#329" target="_blank">./style/lib/core/classes/_flex.scss:329</a>
         </p>
         
         
@@ -2513,7 +2506,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_flex.scss.html#383" target="_blank">./style/lib/core/_flex.scss:383</a>
+            <a href="./static/style/lib/core/classes/_flex.scss.html#383" target="_blank">./style/lib/core/classes/_flex.scss:383</a>
         </p>
         
         
@@ -2570,7 +2563,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_shape.scss.html#1" target="_blank">./style/lib/core/_shape.scss:1</a>
+            <a href="./static/style/lib/core/classes/_shape.scss.html#1" target="_blank">./style/lib/core/classes/_shape.scss:1</a>
         </p>
         
         
@@ -2631,7 +2624,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_shape.scss.html#14" target="_blank">./style/lib/core/_shape.scss:14</a>
+            <a href="./static/style/lib/core/classes/_shape.scss.html#14" target="_blank">./style/lib/core/classes/_shape.scss:14</a>
         </p>
         
         
@@ -2685,7 +2678,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_shape.scss.html#26" target="_blank">./style/lib/core/_shape.scss:26</a>
+            <a href="./static/style/lib/core/classes/_shape.scss.html#26" target="_blank">./style/lib/core/classes/_shape.scss:26</a>
         </p>
         
         
@@ -2749,7 +2742,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_text.scss.html#1" target="_blank">./style/lib/core/_text.scss:1</a>
+            <a href="./static/style/lib/core/classes/_text.scss.html#1" target="_blank">./style/lib/core/classes/_text.scss:1</a>
         </p>
         
         
@@ -2803,7 +2796,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_text.scss.html#16" target="_blank">./style/lib/core/_text.scss:16</a>
+            <a href="./static/style/lib/core/classes/_text.scss.html#16" target="_blank">./style/lib/core/classes/_text.scss:16</a>
         </p>
         
         
@@ -2857,7 +2850,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_text.scss.html#32" target="_blank">./style/lib/core/_text.scss:32</a>
+            <a href="./static/style/lib/core/classes/_text.scss.html#32" target="_blank">./style/lib/core/classes/_text.scss:32</a>
         </p>
         
         
@@ -2918,7 +2911,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_text.scss.html#54" target="_blank">./style/lib/core/_text.scss:54</a>
+            <a href="./static/style/lib/core/classes/_text.scss.html#54" target="_blank">./style/lib/core/classes/_text.scss:54</a>
         </p>
         
         
@@ -2975,7 +2968,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_transform.scss.html#1" target="_blank">./style/lib/core/_transform.scss:1</a>
+            <a href="./static/style/lib/core/classes/_transform.scss.html#1" target="_blank">./style/lib/core/classes/_transform.scss:1</a>
         </p>
         
         
@@ -3029,7 +3022,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_transform.scss.html#12" target="_blank">./style/lib/core/_transform.scss:12</a>
+            <a href="./static/style/lib/core/classes/_transform.scss.html#12" target="_blank">./style/lib/core/classes/_transform.scss:12</a>
         </p>
         
         
@@ -3083,7 +3076,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_transform.scss.html#23" target="_blank">./style/lib/core/_transform.scss:23</a>
+            <a href="./static/style/lib/core/classes/_transform.scss.html#23" target="_blank">./style/lib/core/classes/_transform.scss:23</a>
         </p>
         
         
@@ -3137,7 +3130,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_transform.scss.html#34" target="_blank">./style/lib/core/_transform.scss:34</a>
+            <a href="./static/style/lib/core/classes/_transform.scss.html#34" target="_blank">./style/lib/core/classes/_transform.scss:34</a>
         </p>
         
         
@@ -3191,7 +3184,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_transform.scss.html#45" target="_blank">./style/lib/core/_transform.scss:45</a>
+            <a href="./static/style/lib/core/classes/_transform.scss.html#45" target="_blank">./style/lib/core/classes/_transform.scss:45</a>
         </p>
         
         
@@ -3245,7 +3238,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_transform.scss.html#56" target="_blank">./style/lib/core/_transform.scss:56</a>
+            <a href="./static/style/lib/core/classes/_transform.scss.html#56" target="_blank">./style/lib/core/classes/_transform.scss:56</a>
         </p>
         
         
@@ -3302,7 +3295,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_transition.scss.html#1" target="_blank">./style/lib/core/_transition.scss:1</a>
+            <a href="./static/style/lib/core/classes/_transition.scss.html#1" target="_blank">./style/lib/core/classes/_transition.scss:1</a>
         </p>
         
         
@@ -3359,7 +3352,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_user-interface.scss.html#1" target="_blank">./style/lib/core/_user-interface.scss:1</a>
+            <a href="./static/style/lib/core/classes/_user-interface.scss.html#1" target="_blank">./style/lib/core/classes/_user-interface.scss:1</a>
         </p>
         
         
@@ -3413,7 +3406,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_user-interface.scss.html#12" target="_blank">./style/lib/core/_user-interface.scss:12</a>
+            <a href="./static/style/lib/core/classes/_user-interface.scss.html#12" target="_blank">./style/lib/core/classes/_user-interface.scss:12</a>
         </p>
         
         
@@ -3467,7 +3460,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_user-interface.scss.html#23" target="_blank">./style/lib/core/_user-interface.scss:23</a>
+            <a href="./static/style/lib/core/classes/_user-interface.scss.html#23" target="_blank">./style/lib/core/classes/_user-interface.scss:23</a>
         </p>
         
         
@@ -3521,7 +3514,7 @@
         
         <p>
             <small class="text-muted">源码位置:</small>
-            <a href="./static/style/lib/core/_user-interface.scss.html#34" target="_blank">./style/lib/core/_user-interface.scss:34</a>
+            <a href="./static/style/lib/core/classes/_user-interface.scss.html#34" target="_blank">./style/lib/core/classes/_user-interface.scss:34</a>
         </p>
         
         

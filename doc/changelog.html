@@ -102,7 +102,7 @@
           <div class="ydoc-banner">
               <div class="ydoc-banner-area">
                   <h1>版本</h1>
-                  <p>Yo 的历史版本发布时间及变更记录，帮助你追溯到每个版本的演进过程，同时也有每个版本所对应的下载地址</p>
+                  <p>Yo 的历史版本发布时间及变更记录，帮助你追溯到每个版本的演进过程。</p>
               </div>
           </div>
       
@@ -113,8 +113,30 @@
           <div class="ydoc-container-content" id="readme">
               <article class="markdown-body">
                   
-                  <h2 id="v3.0.4">v3.0.4</h2><p>发布时间：2017-01-25</p>
-<h3 id="New Features">New Features</h3><ul>
+                  <h2 id="v3.0.5 (2017-02-17)">v3.0.5 (2017-02-17)</h2><h3 id="New Features">New Features</h3><ul>
+<li>新增组件 <code>PopupPicker</code> 和 <code>PopupDateTimePicker</code>。这两个组件封装了原始的 <code>Picker</code> 和 <code>DateTimePicker</code> 组件，提供了更加便于使用的弹出式选择器。详情请参考这两个组件的文档。</li>
+<li><code>List</code>，<code>GroupList</code>，<code>SwipeMenuList</code> 现在加入对 <code>Immutable</code> 数据类型的支持，详情请参考 <code>List</code> 文档。</li>
+<li><code>List</code> 的 <code>shoudItemUpdate</code> 属性去除了冗余的第一个参数 <code>ret</code>，现在它只会在 <code>ListItem</code> 默认配置的 <code>shouldComponentUpdate</code> 返回值为 <code>false</code> 时触发。</li>
+<li><code>SwipeMenuList</code> 现在可以配置 <code>shouldItemUpdate</code> 方法了，它的使用方式与 <code>List</code> 组件一致。</li>
+<li><code>Suggest</code> 新增 <code>onSubmit</code> 属性，可以配置点击搜索键时的回调。</li>
+<li><code>Carousel</code> 组件内置自定义动画支持配置参数。</li>
+<li><code>align()</code> mixin 移除对 <code>type</code> 参数的支持 (<a href="https://github.com/doyoe/Yo/issues/42">Issues #42</a>)。</li>
+</ul>
+<h3 id="Bug Fixes">Bug Fixes</h3><ul>
+<li>修复 <code>Scroller</code> 的 <code>scrollTo</code> 方法在不传参数调用时导致 <code>Scroller</code> 无法滚动的bug。</li>
+<li>修复 <code>Suggest</code> 在 <code>iOS</code> 上结果列表滚动后，以及点击输入框<code>x</code>图标后，输入框无法聚焦的 bug。</li>
+<li>修复 <code>GroupList</code> 设置了 <code>titleHeight</code> 属性以后吸顶效果不准确的 bug。</li>
+<li>修复 <code>GroupList</code> 的 <code>itemTouchClass</code> 传入函数时报 <code>PropType</code> 验证不通过警告的bug。</li>
+<li>修复 <code>GroupList</code> 的 <code>titleHeight</code> 属性发生变化后不生效的bug。</li>
+<li>修复 <code>GroupList</code> 在设置 <code>titleExtraClass</code> 以后默认的 <code>label</code> 类名被覆盖导致在 <code>infinite</code> 模式下 <code>title</code> 定位不准确的bug。</li>
+<li>修复 <code>GroupList</code> 的吸顶容器的 <code>display</code> 属性始终为 <code>block</code> 的 bug。</li>
+<li>修复 <code>Suggest</code> 键盘按钮在 <code>iOS</code> 上不为 <code>搜索</code>，以及点击按钮后页面reload的bug。</li>
+<li>修复 <code>Calendar</code> 在选择日期时月份 <code>label</code> 重新创建导致性能不理想的问题。</li>
+<li>修复 <code>Carousel</code> 组件在 <code>default</code> 动画下节点使用 <code>lazyload</code> 和 <code>defaultPage</code>时 加载异常的问题。</li>
+<li>修复 <code>yo-list</code> 在 <code>infinite</code> 时，顶部出现间隔线的问题。</li>
+<li>修复 <code>yo-search</code> 参数 <code>input-height</code> 无效的问题 (<a href="https://github.com/doyoe/Yo/issues/41">Issues #41</a>)。</li>
+</ul>
+<h2 id="v3.0.4 (2017-01-25)">v3.0.4 (2017-01-25)</h2><h3 id="New Features">New Features</h3><ul>
 <li><code>Suggest</code> 结果列表现在支持开启 <code>Infinite</code> 模式，可以配置 <code>infinite</code>, <code>infiniteSize</code> 和 <code>itemHeight</code> 三个属性。</li>
 <li><code>MultiList</code> 重构版本重新上线，<code>dataSource</code>的配置方式做了大幅调整，现在可以通过<code>renderItem</code>和<code>renderContent</code>属性更方便的配置组件子菜单的展示方式。</li>
 <li><code>CarouselItem</code> 组件的属性做了大幅度精简，删除了冗余的<code>index</code>，<code>currentPage</code>和<code>pagesNum</code>三个属性。</li>
@@ -125,8 +147,7 @@
 <li>修复 <code>LazyImage</code> 在<code>List</code>不定高<code>Infinite</code>模式下更新时机不准确的bug。</li>
 <li>修复 <code>Touchable</code> 内部嵌套 <code>LazyImage</code>时无效的bug。</li>
 </ul>
-<h2 id="v3.0.3">v3.0.3</h2><p>发布时间：2017-01-13</p>
-<h3 id="New Features">New Features</h3><ul>
+<h2 id="v3.0.3 (2017-01-13)">v3.0.3 (2017-01-13)</h2><h3 id="New Features">New Features</h3><ul>
 <li><code>List</code>，<code>GroupList</code>和<code>SwipeMenuList</code>新增属性<code>staticSection</code>和<code>staticSectionHeight</code>，
 可以在所有的列表项之上渲染一个静态区域，在开启<code>Infinite</code>模式时，这一部分的节点不会参与回收复用的逻辑。</li>
 <li><code>SwipeMenuList</code>组件现在将菜单的配置从<code>dataSource</code>中分离出来，可以通过属性<code>getMenuConfig</code>配置。另外<code>renderMenuContent</code>属性
@@ -145,8 +166,7 @@
 <li>修复 <code>Calendar</code> 最后一周不满七天时自动补齐会出现某月第32天的情况。</li>
 <li>修复 <code>Dialog</code> 和 <code>ActionSheet</code> 组件在某些安卓手机上按钮触摸反馈效果不消失的bug。</li>
 </ul>
-<h2 id="v3.0.2">v3.0.2</h2><p>发布时间：2016-12-30</p>
-<h3 id="New Features">New Features</h3><ul>
+<h2 id="v3.0.2 (2016-12-30)">v3.0.2 (2016-12-30)</h2><h3 id="New Features">New Features</h3><ul>
 <li>新增 <code>Scroller.Sticky</code> 组件，可以便捷地给 <code>Scroller</code> 内部的节点添加吸顶效果。</li>
 <li><code>Scroller</code>, <code>List</code>, <code>Grouplist</code>, <code>SwipeMenuList</code>新增实验属性<code>scrollWithoutTouchStart</code>，允许在没有收到<code>touchstart</code>事件时开始滚动。</li>
 <li>现在 <code>List</code> 组件不再有默认的撑满父容器的内联样式，这意味着可以使用 <code>extraClass</code> 自由调整 <code>List</code> 根节点的尺寸，同时也 <strong>必须</strong> 在使用前通过 <code>extraClass</code> 或者 <code>style</code> 指定它的高度。</li>
@@ -165,8 +185,7 @@
 <li>修复 <code>Grouplist</code> 在不定高 <code>Infinite</code> 模式下，设置过 <code>offsetY</code> 属性后初始吸顶title不展示的bug。</li>
 <li>修复 <code>SwipeMenuList</code> 组件点击打开的列表项时，在关闭列表项的同时触发了列表项的 <code>tap</code> 事件的bug。</li>
 </ul>
-<h2 id="v3.0.1">v3.0.1</h2><p>发布时间：2016-12-16</p>
-<h3 id="New Features">New Features</h3><ul>
+<h2 id="v3.0.1 (2016-12-16)">v3.0.1 (2016-12-16)</h2><h3 id="New Features">New Features</h3><ul>
 <li><code>Alert</code> 和 <code>Confirm</code> API现在支持传入一个opt对象作为参数，除了content,title和animation外，里面还可以指定btnText属性来定制&quot;确定&quot;和&quot;取消&quot;按钮的文本。</li>
 <li><code>MultiList</code> 组件增加了extraClass属性，可以给根节点绑定额外样式类。</li>
 <li><code>List</code> 现在可以通过extraClass设置样式来调整根节点的宽高，之前是直接设定的style属性为{position:absolute;top:0;bottom:0}所以无法修改。这意味着不再需要将List放入一个父容器中。</li>
@@ -182,8 +201,7 @@
 <li>修复 <code>Suggest</code> 组件结果item默认touchClass的错误。</li>
 <li>修复异步载入 <code>Yo</code> 时Fastclick初始化方法未执行的错误。</li>
 </ul>
-<h2 id="v3.0.0">v3.0.0</h2><p>发布时间：2016-11-29</p>
-<ul>
+<h2 id="v3.0.0 (2016-11-29)">v3.0.0 (2016-11-29)</h2><ul>
 <li>全新架构设计</li>
 </ul>
 <blockquote>

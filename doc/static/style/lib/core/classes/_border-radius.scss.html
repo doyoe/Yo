@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
-    <title>Yo : ./style/lib/core/_fullscreen.scss</title>
-    <link type="text/css" rel="stylesheet" href="../../../../source/code.css"/>
-    <script type="text/javascript" src="../../../../source/shCore.js"></script>
-    <script type="text/javascript" src="../../../../source/shBrush-css.js"></script>
+    <title>Yo : ./style/lib/core/classes/_border-radius.scss</title>
+    <link type="text/css" rel="stylesheet" href="../../../../../source/code.css"/>
+    <script type="text/javascript" src="../../../../../source/shCore.js"></script>
+    <script type="text/javascript" src="../../../../../source/shBrush-css.js"></script>
     <style>
         .syntaxhighlighter .number1 .spaces,.syntaxhighlighter .toolbar{ display: none;}
         .syntaxhighlighter table td.gutter .line.highlight { background-color: #6ce26c !important; color: white; }
@@ -17,7 +17,7 @@
     <div class="ydoc-banner-bg">
         <div class="ydoc-banner" id="content" tabindex="-1">
             <div class="ydoc-banner-area">
-                <h1>Yo : ./style/lib/core/_fullscreen.scss</h1>
+                <h1>Yo : ./style/lib/core/classes/_border-radius.scss</h1>
                 <p>源代码</p>
             </div>
         </div>
@@ -27,20 +27,16 @@
                 <pre class="brush: css;">
                 @charset "utf-8";
 /**
- * @module 功能
- * @description 生成全屏方法
- * @method fullscreen
- * @version 1.7.0
- * @param {Integer} $z-index 指定层叠级别 <1.7.0>
- * @param {Keywords} $position 指定定位方式，取除`static | relative`之外的值，默认值：absolute <1.8.5>
+ * @module 背景与边框
+ * @description 定义圆角，用于修复某些安卓机型上“圆角+边框+背景”，背景溢出的情况
+ * @method border-radius
+ * @version 1.6.0
+ * @param {Length} $border-radius 指定元素的圆角半径，取值与`border-radius`属性一致 <1.6.0>
  */
-@mixin fullscreen($z-index: null, $position: absolute) {
-    position: $position;
-    z-index: $z-index;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+@mixin border-radius($border-radius...) {
+    border-radius: $border-radius;
+    // 之所以会这样是因为这些机型的背景是从边框处开始渲染，所以只需要改成从padding处渲染即可
+    @include background-clip(padding-box !important);
 }
                 </pre>
                 </div>
@@ -49,7 +45,7 @@
     </div>
     <!-- <div class="docs-header" id="content" tabindex="-1">
         <div class="container">
-            <h1>Yo : ./style/lib/core/_fullscreen.scss</h1>
+            <h1>Yo : ./style/lib/core/classes/_border-radius.scss</h1>
             <p>源代码</p>
         </div>
     </div> -->

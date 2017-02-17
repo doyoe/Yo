@@ -262,6 +262,22 @@
                         
                         
                             <li >
+                                <a href="component-PopupPicker.html">PopupPicker</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-PopupDateTimePicker.html">PopupDateTimePicker</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
                                 <a href="component-Rating.html">Rating</a>
                             </li>
                         
@@ -557,6 +573,33 @@
     <span class="token punctuation">}</span><span class="token punctuation">}</span>
 <span class="token operator">/</span><span class="token operator">></span>
 </code></pre><p>更详细的使用方式请参考<code>LazyImage</code>组件的说明文档。</p>
+<h4 id="-">列表项的性能优化和更新</h4>
+<p>在开启了无穷列表模式的情况下，在滚动过程中会实时更新容器内部的列表项，这会触发大量的<code>render</code>过程，虽然React的虚拟dom diff的开销并不大，
+但是对于某些老式手机，如此频繁的触发dom diff依然会有不可忽视的性能开销。</p>
+<p>为了最大限度地优化滚动的性能，无穷列表的列表项都默认配置了<code>shouldComponentUpdate</code>，<strong> 它会根据列表项对应的<code>item.key</code>是否发生了变化来决定是否触发<code>render</code>，
+这样可以确保<code>render</code>的触发次数达到最小。 </strong> 你会发现这和使用<code>Immutable</code>来优化<code>render</code>的原理十分相似。</p>
+<p><strong> 在默认情况下，如果你想修改列表中某一项的数据，
+除了设置改变后的属性值之外，你还应该给它设置一个新的<code>key</code>，
+否则ListItem的<code>shouldComponentUpdate</code>的结果仍然为<code>false</code>，你期待的dom更新也不会发生。 </strong></p>
+<p>有的时候这会导致用户期待的<code>render</code>没有发生，这时候可以通过配置<code>shouldItemUpdate</code>属性来覆盖掉默认的<code>shouldComponentUpdate</code>返回的结果。例如：</p>
+<pre><code><span class="token operator">&lt;</span>List
+    <span class="token operator">...</span>
+    shouldItemUpdate<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>next<span class="token punctuation">,</span>now<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// return ...; //true or false</span>
+    <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token operator">/</span><span class="token operator">></span>
+</code></pre><p>这个函数接收两个参数，第一个参数和第二个参数分别对应着列表项当前的数据和即将接收到的数据。
+这个函数返回的布尔值会作为shouldComponentUpdate的新结果返回。</p>
+<p>这里需要注意一点，如果你没有使用<code>Immutable</code>数据结构，
+那么<code>next</code>和<code>now</code>此时实际上都会指向同一个对象。所以在这种情况下，
+不能简单地通过这两个对象的浅比较来确定是否应该<code>render</code>。</p>
+<p>如果你使用了<code>Immutable</code>，那么推荐做以下的配置：</p>
+<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>List</span>
+    <span class="token attr-name">...</span>
+    <span class="token attr-name">shouldItemUpdate</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>next<span class="token punctuation">,</span>now<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> next <span class="token operator">!==</span> now <span class="token punctuation">}</span></span>
+    <span class="token attr-name">...</span>
+<span class="token punctuation">/></span></span>
+</code></pre><p>这样当列表项的数据发生变化时，你不必再做修改<code>key</code>值的操作而只需要修改数据，改动的列表项将会自动重新<code>render</code>，方便许多。</p>
 
             </div>
             
@@ -648,6 +691,75 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
             
             <div class="instructions-con-runner">
                 <iframe class="instructions-iframe" src="http://ued.qunar.com/hy2/yo/demo/src/html/component/list/base.html?hideIcon"></iframe>
+            </div>
+            
+        </div>
+    </div>
+ 
+    <div class="instructions">
+        <div class="instructions-con">
+            
+            <div class="instructions-con-info">
+            <h4 id="-">无穷模式下改变列表项的高度</h4>
+<p>如上所述, 无穷列表的所有位置信息保存在<code>List</code>组件内部的一张哈希表中，这个哈希表的键值正是你传入的列表项的<code>key</code>。</p>
+<p>因此，如果某一项的高度发生了变化，你需要给它设置一个新的<code>key</code>，这样保存高度的哈希表的旧记录就失效了，
+在列表项重新render以后，它的新高度就被用这个新的key值保存到哈希表中。<strong> 注意：这种改变高度的场景必须通过修改<code>key</code>值来
+实现，即使你已经使用<code>shouldItemUpdate</code>改变了原有的<code>shouldComponentUpdate</code>。 </strong></p>
+<p>右侧的Demo展示了一个需要展开完整文本内容的场景，这正是一个典型的需要改变列表项高度的需求，它的代码如下：</p>
+<pre><code><span class="token keyword">class</span> <span class="token class-name">ModifyHeightDemo</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">static</span> guid <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+
+    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>state <span class="token operator">=</span> <span class="token punctuation">{</span>
+            dataSource<span class="token punctuation">:</span> Immutable<span class="token punctuation">.</span><span class="token function">fromJS</span><span class="token punctuation">(</span>dataSource<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>item <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                <span class="token keyword">const</span> len <span class="token operator">=</span> item<span class="token punctuation">.</span>comment<span class="token punctuation">.</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+                <span class="token keyword">return</span> <span class="token punctuation">{</span>
+                    <span class="token operator">...</span>item<span class="token punctuation">,</span>
+                    showMoreFlag<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+                    key<span class="token punctuation">:</span> <span class="token operator">++</span>ModifyHeightDemo<span class="token punctuation">.</span>guid<span class="token punctuation">,</span>
+                    shortComment<span class="token punctuation">:</span> len <span class="token operator">></span> <span class="token number">150</span> <span class="token operator">?</span> item<span class="token punctuation">.</span>comment<span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">150</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'...'</span> <span class="token punctuation">:</span> item<span class="token punctuation">.</span>comment<span class="token punctuation">,</span>
+                    commentHasMore<span class="token punctuation">:</span> len <span class="token operator">></span> <span class="token number">150</span> <span class="token operator">?</span> <span class="token number">1</span> <span class="token punctuation">:</span> <span class="token number">0</span>
+                <span class="token punctuation">}</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">// 展开/收起内容，注意这里key值发生的变化</span>
+    <span class="token function">toggle</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+            dataSource<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>dataSource<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>it <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>it <span class="token operator">===</span> item<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">return</span> it
+                        <span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token string">'key'</span><span class="token punctuation">,</span> <span class="token operator">++</span>ModifyHeightDemo<span class="token punctuation">.</span>guid<span class="token punctuation">)</span>
+                        <span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token string">'showMoreFlag'</span><span class="token punctuation">,</span> <span class="token operator">!</span>it<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'showMoreFlag'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">return</span> it<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Page</span> <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Modify</span> <span class="token attr-name">Height"</span> <span class="token attr-name">onLeftPress</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> location<span class="token punctuation">.</span>href <span class="token operator">=</span> <span class="token string">"./index.html"</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>List</span>
+                    <span class="token attr-name">extraClass</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>yo-scroller-fullscreen</span> <span class="token attr-name">m-sight-comment-list"</span>
+                    <span class="token attr-name">dataSource</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>dataSource<span class="token punctuation">}</span></span>
+                    <span class="token attr-name">renderItem</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&lt;</span>DemoItem data<span class="token punctuation">=</span><span class="token punctuation">{</span>item<span class="token punctuation">}</span> toggle<span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">toggle</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token punctuation">/></span></span><span class="token punctuation">}</span>
+                    infinite<span class="token operator">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span>
+                    infiniteSize<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">5</span><span class="token punctuation">}</span>
+                <span class="token operator">/</span><span class="token operator">></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Page</span><span class="token punctuation">></span></span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+            </div>
+            
+            
+            <div class="instructions-con-runner">
+                <iframe class="instructions-iframe" src="http://ued.qunar.com/hy2/yo/demo/src/html/component/list/modify_height.html?hideIcon"></iframe>
             </div>
             
         </div>
@@ -790,13 +902,13 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
 <blockquote class="api">
     <h3>
     <strong>dataSource</strong>
-     <span class="prop-type">{ Array }</span>
+     <span class="prop-type">{ Array/Immutable List }</span>
     
     </h3>
 </blockquote>
 <div class="api-content">
-    <div><p>组件的数据源，数组形式，内部元素必须是对象。
-如果需要给无穷列表的项定高度，可以在对象里添加height属性(数字类型)，
+    <div><p>组件的数据源，数组或者Immutable List类型，内部元素必须是对象或者Immutable Map。
+如果需要给无穷列表的项定高度，可以给元素添加height属性(数字类型)，
 也可以通过itemHeight属性统一设置列表项的高度(见itemHeight属性的描述)，
 如果列表元素有text属性且没有传入renderItem，会直接以text的值作为listitem的内容渲染。</p>
 </div>
@@ -1511,8 +1623,8 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
     <div><p>绑定给列表项组件的shouldComponentUpdate，可以避免额外的render，用于提升列表的滚动性能。</p>
 <p>实验表明，组件的render开销对于某些老式手机(例如三星Note2)是不能忽视的，因此list默认为所有的列表项组件配置了shouldComponentUpdate，会根据
 item的_guid属性(List组件自己做的，不需要使用者传入)做比较决定是否需要render，这样可以最小化render的次数。有些情况下，这种比较方式会阻止使用者期待触发的render，导致组件更新行为违反了使用者的意愿，这时候需要通过设置shouldItemUpdate属性改变默认的shouldComponentUpdate的返回值</p>
-<p>shouldItemUpdate能够接受三个参数，ret(默认的shouldComponentUpdate的return结果，布尔类型)，nextItem(ListItem组件的下一个props中的item属性)，
-nowItem(ListItem当前的props的item属性)，返回一个布尔值。false则会跳过render，true会继续执行render(与shouldComponentUpdate返回值的含义相同)。</p>
+<p>shouldItemUpdate能够接受两个参数，next(ListItem组件的下一个props中的item属性)，
+now(ListItem当前的props的item属性)。它必须返回一个布尔值，false则会跳过render，true会继续执行render(与shouldComponentUpdate返回值的含义相同)。</p>
 </div>
     
 </div>
@@ -1544,18 +1656,7 @@ nowItem(ListItem当前的props的item属性)，返回一个布尔值。false则�
         </thead>
         
         <tr>
-            <td>ret</td>
-            <td>Bool</td>
-            <td>列表项shouldComponentUpdate原结果</td>
-            <!-- <td>
-                
-                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
-            </td> -->
-            <td></td>
-        </tr>
-        
-        <tr>
-            <td>nextItem</td>
+            <td>next</td>
             <td>Object</td>
             <td>即将传给列表项组件的item对象</td>
             <!-- <td>
@@ -1566,7 +1667,7 @@ nowItem(ListItem当前的props的item属性)，返回一个布尔值。false则�
         </tr>
         
         <tr>
-            <td>nowItem</td>
+            <td>now</td>
             <td>Object</td>
             <td>当前列表项组件对应的item对象</td>
             <!-- <td>
@@ -1822,6 +1923,18 @@ nowItem(ListItem当前的props的item属性)，返回一个布尔值。false则�
         </tr>
         
     </table>
+</div>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>stopAnimate</strong>
+    
+    </h3>
+</blockquote>
+<div class="api-content"><p>立刻停止滚动。</p>
 </div>
 
 
