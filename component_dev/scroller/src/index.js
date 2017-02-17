@@ -22,7 +22,8 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import utils from './utils';
-import { replaceRedundantSpaces, getElementOffsetY } from '../../common/util';
+import { getElementOffsetY } from '../../common/util';
+import classNames from 'classnames';
 import LazyImage from '../../lazyimage';
 import Sticky from '../../sticky';
 import './style.scss';
@@ -1034,14 +1035,14 @@ export default class Scroller extends Component {
 
     /**
      * @method scrollTo
-     * @param {Number} x 水平位移
-     * @param {Number} y 垂直位移
-     * @param {Number} time 滚动时间
+     * @param {Number} x 水平位移，默认值为当前水平位移
+     * @param {Number} y 垂直位移，默认值为当前垂直位移
+     * @param {Number} time 滚动时间，默认值为0
      * @param {Object} [easing] 滚动动画对象。参照 `bounceEasing` 参数。
      *
      * @description 滚动到某个位置。
      */
-    scrollTo(x, y, time, easing) { // TODO: 给scrollTo加上回调，由于transitionend事件并不能针对某一次的transition，所以暂时不好处理
+    scrollTo(x = this.x, y = this.y, time, easing) { // TODO: 给scrollTo加上回调，由于transitionend事件并不能针对某一次的transition，所以暂时不好处理
         const _easing = easing || utils.ease.circular;
         const transitionType = this.useTransition && _easing.style;
 
@@ -1342,7 +1343,8 @@ export default class Scroller extends Component {
                         <i className="yo-ico yo-ico-fail">&#xf077;</i>
                         <div className="text">加载失败</div>
                     </div>
-                </div>);
+                </div>
+            );
 
             pullRefreshContent = this.props.renderPullRefresh ? this.props.renderPullRefresh() : pullRefreshTpl;
         }
@@ -1380,8 +1382,8 @@ export default class Scroller extends Component {
 
         let wrapperStyle = Object.assign({ overflow: 'hidden' }, this.props.style);
         let scrollerContent;
-        let _wrapperClassName = replaceRedundantSpaces(['yo-scroller', extraClass].join(' '));
-        let _scrollerClassName = replaceRedundantSpaces(['scroller', containerExtraClass].join(' '));
+        let _wrapperClassName = classNames('yo-scroller', extraClass);
+        let _scrollerClassName = classNames('scroller', containerExtraClass);
 
         if (this.noWrapper) {
             scrollerContent = React.cloneElement(this.props.children, {
@@ -1394,7 +1396,7 @@ export default class Scroller extends Component {
             });
         } else if (this.props.children && !this.props.children.length && typeof this.props.children.type === 'string' && !this.state.usePullRefresh && !this.state.useLoadMore) {
             if (this.props.children.props && this.props.children.props.className) {
-                _scrollerClassName = replaceRedundantSpaces(['scroller', this.props.children.props.className].join(' '));
+                _scrollerClassName = classNames('scroller', this.props.children.props.className);
             } else {
                 _scrollerClassName = 'scroller';
             }

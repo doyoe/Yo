@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+    <title>Yo : ./style/lib/core/classes/_clearspace.scss</title>
+    <link type="text/css" rel="stylesheet" href="../../../../../source/code.css"/>
+    <script type="text/javascript" src="../../../../../source/shCore.js"></script>
+    <script type="text/javascript" src="../../../../../source/shBrush-css.js"></script>
+    <style>
+        .syntaxhighlighter .number1 .spaces,.syntaxhighlighter .toolbar{ display: none;}
+        .syntaxhighlighter table td.gutter .line.highlight { background-color: #6ce26c !important; color: white; }
+    </style>
+</head>
+<body>
+<div class="ydoc">
+    <div class="ydoc-banner-bg">
+        <div class="ydoc-banner" id="content" tabindex="-1">
+            <div class="ydoc-banner-area">
+                <h1>Yo : ./style/lib/core/classes/_clearspace.scss</h1>
+                <p>源代码</p>
+            </div>
+        </div>
+        <div class="ydoc-container">
+            <div class="ydoc-container-content">
+                <div class="static-code-content" role="main">
+                <pre class="brush: css;">
+                @charset "utf-8";
+/**
+ * @module 常用方法
+ * @description 清除行内级元素间间隙方案
+ * @method clearspace
+ * @version 3.0.3
+ * @param {Length} $font-size 指定子元素字号，默认值：.14rem <3.0.3>
+ * @example
+ * .demo {
+ *     @include clearspace;
+ * }
+ *
+ * <div class="demo">
+ *      <span class="item">1</span>
+ *      <span class="item">2</span>
+ *      <span class="item">3</span>
+ * </div>
+ */
+@mixin clearspace($font-size: .14rem) {
+    font-size: 0;
+    font-family: arial;
+    > .item {
+        display: inline-block;
+        font-size: $font-size;
+        font-family: map-get($base, font-family);
+    }
+}
+                </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="docs-header" id="content" tabindex="-1">
+        <div class="container">
+            <h1>Yo : ./style/lib/core/classes/_clearspace.scss</h1>
+            <p>源代码</p>
+        </div>
+    </div> -->
+
+    <footer class="docs-footer" role="contentinfo">
+        <div class="container">
+            <p></p>
+        </div>
+    </footer>
+</div>
+<script type="text/javascript">
+    SyntaxHighlighter.all();
+
+    function getTop(node){
+        return node.offsetTop + (node.offsetParent ? getTop(node.offsetParent) : 0);
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+            try {
+                var lineNum = (parseInt(location.hash.replace(/#/g, '')) - 1) || 0,
+                    node = document.querySelectorAll('div.line')[lineNum];
+                document.body.scrollTop = getTop(node);
+                node.className += ' highlight';
+            } catch(e) {}
+        }, 500);
+    }, false);
+</script>
+</body>
+</html>

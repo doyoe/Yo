@@ -10,7 +10,8 @@
 import React, { Component, PropTypes } from 'react';
 import Picker from '../../picker/src';
 import DateTimeCore from './datetimecore';
-import { replaceRedundantSpaces, getArrayByLength } from '../../common/util';
+import { getArrayByLength } from '../../common/util';
+import classNames from 'classnames';
 import './style.scss';
 
 const propTypes = {
@@ -189,7 +190,7 @@ export default class DateTimePicker extends Component {
 
     render() {
         return (
-            <div className={replaceRedundantSpaces(`yo-datetimepicker ${this.props.extraClass}`)}>
+            <div className={classNames('yo-datetimepicker', this.props.extraClass)}>
                 {this.state.levels.map((optId, level) =>
                     <Picker
                         key={`picker${level}`}

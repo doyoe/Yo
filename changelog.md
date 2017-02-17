@@ -1,6 +1,29 @@
-## v3.0.4
+## v3.0.5 (2017-02-17)
 
-发布时间：2017-01-25
+### New Features
+- 新增组件 `PopupPicker` 和 `PopupDateTimePicker`。这两个组件封装了原始的 `Picker` 和 `DateTimePicker` 组件，提供了更加便于使用的弹出式选择器。详情请参考这两个组件的文档。
+- `List`，`GroupList`，`SwipeMenuList` 现在加入对 `Immutable` 数据类型的支持，详情请参考 `List` 文档。
+- `List` 的 `shoudItemUpdate` 属性去除了冗余的第一个参数 `ret`，现在它只会在 `ListItem` 默认配置的 `shouldComponentUpdate` 返回值为 `false` 时触发。
+- `SwipeMenuList` 现在可以配置 `shouldItemUpdate` 方法了，它的使用方式与 `List` 组件一致。
+- `Suggest` 新增 `onSubmit` 属性，可以配置点击搜索键时的回调。
+- `Carousel` 组件内置自定义动画支持配置参数。
+- `align()` mixin 移除对 `type` 参数的支持 ([Issues #42](https://github.com/doyoe/Yo/issues/42))。
+
+### Bug Fixes
+- 修复 `Scroller` 的 `scrollTo` 方法在不传参数调用时导致 `Scroller` 无法滚动的bug。
+- 修复 `Suggest` 在 `iOS` 上结果列表滚动后，以及点击输入框`x`图标后，输入框无法聚焦的 bug。
+- 修复 `GroupList` 设置了 `titleHeight` 属性以后吸顶效果不准确的 bug。
+- 修复 `GroupList` 的 `itemTouchClass` 传入函数时报 `PropType` 验证不通过警告的bug。
+- 修复 `GroupList` 的 `titleHeight` 属性发生变化后不生效的bug。
+- 修复 `GroupList` 在设置 `titleExtraClass` 以后默认的 `label` 类名被覆盖导致在 `infinite` 模式下 `title` 定位不准确的bug。
+- 修复 `GroupList` 的吸顶容器的 `display` 属性始终为 `block` 的 bug。
+- 修复 `Suggest` 键盘按钮在 `iOS` 上不为 `搜索`，以及点击按钮后页面reload的bug。
+- 修复 `Calendar` 在选择日期时月份 `label` 重新创建导致性能不理想的问题。
+- 修复 `Carousel` 组件在 `default` 动画下节点使用 `lazyload` 和 `defaultPage`时 加载异常的问题。
+- 修复 `yo-list` 在 `infinite` 时，顶部出现间隔线的问题。
+- 修复 `yo-search` 参数 `input-height` 无效的问题 ([Issues #41](https://github.com/doyoe/Yo/issues/41))。
+
+## v3.0.4 (2017-01-25)
 
 ### New Features
 - `Suggest` 结果列表现在支持开启 `Infinite` 模式，可以配置 `infinite`, `infiniteSize` 和 `itemHeight` 三个属性。
@@ -13,9 +36,7 @@
 - 修复 `LazyImage` 在`List`不定高`Infinite`模式下更新时机不准确的bug。
 - 修复 `Touchable` 内部嵌套 `LazyImage`时无效的bug。
 
-## v3.0.3
-
-发布时间：2017-01-13
+## v3.0.3 (2017-01-13)
 
 ### New Features
 
@@ -38,9 +59,7 @@
 - 修复 `Calendar` 最后一周不满七天时自动补齐会出现某月第32天的情况。
 - 修复 `Dialog` 和 `ActionSheet` 组件在某些安卓手机上按钮触摸反馈效果不消失的bug。
 
-## v3.0.2
-
-发布时间：2016-12-30
+## v3.0.2 (2016-12-30)
 
 ### New Features
 
@@ -63,9 +82,7 @@
 - 修复 `Grouplist` 在不定高 `Infinite` 模式下，设置过 `offsetY` 属性后初始吸顶title不展示的bug。
 - 修复 `SwipeMenuList` 组件点击打开的列表项时，在关闭列表项的同时触发了列表项的 `tap` 事件的bug。
 
-## v3.0.1
-
-发布时间：2016-12-16
+## v3.0.1 (2016-12-16)
 
 ### New Features
 
@@ -85,9 +102,7 @@
 - 修复 `Suggest` 组件结果item默认touchClass的错误。
 - 修复异步载入 `Yo` 时Fastclick初始化方法未执行的错误。
 
-## v3.0.0
-
-发布时间：2016-11-29
+## v3.0.0 (2016-11-29)
 
 * 全新架构设计
 

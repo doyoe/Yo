@@ -1,17 +1,15 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Modal from '../src';
 
 class ModalDemo extends Component {
 
     constructor(props) {
-
         super(props);
-        this.state = {show: false};
+        this.state = { show: false };
     }
 
     componentDidMount() {
-
         // var show = this.state.show, self = this;
         // setInterval(()=> {
         //
@@ -21,27 +19,36 @@ class ModalDemo extends Component {
     }
 
     render() {
-
         return (
             <div className="test-wrap">
                 <Modal
                     align="center"
                     show={this.state.show}
                     contentExtraClass="test"
-                    animation="fade"
-                    onMaskClick={()=>{this.setState({show:false})}}
+                    animation="none"
+                    onMaskTap={() => {
+                        this.setState({ show: false });
+                    }}
                     width={200}
                     height={100}
                 >
-                    hahaha
+                    <div>hahaha</div>
                 </Modal>
-                <button type="button" onClick={()=>{this.setState({show:true})}}>Open Modal!</button>
+                <button
+                    type="button"
+                    onClick={() => {
+                        this.setState({ show: true });
+                    }}
+                >
+                    Open Modal!
+                </button>
+                <input style={{height:200,width:300}} type="input" value="hahahaha"/>
             </div>
         );
     }
 }
 
 ReactDOM.render(
-    <ModalDemo/>,
+    <ModalDemo />,
     document.getElementById('content')
 );

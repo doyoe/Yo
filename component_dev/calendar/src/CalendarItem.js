@@ -4,7 +4,7 @@
  */
 import '../../common/tapEventPluginInit.js';
 import React, { Component, PropTypes } from 'react';
-import { replaceRedundantSpaces } from '../../common/util.js';
+import getClassNames from 'classnames';
 import Touchable from '../../touchable/src';
 
 const propTypes = {
@@ -61,7 +61,7 @@ export default class WeekItem extends Component {
             return (
                 <Touchable key={i} onTap={() => this.handleChange(day)} internalUse={true}>
                     <li
-                        className={classNames ? replaceRedundantSpaces(classNames) : null}
+                        className={classNames ? getClassNames(classNames) : null}
                     >
                         <span className="day">{item.day}</span>
                         {item.today ? (<ins className="special">今天</ins>) : null}

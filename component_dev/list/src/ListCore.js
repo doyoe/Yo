@@ -15,12 +15,14 @@ export default class ListCore extends ComponentCore {
      * @param visibleSize 保留在列表容器中列表项的数组
      * @description 构造函数,会通过调用refresh方法进行初始化
      */
-    constructor(dataSource,
-                offsetY = 0,
-                infinite = true,
-                itemHeight,
-                visibleSize = 12,
-                staticSectionHeight = 0) {
+    constructor({
+        dataSource,
+        offsetY = 0,
+        infinite = true,
+        itemHeight,
+        infiniteSize = 12,
+        staticSectionHeight = 0
+    }) {
         super('list');
         // 静态属性
         // 这些属性不会随着父组件render改变
@@ -28,7 +30,14 @@ export default class ListCore extends ComponentCore {
         // 保存列表项定位信息的表,List组件不定高模式的核心数据结构
         this.positionMap = {};
         // 在refresh中设置的属性可以通过父组件的render改变
-        this.refresh(dataSource, false, visibleSize, staticSectionHeight, offsetY, infinite);
+        this.refresh({
+            dataSource,
+            refreshAll: false,
+            infiniteSize,
+            staticSectionHeight,
+            offsetY,
+            infinite
+        });
     }
 
     /**
@@ -42,18 +51,29 @@ export default class ListCore extends ComponentCore {
      * @description 设置实例属性, 在构造函数中被调用,也会在组件的componentWillReceiveProps回调中调用
      * 可以根据props初始化/重置组件的状态
      */
-    refresh(ds = this.dataSource,
-            refreshAll = false,
-            visibleSize = this.visibleSize,
-            staticSectionHeight,
-            offsetY = this.offsetY,
-            infinite = this.infinite) {
-        if (!ds.length) {
+    refresh({
+        dataSource = this.dataSource,
+        refreshAll = false,
+        infiniteSize = this.visibleSize,
+        staticSectionHeight,
+        offsetY = this.offsetY,
+        infinite = this.infinite
+    }) {
+        if (!Array.isArray(dataSource)) {
+            if (typeof dataSource.toArray === 'function') {
+                dataSource = dataSource.toArray();
+            } else {
+                throw new Error('yo-list: dataSource必须为数组或者Immutable List!');
+            }
+        }
+
+        if (!dataSource.length) {
             throw new Error('yo-list: dataSource不能为空数组!');
         }
+
         this.infinite = infinite;
-        this.VISIBLE_SIZE = visibleSize;
-        this.dataSource = this.renderDataSource(ds, refreshAll);
+        this.VISIBLE_SIZE = infiniteSize;
+        this.dataSource = this.renderDataSource(dataSource, refreshAll);
         this.isHeightFixed = this.ifHeightFixed();
         this.direction = this.getDirection(offsetY);
         this.offsetY = offsetY;
@@ -73,7 +93,7 @@ export default class ListCore extends ComponentCore {
      * 判断数据源中的元素是否都被计算出(设置了)高度
      */
     ifHeightFixed(dataSource = this.dataSource) {
-        return dataSource.every(item => !!item.height) || !!this.itemHeight || !this.infinite;
+        return dataSource.every(item => !!this.getAttr(item.srcData, 'height')) || !!this.itemHeight || !this.infinite;
     }
 
     /**
@@ -149,11 +169,13 @@ export default class ListCore extends ComponentCore {
     }
 
     getItemPositionData(item) {
-        return item._type !== 'groupTitle' ? this.positionMap[item.key] : item;
+        const key = this.getAttr(item, 'key');
+        return item._type === 'groupTitle' ? item : this.positionMap[key];
     }
 
     setItemPositionData(item, attr) {
         // grouptitle做特殊处理,因为grouptitle是grouplist组件内部的数据对象,所以不会修改到源数据
+        // 与此同时，grouplist需要获取到_translateY这些信息，因此也只能在原来的数据对象上修改
         if (item._type === 'groupTitle') {
             Object.assign(item, attr);
         } else if (this.positionMap[item.key]) {
@@ -170,32 +192,47 @@ export default class ListCore extends ComponentCore {
      * _translateY(无穷列表中元素的translateY)和_bottom(列表项的bottom)
      */
     renderDataSource(ds, refreshAll = false) {
-        ds.forEach((ditem, i) => {
-            if (ditem.key == null) {
+        return ds.map((ditem, i) => {
+            let key = this.getAttr(ditem, 'key');
+            let renderedItem = {};
+
+            if (key == null) {
                 if (this.infinite) {
                     throw new Error('infinite模式的列表数据源的每一项必须有key属性。');
                 } else {
-                    const di = ditem;
-                    di.key = this.getGuid();
-                    console.warn('Yo-List:列表项没有key属性,将自动添加自增的key。这会使得列表在更新时出现大量的不必要的dom操作，请为每一个列表项指定一个唯一的key。');
+                    key = this.getGuid();
+                    if (process.env.NODE_ENV === 'dev') {
+                        console.warn('Yo-List:列表项没有key属性,将自动添加自增的key。这会使得列表在更新时出现大量的不必要的dom操作，请为每一个列表项指定一个唯一的key。');
+                    }
                 }
             }
 
+            // 区分groupTitle和item，因为groupTitle是组件添加的，不会影响到源数据，所以可以直接在上面增加属性
+            renderedItem = ditem._type !== 'groupTitle' ?
+                {
+                    // srcData指向源数据
+                    srcData: ditem,
+                    key,
+                    _index: i,
+                    _type: 'item'
+                } : Object.assign(ditem, { srcData: ditem, _index: i }); // 这里给title增加了一个指向自己的指针srcData，这是为了兼容其他普通item的数据格式，而不是在使用它的地方做各种判断
+
             if (refreshAll) {
-                this.setItemPositionData(ditem, { _bottom: null, _translateY: null, _order: null });
+                this.setItemPositionData(renderedItem, { _bottom: null, _translateY: null, _order: null });
             }
 
-            let itemPosData = this.getItemPositionData(ditem);
+            let itemPosData = this.getItemPositionData(renderedItem);
             if (!itemPosData) {
-                itemPosData = this.positionMap[ditem.key] = {};
+                itemPosData = this.positionMap[renderedItem.key] = {};
             }
 
-            const noHeightIdentified = this.itemHeight == null && ditem.height == null && itemPosData.height == null;
+            const itemHeight = this.getAttr(ditem, 'height');
+            const noHeightIdentified = this.itemHeight == null && itemHeight == null && itemPosData.height == null;
             if (this.infinite) {
                 // 设置height,_order,_resolved和_index
                 // 如果这个item具有高度,则直接设为resolved
-                this.setItemPositionData(ditem, {
-                    height: ditem.height || itemPosData.height || this.itemHeight,
+                this.setItemPositionData(renderedItem, {
+                    height: itemHeight || itemPosData.height || this.itemHeight,
                     _order: i % this.VISIBLE_SIZE,
                     _resolved: this.infinite && !noHeightIdentified,
                     _index: i
@@ -205,19 +242,19 @@ export default class ListCore extends ComponentCore {
                 if (i > 0) {
                     const prevItemPosData = this.getItemPositionData(ds[i - 1]);
                     if (!prevItemPosData._resolved) {
-                        this.setItemPositionData(ditem, { _resolved: false });
+                        this.setItemPositionData(renderedItem, { _resolved: false });
                     }
                 }
                 // 第一个item,直接设置_translateY为0
                 if (i === 0) {
-                    this.setItemPositionData(ditem, { _translateY: 0 });
+                    this.setItemPositionData(renderedItem, { _translateY: 0 });
                 }
                 // 之后的所有item,如果有height,设置它们的_translateY为前一个元素的bottom
                 // 设置它们的bottom为_translateY+height
                 if (itemPosData._resolved && !itemPosData._bottom) {
                     const _translateY = i === 0 ? 0 : this.getItemPositionData(ds[i - 1])._bottom;
                     const _bottom = _translateY + itemPosData.height;
-                    this.setItemPositionData(ditem, {
+                    this.setItemPositionData(renderedItem, {
                         _translateY,
                         _bottom
                     });
@@ -225,16 +262,14 @@ export default class ListCore extends ComponentCore {
                     if (i > 0) {
                         const prevItemPosData = this.getItemPositionData(ds[i - 1]);
                         if (prevItemPosData._bottom) {
-                            this.setItemPositionData(ditem, { _translateY: prevItemPosData._bottom });
+                            this.setItemPositionData(renderedItem, { _translateY: prevItemPosData._bottom });
                         }
                     }
                 }
-            } else {
-                ditem._index = i;
             }
-        });
 
-        return ds;
+            return renderedItem;
+        });
     }
 
     /**
@@ -413,7 +448,6 @@ export default class ListCore extends ComponentCore {
         if (_translateY != null) {
             const _bottom = _translateY + height;
             const _resolved = true;
-
             this.setItemPositionData(targetItem, { _translateY, _bottom, _resolved, height });
             this.visibleList = this.getVisibleList();
             this.totalHeight += height;

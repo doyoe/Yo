@@ -8,7 +8,10 @@
  * @version  3.0.2
  */
 import React, { Component, PropTypes } from 'react';
-import { getElementOffsetY } from '../common/util';
+import {
+    getElementOffsetY,
+    inheritProps
+} from '../common/util';
 
 export default class extends Component {
     static contextTypes = {
@@ -131,14 +134,14 @@ export default class extends Component {
 
     // 父组件render时,需要重置这个组件的loaded状态和context
     componentWillReceiveProps(nextProps, nextContext) {
-        this.loading = 0;
         this.offsetY = nextContext.offsetY;
         this.itemRef = nextContext.itemRef;
         if (this.context.scroller) {
             this.offsetTop = getElementOffsetY(this.img);
         }
 
-        if (nextProps.src !== this.props.src) {
+        if (this.state.src !== nextProps.src) {
+            this.loading = 0;
             this.setState({ src: nextProps.defaultImage });
         }
     }
@@ -172,9 +175,8 @@ export default class extends Component {
     }
 
     render() {
-        const { width, height, style, className, customAttr, alt, title } = this.props;
+        const { height, style, customAttr } = this.props;
         // 解决和touchable组件结合使用的问题，必须能够接收这四个属性
-        const { onTouchStart, onTouchMove, onTouchEnd, onTouchCancel } = this.props;
 
         if (this.context.list) {
             if (height == null && style.height == null) {
@@ -184,20 +186,22 @@ export default class extends Component {
 
         return (
             <img
-                onTouchStart={onTouchStart}
-                onTouchMove={onTouchMove}
-                onTouchEnd={onTouchEnd}
-                onTouchCancel={onTouchCancel}
-                alt={alt}
-                title={title}
+                {...inheritProps(this.props, [
+                    'onTouchStart',
+                    'onTouchMove',
+                    'onTouchEnd',
+                    'onTouchCancel',
+                    'width',
+                    'height',
+                    'className',
+                    'title',
+                    'style'
+                ])}
+                alt={this.props.alt}
                 ref={(img) => {
                     if (img) this.img = img;
                 }}
                 src={this.state.src}
-                width={width}
-                style={style}
-                height={height}
-                className={className}
                 {...customAttr}
             />
         );

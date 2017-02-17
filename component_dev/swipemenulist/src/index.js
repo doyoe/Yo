@@ -19,26 +19,26 @@ export default class SwipeMenuList extends Component {
     static propTypes = {
         /**
          * @property dataSource
-         * @type Array
+         * @type Array/Immutable List
          * @default null
          * @description 组件数据源，数组类型，与`List`同名属性完全一致。
          */
-        dataSource: PropTypes.arrayOf(PropTypes.shape({
+        dataSource: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.shape({
             height: PropTypes.number,
-            text: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-        })).isRequired,
+            text: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+            key: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+        })), PropTypes.object]).isRequired,
         /**
          * @property getMenuConfig
          * @default null
          * @version 3.0.3
-         * @type Function/Object
+         * @type Function
          * @param {Object} item 列表项对应的数据对象
          * @param {Number} index 列表项在数据源中的index
-         * @description 列表项菜单对应的SwipeMenu组件配置对象，可配置的属性请参考`SwipeMenu`组件。
-         *
-         * 如果传入对象，会应用于所有的列表项；如果传入函数，可以给不同的列表项定制不同的配置。
+         * @description 这个函数应该返回一个列表项菜单对应的SwipeMenu组件配置对象，
+         * 可配置的属性请参考`SwipeMenu`组件。
          */
-        getMenuConfig: PropTypes.oneOfType([PropTypes.object, PropTypes.func]).isRequired,
+        getMenuConfig: PropTypes.func.isRequired,
         /**
          * @property renderItem
          * @type Function
@@ -217,6 +217,16 @@ export default class SwipeMenuList extends Component {
          * @description 列表滚动时触发的回调
          */
         onScroll: PropTypes.func,
+        /**
+         * @property shouldItemUpdate
+         * @type Function
+         * @default null
+         * @param {Object} next 即将传给列表项组件的item对象
+         * @param {Object} now 当前列表项组件对应的item对象
+         * @description 绑定给列表项组件的shouldComponentUpdate，可以避免额外的render，用于提升列表的滚动性能。
+         * 详情请参考List组件同名属性。
+         */
+        shouldItemUpdate: PropTypes.func,
         onInfiniteAppend: PropTypes.func,
         /**
          * @property onMenuOpen
@@ -253,7 +263,7 @@ export default class SwipeMenuList extends Component {
 
     static defaultProps = {
         renderItem(item) {
-            return item.text;
+            return typeof item.get === 'function' ? item.get('text') : item.text;
         },
         infinite: false,
         infiniteSize: 20,
@@ -273,7 +283,10 @@ export default class SwipeMenuList extends Component {
         },
         scrollWithoutTouchStart: false,
         staticSection: null,
-        staticSectionHeight: 0
+        staticSectionHeight: 0,
+        shouldItemUpdate() {
+            return false;
+        }
     };
 
     static childContextTypes = {
@@ -295,13 +308,6 @@ export default class SwipeMenuList extends Component {
 
     getChildContext() {
         return { swipeMenuList: this };
-    }
-
-    componentWillReceiveProps() {
-        this.openIndex = -1;
-        if (this.props.infinite) {
-            this.swipeMenuList.forEach((swipeMenu) => swipeMenu.close(true));
-        }
     }
 
     /**
@@ -359,6 +365,14 @@ export default class SwipeMenuList extends Component {
     }
 
     /**
+     * @method stopAnimate
+     * @description 让列表立刻停止滚动。
+     */
+    stopAnimate() {
+        if (this.list) this.list.stopAnimate();
+    }
+
+    /**
      * @description 停止加载更多
      * @method stopLoading
      * @param {Bool} success 加载成功/加载失败
@@ -382,12 +396,7 @@ export default class SwipeMenuList extends Component {
     }
 
     render() {
-        const { renderItem } = this.props;
-
-        let { getMenuConfig } = this.props;
-        if (typeof getMenuConfig === 'object') {
-            getMenuConfig = () => this.props.getMenuConfig;
-        }
+        const { renderItem, getMenuConfig, shouldItemUpdate } = this.props;
 
         return (
             <List
@@ -399,11 +408,11 @@ export default class SwipeMenuList extends Component {
                     if (list) this.list = list;
                 }}
                 // 根据菜单打开/关闭状态是否有变化,决定是否需要render列表项
-                shouldItemUpdate={(ret) => {
+                shouldItemUpdate={(next, now) => {
                     if (this.props.infinite) {
-                        return ret || this.cachedOpenIndex !== this.openIndex;
+                        return this.cachedOpenIndex !== this.openIndex || shouldItemUpdate(next, now);
                     }
-                    return true;
+                    return false;
                 }}
                 // 渲染列表项
                 renderItem={(item, i) => {

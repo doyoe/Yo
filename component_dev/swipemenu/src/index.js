@@ -14,7 +14,7 @@
 import '../../common/tapEventPluginInit.js';
 import Drag, { setTransform } from '../../common/drag.js';
 import React, { Component, PropTypes, isValidElement } from 'react';
-import { replaceRedundantSpaces } from '../../common/util';
+import classNames from 'classnames';
 import './style.scss';
 
 const defaultProps = {
@@ -265,14 +265,14 @@ export default class SwipeMenu extends Component {
                 item.className = item.className || '';
                 return (
                     <span
-                        className={replaceRedundantSpaces(`item ${item.className}`)}
+                        className={classNames('item', item.className)}
                         key={i}
                         onTouchTap={() => item.onTap(this)}
                     >{item.text}</span>
                 );
             });
         return (
-            <div className={replaceRedundantSpaces(`yo-swipemenu ${extraClass}`)}>
+            <div className={classNames('yo-swipemenu', extraClass)}>
                 <div
                     className="front transition"
                     ref={ref => {
@@ -310,7 +310,7 @@ export default class SwipeMenu extends Component {
                     {this.props.children}
                 </div>
                 <div
-                    className={replaceRedundantSpaces(`action ${actionClass}`)}
+                    className={classNames('action', actionClass)}
                     ref={ref => {
                         this.actBtn = ref;
                     }}

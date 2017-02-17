@@ -1,5 +1,4 @@
-const ALLOWANCE = 20;
-const AniCss = {
+export default (ALLOWANCE = 20) => ({
     handleData(aniObj, children) {
         return children
     },
@@ -39,6 +38,4 @@ const AniCss = {
     prev(aniObj) {
         return this._checkAni(aniObj, aniObj.pageNow - 1);
     }
-};
-
-export default AniCss;
+});

@@ -20,6 +20,13 @@
 
 在构建和发布时，脚本会自动生成压缩后的 `lib.js` 和版本号。
 
+### 使用production环境的lib.js
+
+在默认情况下，`lib.js` 构建出来的是开发环境的代码，而 React 在开发环境下的性能要远逊于线上环境。所以如果你想查看你的App的真实性能，你需要
+使用 production 环境的 lib.js，它可以通过命令 `ykit dll-production` 构建。
+
+你需要重启 server 才能正常访问页面。注意在 production 环境下，所有的警告和错误提示都会消失，所以强烈建议在开发时使用 dev 环境的 lib.js。
+
 ### 修改 lib.js 中的内容
 
 DLLPlugin的配置中内置了五个依赖：`React`，`ReactDOM`，`Babel-Polyfill`，`Yo-Router`和`lodash`。如果你的业务中还依赖了其他的公共模块，可以通过配置`ykit.yo.js`

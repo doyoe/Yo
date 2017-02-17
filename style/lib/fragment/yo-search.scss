@@ -162,6 +162,9 @@
                 color: $placeholder-color;
             }
             > .input {
+                @if $input-height != map-get($search, input-height) {
+                    height: $input-height;
+                }
                 @if $input-radius != map-get($search, input-radius) {
                     border-radius: $input-radius;
                 }

@@ -7,7 +7,7 @@
  * @author zongze.li
  */
 import React, { Component, PropTypes } from 'react';
-import { replaceRedundantSpaces } from '../../common/util';
+import classNames from 'classnames';
 import './style.scss';
 
 const propTypes = {
@@ -36,7 +36,7 @@ export default class Loading extends Component {
         const props = this.props;
         return (
             <div
-                className={replaceRedundantSpaces(`yo-loading ${props.extraClass}`)}
+                className={classNames('yo-loading', props.extraClass)}
             >
                 <i className="yo-ico" />
                 {!!props.text.toString().length && <span className="text">{props.text}</span>}

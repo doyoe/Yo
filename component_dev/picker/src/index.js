@@ -13,7 +13,7 @@ import PickerCore from './PickerCore';
 import React, { Component, PropTypes } from 'react';
 import Scroller from '../../scroller/src';
 import PickerItem from './PickerItem';
-import { replaceRedundantSpaces } from '../../common/util';
+import classNames from 'classnames';
 import './style.scss';
 
 const SIZE = 1000000;
@@ -118,14 +118,14 @@ export default class Picker extends Component {
         const { options, value, height, looped } = props;
         const size = looped ? SIZE : options.length;
 
-        this.pickerModel = new PickerCore(
-            options,
+        this.pickerModel = new PickerCore({
+            dataSource: options,
             value,
-            size,
-            height,
-            ITEM_HEIGHT,
+            loopedSize: size,
+            containerHeight: height,
+            itemHeight: ITEM_HEIGHT,
             looped
-        );
+        });
         // 因为槽的数量和组件的高度有关,因此也在state中维护
         this.state = {
             thunks: this.pickerModel.thunks,
@@ -186,7 +186,13 @@ export default class Picker extends Component {
                 this.pickerModel.setValue(value, true);
             }
         } else {
-            this.pickerModel.refresh(options, value, height, looped, true);
+            this.pickerModel.refresh({
+                dataSource: options,
+                value,
+                containerHeight: height,
+                looped,
+                manually: true
+            });
         }
     }
 
@@ -247,7 +253,7 @@ export default class Picker extends Component {
         const looped = this.pickerModel.looped;
         const { visibleList, offsetY, height, contentHeight, thunks } = this.state;
         return (
-            <div className={replaceRedundantSpaces(`yo-picker ${extraClass}`)} style={{ height }}>
+            <div className={classNames('yo-picker', extraClass)} style={{ height }}>
                 <span className="mask" />
                 <Scroller
                     contentOffset={{ x: 0, y: offsetY }}
@@ -286,7 +292,7 @@ export default class Picker extends Component {
                         {looped ?
                             thunks.map((_, order) => {
                                 const ele = visibleList.find((item) => item.order === order);
-                                return ele ? (
+                                return ele ?
                                     <PickerItem
                                         onOptionTap={(el) => {
                                             if (!this.isScrolling) {
@@ -297,8 +303,7 @@ export default class Picker extends Component {
                                         itemHeight={itemHeight}
                                         key={order}
                                         order={order}
-                                    />
-                                ) : null;
+                                    /> : null;
                             }) :
                             visibleList.map((item, i) => (
                                 <PickerItem

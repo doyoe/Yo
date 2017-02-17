@@ -16,7 +16,7 @@
 import '../../common/tapEventPluginInit';
 import React, { Component, PropTypes } from 'react';
 import Touchable from '../../touchable/src';
-import { replaceRedundantSpaces } from '../../common/util.js';
+import classNames from 'classnames';
 import './style.scss';
 
 const defaultProps = {
@@ -237,12 +237,12 @@ export default class Number extends Component {
         const minusDisableClass = minusDisable ? 'disabled' : '';
         const plusDisableClass = plusDisable ? 'disabled' : '';
         return (
-            <div className={replaceRedundantSpaces(`yo-number ${this.props.extraClass}`)}>
+            <div className={classNames('yo-number', this.props.extraClass)}>
                 <Touchable
                     touchClass={minusDisable ? '' : 'action-touch'}
                     onTap={() => this.minusValue(this._node.value)}
                 >
-                    <span className={replaceRedundantSpaces(`minus ${minusDisableClass}`)}>-</span>
+                    <span className={classNames('minus', minusDisableClass)}>-</span>
                 </Touchable>
                 <input
                     className="input" type="text" value={this.state.value}
@@ -269,7 +269,7 @@ export default class Number extends Component {
                     touchClass={plusDisable ? '' : 'action-touch'}
                     onTap={() => this.plusValue(this._node.value)}
                 >
-                    <span className={replaceRedundantSpaces(`plus ${plusDisableClass}`)}>+</span>
+                    <span className={classNames('plus', plusDisableClass)}>+</span>
                 </Touchable>
             </div>
         );

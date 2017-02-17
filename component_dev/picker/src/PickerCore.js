@@ -7,12 +7,14 @@ import { getArrayByLength } from '../../common/util';
 
 export default class PickerCore extends ComponentCore {
 
-    constructor(dataSource,
-                value,
-                loopedSize,
-                containerHeight = 150,
-                itemHeight = 30,
-                looped) {
+    constructor({
+        dataSource,
+        value,
+        loopedSize,
+        containerHeight = 150,
+        itemHeight = 30,
+        looped
+    }) {
         super('picker');
         // static attributes
         // 实际上这三个属性是常量
@@ -22,7 +24,7 @@ export default class PickerCore extends ComponentCore {
         this.loopedSize = loopedSize;
         // mutable states
         // 可以通过父组件render改变
-        this.refresh(dataSource, value, containerHeight, looped);
+        this.refresh({ dataSource, value, containerHeight, looped });
     }
 
     /**
@@ -33,11 +35,13 @@ export default class PickerCore extends ComponentCore {
      * @param looped
      * @param manually
      */
-    refresh(dataSource,
-            value,
-            containerHeight = this.containerHeight,
-            looped,
-            manually = false) {
+    refresh({
+        dataSource,
+        value,
+        containerHeight = this.containerHeight,
+        looped,
+        manually = false
+    }) {
         this.looped = looped;
         this.size = looped ? this.loopedSize : dataSource.length;
         this.dataSource = dataSource;

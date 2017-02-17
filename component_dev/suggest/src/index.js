@@ -15,14 +15,14 @@ import '../../common/tapEventPluginInit';
 import List from '../../list/src';
 import Touchable from '../../touchable/src';
 import throttle from 'lodash/throttle';
-import { replaceRedundantSpaces } from '../../common/util';
+import classNames from 'classnames';
 
 const propTypes = {
     /**
      * @property results
      * @type Array
      * @default null
-     * @description 渲染在结果区的数据源,数组类型,数组元素的类型可以是字符串/数字,它们会直接作为列表项的内容;
+     * @description 渲染在结果区的数据源,数组类型,数组元素的类型可以是字符串/数字，它们会直接作为列表项的内容；
      *
      * 也可以是对象,这个对象必须有text属性。
      */
@@ -50,21 +50,21 @@ const propTypes = {
      * @property extraClass
      * @type String
      * @default null
-     * @description 附加给组件根节点的额外类名
+     * @description 附加给组件根节点的额外类名。
      */
     extraClass: PropTypes.string,
     /**
      * @property itemTouchClass
      * @type String
      * @default item-light
-     * @description 点击结果区域列表项时添加的className
+     * @description 点击结果区域列表项时添加的className。
      */
     itemTouchClass: PropTypes.string,
     /**
      * @property noDataTmpl
      * @type Element
      * @default null
-     * @description 没有suggest结果时的模板
+     * @description 没有suggest结果时的模板。
      * noDataTpl
      */
     noDataTmpl: PropTypes.element,
@@ -72,7 +72,7 @@ const propTypes = {
      * @property recommendTmpl
      * @type Element
      * @default null
-     * @description 推荐区域内容,在搜索条件为空时展示
+     * @description 推荐区域内容,在搜索条件为空时展示。
      */
     recommendTmpl: PropTypes.element,
     /**
@@ -81,7 +81,7 @@ const propTypes = {
      * @default () =>{}
      * @param {Object} item 数据源中的元素
      * @param {Number} index item在数据源中的index
-     * @description 点击结果项时的回调
+     * @description 点击结果项时的回调。
      */
     onItemTap: PropTypes.func,
     /**
@@ -106,6 +106,7 @@ const propTypes = {
      * @property infinite
      * @type Bool
      * @default false
+     * @version 3.0.4
      * @description 是否在结果区域的列表开启Infinite模式。注意：开启Infinite模式后，你需要为列表项配置key属性。
      */
     infinite: PropTypes.bool,
@@ -113,6 +114,7 @@ const propTypes = {
      * @property itemHeight
      * @type Number
      * @default 44
+     * @version 3.0.4
      * @description 结果区域列表项的高度，只在Infinite模式下生效。
      */
     itemHeight: PropTypes.number,
@@ -120,36 +122,45 @@ const propTypes = {
      * @property infiniteSize
      * @type Number
      * @default 20
-     * @description 无穷列表模式下,保留在列表容器中列表项的个数(参见List组件无穷列表模式的说明).
+     * @version 3.0.4
+     * @description 无穷列表模式下,保留在列表容器中列表项的个数(参见List组件无穷列表模式的说明)。
      */
     infiniteSize: PropTypes.number,
     /**
      * @property showCancelButton
      * @type Bool
      * @default false
-     * @description 是否显示取消按钮,默认不显示
+     * @description 是否显示取消按钮,默认不显示。
      */
     showCancelButton: PropTypes.bool,
     /**
      * @property cancelButtonText
      * @type String
      * @default 取消
-     * @description 取消按钮文本
+     * @description 取消按钮文本。
      */
     cancelButtonText: PropTypes.string,
     /**
      * @property onCancelButtonClick
      * @type Function
      * @default () =>{}
-     * @description 点击取消按钮时的回调
+     * @description 点击取消按钮时的回调。
      */
     onCancelButtonTap: PropTypes.func,
+    /**
+     * @property onSubmit
+     * @type Function
+     * @default ()=>{}
+     * @param condition 当前输入框的value
+     * @description 点击键盘确定按钮时触发的回调。
+     */
+    onSubmit: PropTypes.func,
     /**
      * @property onFocus
      * @type Function
      * @default () =>{}
      * @param condition 当前输入框的value
-     * @description 输入框聚焦时的回调
+     * @description 输入框聚焦时的回调。
      */
     onFocus: PropTypes.func,
     /**
@@ -157,21 +168,21 @@ const propTypes = {
      * @type Function
      * @default () =>{}
      * @param condition 当前输入框的value
-     * @description 输入框失去焦点时的回调
+     * @description 输入框失去焦点时的回调。
      */
     onBlur: PropTypes.func,
     /**
      * @property defaultCondition
      * @type String
      * @default null
-     * @description 展示在输入框中的默认值
+     * @description 展示在输入框中的默认值。
      */
     defaultCondition: PropTypes.string,
     /**
      * @property placeholder
      * @type String
      * @default null
-     * @description 输入框的placeholder
+     * @description 输入框的placeholder。
      */
     placeholder: PropTypes.string,
     /**
@@ -189,7 +200,7 @@ const propTypes = {
      * @default () =>{}
      * @param iconName 图标名称
      * @param condition 当前输入框的value
-     * @description 点击input icon触发的回调
+     * @description 点击input icon触发的回调。
      */
     onIconTap: PropTypes.func,
     /**
@@ -241,7 +252,7 @@ export default class Suggest extends Component {
     onConditionChange(value) {
         this.onConditionChangeHandler(value);
         this.setState({ condition: value });
-        if(this.resultList) {
+        if (this.resultList) {
             this.resultList.stopAnimate();
             this.resultList.scrollTo(0, 0);
         }
@@ -317,7 +328,7 @@ export default class Suggest extends Component {
                     <List
                         extraClass="yo-scroller-fullscreen"
                         ref={(component) => {
-                            if(component) {
+                            if (component) {
                                 this.resultList = component;
                             }
                         }}
@@ -328,9 +339,6 @@ export default class Suggest extends Component {
                         itemHeight={itemHeight}
                         onItemTap={onItemTap}
                         itemTouchClass={itemTouchClass}
-                        onScroll={()=>{
-                            this.input.blur();
-                        }}
                     />
                 );
             } else {
@@ -366,7 +374,16 @@ export default class Suggest extends Component {
         return (
             <div className={rootClass}>
                 <div className="operate">
-                    <form className="action">
+                    <form
+                        className="action"
+                        // 没有action ios上键盘右下按钮文本就不是搜索
+                        action=""
+                        onSubmit={(evt) => {
+                            this.props.onSubmit(this.state.condition, evt);
+                            evt.preventDefault();
+                            return false;
+                        }}
+                    >
                         <i className="yo-ico yo-ico-suggest">&#xf067;</i>
                         <input
                             autoComplete="off"
@@ -390,34 +407,23 @@ export default class Suggest extends Component {
                             id="yo-suggest-input"
                             placeholder={placeholder}
                         />
-                        <Touchable
-                            touchClass="icon-touch"
-                            onTap={() => {
+                        <i
+                            className={deleteIconClass}
+                            onTouchTap={(evt) => {
+                                evt.preventDefault();
                                 this.clearInput();
                                 this.input.focus();
                             }}
                         >
-                            <i className={deleteIconClass}>
-                                &#xf077;
-                            </i>
-                        </Touchable>
+                            &#xf077;
+                        </i>
                         <i className={loadingIconClass}>&#xf089;</i>
-                        <Touchable
-                            touchClass="icon-touch"
-                            onTap={() => onIconTap('refresh', condition)}
-                        >
-                            <i className={refreshIconClass}>
-                                &#xf07a;
-                            </i>
-                        </Touchable>
-                        <Touchable
-                            touchClass="icon-touch"
-                            onTap={() => onIconTap('stop', condition)}
-                        >
-                            <i className={stopIconClass}>
-                                &#xf063;
-                            </i>
-                        </Touchable>
+                        <i className={refreshIconClass} onTouchTap={() => onIconTap('refresh', condition)}>
+                            &#xf07a;
+                        </i>
+                        <i className={stopIconClass} onTouchTap={() => onIconTap('stop', condition)}>
+                            &#xf063;
+                        </i>
                     </form>
                     <Touchable
                         touchClass="cancel-btn-touch"
@@ -430,14 +436,15 @@ export default class Suggest extends Component {
                         </span>
                     </Touchable>
                 </div>
-                <div className="cont" onTouchTap={() => this.input.blur()}>
+                <div className="cont">
                     <div
-                        className={replaceRedundantSpaces(`mask ${this.props.showMask && this.state.showRecommendMask ? 'show' : ''}`)}
+                        onTouchTap={() => this.input.blur()}
+                        className={classNames('mask', this.props.showMask && this.state.showRecommendMask ? 'show' : '')}
                     />
                     <div className="recommend">
                         {this.props.recommendTmpl}
                     </div>
-                    <div className={replaceRedundantSpaces(`result ${resultContent ? 'show' : ''}`)}>
+                    <div className={classNames('result', resultContent ? 'show' : '')}>
                         {resultContent}
                     </div>
                 </div>
@@ -464,6 +471,8 @@ Suggest.defaultProps = {
     onBlur() {
     },
     onIconTap: () => {
+    },
+    onSubmit() {
     },
     defaultCondition: '',
     placeholder: '搜索',

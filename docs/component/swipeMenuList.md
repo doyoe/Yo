@@ -2,30 +2,6 @@
 
 `SwipeMenuList`是一个定制化的`List`，和`List`的不同之处在于它的每一个列表项都是`SwipeMenu`。因此除了列表的`dataSource`之外
 你还需要指定菜单项的配置，这可以通过`getMenuConfig`属性实现：
-
-```
-<SwipeMenuList
-    ...
-    getMenuConfig={{
-        // 配置菜单的按钮
-        action:[
-            {
-                text: string // 按钮文本,必须
-                onTap: function // 按钮的点击事件回调,接受参数item(这个配置对象的引用),index(配置对象在数据源的index)以及component(该对象对应的SwipeMenu组件的引用)
-                className: // 给按钮附加的额外类名
-            },
-            ...
-        ],
-        // SwipeMenu的其他属性
-        disabled: true,
-        direciton: 'right'
-    }}
-    ...
-/>
-```
-
-`getMenuConfig`属性也可以接收函数，例如:
-
 ```
 <SwipeMenuList
     ...
@@ -129,12 +105,11 @@ class SwipeMenuListDemo extends Component {
 
     renderDataSource(ds) {
         const self = this;
-        return ds.map((item, i) => {
-            return {
-                ...item,
-                key: ++SwipeMenuListDemo.guid
-            };
-        });
+        return ds.map((item, i) => ({
+            ...item,
+            color: 'black',
+            key: ++SwipeMenuListDemo.guid
+        }));
     }
 
     constructor() {
@@ -147,6 +122,18 @@ class SwipeMenuListDemo extends Component {
         };
     }
 
+    toggleColor(item) {
+        this.setState({
+            dataSource: this.state.dataSource.map(it =>
+                it === item ?
+                    Object.assign({}, it, {
+                        key: String(it.key).replace(/_\w+/, '') + '_red',
+                        color: it.color === 'black' ? 'red' : 'black'
+                    }) : it
+            )
+        });
+    }
+
     render() {
         const self = this;
         return (
@@ -154,12 +141,12 @@ class SwipeMenuListDemo extends Component {
                 <SwipeMenuList
                     ref="swipemenulist"
                     extraClass="yo-list-fullscreen"
-                    getMenuConfig={{
+                    getMenuConfig={(item) => ({
                         action: [
                             {
-                                text: '点我',
+                                text: item.color === 'black' ? '变红' : '变黑',
                                 onTap(item, i, swipeMenu){
-                                    Toast.show(item.text, 1000);
+                                    self.toggleColor(item);
                                     swipeMenu.close();
                                 }
                             },
@@ -167,16 +154,17 @@ class SwipeMenuListDemo extends Component {
                                 text: '删除',
                                 onTap(item, i, swipeMenu){
                                     self.deleteItem(item);
+                                    swipeMenu.close(true);
                                 }
                             }
                         ]
-                    }}
+                    })}
                     dataSource={this.state.dataSource}
                     infinite={true}
                     infiniteSize={15}
                     itemHeight={83}
                     renderItem={(item, i) => (
-                        <div style={{ height: 60 }}>
+                        <div style={{ color: item.color, height: 60, width: '100%' }}>
                             {'第' + i + '个item:' + item.text}
                         </div>
                     )}

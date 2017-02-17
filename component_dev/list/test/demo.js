@@ -5,13 +5,14 @@ import testData from './testdata';
 import '../../common/tapEventPluginInit';
 import Touchable from '../../touchable/src';
 import './demo.scss';
+import Immutable from 'immutable';
 
 let guid = -1;
 function getImage(url) {
     return `http://himg1.qunarzz.com/imgs/${url}a818.jpg`;
 }
 
-const dataSource = [];
+let dataSource = [];
 
 for (let i = 0; i < 1000; i++) {
     const item = testData.data.commentList[parseInt(Math.random() * 50, 10)];
@@ -19,47 +20,56 @@ for (let i = 0; i < 1000; i++) {
         nickname: item.nickName,
         avatar: getImage(item.imgUrl),
         imageHeight: Math.floor(300 * Math.random()),
-        key: ++guid
+        key: ++guid,
+        color: 'black'
     });
 }
 
-class DemoItem extends React.Component {
-    render() {
-        return (
-            <a style={{ display: 'block', overflow: 'hidden' }} href="javascript:void 0;">
-                <ListView.LazyImage
-                    style={{ display: 'block' }}
-                    width={"100%"}
-                    height={this.props.item.imageHeight}
-                    src={this.props.item.avatar}
-                />
-                <span>{this.props.item.guid}</span>
+dataSource = Immutable.fromJS(dataSource);
+
+const DemoItem = (props) => (
+    <div style={{ display: 'block', overflow: 'hidden' }}>
+        <ListView.LazyImage
+            style={{ display: 'block' }}
+            width={"100%"}
+            height={props.item.get('imageHeight')}
+            src={props.item.get('avatar')}
+        />
+        <span>{props.item.get('guid')}</span>
+        <Touchable
+            touchClass="green"
+            onTap={() => {
+                console.log('taped');
+            }}
+        >
+            <div className="comment-wrap">
                 <Touchable
-                    touchClass="green"
+                    touchClass="yellow"
                     onTap={() => {
-                        console.log('taped');
+                        props.red();
                     }}
                 >
-                    <div className="comment-wrap">
-                        <Touchable
-                            touchClass="yellow"
-                            onTap={() => {
-                                console.log('tap inner');
-                            }}
-                        >
-                            <h2 className="comment-title ellipsis">如此美景，难怪志明要带春娇来这里</h2>
-                        </Touchable>
-                        <p className="comment-detail ellipsis">北京长城脚下的公社</p>
-
-                        <div className="tags ellipsis">
-                            度假&nbsp;/&nbsp;亲子&nbsp;/&nbsp;浪漫&nbsp;/&nbsp;美景&nbsp;/&nbsp;格调
-                        </div>
-                    </div>
+                    <h2
+                        className="comment-title ellipsis"
+                        style={{ color: props.item.get('color') }}
+                    >
+                        如此美景，难怪志明要带春娇来这里
+                    </h2>
                 </Touchable>
-            </a>
-        );
-    }
-}
+                <p className="comment-detail ellipsis">北京长城脚下的公社</p>
+
+                <div className="tags ellipsis">
+                    度假&nbsp;/&nbsp;亲子&nbsp;/&nbsp;浪漫&nbsp;/&nbsp;美景&nbsp;/&nbsp;格调
+                </div>
+            </div>
+        </Touchable>
+    </div>
+);
+
+DemoItem.propTypes = {
+    item: React.PropTypes.object,
+    red: React.PropTypes.func
+};
 
 class ListViewDemo extends React.Component {
 
@@ -74,15 +84,10 @@ class ListViewDemo extends React.Component {
     }
 
     mutateDataSource(item) {
-        const ds = this.state.dataSource.map((it) => {
-            if (it.key === item.key) {
-                return {
-                    ...it,
-                    imageHeight: it.imageHeight + 20,
-                    key: ++guid
-                };
+        const ds = this.state.dataSource.map(it => {
+            if (it.get('key') === item.get('key')) {
+                return it.set('imageHeight', it.get('imageHeight') + 20).set('key', ++guid);
             }
-
             return it;
         });
 
@@ -90,6 +95,17 @@ class ListViewDemo extends React.Component {
             dataSource: ds,
             infinite: !this.state.infinite,
             infiniteSize: ++this.state.infiniteSize
+        });
+    }
+
+    red(item) {
+        this.setState({
+            dataSource: this.state.dataSource.map(it => {
+                if (it === item) {
+                    return it.set('color', it.get('color') === 'red' ? 'black' : 'red');
+                }
+                return it;
+            })
         });
     }
 
@@ -103,17 +119,21 @@ class ListViewDemo extends React.Component {
                                 Heallo
                             </div>
                         }
+                        shouldItemUpdate={(prev, now) => prev !== now}
                         staticSectionHeight={800}
                         extraClass="yo-list-demo"
                         ref="list"
-                        usePullRefresh={true}
-                        onRefresh={(ds) => console.log(ds)}
                         dataSource={this.state.dataSource}
-                        renderItem={(item) => <DemoItem item={item}/>}
+                        renderItem={(item) => <DemoItem
+                            red={() => {
+                                this.red(item);
+                            }}
+                            item={item}
+                        />}
                         itemTouchClass="item-touch"
                         infinite={true}
                         onItemTap={(item, index, target) => this.mutateDataSource(item, index, target)}
-                        itemExtraClass={(item, index) => ['item', index].join(' ')}
+                        itemExtraClass={(item, index) => index}
                     />
                 </div>
             </div>

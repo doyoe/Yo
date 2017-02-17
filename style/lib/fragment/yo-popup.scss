@@ -16,8 +16,13 @@
         $bgcolor: map-get($popup, hd-bgcolor),
         $color: map-get($base, color),
         $item-color: map-get($popup, btn-color),
-        $item-ico-color: map-get($base, color)
-    );
+        $item-ico-color: map-get($base, color),
+        $font-size: .16rem
+    ) {
+        > .title {
+            font-weight: normal;
+        }
+    }
 }
 
 /**

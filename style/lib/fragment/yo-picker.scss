@@ -3,7 +3,7 @@
 
 // 定义picker的基础构造
 @mixin _picker {
-    @include align($type: other);
+    @include align;
     position: relative;
     overflow: hidden;
     height: map-get($picker, item-height) * map-get($picker, item);

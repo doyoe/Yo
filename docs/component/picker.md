@@ -55,6 +55,8 @@
 一般来说，`Picker`需要和一个模态框系列组件结合使用，而不是直接放置在页面上。因为`Picker`的触摸事件和`Scroller`并不相容。
 下面是一个结合了`Popup`组件使用的弹出式的`Picker`。
 
+** 如果没有特殊的定制化要求，你应该优先选择使用 `PopupPicker` 和 `PopupDateTimePicker`，这两个组件封装了弹层的逻辑，更加易于使用。 **
+
 ```
 <Popup
     show={this.state.open}

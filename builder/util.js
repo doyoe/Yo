@@ -140,7 +140,7 @@ function rewriteUsageRefs(styleFolderPath) {
 
 function rewriteLibRefs(styleFolderPath) {
     var libFolderPath = Path.resolve(CWD, 'style', 'lib');
-    var componentFolderPath = Path.resolve(libFolderPath, 'component')
+    var componentFolderPath = Path.resolve(libFolderPath, 'component');
     var libComponentScssList = fs.readdirSync(Path.resolve(libFolderPath, 'component'));
     libComponentScssList.forEach(function (scssFile) {
         var scssPath = Path.resolve(componentFolderPath, scssFile);

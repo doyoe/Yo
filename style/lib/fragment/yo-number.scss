@@ -38,6 +38,10 @@
             color: lighten(map-get($number, sign-color), 30%);
         }
     }
+    // touch状态
+    > .action-touch {
+        opacity: .5;
+    }
     > .input {
         display: block;
         @include flex;

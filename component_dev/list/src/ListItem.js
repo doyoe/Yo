@@ -2,7 +2,8 @@
  * 列表项组件
  */
 import React, { Component, PropTypes } from 'react';
-import { replaceRedundantSpaces, DELAY_TIME_FOR_INFINITE_WITHOUT_HEIGHT } from '../../common/util';
+import { DELAY_TIME_FOR_INFINITE_WITHOUT_HEIGHT } from '../../common/util';
+import classNames from 'classnames';
 import Touchable from '../../touchable/src';
 
 export default class extends Component {
@@ -15,7 +16,6 @@ export default class extends Component {
         scroller: PropTypes.object,
         onItemTouchStart: PropTypes.func,
         renderItem: PropTypes.func,
-        i: PropTypes.number,
         onItemTap: PropTypes.func,
         onListItemUpdate: PropTypes.func
     };
@@ -50,7 +50,6 @@ export default class extends Component {
      */
     componentDidMount() {
         const { isHeightFixed } = this.props.listModel;
-
         // 不定高无穷列表的容器是flex-box的话, 浏览器会先渲染dom然后调整高度, 这时候取到的高度不准
         // setTimeout是无奈之举，确实没有想到更好的办法，因为这个调整高度的时机用js根本无法准确获取
         if (isHeightFixed) {
@@ -72,7 +71,6 @@ export default class extends Component {
      */
     shouldComponentUpdate(nextProps) {
         const { listModel, shouldItemUpdate } = nextProps;
-
         let ret = true;
         // 当容器内部item的key和translateY发生变化时重新render
         if (listModel.infinite &&
@@ -84,8 +82,8 @@ export default class extends Component {
         this.key = nextProps.item.key;
         this.translateY = nextProps.item._translateY;
 
-        if (shouldItemUpdate) {
-            return shouldItemUpdate(ret, nextProps.item, this.props.item);
+        if (shouldItemUpdate && !ret) {
+            return shouldItemUpdate(nextProps.item.srcData, this.props.item.srcData);
         }
         return ret;
     }
@@ -107,7 +105,7 @@ export default class extends Component {
             listModel.resolveItem(item.key, this.domNode.offsetHeight);
         }
 
-        onListItemUpdate(item, this.domNode);
+        onListItemUpdate(item.srcData, this.domNode);
     }
 
     render() {
@@ -115,36 +113,40 @@ export default class extends Component {
             renderItem,
             item,
             onItemTap,
-            i,
             listModel,
             itemTouchClass,
             itemExtraClass,
             onItemTouchStart
         } = this.props;
         const transform = `translate(0,${item._translateY}px) translateZ(0px)`;
+        const infiniteStyle = {
+            WebkitTransform: transform,
+            transform,
+            height: item.height,
+            position: 'absolute',
+            top: 0
+        };
         const basicProps = {
             ref: (dom) => {
                 this.domNode = dom;
             },
-            style: listModel.infinite ? { WebkitTransform: transform, transform, height: item.height } : null
+            style: listModel.infinite ? infiniteStyle : null
         };
         const additionalProps = {
-            className: replaceRedundantSpaces(
-                `${itemExtraClass(item, item._index)} ${item._type !== 'groupTitle' ? 'item' : ''}`
-            )
+            className: classNames(itemExtraClass(item.srcData, item._index), item._type !== 'groupTitle' ? 'item' : 'group-title label')
         };
 
         return (
             <Touchable
                 internalUse={true}
                 onTap={onItemTap}
-                touchClass={itemTouchClass(item, item._index)}
+                touchClass={itemTouchClass(item.srcData, item._index)}
                 onTouchStart={evt => {
-                    onItemTouchStart(item, item._index, evt);
+                    onItemTouchStart(item.srcData, item._index, evt);
                 }}
             >
                 <li {...Object.assign({}, basicProps, additionalProps)}>
-                    {renderItem(item, item._index == null ? i : item._index)}
+                    {renderItem(item.srcData, item._index)}
                 </li>
             </Touchable>
         );

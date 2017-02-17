@@ -4,8 +4,8 @@ import '../../common/tapEventPluginInit';
 import Carousel from '../src/';
 import CarouselItem from '../src/carouselItem.js';
 // import Modal from '../../modal/src';
-import AniInfinate from '../src/aniInfinate.js';
-import AniCss from '../src/aniCss.js';
+import aniInfinate from '../src/aniInfinate.js';
+import aniCss from '../src/aniCss.js';
 // import inlineInfinate from '../src/inlineScrollX.js';
 // import AniInfinate2 from '../src/aniInfinate2.js';
 const dataList = [{
@@ -25,6 +25,21 @@ const dataList = [{
     }
 }, {
     img: 'http://gw.alicdn.com/tps/i1/TB12_iHHXXXXXaCXVXXdIns_XXX-1125-352.jpg_q50.jpg',
+    onTap: () => {
+        console.log('tap listener');
+    }
+}, {
+    img: 'http://gma.alicdn.com/simba/img/TB1CWf9KpXXXXbuXpXXSutbFXXX.jpg_q50.jpg',
+    onTap: () => {
+        console.log('tap listener');
+    }
+}, {
+    img: 'http://gma.alicdn.com/simba/img/TB1CWf9KpXXXXbuXpXXSutbFXXX.jpg_q50.jpg',
+    onTap: () => {
+        console.log('tap listener');
+    }
+}, {
+    img: 'http://gma.alicdn.com/simba/img/TB1CWf9KpXXXXbuXpXXSutbFXXX.jpg_q50.jpg',
     onTap: () => {
         console.log('tap listener');
     }
@@ -82,25 +97,21 @@ class Container extends React.Component {
                 afterChange={(page) => { this.updateChange(page, 'fadePageNow'); }}
                 extraClass="yo-carousel-fade"
                 defaultPage={2}
-                aniObj={AniCss}
+                aniObj={aniCss()}
                 isDrag={false}
                 ref={(node) => {
                     if (node){ window.carousel = node }
                 }}
             >
             {
-                dataList.map((item, index) => {
-                    return (
-                        <CarouselItem
-                            index={index + 1}
-                            key={index + 1}
-                            currentPage={this.state.fadePageNow}
-                            {...item}
-                            lazyload={true}
-                            activeClass={'top'}
-                            pagesNum={dataList.length}
-                        />);
-                    })
+                dataList.map((item, index) => (
+                    <CarouselItem
+                        key={index + 1}
+                        {...item}
+                        lazyload={true}
+                        activeClass={'top'}
+                    />)
+                )
             }
             </Carousel>
         );
@@ -112,7 +123,7 @@ class Container extends React.Component {
                 afterChange={(page)=>{this.updateChange(page,'pageNow')}}
                 dots={true}
                 extraClass={"yo-carousel-scale"}
-                defaultPage={2}
+                defaultPage={3}
                 autoplay={false}
                 ref={(node) => {
                   if(node){
@@ -127,7 +138,7 @@ class Container extends React.Component {
                             key={index + 1}
                             // currentPage={this.state.pageNow}
                             {...item}
-                            lazyload={false}
+                            lazyload={true}
                         ></CarouselItem>);
                     })
             }
@@ -162,7 +173,7 @@ class Container extends React.Component {
                 beforeChange={(page)=>{this.beforeChange(page,'infinatePage')}}
                 afterChange={(page)=>{this.updateChange(page,'infinatePage')}}
                 dots={true}
-                aniObj={AniInfinate}
+                aniObj={aniInfinate()}
                 autoplay={false}
                 loop={false}
                 defaultPage={this.state.infinatePage}
@@ -184,8 +195,9 @@ class Container extends React.Component {
         return (
             <div>
                 <h2>normal Item</h2>
+                
                 {scrollXCarousel}
-                <div className="yo-btn" onClick={()=>{window.scrollXCarousel.next()}}>next</div>
+                
                 {/*<div>
                     <Modal
                         align="center"

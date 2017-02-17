@@ -156,13 +156,20 @@
         }
     }
     &-infinite {
+        // 当list是infinite时，item绝对定位，list的高度为0
+        // 此时list默认的底边线将会出现在顶部，所以重置为0
+        &::after {
+            border-width: 0;
+        }
+        // 当list是infinite时，定义其子项为绝对定位
         > .label,
         > .item {
-            position: absolute !important;
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
         }
+        // 当list是infinite时，指定最后一项有底边线，否则循环时会出现缺少一根间隔线
         > .item:last-child::after {
             border-width: 1px 0;
         }

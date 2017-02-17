@@ -27,14 +27,14 @@
 
 import './style.scss';
 import React, { Component, PropTypes } from 'react';
-import AniScrollX from './aniScrollx.js';
+import aniScrollX from './aniScrollx.js';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import CarouselItem from './carouselItem';
 
 const Dots = props => {
     let liNodes = [];
     for (let i = 0; i < props.num; i++) {
-        liNodes.push(<li key={i} className={props.page === i + 1 ? 'on' : ''}/>);
+        liNodes.push(<li key={i} className={props.page === i + 1 ? 'on' : ''} />);
     }
     return (
         <ul className="index">
@@ -47,7 +47,7 @@ Dots.propTypes = {
     page: PropTypes.number
 };
 
-const DEFAULTANI = AniScrollX;
+const DEFAULTANI = aniScrollX();
 
 class Carousel extends Component {
     static propTypes = {
@@ -226,7 +226,7 @@ class Carousel extends Component {
         this.aniObj.stageDOM = this.widgetDOM.parentNode;
         this.aniObj.width = this.widgetDOM.clientWidth;
         this.aniObj.containerDOM = this.widgetDOM.querySelector('.cont');
-        this.arrive(this.props.defaultPage);
+        this.arrive(this.props.defaultPage, false);
         this.launchAuto();
     }
 
@@ -263,12 +263,13 @@ class Carousel extends Component {
      * @description 到达方法
      * @method arrive
      * @param  {number} num 到达的页数
+     * @param {isAni} boolean 是否需要动画
      */
-    arrive(num) {
+    arrive(num, isAni = true) {
         this.aniObj.operationTimer = num - 1;
         this.pause();
         if (num > 0 && num <= React.Children.count(this.props.children)) {
-            const page = this.ani.arrive(this.aniObj, num);
+            const page = this.ani.arrive(this.aniObj, num, isAni);
             this.setState({
                 page
             });
@@ -454,7 +455,7 @@ class Carousel extends Component {
                 <ul className={'cont'}>
                     {children}
                 </ul>
-                {this.props.dots ? <Dots num={this.aniObj.pagesNum} page={this.state.page}/> : ''}
+                {this.props.dots ? <Dots num={this.aniObj.pagesNum} page={this.state.page} /> : ''}
             </div>
         );
     }

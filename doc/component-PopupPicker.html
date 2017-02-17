@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+  <meta name="format-detection" content="telephone=no,email=no" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+  <meta name="description" content="description of your site">
+  <meta name="author" content="author of the site">
+  <title>Yo Documentation 组件</title>
+  <link rel="stylesheet" href="source/main.css"/>
+  
+  
+    
+        <link rel="stylesheet" href="./theme/ydoc.css"/>
+    
+  
+</head>
+<body class=component-PopupPicker >
+    <div class="ydoc">
+      <header class="ydoc-header">
+        <div class="ydoc-header-area">
+            
+            <a href="http://ued.qunar.com/ymfe/" class="navbar-brand">YMFE</a>
+            
+            <button class="ydocIcon navbar-toggle">&#xf020;</button>
+            <nav class="ydoc-nav">
+              <ul class="navbar-left">
+                
+                    
+                    <li class="">
+                        
+                        <a href="index.html">Yo</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="getting-started.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="core.html">核心</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="element.html">元件</a>
+                        
+                    </li>
+                    
+                    <li class="active">
+                        
+                        <a href="component.html">组件</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="animate.html">动画</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="http://ued.qunar.com/hy2/yo-router" target="_blank">Router</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="changelog.html">版本</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="http://ued.qunar.com/hy2/yo/demo/src/html/index.html" target="_blank">示例</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="https://github.com/doyoe/Yo" target="_blank">Github</a>
+                        
+                    </li>
+                    
+                
+              </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- <header style="height:20px"></header> -->
+    
+      <!-- Docs page layout -->
+      
+      <div class="ydoc-banner-bg">
+          <div class="ydoc-banner">
+              <div class="ydoc-banner-area">
+                  <h1>组件</h1>
+                  <p>组件的说明文档</p>
+              </div>
+          </div>
+      
+
+      <div class="ydoc-container">
+        
+          
+          <div class="ydoc-container-content">
+              <div class="content-left" role="complementary">
+                  <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
+                    <ul class="nav docs-sidenav">
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="component-Touchable.html">Touchable</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="component-LazyImage.html">LazyImage</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="component-Sticky.html">Sticky</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="javascript:void(0);">滚动和列表</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        
+                        <ul class="nav docs-sidenav-extend"  >
+                        
+                            <li >
+                                <a href="component-Scroller.html">Scroller</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-List.html">List</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Grouplist.html">Grouplist</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-SwipeMenuList.html">SwipeMenuList</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-MultiList.html">MultiList</a>
+                            </li>
+                        
+                        </ul>
+                        
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="javascript:void(0);">弹层</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        
+                        <ul class="nav docs-sidenav-extend"  >
+                        
+                            <li >
+                                <a href="component-Modal.html">Modal</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Dialog.html">Dialog</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Popup.html">Popup</a>
+                            </li>
+                        
+                        </ul>
+                        
+                        
+                        
+                        
+                        <!-- <li   class="active" > -->
+                        <li >
+                            
+                            <a href="javascript:void(0);">表单元素</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        
+                        <ul class="nav docs-sidenav-extend"    style="display:block;" >
+                        
+                            <li >
+                                <a href="component-Picker.html">Picker</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-DateTimePicker.html">DateTimePicker</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li  class="active" >
+                                <a href="component-PopupPicker.html">PopupPicker</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-PopupDateTimePicker.html">PopupDateTimePicker</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Rating.html">Rating</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Switch.html">Switch</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-InputNumber.html">InputNumber</a>
+                            </li>
+                        
+                        </ul>
+                        
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="javascript:void(0);">其他</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        
+                        <ul class="nav docs-sidenav-extend"  >
+                        
+                            <li >
+                                <a href="component-Calendar.html">Calendar</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Carousel.html">Carousel</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Carousel.CarouselItem.html">Carousel.CarouselItem</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Range.html">Range</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-SwipeMenu.html">SwipeMenu</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Suggest.html">Suggest</a>
+                            </li>
+                        
+                        </ul>
+                        
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="javascript:void(0);">API</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        
+                        <ul class="nav docs-sidenav-extend"  >
+                        
+                            <li >
+                                <a href="component-ActionSheet.html">ActionSheet</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Alert.html">Alert</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Confirm.html">Confirm</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Loading.html">Loading</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Toast.html">Toast</a>
+                            </li>
+                        
+                        
+                        
+                    </ul>
+                  </nav>
+              </div>
+              <div class="content-right markdown-body" role="main">
+
+                
+                <div class="docs-section">
+<h2>
+    PopupPicker
+    <small></small>
+    <span class="yo-badge yo-badge-danger">3.0.5</span>
+</h2>
+<div class="api-content"><p>由<code>Popup</code>和<code>Picker</code>组件结合的组件，能够方便的创建一个可弹出的Picker。</p>
+</div>
+<!-- 使用说明begin -->
+
+<div class="con-list-item">
+    <div class="con-head">使用说明</div>
+  
+    <div class="instructions">
+        <div class="instructions-con">
+            
+            <div class="instructions-con-info">
+            <h4 id="-">基本用法</h4>
+<p><code>PopupPicker</code>组件实际上由两部分组成，一部分是触发弹层打开的区域，另一部分是弹出的带“确定”和“取消”按钮的弹出式选择器。
+这样会使<code>PopupPicker</code>看起来更像一个网页里的<code>&lt;select&gt;</code>，唯一的区别是你可以扩展弹出式选择器的样式而浏览器不能。</p>
+<p>和其他表单组件一样，这个组件也是一个严格受控的组件，你需要同时定义<code>onChange</code>和<code>value</code>属性才能让它正常工作。</p>
+<p>你应该给 <code>PopupPicker</code> 传入一个唯一子元素，这个子元素将会作为触发区域的内容，同时你还需要通过 <code>touchClass</code> 指定它的触摸反馈效果。</p>
+<pre><code class="lang-javascript"><span class="token keyword">const</span> options <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span> text<span class="token punctuation">:</span> <span class="token string">'零'</span><span class="token punctuation">,</span> value<span class="token punctuation">:</span> <span class="token number">0</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> text<span class="token punctuation">:</span> <span class="token string">'一'</span><span class="token punctuation">,</span> value<span class="token punctuation">:</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> text<span class="token punctuation">:</span> <span class="token string">'二'</span><span class="token punctuation">,</span> value<span class="token punctuation">:</span> <span class="token number">2</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> text<span class="token punctuation">:</span> <span class="token string">'三'</span><span class="token punctuation">,</span> value<span class="token punctuation">:</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> text<span class="token punctuation">:</span> <span class="token string">'四'</span><span class="token punctuation">,</span> value<span class="token punctuation">:</span> <span class="token number">4</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> text<span class="token punctuation">:</span> <span class="token string">'五'</span><span class="token punctuation">,</span> value<span class="token punctuation">:</span> <span class="token number">5</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> text<span class="token punctuation">:</span> <span class="token string">'六'</span><span class="token punctuation">,</span> value<span class="token punctuation">:</span> <span class="token number">6</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> text<span class="token punctuation">:</span> <span class="token string">'七'</span><span class="token punctuation">,</span> value<span class="token punctuation">:</span> <span class="token number">7</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> text<span class="token punctuation">:</span> <span class="token string">'八'</span><span class="token punctuation">,</span> value<span class="token punctuation">:</span> <span class="token number">8</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> text<span class="token punctuation">:</span> <span class="token string">'九'</span><span class="token punctuation">,</span> value<span class="token punctuation">:</span> <span class="token number">9</span> <span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Demo</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+    <span class="token function">constructor</span><span class="token punctuation">(</span>props<span class="token punctuation">,</span> context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span>props<span class="token punctuation">,</span> context<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>state <span class="token operator">=</span> <span class="token punctuation">{</span>
+            value<span class="token punctuation">:</span> <span class="token keyword">null</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token function">handleChange</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> value <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>
+            <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"popuppicker-demo"</span><span class="token operator">></span>
+                <span class="token operator">&lt;</span>PopupPicker
+                    options<span class="token operator">=</span><span class="token punctuation">{</span>options<span class="token punctuation">}</span>
+                    value<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value<span class="token punctuation">}</span>
+                    onChange<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>handleChange<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+                    touchClass<span class="token operator">=</span><span class="token string">"item-touch"</span>
+                <span class="token operator">/</span><span class="token operator">></span>
+                    <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"demo-item"</span><span class="token operator">></span>
+                        <span class="token operator">&lt;</span>span className<span class="token operator">=</span><span class="token string">"title"</span><span class="token operator">></span>选择序号<span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
+                        <span class="token operator">&lt;</span>span className<span class="token operator">=</span><span class="token string">"value"</span><span class="token operator">></span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value <span class="token operator">===</span> <span class="token keyword">null</span> <span class="token operator">?</span> <span class="token string">'请选择'</span> <span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
+                    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+                <span class="token operator">&lt;</span><span class="token operator">/</span>PopupPicker<span class="token operator">></span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="-popup-header">定制popup区域的Header</h4>
+<p>弹出式选择器的 Header 由确认、取消按钮和标题组成，这些按钮的显示值和可选的标题文本可以通过<code>popupHeader</code>定制。</p>
+<pre><code class="lang-javascript">popupHeader<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span>
+    title<span class="token punctuation">:</span> <span class="token string">'欢迎使用Yo'</span><span class="token punctuation">,</span>
+    cancelBtn<span class="token punctuation">:</span> <span class="token punctuation">{</span> text<span class="token punctuation">:</span> <span class="token string">'Cancel'</span><span class="token punctuation">,</span> touchClass<span class="token punctuation">:</span> <span class="token string">'myTouchClass'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    okBtn<span class="token punctuation">:</span> <span class="token punctuation">{</span> text<span class="token punctuation">:</span> <span class="token string">'OK'</span><span class="token punctuation">,</span> touchClass<span class="token punctuation">:</span> <span class="token string">'myTouchClass'</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">}</span>
+</code></pre>
+<p>popupHeader 可以设置<code>title</code>、<code>cancelBtn</code>和<code>okBtn</code>值，它们分别代表位于 Header 中间的标题，Header 左边取消按钮和右边确认按钮的显示值。</p>
+<p>如果没有设置<code>title</code>值，则不显示标题，左右两边的按钮的默认显示值为“取消”和“确认”，可以通过设置<code>cancelBtn</code>和<code>okBtn</code>覆盖默认值。</p>
+<h4 id="-">图标按钮</h4>
+<p>上面介绍的<code>cancelBtn</code>和<code>okBtn</code>不仅可以为字符串，也可以为一个jsx元素。可以将一个图标元素作为<code>cancelBtn</code>的值（见下例），这时的取消按钮就是一个叉状的图标了。</p>
+<pre><code class="lang-javascript">popupHeader<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span>
+    title<span class="token punctuation">:</span> <span class="token string">'欢迎使用Yo'</span><span class="token punctuation">,</span>
+    cancelBtn<span class="token punctuation">:</span> <span class="token punctuation">{</span> text<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token operator">&lt;</span>i className<span class="token operator">=</span><span class="token string">"regret yo-ico"</span><span class="token operator">></span><span class="token operator">&amp;</span>#xf077<span class="token punctuation">;</span><span class="token operator">&lt;</span><span class="token operator">/</span>i<span class="token operator">></span><span class="token punctuation">)</span><span class="token punctuation">,</span> touchClass<span class="token punctuation">:</span> <span class="token string">'myTouchClass'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    okBtn<span class="token punctuation">:</span> <span class="token punctuation">{</span> text<span class="token punctuation">:</span> <span class="token string">'OK'</span><span class="token punctuation">,</span> touchClass<span class="token punctuation">:</span> <span class="token string">'myTouchClass'</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">}</span>
+</code></pre>
+
+            </div>
+            
+            
+            <div class="instructions-con-runner">
+                <iframe class="instructions-iframe" src="http://ued.qunar.com/hy2/yo/demo/src/html/component/popuppicker.html?hideIcon"></iframe>
+            </div>
+            
+        </div>
+    </div>
+ 
+</div>
+
+<!-- 使用说明end -->
+<div class="con-list-item">
+
+<div class="con-head">属性</div>
+
+<blockquote class="api">
+    <h3>
+    <strong>touchClass</strong>
+     <span class="prop-type">{ String }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>定制触发区域和弹出式选择器触摸时附加的 className，必须</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> null
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>value</strong>
+     <span class="prop-type">{ Number/String }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>组件的value，参考网页<code>select</code>标签的 value 属性。</p>
+<p>value 是一个严格受控属性，只能通过的父组件改变，你需要设置 onChange 属性来控制 value 属性的变化。</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> null
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>onChange</strong>
+     <span class="prop-type">{ Function }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>弹出式选择器 Ok 按钮点击后的回调，必须。</p>
+</div>
+    
+</div>
+
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <!-- <col class="c4"> -->
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <!-- <th>必选</th> -->
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>value</td>
+            <td></td>
+            <td>当前的 option 的 value</td>
+            <!-- <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td> -->
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>options</strong>
+     <span class="prop-type">{ Array }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p><code>Picker</code>组件的 options 属性。数组形式，元素的格式为<code>{text:string,value:string}</code>，</p>
+<p>text 为 option 显示的文本，value 为 option 对应的真实值（参考网页 option 标签），</p>
+<p>text 的缺省值为 value，value 必须传入，且只能为字符串/数字类型</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> null
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>popupHeader</strong>
+     <span class="prop-type">{ Object }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>popup 区域头部的标题和按钮定制，分别为 title、okBtn 和 cancelBtn，</p>
+<p>通过 title 键值定制 Popup 组件头部的标题文本。</p>
+<p>通过 text 和 touchClass 键值定制按钮显示的文本和触摸按钮时附加的 className</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> {
+title: '',
+okBtn: { text: '确定', touchClass: 'action-touch' },
+cancelBtn: { text: '取消', touchClass: 'action-touch' }
+}
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>duration</strong>
+     <span class="prop-type">{ Number }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p><code>Popup</code>组件的 duration 属性。组件内容显隐时，动画执行时间，单位：ms</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> 200ms
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>pickerHeight</strong>
+     <span class="prop-type">{ Number }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p><code>Picker</code>组件的 height 属性。控制 Picker 组件显示的内容高度</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> 150
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>looped</strong>
+     <span class="prop-type">{ Bool }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p><code>Picker</code>组件的 looped 属性。是否采用循环模式，默认为 true</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> true
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>unit</strong>
+     <span class="prop-type">{ Number }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p><code>Picker</code>组件的 unit 属性。显示在 picker 右侧的单位。</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> null
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>popupExtraClass</strong>
+     <span class="prop-type">{ String }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>附加 popup 区域根节点的额外 class</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> null
+</p>
+
+
+
+
+
+
+
+
+</div>
+</div>
+
+              </div>
+          </div>
+          
+        
+      </div>
+     
+     </div>
+     
+      <footer class="footer">
+        <div class="copyright">
+            &copy; 2017 <a href="https://github.com/YMFE">YMFE</a> Team. Build by <a href="https://github.com/YMFE/ydoc">ydoc</a>.
+        </div>
+      </footer>
+    </div>
+
+    
+       <div class="open-panel"></div>
+    
+    
+
+    <script src="source/main.js"></script>
+    <script src="source/app.js"></script>
+    
+    
+
+    
+
+    
+    
+      
+      <script type="text/javascript" src="./theme/ydoc.js"></script>
+      
+    
+
+</body>
+</html>

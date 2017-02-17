@@ -18,7 +18,7 @@ import CalendarCore from './CalendarCore.js';
 import CalendarItem from './CalendarItem.js';
 import GroupList from '../../grouplist/src/';
 import React, { PropTypes, Component } from 'react';
-import { replaceRedundantSpaces } from '../../common/util.js';
+import classNames from 'classnames';
 import './style.scss';
 
 const defaultProps = {
@@ -116,7 +116,7 @@ export default class Calendar extends Component {
     render() {
         const { selectionStartText, selectionEndText, extraClass } = this.props;
         return (
-            <section className={replaceRedundantSpaces(`yo-calendar ${extraClass}`)}>
+            <section className={classNames('yo-calendar', extraClass)}>
                 <ul className="week-bar">
                     <li className="weekend">日</li>
                     <li>一</li>
@@ -127,6 +127,7 @@ export default class Calendar extends Component {
                     <li className="weekend">六</li>
                 </ul>
                 <GroupList
+                    isTitleStatic={true}
                     itemTouchClass={null}
                     renderGroupItem={item => <CalendarItem
                         selectionStartText={selectionStartText}

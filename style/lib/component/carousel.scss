@@ -32,7 +32,6 @@
 //
 .yo-carousel-fade {
     > .cont {
-
         > .item {
             position: absolute;
             right: 0;
@@ -70,6 +69,7 @@
 .yo-carousel {
     > .cont {
         @include transition(transform .5s ease-in);
+        width: 100%;
         .item {
             z-index: 2;
             > img {

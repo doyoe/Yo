@@ -37,7 +37,7 @@
 // 基本设置
 $_setting: (
     // {String} 版本号
-    version:             "3.0.4",
+    version:             "3.0.5",
     // {Boolean} 是否开启厂商前缀
     is-vendor-prefix:    true,
     // {String} 厂商前缀
@@ -240,9 +240,9 @@ $_range: (
     // {Color} 滑轴色
     track-color:    #ccc,
     // {Color} 选中滑轴色
-    on-track-color: #1ba9ba,
+    on-track-color: map-get($base, light-color),
     // {Color} 选中刻度色
-    on-divide-color:#1ba9ba,
+    on-divide-color:map-get($base, light-color),
     // {Length} 滑球高度
     thumb-height:   .28rem,
     // {Color} 滑块色
@@ -304,7 +304,7 @@ $_calendar: (
     // {Length} 星期bar高度
     week-bar-height:      .22rem,
     // {Color} 星期bar背景色
-    week-bar-bgcolor:     #1ba9ba,
+    week-bar-bgcolor:     map-get($base, light-color),
     // {Color} 星期bar文本色
     week-bar-color:       #fff,
     // {Length} 星期bar字号
@@ -332,11 +332,11 @@ $_calendar: (
     disabled-color:       map-get($base, disabled-color),
 
     // {color} 选中日期背景色
-    on-bgcolor:           #1ba9ba,
+    on-bgcolor:           map-get($base, light-color),
     // {color} 选中日期文本色
     on-color:             #fff,
     // {color} 选中日期提示语文本色
-    on-tip-color:         #1ba9ba,
+    on-tip-color:         map-get($base, light-color),
     // {Length} 选中日期提示语字号
     on-tip-font-size:     null,
 
@@ -439,9 +439,9 @@ $_header: (
     // {Length} 边框厚度
     border-width:   0 0 1px,
     // {Color} 边框色
-    border-color:   #1ba9ba,
+    border-color:   map-get($base, light-color),
     // {Color} 背景色
-    bgcolor:        #1ba9ba,
+    bgcolor:        map-get($base, light-color),
     // {Color} 文本色
     color:          #fff,
     // {Length} 文本大小
@@ -601,7 +601,7 @@ $_search: (
     // {Color} 输入框placeholder文本色
     placeholder-color:#bbb,
     // {Color} 搜索按钮底色
-    btn-bgcolor:   #1ba9ba,
+    btn-bgcolor:   map-get($base, light-color),
     // {Color} 搜索按钮文本色
     btn-color:     #fff,
     // {Length} 取消按钮区域宽度
@@ -679,7 +679,7 @@ $_tab: (
     // {Color} tab激活背景色
     on-bgcolor:         null,
     // {Color} tab激活文本色
-    on-color:           #1ba9ba,
+    on-color:           map-get($base, light-color),
     // {Length} 文本大小
     font-size:          null,
     // {Length} 水平ico大小

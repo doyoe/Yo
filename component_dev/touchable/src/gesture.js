@@ -5,7 +5,7 @@
  */
 import ReactDOM from 'react-dom';
 const TAP_SLOP = 5;
-export const TAP_DELAY = 75;
+export const TAP_DELAY = 50;
 /**
  * @param endPoint
  * @param startPoint

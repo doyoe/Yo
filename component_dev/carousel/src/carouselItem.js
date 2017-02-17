@@ -2,6 +2,8 @@
  * @component Carousel.CarouselItem
  * @description Carousel组件内部的Item组件，和普通的dom节点相比增加了懒加载图片功能。也可以使用`onTap`给Item绑定tap事件回调。
  *
+ * 你可以通过Carousel.CarouselItem来使用这个组件，或者引用`yo3/component/carousel/src/carouselItem`的js模块来使用。
+ *
  * ** 注意：`CarouselItem`不能和`Touchable`一起使用，请使用它的`onTap`属性来绑定事件回调。 **
  */
 import './style.scss';
@@ -11,7 +13,9 @@ import classnames from 'classnames';
 import shallowCompare from 'react-addons-shallow-compare';
 
 const ALLOWANCE = 1;
-
+const LOADED = 1;
+const UNLOAD = 0;
+const FAIL = 2;
 class CarouselItem extends Component {
     static propTypes = {
         /**
@@ -69,7 +73,7 @@ class CarouselItem extends Component {
         style: PropTypes.object
     }
     static defaultProps = {
-        errorImg: 'http://www.guojiawei.com/uploads/140711/1-140G1205F1S3.jpg',
+        errorImg: '//s.qunarzz.com/mobile_search_touch/intention-search-h5/loading.gif',
         loadingEle: null,
         lazyload: true,
         activeClass: 'on',
@@ -98,8 +102,8 @@ class CarouselItem extends Component {
         const contextChange = this.context.currentPage !== nextContext.currentPage || this.context.pagesNum !== nextContext.pagesNum;
         return propsChange || contextChange;
     }
-    componentWillUpdate(props) {
-        this.lazyload(props);
+    componentWillUpdate(nextProps, nextState, nextContext) {
+        this.lazyload(nextContext.currentPage);
     }
 
     componentWillUnmount() {
@@ -137,14 +141,14 @@ class CarouselItem extends Component {
         this.imgNode.src = this.props.img;
     }
 
-    lazyload() {
+    lazyload(currentPage) {
         if (this.state.img) {
             return;
         }
         if (!this.props.lazyload) {
             this.loadImg();
         } else {
-            if (Math.abs(this.context.currentPage - this.props.index) <= ALLOWANCE
+            if (Math.abs(currentPage - this.props.index) <= ALLOWANCE
             || this.props.index === 1
             || this.props.index === this.context.pagesNum) {
                 this.loadImg();
@@ -158,11 +162,18 @@ class CarouselItem extends Component {
         let classList;
         const activeClass = {};
         if (this.props.img) {
-            img = this.state.img === 1
-                ? <img alt="" src={this.props.img} className="img" draggable="false" />
-                : this.state.img === 2
-                    ? <img alt="" src={this.props.errorImg} className="img" draggable="false" />
-                    : this.props.loadingEle;
+            switch (this.state.img) {
+            case LOADED:
+                img = <img alt="" src={this.props.img} className="img" draggable="false" />;
+                break;
+            case FAIL:
+                img = <img alt="" src={this.props.errorImg} className="img" draggable="false" />;
+                break;
+            case UNLOAD:
+            default:
+                img = this.props.loadingEle;
+                break;
+            }
         }
         activeClass[this.props.activeClass] = this.context.currentPage === this.props.index;
         if (this.props.extraClass) {

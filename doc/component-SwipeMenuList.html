@@ -262,6 +262,22 @@
                         
                         
                             <li >
+                                <a href="component-PopupPicker.html">PopupPicker</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-PopupDateTimePicker.html">PopupDateTimePicker</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
                                 <a href="component-Rating.html">Rating</a>
                             </li>
                         
@@ -425,25 +441,6 @@
 你还需要指定菜单项的配置，这可以通过<code>getMenuConfig</code>属性实现：</p>
 <pre><code><span class="token operator">&lt;</span>SwipeMenuList
     <span class="token operator">...</span>
-    getMenuConfig<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// 配置菜单的按钮</span>
-        action<span class="token punctuation">:</span><span class="token punctuation">[</span>
-            <span class="token punctuation">{</span>
-                text<span class="token punctuation">:</span> string <span class="token comment" spellcheck="true">// 按钮文本,必须</span>
-                onTap<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token comment" spellcheck="true">// 按钮的点击事件回调,接受参数item(这个配置对象的引用),index(配置对象在数据源的index)以及component(该对象对应的SwipeMenu组件的引用)</span>
-                className<span class="token punctuation">:</span> <span class="token comment" spellcheck="true">// 给按钮附加的额外类名</span>
-            <span class="token punctuation">}</span><span class="token punctuation">,</span>
-            <span class="token operator">...</span>
-        <span class="token punctuation">]</span><span class="token punctuation">,</span>
-        <span class="token comment" spellcheck="true">// SwipeMenu的其他属性</span>
-        disabled<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-        direciton<span class="token punctuation">:</span> <span class="token string">'right'</span>
-    <span class="token punctuation">}</span><span class="token punctuation">}</span>
-    <span class="token operator">...</span>
-<span class="token operator">/</span><span class="token operator">></span>
-</code></pre><p><code>getMenuConfig</code>属性也可以接收函数，例如:</p>
-<pre><code><span class="token operator">&lt;</span>SwipeMenuList
-    <span class="token operator">...</span>
     getMenuConfig <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
         action<span class="token punctuation">:</span><span class="token punctuation">[</span>
             <span class="token punctuation">{</span>
@@ -527,12 +524,11 @@
 
     <span class="token function">renderDataSource</span><span class="token punctuation">(</span>ds<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">const</span> self <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> ds<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-            <span class="token keyword">return</span> <span class="token punctuation">{</span>
-                <span class="token operator">...</span>item<span class="token punctuation">,</span>
-                key<span class="token punctuation">:</span> <span class="token operator">++</span>SwipeMenuListDemo<span class="token punctuation">.</span>guid
-            <span class="token punctuation">}</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> ds<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+            <span class="token operator">...</span>item<span class="token punctuation">,</span>
+            color<span class="token punctuation">:</span> <span class="token string">'black'</span><span class="token punctuation">,</span>
+            key<span class="token punctuation">:</span> <span class="token operator">++</span>SwipeMenuListDemo<span class="token punctuation">.</span>guid
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
     <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -545,6 +541,18 @@
         <span class="token punctuation">}</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
+    <span class="token function">toggleColor</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+            dataSource<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>dataSource<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>it <span class="token operator">=</span><span class="token operator">></span>
+                it <span class="token operator">===</span> item <span class="token operator">?</span>
+                    Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> it<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                        key<span class="token punctuation">:</span> <span class="token function">String</span><span class="token punctuation">(</span>it<span class="token punctuation">.</span>key<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/_\w+/</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'_red'</span><span class="token punctuation">,</span>
+                        color<span class="token punctuation">:</span> it<span class="token punctuation">.</span>color <span class="token operator">===</span> <span class="token string">'black'</span> <span class="token operator">?</span> <span class="token string">'red'</span> <span class="token punctuation">:</span> <span class="token string">'black'</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> it
+            <span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
     <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">const</span> self <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> <span class="token punctuation">(</span>
@@ -552,12 +560,12 @@
                 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>SwipeMenuList</span>
                     <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>swipemenulist<span class="token punctuation">"</span></span>
                     <span class="token attr-name">extraClass</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>yo-list-fullscreen<span class="token punctuation">"</span></span>
-                    <span class="token attr-name">getMenuConfig</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span>
+                    <span class="token attr-name">getMenuConfig</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
                         action<span class="token punctuation">:</span> <span class="token punctuation">[</span>
                             <span class="token punctuation">{</span>
-                                text<span class="token punctuation">:</span> <span class="token string">'点我'</span><span class="token punctuation">,</span>
+                                text<span class="token punctuation">:</span> item<span class="token punctuation">.</span>color <span class="token operator">===</span> <span class="token string">'black'</span> <span class="token operator">?</span> <span class="token string">'变红'</span> <span class="token punctuation">:</span> <span class="token string">'变黑'</span><span class="token punctuation">,</span>
                                 <span class="token function">onTap</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> i<span class="token punctuation">,</span> swipeMenu<span class="token punctuation">)</span><span class="token punctuation">{</span>
-                                    Toast<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>text<span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                                    self<span class="token punctuation">.</span><span class="token function">toggleColor</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">;</span>
                                     swipeMenu<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
                                 <span class="token punctuation">}</span>
                             <span class="token punctuation">}</span></span><span class="token attr-name">,</span>
@@ -565,16 +573,17 @@
                                 <span class="token attr-name"><span class="token namespace">text:</span></span> <span class="token attr-name">'删除',</span>
                                 <span class="token attr-name">onTap(item,</span> <span class="token attr-name">i,</span> <span class="token attr-name">swipeMenu){</span>
                                     <span class="token attr-name">self.deleteItem(item);</span>
+                                    <span class="token attr-name">swipeMenu.close(true);</span>
                                 <span class="token attr-name">}</span>
                             <span class="token attr-name">}</span>
                         <span class="token attr-name">]</span>
-                    <span class="token attr-name">}}</span>
+                    <span class="token attr-name">})}</span>
                     <span class="token attr-name">dataSource</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>dataSource<span class="token punctuation">}</span></span>
                     <span class="token attr-name">infinite</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span></span>
                     <span class="token attr-name">infiniteSize</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token number">15</span><span class="token punctuation">}</span></span>
                     <span class="token attr-name">itemHeight</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token number">83</span><span class="token punctuation">}</span></span>
                     <span class="token attr-name">renderItem</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span>
-                        <span class="token operator">&lt;</span>div style<span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span> height<span class="token punctuation">:</span> <span class="token number">60</span> <span class="token punctuation">}</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
+                        <span class="token operator">&lt;</span>div style<span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span> color<span class="token punctuation">:</span> item<span class="token punctuation">.</span>color<span class="token punctuation">,</span> height<span class="token punctuation">:</span> <span class="token number">60</span><span class="token punctuation">,</span> width<span class="token punctuation">:</span> <span class="token string">'100%'</span> <span class="token punctuation">}</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
                             <span class="token punctuation">{</span><span class="token string">'第'</span> <span class="token operator">+</span> i <span class="token operator">+</span> <span class="token string">'个item:'</span> <span class="token operator">+</span> item<span class="token punctuation">.</span>text<span class="token punctuation">}</span>
                         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
                     <span class="token punctuation">)</span><span class="token punctuation">}</span>
@@ -623,7 +632,7 @@
 <blockquote class="api">
     <h3>
     <strong>dataSource</strong>
-     <span class="prop-type">{ Array }</span>
+     <span class="prop-type">{ Array/Immutable List }</span>
     
     </h3>
 </blockquote>
@@ -643,15 +652,15 @@
 <blockquote class="api">
     <h3>
     <strong>getMenuConfig</strong>
-     <span class="prop-type">{ Function/Object }</span>
+     <span class="prop-type">{ Function }</span>
     
     <span class="yo-badge yo-badge-danger">3.0.3</span>
     
     </h3>
 </blockquote>
 <div class="api-content">
-    <div><p>列表项菜单对应的SwipeMenu组件配置对象，可配置的属性请参考<code>SwipeMenu</code>组件。</p>
-<p>如果传入对象，会应用于所有的列表项；如果传入函数，可以给不同的列表项定制不同的配置。</p>
+    <div><p>这个函数应该返回一个列表项菜单对应的SwipeMenu组件配置对象，
+可配置的属性请参考<code>SwipeMenu</code>组件。</p>
 </div>
     
 </div>
@@ -660,6 +669,52 @@
     <small class="text-muted">默认值:</small> null
 </p>
 
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <!-- <col class="c4"> -->
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <!-- <th>必选</th> -->
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>item</td>
+            <td>Object</td>
+            <td>列表项对应的数据对象</td>
+            <!-- <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td> -->
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>index</td>
+            <td>Number</td>
+            <td>列表项在数据源中的index</td>
+            <!-- <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td> -->
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
 
 
 
@@ -1354,6 +1409,73 @@
 
 <blockquote class="api">
     <h3>
+    <strong>shouldItemUpdate</strong>
+     <span class="prop-type">{ Function }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>绑定给列表项组件的shouldComponentUpdate，可以避免额外的render，用于提升列表的滚动性能。
+详情请参考List组件同名属性。</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> null
+</p>
+
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <!-- <col class="c4"> -->
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <!-- <th>必选</th> -->
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>next</td>
+            <td>Object</td>
+            <td>即将传给列表项组件的item对象</td>
+            <!-- <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td> -->
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>now</td>
+            <td>Object</td>
+            <td>当前列表项组件对应的item对象</td>
+            <!-- <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td> -->
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
+
+
+
+<blockquote class="api">
+    <h3>
     <strong>onMenuOpen</strong>
      <span class="prop-type">{ Function }</span>
     
@@ -1628,6 +1750,18 @@
     </h3>
 </blockquote>
 <div class="api-content"><p>模拟下拉刷新</p>
+</div>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>stopAnimate</strong>
+    
+    </h3>
+</blockquote>
+<div class="api-content"><p>让列表立刻停止滚动。</p>
 </div>
 
 

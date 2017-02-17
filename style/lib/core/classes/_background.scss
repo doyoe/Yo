@@ -9,7 +9,7 @@
  * @param {String} $gradient 指定渐变取值，与w3c最新原生语法一致 <1.0.0>
  */
 @mixin gradient($type, $dir, $color-stop...) {
-    // 最新草案：当方向为top,right,bottom,left时需要使用关键字to
+    // 最新草案：当方向为关键字top,right,bottom,left时需要使用关键字to
     $dir-new: to;
     $dir-x: right left;
     $dir-y: top bottom;

@@ -13,12 +13,12 @@
 import React, { Component, PropTypes } from 'react';
 import Modal from '../../modal/src';
 import Touchable from '../../touchable/src';
-import { replaceRedundantSpaces } from '../../common/util.js';
+import classNames from 'classnames';
 import './style.scss';
 
 const defaultProps = {
     show: false,
-    animation: false,
+    animation: 'fade',
     title: '',
     content: '',
     width: 'auto',
@@ -180,7 +180,7 @@ export default class Dialog extends Component {
                 onMaskTap={() => {
                 }}
             >
-                <div className={replaceRedundantSpaces(`yo-dialog ${extraClass}`)}>
+                <div className={classNames('yo-dialog', extraClass)}>
                     <header className="hd">
                         <h2 className="title">{title}</h2>
                     </header>

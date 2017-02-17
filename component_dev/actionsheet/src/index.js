@@ -47,7 +47,7 @@ class ActionSheet extends Component {
                 key={i + 1}
                 touchClass="item-touch"
             >
-                <div className="item" key={i + 1}>{item.text}</div>
+                <div className="item">{item.text}</div>
             </Touchable>
         ));
 

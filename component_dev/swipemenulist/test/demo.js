@@ -5,9 +5,10 @@ import { getArrayByLength } from '../../common/util';
 import '../../common/touchEventSimulator';
 import Touchable from '../../touchable/src';
 import './demo.scss';
+import Immutable from 'immutable';
 
 function getRandomList(size) {
-    return getArrayByLength(size).fill(1).map(num => parseInt(Math.random() * 100));
+    return getArrayByLength(size).fill(1).map(() => parseInt(Math.random() * 100, 10));
 }
 
 let guid = -1;
@@ -19,12 +20,12 @@ class SwipeMenuListDemo extends Component {
 
     constructor() {
         super();
-        const self = this;
-        const testData = getRandomDataSource(100).map((item, i) => ({
+        const testData = Immutable.fromJS(getRandomDataSource(100).map((item, i) => ({
             ...item,
             id: i,
-            randomHeight: parseInt(10 + Math.random() * 40, 10)
-        }));
+            randomHeight: parseInt(10 + Math.random() * 40, 10),
+            color: 'black'
+        })));
         this.state = {
             dataSource: testData
         };
@@ -36,21 +37,30 @@ class SwipeMenuListDemo extends Component {
             <SwipeMenuList
                 staticSection={<div>static!</div>}
                 staticSectionHeight={200}
-                getMenuConfig={(item) => ({
+                getMenuConfig={() => ({
                     direction: 'right',
                     action: [
                         {
                             text: 'haha,haha',
-                            onTap(item, i, swipeMenu){
+                            onTap(item, i, sw) {
                                 self.setState({
-                                    dataSource: self.state.dataSource.filter((it, index) => it.id !== item.id)
+                                    dataSource: self.state.dataSource.filter(it => it.get('id') !== item.get('id'))
                                 });
+                                sw.close(true);
                             }
                         },
                         {
-                            text: 'try',
-                            onTap(){
-                                console.log(123);
+                            text: 'change color',
+                            onTap(item, i, sw) {
+                                self.setState({
+                                    dataSource: self.state.dataSource.map(it => {
+                                        if (it === item) {
+                                            return it.set('color', it.get('color') === 'black' ? 'red' : 'black');
+                                        }
+                                        return it;
+                                    })
+                                });
+                                sw.close();
                             }
                         }
                     ]
@@ -59,18 +69,23 @@ class SwipeMenuListDemo extends Component {
                 dataSource={this.state.dataSource}
                 infinite={true}
                 infiniteSize={30}
-                renderItem={(item, i) => {
-                    return [
-                        <span key={0}>{i + ';'}</span>,
-                        <Touchable key={1} onTap={() => {
-                            console.log('tapped', item.text);
-                        }} touchClass='yellow'>
-                            <span style={{ marginLeft: 50 }}>{item.text}</span>
-                        </Touchable>
-                    ];
+                renderItem={(item, i) => ([
+                    <span key={0}>{i}</span>,
+                    <Touchable
+                        key={1}
+                        onTap={() => {
+                            console.log('tapped', item.get('text'));
+                        }}
+                        touchClass="yellow"
+                    >
+                        <span style={{ marginLeft: 50, color: item.get('color') }}>{item.get('text')}</span>
+                    </Touchable>
+                ])}
+                shouldItemUpdate={(next, now) => {
+                    return next !== now;
                 }}
-                onItemTap={() => {
-                    console.log('tap item')
+                onItemTap={(item) => {
+                    console.log('tap item', item, item.toJS());
                 }}
                 onMenuOpen={(item, i) => {
                     console.log('open', item, i);

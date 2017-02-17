@@ -1,6 +1,8 @@
 import React from 'react';
-const ALLOWANCE = 0.57;
-const AniScrollX = {
+export default (
+    ALLOWANCEAngle = 0.57,
+    ALLOWANCEDistance = 30
+) => ({
     handleData({
         loop,
         pageNow
@@ -55,8 +57,10 @@ const AniScrollX = {
         const distanceY = touchendLocation[1] - touchstartLocation[1];
         const tan = Math.abs(distanceX) / Math.abs(distanceY);
         let newpageNow = pageNow;
-        if (tan > ALLOWANCE) {
+        if (Math.abs(distanceX) > ALLOWANCEDistance && tan > ALLOWANCEAngle) {
             newpageNow = distanceX > 0 ? pageNow - 1 : pageNow + 1;
+        } else {
+            newpageNow = pageNow;
         }
         return this.checkAni(aniObj, newpageNow);
     },
@@ -126,14 +130,14 @@ const AniScrollX = {
         });
         return this.checkAni(aniObj, pageNext);
     },
-    arrive(aniObj, num) {
+    arrive(aniObj, num, isAni) {
         if (num >= 1 && num <= aniObj.pagesNum) {
             const translateX = (1 - num) * aniObj.width;
             this._addCss({
                 dom: aniObj.containerDOM,
                 speed: 0.1,
                 translateX,
-                reset: true,
+                reset: !isAni,
                 width: aniObj.width
             });
         } else {
@@ -148,7 +152,7 @@ const AniScrollX = {
         ...ani
     }) {
         // 此处为Dom操作
-        if (reset) {
+        if(reset) {
             dom.style.webkitTransition = 'none';
             dom.style.transition = 'none';
         } else {
@@ -158,6 +162,4 @@ const AniScrollX = {
         dom.style.webkitTransform = `translate(${translateX}px, 0) translateZ(0)`;
         dom.style.transform = `translate(${translateX}px, 0) translateZ(0)`;
     }
-};
-
-export default AniScrollX;
+});

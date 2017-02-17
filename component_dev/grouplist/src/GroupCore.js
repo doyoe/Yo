@@ -4,6 +4,7 @@
 import ComponentCore from '../../common/ComponentCore';
 
 export default class GroupCore extends ComponentCore {
+
     static guid = -1;
 
     /**
@@ -11,56 +12,62 @@ export default class GroupCore extends ComponentCore {
      * @param dataSource 数据源,将会被插入一些title对象
      * @param itemHeight 列表项高度
      * @param titleHeight title高度
-     * @param sortFunc group排序规则
+     * @param sort group排序规则
      * @param infinite 是否开启无穷模式
      * @param offsetY 初始偏移
      */
-    constructor(dataSource,
-                itemHeight = null,
-                staticSectionHeight = 0,
-                titleHeight,
-                sortFunc,
-                infinite,
-                offsetY = 0) {
+    constructor({
+        dataSource,
+        itemHeight = null,
+        staticSectionHeight = 0,
+        titleHeight,
+        sort,
+        infinite,
+        offsetY = 0,
+        isTitleStatic = true
+    }) {
         super('grouplist');
         // stickyHeader是一个内部状态,保存了当前吸顶title的位置和key
         this.stickyHeader = null;
+        this.isTitleStatic = isTitleStatic;
         // 调用initialize过程,这个过程在componentWillReceiveProps时也会被调用,可以init/reset组件的状态
-        this.initialize(
+        this.initialize({
             offsetY,
             dataSource,
-            sortFunc,
+            sort,
             infinite,
             staticSectionHeight,
             itemHeight,
             titleHeight
-        );
+        });
     }
 
     /**
      * 初始化/重置组件的状态
      * @param offsetY
      * @param dataSource
-     * @param sortFunc
+     * @param sort
      * @param infinite
      * @param itemHeight
      * @param titleHeight
      */
-    initialize(offsetY,
-               dataSource,
-               sortFunc = this.sortFunc,
-               infinite = this.infinite,
-               staticSectionHeight,
-               itemHeight = this.itemHeight,
-               titleHeight = this.titleHeight) {
+    initialize({
+        offsetY,
+        dataSource,
+        sort = this.sortFunc,
+        infinite = this.infinite,
+        staticSectionHeight,
+        itemHeight = this.itemHeight,
+        titleHeight = this.titleHeight
+    }) {
         this.infinite = infinite;
         this.itemHeight = itemHeight;
         this.titleHeight = titleHeight;
         this.currentGroup = {};
-        this.dataSource = this.renderData(dataSource, itemHeight, titleHeight, sortFunc);
+        this.dataSource = this.renderData(dataSource, itemHeight, titleHeight, sort);
         this.staticSectionHeight = staticSectionHeight;
         this.groupTitles = this.getTitles();
-        this.isHeightFixed = this.dataSource.every((item) => !!item.height) || !infinite;
+        this.isHeightFixed = this.dataSource.every((item) => this.getAttr(item, 'height') != null) || !infinite;
         this.offsetY = this.isHeightFixed ? offsetY : this.offsetY;
     }
 
@@ -71,12 +78,15 @@ export default class GroupCore extends ComponentCore {
      * @param infinite
      * @param offsetY
      */
-    refresh(dataSource = this.dataSource,
-            sortFunc = this.sortFunc,
-            infinite = this.infinite,
-            staticSectionHeight = this.staticSectionHeight,
-            offsetY = this.offsetY) {
-        this.initialize(offsetY, dataSource, sortFunc, infinite, staticSectionHeight);
+    refresh({
+        dataSource = this.dataSource,
+        sort = this.sortFunc,
+        infinite = this.infinite,
+        staticSectionHeight = this.staticSectionHeight,
+        offsetY = this.offsetY,
+        titleHeight = this.titleHeight
+    }) {
+        this.initialize({ offsetY, dataSource, sort, infinite, staticSectionHeight, titleHeight });
         this.emitEvent('refresh', this.dataSource, this.groupTitles);
     }
 
@@ -92,18 +102,32 @@ export default class GroupCore extends ComponentCore {
                itemHeight = this.itemHeight,
                titleHeight = this.titleHeight,
                sortFunc = this.sortFunc) {
+        if (!Array.isArray(dataSource)) {
+            if (typeof dataSource.toArray === 'function') {
+                dataSource = dataSource.toArray();
+            } else {
+                throw new Error('yo-grouplist: dataSource必须为数组或者Immutable List!');
+            }
+        }
+
         this.dataSource = this
             .insertGroupTitles(dataSource, this.extractGroupKeys(dataSource, sortFunc))
             .map((item) => {
                 let height = null;
                 if (item._type === 'groupTitle') {
                     height = titleHeight;
-                } else if (itemHeight) {
+                } else if (this.getAttr(item, 'height')) { // 优先读取item中的height属性
+                    height = this.getAttr(item, 'height');
+                } else { // 否则读取itemHeight属性
                     height = itemHeight;
-                } else {
-                    height = item.height;
                 }
-                return Object.assign({}, item, { height });
+                return item._type === 'groupTitle' ?
+                    this.setAttr(item, 'height', height) :
+                    {
+                        srcData: item,
+                        height,
+                        key: this.getAttr(item, 'key')
+                    };
             });
         return this.dataSource;
     }
@@ -116,10 +140,10 @@ export default class GroupCore extends ComponentCore {
      */
     extractGroupKeys(dataSource, sortFunc) {
         let keyListWithoutNotGrouped = dataSource
-            .map((item) => item.groupKey)
+            .map((item) => this.getAttr(item, 'groupKey'))
             .filter((key) => key !== 'notGrouped')
             .reduce((acc, groupKey) => {
-                if (acc.find((it) => it === groupKey) === undefined) {
+                if (acc.find((it) => it === groupKey) == null) {
                     acc.push(groupKey);
                 }
                 return acc;
@@ -141,17 +165,19 @@ export default class GroupCore extends ComponentCore {
      */
     insertGroupTitles(dataSource, groupKeys) {
         return groupKeys.reduce((acc, key) => {
-            const title = { _type: 'groupTitle', groupKey: key, key: `group_title_${key}${++GroupCore.guid}` };
+            const title = {
+                _type: 'groupTitle',
+                groupKey: key,
+                key: `group_title_${key}${this.isTitleStatic ? '' : `_${++GroupCore.guid}`}`
+            };
             const ret = acc
                 .concat(
                     title,
-                    dataSource
-                        .filter((it) => it.groupKey === key)
-                        .map((it) => Object.assign({}, { _type: 'item' }, it))
+                    dataSource.filter((it) => this.getAttr(it, 'groupKey') === key)
                 );
 
             return key !== 'notGrouped' ? ret : ret.filter((item) =>
-                    !(item._type === 'groupTitle' && item.groupKey === 'notGrouped')
+                    !(item._type === 'groupTitle' && this.getAttr(item, 'groupKey') === 'notGrouped')
                 );
         }, []);
     }
@@ -179,9 +205,12 @@ export default class GroupCore extends ComponentCore {
                     height: domNode.offsetHeight
                 });
             }
+            item = Object.assign(item, {
+                display: getComputedStyle(domNode).getPropertyValue('display')
+            });
 
             this.groupTitles = this.groupTitles.map((title) =>
-                title.groupKey === item.groupKey ? item : title
+                this.getAttr(title, 'groupKey') === this.getAttr(item, 'groupKey') ? item : title
             );
             return this.groupTitles;
         }
@@ -196,7 +225,7 @@ export default class GroupCore extends ComponentCore {
         offsetY = offsetY - this.staticSectionHeight;
         const title = this.getCurrentTitle(offsetY),
             offset = this.getCurrentTitleOffsetY(offsetY),
-            groupKey = title ? title.groupKey : null;
+            groupKey = title ? this.getAttr(title, 'groupKey') : null;
 
         if (this.currentGroup.offset !== offset || this.currentGroup.key !== groupKey) {
             this.currentGroup = { key: groupKey, offset };
@@ -264,7 +293,7 @@ export default class GroupCore extends ComponentCore {
      * @returns {Number}
      */
     getGroupOffsetY(groupKey) {
-        const targetGroup = this.groupTitles.find((title) => title.groupKey === groupKey);
+        const targetGroup = this.groupTitles.find((title) => this.getAttr(title, 'groupKey') === groupKey);
 
         if (targetGroup) {
             return targetGroup._translateY + this.staticSectionHeight;

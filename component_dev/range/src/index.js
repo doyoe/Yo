@@ -11,7 +11,8 @@ import React, { Component, PropTypes } from 'react';
 import './style.scss';
 import RangeCore from './RangeCore';
 import debounce from 'lodash/debounce';
-import { replaceRedundantSpaces, getArrayByLength } from '../../common/util';
+import { getArrayByLength } from '../../common/util';
+import classNames from 'classnames';
 import '../../common/tapEventPluginInit';
 
 const propTypes = {
@@ -322,7 +323,7 @@ export default class Range extends Component {
             scaleGapNum = parseInt(Math.round((max - min) / step), 10),
             decimalNum = this.rangeCore.decimalLenOfValue,
             ticksValue = !showScale ? [] : getArrayByLength(scaleGapNum + 1).fill(1)
-                .map((_, index) => parseFloat(parseFloat(min + index * step).toFixed(decimalNum))),
+                    .map((_, index) => parseFloat(parseFloat(min + index * step).toFixed(decimalNum))),
             ticksText = ticksValue.map((scale, index) => scaleFormat(scale, index)),
             ticksJSX = this.renderTicks(ticksText);
 
@@ -363,6 +364,7 @@ export default class Range extends Component {
             }
         });
     }
+
     /**
      * @method resize
      * @description 当容器宽度改变时，可手动调用 resize 将滑块重置到正确的位置上，可通过ref得到的组件实例来调用（在组件上加个ref属性）。
@@ -449,9 +451,7 @@ export default class Range extends Component {
     renderTicks(ticksText) {
         const len = ticksText.length;
         return ticksText.map((value, index) => {
-            const cssObj = (index === 0 || index === len - 1) ? {} : {
-                left: `${index * 100 / (len - 1)}%`
-            };
+            const cssObj = (index === 0 || index === len - 1) ? {} : { left: `${index * 100 / (len - 1)}%` };
             return (
                 <li
                     className="divide"
@@ -467,7 +467,9 @@ export default class Range extends Component {
     renderSlider(which = 'btnLeft') {
         return (
             <span
-                ref={dom => { this[which] = dom; }}
+                ref={dom => {
+                    this[which] = dom;
+                }}
                 onTouchStart={evt => this.handleTouchStart(which, evt)}
                 onTouchMove={evt => this.handleTouchMove(which, evt)}
                 onTouchEnd={evt => this.handleTouchEnd(which, evt)}
@@ -481,7 +483,7 @@ export default class Range extends Component {
             scaleJSX = this.props.showScale && (<ul className="scale" ref="scale">{ticksJSX}</ul>);
         return (
             <div
-                className={replaceRedundantSpaces(`yo-range ${this.props.extraClass}`)}
+                className={classNames('yo-range', this.props.extraClass)}
             >
                 {scalePosition === 'top' && scaleJSX}
                 <div className="track" ref="track">

@@ -20,10 +20,6 @@ export function deepClone(obj) {
     }, {});
 }
 
-export function replaceRedundantSpaces(str) {
-    return str.replace(/\s{2,}/g, ' ').trim();
-}
-
 export function getArrayByLength(length) {
     const ret = [];
     for (let i = 0; i < length; i++) {
@@ -81,3 +77,10 @@ export function getElementOffsetY(ele, parent) {
 }
 
 export const DELAY_TIME_FOR_INFINITE_WITHOUT_HEIGHT = 250;
+
+export function inheritProps(props, attrs) {
+    return attrs.reduce((ret, attr) => {
+        ret[attr] = props[attr];
+        return ret;
+    }, {});
+}

@@ -27,6 +27,7 @@ exports.config = function () {
         getEntry('calendar'),
         getEntry('swipemenu'),
         getEntry('picker'),
+        getEntry('popupdatetimepicker'),
         getEntry('popuppicker'),
         getEntry('loading'),
         getEntry('multilist'),

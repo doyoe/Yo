@@ -7,7 +7,7 @@
  * @version 3.0.2
  */
 import React, { Component, PropTypes } from 'react';
-import { replaceRedundantSpaces } from '../../common/util';
+import classNames from 'classnames';
 import './style.scss';
 import '../../common/tapEventPluginInit';
 
@@ -140,7 +140,7 @@ const propTypes = {
             duration: PropTypes.number
         })
     ]),
-    children: PropTypes.oneOfType([PropTypes.array, PropTypes.object])
+    children: PropTypes.oneOfType([PropTypes.array, PropTypes.object, PropTypes.string, PropTypes.number])
 };
 
 // 默认提供的动画效果
@@ -246,17 +246,21 @@ export default class RealModal extends Component {
             width,
             height
         } = this.props;
-        const containerClass = ['yo-modal', extraClass, `yo-modal-${align}`].join(' ').trim();
-        const contentClass = ['cont', contentExtraClass, name].join(' ').trim();
+        const containerClass = classNames('yo-modal', extraClass, `yo-modal-${align}`);
+        const contentClass = classNames('cont', contentExtraClass, name);
 
         return (
             <div
                 ref="container"
-                className={replaceRedundantSpaces(containerClass)}
+                className={containerClass}
                 onTouchTap={(evt) => {
                     if (evt.target === this.refs.container) {
                         onMaskTap(evt);
                     }
+                }}
+                onTouchEnd={(evt) => {
+                    // 消除穿透隐患
+                    evt.preventDefault();
                 }}
                 style={Object.assign(
                     {
@@ -269,7 +273,7 @@ export default class RealModal extends Component {
                 )}
             >
                 <div
-                    className={replaceRedundantSpaces(contentClass)}
+                    className={contentClass}
                     ref={component => {
                         this.contentDom = component;
                     }}

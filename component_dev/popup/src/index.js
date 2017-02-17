@@ -75,7 +75,7 @@ const propTypes = {
      */
     maskOffset: PropTypes.arrayOf(PropTypes.number),
     /**
-     * @property 组件额外样式
+     * @property extraClass
      * @type String
      * @description 组件额外样式类
      */

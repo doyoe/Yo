@@ -1,5 +1,5 @@
 /**
- * Created by Ellery1 on 16/8/17.
+ * 大型组件使用的抽象Model类，用于集中管理组件内部的逻辑和状态。
  */
 import EventEmitter from './EventEmitter';
 
@@ -25,5 +25,19 @@ export default class ComponentCore extends EventEmitter {
     registerEventHandler(eventName, handler) {
         this.on(this._getEventName(eventName), handler.bind(this));
         return this;
+    }
+
+    getAttr(item, attrKey) {
+        return typeof item.get === 'function' ? item.get(attrKey) : item[attrKey];
+    }
+
+    setAttr(item, attrKey, value) {
+        let ret = null;
+        if (typeof item.set === 'function') {
+            ret = item.set(attrKey, value);
+        } else {
+            ret = Object.assign({}, item, { [attrKey]: value });
+        }
+        return ret;
     }
 }

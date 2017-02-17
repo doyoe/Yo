@@ -36,7 +36,7 @@ export default class extends Component {
                 }}
                 style={{
                     transform,
-                    WebkitTransform: transform,
+                    WebkitTransform: transform
                 }}
                 className="item"
             >

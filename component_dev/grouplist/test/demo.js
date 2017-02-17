@@ -3,14 +3,17 @@ import ReactDOM from 'react-dom';
 import GroupList from '../src';
 import Touchable from '../../touchable/src';
 import { getArrayByLength } from '../../common/util';
+import Immutable from 'immutable';
 let id = 1;
-const testData = getArrayByLength(100).fill(0)
+let testData = getArrayByLength(100).fill(0)
     .map((item, i) => ({
         text: Math.random() * 100,
         groupKey: i < 5 ? 'notGrouped' : i % 10,
         id: ++id,
-        key: id
+        key: id,
+        color: 'black'
     }));
+testData = Immutable.fromJS(testData);
 
 class GroupListDemo extends Component {
 
@@ -19,14 +22,38 @@ class GroupListDemo extends Component {
         this.state = {
             dataSource: testData,
             sort: (a, b) => a - b,
-            infinite: true
+            infinite: true,
+            titleHeight: 30
         };
+    }
+
+    modifyHeight(item) {
+        this.setState({
+            dataSource: this.state.dataSource.map(it => {
+                if (it === item) {
+                    return it.set('height', Math.random() * 50 + 30).set('key', ++id);
+                }
+                return it;
+            })
+        });
     }
 
     deleteItem(item) {
         this.setState({
-            dataSource: this.state.dataSource.filter(it => it.key !== item.key),
-            sort: (a, b) => b - a
+            dataSource: this.state.dataSource.filter(it => it.get('key') !== item.get('key')),
+            sort: (a, b) => b - a,
+            titleHeight: 50
+        });
+    }
+
+    turnRed(item) {
+        this.setState({
+            dataSource: this.state.dataSource.map(it => {
+                if (it === item) {
+                    return it.set('color', it.get('color') === 'red' ? 'black' : 'red');
+                }
+                return it;
+            })
         });
     }
 
@@ -38,14 +65,37 @@ class GroupListDemo extends Component {
                         static header!!
                     </div>
                 }
+                shouldItemUpdate={(next, now) => next !== now}
                 staticSectionHeight={200}
                 usePullRefesh={true}
                 offsetY={-200}
-                itemHeight={44}
                 ref="grouplist"
                 dataSource={this.state.dataSource}
                 infinite={true}
+                titleHeight={this.state.titleHeight}
+                itemHeight={44}
                 showIndexNavBar={true}
+                renderGroupItem={(item, index) => (
+                    <div style={{ width: '100%' }}>
+                        {`${index}: ${item.get('text')}`}
+                        <Touchable
+                            onTap={() => {
+                                this.turnRed(item);
+                            }}
+                            touchClass="opacity"
+                        >
+                            <span className="button">turn red!</span>
+                        </Touchable>
+                        <Touchable
+                            onTap={() => {
+                                this.deleteItem(item, index);
+                            }}
+                            touchClass="opacity"
+                        >
+                            <span className="button">delete</span>
+                        </Touchable>
+                    </div>
+                )}
                 renderGroupTitle={key => (
                     <div style={{ width: '100%' }}>
                         <span>{key}</span>
@@ -59,14 +109,17 @@ class GroupListDemo extends Component {
                         </Touchable>
                     </div>
                 )}
-                onItemTap={(item) => this.deleteItem(item)}
+                onItemTap={(item, index) => this.modifyHeight(item, index)}
                 sort={this.state.sort}
-                itemExtraClass={(item, index) => `item ${index}`}
-                groupTitleExtraClass={(groupKey) => `group-title label ${groupKey}`}
+                itemTouchClass={(item, index) => {
+                    // console.log(item);
+                    return 'item-touch';
+                }}
+                itemExtraClass={(item, index) => `${index} ${item.get('color')}`}
+                groupTitleExtraClass={(groupKey) => `${groupKey}`}
             />
         );
     }
 }
 
 ReactDOM.render(<GroupListDemo />, document.getElementById('content'));
-

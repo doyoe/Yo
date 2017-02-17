@@ -9,16 +9,22 @@
  *
  * 特别感谢大明哥(leeds.li)和她的不定高无穷列表的实现思路。
  * @author jiao.shen
- *  @instructions {instruInfo: ./list/list.md}{instruUrl: list/infinite_mode_with_height.html?hideIcon}
- *  @instructions {instruInfo: ./list/example.md}{instruUrl: list/base.html?hideIcon}
- *  @instructions {instruInfo: ./list/static_section.md}{instruUrl: list/static_section.html?hideIcon}
+ * @instructions {instruInfo: ./list/list.md}{instruUrl: list/infinite_mode_with_height.html?hideIcon}
+ * @instructions {instruInfo: ./list/example.md}{instruUrl: list/base.html?hideIcon}
+ * @instructions {instruInfo: ./list/modify_height.md}{instruUrl: list/modify_height.html?hideIcon}
+ * @instructions {instruInfo: ./list/static_section.md}{instruUrl: list/static_section.html?hideIcon}
  */
 import ListModel from './ListCore';
 import React, { Component, PropTypes } from 'react';
 import Scroller from '../../scroller/src';
 import ListItem from './ListItem';
 import LazyImage from '../../lazyimage';
-import { replaceRedundantSpaces, getArrayByLength, DELAY_TIME_FOR_INFINITE_WITHOUT_HEIGHT } from '../../common/util';
+import classNames from 'classnames';
+import {
+    getArrayByLength,
+    DELAY_TIME_FOR_INFINITE_WITHOUT_HEIGHT,
+    inheritProps
+} from '../../common/util';
 import '../../common/tapEventPluginInit';
 import './style.scss';
 import _ from 'lodash';
@@ -33,7 +39,7 @@ const defaultProps = {
     onInfiniteAppend() {
     },
     renderItem(item) {
-        return item.text;
+        return typeof item.get === 'function' ? item.get('text') : item.text;
     },
     extraClass: '',
     containerExtraClass: '',
@@ -63,18 +69,18 @@ const defaultProps = {
 const propTypes = {
     /**
      * @property dataSource
-     * @type Array
+     * @type Array/Immutable List
      * @default none
-     * @description 组件的数据源，数组形式，内部元素必须是对象。
-     * 如果需要给无穷列表的项定高度，可以在对象里添加height属性(数字类型)，
+     * @description 组件的数据源，数组或者Immutable List类型，内部元素必须是对象或者Immutable Map。
+     * 如果需要给无穷列表的项定高度，可以给元素添加height属性(数字类型)，
      * 也可以通过itemHeight属性统一设置列表项的高度(见itemHeight属性的描述)，
      * 如果列表元素有text属性且没有传入renderItem，会直接以text的值作为listitem的内容渲染。
      */
-    dataSource: PropTypes.arrayOf(PropTypes.shape({
+    dataSource: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.shape({
         height: PropTypes.number,
         text: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
         key: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
-    })).isRequired,
+    })), PropTypes.object]).isRequired,
     /**
      * @property renderItem
      * @type Function
@@ -291,16 +297,15 @@ const propTypes = {
      * @property shouldItemUpdate
      * @type Function
      * @default null
-     * @param {Bool} ret 列表项shouldComponentUpdate原结果
-     * @param {Object} nextItem 即将传给列表项组件的item对象
-     * @param {Object} nowItem 当前列表项组件对应的item对象
+     * @param {Object} next 即将传给列表项组件的item对象
+     * @param {Object} now 当前列表项组件对应的item对象
      * @description 绑定给列表项组件的shouldComponentUpdate，可以避免额外的render，用于提升列表的滚动性能。
      *
      * 实验表明，组件的render开销对于某些老式手机(例如三星Note2)是不能忽视的，因此list默认为所有的列表项组件配置了shouldComponentUpdate，会根据
      * item的_guid属性(List组件自己做的，不需要使用者传入)做比较决定是否需要render，这样可以最小化render的次数。有些情况下，这种比较方式会阻止使用者期待触发的render，导致组件更新行为违反了使用者的意愿，这时候需要通过设置shouldItemUpdate属性改变默认的shouldComponentUpdate的返回值
      *
-     * shouldItemUpdate能够接受三个参数，ret(默认的shouldComponentUpdate的return结果，布尔类型)，nextItem(ListItem组件的下一个props中的item属性)，
-     * nowItem(ListItem当前的props的item属性)，返回一个布尔值。false则会跳过render，true会继续执行render(与shouldComponentUpdate返回值的含义相同)。
+     * shouldItemUpdate能够接受两个参数，next(ListItem组件的下一个props中的item属性)，
+     * now(ListItem当前的props的item属性)。它必须返回一个布尔值，false则会跳过render，true会继续执行render(与shouldComponentUpdate返回值的含义相同)。
      */
     shouldItemUpdate: PropTypes.func,
     /**
@@ -361,14 +366,14 @@ export default class List extends Component {
 
         this.childLazyImages = [];
 
-        this.listModel = new ListModel(
+        this.listModel = new ListModel({
             dataSource,
             offsetY,
             infinite,
             itemHeight,
             infiniteSize,
             staticSectionHeight
-        );
+        });
         this.state = {
             visibleList: this.listModel.visibleList,
             totalHeight: this.listModel.totalHeight
@@ -435,8 +440,18 @@ export default class List extends Component {
      * 其他属性不需要reset
      */
     componentWillReceiveProps(nextProps) {
-        const { dataSource, infiniteSize, offsetY, staticSectionHeight } = nextProps;
-        this.listModel.refresh(dataSource, true, infiniteSize, staticSectionHeight);
+        const {
+            dataSource,
+            infiniteSize,
+            offsetY,
+            staticSectionHeight
+        } = nextProps;
+        this.listModel.refresh({
+            dataSource,
+            refreshAll: true,
+            infiniteSize,
+            staticSectionHeight
+        });
 
         // 等待dom更新结束后再做以下操作
         setTimeout(() => {
@@ -561,7 +576,7 @@ export default class List extends Component {
      * (在开启了无穷模式的情况下,为了提高滚动的性能,不管time传入什么值都会被重设为0.因为快速滚过很长的距离在无穷模式下会带来巨大的性能损耗)
      * @description 让List滚动到某个位置
      */
-    scrollTo(offsetY, time = 0) {
+    scrollTo(offsetY = 0, time = 0) {
         if (this.scroller) {
             // 考虑到infinite的渲染机制,滚动一个过长的距离会触发大量的dom更新,性能会很差
             // 因此当当前offetY大于一定数值时就将time设为0,2000是个magic number,凭感觉设的
@@ -572,7 +587,6 @@ export default class List extends Component {
     }
 
     /**
-     * @skip
      * @method stopAnimate
      * @description 立刻停止滚动。
      */
@@ -617,14 +631,13 @@ export default class List extends Component {
                 key={this.listModel.infinite ? i : item.key}
                 renderItem={renderItem}
                 onItemTap={(target) => {
-                    onItemTap(item, item._index, target);
+                    onItemTap(item.srcData, item._index, target);
                 }}
                 shouldItemUpdate={shouldItemUpdate}
                 onItemTouchStart={onItemTouchStart}
                 item={item}
                 itemExtraClass={realExtraClass}
                 groupTitleExtraClass={groupTitleExtraClass}
-                i={i}
                 listModel={this.listModel}
                 onListItemUpdate={onListItemUpdate}
             />
@@ -633,43 +646,34 @@ export default class List extends Component {
 
     render() {
         const {
-            extraClass,
             containerExtraClass,
             infiniteSize,
-            usePullRefresh,
             onRefresh,
-            useLoadMore,
-            onLoad,
-            disabled,
-            style,
-            directionLockThreshold,
-            pullRefreshHeight,
-            renderPullRefresh,
-            loadMoreHeight,
-            renderLoadMore,
-            scrollWithoutTouchStart
+            onLoad
         } = this.props;
         const { infinite } = this.listModel;
-        const containerClass = replaceRedundantSpaces([
+        const containerClass = classNames(
             'yo-list',
             containerExtraClass,
             infinite ? 'yo-list-infinite' : ''
-        ].join(' '));
+        );
         const { visibleList } = this.state;
 
         return (
             <Scroller
-                scrollWithoutTouchStart={scrollWithoutTouchStart}
-                style={style}
-                directionLockThreshold={directionLockThreshold}
-                disabled={disabled}
-                extraClass={extraClass}
-                pullRefreshHeight={pullRefreshHeight}
-                renderPullRefresh={renderPullRefresh}
-                loadMoreHeight={loadMoreHeight}
-                renderLoadMore={renderLoadMore}
-                useLoadMore={useLoadMore}
-                usePullRefresh={usePullRefresh}
+                {...inheritProps(this.props, [
+                    'scrollWithoutTouchStart',
+                    'style',
+                    'directionLockThreshold',
+                    'disabled',
+                    'extraClass',
+                    'pullRefreshHeight',
+                    'renderPullRefresh',
+                    'loadMoreHeight',
+                    'renderLoadMore',
+                    'useLoadMore',
+                    'usePullRefresh'
+                ])}
                 tap={true}
                 autoRefresh={!infinite}
                 ref={(scroller) => {

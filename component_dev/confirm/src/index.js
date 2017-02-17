@@ -7,7 +7,7 @@
  * - 自定义组件显隐过程动画。
  * - 返回一个Promise实例对象，可通过Then方法分别绑定确认、取消回调函数。
  *
- *  @instructions {instruInfo: ./confirm.md}{instruUrl: confirm.html?hideIcon}
+ * @instructions {instruInfo: ./confirm.md}{instruUrl: confirm.html?hideIcon}
  * @author qingguo.xu
  */
 

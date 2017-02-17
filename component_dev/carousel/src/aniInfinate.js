@@ -15,7 +15,10 @@ function getNumBetween(min, max) {
 }
 // 30度的tan值
 const ALLOWANCE = 0.57;
-const AniInfinate = {
+export default (
+    ALLOWANCEAngle = 0.57,
+    ALLOWANCEDistance = 30
+) => ({
     handleData({
         pageNow
     }, children) {
@@ -31,10 +34,11 @@ const AniInfinate = {
             }
             newChildren.push(React.cloneElement(children[i], {
                 style: {
-                    WebkitTransform: `translate(${i * 100}%, 0) translateZ(0)`,
-                    transform: `translate(${i * 100}%, 0) translateZ(0)`,
+                    WebkitTransform: `translate(${i * 100}%, -50%) translateZ(0)`,
+                    transform: `translate(${i * 100}%, -50%) translateZ(0)`,
                     position: 'absolute',
-                    left: 0
+                    left: 0,
+                    top: '50%'
                 }
                 // currentPage:pageNow,
             }));
@@ -106,7 +110,7 @@ const AniInfinate = {
         const changeY = touchendLocation[1] - touchstartLocation[1];
         const tan = Math.abs(changeX) / Math.abs(changeY);
         let change;
-        if (tan < ALLOWANCE) {
+        if (tan < ALLOWANCE || Math.abs(changeX) < ALLOWANCEDistance) {
             change = pageNow - 1;
         } else {
             change = changeX > 0 ? pageNow : pageNow - 2;
@@ -129,7 +133,7 @@ const AniInfinate = {
         });
         return this.checkAni(aniObj, change + 1);
     },
-    checkAni(aniObj, num) {
+    checkAni(aniObj, num, isAni = true) {
         const {
             loop,
             pagesNum,
@@ -146,7 +150,7 @@ const AniInfinate = {
         }
         this._addCss({
             dom: containerDOM,
-            reset: false,
+            reset: !isAni,
             translateX: -(num - 1) * 100,
             speed
         });
@@ -155,8 +159,8 @@ const AniInfinate = {
     next(aniObj) {
         return this.checkAni(aniObj, aniObj.pageNow + 1);
     },
-    arrive(aniObj, num) {
-        return this.checkAni(aniObj, num);
+    arrive(aniObj, num, isAni) {
+        return this.checkAni(aniObj, num, isAni);
     },
     prev(aniObj) {
         return this.checkAni(aniObj, aniObj.pageNow - 1);
@@ -167,16 +171,13 @@ const AniInfinate = {
         reset
     }) {
         if (reset) {
-          dom.style.webkitTransition = 'none';
-          dom.style.transition = 'none';
+        dom.style.webkitTransition = 'none';
+        dom.style.transition = 'none';
         } else {
-          dom.style.webkitTransition = '';
-          dom.style.transition = '';
+        dom.style.webkitTransition = '';
+        dom.style.transition = '';
         }
         dom.style.webkitTransform = `translate(${translateX}%, 0) translateZ(0)`;
         dom.style.transform = `translate(${translateX}%, 0) translateZ(0)`;
     }
-};
-
-
-export default AniInfinate;
+});

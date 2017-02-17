@@ -262,6 +262,22 @@
                         
                         
                             <li >
+                                <a href="component-PopupPicker.html">PopupPicker</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-PopupDateTimePicker.html">PopupDateTimePicker</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
                                 <a href="component-Rating.html">Rating</a>
                             </li>
                         
@@ -679,7 +695,7 @@ Suggest的内容分为两个区域, 推荐区域(recommendTmpl)会在用户输�
     </h3>
 </blockquote>
 <div class="api-content">
-    <div><p>渲染在结果区的数据源,数组类型,数组元素的类型可以是字符串/数字,它们会直接作为列表项的内容;</p>
+    <div><p>渲染在结果区的数据源,数组类型,数组元素的类型可以是字符串/数字，它们会直接作为列表项的内容；</p>
 <p>也可以是对象,这个对象必须有text属性。</p>
 </div>
     
@@ -756,7 +772,7 @@ Suggest的内容分为两个区域, 推荐区域(recommendTmpl)会在用户输�
     </h3>
 </blockquote>
 <div class="api-content">
-    <div><p>附加给组件根节点的额外类名</p>
+    <div><p>附加给组件根节点的额外类名。</p>
 </div>
     
 </div>
@@ -776,7 +792,7 @@ Suggest的内容分为两个区域, 推荐区域(recommendTmpl)会在用户输�
     </h3>
 </blockquote>
 <div class="api-content">
-    <div><p>点击结果区域列表项时添加的className</p>
+    <div><p>点击结果区域列表项时添加的className。</p>
 </div>
     
 </div>
@@ -796,7 +812,7 @@ Suggest的内容分为两个区域, 推荐区域(recommendTmpl)会在用户输�
     </h3>
 </blockquote>
 <div class="api-content">
-    <div><p>没有suggest结果时的模板
+    <div><p>没有suggest结果时的模板。
 noDataTpl</p>
 </div>
     
@@ -817,7 +833,7 @@ noDataTpl</p>
     </h3>
 </blockquote>
 <div class="api-content">
-    <div><p>推荐区域内容,在搜索条件为空时展示</p>
+    <div><p>推荐区域内容,在搜索条件为空时展示。</p>
 </div>
     
 </div>
@@ -837,7 +853,7 @@ noDataTpl</p>
     </h3>
 </blockquote>
 <div class="api-content">
-    <div><p>点击结果项时的回调</p>
+    <div><p>点击结果项时的回调。</p>
 </div>
     
 </div>
@@ -1011,6 +1027,8 @@ noDataTpl</p>
     <strong>infinite</strong>
      <span class="prop-type">{ Bool }</span>
     
+    <span class="yo-badge yo-badge-danger">3.0.4</span>
+    
     </h3>
 </blockquote>
 <div class="api-content">
@@ -1030,6 +1048,8 @@ noDataTpl</p>
     <h3>
     <strong>itemHeight</strong>
      <span class="prop-type">{ Number }</span>
+    
+    <span class="yo-badge yo-badge-danger">3.0.4</span>
     
     </h3>
 </blockquote>
@@ -1051,10 +1071,12 @@ noDataTpl</p>
     <strong>infiniteSize</strong>
      <span class="prop-type">{ Number }</span>
     
+    <span class="yo-badge yo-badge-danger">3.0.4</span>
+    
     </h3>
 </blockquote>
 <div class="api-content">
-    <div><p>无穷列表模式下,保留在列表容器中列表项的个数(参见List组件无穷列表模式的说明).</p>
+    <div><p>无穷列表模式下,保留在列表容器中列表项的个数(参见List组件无穷列表模式的说明)。</p>
 </div>
     
 </div>
@@ -1074,7 +1096,7 @@ noDataTpl</p>
     </h3>
 </blockquote>
 <div class="api-content">
-    <div><p>是否显示取消按钮,默认不显示</p>
+    <div><p>是否显示取消按钮,默认不显示。</p>
 </div>
     
 </div>
@@ -1094,7 +1116,7 @@ noDataTpl</p>
     </h3>
 </blockquote>
 <div class="api-content">
-    <div><p>取消按钮文本</p>
+    <div><p>取消按钮文本。</p>
 </div>
     
 </div>
@@ -1114,7 +1136,7 @@ noDataTpl</p>
     </h3>
 </blockquote>
 <div class="api-content">
-    <div><p>点击取消按钮时的回调</p>
+    <div><p>点击取消按钮时的回调。</p>
 </div>
     
 </div>
@@ -1128,13 +1150,68 @@ noDataTpl</p>
 
 <blockquote class="api">
     <h3>
+    <strong>onSubmit</strong>
+     <span class="prop-type">{ Function }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>点击键盘确定按钮时触发的回调。</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> ()=>{}
+</p>
+
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <!-- <col class="c4"> -->
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <!-- <th>必选</th> -->
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>condition</td>
+            <td></td>
+            <td>当前输入框的value</td>
+            <!-- <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td> -->
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
+
+
+
+<blockquote class="api">
+    <h3>
     <strong>onFocus</strong>
      <span class="prop-type">{ Function }</span>
     
     </h3>
 </blockquote>
 <div class="api-content">
-    <div><p>输入框聚焦时的回调</p>
+    <div><p>输入框聚焦时的回调。</p>
 </div>
     
 </div>
@@ -1189,7 +1266,7 @@ noDataTpl</p>
     </h3>
 </blockquote>
 <div class="api-content">
-    <div><p>输入框失去焦点时的回调</p>
+    <div><p>输入框失去焦点时的回调。</p>
 </div>
     
 </div>
@@ -1244,7 +1321,7 @@ noDataTpl</p>
     </h3>
 </blockquote>
 <div class="api-content">
-    <div><p>展示在输入框中的默认值</p>
+    <div><p>展示在输入框中的默认值。</p>
 </div>
     
 </div>
@@ -1264,7 +1341,7 @@ noDataTpl</p>
     </h3>
 </blockquote>
 <div class="api-content">
-    <div><p>输入框的placeholder</p>
+    <div><p>输入框的placeholder。</p>
 </div>
     
 </div>
@@ -1305,7 +1382,7 @@ noDataTpl</p>
     </h3>
 </blockquote>
 <div class="api-content">
-    <div><p>点击input icon触发的回调</p>
+    <div><p>点击input icon触发的回调。</p>
 </div>
     
 </div>

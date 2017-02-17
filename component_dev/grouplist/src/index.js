@@ -15,14 +15,18 @@ import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import List from '../../list/src';
 import GroupCore from './GroupCore';
-import { replaceRedundantSpaces, DELAY_TIME_FOR_INFINITE_WITHOUT_HEIGHT } from '../../common/util';
+import {
+    inheritProps,
+    DELAY_TIME_FOR_INFINITE_WITHOUT_HEIGHT
+} from '../../common/util';
+import classNames from 'classnames';
 import IndexNavBar from './IndexNavBar';
 import './style.scss';
 
 const propTypes = {
     /**
      * @property dataSource
-     * @type Array
+     * @type Array/Immutable List
      * @default null
      * @description 组件的数据源，每个元素必须有groupKey属性(String)，如果是不需要分组的元素，groupKey属性为'notGrouped'。
      *
@@ -37,12 +41,12 @@ const propTypes = {
      * ]
      * ```
      */
-    dataSource: PropTypes.arrayOf(
+    dataSource: PropTypes.oneOfType([PropTypes.arrayOf(
         PropTypes.shape({
             text: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-            groupKey: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired
+            groupKey: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
         })
-    ).isRequired,
+    ), PropTypes.object]).isRequired,
     /**
      * @property sort
      * @type Function
@@ -169,7 +173,7 @@ const propTypes = {
      * @default item-light
      * @description 列表项被点击时附加的className，参见List同名属性。
      */
-    itemTouchClass: PropTypes.string,
+    itemTouchClass: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     /**
      * @property usePullRefresh
      * @type Bool
@@ -297,7 +301,13 @@ const propTypes = {
      * 开启这个属性为true以后将允许scroller用touchmove启动滚动过程，这可以解决上述场景的问题。
      * @version 3.0.2
      */
-    scrollWithoutTouchStart: PropTypes.bool
+    scrollWithoutTouchStart: PropTypes.bool,
+    /**
+     * @skip
+     * @property isTitleStatic
+     * @description 内部属性，标题是否始终不render
+     */
+    isTitleStatic: PropTypes.bool
 };
 
 const defaultProps = {
@@ -315,7 +325,7 @@ const defaultProps = {
     },
     // 定义item renderer
     renderGroupItem(item) {
-        return item.text;
+        return typeof item.get === 'function' ? item.get('text') : item.text;
     },
     // 自定义className
     extraClass: '',
@@ -325,7 +335,7 @@ const defaultProps = {
     renderIndexNavBarItem(groupKey) {
         return groupKey;
     },
-    groupTitleExtraClass: 'label',
+    groupTitleExtraClass: '',
     offsetY: 0,
     onItemTap: null,
     sort: null,
@@ -339,14 +349,15 @@ const defaultProps = {
     },
     onScroll() {
     },
-    shouldItemUpdate(ret) {
-        return ret;
+    shouldItemUpdate() {
+        return false;
     },
     disabled: false,
     style: null,
     scrollWithoutTouchStart: false,
     staticSection: null,
-    staticSectionHeight: 0
+    staticSectionHeight: 0,
+    isTitleStatic: false
 };
 
 export default class GroupList extends Component {
@@ -363,9 +374,18 @@ export default class GroupList extends Component {
             titleHeight,
             sort,
             infinite,
-            staticSectionHeight
+            staticSectionHeight,
+            isTitleStatic
         } = this.props;
-        this.groupModel = new GroupCore(dataSource, itemHeight, staticSectionHeight, titleHeight, sort, infinite);
+        this.groupModel = new GroupCore({
+            dataSource,
+            itemHeight,
+            staticSectionHeight,
+            titleHeight,
+            sort,
+            infinite,
+            isTitleStatic
+        });
         this.state = {
             dataSource: this.groupModel.dataSource,
             groupTitles: this.groupModel.groupTitles
@@ -373,6 +393,7 @@ export default class GroupList extends Component {
     }
 
     componentDidMount() {
+        // 获取stickyHeader的display值
         this.groupModel
             .registerEventHandler('refreshStickyHeader', (stickyHeader) => {
                 if (stickyHeader.title) {
@@ -392,9 +413,9 @@ export default class GroupList extends Component {
 
                     this.stickyHeader.style.tranform = transform;
                     this.stickyHeader.style.webkitTransform = transform;
-                    this.stickyHeader.style.display = 'block';
+                    this.stickyHeader.style.display = stickyHeader.title.display;
                     this.stickyHeader.className = `${(typeof groupTitleExtraClass === 'function' ?
-                        groupTitleExtraClass(groupKey) : groupTitleExtraClass)} sticky`;
+                        groupTitleExtraClass(groupKey) : groupTitleExtraClass)} sticky label group-title`;
                 } else {
                     this.stickyHeader.style.display = 'none';
                 }
@@ -413,8 +434,8 @@ export default class GroupList extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        const { dataSource, sort, infinite, staticSectionHeight } = nextProps;
-        this.groupModel.refresh(dataSource, sort, infinite, staticSectionHeight);
+        const { dataSource, sort, infinite, staticSectionHeight, titleHeight } = nextProps;
+        this.groupModel.refresh({ dataSource, sort, infinite, staticSectionHeight, titleHeight });
     }
 
     componentDidUpdate() {
@@ -494,47 +515,33 @@ export default class GroupList extends Component {
      */
     renderItem(item, index) {
         const { renderGroupTitle, renderGroupItem } = this.props;
-        return item._type === 'groupTitle' ? renderGroupTitle(item.groupKey, index) : renderGroupItem(item, index);
+        return item._type === 'groupTitle' ? renderGroupTitle(item.groupKey, index) : renderGroupItem(item.srcData, index);
     }
 
     render() {
         const {
             style,
-            infiniteSize,
-            infinite,
             itemExtraClass,
             groupTitleExtraClass,
             extraClass,
             onItemTap,
-            offsetY,
             renderIndexNavBarItem,
             itemTouchClass,
-            usePullRefresh,
             onRefresh,
             onIndexNavBarItemHover,
             onScroll,
             shouldItemUpdate,
-            pullRefreshHeight,
-            renderPullRefresh,
-            useLoadMore,
-            renderLoadMore,
-            onLoad,
-            loadMoreHeight,
-            disabled,
-            directionLockThreshold,
-            scrollWithoutTouchStart,
-            staticSection,
-            staticSectionHeight
+            titleHeight
         } = this.props;
         // 不定高的无穷列表不能支持showIndexNavBar,因为无法定位到每一个item的_translateY
         const showIndexNavBar = this.props.showIndexNavBar && this.groupModel.isHeightFixed;
-        const rootClassNames = replaceRedundantSpaces(['yo-group', extraClass].join(' '));
+        const rootClassNames = classNames('yo-group', extraClass);
         const { dataSource, groupTitles } = this.state;
         // 包裹props中的onItemTap,这是因为grouplist的数据源中加入了title的数据
         // 在onItemTap时需要filter掉这些title
         const wrappedonItemTap = (item, index, target) => {
             if (onItemTap && item._type !== 'groupTitle') {
-                onItemTap(item, index, target);
+                onItemTap(item.srcData, index, target);
             }
         };
         // 同上
@@ -547,7 +554,7 @@ export default class GroupList extends Component {
                 ret = null;
             } else {
                 ret = typeof itemTouchClass !== 'function' ?
-                    itemTouchClass : itemTouchClass(item, index);
+                    itemTouchClass : itemTouchClass(item.srcData, index);
             }
             return ret;
         };
@@ -558,21 +565,22 @@ export default class GroupList extends Component {
                     groupTitleExtraClass : groupTitleExtraClass(item.groupKey);
             } else {
                 ret = typeof itemExtraClass !== 'function' ?
-                    itemExtraClass : itemExtraClass(item, index);
+                    itemExtraClass : itemExtraClass(item.srcData, index);
             }
             return ret;
         };
-        const wrappedShouldItemUpdate = (ret, next, now) => {
+        const wrappedShouldItemUpdate = (next, now) => {
             if (!(now._type === 'groupTitle' && next._type === 'groupTitle')) {
-                return shouldItemUpdate(ret, next, now);
+                return shouldItemUpdate(next.srcData, now.srcData);
             }
-            return ret;
+            return false;
         };
 
         return (
             <div className={rootClassNames} style={style}>
                 <div
                     className="sticky label"
+                    style={{ height: titleHeight }}
                     ref={(dom) => {
                         if (dom) {
                             this.stickyHeader = dom;
@@ -589,23 +597,25 @@ export default class GroupList extends Component {
                         }}
                     /> : null}
                 <List
-                    scrollWithoutTouchStart={scrollWithoutTouchStart}
-                    directionLockThreshold={directionLockThreshold}
-                    disabled={disabled}
+                    {...inheritProps(this.props, [
+                        'scrollWithoutTouchStart',
+                        'directionLockThreshold',
+                        'disabled',
+                        'infinite',
+                        'infiniteSize',
+                        'offsetY',
+                        'usePullRefresh',
+                        'pullRefreshHeight',
+                        'renderPullRefresh',
+                        'useLoadMore',
+                        'onLoad',
+                        'renderLoadMore',
+                        'loadMoreHeight',
+                        'staticSection',
+                        'staticSectionHeight'
+                    ])}
                     dataSource={dataSource}
-                    infinite={infinite}
-                    infiniteSize={infiniteSize}
-                    offsetY={offsetY}
-                    usePullRefresh={usePullRefresh}
-                    pullRefreshHeight={pullRefreshHeight}
-                    renderPullRefresh={renderPullRefresh}
-                    useLoadMore={useLoadMore}
-                    onLoad={onLoad}
-                    renderLoadMore={renderLoadMore}
-                    loadMoreHeight={loadMoreHeight}
-                    staticSection={staticSection}
-                    staticSectionHeight={staticSectionHeight}
-                    extraClass="yo-grouplist-fullscreen"
+                    extraClass="yo-scroller-fullscreen"
                     renderItem={(item, index) => this.renderItem(item, index)}
                     itemExtraClass={wrappedItemExtraClass}
                     shouldItemUpdate={wrappedShouldItemUpdate}

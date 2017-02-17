@@ -57,7 +57,7 @@ export default class Touchable extends Component {
     render() {
         if (process.env.NODE_ENV !== 'production') {
             if (this.props.touchClass == null && !this.props.internalUse) {
-                console.warn('yo-touchable: Touchable组件没有设置touchClass, 出于用户体验考虑, 应该尽量给触摸区域添加触摸反馈。');
+                console.error('yo-touchable: Touchable组件没有设置touchClass, 出于用户体验考虑, 应该尽量给触摸区域添加触摸反馈。');
             }
         }
 
