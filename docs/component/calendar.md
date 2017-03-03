@@ -76,3 +76,43 @@ class Demo extends Component {
     onChange={obj => this.onChange(obj)}
 />
 ```
+
+#### 自定义日期渲染模板
+通过设置 `renderDate` 属性函数，返回自定义组件的日期渲染模板内容。其中，参数 `item` 是具体某个日期对象的数据层，格式如下：
+
+```javaScript
+{
+    date: “2017/10”, // 年/月
+    day: 1,  // 日
+    disabled: false, // 是否可点击
+    holiday: "国庆节", // 节假日
+    isCheck: false, // 是否选中
+    isCheckIn: false, // 是否选中的开始日期
+    isCheckOut: false, // 是否选中的结束日期
+    lunar: '08-12', // 农历日期：八月十二
+    today: false, // 是否今天
+    weekend: true, // 是否周末
+}
+```
+
+另外，可通过参数 `ret` 获取组件内部的默认渲染模板：
+```
+[
+    <span className="day">{item.day}</span>,
+    item.today ? (<ins className="special">今天</ins>) : null,
+    item.holiday ? (<ins className="special">{item.holiday}</ins>) : null,
+    item.isCheckIn ? (<span className="tip yo-ico">{selectionStartText}</span>) : null,
+    item.isCheckOut ? (<span className="tip yo-ico">{selectionEndText}</span>) : null
+]
+```
+
+```
+<Calendar
+    renderDate={(item, ret) => {
+        const { day } = item;
+        return day === 1 ? (
+            <span>First</span>
+        ) : ret;
+    }
+/>
+```

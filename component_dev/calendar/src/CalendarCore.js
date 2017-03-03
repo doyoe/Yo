@@ -192,11 +192,12 @@ export default class CalendarCore extends ComponentCore {
     /**
      * getDate 获取满足需要的groupList格式数据
      * @param duration {Number | Array} 时间间隔或起始时间日期
-     * @param checkIn {String} 入店时间， eg: 2016-10-01
-     * @param checkOut {String} 离店时间， eg: 2016-10-01
+     * @param selectionStart {String} 入店时间， eg: 2016-10-01
+     * @param selectionEnd {String} 离店时间， eg: 2016-10-01
+     * @param allowSingle {Boolean} 允许单选
      * @returns {Array}
      */
-    getData(duration, checkIn, checkOut, allowSingle) {
+    getData({ duration, selectionStart, selectionEnd, allowSingle }) {
         let beginDate = '';
         let endDate = '';
         const todayDate = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
@@ -209,8 +210,8 @@ export default class CalendarCore extends ComponentCore {
             endDate = getEndDate(beginDate, duration);
         }
 
-        this.checkIn = checkIn.replace(/-/g, '/');
-        this.checkOut = checkOut.replace(/-/g, '/');
+        this.checkIn = selectionStart.replace(/-/g, '/');
+        this.checkOut = selectionEnd.replace(/-/g, '/');
         this.checkInDate = new Date(this.checkIn);
         this.checkOutDate = new Date(this.checkOut);
         this.hasToday = false;
@@ -226,11 +227,11 @@ export default class CalendarCore extends ComponentCore {
         }
 
         // 入店日期在离店日期之后， 则互换两者
-        if (!!checkOut && compareDate(this.checkInDate, this.checkOutDate) > 0) {
+        if (!!selectionEnd && compareDate(this.checkInDate, this.checkOutDate) > 0) {
             [this.checkInDate, this.checkOutDate] = [this.checkOutDate, this.checkInDate];
         }
 
-        return this.getCheckArr(beginDate, endDate);
+        return this.getCheckArr({ beginDate, endDate });
     }
 
     /**
@@ -239,7 +240,7 @@ export default class CalendarCore extends ComponentCore {
      * @param endDate {Date} 结束日期对象
      * @returns {Array}
      */
-    getCheckArr(beginDate, endDate) {
+    getCheckArr({ beginDate, endDate }) {
         const [beginYear, beginMonth] = getDateInfoArr(beginDate);
         const [endYear, endMonth, endDay, endDayNum] = getDateInfoArr(endDate);
         const endMonthLastDate = getLastDayOfMonth(endYear, endMonth).getDate();
@@ -270,9 +271,10 @@ export default class CalendarCore extends ComponentCore {
             return { disabled: true };
         };
         while (tempYear < endYear || (tempYear === endYear && tempMonth <= endMonth)) {
+            const isEnd = tempYear === endYear && tempMonth === endMonth;
             const tempDateObj = getLastDayOfMonth(tempYear, tempMonth);
-            const dayLast = tempMonth === endMonth ? endDay : tempDateObj.getDay();
-            const dayLength = tempMonth === endMonth ? endDayNum : tempDateObj.getDate();
+            const dayLast = isEnd ? endDay : tempDateObj.getDay();
+            const dayLength = isEnd ? endDayNum : tempDateObj.getDate();
 
             // 某月第一天之前的空格数
             const firstMonthArr = getArrayByLength(dayFirst).fill({ disabled: true });
@@ -284,7 +286,7 @@ export default class CalendarCore extends ComponentCore {
             let tempMonthArr = getArrayByLength(dayLength).fill(0).map(addMapFn);
 
             // 补足显示日期范围最后一周的剩下几天情况, 为了美观
-            if (tempMonth === endMonth) {
+            if (isEnd) {
                 const lastWeekArr = getArrayByLength(6 - endDay).fill(0).map((item, i) => addMapFn(item, i, {
                     baseIndex: endDayNum,
                     addNormalDateFlag: false,

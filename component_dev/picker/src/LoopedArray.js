@@ -2,7 +2,6 @@
  * 循环数组类,接收一个数组,生成一个无限循环的数据结构
  * 拥有和数组相似的API
  */
-import { deepClone } from '../../common/util';
 
 export default class LoopedArray {
 
@@ -17,7 +16,7 @@ export default class LoopedArray {
      * @returns {item}
      */
     getItem(index, dataSource = this.dataSource) {
-        return deepClone(dataSource[index % dataSource.length]);
+        return JSON.parse(JSON.stringify(dataSource[index % dataSource.length]));
     }
 
     /**

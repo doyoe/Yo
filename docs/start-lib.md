@@ -2,10 +2,10 @@
 
 ### 基本使用
 
-由于 `Yo` 依赖的 `React` 和周边组件的模块(`React`，`ReactDOM`，`Yo-Router`，`Babel-Polyfill`，`lodash` 等等)数量达到了548个之多（取当前版本，可能以后有出入）
+由于 `Yo` 依赖的 `React` 和周边组件的模块(`React`，`ReactDOM`，`Yo-Router`，`Babel-Polyfill`)数量达到了548个之多（取当前版本，可能以后有出入）
 ，使用 `webpack` 编译的性能很差，我们采用了 `webpack` 的 `DLLPlugin` 作为提升开发时编译性能的手段。
 
-使用这个插件以后会将以上的五个库打包成一个 `lib.js` 文件，在编译时会直接跳过这些模块，这能够将编译速度提升几倍甚至十几倍。除此之外，相比于之前将所有页面的代码打包到一个文件中的做法，这样也能更有效地利用浏览器缓存从而大幅提升页面的加载速度，以及减少流量消耗。
+使用这个插件以后会将以上的库和 `yo3`组件库中的一些基础组件打包成一个 `lib.js` 文件，在编译时会直接跳过这些模块，这能够将编译速度提升几倍甚至十几倍。除此之外，相比于之前将所有页面的代码打包到一个文件中的做法，这样也能更有效地利用浏览器缓存从而大幅提升页面的加载速度，以及减少流量消耗。
 
 使用脚手架工具 `ykit-config-yo` 生成的项目模板里面已经有一份构建好的 `lib.js`，你需要做的是在你的页面中添加引用 `lib.js` 的 `<script>` 标签，如下:
 
@@ -22,14 +22,14 @@
 
 ### 使用production环境的lib.js
 
-在默认情况下，`lib.js` 构建出来的是开发环境的代码，而 React 在开发环境下的性能要远逊于线上环境。所以如果你想查看你的App的真实性能，你需要
-使用 production 环境的 lib.js，它可以通过命令 `ykit dll-production` 构建。
+在默认情况下，`lib.js` 的是开发环境的代码，而 React 在开发环境下的性能要远逊于线上环境。所以如果你想查看你的App的真实性能，你需要
+使用 production 环境的 lib.js，它可以通过命令 `ykit dll-min` 构建。
 
 你需要重启 server 才能正常访问页面。注意在 production 环境下，所有的警告和错误提示都会消失，所以强烈建议在开发时使用 dev 环境的 lib.js。
 
 ### 修改 lib.js 中的内容
 
-DLLPlugin的配置中内置了五个依赖：`React`，`ReactDOM`，`Babel-Polyfill`，`Yo-Router`和`lodash`。如果你的业务中还依赖了其他的公共模块，可以通过配置`ykit.yo.js`
+DLLPlugin的配置中内置了五个依赖：`React`，`ReactDOM`，`Babel-Polyfill`，`Yo-Router`。如果你的业务中还依赖了其他的公共模块，可以通过配置`ykit.yo.js`
 中的 `modifyWebpackConfig` 属性来修改 `lib.js` 中的内容：
 
 ```
@@ -42,7 +42,7 @@ modifyWebpackConfig: function (config) {
 ...
 ```
 
-getVendor函数可以接收一个数组参数 `vendor`，里面是 `lib.js` 中内置的五个依赖，它返回的新数组将会覆盖掉原有的配置。我们推荐
+getVendor函数可以接收一个数组参数 `vendor`，里面是 `lib.js` 中内置的依赖，它返回的新数组将会覆盖掉原有的配置。我们推荐
 你将所有的公共模块都内置到lib.js中。
 
 dll也可以支持内置非 `node_modules` 的模块，你需要填写一个相对于 `./src` 目录的路径：

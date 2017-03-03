@@ -24,7 +24,8 @@ export default class GroupCore extends ComponentCore {
         sort,
         infinite,
         offsetY = 0,
-        isTitleStatic = true
+        isTitleStatic = true,
+        titleOffset = 0
     }) {
         super('grouplist');
         // stickyHeader是一个内部状态,保存了当前吸顶title的位置和key
@@ -38,7 +39,8 @@ export default class GroupCore extends ComponentCore {
             infinite,
             staticSectionHeight,
             itemHeight,
-            titleHeight
+            titleHeight,
+            titleOffset
         });
     }
 
@@ -56,13 +58,15 @@ export default class GroupCore extends ComponentCore {
         dataSource,
         sort = this.sortFunc,
         infinite = this.infinite,
-        staticSectionHeight,
+        staticSectionHeight = null,
         itemHeight = this.itemHeight,
-        titleHeight = this.titleHeight
+        titleHeight = this.titleHeight,
+        titleOffset = this.titleOffset
     }) {
         this.infinite = infinite;
         this.itemHeight = itemHeight;
         this.titleHeight = titleHeight;
+        this.titleOffset = titleOffset;
         this.currentGroup = {};
         this.dataSource = this.renderData(dataSource, itemHeight, titleHeight, sort);
         this.staticSectionHeight = staticSectionHeight;
@@ -84,9 +88,10 @@ export default class GroupCore extends ComponentCore {
         infinite = this.infinite,
         staticSectionHeight = this.staticSectionHeight,
         offsetY = this.offsetY,
-        titleHeight = this.titleHeight
+        titleHeight = this.titleHeight,
+        titleOffset = this.titleOffset
     }) {
-        this.initialize({ offsetY, dataSource, sort, infinite, staticSectionHeight, titleHeight });
+        this.initialize({ offsetY, dataSource, sort, infinite, staticSectionHeight, titleHeight, titleOffset });
         this.emitEvent('refresh', this.dataSource, this.groupTitles);
     }
 
@@ -248,6 +253,7 @@ export default class GroupCore extends ComponentCore {
             currentTitle = this.getCurrentTitle(offsetY),
             nextTitleTranslateY = nextTitle && nextTitle._translateY;
 
+        offsetY = offsetY + this.titleOffset;
         if (nextTitle
             && offsetY > nextTitleTranslateY - currentTitle.height
             && offsetY < nextTitleTranslateY) {
@@ -282,7 +288,7 @@ export default class GroupCore extends ComponentCore {
      */
     getCurrentTitle(offsetY, groupTitles = this.groupTitles) {
         const titlesAboveOffsetY = groupTitles.filter((title) =>
-            title._translateY != null && title._translateY <= offsetY
+            title._translateY != null && title._translateY <= offsetY + this.titleOffset
         );
         return titlesAboveOffsetY[titlesAboveOffsetY.length - 1];
     }

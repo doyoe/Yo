@@ -13,6 +13,10 @@ import {
     inheritProps
 } from '../common/util';
 
+const TO_BE_LOADED = 0;
+const LOADING = 1;
+const LOADED = 2;
+
 export default class extends Component {
     static contextTypes = {
         // 从父组件context接收的属性
@@ -24,7 +28,9 @@ export default class extends Component {
         // listitem实例的引用
         itemRef: PropTypes.object,
         // 是否是Scroller下面的Lazyload,而不是List下面的
-        isScroller: PropTypes.bool
+        isScroller: PropTypes.bool,
+        // 是否是infinite列表
+        infinite: PropTypes.bool
     };
 
     static propTypes = {
@@ -109,24 +115,16 @@ export default class extends Component {
 
     constructor(props) {
         super(props);
-        const { defaultImage } = props;
         // 0->等待load,1->loading,2->loaded
-        this.loading = 0;
+        this.loading = TO_BE_LOADED;
         this.state = {
-            src: defaultImage
+            src: this.props.defaultImage
         };
     }
 
     componentDidMount() {
-        this.canLoadImage = true;
-        this.offsetY = this.context.offsetY;
-        this.itemRef = this.context.itemRef;
+        this.refresh(this.context);
         const scroller = this.context.list || this.context.scroller;
-        if (this.context.scroller) {
-            this.offsetTop = getElementOffsetY(this.img);
-            this.height = this.img.offsetHeight;
-        }
-
         if (scroller) {
             scroller.childLazyImages.push(this);
         }
@@ -134,15 +132,11 @@ export default class extends Component {
 
     // 父组件render时,需要重置这个组件的loaded状态和context
     componentWillReceiveProps(nextProps, nextContext) {
-        this.offsetY = nextContext.offsetY;
-        this.itemRef = nextContext.itemRef;
-        if (this.context.scroller) {
-            this.offsetTop = getElementOffsetY(this.img);
-        }
+        this.refresh(nextContext);
 
         if (this.state.src !== nextProps.src) {
-            this.loading = 0;
-            this.setState({ src: nextProps.defaultImage });
+            this.loading = TO_BE_LOADED;
+            this.setState({ src: this.props.defaultImage });
         }
     }
 
@@ -154,16 +148,28 @@ export default class extends Component {
         this.canLoadImage = false;
     }
 
+    refresh(context) {
+        this.canLoadImage = true;
+        this.offsetY = context.offsetY;
+        this.itemRef = context.itemRef;
+        this.infinite = context.infinite;
+        // 如果不是infinite的列表，那么应该获取offsetTop(这个开销还挺大的，不过没得优化了)，反之，则使用translateY
+        if (!this.infinite) {
+            this.offsetTop = getElementOffsetY(this.img);
+            this.height = this.img.offsetHeight;
+        }
+    }
+
     load(callback) {
-        if (this.loading === 0) {
+        if (this.loading === TO_BE_LOADED) {
             const { src } = this.props,
                 tmpImg = new Image();
-            this.loading = 1;
+            this.loading = LOADING;
             tmpImg.onload = () => {
                 // 在lazyimage正在加载时组件unmount(主要是在SPA模式下有可能发生关闭view的情况)会报错
                 // 因此这里需要简单判断一下组件的实例是否还存在
                 if (this && this.canLoadImage) {
-                    this.loading = 2;
+                    this.loading = LOADED;
                     this.setState({ src, loaded: true });
                     if (callback) {
                         callback();

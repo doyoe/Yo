@@ -25,6 +25,23 @@
 
 ** 这个组件可以在`Scroller`内部的任何位置使用，无需考虑dom结构。 **
 
+#### 配置Sticky容器的位置
+
+在默认情况下，`Sticky` 容器节点会被定位在它的父容器的 `top:0` 的位置，如果你想调整它的定位，可以通过配置 `Scroller` 或者列表组件（`List`，`GroupList`，`SwipeMenuList`）
+的 `stickyOffset` 属性实现：
+
+```
+<Scroller
+    ...
+    stickyOffset={44}
+    ...
+>
+    {somecontent}
+</Scroller>
+```
+
+上面示例中的 `Sticky` 容器将会位于 `top:44px` 的位置。
+
 #### 给sticky容器添加额外样式类
 
 吸顶效果的实现借助了一个始终定位在`Scroller`容器顶部的一个dom容器来实现，

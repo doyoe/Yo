@@ -425,7 +425,7 @@
     <small></small>
     <span class="yo-badge yo-badge-danger"> 3.0.2</span>
 </h2>
-<div class="api-content"><p><code>Sticky</code> 组件，只能在 <code>Scroller</code> 内部使用，
+<div class="api-content"><p><code>Sticky</code> 组件，只能在 <code>Scroller</code> 内部或者列表系列组件的 <code>staticSection</code> 中使用，
 它内部的子元素在 <code>Scroller</code> 滚动时将会获得吸顶效果。</p>
 <p><code>Sticky</code> 是一个虚拟组件，它只会给它的唯一子元素添加额外的逻辑，而不会改变原有的 <code>dom</code> 结构。</p>
 </div>
@@ -458,6 +458,17 @@
 </code></pre><p><strong> 需要注意的是，这个组件只能在<code>Scroller</code>组件内部，以及列表系列组件的<code>staticSection</code>中使用，
 如果需要给<code>List</code>中的列表项添加吸顶效果，建议直接使用<code>Grouplist</code>组件。 </strong></p>
 <p><strong> 这个组件可以在<code>Scroller</code>内部的任何位置使用，无需考虑dom结构。 </strong></p>
+<h4 id="-sticky-">配置Sticky容器的位置</h4>
+<p>在默认情况下，<code>Sticky</code> 容器节点会被定位在它的父容器的 <code>top:0</code> 的位置，如果你想调整它的定位，可以通过配置 <code>Scroller</code> 或者列表组件（<code>List</code>，<code>GroupList</code>，<code>SwipeMenuList</code>）
+的 <code>stickyOffset</code> 属性实现：</p>
+<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Scroller</span>
+    <span class="token attr-name">...</span>
+    <span class="token attr-name">stickyOffset</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token number">44</span><span class="token punctuation">}</span></span>
+    <span class="token attr-name">...</span>
+<span class="token punctuation">></span></span>
+    <span class="token punctuation">{</span>somecontent<span class="token punctuation">}</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Scroller</span><span class="token punctuation">></span></span>
+</code></pre><p>上面示例中的 <code>Sticky</code> 容器将会位于 <code>top:44px</code> 的位置。</p>
 <h4 id="-sticky-">给sticky容器添加额外样式类</h4>
 <p>吸顶效果的实现借助了一个始终定位在<code>Scroller</code>容器顶部的一个dom容器来实现，
 在<code>Scroller</code>滚动到某个dom的吸顶范围之内时，会将这个dom复制到sticky容器中。</p>
@@ -551,6 +562,28 @@
 </blockquote>
 <div class="api-content">
     <div><p>在Sticky的子元素处在吸顶状态时，为Scroller的sticky容器添加的额外样式类。</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> null
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>height</strong>
+     <span class="prop-type">{ number }</span>
+    
+    <span class="yo-badge yo-badge-danger">3.0.6</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>吸顶元素的高度，在infinite的列表组件的staticSection中使用时，设置这个属性可以提高列表的滚动性能。</p>
 </div>
     
 </div>

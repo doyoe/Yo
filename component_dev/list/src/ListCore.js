@@ -55,7 +55,7 @@ export default class ListCore extends ComponentCore {
         dataSource = this.dataSource,
         refreshAll = false,
         infiniteSize = this.visibleSize,
-        staticSectionHeight,
+        staticSectionHeight = this.staticSectionHeight,
         offsetY = this.offsetY,
         infinite = this.infinite
     }) {
@@ -71,6 +71,7 @@ export default class ListCore extends ComponentCore {
             throw new Error('yo-list: dataSource不能为空数组!');
         }
 
+        this.WINDOW_HEIGHT = window.screen.height;
         this.infinite = infinite;
         this.VISIBLE_SIZE = infiniteSize;
         this.dataSource = this.renderDataSource(dataSource, refreshAll);
@@ -357,16 +358,20 @@ export default class ListCore extends ComponentCore {
         let ret = null;
 
         if (this.infinite) {
-            let startY = offsetY - window.screen.height / 5;
+            let startY = offsetY - this.WINDOW_HEIGHT / 5;
             startY = startY > 0 ? startY : 0;
             const startIndex = sIndex === null ? this.getStartItemIndex(startY) : sIndex,
                 endIndex = this.getEndItemIndex(startIndex);
-            this.startIndex = startIndex;
 
-            ret = dataSource.slice(startIndex, endIndex).map((item) => ({
-                ...item,
-                ...this.getItemPositionData(item)
-            }));
+            ret = [];
+            for (let i = startIndex; i < endIndex; i++) {
+                const item = this.dataSource[i];
+                ret.push({
+                    ...item,
+                    ...this.getItemPositionData(item)
+                });
+            }
+            this.startIndex = startIndex;
         } else {
             ret = dataSource.slice();
         }

@@ -1,6 +1,6 @@
 /**
  * @component Sticky
- * @description `Sticky` 组件，只能在 `Scroller` 内部使用，
+ * @description `Sticky` 组件，只能在 `Scroller` 内部或者列表系列组件的 `staticSection` 中使用，
  * 它内部的子元素在 `Scroller` 滚动时将会获得吸顶效果。
  *
  * `Sticky` 是一个虚拟组件，它只会给它的唯一子元素添加额外的逻辑，而不会改变原有的 `dom` 结构。
@@ -22,6 +22,14 @@ export default class Sticky extends Component {
          * @description 在Sticky的子元素处在吸顶状态时，为Scroller的sticky容器添加的额外样式类。
          */
         stickyExtraClass: PropTypes.string,
+        /**
+         * @property height
+         * @type number
+         * @default null
+         * @version 3.0.6
+         * @description 吸顶元素的高度，在infinite的列表组件的staticSection中使用时，设置这个属性可以提高列表的滚动性能。
+         */
+        height: PropTypes.number,
         children: PropTypes.oneOfType([PropTypes.array, PropTypes.object, PropTypes.string])
     };
 
@@ -61,8 +69,13 @@ export default class Sticky extends Component {
     }
 
     initialize() {
+        const { height } = this.props;
         this.domNode = ReactDOM.findDOMNode(this);
-        this.height = this.domNode.offsetHeight;
+        if (height == null) {
+            this.height = this.domNode.offsetHeight;
+        } else {
+            this.height = this.props.height;
+        }
         this.offsetTop = getElementOffsetY(this.domNode, null);
         this.className = this.domNode.className;
         this.onlyChild = React.Children.only(this.props.children);

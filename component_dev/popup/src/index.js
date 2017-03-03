@@ -80,6 +80,7 @@ const propTypes = {
      * @description 组件额外样式类
      */
     extraClass: PropTypes.string,
+    delayBeforeAnimationStart: PropTypes.number,
     children: PropTypes.oneOfType([PropTypes.object, PropTypes.array])
 };
 
@@ -104,7 +105,8 @@ export default class Popup extends Component {
             onHide,
             maskOffset,
             extraClass,
-            children
+            children,
+            delayBeforeAnimationStart
         } = this.props;
         const animation = direction === 'up' ?
             ['fade-in-up', 'fade-out-down'] : ['fade-in-down', 'fade-out-up'];
@@ -122,6 +124,7 @@ export default class Popup extends Component {
                 animation={{ animation, duration }}
                 maskOffset={maskOffset}
                 contentExtraClass={extraClass}
+                delayBeforeAnimationStart={delayBeforeAnimationStart}
             >
                 {children}
             </Modal>

@@ -23,7 +23,8 @@ class GroupListDemo extends Component {
             dataSource: testData,
             sort: (a, b) => a - b,
             infinite: true,
-            titleHeight: 30
+            titleHeight: 30,
+            titleOffset: 0
         };
     }
 
@@ -53,7 +54,8 @@ class GroupListDemo extends Component {
                     return it.set('color', it.get('color') === 'red' ? 'black' : 'red');
                 }
                 return it;
-            })
+            }),
+            titleOffset: 44
         });
     }
 
@@ -61,12 +63,11 @@ class GroupListDemo extends Component {
         return (
             <GroupList
                 staticSection={
-                    <div style={{ background: 'yellow', height: '100%' }}>
+                    <div style={{ background: 'yellow', height: 444 }}>
                         static header!!
                     </div>
                 }
                 shouldItemUpdate={(next, now) => next !== now}
-                staticSectionHeight={200}
                 usePullRefesh={true}
                 offsetY={-200}
                 ref="grouplist"
@@ -74,6 +75,7 @@ class GroupListDemo extends Component {
                 infinite={true}
                 titleHeight={this.state.titleHeight}
                 itemHeight={44}
+                titleOffset={this.state.titleOffset}
                 showIndexNavBar={true}
                 renderGroupItem={(item, index) => (
                     <div style={{ width: '100%' }}>

@@ -12,7 +12,8 @@ const propTypes = {
     week: PropTypes.array,
     selectionStartText: PropTypes.string,
     selectionEndText: PropTypes.string,
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
+    renderDate: PropTypes.func
 };
 
 export default class WeekItem extends Component {
@@ -32,42 +33,46 @@ export default class WeekItem extends Component {
     }
 
     render() {
-        const { selectionStartText, selectionEndText } = this.props;
+        const { selectionStartText, selectionEndText, renderDate } = this.props;
         const weeks = this.props.week.map((item, i) => {
-            const day = item.disabled ? null : `${item.date}-${item.day}`;
+            const { disabled, today, weekend, holiday, isCheckIn, isCheckOut, isCheck } = item;
+            const fullDay = item.disabled ? null : `${item.date}-${item.day}`;
             let classNames = '';
-            if (item.today) {
+            if (today) {
                 classNames += 'today ';
             }
-            if (item.weekend) {
+            if (weekend) {
                 classNames += 'weekend ';
             }
-            if (!!item.holiday) {
+            if (!!holiday) {
                 classNames += 'holiday ';
             }
-            if (item.isCheckIn) {
+            if (isCheckIn) {
                 classNames += 'start ';
             }
-            if (item.isCheckOut) {
+            if (isCheckOut) {
                 classNames += 'end ';
             }
-            if (item.isCheck) {
+            if (isCheck) {
                 classNames += 'range ';
             }
-            if (item.disabled) {
+            if (disabled) {
                 classNames += 'disabled ';
             }
 
+            const ret = [
+                <span key={0} className="day">{item.day}</span>,
+                item.today ? (<ins key={1} className="special">今天</ins>) : null,
+                item.holiday ? (<ins key={2} className="special">{item.holiday}</ins>) : null,
+                item.isCheckIn ? (<span key={3} className="tip yo-ico">{selectionStartText}</span>) : null,
+                item.isCheckOut ? (<span key={4} className="tip yo-ico">{selectionEndText}</span>) : null
+            ];
             return (
-                <Touchable key={i} onTap={() => this.handleChange(day)} internalUse={true}>
+                <Touchable key={i} onTap={() => this.handleChange(fullDay)} internalUse={true}>
                     <li
                         className={classNames ? getClassNames(classNames) : null}
                     >
-                        <span className="day">{item.day}</span>
-                        {item.today ? (<ins className="special">今天</ins>) : null}
-                        {item.holiday ? (<ins className="special">{item.holiday}</ins>) : null}
-                        {item.isCheckIn ? (<span className="tip yo-ico">{selectionStartText}</span>) : null}
-                        {item.isCheckOut ? (<span className="tip yo-ico">{selectionEndText}</span>) : null}
+                        {renderDate(item, ret) || ret}
                     </li>
                 </Touchable>
             );

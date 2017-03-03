@@ -65,9 +65,11 @@ class ScrollerDemo extends Component {
         return (
             <div className="container">
                 <Scroller
+                    stickyOffset={44}
                     ref="scroller"
                     extraClass={'scroller_wrapper'}
                 >
+                    <div style={{ height: 44 }} />
                     {[1, 2, 3, 4, 5].map((_, i) => this.getGroup(i))}
                 </Scroller>
             </div>

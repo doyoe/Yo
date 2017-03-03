@@ -5,6 +5,8 @@ import FastClick from './fastclick';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 if (!window.___yoTapEventInjected) {
+    // 不要觉得这里没用
+    // 因为yo-router也用了tap-event-plugin，如果不加try catch会报引用两次tap-event-plugin的警告
     try {
         injectTapEventPlugin();
     } catch (e) {

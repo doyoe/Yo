@@ -770,16 +770,13 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
             
             <div class="instructions-con-info">
             <h4 id="static-section">Static Section</h4>
-<p>在业务需求中经常会遇到界面的一部分是列表形式，一部分是静态内容的情况（可以看一下大客户端首页）。
+<p>在业务需求中经常会遇到界面的一部分是列表形式，一部分是静态内容的情况。
 这种场景可以借助<code>staticSection</code>属性实现，给这个属性传入的JSX将会被渲染到所有列表项之上，例如：</p>
 <pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>List</span>
     <span class="token attr-name">...</span>
     <span class="token attr-name">staticSection={&lt;div</span><span class="token punctuation">></span></span><span class="token keyword">static</span> section<span class="token operator">...</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span class="token punctuation">}</span>
-    staticSectionHeight<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">300</span><span class="token punctuation">}</span>
 <span class="token operator">/</span><span class="token operator">></span>
-</code></pre><p>需要注意的是如果你的列表开启了<code>Infinite</code>模式，
-你必须同时设置<code>staticSection</code>和<code>staticSectionHeight</code>才能生效，也就是说这个静态区域必须是定高的。
-下面的代码是一个更复杂的例子，这个例子实现的是类似大客户端首页的效果，上部区域是静态内容，下半部分是一个Infinite的列表，
+</code></pre><p>下面的代码是一个更复杂的例子，这个例子实现的是类似去哪儿旅行客户端首页的效果，上部区域是静态内容，下半部分是一个Infinite的列表，
 还实现了一个横向的可滚动Tab，你可以在右边的Demo中查看效果：</p>
 <pre><code class="lang-js"><span class="token keyword">class</span> <span class="token class-name">Demo</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
 
@@ -857,7 +854,6 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
                             <span class="token operator">&lt;</span><span class="token operator">/</span>Scroller<span class="token punctuation">.</span>Sticky<span class="token operator">></span>
                         <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
                     <span class="token punctuation">}</span>
-                    staticSectionHeight<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1000</span><span class="token punctuation">}</span>
                     ref<span class="token operator">=</span><span class="token string">"list"</span>
                     extraClass<span class="token operator">=</span><span class="token string">"yo-scroller-fullscreen"</span>
                     dataSource<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>dataSource<span class="token punctuation">}</span>
@@ -1301,36 +1297,13 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
     </h3>
 </blockquote>
 <div class="api-content">
-    <div><p>在所有列表项之上渲染的一块静态区域，在开启Infinite模式时，这块区域不会参与列表项的回收复用。
-注意：在设置staticSection以后，你还必须设置staticSectionHeight属性指定它的高度。</p>
+    <div><p>在所有列表项之上渲染的一块静态区域，在开启Infinite模式时，这块区域不会参与列表项的回收复用。</p>
 </div>
     
 </div>
 
 <p class="api-content">
     <small class="text-muted">默认值:</small> null
-</p>
-
-
-
-
-<blockquote class="api">
-    <h3>
-    <strong>staticSectionHeight</strong>
-     <span class="prop-type">{ Number }</span>
-    
-    <span class="yo-badge yo-badge-danger">3.0.3</span>
-    
-    </h3>
-</blockquote>
-<div class="api-content">
-    <div><p>静态区域的高度，在设置了staticSection以后必须为它指定一个高度。</p>
-</div>
-    
-</div>
-
-<p class="api-content">
-    <small class="text-muted">默认值:</small> 0
 </p>
 
 
@@ -1704,6 +1677,28 @@ now(ListItem当前的props的item属性)。它必须返回一个布尔值，fals
 
 <blockquote class="api">
     <h3>
+    <strong>stickyOffset</strong>
+     <span class="prop-type">{ Number }</span>
+    
+    <span class="yo-badge yo-badge-danger">3.0.6</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>给staticSection内部吸顶容器设置的y轴偏移。</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> 0
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
     <strong>directionLockThreshold</strong>
      <span class="prop-type">{ Number }</span>
     
@@ -1720,6 +1715,24 @@ now(ListItem当前的props的item属性)。它必须返回一个布尔值，fals
 <p class="api-content">
     <small class="text-muted">默认值:</small> 5
 </p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>deceleration</strong>
+     <span class="prop-type">{ Number }</span>
+    
+    <span class="yo-badge yo-badge-danger">3.0.6</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>滚动视图开始惯性滚动时减速的加速度，默认为0.001。</p>
+</div>
+    
+</div>
 
 
 

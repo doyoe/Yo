@@ -14,7 +14,7 @@ function getImage(url) {
 
 let dataSource = [];
 
-for (let i = 0; i < 1000; i++) {
+for (let i = 0; i < 100; i++) {
     const item = testData.data.commentList[parseInt(Math.random() * 50, 10)];
     dataSource.push({
         nickname: item.nickName,
@@ -34,6 +34,7 @@ const DemoItem = (props) => (
             width={"100%"}
             height={props.item.get('imageHeight')}
             src={props.item.get('avatar')}
+            defaultImage="http://www.w3school.com.cn/i/bg_flower.gif"
         />
         <span>{props.item.get('guid')}</span>
         <Touchable
@@ -84,8 +85,9 @@ class ListViewDemo extends React.Component {
     }
 
     mutateDataSource(item) {
+        console.log(item.toJS(), this.state.dataSource.toJS())
         const ds = this.state.dataSource.map(it => {
-            if (it.get('key') === item.get('key')) {
+            if (it === item) {
                 return it.set('imageHeight', it.get('imageHeight') + 20).set('key', ++guid);
             }
             return it;
@@ -115,12 +117,11 @@ class ListViewDemo extends React.Component {
                 <div style={{ position: 'absolute', top: 0, bottom: 0, width: '100%' }}>
                     <ListView
                         staticSection={
-                            <div className="haha,haha">
+                            <div className="haha" style={{ height: 200 }}>
                                 Heallo
                             </div>
                         }
                         shouldItemUpdate={(prev, now) => prev !== now}
-                        staticSectionHeight={800}
                         extraClass="yo-list-demo"
                         ref="list"
                         dataSource={this.state.dataSource}

@@ -128,6 +128,14 @@ const propTypes = {
      */
     titleHeight: PropTypes.number,
     /**
+     * @property titleOffset
+     * @type Number
+     * @default 0,
+     * @description group title吸顶容器距离默认位置（top:0）的偏移。当你不希望吸顶容器处在GroupList的顶部时，可以设置这个属性。
+     * @version 3.0.6
+     */
+    titleOffset: PropTypes.number,
+    /**
      * @property itemExtraClass
      * @type String/Function
      * @default null
@@ -292,6 +300,13 @@ const propTypes = {
      */
     directionLockThreshold: PropTypes.number,
     /**
+     * @property deceleration
+     * @type Number
+     * @description 滚动视图开始惯性滚动时减速的加速度，默认为0.010。
+     * @version 3.0.6
+     */
+    deceleration: PropTypes.number,
+    /**
      * @property scrollWithoutTouchStart
      * @type Bool
      * @default false
@@ -307,7 +322,15 @@ const propTypes = {
      * @property isTitleStatic
      * @description 内部属性，标题是否始终不render
      */
-    isTitleStatic: PropTypes.bool
+    isTitleStatic: PropTypes.bool,
+    /**
+     * @property stickyOffset
+     * @type Number
+     * @default 0
+     * @description 给staticSection内部吸顶容器设置的y轴偏移。
+     * @version 3.0.6
+     */
+    stickyOffset: PropTypes.number
 };
 
 const defaultProps = {
@@ -356,8 +379,8 @@ const defaultProps = {
     style: null,
     scrollWithoutTouchStart: false,
     staticSection: null,
-    staticSectionHeight: 0,
-    isTitleStatic: false
+    isTitleStatic: false,
+    titleOffset: 0
 };
 
 export default class GroupList extends Component {
@@ -374,17 +397,17 @@ export default class GroupList extends Component {
             titleHeight,
             sort,
             infinite,
-            staticSectionHeight,
-            isTitleStatic
+            isTitleStatic,
+            titleOffset
         } = this.props;
         this.groupModel = new GroupCore({
             dataSource,
             itemHeight,
-            staticSectionHeight,
             titleHeight,
             sort,
             infinite,
-            isTitleStatic
+            isTitleStatic,
+            titleOffset
         });
         this.state = {
             dataSource: this.groupModel.dataSource,
@@ -425,21 +448,24 @@ export default class GroupList extends Component {
             });
 
         if (this.groupModel.isHeightFixed) {
+            this.refreshStaticSectionHeight();
             this.refreshStickyHeader();
         } else {
             setTimeout(() => {
+                this.refreshStaticSectionHeight();
                 this.refreshStickyHeader();
             }, DELAY_TIME_FOR_INFINITE_WITHOUT_HEIGHT);
         }
     }
 
     componentWillReceiveProps(nextProps) {
-        const { dataSource, sort, infinite, staticSectionHeight, titleHeight } = nextProps;
-        this.groupModel.refresh({ dataSource, sort, infinite, staticSectionHeight, titleHeight });
-    }
+        const { dataSource, sort, infinite, titleHeight, titleOffset } = nextProps;
+        this.groupModel.refresh({ dataSource, sort, infinite, titleHeight, titleOffset });
 
-    componentDidUpdate() {
-        this.refreshStickyHeader();
+        setTimeout(() => {
+            this.refreshStaticSectionHeight();
+            this.refreshStickyHeader();
+        }, 0);
     }
 
     /**
@@ -449,6 +475,12 @@ export default class GroupList extends Component {
     refreshStickyHeader(offsetY = this.groupModel.offsetY) {
         this.groupModel.offsetY = offsetY;
         this.groupModel.refreshStickyHeader(offsetY);
+    }
+
+    refreshStaticSectionHeight() {
+        if (this.list.staticSectionContaienr != null) {
+            this.groupModel.staticSectionHeight = this.list.staticSectionContaienr.offsetHeight;
+        }
     }
 
     /**
@@ -462,6 +494,15 @@ export default class GroupList extends Component {
         targetOffsetY = targetOffsetY < maxScrollY ? maxScrollY : targetOffsetY;
 
         this.list.scrollTo(targetOffsetY, 0);
+    }
+
+    /**
+     * @method refresh
+     * @description 在GroupList容器尺寸发生变化时调用，刷新内部的Scroller组件。
+     * @version 3.0.6
+     */
+    refresh() {
+        if (this.list) this.list.refresh();
     }
 
     /**
@@ -531,7 +572,8 @@ export default class GroupList extends Component {
             onIndexNavBarItemHover,
             onScroll,
             shouldItemUpdate,
-            titleHeight
+            titleHeight,
+            titleOffset
         } = this.props;
         // 不定高的无穷列表不能支持showIndexNavBar,因为无法定位到每一个item的_translateY
         const showIndexNavBar = this.props.showIndexNavBar && this.groupModel.isHeightFixed;
@@ -580,7 +622,7 @@ export default class GroupList extends Component {
             <div className={rootClassNames} style={style}>
                 <div
                     className="sticky label"
-                    style={{ height: titleHeight }}
+                    style={{ height: titleHeight, top: titleOffset, display: 'none' }}
                     ref={(dom) => {
                         if (dom) {
                             this.stickyHeader = dom;
@@ -612,7 +654,8 @@ export default class GroupList extends Component {
                         'renderLoadMore',
                         'loadMoreHeight',
                         'staticSection',
-                        'staticSectionHeight'
+                        'deceleration',
+                        'stickyOffset'
                     ])}
                     dataSource={dataSource}
                     extraClass="yo-scroller-fullscreen"

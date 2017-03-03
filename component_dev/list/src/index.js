@@ -27,7 +27,6 @@ import {
 } from '../../common/util';
 import '../../common/tapEventPluginInit';
 import './style.scss';
-import _ from 'lodash';
 
 const defaultProps = {
     infinite: false,
@@ -61,9 +60,11 @@ const defaultProps = {
     disabled: false,
     directionLockThreshold: 50,
     style: null,
-    scrollWithoutTouchStart: false,
+    scrollWithoutTouchStart: true,
     staticSection: null,
-    staticSectionHeight: 0
+    staticSectionHeight: null,
+    deceleration: 0.0015,
+    stickyOffset: 0
 };
 
 const propTypes = {
@@ -198,17 +199,8 @@ const propTypes = {
      * @default null
      * @version 3.0.3
      * @description 在所有列表项之上渲染的一块静态区域，在开启Infinite模式时，这块区域不会参与列表项的回收复用。
-     * 注意：在设置staticSection以后，你还必须设置staticSectionHeight属性指定它的高度。
      */
     staticSection: PropTypes.element,
-    /**
-     * @property staticSectionHeight
-     * @type Number
-     * @version 3.0.3
-     * @default 0
-     * @description 静态区域的高度，在设置了staticSection以后必须为它指定一个高度。
-     */
-    staticSectionHeight: PropTypes.number,
     /**
      * @property extraClass
      * @type String
@@ -316,6 +308,14 @@ const propTypes = {
      */
     disabled: PropTypes.bool,
     /**
+     * @property stickyOffset
+     * @type Number
+     * @default 0
+     * @description 给staticSection内部吸顶容器设置的y轴偏移。
+     * @version 3.0.6
+     */
+    stickyOffset: PropTypes.number,
+    /**
      * @skip
      * @property onItemTouchStart
      * 专门给SwipeMenuList使用的属性，不向外暴露
@@ -332,6 +332,13 @@ const propTypes = {
      * @version 3.0.2
      */
     directionLockThreshold: PropTypes.number,
+    /**
+     * @property deceleration
+     * @type Number
+     * @description 滚动视图开始惯性滚动时减速的加速度，默认为0.001。
+     * @version 3.0.6
+     */
+    deceleration: PropTypes.number,
     /**
      * @property scrollWithoutTouchStart
      * @type Bool
@@ -350,7 +357,8 @@ export default class List extends Component {
     static INFINITE_SCROLLTO_WITH_ANIMATION_DISTANCE = 2000;
 
     static childContextTypes = {
-        list: PropTypes.object
+        list: PropTypes.object,
+        infinite: PropTypes.bool
     };
 
     constructor(props) {
@@ -360,19 +368,17 @@ export default class List extends Component {
             offsetY,
             itemHeight,
             infinite,
-            infiniteSize,
-            staticSectionHeight
+            infiniteSize
         } = props;
 
         this.childLazyImages = [];
-
+        this.staticSectionContaienr = null;
         this.listModel = new ListModel({
             dataSource,
             offsetY,
             infinite,
             itemHeight,
-            infiniteSize,
-            staticSectionHeight
+            infiniteSize
         });
         this.state = {
             visibleList: this.listModel.visibleList,
@@ -381,25 +387,12 @@ export default class List extends Component {
     }
 
     getChildContext() {
-        return { list: this };
+        return { list: this, infinite: this.listModel.infinite };
     }
 
     componentWillMount() {
         this.listModel
             .registerEventHandler('change', (visibleList, totalHeight) => {
-                // setTimeout做了两件事，1. 刷新scroller的可滚动范围
-                // 2.在组件更新后判断是否处在合法的offsetY,如果超出了范围就调整到maxScrollY
-                // 不定高度模式下改变item的height, 会触发多次change, 因此需要等到所有的change结束再做调整
-                setTimeout(() => {
-                    if (this.scroller && this.listModel.infinite) {
-                        this.scroller.refresh({ scrollerHeight: totalHeight }, true);
-                    }
-                }, 0);
-                setTimeout(_.debounce(() => {
-                    if (this.scroller && -this.scroller.maxScrollY < this.listModel.offsetY && !this.scroller.isScrolling) {
-                        this.scrollTo(this.scroller.maxScrollY, 0);
-                    }
-                }, 100), 0);
                 this.setState({ visibleList, totalHeight });
                 this.props.onInfiniteAppend(visibleList, totalHeight);
             })
@@ -414,6 +407,8 @@ export default class List extends Component {
         // 在不定高模式下,需要等待所有列表项完成定位才能刷新scroller, didmount的时候虽然dom已经渲染完成
         // 但是所有列表项做定位尚未完成
         setTimeout(() => {
+            // 一定要优先刷新staticSectionHeight，否则下面的一系列操作都可能出现不准确的情况
+            this.refreshStaticSectionHeight();
             if (this.scroller) {
                 // 用来标记列表是否在滚动,和手势有关,在gesture.js中可以查到这个属性是如何被使用的
                 this.scroller.isScrolling = false;
@@ -443,14 +438,12 @@ export default class List extends Component {
         const {
             dataSource,
             infiniteSize,
-            offsetY,
-            staticSectionHeight
+            offsetY
         } = nextProps;
         this.listModel.refresh({
             dataSource,
             refreshAll: true,
-            infiniteSize,
-            staticSectionHeight
+            infiniteSize
         });
 
         // 等待dom更新结束后再做以下操作
@@ -458,7 +451,12 @@ export default class List extends Component {
             if (this.props.offsetY !== offsetY) {
                 this.scrollTo(offsetY, 0);
             }
+            this.refreshStaticSectionHeight();
             this.tryLoadLazyImages(this.listModel.offsetY);
+            // 当offsetY位于可滚动范围之外时自动调整
+            if (this.scroller && -this.scroller.maxScrollY < this.listModel.offsetY) {
+                this.scrollTo(this.scroller.maxScrollY, 300);
+            }
         }, 0);
     }
 
@@ -468,6 +466,10 @@ export default class List extends Component {
         // 所以可以在receiveprops时做刷新,因为节点复用的缘故,不需要等待dom render
         if (!this.listModel.infinite) {
             this.tryLoadLazyImages(this.listModel.offsetY);
+        }
+        // infinite模式下，刷新列表的总高度
+        if (this.scroller && this.listModel.infinite) {
+            this.scroller.refresh({ scrollerHeight: this.state.totalHeight }, true);
         }
     }
 
@@ -496,11 +498,27 @@ export default class List extends Component {
     }
 
     /**
+     * @skip
+     * @method refreshStaticSectionHeight
+     * @description 获取staticSectionHeight，然后更新列表的总高度
+     */
+    refreshStaticSectionHeight() {
+        if (this.staticSectionContaienr != null) {
+            this.listModel.staticSectionHeight = this.staticSectionContaienr.offsetHeight;
+            this.listModel.totalHeight = this.listModel.getTotalHeight();
+            // 获取到最新的totalHeight之后需要刷新一下
+            if (this.scroller && this.listModel.infinite) {
+                this.scroller.refresh({ scrollerHeight: this.listModel.totalHeight }, true);
+            }
+        }
+    }
+
+    /**
      * @method refresh
      * @description 刷新列表,应该在列表容器高度发生改变时调用
      */
     refresh() {
-        this.scroller.refresh({ scrollerHeight: this.state.totalHeight }, true);
+        this.scroller.refresh({ scrollerHeight: this.state.totalHeight });
     }
 
     /**
@@ -550,10 +568,10 @@ export default class List extends Component {
      * @param y
      */
     tryLoadLazyImages(y) {
-        y = y - this.props.staticSectionHeight;
+        y = y - this.listModel.staticSectionHeight;
         if (this.childLazyImages.length && this.scroller) {
             this.childLazyImages.forEach((child) => {
-                const containerBottomY = y + this.scroller.wrapper.offsetHeight;
+                const containerBottomY = y + this.scroller.wrapperHeight;
                 if (this.listModel.infinite) {
                     if (containerBottomY > child.itemRef.translateY) {
                         child.load();
@@ -672,7 +690,9 @@ export default class List extends Component {
                     'loadMoreHeight',
                     'renderLoadMore',
                     'useLoadMore',
-                    'usePullRefresh'
+                    'usePullRefresh',
+                    'deceleration',
+                    'stickyOffset'
                 ])}
                 tap={true}
                 autoRefresh={!infinite}
@@ -682,7 +702,6 @@ export default class List extends Component {
                     }
                 }}
                 onScroll={(evt) => this.onScroll(-evt.contentOffset.y)}
-                deceleration={0.0020}
                 onScrollEnd={() => this.onScrollEnd()}
                 onRefresh={() => {
                     onRefresh(this.listModel.dataSource);
@@ -694,7 +713,11 @@ export default class List extends Component {
             >
                 {this.props.staticSection != null ?
                     <div
-                        style={{ height: this.props.staticSectionHeight }}
+                        ref={dom => {
+                            if (dom) {
+                                this.staticSectionContaienr = dom;
+                            }
+                        }}
                         className="yo-list-static-section"
                     >
                         {this.props.staticSection}

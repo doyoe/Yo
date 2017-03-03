@@ -1,3 +1,23 @@
+## v3.0.6 (2017-03-03)
+
+### New Features
+- 列表系列组件删除了 `staticSectionHeight` 属性，这意味着在使用 `staticSection` 时不再需要确定静态区域的高度，这个高度将会在组件mount或update时自动获取。
+- `GroupList` 新增属性 `titleOffset`，可以设置吸顶容器的y轴偏移。
+- `MultiList` 原有事件 `onChange` 回调新增参数 `newItems` ，表示当前value值对应的 `item` 集合。
+- `MultiList` 原有方法 `renderItem` 参数新增属性 `route` ，表示当前item值对应的 `dataSource` 中的索引值。
+- `GroupList` 和 `SwipeMenuList` 新增 `refresh` 方法，在组件容器尺寸发生变化时需要调用这个方法来刷新内部的 `Scroller`。
+- 给列表系列组件 `infinite` 模式做了一些性能优化，现在在低端机型上滚动性能更佳。
+- `Scroller` 和所有列表组件（`List`，`GroupList` 和 `SwipeMenuList`）新增 `stickyOffset` 属性，可以设置吸顶容器的y轴偏移。
+- `Scroller` 新增属性 `containerExtraStyle`，主要用来在横向滚动时，动态的设置内容容器的宽度。
+- `Calendar` 组件新增属性 `renderDate`，现在可以自定义日期的渲染方式。
+
+### Bug Fixes
+- 修复 `Scroller` 的 `refresh` 方法在不必要的情况下查询 `wrapper.offsetHeight` 和 `scroller.offsetHeight` 导致 `List` 无穷模式滚动性能变差的bug。
+- 修复 `GroupList` 吸顶容器在组件的默认 `display` 不为 `none` 导致组件Mount时出现一个闪烁的灰色条的bug。
+- 修复 `MultiList` 的数据更新后视图没有更新的bug。
+- 修复 `MultiList` 在每次 `render` 时都触发 `onUpdateData` 回调的bug。
+- 修复 `Calendar` 组件展示超过一年的日期时，超出一年的月份展示错误的bug。
+
 ## v3.0.5 (2017-02-17)
 
 ### New Features

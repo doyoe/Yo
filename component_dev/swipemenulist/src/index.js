@@ -55,17 +55,8 @@ export default class SwipeMenuList extends Component {
          * @default null
          * @version 3.0.3
          * @description 在所有列表项之上渲染的一块静态区域，在开启Infinite模式时，这块区域不会参与列表项的回收复用。
-         * 注意：在设置staticSection以后，你还必须设置staticSectionHeight属性指定它的高度。
          */
         staticSection: PropTypes.element,
-        /**
-         * @property staticSectionHeight
-         * @type Number
-         * @default 0
-         * @version 3.0.3
-         * @description 静态区域的高度，在设置了staticSection以后必须为它指定一个高度。
-         */
-        staticSectionHeight: PropTypes.number,
         /**
          * @property infinite
          * @type Bool
@@ -227,6 +218,13 @@ export default class SwipeMenuList extends Component {
          * 详情请参考List组件同名属性。
          */
         shouldItemUpdate: PropTypes.func,
+        /**
+         * @property deceleration
+         * @type Number
+         * @description 滚动视图开始惯性滚动时减速的加速度，默认为0.010。
+         * @version 3.0.6
+         */
+        deceleration: PropTypes.number,
         onInfiniteAppend: PropTypes.func,
         /**
          * @property onMenuOpen
@@ -258,7 +256,15 @@ export default class SwipeMenuList extends Component {
          * 开启这个属性为true以后将允许scroller用touchmove启动滚动过程，这可以解决上述场景的问题。
          * @version 3.0.2
          */
-        scrollWithoutTouchStart: PropTypes.bool
+        scrollWithoutTouchStart: PropTypes.bool,
+        /**
+         * @property stickyOffset
+         * @type Number
+         * @default 0
+         * @description 给staticSection内部吸顶容器设置的y轴偏移。
+         * @version 3.0.6
+         */
+        stickyOffset: PropTypes.number
     };
 
     static defaultProps = {
@@ -283,7 +289,6 @@ export default class SwipeMenuList extends Component {
         },
         scrollWithoutTouchStart: false,
         staticSection: null,
-        staticSectionHeight: 0,
         shouldItemUpdate() {
             return false;
         }
@@ -338,13 +343,22 @@ export default class SwipeMenuList extends Component {
     }
 
     /**
+     * @method refresh
+     * @description 在GroupList容器尺寸发生变化时调用，刷新内部的Scroller组件。
+     * @version 3.0.6
+     */
+    refresh() {
+        if (this.list) this.list.refresh();
+    }
+
+    /**
      * @description 滚动到某个位置
      * @method scrollTo
      * @param {Number} y y坐标
      * @param {Number} [time] 动画持续时间
      */
     scrollTo(y, time) {
-        if (this.list) this.list.scrollTo.call(this.list, y, time);
+        if (this.list) this.list.scrollTo(y, time);
     }
 
     /**

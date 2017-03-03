@@ -245,7 +245,7 @@ class Carousel extends Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        this.aniObj.stageWidth = this.widgetDOM.clientWidth;
+        // this.aniObj.stageWidth = this.widgetDOM.clientWidth;
         if (prevState.page !== this.state.page) {
             this.props.afterChange(this.state.page);
         }

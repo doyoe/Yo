@@ -47,6 +47,7 @@ const { rAF, cancelrAF } = utils.getRAF();
 const defaultProps = {
     extraClass: '',
     containerExtraClass: '',
+    containerExtraStyle: {},
     contentOffset: {
         x: 0,
         y: 0
@@ -78,7 +79,8 @@ const defaultProps = {
     autoRefresh: true,
     wrapper: null,
     enableLazyLoad: true,
-    scrollWithouTouchStart: false
+    scrollWithouTouchStart: false,
+    stickyOffset: 0
 };
 
 const propTypes = {
@@ -101,6 +103,16 @@ const propTypes = {
      */
     containerExtraClass: PropTypes.string,
     /**
+     * 内容容器额外style
+     *
+     * @property containerExtraStyle
+     * @type String
+     * @description 为组件中的内容容器提供额外的style，主要用于横向滚动时，动态设置容器的宽度。
+     * @default {}
+     * @version 3.0.6
+     */
+    containerExtraStyle: PropTypes.object,
+    /**
      * 内容位移
      *
      * @property contentOffset
@@ -112,6 +124,14 @@ const propTypes = {
         x: PropTypes.number,
         y: PropTypes.number
     }),
+    /**
+     * @property stickyOffset
+     * @type Number
+     * @description 吸顶容器偏移，如果你希望吸顶容器不位于top:0的位置，可以修改这个属性。
+     * @default 0
+     * @version 3.0.6
+     */
+    stickyOffset: PropTypes.number,
     /**
      * 是否禁止滚动
      *
@@ -440,11 +460,6 @@ export default class Scroller extends Component {
         // 重置 contentOffset
         if (prevProps.contentOffset.x !== this.props.contentOffset.x || prevProps.contentOffset.y !== this.props.contentOffset.y) {
             this.scrollTo(this.props.contentOffset.x, this.props.contentOffset.y);
-        }
-
-        // 重新获取容器和内容尺寸
-        if (this.props.autoRefresh) {
-            this.refresh();
         }
 
         // 重置 position 属性
@@ -820,9 +835,10 @@ export default class Scroller extends Component {
     }
 
     _getCurrentSticky() {
+        const { stickyOffset } = this.props;
         let ret = null;
         if (this.y < 0) {
-            const absY = Math.abs(this.y);
+            const absY = Math.abs(this.y - stickyOffset);
             const wrapperTop = this.wrapperOffsetTop;
             const upperHeaders = this.stickyHeaders.filter(header => header.offsetTop - wrapperTop <= absY);
 
@@ -958,15 +974,17 @@ export default class Scroller extends Component {
      *
      * 使用场景2：在某些不是通过 setState 或 Redux 等方式来改变内容导致 Scroller 不会 render 时，可以强制重新获取Scroller宽高和内容容器宽高。
      */
-    refresh(refreshOption = {}) {
-        this.wrapperWidth = typeof refreshOption.wrapperWidth !== 'undefined' ? refreshOption.wrapperWidth : this.wrapper.clientWidth;
-        this.wrapperHeight = typeof refreshOption.wrapperHeight !== 'undefined' ? refreshOption.wrapperHeight : this.wrapper.clientHeight;
+    refresh(refreshOption = {}, callFromList) {
+        if (!callFromList) {
+            this.wrapperWidth = typeof refreshOption.wrapperWidth !== 'undefined' ? refreshOption.wrapperWidth : this.wrapper.clientWidth;
+            this.wrapperHeight = typeof refreshOption.wrapperHeight !== 'undefined' ? refreshOption.wrapperHeight : this.wrapper.clientHeight;
+            this.scrollerWidth = typeof refreshOption.scrollerWidth !== 'undefined' ? refreshOption.scrollerWidth : this.scroller.offsetWidth;
 
-        if (this.refs.wrapper) {
-            this.wrapperOffsetTop = getElementOffsetY(this.refs.wrapper, null);
+            if (this.refs.wrapper) {
+                this.wrapperOffsetTop = getElementOffsetY(this.refs.wrapper, null);
+            }
         }
 
-        this.scrollerWidth = typeof refreshOption.scrollerWidth !== 'undefined' ? refreshOption.scrollerWidth : this.scroller.offsetWidth;
         this.scrollerHeight = typeof refreshOption.scrollerHeight !== 'undefined' ? refreshOption.scrollerHeight : this.scroller.offsetHeight;
 
         // 如果有下拉刷新，设置下拉刷新的位置，重置scrollerHeight
@@ -1308,7 +1326,7 @@ export default class Scroller extends Component {
     }
 
     render() {
-        const { extraClass, containerExtraClass, pullRefreshHeight, loadMoreHeight } = this.props;
+        const { extraClass, containerExtraClass, pullRefreshHeight, loadMoreHeight, stickyOffset } = this.props;
         let pullRefreshContent;
         let loadMoreContent;
 
@@ -1381,11 +1399,12 @@ export default class Scroller extends Component {
         }
 
         let wrapperStyle = Object.assign({ overflow: 'hidden' }, this.props.style);
+        let scrollerStyle = Object.assign({}, this.props.containerExtraStyle, this._scrollerStyle);
         let scrollerContent;
         let _wrapperClassName = classNames('yo-scroller', extraClass);
         let _scrollerClassName = classNames('scroller', containerExtraClass);
 
-        if (this.noWrapper) {
+        if (this.noWrapper) { // 1. 不需要滚动容器（只适用于特殊的、内容的宽高已知的情况）
             scrollerContent = React.cloneElement(this.props.children, {
                 ref: 'scroller',
                 onTouchStart: (evt) => this._handleTouchStart(evt),
@@ -1394,7 +1413,11 @@ export default class Scroller extends Component {
                 onTouchCancel: (evt) => this._handleTouchEnd(evt),
                 onTransitionEnd: (evt) => this._handleTransitionEnd(evt)
             });
-        } else if (this.props.children && !this.props.children.length && typeof this.props.children.type === 'string' && !this.state.usePullRefresh && !this.state.useLoadMore) {
+        } else if (this.props.children
+            && !this.props.children.length
+            && typeof this.props.children.type === 'string'
+            && !this.state.usePullRefresh
+            && !this.state.useLoadMore) { // 2. 将内容的最外层节点当做滚动容器
             if (this.props.children.props && this.props.children.props.className) {
                 _scrollerClassName = classNames('scroller', this.props.children.props.className);
             } else {
@@ -1403,7 +1426,8 @@ export default class Scroller extends Component {
 
             let content = React.cloneElement(this.props.children, {
                 ref: 'scroller',
-                className: _scrollerClassName
+                className: _scrollerClassName,
+                style: scrollerStyle
             });
 
             scrollerContent = (
@@ -1419,13 +1443,13 @@ export default class Scroller extends Component {
                 >
                     <div
                         ref="stickyNode"
-                        style={{ position: 'absolute', top: 0, left: 0, right: 0, zIndex: 9999 }}
+                        style={{ position: 'absolute', top: stickyOffset, left: 0, right: 0, zIndex: 9999 }}
                         className="sticky"
                     />
                     {content}
                 </div>
             );
-        } else {
+        } else { // 3. 在内容的外面加一层滚动容器
             scrollerContent = (
                 <div
                     ref="wrapper"
@@ -1439,10 +1463,10 @@ export default class Scroller extends Component {
                 >
                     <div
                         ref="stickyNode"
-                        style={{ position: 'absolute', top: 0, left: 0, right: 0, zIndex: 9999 }}
+                        style={{ position: 'absolute', top: stickyOffset, left: 0, right: 0, zIndex: 9999 }}
                         className="sticky"
                     />
-                    <div className={_scrollerClassName} ref="scroller" style={this._scrollerStyle}>
+                    <div className={_scrollerClassName} ref="scroller" style={scrollerStyle}>
                         {this.props.children}
                         {pullRefreshContent}
                         {loadMoreContent}

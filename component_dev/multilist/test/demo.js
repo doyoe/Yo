@@ -107,19 +107,21 @@ class MultiListDemo extends Component {
         };
     }
     handleUpdateData() {}
-    handleValueChange({newValue}) {
+    handleValueChange({newValue, newItems}) {
         let value;
         if (newValue[newValue.length - 1] === 0) {
             value = [];
         } else {
             value = newValue;
         }
+        console.log(newItems.map(item => Array.isArray(item)? item.map(i => i.name).join('_'): item.name).join(','));
         this.setState({
             multiValue: value
         });
     }
     handleRenderContent() {}
     async handleAsyncData(item) {
+        console.log('触发了一次异步加载回调');
         switch (item.asyncType) {
         case 'SUBWAY-2':
             originalData.subList[5].subList[1].subList = await fetchDataOfSubway();

@@ -7,11 +7,12 @@ const ITEMPROPSCONFIG = {
     isChecked: PropTypes.bool,
     isSpread: PropTypes.bool,
     isLeaf: PropTypes.bool,
-    index: PropTypes.string
+    index: PropTypes.string,
+    route: PropTypes.string
 };
 
 export const CheckboxItem = (props) => (
-    <div className="select-checkbox" data-type="CHECKBOX" data-index={props.index || null}>
+    <div className="select-checkbox" data-type="CHECKBOX" data-index={props.index || null} data-route={props.route || null}>
         <div className="yo-checked yo-checked-checkbox">
             <input type="radio" checked={props.isChecked} readOnly="readOnly" />
             <span className="type" />
@@ -22,7 +23,7 @@ export const CheckboxItem = (props) => (
 CheckboxItem.propTypes = ITEMPROPSCONFIG;
 
 export const RadioItem = (props) => (
-    <div className={classNames('select-checkbox', { checked: props.isChecked })} data-type="RADIO" data-index={props.index || null}>
+    <div className={classNames('select-checkbox', { checked: props.isChecked })} data-type="RADIO" data-index={props.index || null} data-route={props.route || null}>
         <div className="yo-checked yo-checked-radio">
             <input type="radio" checked={props.isChecked} readOnly="readOnly" />
             <span className="type" />
@@ -33,7 +34,7 @@ export const RadioItem = (props) => (
 RadioItem.propTypes = ITEMPROPSCONFIG;
 
 export const MenuItem = (props) => (
-    <div className={classNames('select-checkbox', 'multi-list-content', { spread: props.isSpread, effect: props.isChecked })} data-type="MENU" data-index={props.index || null}>
+    <div className={classNames('select-checkbox', 'multi-list-content', { spread: props.isSpread, effect: props.isChecked })} data-type="MENU" data-index={props.index || null} data-route={props.route || null}>
         <div className="yo-checked yo-checked-dot">
             <input type="radio" checked={props.isChecked} readOnly="readOnly" />
             <span className="type" />

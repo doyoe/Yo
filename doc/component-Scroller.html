@@ -478,7 +478,7 @@
             
             <div class="instructions-con-info">
             <h4 id="-">下拉刷新和加载更多</h4>
-<p><code>Scroller</code> 提供了下拉刷新和加载更多的功能，这两个功能只支持纵向滚动。这两个功能常常在 <code>List</code> 组件中使用，<a href="./List.html">查看List组件中的用法</a>。</p>
+<p><code>Scroller</code> 提供了下拉刷新和加载更多的功能，这两个功能只支持纵向滚动。这两个功能常常在 <code>List</code> 组件中使用，<a href="./component-List.html">查看List组件中的用法</a>。</p>
 <h5 id="1-">1. 下拉刷新</h5>
 <ul>
 <li>功能：在滚动到 <code>Scroller</code> 顶部之后，继续滚动一段距离就会触发 <code>下拉刷新</code> 功能。该功能可以用来刷新 <code>Scroller</code> 中的内容。</li>
@@ -638,6 +638,26 @@
 
 <blockquote class="api">
     <h3>
+    <strong>containerExtraStyle</strong>
+     <span class="prop-type">{ String }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>为组件中的内容容器提供额外的style，主要用于横向滚动时，动态设置容器的宽度。</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> {}
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
     <strong>contentOffset</strong>
      <span class="prop-type">{ {x: Number, y: Mumber} }</span>
     
@@ -651,6 +671,28 @@
 
 <p class="api-content">
     <small class="text-muted">默认值:</small> {x: 0, y: 0}
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>stickyOffset</strong>
+     <span class="prop-type">{ Number }</span>
+    
+    <span class="yo-badge yo-badge-danger">3.0.6</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>吸顶容器偏移，如果你希望吸顶容器不位于top:0的位置，可以修改这个属性。</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> 0
 </p>
 
 

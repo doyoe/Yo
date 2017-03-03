@@ -95,10 +95,11 @@ export default class MultiList extends Component {
          * @description
          * 用于更新结果的回调函数
          * @example
-         *  function({level, listValue, newValue}){
+         *  function({level, listValue, newValue, newItems}){
          *  	level 表示当前菜单层级
          *  	oldValue 表示当前multiList的value
          *  	newValue 表示更新后的multiList的value
+         *      newItems 表示更新后的value对应的item
          * 	}
          */
         onChange: PropTypes.func.isRequired,
@@ -131,6 +132,7 @@ export default class MultiList extends Component {
          *      // {  "itemType":"ProductMenu", 节点的Type类型（此时的`itemType`是组件根据父节点`subItemType`和该节点`itemType`按照优先级处理过的值。）
          *      //    "level":0, item所在层级
          *      //    "index":"2", item所在父节点subList
+         *      //    "route": "1>2>1", item在dataSource中的索引值
          *      //    "isLeaf":false, 该节点是否为叶子节点
          *      //    "isSpread":false, 如果该节点为父节点时该值表示该节点是否是展开的
          *      //    "isChecked":false, 该节点是否是有效值
@@ -181,26 +183,36 @@ export default class MultiList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            router: [],
-            dataSource: this._handleDataSource(Object.assign({}, this.props.dataSource), [])
+            route: [],
+            dataSource: this._handleDataSource(Object.assign({}, this.props.dataSource), []),
+            valueItems: ''
         };
         this.path = [];
+        this.newItems = [];
+    }
+    componentWillMount() {
+        this.calcPath();
+        this.newItems = this._getItemsByValue(this.props.value);
+        const lastItem = this._getItemsByRoute(this.pathIndex).pop();
+        if (lastItem.subList === 'ASYNC') this.props.onUpdateData(lastItem);
     }
     componentWillReceiveProps(nextProps) {
         if (nextProps.dataSource !== this.props.dataSource) {
             this.setState({
-                dataSource: this._handleDataSource(Object.assign({}, this.props.dataSource), [])
+                dataSource: this._handleDataSource(Object.assign({}, nextProps.dataSource), [])
             });
         }
+        this.calcPath();
+        this.newItems = this._getItemsByValue(nextProps.value);
+        // 调用方保证 指定value时的 路径不存在 async
     }
-    shouldComponentUpdate(nextProps, nextState) {
-        const shouldItemUpdate = nextProps.dataSource !== this.props.dataSource
-        || this.state.router.join('-') !== nextState.router.join('-')
-        || this.props.value !== nextProps.value;
-        return shouldItemUpdate;
-    }
-    componentWillUpdate(nextProps) {
-        this.dataSourceChanged = nextProps.dataSource === this.props.dataSource;
+    // shouldComponentUpdate(nextProps, nextState) {
+    //     const shouldItemUpdate = nextProps.dataSource !== this.props.dataSource
+    //     || this.state.route.join('-') !== nextState.route.join('-')
+    //     || this.props.value !== nextProps.value;
+    //     return shouldItemUpdate;
+    // }
+    componentWillUpdate() {
         this.prevValue = this.props.value.slice(0);
     }
     calcPath() {
@@ -228,11 +240,11 @@ export default class MultiList extends Component {
         }
         const len = this.props.value.length;
         let effectValue;
-        if (new RegExp(`^${this.state.router.slice(0, len - 1).join('-')}`).test(this.props.value.slice(0, len - 1).join('-'))) {
+        if (new RegExp(`^${this.state.route.slice(0, len - 1).join('_')}`).test(this.props.value.slice(0, len - 1).join('_'))) {
             effectValue = this.props.value.slice(0)[level];
             effectValue = Array.isArray(effectValue) ? effectValue[0] : effectValue;
         }
-        const value = this.state.router[level] || effectValue || data.defaultValue || data.subList[0].value;
+        const value = this.state.route[level] || effectValue || data.defaultValue || data.subList[0].value;
         data.subList.some((item, index) => {
             if (item.value === value) {
                 this.pathIndex[level] = index;
@@ -245,6 +257,7 @@ export default class MultiList extends Component {
             return false;
         });
     }
+
     _handleItemChecked({ item, level, data }) {
         if (this.path.slice(0, level).join('-') !== this.props.value.slice(0, level).join('-')) {
             if (!item.subList && (item.value === data.defaultValue)) {
@@ -261,12 +274,14 @@ export default class MultiList extends Component {
         }
         return false;
     }
+
     _handleItemRender(data, level, item, i) {
         const isChecked = this._handleItemChecked({ item, level, data, index: i });
         const type = item.itemType || data.subItemType;
         const itemState = {
             level,
             index: this.path.slice(0, level).concat(item.value).join('-'),
+            route: this.pathIndex.slice(0, level).concat(i).join('>'),
             isLeaf: !item.subList,
             isSpread: item.value === this.path[level] && !!item.subList,
             isChecked,
@@ -283,6 +298,7 @@ export default class MultiList extends Component {
             return this.props.renderItem({ itemType: type, ...itemState });
         }
     }
+
     _handleShouldItemUpdate(level, isLastLevel, ret, nextItem, nowItem) {
         let isUpdate = false;
         if (isLastLevel) {
@@ -301,48 +317,110 @@ export default class MultiList extends Component {
         }
         return isUpdate;
     }
+
     _handleItemExtraClass(data, level, item) {
         return item.value === this.path[level] && item.subList ? 'spread' : '';
     }
+
     _handleItemTap(data, level, item, index, target) {
         const type = item.itemType || data.subItemType;
         const upLevel = level;
+        let newItems = this.newItems;
         let newValue;
+        this.calcPath();
         this.setState({
-            router: item.subList ? this.path.slice(0, level).concat(item.value) : this.path.slice(0, level)
+            route: item.subList ? this.path.slice(0, level).concat(item.value) : this.path.slice(0, level)
         });
         switch (type) {
-        case 'MENU':
+        case 'MENU': {
+            let constDataSource = this.props.dataSource.subList;
+            const syncItem = this.pathIndex.some(i => {
+                if (constDataSource[i].subList === 'ASYNC') {
+                    constDataSource = constDataSource[i];
+                    return true;
+                }
+                constDataSource = constDataSource[i].subList;
+                return false;
+            });
+            if (syncItem) {
+                this.props.onUpdateData(constDataSource);
+            }
             return;
+        }
         case 'RADIO':
             newValue = this.path.slice(0, upLevel).concat(item.value);
+            newItems = this._getItemsByRoute(this.pathIndex.slice(0, upLevel)).concat(item);
             break;
         case 'CHECKBOX':
             if (this.path.slice(0, upLevel).join('-') === this.props.value.slice(0, upLevel).join('-')) {
                 newValue = this.props.value.slice(0);
                 let tmpValue = newValue[level];
                 if (Array.isArray(tmpValue) && tmpValue.length > 0) {
-                    if (tmpValue.indexOf(item.value) !== -1) {
-                        tmpValue.splice(tmpValue.indexOf(item.value), 1);
+                    const valueIndex = tmpValue.indexOf(item.value);
+                    if (valueIndex !== -1) {
+                        tmpValue.splice(valueIndex, 1);
+                        newItems[level].splice(valueIndex, 1);
                     } else {
                         tmpValue.push(item.value);
+                        newItems[level].push(item);
                     }
                 } else {
                     tmpValue = [item.value];
+                    newItems[level] = [item];
                 }
-                newValue[level] = tmpValue.length > 0 ? tmpValue : null;
+                // handle final value
+                if (tmpValue.length > 0) {
+                    newValue[level] = tmpValue;
+                } else {
+                    newValue = [];
+                    newItems = [];
+                }
             } else {
                 newValue = this.path.slice(0, upLevel);
                 newValue.push([item.value]);
+                newItems = this._getItemsByRoute(this.pathIndex.slice(0, upLevel));
+                newItems.push([item]);
             }
             break;
         default:
             newValue = this.props.onItemTap({ data, level, item, index, target });
         }
-        if (newValue[newValue.length - 1] == null) {
-            newValue = [];
-        }
-        this.props.onChange({ newValue, oldValue: this.props.value, level });
+        // if (newValue[newValue.length - 1] == null) {
+            // newValue = [];
+        // }
+        this.newItems = newItems;
+        this.props.onChange({ newValue, oldValue: this.props.value, level, newItems });
+    }
+    _getItemsByRoute(route, dataSource) {
+        let constDataSource = dataSource || this.props.dataSource;
+        return route.map(item => {
+            if (Array.isArray(item)) {
+                return this._getItemsByRoute(item, constDataSource);
+            } else {
+                constDataSource = constDataSource.subList[item];
+                return constDataSource;
+            }
+        });
+    }
+    _getItemsByValue(value) {
+        let constDataSource = this.props.dataSource;
+        return value.map(item => {
+             let valueR;
+             if (Array.isArray(item)) {
+                return constDataSource.subList.filter(i => {
+                    return ~item.indexOf(i.value);
+                });
+             }
+             constDataSource.subList.some(i => {
+                 if (item === i.value) {
+                     valueR = i;
+                     constDataSource = i;
+                     return true;
+                 }
+                 return false;
+             });
+             return valueR;
+        });
     }
     _recursionRender(data, level) {
         if (!data.subList) {
@@ -350,7 +428,7 @@ export default class MultiList extends Component {
         }
         if (Array.isArray(data.subList) && data.subList.length > 0) {
             this.children.push(
-                <div className={classNames('item', `item-${level}`)} key={this.path.slice(0, level).join('-')}>
+                <div className={classNames('item', `item-${level}`)} key={this.path.slice(0, level).join('_')}>
                     <List
                         dataSource={data.subList}
                         infinite={false}
@@ -367,18 +445,17 @@ export default class MultiList extends Component {
         }
         switch (data.subList) {
         case 'EMPTY':
-            this.children.push(<div className={classNames('item', `item-${level}`)} key={this.path.slice(0, level).join('-')}><EmptyList /></div>);
+            this.children.push(<div className={classNames('item', `item-${level}`)} key={this.path.slice(0, level).join('_')}><EmptyList /></div>);
             break;
         case 'FAULT':
-            this.children.push(<div className={classNames('item', `item-${level}`)} key={this.path.slice(0, level).join('-')}><FaultList /></div>);
+            this.children.push(<div className={classNames('item', `item-${level}`)} key={this.path.slice(0, level).join('_')}><FaultList /></div>);
             break;
         case 'ASYNC':
-            this.children.push(<div className={classNames('item', `item-${level}`)} key={this.path.slice(0, level).join('-')}><LoadingList /></div>);
-            this.props.onUpdateData(data);
+            this.children.push(<div className={classNames('item', `item-${level}`)} key={this.path.slice(0, level).join('_')}><LoadingList /></div>);
             break;
         default:
             this.children.push(
-                <div className={classNames('item', `item-${level}`)} key={this.path.slice(0, level).join('-')}>
+                <div className={classNames('item', `item-${level}`)} key={this.path.slice(0, level).join('_')}>
                     {this.props.renderContent({ type: data.subList, data, level })}
                 </div>
             );

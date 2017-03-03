@@ -27,7 +27,8 @@ const defaultProps = {
     onHide: () => {
     },
     width: null,
-    height: null
+    height: null,
+    delayBeforeAnimationStart: 100
 };
 
 const propTypes = {
@@ -140,6 +141,7 @@ const propTypes = {
             duration: PropTypes.number
         })
     ]),
+    delayBeforeAnimationStart: PropTypes.number,
     children: PropTypes.oneOfType([PropTypes.array, PropTypes.object, PropTypes.string, PropTypes.number])
 };
 
@@ -229,7 +231,7 @@ export default class RealModal extends Component {
                 onShow();
                 this.setState({ animation: this.getAnimationClass(nextProps.animation, next) });
                 this.contentDom.style.visibility = 'visible';
-            }, 50);
+            }, this.props.delayBeforeAnimationStart);
         }
     }
 
@@ -257,10 +259,6 @@ export default class RealModal extends Component {
                     if (evt.target === this.refs.container) {
                         onMaskTap(evt);
                     }
-                }}
-                onTouchEnd={(evt) => {
-                    // 消除穿透隐患
-                    evt.preventDefault();
                 }}
                 style={Object.assign(
                     {

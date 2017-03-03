@@ -29,8 +29,8 @@ const defaultProps = {
     selectionStartText: '入店',
     selectionEndText: '离店',
     allowSingle: false,
-    onChange() {
-    }
+    onChange() {},
+    renderDate() {}
 };
 
 const propTypes = {
@@ -88,33 +88,49 @@ const propTypes = {
      * @param {String} obj.selectionEnd 选中范围的结束日期
      * @description 点击选中日期时回调函数
      */
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
+    /**
+     * @property renderDate
+     * @type Function
+     * @param {Object} item 待渲染的日期数据对象
+     * @param {String} ret 组件默认的日期渲染模板
+     * @default () => {}
+     * @description 每个日期对象渲染函数的模板。可自定义单个日期节点的显示内容。
+     */
+    renderDate: PropTypes.func
 };
 
 export default class Calendar extends Component {
+
     constructor(props) {
         super(props);
         const { duration, selectionStart, selectionEnd, allowSingle } = props;
         this.calendarModel = new CalendarCore();
         this.state = {
-            data: this.calendarModel.getData(duration, selectionStart, selectionEnd, allowSingle)
+            data: this
+                .calendarModel
+                .getData({ duration, selectionStart, selectionEnd, allowSingle })
         };
     }
 
     componentWillMount() {
         // 注册点击check事件， 在CalendarCore理触发
-        this.calendarModel.registerEventHandler('check', obj => this.props.onChange(obj));
+        this
+            .calendarModel
+            .registerEventHandler('check', obj => this.props.onChange(obj));
     }
 
     componentWillReceiveProps(nextProps) {
         const { duration, selectionStart, selectionEnd, allowSingle } = nextProps;
         this.setState({
-            data: this.calendarModel.getData(duration, selectionStart, selectionEnd, allowSingle)
+            data: this
+                .calendarModel
+                .getData({ duration, selectionStart, selectionEnd, allowSingle })
         });
     }
 
     render() {
-        const { selectionStartText, selectionEndText, extraClass } = this.props;
+        const { renderDate, selectionStartText, selectionEndText, extraClass } = this.props;
         return (
             <section className={classNames('yo-calendar', extraClass)}>
                 <ul className="week-bar">
@@ -130,10 +146,11 @@ export default class Calendar extends Component {
                     isTitleStatic={true}
                     itemTouchClass={null}
                     renderGroupItem={item => <CalendarItem
-                        selectionStartText={selectionStartText}
-                        selectionEndText={selectionEndText}
                         week={item.week}
                         isRender={item.isRender}
+                        selectionStartText={selectionStartText}
+                        selectionEndText={selectionEndText}
+                        renderDate={renderDate}
                         onChange={str => this.calendarModel.handleChange(str)}
                     />}
                     dataSource={this.state.data}

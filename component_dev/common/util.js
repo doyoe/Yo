@@ -1,25 +1,3 @@
-export function deepClone(obj) {
-    return Object.keys(obj).reduce((ret, key) => {
-        const val = obj[key];
-        const type = typeof val;
-
-        if (type === 'string'
-            || type === 'number'
-            || type === 'bool'
-            || type === 'undefined') {
-            ret[key] = val;
-        } else if (type === 'object') {
-            if (val === null) {
-                ret[key] = val;
-            } else {
-                ret[key] = deepClone(val);
-            }
-        }
-
-        return ret;
-    }, {});
-}
-
 export function getArrayByLength(length) {
     const ret = [];
     for (let i = 0; i < length; i++) {

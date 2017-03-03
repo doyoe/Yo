@@ -2,11 +2,18 @@ import Calendar from '../src';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
+const renderDate = (item, ret) => {
+    const { day } = item;
+    return day === 1 ? (
+        <span>First</span>
+    ) : ret;
+};
+
 class CalendarDemo extends Component {
     constructor() {
         super();
         this.state = {
-            duration: ['2017-01-01', '2017-4-8']
+            duration: ['2017-03-01', '2018-05-01']
         };
     }
 
@@ -26,6 +33,7 @@ class CalendarDemo extends Component {
                 selectionStart={this.state.selectionStart}
                 selectionEnd={this.state.selectionEnd}
                 allowSingle={false}
+                renderDate={renderDate}
                 onChange={str => this.onChange(str)}
             />
         );

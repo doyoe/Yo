@@ -113,7 +113,23 @@
           <div class="ydoc-container-content" id="readme">
               <article class="markdown-body">
                   
-                  <h2 id="v3.0.5 (2017-02-17)">v3.0.5 (2017-02-17)</h2><h3 id="New Features">New Features</h3><ul>
+                  <h2 id="v3.0.6 (2017-03-03)">v3.0.6 (2017-03-03)</h2><h3 id="New Features">New Features</h3><ul>
+<li>列表系列组件删除了 <code>staticSectionHeight</code> 属性，这意味着在使用 <code>staticSection</code> 时不再需要确定静态区域的高度，这个高度将会在组件mount或update时自动获取。</li>
+<li><code>GroupList</code> 新增属性 <code>titleOffset</code>，可以设置吸顶容器的y轴偏移。</li>
+<li><code>MultiList</code> 原有事件 <code>onChange</code> 回调新增参数 <code>newItems</code> ，表示当前value值对应的 <code>item</code> 集合。</li>
+<li><code>GroupList</code> 和 <code>SwipeMenuList</code> 新增 <code>refresh</code> 方法，在组件容器尺寸发生变化时需要调用这个方法来刷新内部的 <code>Scroller</code>。</li>
+<li>给列表系列组件 <code>infinite</code> 模式做了一些性能优化，现在在低端机型上滚动性能更佳。</li>
+<li><code>Scroller</code> 和所有列表组件（<code>List</code>，<code>GroupList</code> 和 <code>SwipeMenuList</code>）新增 <code>stickyOffset</code> 属性，可以设置吸顶容器的y轴偏移。</li>
+<li><code>Scroller</code> 新增属性 <code>containerExtraStyle</code>，主要用来在横向滚动时，动态的设置内容容器的宽度。</li>
+<li><code>Calendar</code> 组件新增属性 <code>renderDate</code>，现在可以自定义日期的渲染方式。</li>
+</ul>
+<h3 id="Bug Fixes">Bug Fixes</h3><ul>
+<li>修复 <code>Scroller</code> 的 <code>refresh</code> 方法在不必要的情况下查询 <code>wrapper.offsetHeight</code> 和 <code>scroller.offsetHeight</code> 导致 <code>List</code> 无穷模式滚动性能变差的bug。</li>
+<li>修复 <code>GroupList</code> 吸顶容器在组件的默认 <code>display</code> 不为 <code>none</code> 导致组件Mount时出现一个闪烁的灰色条的bug。</li>
+<li>修复 <code>MultiList</code> 的数据更新后视图没有更新的bug。</li>
+<li>修复 <code>MultiList</code> 在每次 <code>render</code> 时都触发 <code>onUpdateData</code> 回调的bug。</li>
+</ul>
+<h2 id="v3.0.5 (2017-02-17)">v3.0.5 (2017-02-17)</h2><h3 id="New Features">New Features</h3><ul>
 <li>新增组件 <code>PopupPicker</code> 和 <code>PopupDateTimePicker</code>。这两个组件封装了原始的 <code>Picker</code> 和 <code>DateTimePicker</code> 组件，提供了更加便于使用的弹出式选择器。详情请参考这两个组件的文档。</li>
 <li><code>List</code>，<code>GroupList</code>，<code>SwipeMenuList</code> 现在加入对 <code>Immutable</code> 数据类型的支持，详情请参考 <code>List</code> 文档。</li>
 <li><code>List</code> 的 <code>shoudItemUpdate</code> 属性去除了冗余的第一个参数 <code>ret</code>，现在它只会在 <code>ListItem</code> 默认配置的 <code>shouldComponentUpdate</code> 返回值为 <code>false</code> 时触发。</li>
