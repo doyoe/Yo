@@ -7,8 +7,7 @@ import 'babel-polyfill';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Page from '../../../common/page';
-import List from 'yo3/component/list';
-import Toast from 'yo3/component/toast';
+import { List, Toast } from '$yo-component';
 import { getRandomDataSource } from '../common/baseUtils';
 import Immutable from 'immutable';
 

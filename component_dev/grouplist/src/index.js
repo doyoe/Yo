@@ -437,8 +437,7 @@ export default class GroupList extends Component {
                     this.stickyHeader.style.tranform = transform;
                     this.stickyHeader.style.webkitTransform = transform;
                     this.stickyHeader.style.display = stickyHeader.title.display;
-                    this.stickyHeader.className = `${(typeof groupTitleExtraClass === 'function' ?
-                        groupTitleExtraClass(groupKey) : groupTitleExtraClass)} sticky label group-title`;
+                    this.stickyHeader.className = `${(typeof groupTitleExtraClass === 'function' ? groupTitleExtraClass(groupKey) : groupTitleExtraClass)} sticky label group-title`;
                 } else {
                     this.stickyHeader.style.display = 'none';
                 }
@@ -502,7 +501,21 @@ export default class GroupList extends Component {
      * @version 3.0.6
      */
     refresh() {
+        // grouplist结合modal使用的时候会非常麻烦，因为modal在隐藏的时候grouplist已经mount了
+        // 因此需要在onShow的时候刷新所有title的位置，必须触发一次它们的componentDidMount
+        this.forceUpdate();
+        this.refreshStickyHeader();
         if (this.list) this.list.refresh();
+    }
+
+    /**
+     * @method resetLoadStatus
+     * @param {Bool} hasLoadMore 是否能够加载更多，如果传入false，加载更多区域的文字将会变成 没有更多了，并且继续向下滚动时不会触发onLoadMore。
+     * @description 重置加载更多功能。
+     * @version 3.0.7
+     */
+    resetLoadStatus(hasLoadMore) {
+        if (this.list) this.list.resetLoadStatus(hasLoadMore);
     }
 
     /**
@@ -595,19 +608,16 @@ export default class GroupList extends Component {
             if (item._type === 'groupTitle') {
                 ret = null;
             } else {
-                ret = typeof itemTouchClass !== 'function' ?
-                    itemTouchClass : itemTouchClass(item.srcData, index);
+                ret = typeof itemTouchClass !== 'function' ? itemTouchClass : itemTouchClass(item.srcData, index);
             }
             return ret;
         };
         const wrappedItemExtraClass = (item, index) => {
             let ret = null;
             if (item._type === 'groupTitle') {
-                ret = typeof groupTitleExtraClass !== 'function' ?
-                    groupTitleExtraClass : groupTitleExtraClass(item.groupKey);
+                ret = typeof groupTitleExtraClass !== 'function' ? groupTitleExtraClass : groupTitleExtraClass(item.groupKey);
             } else {
-                ret = typeof itemExtraClass !== 'function' ?
-                    itemExtraClass : itemExtraClass(item.srcData, index);
+                ret = typeof itemExtraClass !== 'function' ? itemExtraClass : itemExtraClass(item.srcData, index);
             }
             return ret;
         };
@@ -629,15 +639,14 @@ export default class GroupList extends Component {
                         }
                     }}
                 />
-                {showIndexNavBar ?
-                    <IndexNavBar
-                        list={groupTitles}
-                        renderItem={renderIndexNavBarItem}
-                        onNavItemFocus={(item) => {
-                            this.scrollToGroup(item.groupKey);
-                            onIndexNavBarItemHover(item.groupKey);
-                        }}
-                    /> : null}
+                {showIndexNavBar ? <IndexNavBar
+                    list={groupTitles}
+                    renderItem={renderIndexNavBarItem}
+                    onNavItemFocus={(item) => {
+                        this.scrollToGroup(item.groupKey);
+                        onIndexNavBarItemHover(item.groupKey);
+                    }}
+                /> : null}
                 <List
                     {...inheritProps(this.props, [
                         'scrollWithoutTouchStart',

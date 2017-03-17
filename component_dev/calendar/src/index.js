@@ -107,25 +107,25 @@ export default class Calendar extends Component {
         const { duration, selectionStart, selectionEnd, allowSingle } = props;
         this.calendarModel = new CalendarCore();
         this.state = {
-            data: this
-                .calendarModel
-                .getData({ duration, selectionStart, selectionEnd, allowSingle })
+            data: this.calendarModel.getData({ duration, selectionStart, selectionEnd, allowSingle })
         };
+        this.groupList = null;
     }
 
     componentWillMount() {
         // 注册点击check事件， 在CalendarCore理触发
-        this
-            .calendarModel
-            .registerEventHandler('check', obj => this.props.onChange(obj));
+        this.calendarModel.registerEventHandler('check', obj => this.props.onChange(obj));
+    }
+
+    componentDidMount() {
+        const groupKey = this.calendarModel.getGroupKey();
+        this.groupList.scrollToGroup(groupKey);
     }
 
     componentWillReceiveProps(nextProps) {
         const { duration, selectionStart, selectionEnd, allowSingle } = nextProps;
         this.setState({
-            data: this
-                .calendarModel
-                .getData({ duration, selectionStart, selectionEnd, allowSingle })
+            data: this.calendarModel.getData({ duration, selectionStart, selectionEnd, allowSingle })
         });
     }
 
@@ -145,6 +145,7 @@ export default class Calendar extends Component {
                 <GroupList
                     isTitleStatic={true}
                     itemTouchClass={null}
+                    ref={node => { this.groupList = node; }}
                     renderGroupItem={item => <CalendarItem
                         week={item.week}
                         isRender={item.isRender}

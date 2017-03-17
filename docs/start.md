@@ -115,6 +115,21 @@ import Toast from '$yo-component/toast'
 
 - 使用方法：具体使用方式请参考 [文档和Demo](./component.html)（Demo是可以在页面里玩的哦，请使用Chrome浏览器来查看Demo）。
 
+如果你的 `ykit-config-yo` 已经升级到 `1.1.17` 以上的版本，你还可以使用更加便捷的语法糖：
+
+```
+import { Scroller, Touchable, List, GroupList } from '$yo-component';
+```
+
+在编译之后这行代码将会被转化为：
+
+```
+import Scroller from 'yo3/component/scroller';
+import Touchable from 'yo3/component/touchable';
+import List from 'yo3/component/list';
+import GroupList from 'yo3/component/grouplist';
+```
+
 ### 使用Yo style
 
 在样式的使用上，`Yo v3` 保留了一切之前的特性和用法。

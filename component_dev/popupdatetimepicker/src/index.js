@@ -8,6 +8,7 @@
  */
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
+import classNames from 'classnames';
 
 import Touchable from '../../touchable/src';
 import Popup from '../../popup/src';
@@ -273,45 +274,41 @@ class PopupDateTimePicker extends Component {
             <Popup
                 show={this.state.show}
                 duration={duration}
-                extraClass={popupExtraClass}
+                extraClass={classNames(popupExtraClass, 'yo-popup yo-popup-picker')}
                 onMaskTap={this.handlePopupCancel.bind(this)}
             >
-                <div className="yo-popup yo-popup-picker">
-                    <header className="yo-header yo-header-popup-picker">
-                        <span className="title">{title}</span>
-                        <Touchable
-                            onTap={this.handlePopupCancel.bind(this)}
-                            touchClass={cancelBtn.touchClass || defaultProps.popupHeader.cancelBtn.touchClass}
-                        >
-                            <span className="regret">{cancelBtn.text || defaultProps.popupHeader.cancelBtn.text}</span>
-                        </Touchable>
-                        <Touchable
-                            onTap={this.handlePopupOk()}
-                            touchClass={okBtn.touchClass || defaultProps.popupHeader.okBtn.touchClass}
-                        >
-                            <div className="affirm">{okBtn.text || defaultProps.popupHeader.okBtn.text}</div>
-                        </Touchable>
-                    </header>
-                    <div className="bd">
-                        <DateTimePicker
-                            value={this.state.pickerValue}
-                            unitsInline={unitsInline}
-                            dateOrTime={dateOrTime}
-                            onChange={this.handlePickerChange.bind(this)}
-                            height={pickerHeight}
-                            loop={loop}
-                            range={range}
-                        />
-                    </div>
+                <header className="yo-header">
+                    <span className="title">{title}</span>
+                    <Touchable
+                        onTap={this.handlePopupCancel.bind(this)}
+                        touchClass={cancelBtn.touchClass || defaultProps.popupHeader.cancelBtn.touchClass}
+                    >
+                        <span className="regret">{cancelBtn.text || defaultProps.popupHeader.cancelBtn.text}</span>
+                    </Touchable>
+                    <Touchable
+                        onTap={this.handlePopupOk()}
+                        touchClass={okBtn.touchClass || defaultProps.popupHeader.okBtn.touchClass}
+                    >
+                        <div className="affirm">{okBtn.text || defaultProps.popupHeader.okBtn.text}</div>
+                    </Touchable>
+                </header>
+                <div className="bd">
+                    <DateTimePicker
+                        value={this.state.pickerValue}
+                        unitsInline={unitsInline}
+                        dateOrTime={dateOrTime}
+                        onChange={this.handlePickerChange.bind(this)}
+                        height={pickerHeight}
+                        loop={loop}
+                        range={range}
+                    />
                 </div>
             </Popup>
         );
     }
 
     render() {
-        const {
-            touchClass
-        } = this.props;
+        const { touchClass } = this.props;
         return (
             <Touchable
                 onTap={this.show.bind(this)}

@@ -1,7 +1,9 @@
 import React from 'react';
+import CarouselItem from './carouselItem.js';
 export default (
     ALLOWANCEAngle = 0.57,
-    ALLOWANCEDistance = 30
+    ALLOWANCEDistance = 30,
+    movePercentage = 1
 ) => ({
     handleData({
         loop,
@@ -12,16 +14,16 @@ export default (
             const len = children.length;
             const lastfakeDomStyle = {
                 key: 0
-            }
+            };
             const firstFakeDomStyle = {
                 key: -1
-            }
-            if (children[0].type === 'li'){
-                lastfakeDomStyle.className =  children[len - 1].props.className ?  `${children[len - 1].props.className} extra-item` : 'extra-item';
-            } else {
+            };
+            if (children[0].type === CarouselItem) {
                 lastfakeDomStyle.index = len;
                 lastfakeDomStyle.extraClass = children[len - 1].props.extraClass ? `${children[len - 1].props.extraClass} extra-item` : 'extra-item';
                 firstFakeDomStyle.index = 1;
+            } else {
+                lastfakeDomStyle.className = children[len - 1].props.className ? `${children[len - 1].props.className} extra-item` : 'extra-item';
             }
             const header = React.cloneElement(children[len - 1], lastfakeDomStyle);
             const footer = React.cloneElement(children[0], firstFakeDomStyle);
@@ -38,7 +40,7 @@ export default (
         containerDOM,
         width
     }) {
-        const translateX = (pageNow - 1) * width + touchstartLocation[0] - touchmoveLocation[0];
+        const translateX = (pageNow - 1) * width * movePercentage + touchstartLocation[0] - touchmoveLocation[0];
         this._addCss({
             dom: containerDOM,
             speed: 0,
@@ -74,7 +76,7 @@ export default (
             width
         } = aniObj;
         if (this.moving) window.clearInterval(this.moving);
-        let translateX = width * (1 - pageNow);
+        let translateX = width * (1 - pageNow) * movePercentage;
         let newpageNow = pageNow;
         if (pageNow < 1 || pageNow > pagesNum) {
             if (loop) {
@@ -82,7 +84,7 @@ export default (
                 this.moving = window.setTimeout(() => {
                     let translate = 0;
                     if (pageNow === 0) {
-                        translate = width * (1 - pagesNum);
+                        translate = width * (1 - pagesNum) * movePercentage;
                     }
                     this._addCss({
                         dom: containerDOM,
@@ -95,7 +97,7 @@ export default (
                 newpageNow = pageNow === 0 ? pagesNum : 1;
             } else {
                 newpageNow = pageNow < 1 ? 1 : pagesNum;
-                translateX = width * (1 - newpageNow);
+                translateX = width * (1 - newpageNow) * movePercentage;
             }
         }
         this._addCss({
@@ -132,7 +134,7 @@ export default (
     },
     arrive(aniObj, num, isAni) {
         if (num >= 1 && num <= aniObj.pagesNum) {
-            const translateX = (1 - num) * aniObj.width;
+            const translateX = (1 - num) * aniObj.width * movePercentage;
             this._addCss({
                 dom: aniObj.containerDOM,
                 speed: 0.1,
@@ -148,11 +150,10 @@ export default (
     _addCss({
         dom,
         translateX = 0,
-        reset,
-        ...ani
+        reset
     }) {
         // 此处为Dom操作
-        if(reset) {
+        if (reset) {
             dom.style.webkitTransition = 'none';
             dom.style.transition = 'none';
         } else {

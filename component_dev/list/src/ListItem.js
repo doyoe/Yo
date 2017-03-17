@@ -133,7 +133,8 @@ export default class extends Component {
             style: listModel.infinite ? infiniteStyle : null
         };
         const additionalProps = {
-            className: classNames(itemExtraClass(item.srcData, item._index), item._type !== 'groupTitle' ? 'item' : 'group-title label')
+            className: classNames(item._type !== 'groupTitle' ?
+                'item' : 'group-title label', itemExtraClass(item.srcData, item._index))
         };
 
         return (

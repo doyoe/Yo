@@ -1,3 +1,21 @@
+## v3.0.7 (2017-03-17)
+### New Features
+- `PopupPicker` 新增多列Picker模式，如果给 `options` 属性传入一个二维数组，就可以开启多列模式。请参考 `PopupPicker` 文档。
+- `Scroller` 和所有列表组件新增API `resetLoadStatus`，用来重置 `加载更多` 功能。
+- 调整了`Scroller` 默认的减速摩擦系数，提升用户体验。
+- `Carousel` 内置子节点 `Carousel.Item` 增加内部渲染方法 `renderContent`。
+- `Carousel` 内置索引增加点击跳转到索引页面功能。
+- `Touchable` 增加属性 `disabled`，可以控制点击区域是否处于可用状态。
+- 新增 `yo-timeline` 时间轴元件。
+- `Calendar`: 在传入 `selectionStart` 属性的情况下，会自动滚动到选中日期的月份。
+
+### Bug Fixes
+- 修复 `List` 在非 `infinite` 模式下调用 `refresh` 方法时不能正确刷新 `Scroller` 滚动信息的bug。
+- 修复 `GroupList` 在结合 `Modal` 系列组件时，调用 `refresh` 方法不能正确刷新吸顶title的bug。
+- 修复 `Carousel` 在压缩后为当前播放子组件添加 `activeClass` 失败的bug。
+- 修复 `infinite` 模式的列表组件中使用 `LazyImage` 组件时，加载图片可能发生错乱的bug。
+- 修复 `SwipeMenuList` 组件的 `onMenuOpen` 和 `onMenuClose` 在使用 `Immutable` 数据结构时第一个参数为 `undefined` 的 bug。
+
 ## v3.0.6 (2017-03-03)
 
 ### New Features

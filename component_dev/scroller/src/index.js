@@ -22,7 +22,7 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import utils from './utils';
-import { getElementOffsetY } from '../../common/util';
+import { getElementOffsetY, getOnlyChild } from '../../common/util';
 import classNames from 'classnames';
 import LazyImage from '../../lazyimage';
 import Sticky from '../../sticky';
@@ -529,7 +529,9 @@ export default class Scroller extends Component {
         }
 
         // 重置 wrapper（内容容器）
-        this.noWrapper = !!props.wrapper && props.children && !props.children.length && !this.state.usePullRefresh && !this.state.useLoadMore;
+        // 兼容 Qreact 用 getOnlyChild(props) 替代 props.children && !props.children.length
+        this.noWrapper = !!props.wrapper && getOnlyChild(props) && !this.state.usePullRefresh && !this.state.useLoadMore;
+
         if (this.noWrapper) {
             this.wrapper = props.wrapper;
         }
@@ -817,18 +819,23 @@ export default class Scroller extends Component {
      */
     _tryLoadLazyImages() {
         if (this.childLazyImages.length) {
-            const self = this;
-            this.childLazyImages.forEach((child) => {
-                const _top = child.offsetTop - this.wrapperOffsetTop + this.y;
+            this.childLazyImages.forEach((img) => this.loadImage(img));
+        }
+    }
 
-                // if (_top >= -child.img.height && _top < self.wrapperHeight) {  // 只有出现在当前可视区域才加载
-                if (_top < self.wrapperHeight) { // 出现在当前可视区域和可视区域上方都加载
-                    child.load(() => {
-                        const _height = child.props.style && child.props.style.height ? child.props.style.height : child.props.height;
-                        if (!_height) { // 如果设置了高度，就不再重新刷新
-                            self.refresh();
-                        }
-                    });
+    /**
+     * @method loadImage
+     * @param img LazyImage 实例
+     * @description 判断并决定是否加载 LazyImage
+     */
+    loadImage(img) {
+        const self = this;
+        const _top = img.offsetTop - this.wrapperOffsetTop + this.y;
+        if (_top < self.wrapperHeight) { // 出现在当前可视区域和可视区域上方都加载
+            img.load(() => {
+                const _height = img.props.style && img.props.style.height ? img.props.style.height : img.props.height;
+                if (!_height) { // 如果设置了高度，就不再重新刷新
+                    self.refresh();
                 }
             });
         }
@@ -1255,6 +1262,16 @@ export default class Scroller extends Component {
     }
 
     /**
+     * @method resetLoadStatus
+     * @param {Bool} hasLoadMore 是否能够加载更多，如果传入false，加载更多区域的文字将会变成 没有更多了，并且继续向下滚动时不会触发onLoadMore。
+     * @description 重置加载更多功能。
+     * @version 3.0.7
+     */
+    resetLoadStatus(hasLoadMore) {
+        this._setLoadStatus(hasLoadMore ? LOADSTATUS.PULL : LOADSTATUS.NOMORE);
+    }
+
+    /**
      * @method startRefreshing
      * @param {Number} [time] 滚动到顶部的时间，默认为 300ms
      * @description 强制开始刷新。这个方法一般是用在切换筛选项或者关键字等场景，来达到回到顶部并且开始刷新的效果。如果是用户下拉触发 `onRefresh` 时，就不需要再调用这个方法了。
@@ -1404,6 +1421,9 @@ export default class Scroller extends Component {
         let _wrapperClassName = classNames('yo-scroller', extraClass);
         let _scrollerClassName = classNames('scroller', containerExtraClass);
 
+        // 兼容 Qreact
+        const theOnlyChild = getOnlyChild(this.props);
+
         if (this.noWrapper) { // 1. 不需要滚动容器（只适用于特殊的、内容的宽高已知的情况）
             scrollerContent = React.cloneElement(this.props.children, {
                 ref: 'scroller',
@@ -1413,18 +1433,18 @@ export default class Scroller extends Component {
                 onTouchCancel: (evt) => this._handleTouchEnd(evt),
                 onTransitionEnd: (evt) => this._handleTransitionEnd(evt)
             });
-        } else if (this.props.children
-            && !this.props.children.length
-            && typeof this.props.children.type === 'string'
+        // 兼容 Qreact
+        } else if (theOnlyChild
+            && typeof theOnlyChild.type === 'string'
             && !this.state.usePullRefresh
             && !this.state.useLoadMore) { // 2. 将内容的最外层节点当做滚动容器
-            if (this.props.children.props && this.props.children.props.className) {
-                _scrollerClassName = classNames('scroller', this.props.children.props.className);
+            if (theOnlyChild.props && theOnlyChild.props.className) {
+                _scrollerClassName = classNames('scroller', theOnlyChild.props.className);
             } else {
                 _scrollerClassName = 'scroller';
             }
 
-            let content = React.cloneElement(this.props.children, {
+            let content = React.cloneElement(theOnlyChild, {
                 ref: 'scroller',
                 className: _scrollerClassName,
                 style: scrollerStyle

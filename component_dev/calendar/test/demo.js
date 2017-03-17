@@ -13,7 +13,9 @@ class CalendarDemo extends Component {
     constructor() {
         super();
         this.state = {
-            duration: ['2017-03-01', '2018-05-01']
+            duration: ['2017-01-01', '2018-05-01'],
+            selectionStart: '2017-4-14',
+            selectionEnd: '2017-4-20'
         };
     }
 

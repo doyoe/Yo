@@ -16,13 +16,13 @@ export default class ListCore extends ComponentCore {
      * @description 构造函数,会通过调用refresh方法进行初始化
      */
     constructor({
-        dataSource,
-        offsetY = 0,
-        infinite = true,
-        itemHeight,
-        infiniteSize = 12,
-        staticSectionHeight = 0
-    }) {
+                    dataSource,
+                    offsetY = 0,
+                    infinite = true,
+                    itemHeight,
+                    infiniteSize = 12,
+                    staticSectionHeight = 0
+                }) {
         super('list');
         // 静态属性
         // 这些属性不会随着父组件render改变
@@ -52,13 +52,13 @@ export default class ListCore extends ComponentCore {
      * 可以根据props初始化/重置组件的状态
      */
     refresh({
-        dataSource = this.dataSource,
-        refreshAll = false,
-        infiniteSize = this.visibleSize,
-        staticSectionHeight = this.staticSectionHeight,
-        offsetY = this.offsetY,
-        infinite = this.infinite
-    }) {
+                dataSource = this.dataSource,
+                refreshAll = false,
+                infiniteSize = this.visibleSize,
+                staticSectionHeight = this.staticSectionHeight,
+                offsetY = this.offsetY,
+                infinite = this.infinite
+            }) {
         if (!Array.isArray(dataSource)) {
             if (typeof dataSource.toArray === 'function') {
                 dataSource = dataSource.toArray();
@@ -71,7 +71,7 @@ export default class ListCore extends ComponentCore {
             throw new Error('yo-list: dataSource不能为空数组!');
         }
 
-        this.WINDOW_HEIGHT = window.screen.height;
+        this.WINDOW_HEIGHT = window.screen.height || 736;
         this.infinite = infinite;
         this.VISIBLE_SIZE = infiniteSize;
         this.dataSource = this.renderDataSource(dataSource, refreshAll);
@@ -79,8 +79,8 @@ export default class ListCore extends ComponentCore {
         this.direction = this.getDirection(offsetY);
         this.offsetY = offsetY;
         this.startIndex = this.refreshStartIndexByOffsetY(offsetY);
-        this.visibleList = this.getVisibleList(offsetY);
         this.staticSectionHeight = staticSectionHeight;
+        this.visibleList = this.getVisibleList(offsetY);
         this.totalHeight = this.getTotalHeight();
 
         this.emitChange();
@@ -209,14 +209,13 @@ export default class ListCore extends ComponentCore {
             }
 
             // 区分groupTitle和item，因为groupTitle是组件添加的，不会影响到源数据，所以可以直接在上面增加属性
-            renderedItem = ditem._type !== 'groupTitle' ?
-                {
-                    // srcData指向源数据
-                    srcData: ditem,
-                    key,
-                    _index: i,
-                    _type: 'item'
-                } : Object.assign(ditem, { srcData: ditem, _index: i }); // 这里给title增加了一个指向自己的指针srcData，这是为了兼容其他普通item的数据格式，而不是在使用它的地方做各种判断
+            renderedItem = ditem._type !== 'groupTitle' ? {
+                // srcData指向源数据
+                srcData: ditem,
+                key,
+                _index: i,
+                _type: 'item'
+            } : Object.assign(ditem, { srcData: ditem, _index: i }); // 这里给title增加了一个指向自己的指针srcData，这是为了兼容其他普通item的数据格式，而不是在使用它的地方做各种判断
 
             if (refreshAll) {
                 this.setItemPositionData(renderedItem, { _bottom: null, _translateY: null, _order: null });
@@ -229,11 +228,21 @@ export default class ListCore extends ComponentCore {
 
             const itemHeight = this.getAttr(ditem, 'height');
             const noHeightIdentified = this.itemHeight == null && itemHeight == null && itemPosData.height == null;
+
+            let mergedItemHeight = null;
+            if (itemHeight != null) {
+                mergedItemHeight = itemHeight;
+            } else if (itemPosData.height != null) {
+                mergedItemHeight = itemPosData.height;
+            } else {
+                mergedItemHeight = this.itemHeight;
+            }
+
             if (this.infinite) {
                 // 设置height,_order,_resolved和_index
                 // 如果这个item具有高度,则直接设为resolved
                 this.setItemPositionData(renderedItem, {
-                    height: itemHeight || itemPosData.height || this.itemHeight,
+                    height: mergedItemHeight,
                     _order: i % this.VISIBLE_SIZE,
                     _resolved: this.infinite && !noHeightIdentified,
                     _index: i

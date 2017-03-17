@@ -395,11 +395,6 @@ export default class List extends Component {
             .registerEventHandler('change', (visibleList, totalHeight) => {
                 this.setState({ visibleList, totalHeight });
                 this.props.onInfiniteAppend(visibleList, totalHeight);
-            })
-            .registerEventHandler('scrollTo', (offsetY, time, easing) => {
-                if (this.scroller) {
-                    this.scroller.scrollTo(0, offsetY, time, easing);
-                }
             });
     }
 
@@ -518,7 +513,17 @@ export default class List extends Component {
      * @description 刷新列表,应该在列表容器高度发生改变时调用
      */
     refresh() {
-        this.scroller.refresh({ scrollerHeight: this.state.totalHeight });
+        this.scroller.refresh(this.props.infinite ? { scrollerHeight: this.state.totalHeight } : {});
+    }
+
+    /**
+     * @method resetLoadStatus
+     * @param {Bool} hasLoadMore 是否能够加载更多，如果传入false，加载更多区域的文字将会变成 没有更多了，并且继续向下滚动时不会触发onLoadMore。
+     * @description 重置加载更多功能。
+     * @version 3.0.7
+     */
+    resetLoadStatus(hasLoadMore) {
+        this.scroller.resetLoadStatus(hasLoadMore);
     }
 
     /**
@@ -570,20 +575,31 @@ export default class List extends Component {
     tryLoadLazyImages(y) {
         y = y - this.listModel.staticSectionHeight;
         if (this.childLazyImages.length && this.scroller) {
-            this.childLazyImages.forEach((child) => {
-                const containerBottomY = y + this.scroller.wrapperHeight;
-                if (this.listModel.infinite) {
-                    if (containerBottomY > child.itemRef.translateY) {
-                        child.load();
-                    }
-                } else if (child.loading !== 2) {
-                    const listItemDom = child.itemRef.domNode;
-                    const offsetTop = listItemDom.offsetTop;
-                    if (listItemDom && containerBottomY > offsetTop) {
-                        child.load();
-                    }
+            this.childLazyImages.forEach((img) => this.loadImage(img, y));
+        }
+    }
+
+    /**
+     * @skip
+     * @method loadImage
+     * @param img LazyImage 实例
+     * @description 判断并决定是否加载 LazyImage
+     */
+    loadImage(img, y) {
+        if (this.scroller) {
+            if (y === undefined) y = this.listModel.offsetY;
+            const containerBottomY = y + this.scroller.wrapperHeight;
+            if (this.listModel.infinite) {
+                if (containerBottomY > img.itemRef.translateY) {
+                    img.load();
                 }
-            });
+            } else if (img.loading !== 2) {
+                const listItemDom = img.itemRef.domNode;
+                const offsetTop = listItemDom.offsetTop;
+                if (listItemDom && containerBottomY > offsetTop) {
+                    img.load();
+                }
+            }
         }
     }
 
@@ -711,30 +727,27 @@ export default class List extends Component {
                 }}
                 enableLazyLoad={false}
             >
-                {this.props.staticSection != null ?
-                    <div
-                        ref={dom => {
-                            if (dom) {
-                                this.staticSectionContaienr = dom;
-                            }
-                        }}
-                        className="yo-list-static-section"
-                    >
-                        {this.props.staticSection}
-                    </div> : null}
+                {this.props.staticSection != null ? <div
+                    ref={dom => {
+                        if (dom) {
+                            this.staticSectionContaienr = dom;
+                        }
+                    }}
+                    className="yo-list-static-section"
+                >
+                    {this.props.staticSection}
+                </div> : null}
                 <ul
                     className={containerClass}
                     ref={(dom) => {
                         this.listContainer = dom;
                     }}
                 >
-                    {infinite ?
-                        // 无穷列表模式,在列表容器内设置固定数目的槽,随着滚动不停更新这些槽内部的内容和translateY
+                    {infinite ? // 无穷列表模式,在列表容器内设置固定数目的槽,随着滚动不停更新这些槽内部的内容和translateY
                         getArrayByLength(infiniteSize).fill(1).map((__, i) => {
                             const item = visibleList.find((it) => it._order === i);
                             return item ? this.renderItemWrap(item, i) : null;
-                        }) :
-                        // 静态列表,渲染出所有的item
+                        }) : // 静态列表,渲染出所有的item
                         visibleList.map((item, i) =>
                             this.renderItemWrap(item, i)
                         )}

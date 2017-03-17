@@ -69,7 +69,7 @@ const utils = (() => {
             duration;
         const speed = Math.abs(distance) / time;
 
-        deceleration = deceleration === undefined ? 0.0006 : deceleration;
+        deceleration = deceleration === undefined ? 0.0015 : deceleration;
 
         destination = current + (speed * speed) / (2 * deceleration) * (distance < 0 ? -1 : 1);
         duration = speed / deceleration;

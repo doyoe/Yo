@@ -62,3 +62,21 @@ export function inheritProps(props, attrs) {
         return ret;
     }, {});
 }
+
+/**
+ * @method getOnlyChild
+ * @return vnode|false
+ * @description 判断虚拟节点是否只拥有一个子节点，取代针对原生 React 的 !children.length，以支持 Qreact
+ * In React : vnode.children = {xxx}
+ * In Qreact: vnode.children = [{xxx}]
+ */
+export function getOnlyChild(props) {
+    const children = props.children;
+    if (children) {
+        // for React
+        if (!children.length) return children;
+        // for Qreact
+        if (children.length === 1) return children[0];
+    }
+    return false;
+}

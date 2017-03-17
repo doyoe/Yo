@@ -1,11 +1,13 @@
 @charset "utf-8";
 @import "../core/reset";
 
+// Layout(4)
 @import "../../lib/layout/yo-align";
 @import "../../lib/layout/yo-column";
 @import "../../lib/layout/yo-flex";
 @import "../../lib/layout/yo-root";
 
+// Element(7)
 @import "../../lib/element/yo-badge";
 @import "../../lib/element/yo-btn";
 @import "../../lib/element/yo-checked";
@@ -14,6 +16,7 @@
 @import "../../lib/element/yo-range";
 @import "../../lib/element/yo-switch";
 
+// Fragment(24)
 @import "../../lib/fragment/yo-actionsheet";
 @import "../../lib/fragment/yo-breadcrumb";
 @import "../../lib/fragment/yo-calendar";
@@ -34,6 +37,7 @@
 @import "../../lib/fragment/yo-suggest";
 @import "../../lib/fragment/yo-tab";
 @import "../../lib/fragment/yo-table";
+@import "../../lib/fragment/yo-timeline";
 @import "../../lib/fragment/yo-toolbar";
 @import "../../lib/fragment/yo-toast";
 @import "../../lib/fragment/yo-vcode";

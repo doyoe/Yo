@@ -57,7 +57,7 @@
         </Touchable>
         <p className="comment-detail ellipsis">北京长城脚下的公社</p>
         <div className="tags ellipsis">
-            度假&nbsp;/&nbsp;亲子&nbsp;/&nbsp;浪漫&nbsp;/&nbsp;美景&nbsp;/&nbsp;格调
+            度假 / 亲子 / 浪漫 / 美景 / 格调
         </div>
     </div>
 </Touchable>
@@ -76,32 +76,32 @@ class TouchableDemo extends Component {
             <Page title="Touchable Demo" onLeftPress={() => {
                 location.href = '../index/index.html';
             }}>
-                <Scroller style={{ background: 'white', position: 'absolute', top: 0, bottom: 0, width: '100%' }}>
+                <Scroller extraClass="yo-scroller-fullscreen">
                     <Touchable onTap={()=> {
                         Toast.show('touchable pressed.');
                     }}>
-                        <div style={{ height: 200, background: 'white' }}>
+                        <div className="demo">
                             这是一个没有任何反馈的Touchable。
                         </div>
                     </Touchable>
                     <Touchable touchClass="touchable-highlight" onTap={()=> {
                         Toast.show('touchable pressed.');
                     }}>
-                        <div style={{ height: 200 }}>
+                        <div className="demo">
                             点击会出现深色背景的Touchable
                         </div>
                     </Touchable>
                     <Touchable touchClass="touchable-opacity" onTap={()=> {
                         Toast.show('touchable pressed.');
                     }}>
-                        <div style={{ height: 200 }}>
+                        <div className="demo">
                             点击后透明度变为0.7的Touchable
                         </div>
                     </Touchable>
                     <Touchable touchClass="touchable-opacity touchable-highlight" onTap={()=> {
                         Toast.show('touchable pressed.');
                     }}>
-                        <div style={{ height: 200 }}>
+                        <div className="demo">
                             同时具有以上两种效果的Touchable
                         </div>
                     </Touchable>

@@ -252,6 +252,13 @@
     $table: $_table !global;
 }
 
+// 合并variables和config中的timeline map
+@if global-variable-exists(timeline) {
+    $timeline: map-merge($_timeline, $timeline) !global;
+} @else {
+    $timeline: $_timeline !global;
+}
+
 // 合并variables和config中的toolbar map
 @if global-variable-exists(toolbar) {
     $toolbar: map-merge($_toolbar, $toolbar) !global;

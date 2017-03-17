@@ -39,7 +39,7 @@ exports.config = function () {
         config.context = './';
         var plugin = new webpack.DefinePlugin({
             'process.env': {
-                NODE_ENV: JSON.stringify('production')
+                NODE_ENV: JSON.stringify('dev')
             }
         });
         config.plugins.push(plugin);

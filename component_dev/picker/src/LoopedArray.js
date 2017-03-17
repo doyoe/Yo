@@ -46,23 +46,6 @@ export default class LoopedArray {
     }
 
     /**
-     * 循环数组右折叠(无法进行左折叠)
-     * @param rightIndex
-     * @param operation
-     * @param acc
-     * @returns {acc}
-     */
-    reduceRight(rightIndex, operation, acc) {
-        let ret = null;
-        if (rightIndex === 0) {
-            ret = operation(this.getItem(0), acc);
-        } else {
-            ret = this.reduceRight(rightIndex - 1, operation, operation(this.getItem(rightIndex), acc));
-        }
-        return ret;
-    }
-
-    /**
      * 循环数组filter,返回一个数组
      * @param prediction
      * @returns {Array}

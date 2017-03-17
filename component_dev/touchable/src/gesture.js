@@ -64,12 +64,15 @@ let startPoint,
     shouldAbortTap;
 let captured = null;
 
-export default function (component,
-                         scroller,
-                         swipeMenuList,
-                         activeClass,
-                         onTap,
-                         onTouchStart) {
+export default function ({
+    component,
+    scroller,
+    swipeMenuList,
+    activeClass,
+    onTap,
+    onTouchStart,
+    disabled
+}) {
     const gestureObj = {
         onTouchStart(evt) {
             const domNode = ReactDOM.findDOMNode(component);
@@ -84,7 +87,7 @@ export default function (component,
             // TAP_DELAY之后再次判断是否要触发Tap,如果这段时间内出现了大的位移,if后面的逻辑就不会执行
             setTimeout(() => {
                 const className = activeClass;
-                if (!shouldAbortTap && className && captured === domNode) {
+                if (!shouldAbortTap && className && captured === domNode && !disabled) {
                     domNode.className += ` ${className}`;
                 }
             }, TAP_DELAY);
@@ -105,7 +108,9 @@ export default function (component,
             // 如果需要触发tap,在TAP_DELAY之后触发onTap回调
             if (!shouldAbortTap && captured === domNode) {
                 setTimeout(() => {
-                    onTap(target);
+                    if (!disabled) {
+                        onTap(target);
+                    }
                     removeActiveClass(domNode, activeClass);
                     captured = null;
                 }, TAP_DELAY + 10);

@@ -44,17 +44,6 @@ const isWeekend = (dayNum, firstDay) => {
 };
 
 /**
- * format 格式化日期 eg: 2016-08-09
- * @param date {Date}
- * @returns {string}
- */
-const format = date => [
-    date.getFullYear(),
-    convert2digit(date.getMonth() + 1),
-    convert2digit(date.getDate())
-].join('-');
-
-/**
  * onlyFormatMonth 仅格式化月，eg: 2016-08-9
  * @param date {Date}
  */
@@ -145,6 +134,7 @@ export default class CalendarCore extends ComponentCore {
         this.beforeToday = true; // beginDate是否在today之前
         this.isRender = false;
         this.allowSingle = false; // 是否尽允许选择单日情况
+        this.groupKey = null; // 入店日期所在的月份分组的key, eg: '2017年10月'
     }
 
     /**
@@ -185,8 +175,16 @@ export default class CalendarCore extends ComponentCore {
      */
     isToday(year, month, day) {
         const tempDate = new Date();
+        if (!this.checkIn) this.groupKey = formatMonthChinese(year, month);
         this.hasToday = tempDate.getFullYear() === parseFloat(year) && (tempDate.getMonth() + 1) === parseFloat(month) && tempDate.getDate() === parseFloat(day);
         return this.hasToday;
+    }
+
+    /**
+     * 获取 checkIn 入店日期所在的月份分组的key
+     */
+    getGroupKey() {
+        return this.groupKey;
     }
 
     /**
@@ -197,7 +195,7 @@ export default class CalendarCore extends ComponentCore {
      * @param allowSingle {Boolean} 允许单选
      * @returns {Array}
      */
-    getData({ duration, selectionStart, selectionEnd, allowSingle }) {
+    getData({ duration = 90, selectionStart = '', selectionEnd = '', allowSingle }) {
         let beginDate = '';
         let endDate = '';
         const todayDate = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
@@ -328,6 +326,7 @@ export default class CalendarCore extends ComponentCore {
                 if (!compareIn) {
                     this.checkIn = itemDayObj;
                     itemDayObj.isCheckIn = true;
+                    this.groupKey = groupKey;
                 }
                 if ((compareIn > 0 && compareOut < 0) || ((!compareIn || compareOut === 0) && !this.allowSingle)) {
                     itemDayObj.isCheck = true;

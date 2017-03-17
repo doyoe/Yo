@@ -24,7 +24,7 @@ option的btnText属性指定了Alert按钮的文本，例如:
 Alert({
     title:'title',
     content:'content',
-    btnText:['ok!']
+    btnText:'ok!'
 })
 ```
 

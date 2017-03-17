@@ -45,6 +45,28 @@ class CarouselItem extends Component {
          */
         onTap: PropTypes.func,
         /**
+         * @property renderContent
+         * @type Function
+         * @param 图片实例
+         * @description 当所需要的渲染内容不仅仅是一张图片的时候，通过此方法渲染内容，该方法的参数是经过懒加载判断的图片节点。
+         * ** 示例 **
+         * ```
+         *  dataList.map((item, index)=>{
+         *     return (<CarouselItem
+         *         key={index + 1}
+         *         {...item}
+         *         renderContent={(img) => (
+         *             <div className="unit">
+         *                 {img}
+         *                 <span>这是第{index}张图片</span>
+         *             </div>
+         *         )}
+         *     ></CarouselItem>);
+         * };
+         * ```
+         */
+        renderContent: PropTypes.func,
+        /**
          * @property extraClass
          * @type String
          * @description 为组件根节点提供额外的class。
@@ -95,7 +117,7 @@ class CarouselItem extends Component {
     }
 
     componentWillMount() {
-        this.lazyload(this.props);
+        this.lazyload(this.context.currentPage);
     }
     shouldComponentUpdate(nextProps, nextState, nextContext) {
         const propsChange = shallowCompare(this, nextProps, nextState);
@@ -182,7 +204,7 @@ class CarouselItem extends Component {
         classList = classnames('item', activeClass);
         return (
             <li className={classList} style={this.props.style} onTouchTap={this.handleTap} >
-                {img}
+                {this.props.renderContent ? this.props.renderContent(img) : img}
             </li>
         );
     }

@@ -503,7 +503,40 @@
     okBtn<span class="token punctuation">:</span> <span class="token punctuation">{</span> text<span class="token punctuation">:</span> <span class="token string">'OK'</span><span class="token punctuation">,</span> touchClass<span class="token punctuation">:</span> <span class="token string">'myTouchClass'</span> <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">}</span>
 </code></pre>
-
+<h4 id="-picker">多列Picker</h4>
+<p>如果你给 <code>options</code> 属性传入一个二维数组，例如：</p>
+<pre><code><span class="token keyword">const</span> options <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span> value<span class="token punctuation">:</span> <span class="token string">'javascript'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span> value<span class="token punctuation">:</span> <span class="token string">'java'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span> value<span class="token punctuation">:</span> <span class="token string">'c++'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span> value<span class="token punctuation">:</span> <span class="token string">'haskell'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span> value<span class="token punctuation">:</span> <span class="token string">'scheme'</span> <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span> value<span class="token punctuation">:</span> <span class="token string">'functional'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span> value<span class="token punctuation">:</span> <span class="token string">'imperative'</span> <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre><p>这时候 <code>PopupPicker</code> 将会变成一个多列的 <code>Picker</code>：</p>
+<pre><code><span class="token operator">&lt;</span>PopupPicker
+    <span class="token comment" spellcheck="true">// value可以为null或者传入一个数组，对应每一列picker的取值</span>
+    value<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value<span class="token punctuation">}</span>
+    onChange<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 你接收到的value将会是一个数组，包含了每一列picker的值</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> value <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">// 以下这些属性都不变</span>
+    duration<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">200</span><span class="token punctuation">}</span>
+    options<span class="token operator">=</span><span class="token punctuation">{</span>options<span class="token punctuation">}</span>
+    pickerHeight<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">150</span><span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">// looped和unit现在也支持传入数组以定制每一列picker的对应属性，如果传入单个值，则会被应用于所有的picker上</span>
+    looped<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span><span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+    unit<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span><span class="token string">'language'</span><span class="token punctuation">,</span> <span class="token string">'paradigm'</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+<span class="token operator">></span>
+    <span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">renderField</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">}</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>PopupPicker</span><span class="token punctuation">></span></span>
+</code></pre>
             </div>
             
             
@@ -544,13 +577,15 @@
 <blockquote class="api">
     <h3>
     <strong>value</strong>
-     <span class="prop-type">{ Number/String }</span>
+     <span class="prop-type">{ Number/String/Array <Number, String> }</span>
     
     </h3>
 </blockquote>
 <div class="api-content">
     <div><p>组件的value，参考网页<code>select</code>标签的 value 属性。</p>
 <p>value 是一个严格受控属性，只能通过的父组件改变，你需要设置 onChange 属性来控制 value 属性的变化。</p>
+<p>在开启了多列模式的情况下（通过设置options属性为一个二维数组），这个属性也应该相应地传入一个数组，每个元素对应着该列的value。
+如果value数组和options数组的length不相等，那么空缺的value会被设为null。</p>
 </div>
     
 </div>
@@ -600,7 +635,7 @@
         <tr>
             <td>value</td>
             <td></td>
-            <td>当前的 option 的 value</td>
+            <td>当前的 option 的 value，如果开启了多列模式，那么返回值将是一个包含了每一列value的数组。</td>
             <!-- <td>
                 
                 <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
@@ -616,14 +651,15 @@
 <blockquote class="api">
     <h3>
     <strong>options</strong>
-     <span class="prop-type">{ Array }</span>
+     <span class="prop-type">{ Array/Array <Array> }</span>
     
     </h3>
 </blockquote>
 <div class="api-content">
     <div><p><code>Picker</code>组件的 options 属性。数组形式，元素的格式为<code>{text:string,value:string}</code>，</p>
 <p>text 为 option 显示的文本，value 为 option 对应的真实值（参考网页 option 标签），</p>
-<p>text 的缺省值为 value，value 必须传入，且只能为字符串/数字类型</p>
+<p>text 的缺省值为 value，value 必须传入，且只能为字符串/数字类型。</p>
+<p>如果你传入一个二维数组，那么PopupPicker将会是一个多列的Picker，二维数组的每一个子数组将会作为对应列的option。</p>
 </div>
     
 </div>
@@ -709,7 +745,9 @@ cancelBtn: { text: '取消', touchClass: 'action-touch' }
     </h3>
 </blockquote>
 <div class="api-content">
-    <div><p><code>Picker</code>组件的 looped 属性。是否采用循环模式，默认为 true</p>
+    <div><p><code>Picker</code>组件的 looped 属性。是否采用循环模式，默认为 true。</p>
+<p>这个属性可以接收两种形式的参数，如果你传入Bool类型，那么将会应用于所有的列上（如果你使用了多列的Picker）。
+如果传入一个数组，那么可以针对每一列的Picker分别定义。</p>
 </div>
     
 </div>
@@ -724,12 +762,14 @@ cancelBtn: { text: '取消', touchClass: 'action-touch' }
 <blockquote class="api">
     <h3>
     <strong>unit</strong>
-     <span class="prop-type">{ Number }</span>
+     <span class="prop-type">{ Number/String/Array }</span>
     
     </h3>
 </blockquote>
 <div class="api-content">
     <div><p><code>Picker</code>组件的 unit 属性。显示在 picker 右侧的单位。</p>
+<p>这个属性可以接收两种形式的参数，如果你传入Number或者String类型，那么将会应用于所有的列上（如果你使用了多列的Picker）。
+如果传入一个数组，那么可以针对每一列的Picker分别定义。</p>
 </div>
     
 </div>

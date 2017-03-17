@@ -10,7 +10,7 @@
 // 基本设置
 $_setting: (
     // {String} 版本号
-    version:             "3.0.5",
+    version:             "3.0.7",
     // {Boolean} 是否开启厂商前缀
     is-vendor-prefix:    true,
     // {String} 厂商前缀
@@ -689,6 +689,34 @@ $_table: (
     touch-bgcolor:       null,
     // {Color} 表主体选中行背景色
     on-bgcolor:          null
+);
+
+// Fragment timeline(12)
+$_timeline: (
+    // {Length} timeline元件内边距
+    padding:            .1rem,
+    // {Length} item底部间距
+    item-padding:       0 0 .1rem,
+    // {Length} 时间区域宽度
+    side-width:         .5rem,
+    // {Length} 时间区域右侧内边距
+    side-padding:       0 .1rem 0 0,
+    // {Length} 时间区域右侧外边距
+    side-margin:        0 .15rem 0 0,
+    // {Color} 时间区域文本色
+    side-color:         #666,
+    // {Length} 时间轴上的关键帧顶部偏移距离
+    point-top:          .08rem,
+    // {Length} 时间轴上的关键帧尺寸大小
+    point-size:         .05rem,
+    // {Length} 时间轴上的关键帧边框厚度
+    point-border-width: 1px,
+    // {Color} 时间轴上的关键帧边框色
+    point-border-color: #999,
+    // {Color} 时间轴线条边框厚度
+    border-width:       1px,
+    // {Length} 时间轴线条边框色
+    border-color:       #ddd
 );
 
 // Fragment toolbar(11)

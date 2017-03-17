@@ -30,6 +30,14 @@ export default class Touchable extends Component {
          */
         onTap: PropTypes.func,
         /**
+         * @property disabled
+         * @type Bool
+         * @default false
+         * @description Touchable是否处于可点击状态，如果设为true，那么onTap事件回调和触摸反馈效果都不可用。
+         * @version 3.0.7
+         */
+        disabled: PropTypes.bool,
+        /**
          * @skip 给List定制的属性
          */
         onTouchStart: PropTypes.func,
@@ -46,7 +54,8 @@ export default class Touchable extends Component {
         touchClass: null,
         onTap: () => {
         },
-        internalUse: false
+        internalUse: false,
+        disabled: false
     };
 
     static contextTypes = {
@@ -62,14 +71,15 @@ export default class Touchable extends Component {
         }
 
         const onlyChild = React.Children.only(this.props.children);
-        const gestureObj = gesture(
-            this,
-            this.context.scroller,
-            this.context.swipeMenuList,
-            this.props.touchClass,
-            this.props.onTap,
-            this.props.onTouchStart
-        );
+        const gestureObj = gesture({
+            component: this,
+            scroller: this.context.scroller,
+            swipeMenuList: this.context.swipeMenuList,
+            activeClass: this.props.touchClass,
+            onTap: this.props.onTap,
+            onTouchStart: this.props.onTouchStart,
+            disabled: this.props.disabled
+        });
         const { onTouchStart, onTouchMove, onTouchEnd, onTouchCancel } = gestureObj;
 
         return React.cloneElement(onlyChild, { onTouchStart, onTouchMove, onTouchEnd, onTouchCancel });

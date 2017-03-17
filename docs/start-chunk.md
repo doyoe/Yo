@@ -150,3 +150,22 @@ import Index from './routes/Index'
 **注意** 在异步配置首页路由时，需要传入一个路由对象，而配置子路由时，需要传入一个数组对象。
 
 目前在这种场景下我们还没有提供更方便的语法糖配置，在后续的版本中我们会加入便捷的配置方式。
+
+#### 配置publicPath
+
+目前所有chunk默认的publicPath都是q.qunarzz.com，因此如果想正常访问你的本地项目，需要配置一条host：q.qunarzz.com 127.0.0.1。
+
+如果你不希望使用q.qunarzz.com作为publicPath，你可以在 `ykit.yo.js` 中修改它的配置，如下：
+
+```
+modifyWebpackConfig: function (config) {
+    ...
+    // 修改dev环境下的publicPath
+    config.output.dev.publicPath = "//dev.touch.travelfe.qunar.com/travel_hy2/prd/";
+    // 修改prd环境下的publicPath
+    config.output.prd.publicPath = "//gofe.beta.qunar.com/travel_hy2/prd/";
+    // 修改本地环境下的publicPath
+    config.output.local.publicPath = "//q.qunarzz.com/travel_hy2/prd/";
+    return config;
+}
+```

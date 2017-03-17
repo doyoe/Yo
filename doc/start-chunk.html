@@ -160,6 +160,15 @@
                         </li>
                         
                         
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="start-size.html">附录五：Yo 的体积</a>
+                            
+                        </li>
+                        
+                        
                     </ul>
                   </nav>
               </div>
@@ -262,7 +271,19 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 <p>这样可以保证整个页面的子路由结构都是异步载入的，可以在具体的页面内部再进行路由的配置。</p>
 <p><strong>注意</strong> 在异步配置首页路由时，需要传入一个路由对象，而配置子路由时，需要传入一个数组对象。</p>
 <p>目前在这种场景下我们还没有提供更方便的语法糖配置，在后续的版本中我们会加入便捷的配置方式。</p>
-
+<h4 id="配置publicPath">配置publicPath</h4><p>目前所有chunk默认的publicPath都是q.qunarzz.com，因此如果想正常访问你的本地项目，需要配置一条host：q.qunarzz.com 127.0.0.1。</p>
+<p>如果你不希望使用q.qunarzz.com作为publicPath，你可以在 <code>ykit.yo.js</code> 中修改它的配置，如下：</p>
+<pre><code>modifyWebpackConfig<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>config<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token operator">...</span>
+    <span class="token comment" spellcheck="true">// 修改dev环境下的publicPath</span>
+    config<span class="token punctuation">.</span>output<span class="token punctuation">.</span>dev<span class="token punctuation">.</span>publicPath <span class="token operator">=</span> <span class="token string">"//dev.touch.travelfe.qunar.com/travel_hy2/prd/"</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 修改prd环境下的publicPath</span>
+    config<span class="token punctuation">.</span>output<span class="token punctuation">.</span>prd<span class="token punctuation">.</span>publicPath <span class="token operator">=</span> <span class="token string">"//gofe.beta.qunar.com/travel_hy2/prd/"</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 修改本地环境下的publicPath</span>
+    config<span class="token punctuation">.</span>output<span class="token punctuation">.</span>local<span class="token punctuation">.</span>publicPath <span class="token operator">=</span> <span class="token string">"//q.qunarzz.com/travel_hy2/prd/"</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> config<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
               </div>
           </div>
           

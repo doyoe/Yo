@@ -12,7 +12,7 @@
  * @author qingguo.xu
  */
 import '../../common/tapEventPluginInit.js';
-import Drag, { setTransform } from '../../common/drag.js';
+import Drag, { setTransform } from './drag.js';
 import React, { Component, PropTypes, isValidElement } from 'react';
 import classNames from 'classnames';
 import './style.scss';

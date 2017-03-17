@@ -127,6 +127,9 @@ export default class extends Component {
         const scroller = this.context.list || this.context.scroller;
         if (scroller) {
             scroller.childLazyImages.push(this);
+            if (scroller.loadImage) {
+                scroller.loadImage(this);
+            }
         }
     }
 
@@ -165,10 +168,13 @@ export default class extends Component {
             const { src } = this.props,
                 tmpImg = new Image();
             this.loading = LOADING;
+            this.loadingSrc = src;
             tmpImg.onload = () => {
                 // 在lazyimage正在加载时组件unmount(主要是在SPA模式下有可能发生关闭view的情况)会报错
                 // 因此这里需要简单判断一下组件的实例是否还存在
-                if (this && this.canLoadImage) {
+                // bugfix: 在网速不稳定的情况下，有可能这个lazyimage加载的图片比之前加载的图片更晚下载完
+                // 这个时候会引起加载图片错乱的问题，因此需要再加一个判断
+                if (this && this.canLoadImage && this.loadingSrc === this.props.src) {
                     this.loading = LOADED;
                     this.setState({ src, loaded: true });
                     if (callback) {
@@ -182,8 +188,6 @@ export default class extends Component {
 
     render() {
         const { height, style, customAttr } = this.props;
-        // 解决和touchable组件结合使用的问题，必须能够接收这四个属性
-
         if (this.context.list) {
             if (height == null && style.height == null) {
                 throw Error('yo-lazyimage: 在List组件中使用LazyImage必须指定图片的高度。');

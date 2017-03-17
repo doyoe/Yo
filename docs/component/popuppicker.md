@@ -80,3 +80,44 @@ popupHeader={{
     okBtn: { text: 'OK', touchClass: 'myTouchClass' }
 }}
 ```
+
+#### 多列Picker
+如果你给 `options` 属性传入一个二维数组，例如：
+
+```
+const options = [
+    [
+        { value: 'javascript' },
+        { value: 'java' },
+        { value: 'c++' },
+        { value: 'haskell' },
+        { value: 'scheme' }
+    ],
+    [
+        { value: 'functional' },
+        { value: 'imperative' }
+    ]
+];
+```
+
+这时候 `PopupPicker` 将会变成一个多列的 `Picker`：
+
+```
+<PopupPicker
+    // value可以为null或者传入一个数组，对应每一列picker的取值
+    value={this.state.value}
+    onChange={(value) => {
+        // 你接收到的value将会是一个数组，包含了每一列picker的值
+        this.setState({ value });
+    }}
+    // 以下这些属性都不变
+    duration={200}
+    options={options}
+    pickerHeight={150}
+    // looped和unit现在也支持传入数组以定制每一列picker的对应属性，如果传入单个值，则会被应用于所有的picker上
+    looped={[true, false]}
+    unit={['language', 'paradigm']}
+>
+    {this.renderField(this.state.value)}
+</PopupPicker>
+```
