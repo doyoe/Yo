@@ -795,36 +795,13 @@
     </h3>
 </blockquote>
 <div class="api-content">
-    <div><p>在所有列表项之上渲染的一块静态区域，在开启Infinite模式时，这块区域不会参与列表项的回收复用。
-注意：在设置staticSection以后，你还必须设置staticSectionHeight属性指定它的高度。</p>
+    <div><p>在所有列表项之上渲染的一块静态区域，在开启Infinite模式时，这块区域不会参与列表项的回收复用。</p>
 </div>
     
 </div>
 
 <p class="api-content">
     <small class="text-muted">默认值:</small> null
-</p>
-
-
-
-
-<blockquote class="api">
-    <h3>
-    <strong>staticSectionHeight</strong>
-     <span class="prop-type">{ Number }</span>
-    
-    <span class="yo-badge yo-badge-danger">3.0.3</span>
-    
-    </h3>
-</blockquote>
-<div class="api-content">
-    <div><p>静态区域的高度，在设置了staticSection以后必须为它指定一个高度。</p>
-</div>
-    
-</div>
-
-<p class="api-content">
-    <small class="text-muted">默认值:</small> 0
 </p>
 
 
@@ -1476,6 +1453,24 @@
 
 <blockquote class="api">
     <h3>
+    <strong>deceleration</strong>
+     <span class="prop-type">{ Number }</span>
+    
+    <span class="yo-badge yo-badge-danger">3.0.6</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>滚动视图开始惯性滚动时减速的加速度，默认为0.010。</p>
+</div>
+    
+</div>
+
+
+
+
+<blockquote class="api">
+    <h3>
     <strong>onMenuOpen</strong>
      <span class="prop-type">{ Function }</span>
     
@@ -1635,9 +1630,94 @@
 
 
 
+<blockquote class="api">
+    <h3>
+    <strong>stickyOffset</strong>
+     <span class="prop-type">{ Number }</span>
+    
+    <span class="yo-badge yo-badge-danger">3.0.6</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>给staticSection内部吸顶容器设置的y轴偏移。</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> 0
+</p>
+
+
+
+
 
 
 <div class="con-head">方法</div>
+
+<blockquote class="api">
+    <h3>
+    <strong>refresh</strong>
+    
+    <span class="yo-badge yo-badge-danger">3.0.6</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content"><p>在GroupList容器尺寸发生变化时调用，刷新内部的Scroller组件。</p>
+</div>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>resetLoadStatus</strong>
+    
+    <span class="yo-badge yo-badge-danger">3.0.7</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content"><p>重置加载更多功能。</p>
+</div>
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <col class="c4">
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <th>必选</th>
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>hasLoadMore</td>
+            <td>Bool</td>
+            <td>是否能够加载更多，如果传入false，加载更多区域的文字将会变成 没有更多了，并且继续向下滚动时不会触发onLoadMore。</td>
+            <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td>
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
+
+
+
 
 <blockquote class="api">
     <h3>

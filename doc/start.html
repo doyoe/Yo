@@ -160,6 +160,15 @@
                         </li>
                         
                         
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="start-size.html">附录五：Yo 的体积</a>
+                            
+                        </li>
+                        
+                        
                     </ul>
                   </nav>
               </div>
@@ -257,7 +266,14 @@
 <li><p>使用方法：具体使用方式请参考 <a href="./component.html">文档和Demo</a>（Demo是可以在页面里玩的哦，请使用Chrome浏览器来查看Demo）。</p>
 </li>
 </ul>
-<h3 id="使用Yo style">使用Yo style</h3><p>在样式的使用上，<code>Yo v3</code> 保留了一切之前的特性和用法。</p>
+<p>如果你的 <code>ykit-config-yo</code> 已经升级到 <code>1.1.17</code> 以上的版本，你还可以使用更加便捷的语法糖：</p>
+<pre><code><span class="token keyword">import</span> <span class="token punctuation">{</span> Scroller<span class="token punctuation">,</span> Touchable<span class="token punctuation">,</span> List<span class="token punctuation">,</span> GroupList <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'$yo-component'</span><span class="token punctuation">;</span>
+</code></pre><p>在编译之后这行代码将会被转化为：</p>
+<pre><code><span class="token keyword">import</span> Scroller <span class="token keyword">from</span> <span class="token string">'yo3/component/scroller'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Touchable <span class="token keyword">from</span> <span class="token string">'yo3/component/touchable'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> List <span class="token keyword">from</span> <span class="token string">'yo3/component/list'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> GroupList <span class="token keyword">from</span> <span class="token string">'yo3/component/grouplist'</span><span class="token punctuation">;</span>
+</code></pre><h3 id="使用Yo style">使用Yo style</h3><p>在样式的使用上，<code>Yo v3</code> 保留了一切之前的特性和用法。</p>
 <p>不太一样的是，<code>Yo</code> 的脚手架会在项目工程下生成一个 <code>yo-config</code> 目录，它对应的是以前的 <code>usage</code> 目录。对于 <code>Yo</code> 的所有元件，我们仍然可以在 <code>yo-config</code> 目录下的对应文件中进行扩展，推荐大家在这里扩展全局和通用性的元件，特殊或者单一性的扩展可以放到具体的页面级样式文件中进行。</p>
 <p>同时，<code>Yo</code> 的样式 <code>lib</code> 目录不再直接放在项目工程目录下，而是在项目初始化时被安装到了 <code>node_modules</code> 目录下，规避在业务开发中被修改的可能性，降低升级的风险。</p>
 <p>如果需要在项目中直接引用 <code>lib</code> 中的文件，这样做即可：</p>
