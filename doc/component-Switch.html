@@ -358,6 +358,14 @@
                                 <a href="component-Suggest.html">Suggest</a>
                             </li>
                         
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Loading.html">Loading</a>
+                            </li>
+                        
                         </ul>
                         
                         
@@ -400,7 +408,7 @@
                         
                         
                             <li >
-                                <a href="component-Loading.html">Loading</a>
+                                <a href="component-Loading（API）.html">Loading（API）</a>
                             </li>
                         
                         
@@ -440,8 +448,14 @@
         <div class="instructions-con">
             
             <div class="instructions-con-info">
-            <h4 id="-">基本用法</h4>
-<p>展示一个给用户评分的组件，<code>switch1</code> 属性为当前的评分。由于这是一个受控的组件，所以需要通过<code>onChange</code>回调来设置当前值。</p>
+            <h4 id="-">引用方式</h4>
+<pre><code><span class="token keyword">import</span> <span class="token punctuation">{</span> Switch <span class="token punctuation">}</span> <span class="token keyword">from</span> $yo<span class="token operator">-</span>component<span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖</span>
+<span class="token comment" spellcheck="true">// 你仍然可以通过下面这种方式来引用</span>
+<span class="token keyword">import</span> Switch <span class="token keyword">from</span> <span class="token string">'yo3/component/switch'</span><span class="token punctuation">;</span>
+</code></pre><h4 id="-">基本用法</h4>
+<p>展示一个开关组件，<code>switch1</code> 为当前选中的状态。由于这是一个受控的组件，所以需要通过<code>onChange</code>回调来设置当前值。</p>
 <pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Switch</span>
     <span class="token attr-name">checked</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>switch1<span class="token punctuation">}</span></span>
     <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getValue</span><span class="token punctuation">(</span><span class="token string">'switch1'</span><span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">}</span></span>

@@ -1,35 +1,44 @@
-#### 基本用法：
+#### 引用方式
 
-注意：你需要使用``import {loading} from 'yo3/component/loading'``的方式引入API形式的loading组件。
-因为``import Loading from 'yo3/component/loading'``引入的是标签形式的React组件。
-
-调用`loading.show`和`loading.hide`可以控制组件的显示与隐藏：
-
-```javascript
-import { loading } from 'yo3/component/loading';
-
-loading.show();
-loading.hide();
 ```
-#### 设置遮罩的范围
-设置maskOffset属性可以控制loading的遮罩层的范围，`maskOffset`是一个数组，
-其中第一个元素对应遮罩上边缘距离顶部的距离，而第二个元素对应遮罩下边缘距离底部的距离：
+import { Loading } from $yo-component;
 
-```javascript
-// 这个loading的遮罩没有遮盖住导航条
-loading.show({
-    maskOffset: [44, 0]
-});
+// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖
+// 你仍然可以通过下面这种方式来引用
+import Loading from 'yo3/component/loading';
 ```
 
-#### 扩展用法：
-你还可以通过设置`extraClass`来给`loading`的根节点添加额外的样式类（比如这里改变了遮罩的透明度）。
+注意：
+- `import { loading } from 'yo3/component/loading'` 的方式引入的是 API 形式的 loading 组件；
+- `import Loading from 'yo3/component/loading'` 引入的是标签形式的 React 组件。
 
-设置`text`属性，可以给loading的图标下面添加描述文字：
 
-```javascript
-loading.show({
-    extraClass: 'yo-loading-b',
-    text: 'loading'
-});
+#### 基本用法
+
+Loading 组件会在当前位置渲染出一个加载中的组件。**如果要使用带弹层的 Loading 组件，请直接使用 [Loading(API)](./component-Loading（API）.html)。**
+
+```jsx
+<Loading />
+```
+
+#### 设置文本内容
+
+```jsx
+<Loading text="加载中，请稍等" />
+```
+
+#### 自定义样式
+
+```
+@include yo-loading(
+    $name: smallblue,
+    $ico-size: .2rem,
+    $font-size: .12rem,
+    $ico-color: #00afc7,
+    $color: #00afc7
+);
+```
+
+```jsx
+<Loading text="我是一个小号的" extraClass="yo-loading-smallblue" />
 ```

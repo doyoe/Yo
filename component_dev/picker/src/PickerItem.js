@@ -2,7 +2,6 @@
  * option组件
  */
 import React, { Component, PropTypes } from 'react';
-import '../../common/tapEventPluginInit';
 
 export default class extends Component {
 

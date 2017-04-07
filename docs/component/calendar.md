@@ -1,3 +1,13 @@
+#### 引用方式
+
+```
+import { Calendar } from $yo-component;
+
+// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖
+// 你仍然可以通过下面这种方式来引用
+import Calendar from 'yo3/component/calendar';
+```
+
 #### 基本用法
 最简单用法，默认显示未来90天的可选日期范围，同时选中日期范围的起、始日期可为同一天。
 用户选中范围的起始日期分别是`selectionStart`和`selectionEnd`属性。由于这是一个受控组件，所以需要通过 `onChange` 回调来设置当前值。

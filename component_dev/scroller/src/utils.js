@@ -140,23 +140,12 @@ const utils = (() => {
         transformOrigin: _prefixStyle('transformOrigin')
     });
 
-    me.offset = (el) => {
-        let left = -el.offsetLeft,
-            top = -el.offsetTop;
+    me.preventDefaultException = (el, exceptions) => {
+        const keys = Object.keys(exceptions);
 
-        // jshint -W084
-        while (el = el.offsetParent) {
-            left -= el.offsetLeft;
-            top -= el.offsetTop;
-        }
-        // jshint +W084
-
-        return { left, top };
-    };
-
-    me.preventDefaultException = function (el, exceptions) {
-        for (const i in exceptions) {
-            if (exceptions[i].test(el[i])) {
+        for (let i = 0, len = keys.length; i < len; i++) {
+            const attr = keys[i];
+            if (exceptions[attr].test(el[attr])) {
                 return true;
             }
         }

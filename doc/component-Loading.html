@@ -302,7 +302,7 @@
                         
                         
                         
-                        <!-- <li  > -->
+                        <!-- <li   class="active" > -->
                         <li >
                             
                             <a href="javascript:void(0);">其他</a>
@@ -312,7 +312,7 @@
                         
                         
                         
-                        <ul class="nav docs-sidenav-extend"  >
+                        <ul class="nav docs-sidenav-extend"    style="display:block;" >
                         
                             <li >
                                 <a href="component-Calendar.html">Calendar</a>
@@ -358,12 +358,20 @@
                                 <a href="component-Suggest.html">Suggest</a>
                             </li>
                         
+                        
+                        
+                        
+                        
+                            <li  class="active" >
+                                <a href="component-Loading.html">Loading</a>
+                            </li>
+                        
                         </ul>
                         
                         
                         
                         
-                        <!-- <li   class="active" > -->
+                        <!-- <li  > -->
                         <li >
                             
                             <a href="javascript:void(0);">API</a>
@@ -373,7 +381,7 @@
                         
                         
                         
-                        <ul class="nav docs-sidenav-extend"    style="display:block;" >
+                        <ul class="nav docs-sidenav-extend"  >
                         
                             <li >
                                 <a href="component-ActionSheet.html">ActionSheet</a>
@@ -399,8 +407,8 @@
                         
                         
                         
-                            <li  class="active" >
-                                <a href="component-Loading.html">Loading</a>
+                            <li >
+                                <a href="component-Loading（API）.html">Loading（API）</a>
                             </li>
                         
                         
@@ -422,10 +430,10 @@
                 <div class="docs-section">
 <h2>
     loading
-    <small>加载动画api</small>
+    <small>加载中组件</small>
     <span class="yo-badge yo-badge-danger">3.0.0</span>
 </h2>
-<div class="api-content"><p>Loading API，调用后弹出一个居中的Loading Icon。</p>
+<div class="api-content"><p>加载中组件。</p>
 </div>
 <!-- 使用说明begin -->
 
@@ -436,30 +444,33 @@
         <div class="instructions-con">
             
             <div class="instructions-con-info">
-            <h4 id="-">基本用法：</h4>
-<p>注意：你需要使用<code>import {loading} from &#39;yo3/component/loading&#39;</code>的方式引入API形式的loading组件。
-因为<code>import Loading from &#39;yo3/component/loading&#39;</code>引入的是标签形式的React组件。</p>
-<p>调用<code>loading.show</code>和<code>loading.hide</code>可以控制组件的显示与隐藏：</p>
-<pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> loading <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'yo3/component/loading'</span><span class="token punctuation">;</span>
+            <h4 id="-">引用方式</h4>
+<pre><code><span class="token keyword">import</span> <span class="token punctuation">{</span> Loading <span class="token punctuation">}</span> <span class="token keyword">from</span> $yo<span class="token operator">-</span>component<span class="token punctuation">;</span>
 
-loading<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-loading<span class="token punctuation">.</span><span class="token function">hide</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖</span>
+<span class="token comment" spellcheck="true">// 你仍然可以通过下面这种方式来引用</span>
+<span class="token keyword">import</span> Loading <span class="token keyword">from</span> <span class="token string">'yo3/component/loading'</span><span class="token punctuation">;</span>
+</code></pre><p>注意：</p>
+<ul>
+<li><code>import { loading } from &#39;yo3/component/loading&#39;</code> 的方式引入的是 API 形式的 loading 组件；</li>
+<li><code>import Loading from &#39;yo3/component/loading&#39;</code> 引入的是标签形式的 React 组件。</li>
+</ul>
+<h4 id="-">基本用法</h4>
+<p>Loading 组件会在当前位置渲染出一个加载中的组件。<strong>如果要使用带弹层的 Loading 组件，请直接使用 <a href="./component-Loading（API）.html">Loading(API)</a>。</strong></p>
+<pre><code class="lang-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Loading</span> <span class="token punctuation">/></span></span>
 </code></pre>
-<h4 id="-">设置遮罩的范围</h4>
-<p>设置maskOffset属性可以控制loading的遮罩层的范围，<code>maskOffset</code>是一个数组，
-其中第一个元素对应遮罩上边缘距离顶部的距离，而第二个元素对应遮罩下边缘距离底部的距离：</p>
-<pre><code class="lang-javascript"><span class="token comment" spellcheck="true">// 这个loading的遮罩没有遮盖住导航条</span>
-loading<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-    maskOffset<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">44</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<h4 id="-">设置文本内容</h4>
+<pre><code class="lang-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Loading</span> <span class="token attr-name">text</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>加载中，请稍等<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
 </code></pre>
-<h4 id="-">扩展用法：</h4>
-<p>你还可以通过设置<code>extraClass</code>来给<code>loading</code>的根节点添加额外的样式类（比如这里改变了遮罩的透明度）。</p>
-<p>设置<code>text</code>属性，可以给loading的图标下面添加描述文字：</p>
-<pre><code class="lang-javascript">loading<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-    extraClass<span class="token punctuation">:</span> <span class="token string">'yo-loading-b'</span><span class="token punctuation">,</span>
-    text<span class="token punctuation">:</span> <span class="token string">'loading'</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<h4 id="-">自定义样式</h4>
+<pre><code>@include yo<span class="token operator">-</span><span class="token function">loading</span><span class="token punctuation">(</span>
+    $name<span class="token punctuation">:</span> smallblue<span class="token punctuation">,</span>
+    $ico<span class="token operator">-</span>size<span class="token punctuation">:</span> <span class="token punctuation">.</span>2rem<span class="token punctuation">,</span>
+    $font<span class="token operator">-</span>size<span class="token punctuation">:</span> <span class="token punctuation">.</span>12rem<span class="token punctuation">,</span>
+    $ico<span class="token operator">-</span>color<span class="token punctuation">:</span> #00afc7<span class="token punctuation">,</span>
+    $color<span class="token punctuation">:</span> #00afc7
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><pre><code class="lang-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Loading</span> <span class="token attr-name">text</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>我是一个小号的<span class="token punctuation">"</span></span> <span class="token attr-name">extraClass</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>yo-loading-smallblue<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
 </code></pre>
 
             </div>
@@ -482,12 +493,12 @@ loading<span class="token punctuation">.</span><span class="token function">show
 <blockquote class="api">
     <h3>
     <strong>text</strong>
-     <span class="prop-type">{ String }</span>
+     <span class="prop-type">{ PropTypes.string }</span>
     
     </h3>
 </blockquote>
 <div class="api-content">
-    <div><p>loading伴随动画图标的文字。</p>
+    <div><p>组件属性：loading伴随动画图标的文字</p>
 </div>
     
 </div>
@@ -502,12 +513,12 @@ loading<span class="token punctuation">.</span><span class="token function">show
 <blockquote class="api">
     <h3>
     <strong>extraClass</strong>
-     <span class="prop-type">{ String }</span>
+     <span class="prop-type">{ PropTypes.string }</span>
     
     </h3>
 </blockquote>
 <div class="api-content">
-    <div><p>附加给loading组件内层的div的额外class。</p>
+    <div><p>组件属性：附加给Loading组件的额外class</p>
 </div>
     
 </div>
@@ -516,153 +527,6 @@ loading<span class="token punctuation">.</span><span class="token function">show
     <small class="text-muted">默认值:</small> ''
 </p>
 
-
-
-
-<blockquote class="api">
-    <h3>
-    <strong>modalExtraClass</strong>
-     <span class="prop-type">{ String }</span>
-    
-    </h3>
-</blockquote>
-<div class="api-content">
-    <div><p>附加给外层modal组件的额外class。</p>
-</div>
-    
-</div>
-
-<p class="api-content">
-    <small class="text-muted">默认值:</small> ''
-</p>
-
-
-
-
-<blockquote class="api">
-    <h3>
-    <strong>show</strong>
-     <span class="prop-type">{ Bool }</span>
-    
-    </h3>
-</blockquote>
-<div class="api-content">
-    <div><p>是否显示loading，true为显示loading动画，false为隐藏。</p>
-</div>
-    
-</div>
-
-<p class="api-content">
-    <small class="text-muted">默认值:</small> false
-</p>
-
-
-
-
-<blockquote class="api">
-    <h3>
-    <strong>contentOffset</strong>
-     <span class="prop-type">{ Array }</span>
-    
-    </h3>
-</blockquote>
-<div class="api-content">
-    <div><p>内容区在水平/垂直方向上的偏移,例如[0,-100]可以使模态框内容区向上偏移100个像素。</p>
-</div>
-    
-</div>
-
-<p class="api-content">
-    <small class="text-muted">默认值:</small> [0,0]
-</p>
-
-
-
-
-<blockquote class="api">
-    <h3>
-    <strong>maskOffset</strong>
-     <span class="prop-type">{ Array }</span>
-    
-    </h3>
-</blockquote>
-<div class="api-content">
-    <div><p>蒙层遮盖的范围。如果不需要蒙层遮盖住整个屏幕,可以设置这个属性。</p>
-<p>数组的第一个元素代表蒙层上边缘距离屏幕顶部的距离,第二个元素代表下边缘距离底部的距离。</p>
-</div>
-    
-</div>
-
-<p class="api-content">
-    <small class="text-muted">默认值:</small> [0,0]
-</p>
-
-
-
-
-
-
-<div class="con-head">方法</div>
-
-<blockquote class="api">
-    <h3>
-    <strong>show</strong>
-    
-    <span class="yo-badge yo-badge-danger">3.0.0</span>
-    
-    </h3>
-</blockquote>
-<div class="api-content"><p>api方法：显示Loding层，并设置传入的options参数中的属性。</p>
-</div>
-
-<p class="api-content">
-    <small class="text-muted">方法参数:</small>
-</p>
-<div class="docs-table api-content">
-    <table class="yo-table yo-table-border">
-        <colgroup>
-            <col class="c1">
-            <col class="c2">
-            <col class="c3">
-            <col class="c4">
-        </colgroup>
-        <thead>
-            <tr class="active">
-                <th>参数名</th>
-                <th>类型</th>
-                <th>描述</th>
-                <th>必选</th>
-                <th>版本</th>
-            </tr>
-        </thead>
-        
-        <tr>
-            <td>options</td>
-            <td>Object</td>
-            <td>需要设置的组件属性，如预留顶部高度，额外样式之类的，具体见上面的属性文档描述。</td>
-            <td>
-                
-                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
-            </td>
-            <td></td>
-        </tr>
-        
-    </table>
-</div>
-
-
-
-
-<blockquote class="api">
-    <h3>
-    <strong>hide</strong>
-    
-    <span class="yo-badge yo-badge-danger">3.0.0</span>
-    
-    </h3>
-</blockquote>
-<div class="api-content"><p>api方法：隐藏Loding层。</p>
-</div>
 
 
 

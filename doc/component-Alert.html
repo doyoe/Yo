@@ -358,6 +358,14 @@
                                 <a href="component-Suggest.html">Suggest</a>
                             </li>
                         
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Loading.html">Loading</a>
+                            </li>
+                        
                         </ul>
                         
                         
@@ -400,7 +408,7 @@
                         
                         
                             <li >
-                                <a href="component-Loading.html">Loading</a>
+                                <a href="component-Loading（API）.html">Loading（API）</a>
                             </li>
                         
                         
@@ -441,15 +449,19 @@
         <div class="instructions-con">
             
             <div class="instructions-con-info">
-            <h4 id="-">基本用法</h4>
+            <h4 id="-">引用方式</h4>
+<pre><code><span class="token keyword">import</span> <span class="token punctuation">{</span> Alert <span class="token punctuation">}</span> <span class="token keyword">from</span> $yo<span class="token operator">-</span>component<span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖</span>
+<span class="token comment" spellcheck="true">// 你仍然可以通过下面这种方式来引用</span>
+<span class="token keyword">import</span> Alert <span class="token keyword">from</span> <span class="token string">'yo3/component/alert'</span><span class="token punctuation">;</span>
+</code></pre><h4 id="-">基本用法</h4>
 <p>最简单的用法，传入需要显示的内容参数。适用于简单的警告提示。</p>
-<pre><code class="lang-JavaScript"><span class="token function">Alert</span><span class="token punctuation">(</span><span class="token string">'the alert text'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<h4 id="-">含有标题</h4>
+<pre><code><span class="token function">Alert</span><span class="token punctuation">(</span><span class="token string">'the alert text'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h4 id="-">含有标题</h4>
 <p>通过第二个参数传入组件显示的标题，默认不显示标题。</p>
-<pre><code class="lang-JavaScript"><span class="token function">Alert</span><span class="token punctuation">(</span><span class="token string">'the alert text'</span><span class="token punctuation">,</span> <span class="token string">'Alert'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<h4 id="-">自定义按钮文本</h4>
+<pre><code><span class="token function">Alert</span><span class="token punctuation">(</span><span class="token string">'the alert text'</span><span class="token punctuation">,</span> <span class="token string">'Alert'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h4 id="-">自定义按钮文本</h4>
 <p>Alert可以接受一个配置对象option为参数，你可以在里面指定title和content的值。
 option的btnText属性指定了Alert按钮的文本，例如:</p>
 <pre><code><span class="token comment" spellcheck="true">// opt对象调用模式</span>
@@ -460,22 +472,20 @@ option的btnText属性指定了Alert按钮的文本，例如:</p>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
 </code></pre><h4 id="-">绑定回调函数</h4>
 <p>通过返回的<code>Promise</code>实例对象的<code>then</code>方法绑定确定按钮的回调函数，点击确定的回调函数参数值是<code>true</code>。</p>
-<pre><code class="lang-JavaScript"><span class="token function">Alert</span><span class="token punctuation">(</span><span class="token string">'return Promise Object'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>
+<pre><code><span class="token function">Alert</span><span class="token punctuation">(</span><span class="token string">'return Promise Object'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>
     res <span class="token operator">=</span><span class="token operator">></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`resolve </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>res<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<h4 id="-">设置动画</h4>
+</code></pre><h4 id="-">设置动画</h4>
 <p>通过opt对象的<code>animation</code>参数和CSS3动画可以设置组件显隐过程的动态效果，配置动画对象中的<code>animation</code>属性是一个数组，分别对应组件显、隐过程执行的动画效果，<code>duration</code>属性设置动画执行时间。
 也可以传入组件内部支持的动画名字符串<code>fade</code>、<code>fade-in-up</code>、<code>fade-in-down</code>、<code>zoom</code>。</p>
-<pre><code class="lang-JavaScript"><span class="token keyword">const</span> animation <span class="token operator">=</span> <span class="token punctuation">{</span>animation<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'actionsheet-up'</span><span class="token punctuation">,</span> <span class="token string">'actionsheet-down'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> duration<span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<pre><code><span class="token keyword">const</span> animation <span class="token operator">=</span> <span class="token punctuation">{</span>animation<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'actionsheet-up'</span><span class="token punctuation">,</span> <span class="token string">'actionsheet-down'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> duration<span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 
 <span class="token function">Alert</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
     title<span class="token punctuation">:</span><span class="token string">'Alert'</span><span class="token punctuation">,</span>
     content<span class="token punctuation">:</span><span class="token string">'the alert text'</span><span class="token punctuation">,</span>
     animation
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>res <span class="token operator">=</span><span class="token operator">></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'resolve'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-</code></pre>
-<pre><code class="lang-css">
+</code></pre><pre><code class="lang-css">
 <span class="token selector">.actionsheet-up</span> <span class="token punctuation">{</span>
   <span class="token property">-webkit-animation-name</span><span class="token punctuation">:</span> actionsheet-up<span class="token punctuation">;</span>
   <span class="token property">animation-name</span><span class="token punctuation">:</span> actionsheet-up<span class="token punctuation">;</span>

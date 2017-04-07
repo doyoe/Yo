@@ -18,6 +18,13 @@
                 padding: map-get($timeline, item-padding);
             }
         }
+        // 定义最新一条数据的文本色
+        &:first-child > .time {
+            color: map-get($timeline, first-item-color);
+            &::after {
+                border-color: inherit;
+            }
+        }
     }
     .time {
         display: block;
@@ -65,6 +72,7 @@
  * @param {Length} $point-border-color 时间轴上的关键帧边框色 <3.0.7>
  * @param {Length} $border-width 时间轴线条边框厚度 <3.0.7>
  * @param {Length} $border-color 时间轴线条边框色 <3.0.7>
+ * @param {Length} $first-item-color 时间轴首个子项文本颜色 <3.0.7>
  */
 
 @mixin yo-timeline(
@@ -80,7 +88,8 @@
     $point-border-width: default,
     $point-border-color: default,
     $border-width: default,
-    $border-color: default) {
+    $border-color: default,
+    $first-item-color: default) {
     // 区别是否新增实例还是修改本身
     $name: if($name == default, "", "-#{$name}");
     // 如果值为default，则取config的定义
@@ -120,6 +129,9 @@
     @if $border-color == default {
         $border-color: map-get($timeline, border-color);
     }
+    @if $first-item-color == default {
+        $first-item-color: map-get($timeline, first-item-color);
+    }
 
     .yo-timeline#{$name} {
         @if $padding != map-get($timeline, padding) {
@@ -142,6 +154,11 @@
                     @if $item-padding != map-get($timeline, item-padding) {
                         padding: $item-padding;
                     }
+                }
+            }
+            &:first-child > .time {
+                @if $first-item-color != map-get($timeline, first-item-color) {
+                    color: $first-item-color;
                 }
             }
         }

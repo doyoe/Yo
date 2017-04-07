@@ -11,6 +11,16 @@
 
 出于以上两点考虑，我们借鉴了React-Native的`Touchable`系列组件，为网页也设计实现了同样的组件。我们鼓励你在所有需要绑定tap事件的场景使用它。
 
+#### 引用方式
+
+```
+import { Touchable } from $yo-component;
+
+// 如果你的项目中未使用 ykit-config-yo 插件，可能无法使用上面这个语法糖
+// 你仍然可以通过下面这种方式来引用
+import Touchable from 'yo3/component/touchable';
+```
+
 #### 使用方式
 
 `Touchable`是一个"虚拟"的组件，它没有根节点，而是以传给它的唯一子元素作为根节点。换句话说，它不会改变原本的dom结构。

@@ -1,3 +1,13 @@
+#### 引用方式
+
+```
+import { Popup } from $yo-component;
+
+// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖
+// 你仍然可以通过下面这种方式来引用
+import Popup from 'yo3/component/popup';
+```
+
 #### 基本用法
 最简单用法，从页面底部弹出一个模态浮层。
 

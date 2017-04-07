@@ -86,4 +86,8 @@
     .transition {
         @include transition(transform .5s ease-in);
     }
+    .index{
+        z-index: 5;
+        @include transform(translate(-50%, 0) translateZ(0));
+    }
 }

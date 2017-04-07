@@ -1,3 +1,13 @@
+#### 引用方式
+
+```
+import { Rating } from $yo-component;
+
+// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖
+// 你仍然可以通过下面这种方式来引用
+import Rating from 'yo3/component/rating';
+```
+
 #### 基本用法
 
 展示一个给用户评分的组件，`value` 属性为当前的评分。由于这是一个 `受控的` 组件，所以需要通过 `onChange` 回调来设置当前值。

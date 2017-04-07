@@ -358,6 +358,14 @@
                                 <a href="component-Suggest.html">Suggest</a>
                             </li>
                         
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Loading.html">Loading</a>
+                            </li>
+                        
                         </ul>
                         
                         
@@ -400,7 +408,7 @@
                         
                         
                             <li >
-                                <a href="component-Loading.html">Loading</a>
+                                <a href="component-Loading（API）.html">Loading（API）</a>
                             </li>
                         
                         
@@ -446,7 +454,13 @@
 <p>但是由于移动端浏览器的种种限制，这种&quot;触摸反馈&quot;变得没那么容易实现。使用PC端常用的<code>:active</code>伪类并不能完全满足需求。因为
 滚动视图(<code>Scroller</code>)组件的存在，各种触摸事件都需要解决和滚动的冲突问题，即在滚动时不允许触发Press，这靠css是无法独自解决的。</p>
 <p>出于以上两点考虑，我们借鉴了React-Native的<code>Touchable</code>系列组件，为网页也设计实现了同样的组件。我们鼓励你在所有需要绑定tap事件的场景使用它。</p>
-<h4 id="-">使用方式</h4>
+<h4 id="-">引用方式</h4>
+<pre><code><span class="token keyword">import</span> <span class="token punctuation">{</span> Touchable <span class="token punctuation">}</span> <span class="token keyword">from</span> $yo<span class="token operator">-</span>component<span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 如果你的项目中未使用 ykit-config-yo 插件，可能无法使用上面这个语法糖</span>
+<span class="token comment" spellcheck="true">// 你仍然可以通过下面这种方式来引用</span>
+<span class="token keyword">import</span> Touchable <span class="token keyword">from</span> <span class="token string">'yo3/component/touchable'</span><span class="token punctuation">;</span>
+</code></pre><h4 id="-">使用方式</h4>
 <p><code>Touchable</code>是一个&quot;虚拟&quot;的组件，它没有根节点，而是以传给它的唯一子元素作为根节点。换句话说，它不会改变原本的dom结构。
 需要注意的是，它只能有一个子元素，如果传入多个子元素React会抛出一个错误，以下是例子:</p>
 <pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Touchable</span>

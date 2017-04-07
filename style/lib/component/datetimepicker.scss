@@ -3,6 +3,7 @@
 
 .yo-datetimepicker {
     @include flexbox;
+    width: 100%;
     > .yo-picker {
         @include flex;
     }

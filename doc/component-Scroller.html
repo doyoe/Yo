@@ -358,6 +358,14 @@
                                 <a href="component-Suggest.html">Suggest</a>
                             </li>
                         
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Loading.html">Loading</a>
+                            </li>
+                        
                         </ul>
                         
                         
@@ -400,7 +408,7 @@
                         
                         
                             <li >
-                                <a href="component-Loading.html">Loading</a>
+                                <a href="component-Loading（API）.html">Loading（API）</a>
                             </li>
                         
                         
@@ -444,7 +452,13 @@
         <div class="instructions-con">
             
             <div class="instructions-con-info">
-            <h4 id="-">基本用法</h4>
+            <h4 id="-">引用方式</h4>
+<pre><code><span class="token keyword">import</span> <span class="token punctuation">{</span> Scroller <span class="token punctuation">}</span> <span class="token keyword">from</span> $yo<span class="token operator">-</span>component<span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖</span>
+<span class="token comment" spellcheck="true">// 你仍然可以通过下面这种方式来引用</span>
+<span class="token keyword">import</span> Scroller <span class="token keyword">from</span> <span class="token string">'yo3/component/scroller'</span><span class="token punctuation">;</span>
+</code></pre><h4 id="-">基本用法</h4>
 <p><code>Scroller</code> 默认提供一个纵向滚动区域。该区域必须是有高度的，你可以通过以下几种方式来实现：</p>
 <ul>
 <li>直接设置 <code>Scroller</code> 的高度，例如：<code>&lt;Scroller style={height: &#39;400px&#39;} /&gt;</code></li>
@@ -982,6 +996,23 @@ return k * ( 2 - k );
 
 <blockquote class="api">
     <h3>
+    <strong>preventDefault</strong>
+     <span class="prop-type">{ Bool }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>是否需要在Scroller容器上对所有的触摸事件（touchstart/touchmove/touchend/touchcancel）调用preventDefault。
+这个属性的默认值为true，这是为了避免一些安卓的兼容性问题。如果你发现一些默认效果没有被触发（例如输入框的blur），可以尝试设置这个属性为false。</p>
+</div>
+    
+</div>
+
+
+
+
+<blockquote class="api">
+    <h3>
     <strong>usePullRefresh</strong>
      <span class="prop-type">{ Bool }</span>
     
@@ -1241,53 +1272,6 @@ hasLoadMore
 
 
 <div class="con-head">方法</div>
-
-<blockquote class="api">
-    <h3>
-    <strong>loadImage</strong>
-    
-    </h3>
-</blockquote>
-<div class="api-content"><p>判断并决定是否加载 LazyImage</p>
-</div>
-
-<p class="api-content">
-    <small class="text-muted">方法参数:</small>
-</p>
-<div class="docs-table api-content">
-    <table class="yo-table yo-table-border">
-        <colgroup>
-            <col class="c1">
-            <col class="c2">
-            <col class="c3">
-            <col class="c4">
-        </colgroup>
-        <thead>
-            <tr class="active">
-                <th>参数名</th>
-                <th>类型</th>
-                <th>描述</th>
-                <th>必选</th>
-                <th>版本</th>
-            </tr>
-        </thead>
-        
-        <tr>
-            <td>img</td>
-            <td></td>
-            <td>LazyImage 实例</td>
-            <td>
-                
-                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
-            </td>
-            <td></td>
-        </tr>
-        
-    </table>
-</div>
-
-
-
 
 <blockquote class="api">
     <h3>

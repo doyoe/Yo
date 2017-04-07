@@ -1,8 +1,18 @@
+#### 引用方式
+
+```
+import { Scroller } from $yo-component;
+
+// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖
+// 你仍然可以通过下面这种方式来引用
+import Scroller from 'yo3/component/scroller';
+```
+
 #### 基本使用
 
 吸顶效果在APP中非常常见，然而实现它并不是一件非常容易的事，如果使用zepto实现，可能需要做很多繁琐的计算和dom操作。
-为了能更便捷地实现吸顶效果，我们提供了`Sticky`组件，它的使用非常简单，
-你需要做的仅仅是用<Scroller.Sticky>标签包裹需要吸顶的dom。注意，和`Touchable`类似的是
+为了能更便捷地实现吸顶效果，我们提供了 `Sticky` 组件，它的使用非常简单，
+你需要做的仅仅是用<Scroller.Sticky>标签包裹需要吸顶的dom。注意，和 `Touchable` 类似的是
 它只能接受一个唯一子元素，请参考下面的代码：
 
 ```

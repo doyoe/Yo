@@ -1,3 +1,13 @@
+#### 引用方式
+
+```
+import { Modal } from $yo-component;
+
+// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖
+// 你仍然可以通过下面这种方式来引用
+import Modal from 'yo3/component/modal';
+```
+
 #### 基础用法
 
 `Modal` 是所有弹层系列组件的基础组件，可以指定多种位置和开/关动画效果。

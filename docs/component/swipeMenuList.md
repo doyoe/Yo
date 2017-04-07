@@ -1,3 +1,13 @@
+#### 引用方式
+
+```
+import { SwipeMenuList } from $yo-component;
+
+// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖
+// 你仍然可以通过下面这种方式来引用
+import SwipeMenuList from 'yo3/component/swipemenulist';
+```
+
 #### 基础使用
 
 `SwipeMenuList`是一个定制化的`List`，和`List`的不同之处在于它的每一个列表项都是`SwipeMenu`。因此除了列表的`dataSource`之外

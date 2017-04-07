@@ -1,4 +1,15 @@
+#### 引用方式
+
+```
+import { Confirm } from $yo-component;
+
+// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖
+// 你仍然可以通过下面这种方式来引用
+import Confirm from 'yo3/component/confirm';
+```
+
 #### 基本用法
+
 最简单的用法，传入需要显示的内容参数。用于简单的弹出确认框。
 
 ```JavaScript

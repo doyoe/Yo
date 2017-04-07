@@ -1,3 +1,13 @@
+#### 引用方式
+
+```
+import { Suggest } from $yo-component;
+
+// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖
+// 你仍然可以通过下面这种方式来引用
+import Suggest from 'yo3/component/suggest';
+```
+
 #### 基础使用
 
 `Suggest`一般是一个占满整个页面的组件，它也可以配合模态框系列组件一起使用。在默认条件下，`Suggest`的根节点会撑满整个父级容器。

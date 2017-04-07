@@ -1,14 +1,14 @@
 /**
- * 加载动画组件
- * @component Loading
- * @example
- * <Loading text="text" />
- * @description 加载动画组件
- * @author zongze.li
+ * 加载中组件
+ * @component loading
+ * @type {Object}
+ * @version 3.0.0
+ * @description 加载中组件。
+ *
+ * @instructions {instruInfo: ./loading.md}{instruUrl: loading.html?hideIcon}
  */
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
-import './style.scss';
 
 const propTypes = {
     text: PropTypes.string,

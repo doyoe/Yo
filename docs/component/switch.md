@@ -1,5 +1,15 @@
+#### 引用方式
+
+```
+import { Switch } from $yo-component;
+
+// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖
+// 你仍然可以通过下面这种方式来引用
+import Switch from 'yo3/component/switch';
+```
+
 #### 基本用法
-展示一个给用户评分的组件，`switch1` 属性为当前的评分。由于这是一个受控的组件，所以需要通过`onChange`回调来设置当前值。
+展示一个开关组件，`switch1` 为当前选中的状态。由于这是一个受控的组件，所以需要通过`onChange`回调来设置当前值。
 ```
 <Switch
     checked={this.state.switch1}

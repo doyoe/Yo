@@ -1,3 +1,16 @@
+#### 引用方式
+
+由于 `LazyImage` 是配合 `List` 或 `Scroller` 使用的，所以只需要按需引用 `List` 或 `Scroller` 即可。
+
+```
+import { List, Scroller } from $yo-component;
+
+// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖
+// 你仍然可以通过下面这种方式来引用
+import List from 'yo3/component/list';
+import Scroller from 'yo3/component/scroller';
+```
+
 #### 在 List 中使用
 
 在 `List` 中使用 `LazyImage` 只需要将 `<image>` 标签替换成 `<List.LazyImage>` 即可。需要注意的是，

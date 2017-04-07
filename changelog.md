@@ -1,5 +1,21 @@
-## v3.0.7 (2017-03-17)
+## v3.0.8 (2017-04-07)
+
 ### New Features
+
+- `yo-timeline` 时间轴元件新增 `$first-item-color` 参数指定首项的颜色，用以区别其他项。
+- `Carousel` 组件新增内置自定义动画，实现循环无限节点。
+- `Carousel` 组件添加 `window.resize` 事件，并提供 `handleResize` 方法用于当父容器宽度变化时手动调整组件。
+- `PopupPicker` 和 `PopupDateTimePicker` 组件添加 `beforePopupShow` 属性，在点击选择区域后触发，可以用来阻止弹层的弹出。
+
+### Bug Fixes
+- 修复 `PopupPicker` 和 `PopupDateTimePicker` 一起使用时，`PopupDateTimePicker` 内部宽度为 `0` 导致内容不可见的 bug。
+- 修复 `Suggest` 组件在 `results` 为 `null` 时提示 `List DataSource` 错误，而不是展示 `noDataTmpl` 的bug。
+- 修复 `PopupDateTimePicker` 组件打开弹层后弹层内容宽度为0的bug。
+
+## v3.0.7 (2017-03-17)
+
+### New Features
+
 - `PopupPicker` 新增多列Picker模式，如果给 `options` 属性传入一个二维数组，就可以开启多列模式。请参考 `PopupPicker` 文档。
 - `Scroller` 和所有列表组件新增API `resetLoadStatus`，用来重置 `加载更多` 功能。
 - 调整了`Scroller` 默认的减速摩擦系数，提升用户体验。

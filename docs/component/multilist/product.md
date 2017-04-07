@@ -1,3 +1,13 @@
+#### 引用方式
+
+```
+import { MultiList } from $yo-component;
+
+// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖
+// 你仍然可以通过下面这种方式来引用
+import MultiList from 'yo3/component/multilist';
+```
+
 #### 使用场景
 这里展示的是multiList主要使用场景，用于多级列表选择。常见于去哪儿客户端、美团客户端、大众点评客户端，位置筛选功能。
 ```

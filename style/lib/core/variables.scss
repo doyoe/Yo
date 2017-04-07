@@ -10,7 +10,7 @@
 // 基本设置
 $_setting: (
     // {String} 版本号
-    version:             "3.0.7",
+    version:             "3.0.8",
     // {Boolean} 是否开启厂商前缀
     is-vendor-prefix:    true,
     // {String} 厂商前缀
@@ -708,7 +708,7 @@ $_timeline: (
     // {Length} 时间轴上的关键帧顶部偏移距离
     point-top:          .08rem,
     // {Length} 时间轴上的关键帧尺寸大小
-    point-size:         .05rem,
+    point-size:         .07rem,
     // {Length} 时间轴上的关键帧边框厚度
     point-border-width: 1px,
     // {Color} 时间轴上的关键帧边框色
@@ -716,7 +716,9 @@ $_timeline: (
     // {Color} 时间轴线条边框厚度
     border-width:       1px,
     // {Length} 时间轴线条边框色
-    border-color:       #ddd
+    border-color:       #ddd,
+    // {Length} 时间轴首个子项文本颜色
+    first-item-color:   #f60
 );
 
 // Fragment toolbar(11)

@@ -1,3 +1,13 @@
+#### 引用方式
+
+```
+import { List } from $yo-component;
+
+// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖
+// 你仍然可以通过下面这种方式来引用
+import List from 'yo3/component/list';
+```
+
 #### 根节点尺寸
 
 和`Scroller`组件一样，`List`需要一个固定的高度才能正常工作。

@@ -358,6 +358,14 @@
                                 <a href="component-Suggest.html">Suggest</a>
                             </li>
                         
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Loading.html">Loading</a>
+                            </li>
+                        
                         </ul>
                         
                         
@@ -400,7 +408,7 @@
                         
                         
                             <li >
-                                <a href="component-Loading.html">Loading</a>
+                                <a href="component-Loading（API）.html">Loading（API）</a>
                             </li>
                         
                         
@@ -437,7 +445,15 @@
         <div class="instructions-con">
             
             <div class="instructions-con-info">
-            <h4 id="-list-">在 List 中使用</h4>
+            <h4 id="-">引用方式</h4>
+<p>由于 <code>LazyImage</code> 是配合 <code>List</code> 或 <code>Scroller</code> 使用的，所以只需要按需引用 <code>List</code> 或 <code>Scroller</code> 即可。</p>
+<pre><code><span class="token keyword">import</span> <span class="token punctuation">{</span> List<span class="token punctuation">,</span> Scroller <span class="token punctuation">}</span> <span class="token keyword">from</span> $yo<span class="token operator">-</span>component<span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖</span>
+<span class="token comment" spellcheck="true">// 你仍然可以通过下面这种方式来引用</span>
+<span class="token keyword">import</span> List <span class="token keyword">from</span> <span class="token string">'yo3/component/list'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Scroller <span class="token keyword">from</span> <span class="token string">'yo3/component/scroller'</span><span class="token punctuation">;</span>
+</code></pre><h4 id="-list-">在 List 中使用</h4>
 <p>在 <code>List</code> 中使用 <code>LazyImage</code> 只需要将 <code>&lt;image&gt;</code> 标签替换成 <code>&lt;List.LazyImage&gt;</code> 即可。需要注意的是，
 为了提高 <code>List</code> 组件的性能，使用的时候，需要给图片设置高度，可以通过 <code>height</code> 属性或 <code>style</code> 属性来设置。</p>
 <pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>List</span>

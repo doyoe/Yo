@@ -24,7 +24,7 @@
         position: absolute;
         bottom: .05rem;
         left: 50%;
-        @include transform(translate(-50%, 0));
+        @include transform(translate(-50%, 0) translateZ(0));
         > li {
             float: left;
             margin: 0 .05rem;

@@ -1,4 +1,15 @@
+#### 引用方式
+
+```
+import { InputNumber } from $yo-component;
+
+// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖
+// 你仍然可以通过下面这种方式来引用
+import InputNumber from 'yo3/component/inputnumber';
+```
+
 #### 基本用法
+
 和原生的表单组件（例如`input`和`select`）一样，
 你需要同时配置 `value`和`onChange`来驱动组件的更新：
 
@@ -10,6 +21,7 @@
 ```
 
 #### 小数
+
 通过`decimalNum`属性，配置组件显示数字的小数位数，默认为`0`。
 
 ```
@@ -64,6 +76,7 @@
 ```
 
 #### 不可用
+
 设置`disable`属性为`true`后，整个组件都会处于不可用状态。此时组件只能展示数值而不能修改。
 
 ```

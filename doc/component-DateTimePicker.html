@@ -358,6 +358,14 @@
                                 <a href="component-Suggest.html">Suggest</a>
                             </li>
                         
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Loading.html">Loading</a>
+                            </li>
+                        
                         </ul>
                         
                         
@@ -400,7 +408,7 @@
                         
                         
                             <li >
-                                <a href="component-Loading.html">Loading</a>
+                                <a href="component-Loading（API）.html">Loading（API）</a>
                             </li>
                         
                         
@@ -436,17 +444,18 @@
         <div class="instructions-con">
             
             <div class="instructions-con-info">
-            <h4 id="-">基本用法：</h4>
-<h5 id="-">日期选择器</h5>
-<p>和<code>Picker</code>一样，<code>DateTimePicker</code>需要同时配置<code>value</code>和<code>onChange</code>才能正常工作。
-在滑动<code>DateTimePicker</code>时会触发<code>onChange</code>回调，在参数中能够获取到当前选中的日期值（格式为<code>yyyy-mm-dd</code>或者<code>hh-mm</code>），
-你应该将<code>value</code>属性和父级组件的<code>state</code>关联起来，
-并在onChange函数中进行setState操作。</p>
-<p>使用range属性可以指定DateTimePicker的可选择范围。</p>
-<pre><code>
-<span class="token keyword">import</span> DateTimePicker <span class="token keyword">from</span> <span class="token string">'component'</span><span class="token punctuation">;</span>
+            <h4 id="-">引用方式</h4>
+<pre><code><span class="token keyword">import</span> <span class="token punctuation">{</span> DateTimePicker <span class="token punctuation">}</span> <span class="token keyword">from</span> $yo<span class="token operator">-</span>component<span class="token punctuation">;</span>
 
-<span class="token keyword">class</span> <span class="token class-name">Demo</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+<span class="token comment" spellcheck="true">// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖</span>
+<span class="token comment" spellcheck="true">// 你仍然可以通过下面这种方式来引用</span>
+<span class="token keyword">import</span> DateTimePicker <span class="token keyword">from</span> <span class="token string">'yo3/component/datetimepicker'</span><span class="token punctuation">;</span>
+</code></pre><h4 id="-">基本用法：日期选择器</h4>
+<p>和 <code>Picker</code> 一样，<code>DateTimePicker</code> 需要同时配置 <code>value</code> 和 <code>onChange</code> 才能正常工作。
+在滑动 <code>DateTimePicker</code> 时会触发 <code>onChange</code> 回调，在参数中能够获取到当前选中的日期值（格式为 <code>yyyy-mm-dd</code> 或者 <code>hh-mm</code>），
+你应该将 <code>value</code> 属性和父级组件的 <code>state</code> 关联起来，并在 <code>onChange</code> 函数中进行 <code>setState</code> 操作。</p>
+<p>使用range属性可以指定DateTimePicker的可选择范围。</p>
+<pre><code><span class="token keyword">class</span> <span class="token class-name">Demo</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
     <span class="token function">constructor</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">super</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">this</span><span class="token punctuation">.</span>state <span class="token operator">=</span> <span class="token punctuation">{</span>
@@ -466,7 +475,7 @@
         <span class="token punctuation">)</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-</code></pre><h5 id="-">只选择年份和月份</h5>
+</code></pre><h4 id="-">基本用法：只选择年份和月份</h4>
 <p><code>DateTimePicker</code> 支持只选择年和月。这时候<code>value</code>属性的值需要省略掉第三部分：</p>
 <pre><code><span class="token operator">&lt;</span>DateTimePicker
     value<span class="token operator">=</span><span class="token punctuation">{</span>entrytime <span class="token comment" spellcheck="true">/* 日期格式为xxxx-xx */</span><span class="token punctuation">}</span>
@@ -477,7 +486,7 @@
         <span class="token comment" spellcheck="true">// onchange</span>
     <span class="token punctuation">}</span><span class="token punctuation">}</span>
 <span class="token operator">/</span><span class="token operator">></span>
-</code></pre><h5 id="-">时间选择器</h5>
+</code></pre><h4 id="-">基本用法：时间选择器</h4>
 <pre><code><span class="token comment" spellcheck="true">// this.state = { value: '12: 00' };</span>
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>DateTimePicker</span>
@@ -486,8 +495,7 @@
     <span class="token attr-name">dateOrTime</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>time<span class="token punctuation">"</span></span>
     <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>value <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> value <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>
 <span class="token punctuation">/></span></span>
-</code></pre><h4 id="-">扩展用法</h4>
-<h5 id="-">自定义选项</h5>
+</code></pre><h4 id="-">扩展用法：自定义选项</h4>
 <p>你可以通过format属性来自定义option的文本，它能够接收两个参数，<code>value</code>对应<code>option</code>的值，<code>level</code>对应所在列的<code>index</code></p>
 <pre><code><span class="token function">format</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> level<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> <span class="token function">String</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">.</span>length <span class="token operator">&lt;</span> <span class="token number">2</span> <span class="token operator">?</span> <span class="token template-string"><span class="token string">`0</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>value<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span> <span class="token punctuation">:</span> value<span class="token punctuation">;</span>
@@ -497,7 +505,7 @@
     <span class="token attr-name">...</span>
     <span class="token attr-name">format</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>format<span class="token punctuation">}</span></span>
 <span class="token punctuation">/></span></span>
-</code></pre><h5 id="-">循环模式</h5>
+</code></pre><h4 id="-">扩展用法：循环模式</h4>
 <p>开启循环模式后(设置<code>loop</code>属性为<code>true</code>，默认为<code>true</code>),
 DateTimePicker的option将会变成一个首尾相接的循环列表(参考iOS系统的闹钟设置):
 可以分别设置各个Picker子组件是否开启循环模式。</p>
@@ -505,7 +513,7 @@ DateTimePicker的option将会变成一个首尾相接的循环列表(参考iOS�
     <span class="token attr-name">...</span>
     <span class="token attr-name">loop</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span><span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">]</span><span class="token punctuation">}</span></span>
 <span class="token punctuation">/></span></span>
-</code></pre><h5 id="-">简便添加单位</h5>
+</code></pre><h4 id="-">扩展用法：简便添加单位</h4>
 <p>可以设置unitsInline属性来设置内联单位（单位会存在于每一个选项中），
 也可设置unitsAside在每列右侧添加一个单位栏。</p>
 <pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>DateTimePicker</span>

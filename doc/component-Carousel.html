@@ -358,6 +358,14 @@
                                 <a href="component-Suggest.html">Suggest</a>
                             </li>
                         
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Loading.html">Loading</a>
+                            </li>
+                        
                         </ul>
                         
                         
@@ -400,7 +408,7 @@
                         
                         
                             <li >
-                                <a href="component-Loading.html">Loading</a>
+                                <a href="component-Loading（API）.html">Loading（API）</a>
                             </li>
                         
                         
@@ -423,7 +431,7 @@
 <h2>
     Carousel
     <small></small>
-    <span class="yo-badge yo-badge-danger">3.0.0</span>
+    <span class="yo-badge yo-badge-danger">3.0.8</span>
 </h2>
 <div class="api-content"><p>走马灯组件
 支持用户自定义动画对象，支持用户自定义css动画
@@ -457,7 +465,13 @@
         <div class="instructions-con">
             
             <div class="instructions-con-info">
-            <h4 id="-">基础用法</h4>
+            <h4 id="-">引用方式</h4>
+<pre><code><span class="token keyword">import</span> <span class="token punctuation">{</span> Carousel <span class="token punctuation">}</span> <span class="token keyword">from</span> $yo<span class="token operator">-</span>component<span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖</span>
+<span class="token comment" spellcheck="true">// 你仍然可以通过下面这种方式来引用</span>
+<span class="token keyword">import</span> Carousel <span class="token keyword">from</span> <span class="token string">'yo3/component/carousel'</span><span class="token punctuation">;</span>
+</code></pre><h4 id="-">基础用法</h4>
 <pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Carousel</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token operator">&lt;</span>img className<span class="token operator">=</span><span class="token string">"img"</span> src<span class="token operator">=</span><span class="token string">"//img1.qunarzz.com/qs/1610/a6/01d1ad00e4b9e102.jpg"</span> <span class="token operator">/</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">></span>  
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token operator">&lt;</span>img className<span class="token operator">=</span><span class="token string">"img"</span> src<span class="token operator">=</span><span class="token string">"//img1.qunarzz.com/qs/1610/a6/01d1ad00e4b9e102.jpg"</span> <span class="token operator">/</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">></span>  
@@ -911,6 +925,20 @@ carousel组件需要挂载的父节点有宽度，组件内置动画需要宽度
 
 
 <div class="con-head">方法</div>
+
+<blockquote class="api">
+    <h3>
+    <strong>handleResize</strong>
+    
+    <span class="yo-badge yo-badge-danger">3.0.8</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content"><p>当元素容器宽度发生变化时调用，用于重设组件内容器 <code>translate</code> 的值</p>
+</div>
+
+
+
 
 <blockquote class="api">
     <h3>

@@ -1,3 +1,13 @@
+#### 引用方式
+
+```
+import { Scroller } from $yo-component;
+
+// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖
+// 你仍然可以通过下面这种方式来引用
+import Scroller from 'yo3/component/scroller';
+```
+
 #### 基本用法
 
 `Scroller` 默认提供一个纵向滚动区域。该区域必须是有高度的，你可以通过以下几种方式来实现：

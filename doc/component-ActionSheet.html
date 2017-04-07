@@ -358,6 +358,14 @@
                                 <a href="component-Suggest.html">Suggest</a>
                             </li>
                         
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Loading.html">Loading</a>
+                            </li>
+                        
                         </ul>
                         
                         
@@ -400,7 +408,7 @@
                         
                         
                             <li >
-                                <a href="component-Loading.html">Loading</a>
+                                <a href="component-Loading（API）.html">Loading（API）</a>
                             </li>
                         
                         
@@ -440,37 +448,40 @@
         <div class="instructions-con">
             
             <div class="instructions-con-info">
-            <h4 id="-">基本用法</h4>
+            <h4 id="-">引用方式</h4>
+<pre><code><span class="token keyword">import</span> <span class="token punctuation">{</span> ActionSheet <span class="token punctuation">}</span> <span class="token keyword">from</span> $yo<span class="token operator">-</span>component<span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖</span>
+<span class="token comment" spellcheck="true">// 你仍然可以通过下面这种方式来引用</span>
+<span class="token keyword">import</span> ActionSheet <span class="token keyword">from</span> <span class="token string">'yo3/component/actionsheet'</span><span class="token punctuation">;</span>
+</code></pre><h4 id="-">基本用法</h4>
 <p><code>ActionSheet</code> 接收一个<code>option</code>对象作为参数。
 其中<code>menu</code>属性负责控制ActionSheet的菜单项，它是一个对象数组，每个元素有两个属性<code>text</code>和<code>onTap</code>，分别用来控制菜单项的文字和点击回调。
 需要注意的是，点击菜单之后，组件会自动关闭，这与iOS系统的ActionSheet API是一致的。</p>
-<pre><code class="lang-JavaScript"><span class="token function">ActionSheet</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+<pre><code><span class="token function">ActionSheet</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
     menu<span class="token punctuation">:</span><span class="token punctuation">[</span>
         <span class="token punctuation">{</span> text<span class="token punctuation">:</span> <span class="token string">'存储图像'</span><span class="token punctuation">,</span> <span class="token function">onTap</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'save.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
         <span class="token punctuation">{</span> text<span class="token punctuation">:</span> <span class="token string">'拷贝'</span><span class="token punctuation">,</span> <span class="token function">onTap</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'copy'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span>
     <span class="token punctuation">]</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<h4 id="-">显示标题</h4>
+</code></pre><h4 id="-">显示标题</h4>
 <p>通过<code>title</code>参数配置组件菜单顶部的标题文字，默认无标题：</p>
-<pre><code class="lang-JavaScript"><span class="token function">ActionSheet</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+<pre><code><span class="token function">ActionSheet</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
     menu<span class="token punctuation">:</span><span class="token punctuation">[</span>
         <span class="token punctuation">{</span> text<span class="token punctuation">:</span> <span class="token string">'存储图像'</span><span class="token punctuation">,</span> <span class="token function">onTap</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'save.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
         <span class="token punctuation">{</span> text<span class="token punctuation">:</span> <span class="token string">'拷贝'</span><span class="token punctuation">,</span> <span class="token function">onTap</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'copy'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span>
     <span class="token punctuation">]</span><span class="token punctuation">,</span>
     title<span class="token punctuation">:</span> <span class="token string">'保存图片？'</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<h4 id="-">取消文字</h4>
+</code></pre><h4 id="-">取消文字</h4>
 <p>通过<code>cancelText</code>参数配置&quot;取消&quot;菜单的文字：</p>
-<pre><code class="lang-JavaScript"><span class="token keyword">const</span> menu <span class="token operator">=</span> <span class="token punctuation">[</span>
+<pre><code><span class="token keyword">const</span> menu <span class="token operator">=</span> <span class="token punctuation">[</span>
     <span class="token punctuation">{</span> text<span class="token punctuation">:</span> <span class="token string">'save'</span><span class="token punctuation">,</span> <span class="token function">onTap</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'save.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
     <span class="token punctuation">{</span> text<span class="token punctuation">:</span> <span class="token string">'copy'</span><span class="token punctuation">,</span> <span class="token function">onTap</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'copy'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span>
 <span class="token punctuation">]</span><span class="token punctuation">;</span>
 
 <span class="token function">ActionSheet</span><span class="token punctuation">(</span><span class="token punctuation">{</span>menu<span class="token punctuation">,</span> cancelText<span class="token punctuation">:</span> <span class="token string">'cancel'</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-
             </div>
             
             

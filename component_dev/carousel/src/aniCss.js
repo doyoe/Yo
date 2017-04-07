@@ -1,6 +1,6 @@
-export default (ALLOWANCE = 20) => ({
+export default () => ({
     handleData(aniObj, children) {
-        return children
+        return children;
     },
     touchstart() {},
     touchend(aniObj) {

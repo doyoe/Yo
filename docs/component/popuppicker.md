@@ -1,3 +1,13 @@
+#### 引用方式
+
+```
+import { PopupPicker } from $yo-component;
+
+// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖
+// 你仍然可以通过下面这种方式来引用
+import PopupPicker from 'yo3/component/popuppicker';
+```
+
 #### 基本用法
 
 `PopupPicker`组件实际上由两部分组成，一部分是触发弹层打开的区域，另一部分是弹出的带“确定”和“取消”按钮的弹出式选择器。
@@ -7,7 +17,7 @@
 
 你应该给 `PopupPicker` 传入一个唯一子元素，这个子元素将会作为触发区域的内容，同时你还需要通过 `touchClass` 指定它的触摸反馈效果。
 
-```javascript
+```
 const options = [
     { text: '零', value: 0 },
     { text: '一', value: 1 },
@@ -57,7 +67,7 @@ class Demo extends Component {
 
 弹出式选择器的 Header 由确认、取消按钮和标题组成，这些按钮的显示值和可选的标题文本可以通过`popupHeader`定制。
 
-```javascript
+```
 popupHeader={{
     title: '欢迎使用Yo',
     cancelBtn: { text: 'Cancel', touchClass: 'myTouchClass' },
@@ -73,7 +83,7 @@ popupHeader 可以设置`title`、`cancelBtn`和`okBtn`值，它们分别代表�
 
 上面介绍的`cancelBtn`和`okBtn`不仅可以为字符串，也可以为一个jsx元素。可以将一个图标元素作为`cancelBtn`的值（见下例），这时的取消按钮就是一个叉状的图标了。
 
-```javascript
+```
 popupHeader={{
     title: '欢迎使用Yo',
     cancelBtn: { text: (<i className="regret yo-ico">&#xf077;</i>), touchClass: 'myTouchClass' },
@@ -84,7 +94,7 @@ popupHeader={{
 #### 多列Picker
 如果你给 `options` 属性传入一个二维数组，例如：
 
-```
+```javascript
 const options = [
     [
         { value: 'javascript' },
@@ -102,7 +112,7 @@ const options = [
 
 这时候 `PopupPicker` 将会变成一个多列的 `Picker`：
 
-```
+```javascript
 <PopupPicker
     // value可以为null或者传入一个数组，对应每一列picker的取值
     value={this.state.value}
@@ -120,4 +130,34 @@ const options = [
 >
     {this.renderField(this.state.value)}
 </PopupPicker>
+```
+
+#### beforePopupShow 属性
+
+该属性传递的回调函数在点击触发区域后，Popup 弹层弹出前执行。当其返回值为`false`时，Popup 弹出层将不会弹出。
+
+在业务中，`PopupPicker`和`PopupDateTimePicker`选择器的值可能跟其他项有关联。例如，当前选择器只能在上一个选择器有了选择值之后才能进行选择。若上一个选择器还没有选择值时，该选择器在点击时不能触发弹出层，同时还应该向用户展示一个提示。这个时候可以通过`beforePopupShow`属性传递一个函数调用`Toast.show`显示一条通知，并将其返回值设为`false`表示不触发弹出层。
+
+```javascript
+render() {
+        return (
+            <div className="popuppicker-demo">
+                <PopupPicker
+                    options={options}
+                    value={this.state.value}
+                    onChange={this.handleChange.bind(this)}
+                    beforePopupShow={() => {
+                        Toast.show('before popup show');
+                        return false;
+                    }}
+                    touchClass="item-touch"
+                />
+                    <div className="demo-item">
+                        <span className="title">选择序号</span>
+                        <span className="value">{this.state.value === null ? '请选择' : this.state.value}</span>
+                    </div>
+                </PopupPicker>
+            </div>
+        );
+    }
 ```

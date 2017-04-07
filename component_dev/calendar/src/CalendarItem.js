@@ -2,10 +2,9 @@
  * @author qingguo.xu
  * 某一天的数据显示
  */
-import '../../common/tapEventPluginInit.js';
 import React, { Component, PropTypes } from 'react';
 import getClassNames from 'classnames';
-import Touchable from '../../touchable/src';
+import Touchable from '../../touchable/src/touchable';
 
 const propTypes = {
     isRender: PropTypes.bool,
@@ -59,7 +58,7 @@ export default class WeekItem extends Component {
             if (disabled) {
                 classNames += 'disabled ';
             }
-
+            classNames = getClassNames(classNames).trim();
             const ret = [
                 <span key={0} className="day">{item.day}</span>,
                 item.today ? (<ins key={1} className="special">今天</ins>) : null,
@@ -70,7 +69,7 @@ export default class WeekItem extends Component {
             return (
                 <Touchable key={i} onTap={() => this.handleChange(fullDay)} internalUse={true}>
                     <li
-                        className={classNames ? getClassNames(classNames) : null}
+                        className={classNames || null}
                     >
                         {renderDate(item, ret) || ret}
                     </li>

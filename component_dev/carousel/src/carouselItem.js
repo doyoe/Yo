@@ -1,13 +1,13 @@
 /**
  * @component Carousel.CarouselItem
+ * @version 3.0.8
  * @description Carousel组件内部的Item组件，和普通的dom节点相比增加了懒加载图片功能。也可以使用`onTap`给Item绑定tap事件回调。
  *
  * 你可以通过Carousel.CarouselItem来使用这个组件，或者引用`yo3/component/carousel/src/carouselItem`的js模块来使用。
  *
  * ** 注意：`CarouselItem`不能和`Touchable`一起使用，请使用它的`onTap`属性来绑定事件回调。 **
  */
-import './style.scss';
-import '../../common/tapEventPluginInit';
+import Touchable from '../../touchable/src/touchable';
 import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
 import shallowCompare from 'react-addons-shallow-compare';
@@ -16,6 +16,7 @@ const ALLOWANCE = 1;
 const LOADED = 1;
 const UNLOAD = 0;
 const FAIL = 2;
+
 class CarouselItem extends Component {
     static propTypes = {
         /**
@@ -48,6 +49,7 @@ class CarouselItem extends Component {
          * @property renderContent
          * @type Function
          * @param 图片实例
+         * @version 3.0.7
          * @description 当所需要的渲染内容不仅仅是一张图片的时候，通过此方法渲染内容，该方法的参数是经过懒加载判断的图片节点。
          * ** 示例 **
          * ```
@@ -203,9 +205,11 @@ class CarouselItem extends Component {
         }
         classList = classnames('item', activeClass);
         return (
-            <li className={classList} style={this.props.style} onTouchTap={this.handleTap} >
-                {this.props.renderContent ? this.props.renderContent(img) : img}
-            </li>
+            <Touchable onTap={this.handleTap} internalUse>
+                <li className={classList} style={this.props.style} >
+                    {this.props.renderContent ? this.props.renderContent(img) : img}
+                </li>
+            </Touchable>
         );
     }
 }

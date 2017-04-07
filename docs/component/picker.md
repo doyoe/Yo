@@ -1,3 +1,13 @@
+#### 引用方式
+
+```
+import { Picker } from $yo-component;
+
+// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖
+// 你仍然可以通过下面这种方式来引用
+import Picker from 'yo3/component/picker';
+```
+
 #### 基础使用
 
 `Picker`使用方式与网页里的`<select>`十分相似。 你需要给它指定三个属性: `options`(带选项的数据源, 数组形式)，`value`(当前选中的option的值)
