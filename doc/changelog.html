@@ -113,7 +113,18 @@
           <div class="ydoc-container-content" id="readme">
               <article class="markdown-body">
                   
-                  <h2 id="v3.0.7 (2017-03-17)">v3.0.7 (2017-03-17)</h2><h3 id="New Features">New Features</h3><ul>
+                  <h2 id="v3.0.8 (2017-04-07)">v3.0.8 (2017-04-07)</h2><h3 id="New Features">New Features</h3><ul>
+<li><code>yo-timeline</code> 时间轴元件新增 <code>$first-item-color</code> 参数指定首项的颜色，用以区别其他项。</li>
+<li><code>Carousel</code> 组件新增内置自定义动画，实现循环无限节点。</li>
+<li><code>Carousel</code> 组件添加 <code>window.resize</code> 事件，并提供 <code>handleResize</code> 方法用于当父容器宽度变化时手动调整组件。</li>
+<li><code>PopupPicker</code> 和 <code>PopupDateTimePicker</code> 组件添加 <code>beforePopupShow</code> 属性，在点击选择区域后触发，可以用来阻止弹层的弹出。</li>
+</ul>
+<h3 id="Bug Fixes">Bug Fixes</h3><ul>
+<li>修复 <code>PopupPicker</code> 和 <code>PopupDateTimePicker</code> 一起使用时，<code>PopupDateTimePicker</code> 内部宽度为 <code>0</code> 导致内容不可见的 bug。</li>
+<li>修复 <code>Suggest</code> 组件在 <code>results</code> 为 <code>null</code> 时提示 <code>List DataSource</code> 错误，而不是展示 <code>noDataTmpl</code> 的bug。</li>
+<li>修复 <code>PopupDateTimePicker</code> 组件打开弹层后弹层内容宽度为0的bug。</li>
+</ul>
+<h2 id="v3.0.7 (2017-03-17)">v3.0.7 (2017-03-17)</h2><h3 id="New Features">New Features</h3><ul>
 <li><code>PopupPicker</code> 新增多列Picker模式，如果给 <code>options</code> 属性传入一个二维数组，就可以开启多列模式。请参考 <code>PopupPicker</code> 文档。</li>
 <li><code>Scroller</code> 和所有列表组件新增API <code>resetLoadStatus</code>，用来重置 <code>加载更多</code> 功能。</li>
 <li>调整了<code>Scroller</code> 默认的减速摩擦系数，提升用户体验。</li>

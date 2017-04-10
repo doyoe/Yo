@@ -358,6 +358,14 @@
                                 <a href="component-Suggest.html">Suggest</a>
                             </li>
                         
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Loading.html">Loading</a>
+                            </li>
+                        
                         </ul>
                         
                         
@@ -400,7 +408,7 @@
                         
                         
                             <li >
-                                <a href="component-Loading.html">Loading</a>
+                                <a href="component-Loading（API）.html">Loading（API）</a>
                             </li>
                         
                         
@@ -438,7 +446,13 @@
         <div class="instructions-con">
             
             <div class="instructions-con-info">
-            <h4 id="-">基础使用</h4>
+            <h4 id="-">引用方式</h4>
+<pre><code><span class="token keyword">import</span> <span class="token punctuation">{</span> Picker <span class="token punctuation">}</span> <span class="token keyword">from</span> $yo<span class="token operator">-</span>component<span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖</span>
+<span class="token comment" spellcheck="true">// 你仍然可以通过下面这种方式来引用</span>
+<span class="token keyword">import</span> Picker <span class="token keyword">from</span> <span class="token string">'yo3/component/picker'</span><span class="token punctuation">;</span>
+</code></pre><h4 id="-">基础使用</h4>
 <p><code>Picker</code>使用方式与网页里的<code>&lt;select&gt;</code>十分相似。 你需要给它指定三个属性: <code>options</code>(带选项的数据源, 数组形式)，<code>value</code>(当前选中的option的值)
 以及<code>onChange</code>(选中option发生改变时触发的事件回调)。</p>
 <p>需要注意的是这是一个严格受控的组件，你必须同时配置<code>value</code>和<code>onChange</code>才能保证它正常工作。示例如下:</p>

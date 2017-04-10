@@ -16,7 +16,7 @@
     
   
 </head>
-<body class=component-Alert >
+<body class=component-Loading（API） >
     <div class="ydoc">
       <header class="ydoc-header">
         <div class="ydoc-header-area">
@@ -391,7 +391,7 @@
                         
                         
                         
-                            <li  class="active" >
+                            <li >
                                 <a href="component-Alert.html">Alert</a>
                             </li>
                         
@@ -407,7 +407,7 @@
                         
                         
                         
-                            <li >
+                            <li  class="active" >
                                 <a href="component-Loading（API）.html">Loading（API）</a>
                             </li>
                         
@@ -429,16 +429,11 @@
                 
                 <div class="docs-section">
 <h2>
-    Alert
-    <small></small>
+    loading
+    <small>加载动画api</small>
     <span class="yo-badge yo-badge-danger">3.0.0</span>
 </h2>
-<div class="api-content"><p>警告提示组件，居中展现需要关注的信息，基于Confirm组件实现。</p>
-<ul>
-<li>类似浏览器原生API调用方式。</li>
-<li>自定义组件显隐过程动画。</li>
-<li>返回一个Promise实例对象，可通过then方法绑定确定按钮回调。</li>
-</ul>
+<div class="api-content"><p>Loading API，调用后显示一个带弹层的居中显示的加载中组件。</p>
 </div>
 <!-- 使用说明begin -->
 
@@ -450,76 +445,44 @@
             
             <div class="instructions-con-info">
             <h4 id="-">引用方式</h4>
-<pre><code><span class="token keyword">import</span> <span class="token punctuation">{</span> Alert <span class="token punctuation">}</span> <span class="token keyword">from</span> $yo<span class="token operator">-</span>component<span class="token punctuation">;</span>
+<pre><code><span class="token comment" spellcheck="true">// 以 API 的形式引入 loading</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> loading <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'yo3/component/loading'</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 以组件的形式引入 Loading</span>
+<span class="token keyword">import</span> Loading <span class="token keyword">from</span> <span class="token string">'yo3/component/loading'</span><span class="token punctuation">;</span>
+</code></pre><p>注意：<code>loading</code> 的引用方式与其他组件不同。</p>
+<ul>
+<li><code>import { loading } from &#39;yo3/component/loading&#39;</code> 的方式引入的是API形式的loading组件；</li>
+<li><code>import Loading from &#39;yo3/component/loading&#39;</code> 引入的是标签形式的React组件。</li>
+</ul>
+<h4 id="-">基本用法：</h4>
+<p>调用<code>loading.show</code>和<code>loading.hide</code>可以控制组件的显示与隐藏：</p>
+<pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> loading <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'yo3/component/loading'</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖</span>
-<span class="token comment" spellcheck="true">// 你仍然可以通过下面这种方式来引用</span>
-<span class="token keyword">import</span> Alert <span class="token keyword">from</span> <span class="token string">'yo3/component/alert'</span><span class="token punctuation">;</span>
-</code></pre><h4 id="-">基本用法</h4>
-<p>最简单的用法，传入需要显示的内容参数。适用于简单的警告提示。</p>
-<pre><code><span class="token function">Alert</span><span class="token punctuation">(</span><span class="token string">'the alert text'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre><h4 id="-">含有标题</h4>
-<p>通过第二个参数传入组件显示的标题，默认不显示标题。</p>
-<pre><code><span class="token function">Alert</span><span class="token punctuation">(</span><span class="token string">'the alert text'</span><span class="token punctuation">,</span> <span class="token string">'Alert'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre><h4 id="-">自定义按钮文本</h4>
-<p>Alert可以接受一个配置对象option为参数，你可以在里面指定title和content的值。
-option的btnText属性指定了Alert按钮的文本，例如:</p>
-<pre><code><span class="token comment" spellcheck="true">// opt对象调用模式</span>
-<span class="token function">Alert</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-    title<span class="token punctuation">:</span><span class="token string">'title'</span><span class="token punctuation">,</span>
-    content<span class="token punctuation">:</span><span class="token string">'content'</span><span class="token punctuation">,</span>
-    btnText<span class="token punctuation">:</span><span class="token string">'ok!'</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-</code></pre><h4 id="-">绑定回调函数</h4>
-<p>通过返回的<code>Promise</code>实例对象的<code>then</code>方法绑定确定按钮的回调函数，点击确定的回调函数参数值是<code>true</code>。</p>
-<pre><code><span class="token function">Alert</span><span class="token punctuation">(</span><span class="token string">'return Promise Object'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>
-    res <span class="token operator">=</span><span class="token operator">></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`resolve </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>res<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre><h4 id="-">设置动画</h4>
-<p>通过opt对象的<code>animation</code>参数和CSS3动画可以设置组件显隐过程的动态效果，配置动画对象中的<code>animation</code>属性是一个数组，分别对应组件显、隐过程执行的动画效果，<code>duration</code>属性设置动画执行时间。
-也可以传入组件内部支持的动画名字符串<code>fade</code>、<code>fade-in-up</code>、<code>fade-in-down</code>、<code>zoom</code>。</p>
-<pre><code><span class="token keyword">const</span> animation <span class="token operator">=</span> <span class="token punctuation">{</span>animation<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'actionsheet-up'</span><span class="token punctuation">,</span> <span class="token string">'actionsheet-down'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> duration<span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-<span class="token function">Alert</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-    title<span class="token punctuation">:</span><span class="token string">'Alert'</span><span class="token punctuation">,</span>
-    content<span class="token punctuation">:</span><span class="token string">'the alert text'</span><span class="token punctuation">,</span>
-    animation
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>res <span class="token operator">=</span><span class="token operator">></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'resolve'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-</code></pre><pre><code class="lang-css">
-<span class="token selector">.actionsheet-up</span> <span class="token punctuation">{</span>
-  <span class="token property">-webkit-animation-name</span><span class="token punctuation">:</span> actionsheet-up<span class="token punctuation">;</span>
-  <span class="token property">animation-name</span><span class="token punctuation">:</span> actionsheet-up<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token selector">.actionsheet-down</span> <span class="token punctuation">{</span>
-  <span class="token property">-webkit-animation-name</span><span class="token punctuation">:</span> actionsheet-down<span class="token punctuation">;</span>
-  <span class="token property">animation-name</span><span class="token punctuation">:</span> actionsheet-down<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token atrule"><span class="token rule">@keyframes</span> actionsheet-up</span> <span class="token punctuation">{</span>
-    <span class="token selector">from</span> <span class="token punctuation">{</span>
-        <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translate3d</span><span class="token punctuation">(</span>0, 100%, 0<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token selector">to</span> <span class="token punctuation">{</span>
-        <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translate3d</span><span class="token punctuation">(</span>0, 0, 0<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-
-<span class="token atrule"><span class="token rule">@keyframes</span> actionsheet-down</span> <span class="token punctuation">{</span>
-    <span class="token selector">from</span> <span class="token punctuation">{</span>
-        <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translate3d</span><span class="token punctuation">(</span>0, 0, 0<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token selector">to</span> <span class="token punctuation">{</span>
-        <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translate3d</span><span class="token punctuation">(</span>0, 100%, 0<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+loading<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+loading<span class="token punctuation">.</span><span class="token function">hide</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h4 id="-">设置遮罩的范围</h4>
+<p>设置maskOffset属性可以控制loading的遮罩层的范围，<code>maskOffset</code>是一个数组，
+其中第一个元素对应遮罩上边缘距离顶部的距离，而第二个元素对应遮罩下边缘距离底部的距离：</p>
+<pre><code class="lang-javascript"><span class="token comment" spellcheck="true">// 这个loading的遮罩没有遮盖住导航条</span>
+loading<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    maskOffset<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">44</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h4 id="-">扩展用法：</h4>
+<p>你还可以通过设置<code>extraClass</code>来给<code>loading</code>的根节点添加额外的样式类（比如这里改变了遮罩的透明度）。</p>
+<p>设置<code>text</code>属性，可以给loading的图标下面添加描述文字：</p>
+<pre><code class="lang-javascript">loading<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    extraClass<span class="token punctuation">:</span> <span class="token string">'yo-loading-b'</span><span class="token punctuation">,</span>
+    text<span class="token punctuation">:</span> <span class="token string">'loading'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 
             </div>
             
             
             <div class="instructions-con-runner">
-                <iframe class="instructions-iframe" src="http://ued.qunar.com/hy2/yo/demo/src/html/component/alert.html?hideIcon"></iframe>
+                <iframe class="instructions-iframe" src="http://ued.qunar.com/hy2/yo/demo/src/html/component/loadingapi.html?hideIcon"></iframe>
             </div>
             
         </div>
@@ -530,17 +493,142 @@ option的btnText属性指定了Alert按钮的文本，例如:</p>
 <!-- 使用说明end -->
 <div class="con-list-item">
 
+<div class="con-head">属性</div>
+
+<blockquote class="api">
+    <h3>
+    <strong>text</strong>
+     <span class="prop-type">{ String }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>loading伴随动画图标的文字。</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> ''
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>extraClass</strong>
+     <span class="prop-type">{ String }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>附加给loading组件内层的div的额外class。</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> ''
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>modalExtraClass</strong>
+     <span class="prop-type">{ String }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>附加给外层modal组件的额外class。</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> ''
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>show</strong>
+     <span class="prop-type">{ Bool }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>是否显示loading，true为显示loading动画，false为隐藏。</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> false
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>contentOffset</strong>
+     <span class="prop-type">{ Array }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>内容区在水平/垂直方向上的偏移,例如[0,-100]可以使模态框内容区向上偏移100个像素。</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> [0,0]
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>maskOffset</strong>
+     <span class="prop-type">{ Array }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>蒙层遮盖的范围。如果不需要蒙层遮盖住整个屏幕,可以设置这个属性。</p>
+<p>数组的第一个元素代表蒙层上边缘距离屏幕顶部的距离,第二个元素代表下边缘距离底部的距离。</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> [0,0]
+</p>
+
+
+
+
+
 
 <div class="con-head">方法</div>
 
 <blockquote class="api">
     <h3>
-    <strong>Alert</strong>
+    <strong>show</strong>
+    
+    <span class="yo-badge yo-badge-danger">3.0.0</span>
     
     </h3>
 </blockquote>
-<div class="api-content"><p>Alert API，调用以后在屏幕正中弹出一个Alert，可以按照option对象参数调用，也可以使用简易
-调用方式如 <code>Alert(content, title, btnText, animation)</code></p>
+<div class="api-content"><p>api方法：显示Loding层，并设置传入的options参数中的属性。</p>
 </div>
 
 <p class="api-content">
@@ -565,9 +653,9 @@ option的btnText属性指定了Alert按钮的文本，例如:</p>
         </thead>
         
         <tr>
-            <td>option</td>
+            <td>options</td>
             <td>Object</td>
-            <td>配置对象，里面可以接受如下属性：</td>
+            <td>需要设置的组件属性，如预留顶部高度，额外样式之类的，具体见上面的属性文档描述。</td>
             <td>
                 
                 <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
@@ -575,47 +663,21 @@ option的btnText属性指定了Alert按钮的文本，例如:</p>
             <td></td>
         </tr>
         
-        <tr>
-            <td>option.content</td>
-            <td>String</td>
-            <td>组件显示的内容</td>
-            <td>
-                
-            </td>
-            <td></td>
-        </tr>
-        
-        <tr>
-            <td>option.title</td>
-            <td>String</td>
-            <td>组件显示的标题</td>
-            <td>
-                
-            </td>
-            <td></td>
-        </tr>
-        
-        <tr>
-            <td>option.btnText</td>
-            <td>String</td>
-            <td> 组件按钮的文本</td>
-            <td>
-                
-            </td>
-            <td>3.0.1</td>
-        </tr>
-        
-        <tr>
-            <td>option.animation</td>
-            <td>String | Object</td>
-            <td>组件显隐执行的动画，格式同Dialog组件</td>
-            <td>
-                
-            </td>
-            <td></td>
-        </tr>
-        
     </table>
+</div>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>hide</strong>
+    
+    <span class="yo-badge yo-badge-danger">3.0.0</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content"><p>api方法：隐藏Loding层。</p>
 </div>
 
 

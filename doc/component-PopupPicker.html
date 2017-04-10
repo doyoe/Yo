@@ -358,6 +358,14 @@
                                 <a href="component-Suggest.html">Suggest</a>
                             </li>
                         
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Loading.html">Loading</a>
+                            </li>
+                        
                         </ul>
                         
                         
@@ -400,7 +408,7 @@
                         
                         
                             <li >
-                                <a href="component-Loading.html">Loading</a>
+                                <a href="component-Loading（API）.html">Loading（API）</a>
                             </li>
                         
                         
@@ -436,12 +444,18 @@
         <div class="instructions-con">
             
             <div class="instructions-con-info">
-            <h4 id="-">基本用法</h4>
+            <h4 id="-">引用方式</h4>
+<pre><code><span class="token keyword">import</span> <span class="token punctuation">{</span> PopupPicker <span class="token punctuation">}</span> <span class="token keyword">from</span> $yo<span class="token operator">-</span>component<span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖</span>
+<span class="token comment" spellcheck="true">// 你仍然可以通过下面这种方式来引用</span>
+<span class="token keyword">import</span> PopupPicker <span class="token keyword">from</span> <span class="token string">'yo3/component/popuppicker'</span><span class="token punctuation">;</span>
+</code></pre><h4 id="-">基本用法</h4>
 <p><code>PopupPicker</code>组件实际上由两部分组成，一部分是触发弹层打开的区域，另一部分是弹出的带“确定”和“取消”按钮的弹出式选择器。
 这样会使<code>PopupPicker</code>看起来更像一个网页里的<code>&lt;select&gt;</code>，唯一的区别是你可以扩展弹出式选择器的样式而浏览器不能。</p>
 <p>和其他表单组件一样，这个组件也是一个严格受控的组件，你需要同时定义<code>onChange</code>和<code>value</code>属性才能让它正常工作。</p>
 <p>你应该给 <code>PopupPicker</code> 传入一个唯一子元素，这个子元素将会作为触发区域的内容，同时你还需要通过 <code>touchClass</code> 指定它的触摸反馈效果。</p>
-<pre><code class="lang-javascript"><span class="token keyword">const</span> options <span class="token operator">=</span> <span class="token punctuation">[</span>
+<pre><code><span class="token keyword">const</span> options <span class="token operator">=</span> <span class="token punctuation">[</span>
     <span class="token punctuation">{</span> text<span class="token punctuation">:</span> <span class="token string">'零'</span><span class="token punctuation">,</span> value<span class="token punctuation">:</span> <span class="token number">0</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
     <span class="token punctuation">{</span> text<span class="token punctuation">:</span> <span class="token string">'一'</span><span class="token punctuation">,</span> value<span class="token punctuation">:</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
     <span class="token punctuation">{</span> text<span class="token punctuation">:</span> <span class="token string">'二'</span><span class="token punctuation">,</span> value<span class="token punctuation">:</span> <span class="token number">2</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
@@ -468,44 +482,41 @@
 
     <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">return</span> <span class="token punctuation">(</span>
-            <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"popuppicker-demo"</span><span class="token operator">></span>
-                <span class="token operator">&lt;</span>PopupPicker
-                    options<span class="token operator">=</span><span class="token punctuation">{</span>options<span class="token punctuation">}</span>
-                    value<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value<span class="token punctuation">}</span>
-                    onChange<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>handleChange<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
-                    touchClass<span class="token operator">=</span><span class="token string">"item-touch"</span>
-                <span class="token operator">/</span><span class="token operator">></span>
-                    <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"demo-item"</span><span class="token operator">></span>
-                        <span class="token operator">&lt;</span>span className<span class="token operator">=</span><span class="token string">"title"</span><span class="token operator">></span>选择序号<span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
-                        <span class="token operator">&lt;</span>span className<span class="token operator">=</span><span class="token string">"value"</span><span class="token operator">></span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value <span class="token operator">===</span> <span class="token keyword">null</span> <span class="token operator">?</span> <span class="token string">'请选择'</span> <span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
-                    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-                <span class="token operator">&lt;</span><span class="token operator">/</span>PopupPicker<span class="token operator">></span>
-            <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>popuppicker-demo<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>PopupPicker</span>
+                    <span class="token attr-name">options</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>options<span class="token punctuation">}</span></span>
+                    <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value<span class="token punctuation">}</span></span>
+                    <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>handleChange<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>
+                    <span class="token attr-name">touchClass</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>item-touch<span class="token punctuation">"</span></span>
+                <span class="token punctuation">/></span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>demo-item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>title<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>选择序号<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>value<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value <span class="token operator">===</span> <span class="token keyword">null</span> <span class="token operator">?</span> <span class="token string">'请选择'</span> <span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>PopupPicker</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
         <span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-</code></pre>
-<h4 id="-popup-header">定制popup区域的Header</h4>
+</code></pre><h4 id="-popup-header">定制popup区域的Header</h4>
 <p>弹出式选择器的 Header 由确认、取消按钮和标题组成，这些按钮的显示值和可选的标题文本可以通过<code>popupHeader</code>定制。</p>
-<pre><code class="lang-javascript">popupHeader<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span>
+<pre><code>popupHeader<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span>
     title<span class="token punctuation">:</span> <span class="token string">'欢迎使用Yo'</span><span class="token punctuation">,</span>
     cancelBtn<span class="token punctuation">:</span> <span class="token punctuation">{</span> text<span class="token punctuation">:</span> <span class="token string">'Cancel'</span><span class="token punctuation">,</span> touchClass<span class="token punctuation">:</span> <span class="token string">'myTouchClass'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
     okBtn<span class="token punctuation">:</span> <span class="token punctuation">{</span> text<span class="token punctuation">:</span> <span class="token string">'OK'</span><span class="token punctuation">,</span> touchClass<span class="token punctuation">:</span> <span class="token string">'myTouchClass'</span> <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">}</span>
-</code></pre>
-<p>popupHeader 可以设置<code>title</code>、<code>cancelBtn</code>和<code>okBtn</code>值，它们分别代表位于 Header 中间的标题，Header 左边取消按钮和右边确认按钮的显示值。</p>
+</code></pre><p>popupHeader 可以设置<code>title</code>、<code>cancelBtn</code>和<code>okBtn</code>值，它们分别代表位于 Header 中间的标题，Header 左边取消按钮和右边确认按钮的显示值。</p>
 <p>如果没有设置<code>title</code>值，则不显示标题，左右两边的按钮的默认显示值为“取消”和“确认”，可以通过设置<code>cancelBtn</code>和<code>okBtn</code>覆盖默认值。</p>
 <h4 id="-">图标按钮</h4>
 <p>上面介绍的<code>cancelBtn</code>和<code>okBtn</code>不仅可以为字符串，也可以为一个jsx元素。可以将一个图标元素作为<code>cancelBtn</code>的值（见下例），这时的取消按钮就是一个叉状的图标了。</p>
-<pre><code class="lang-javascript">popupHeader<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span>
+<pre><code>popupHeader<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span>
     title<span class="token punctuation">:</span> <span class="token string">'欢迎使用Yo'</span><span class="token punctuation">,</span>
-    cancelBtn<span class="token punctuation">:</span> <span class="token punctuation">{</span> text<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token operator">&lt;</span>i className<span class="token operator">=</span><span class="token string">"regret yo-ico"</span><span class="token operator">></span><span class="token operator">&amp;</span>#xf077<span class="token punctuation">;</span><span class="token operator">&lt;</span><span class="token operator">/</span>i<span class="token operator">></span><span class="token punctuation">)</span><span class="token punctuation">,</span> touchClass<span class="token punctuation">:</span> <span class="token string">'myTouchClass'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    cancelBtn<span class="token punctuation">:</span> <span class="token punctuation">{</span> text<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>regret</span> <span class="token attr-name">yo-ico"</span><span class="token punctuation">></span></span><span class="token entity" title="&#xf077;">&amp;#xf077;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">></span></span><span class="token punctuation">)</span><span class="token punctuation">,</span> touchClass<span class="token punctuation">:</span> <span class="token string">'myTouchClass'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
     okBtn<span class="token punctuation">:</span> <span class="token punctuation">{</span> text<span class="token punctuation">:</span> <span class="token string">'OK'</span><span class="token punctuation">,</span> touchClass<span class="token punctuation">:</span> <span class="token string">'myTouchClass'</span> <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">}</span>
-</code></pre>
-<h4 id="-picker">多列Picker</h4>
+</code></pre><h4 id="-picker">多列Picker</h4>
 <p>如果你给 <code>options</code> 属性传入一个二维数组，例如：</p>
-<pre><code><span class="token keyword">const</span> options <span class="token operator">=</span> <span class="token punctuation">[</span>
+<pre><code class="lang-javascript"><span class="token keyword">const</span> options <span class="token operator">=</span> <span class="token punctuation">[</span>
     <span class="token punctuation">[</span>
         <span class="token punctuation">{</span> value<span class="token punctuation">:</span> <span class="token string">'javascript'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
         <span class="token punctuation">{</span> value<span class="token punctuation">:</span> <span class="token string">'java'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
@@ -518,8 +529,9 @@
         <span class="token punctuation">{</span> value<span class="token punctuation">:</span> <span class="token string">'imperative'</span> <span class="token punctuation">}</span>
     <span class="token punctuation">]</span>
 <span class="token punctuation">]</span><span class="token punctuation">;</span>
-</code></pre><p>这时候 <code>PopupPicker</code> 将会变成一个多列的 <code>Picker</code>：</p>
-<pre><code><span class="token operator">&lt;</span>PopupPicker
+</code></pre>
+<p>这时候 <code>PopupPicker</code> 将会变成一个多列的 <code>Picker</code>：</p>
+<pre><code class="lang-javascript"><span class="token operator">&lt;</span>PopupPicker
     <span class="token comment" spellcheck="true">// value可以为null或者传入一个数组，对应每一列picker的取值</span>
     value<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value<span class="token punctuation">}</span>
     onChange<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
@@ -535,8 +547,34 @@
     unit<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span><span class="token string">'language'</span><span class="token punctuation">,</span> <span class="token string">'paradigm'</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
 <span class="token operator">></span>
     <span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">renderField</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">}</span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>PopupPicker</span><span class="token punctuation">></span></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>PopupPicker<span class="token operator">></span>
 </code></pre>
+<h4 id="beforepopupshow-">beforePopupShow 属性</h4>
+<p>该属性传递的回调函数在点击触发区域后，Popup 弹层弹出前执行。当其返回值为<code>false</code>时，Popup 弹出层将不会弹出。</p>
+<p>在业务中，<code>PopupPicker</code>和<code>PopupDateTimePicker</code>选择器的值可能跟其他项有关联。例如，当前选择器只能在上一个选择器有了选择值之后才能进行选择。若上一个选择器还没有选择值时，该选择器在点击时不能触发弹出层，同时还应该向用户展示一个提示。这个时候可以通过<code>beforePopupShow</code>属性传递一个函数调用<code>Toast.show</code>显示一条通知，并将其返回值设为<code>false</code>表示不触发弹出层。</p>
+<pre><code class="lang-javascript"><span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>
+            <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"popuppicker-demo"</span><span class="token operator">></span>
+                <span class="token operator">&lt;</span>PopupPicker
+                    options<span class="token operator">=</span><span class="token punctuation">{</span>options<span class="token punctuation">}</span>
+                    value<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value<span class="token punctuation">}</span>
+                    onChange<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>handleChange<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+                    beforePopupShow<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                        Toast<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token string">'before popup show'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">}</span>
+                    touchClass<span class="token operator">=</span><span class="token string">"item-touch"</span>
+                <span class="token operator">/</span><span class="token operator">></span>
+                    <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"demo-item"</span><span class="token operator">></span>
+                        <span class="token operator">&lt;</span>span className<span class="token operator">=</span><span class="token string">"title"</span><span class="token operator">></span>选择序号<span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
+                        <span class="token operator">&lt;</span>span className<span class="token operator">=</span><span class="token string">"value"</span><span class="token operator">></span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value <span class="token operator">===</span> <span class="token keyword">null</span> <span class="token operator">?</span> <span class="token string">'请选择'</span> <span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
+                    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+                <span class="token operator">&lt;</span><span class="token operator">/</span>PopupPicker<span class="token operator">></span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</code></pre>
+
             </div>
             
             
@@ -582,7 +620,7 @@
     </h3>
 </blockquote>
 <div class="api-content">
-    <div><p>组件的value，参考网页<code>select</code>标签的 value 属性。</p>
+    <div><p>组件的 value，参考网页<code>select</code>标签的 value 属性。</p>
 <p>value 是一个严格受控属性，只能通过的父组件改变，你需要设置 onChange 属性来控制 value 属性的变化。</p>
 <p>在开启了多列模式的情况下（通过设置options属性为一个二维数组），这个属性也应该相应地传入一个数组，每个元素对应着该列的value。
 如果value数组和options数组的length不相等，那么空缺的value会被设为null。</p>
@@ -790,6 +828,29 @@ cancelBtn: { text: '取消', touchClass: 'action-touch' }
 </blockquote>
 <div class="api-content">
     <div><p>附加 popup 区域根节点的额外 class</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> null
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>beforePopupShow</strong>
+     <span class="prop-type">{ Function }</span>
+    
+    <span class="yo-badge yo-badge-danger">3.0.8</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>该函数在点击触发区域后，Popup 弹层弹出前执行。当其返回值为 false 时，Popup 弹层将不会弹出。</p>
+<p>该属性主要用于 value 值的校验，当 value 值不合法时通过函数控制展示相应的提示。</p>
 </div>
     
 </div>

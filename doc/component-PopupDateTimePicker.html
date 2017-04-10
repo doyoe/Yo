@@ -358,6 +358,14 @@
                                 <a href="component-Suggest.html">Suggest</a>
                             </li>
                         
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Loading.html">Loading</a>
+                            </li>
+                        
                         </ul>
                         
                         
@@ -400,7 +408,7 @@
                         
                         
                             <li >
-                                <a href="component-Loading.html">Loading</a>
+                                <a href="component-Loading（API）.html">Loading（API）</a>
                             </li>
                         
                         
@@ -436,7 +444,13 @@
         <div class="instructions-con">
             
             <div class="instructions-con-info">
-            <h4 id="-">基本用法</h4>
+            <h4 id="-">引用方式</h4>
+<pre><code><span class="token keyword">import</span> <span class="token punctuation">{</span> PopupDateTimePicker <span class="token punctuation">}</span> <span class="token keyword">from</span> $yo<span class="token operator">-</span>component<span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖</span>
+<span class="token comment" spellcheck="true">// 你仍然可以通过下面这种方式来引用</span>
+<span class="token keyword">import</span> PopupDateTimePicker <span class="token keyword">from</span> <span class="token string">'yo3/component/popupdatetimepicker'</span><span class="token punctuation">;</span>
+</code></pre><h4 id="-">基本用法</h4>
 <p><code>PopupDateTimePicker</code>组件实际上由两部分组成，一部分是触发弹层打开的区域，另一部分是弹出的带“确定”和“取消”按钮的弹出式选择器。</p>
 <p>该组件是一个严格受控的组件，你需要同时定义<code>onChange</code>和<code>value</code>属性才能让它正常工作。</p>
 <p>你应该给 <code>PopupDateTimePicker</code> 传入一个唯一子元素，这个子元素将会作为触发区域的内容，同时你还需要通过 <code>touchClass</code> 指定它的触摸反馈效果。</p>
@@ -471,8 +485,33 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<h4 id="-popup-header">定制popup区域的Header</h4>
+<h4 id="-popup-header">定制 popup 区域的 Header</h4>
 <p>和<code>PopupPicker</code>组件一样，<code>PopupDateTimePicker</code>组件的弹出式选择器同样由确认、取消按钮和标题组成，这些按钮的显示值和可选的标题文本可以通过<code>popupHeader</code>定制。其定制方式与<code>PopupPicker</code>组件完全一致。</p>
+<h4 id="beforepopupshow-">beforePopupShow 属性</h4>
+<p>该属性传递的回调函数在点击触发区域后，Popup 弹层弹出前执行。当其返回值为<code>false</code>时，Popup 弹出层将不会弹出。</p>
+<p>在业务中，<code>PopupPicker</code>和<code>PopupDateTimePicker</code>选择器的值可能跟其他项有关联。例如，当前选择器只能在上一个选择器有了选择值之后才能进行选择。若上一个选择器还没有选择值时，该选择器在点击时不能触发弹出层，同时还应该向用户展示一个提示。这个时候可以通过<code>beforePopupShow</code>属性传递一个函数调用<code>Toast.show</code>显示一条通知，并将其返回值设为<code>false</code>表示不触发弹出层。</p>
+<pre><code class="lang-javascript"><span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+        <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"popupdatetimepicker-demo"</span><span class="token operator">></span>
+            <span class="token operator">&lt;</span>PopupDateTimePicker
+                value<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value<span class="token punctuation">}</span>
+                onChange<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>handleChange<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+                beforePopupShow<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                    Toast<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token string">'before popup show'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span><span class="token punctuation">}</span>
+                touchClass<span class="token operator">=</span><span class="token string">"item-touch"</span>
+                range<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span><span class="token string">'2015-01-15'</span><span class="token punctuation">,</span> <span class="token string">'2015-05-20'</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+            <span class="token operator">/</span><span class="token operator">></span>
+                <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"demo-item"</span><span class="token operator">></span>
+                    <span class="token operator">&lt;</span>span className<span class="token operator">=</span><span class="token string">"title"</span><span class="token operator">></span>选择日期<span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
+                    <span class="token operator">&lt;</span>span className<span class="token operator">=</span><span class="token string">"value"</span><span class="token operator">></span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value <span class="token operator">===</span> <span class="token keyword">null</span> <span class="token operator">?</span> <span class="token string">'请选择日期'</span> <span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
+                <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>PopupDateTimePicker<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
 
             </div>
             
@@ -742,6 +781,29 @@ cancelBtn: { text: '取消', touchClass: 'action-touch' }
 </blockquote>
 <div class="api-content">
     <div><p>附加popup区域根节点的额外 class</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> null
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>beforePopupShow</strong>
+     <span class="prop-type">{ Function }</span>
+    
+    <span class="yo-badge yo-badge-danger">3.0.8</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>该函数在点击触发区域后，Popup 弹层弹出前执行。当其返回值为 false 时，Popup 弹层将不会弹出。</p>
+<p>该属性可以用于 value 值的校验，当 value 值不合法时通过函数控制展示相应的提示。</p>
 </div>
     
 </div>

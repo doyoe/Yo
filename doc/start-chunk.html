@@ -179,9 +179,8 @@
 <h3 id="chunk 文件打入离线包">chunk 文件打入离线包</h3><blockquote>
 <p>在使用该功能前，请务必升级 <code>ykit-config-yo</code> 到 1.1.7+ 版本。</p>
 </blockquote>
-<p><strong>注意</strong>：使用 chunk 之后，由于 chunk 不是非入口文件，不会被自动加入到离线包当中，因此需要在离线包入口页面 html 模板（在发布的时候，配置发布信息 -&gt; 远程文件，一般是项目的入口 index.html）的 header 中添加一个 <code>&lt;meta&gt;</code> 标签帮助离线包工具抓取 chunk。配置如下：</p>
-<pre><code><span class="token operator">&lt;</span>meta cache<span class="token operator">-</span>files<span class="token operator">=</span><span class="token string">"qp"</span> href<span class="token operator">=</span><span class="token string">"//q.qunarzz.com/projectName/prd/chunk@version.json"</span><span class="token operator">></span>
-</code></pre><p>meta 包含两个重要的属性：</p>
+<p><strong>注意</strong>：使用 chunk 之后，由于 chunk 不是非入口文件，不会被自动加入到离线包当中，因此需要在离线包入口页面 html 模板（在发布的时候，配置发布信息 -&gt; 远程文件，一般是项目的入口 index.html）的 header 中添加一个 <code>&lt;meta&gt;</code> 标签帮助离线包工具抓取 chunk。</p>
+<p>meta 包含两个重要的属性：</p>
 <ol>
 <li><code>cache-files</code>：该属性必须设置为 <code>qp</code>；</li>
 <li><code>href</code>：这里需要配置一个 json 文件，它在线上打包的时候会自动生成，位于项目的 prd 目录中，带版本号。比如项目名称为 <code>trainapp_intl</code>，获取版本号的方式时使用 .ver 文件，就可以这样写：</li>

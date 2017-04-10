@@ -358,6 +358,14 @@
                                 <a href="component-Suggest.html">Suggest</a>
                             </li>
                         
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="component-Loading.html">Loading</a>
+                            </li>
+                        
                         </ul>
                         
                         
@@ -400,7 +408,7 @@
                         
                         
                             <li >
-                                <a href="component-Loading.html">Loading</a>
+                                <a href="component-Loading（API）.html">Loading（API）</a>
                             </li>
                         
                         
@@ -439,7 +447,13 @@
         <div class="instructions-con">
             
             <div class="instructions-con-info">
-            <h4 id="-">基础使用</h4>
+            <h4 id="-">引用方式</h4>
+<pre><code><span class="token keyword">import</span> <span class="token punctuation">{</span> GroupList <span class="token punctuation">}</span> <span class="token keyword">from</span> $yo<span class="token operator">-</span>component<span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖</span>
+<span class="token comment" spellcheck="true">// 你仍然可以通过下面这种方式来引用</span>
+<span class="token keyword">import</span> GroupList <span class="token keyword">from</span> <span class="token string">'yo3/component/grouplist'</span><span class="token punctuation">;</span>
+</code></pre><h4 id="-">基础使用</h4>
 <p><code>GroupList</code>是一个定制化的<code>List</code>，它会把<code>List</code>的<code>dataSource</code>中的元素进行分组展示，并且给每一组添加一个组标题。
 因此它的<code>dataSource</code>与<code>List</code>中的稍有不同，你需要给每一个元素指定一个<code>groupKey</code>，这是一个必须添加的属性:</p>
 <pre><code><span class="token keyword">let</span> guid <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
