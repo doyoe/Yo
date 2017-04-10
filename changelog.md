@@ -1,3 +1,9 @@
+## v2.2.0（2017.4.x）
+
+[Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v2.2.0)
+
+
+
 ## v2.1.6（2016.12.19）
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v2.1.6)
