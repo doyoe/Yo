@@ -16,8 +16,9 @@
             &::after {
                 display: inline-block;
                 overflow: hidden;
-                font-family: yofont;
-                content: "\f07f";
+                padding-left: map-get($breadcrumb, item-space);
+                font-family: map-get($ico, font-name);
+                content: map-get($breadcrumb, arrow-content);
                 vertical-align: top;
                 color: map-get($breadcrumb, arrow-color);
             }
@@ -36,6 +37,7 @@
  * @param {Color} $bgcolor 面包屑背景色 <2.0.0>
  * @param {Color} $color 面包屑文本色 <2.0.0>
  * @param {Color} $arrow-color 面包屑间隔色 <2.0.0>
+ * @param {Color} $arrow-content 面包屑间隔符号（可以是自定义的iconfont编码） <2.2.0>
  * @param {Length} $item-space 面包屑子项间隙 <2.0.0>
  */
 
@@ -45,6 +47,7 @@
     $bgcolor: default,
     $color: default,
     $arrow-color: default,
+    $arrow-content: default,
     $item-space: default) {
     // 区别是否新增实例还是修改本身
     $name: if($name == default, "", "-#{$name}");
@@ -60,6 +63,9 @@
     }
     @if $arrow-color == default {
         $arrow-color: map-get($breadcrumb, arrow-color);
+    }
+    @if $arrow-content == default {
+        $arrow-content: map-get($breadcrumb, arrow-content);
     }
     @if $item-space == default {
         $item-space: map-get($breadcrumb, item-space);
@@ -85,6 +91,14 @@
                     padding-right: $item-space;
                 }
                 &::after {
+                    // 如果$item-space不等于config设定，则重绘间隙
+                    @if $item-space != map-get($breadcrumb, item-space) {
+                        padding-left: $item-space;
+                    }
+                    // 如果$arrow-content不等于config设定，则重绘间隔符号
+                    @if $arrow-content != map-get($breadcrumb, arrow-content) {
+                        content: $arrow-content;
+                    }
                     // 如果$arrow-color不等于config设定，则重绘间隔色
                     @if $arrow-color != map-get($breadcrumb, arrow-color) {
                         color: $arrow-color;
@@ -92,6 +106,7 @@
                 }
             }
         }
+
         // 增量扩展
         @content;
     }

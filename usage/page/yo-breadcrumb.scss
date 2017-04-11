@@ -5,6 +5,9 @@
 @import "../../lib/fragment/yo-breadcrumb";
 
 // 页面所需模块
-@import "../module/m-header";
-@import "../module/m-demo";
-@import "../module/m-desc";
+@import "../module/m-note";
+
+@include yo-breadcrumb(
+    $name: test,
+    $arrow-content: "/"
+);

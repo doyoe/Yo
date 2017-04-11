@@ -273,15 +273,17 @@ $_actionsheet: (
 // Fragment breadcrumb(5)
 $_breadcrumb: (
     // {Length} 面包屑高度
-    height:       .44rem,
+    height:        .44rem,
     // {Color} 面包屑背景色
-    bgcolor:      #f0f0f0,
+    bgcolor:       #f0f0f0,
     // {Color} 面包屑文本色
-    color:        map-get($base, color),
+    color:         map-get($base, color),
     // {Color} 面包屑间隔色
-    arrow-color:  #ccc,
+    arrow-color:   #ccc,
+    // {String} 面包屑间隔符号，可以是自定义的iconfont编码
+    arrow-content: "\f07f",
     // {Length} 面包屑子项间隙
-    item-space:   .05rem
+    item-space:    .05rem
 );
 
 // Fragment card(11)

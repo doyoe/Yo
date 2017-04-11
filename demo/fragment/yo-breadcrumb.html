@@ -20,24 +20,24 @@
         <a href="../../doc/element.html#yo-breadcrumb" class="affirm">文档</a>
     </header>
     <div class="flex">
-        <section class="m-demo">
-            <ul class="yo-breadcrumb">
-                <li class="item">首页</li>
-                <li class="item">栏目</li>
-                <li class="item">...</li>
-                <li class="item">当前页</li>
-            </ul>
-        </section>
-
-        <section class="m-desc">
-            <h3 class="title">示例描述：</h3>
-            <xmp><ul class="yo-breadcrumb">
-    <li class="item">首页</li>
-    <li class="item">栏目</li>
-    <li class="item">...</li>
-    <li class="item">当前页</li>
-</ul></xmp>
-        </section>
+        <ul class="yo-breadcrumb">
+            <li class="item">首页</li>
+            <li class="item">栏目</li>
+            <li class="item">...</li>
+            <li class="item">当前页</li>
+        </ul>
+        <ul class="yo-breadcrumb yo-breadcrumb-test">
+            <li class="item">首页</li>
+            <li class="item">栏目</li>
+            <li class="item">...</li>
+            <li class="item">当前页</li>
+        </ul>
+        <div class="m-note">
+            <h2 class="title">扩展说明：</h2>
+            <p>我们可以使用元件同名方法<code>yo-breadcrumb()</code>来自定义<strong>yo-breadcrumb</strong>，也可以对它进行扩展。</p>
+            <p>当传入了<code>$name</code>参数时，会自动生成一个新类，而不影响默认值；当不传<code>$name</code>参数时，则会覆盖默认值。</p>
+            <p>更多参数定义，请查看文档。</p>
+        </div>
 
     </div>
 </div>
