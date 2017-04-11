@@ -251,23 +251,23 @@ $_score: (
 // Fragment actionsheet(9)
 $_actionsheet: (
     // {Length} 外边距
-    margin:         .1rem,
+    margin:               .1rem,
     // {Length} 圆角半径
-    radius:         .1rem,
+    radius:               .1rem,
     // {Color} 边线色
-    border-color:   map-get($base, border-color),
+    border-color:         map-get($base, border-color),
     // {Color} 子项背景色
-    bgcolor:        rgba(#fff, .95),
+    bgcolor:              rgba(#fff, .95),
     // {Color} 子项点击反馈背景色
-    active-bgcolor: rgba(#eee, .95),
+    active-bgcolor:       rgba(#eee, .95),
     // {Length} 子项高度
-    item-height:    .55rem,
+    item-height:          .55rem,
     // {Length} 子项字号
-    item-font-size: .18rem,
+    item-font-size:       .18rem,
     // {Color} 子项文本色
-    item-color:     map-get($base, link-color),
+    item-color:           map-get($base, link-color),
     // {Color} 重要操作子项文本色
-    item-light-color: #f00
+    item-important-color: #f00
 );
 
 // Fragment breadcrumb(5)
