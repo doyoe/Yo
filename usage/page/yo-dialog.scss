@@ -2,14 +2,14 @@
 @import "../core/reset";
 @import "../layout/yo-flex";
 @import "../fragment/yo-header";
-@import "../widget/yo-dialog";
+@import "../fragment/yo-dialog";
 
 // 页面所需模块
 @import "../module/m-header";
 @import "../module/m-demo";
 @import "../module/m-desc";
 
-// 这个import应该放到具体使用了该widget的模块内
+// 这个import应该放到具体使用了该fragment的模块内
 // 此处只为简单描述一个demo，所以写法随意
 
 html {

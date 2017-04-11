@@ -76,8 +76,8 @@ $_ico: (
 $_z-index: (
     // {Number} 下拉菜单层级范围50-100
     dropdown:    50,
-    // {Number} 遮罩层级
-    mask:        1000,
+    // {Number} 模态窗层级范围1000-1499
+    modal:       1000,
     // {Number} 弹窗层级范围1001-1500
     dialog:      1001,
     // {Number} 浮层层级范围1501-2000
@@ -589,10 +589,12 @@ $_index: (
     font-size: .12rem
 );
 
-// Widget mask(1)
-$_mask: (
-    // {Color} 背景色
-    bgcolor: rgba(#000, .2)
+// Fragment modal(2)
+$_modal: (
+    // {Color} 遮罩背景色
+    bgcolor:      rgba(#000, .2),
+    // {Color} 内容区背景色
+    cont-bgcolor: null
 );
 
 // Widget number(11)

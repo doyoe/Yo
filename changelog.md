@@ -2,7 +2,15 @@
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v2.2.0)
 
+### New Features:
+* 将 `widget` 目录下的所有元件移动到 `fragment` 下；
+* 删除 `yo-mask` 元件，同时新增 `yo-modal` 元件用于替代；
 
+### Bug Fix:
+*
+
+
+**注意：Kami没有与此版本对应的版本**
 
 ## v2.1.6（2016.12.19）
 

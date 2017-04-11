@@ -1,0 +1,97 @@
+@charset "utf-8";
+
+// 定义modal的基础构造
+@mixin _modal {
+    overflow: hidden;
+    @include fullscreen(
+        $z-index: map-get($z-index, modal)
+    );
+    // 内容区域默认水平垂直居中对齐
+    @include align;
+    // 水平居中，垂直顶部对齐
+    &-top {
+        @include align-items(flex-start);
+    }
+    // 垂直居中，水平右侧对齐
+    &-right {
+        @include justify-content(flex-end);
+    }
+    // 水平居中，垂直底部对齐
+    &-bottom {
+        @include align-items(flex-end);
+    }
+    // 垂直居中，水平左侧对齐
+    &-left {
+        @include justify-content(flex-start);
+    }
+    // 内容区域水平铺满
+    &-stretch-x {
+        > .cont {
+            @include flex;
+        }
+    }
+    // 内容区域垂直铺满
+    &-stretch-y {
+        > .cont {
+            @include align-self(stretch);
+        }
+    }
+    // 内容区域整个铺满
+    &-stretch {
+        > .cont {
+            @include flex;
+            @include align-self(stretch);
+        }
+    }
+    // 遮罩背景底色
+    background-color: map-get($modal, bgcolor);
+    > .cont {
+        position: relative;
+        overflow: hidden;
+        // 内容区底色
+        background-color: map-get($modal, cont-bgcolor);
+    }
+}
+
+/**
+ * @module fragment
+ * @method yo-modal
+ * @version 3.0.0
+ * @description 构造yo-modal的自定义使用方法
+ * @demo http://ued.qunar.com/hy2/yo/demo/src/html/fragment/yo-modal.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Color} $bgcolor 遮罩背景色 <3.0.0>
+ * @param {Color} $cont-bgcolor 内容区背景色 <3.0.0>
+ */
+
+@mixin yo-modal(
+    $name: default,
+    $bgcolor: default,
+    $cont-bgcolor: default) {
+    // 区别是否新增实例还是修改本身
+    $name: if($name == default, "", "-#{$name}");
+    // 如果值为default，则取config的定义
+    @if $bgcolor == default {
+        $bgcolor: map-get($modal, bgcolor);
+    }
+    @if $cont-bgcolor == default {
+        $cont-bgcolor: map-get($modal, cont-bgcolor);
+    }
+    .yo-modal#{$name} {
+        @if $bgcolor != map-get($modal, bgcolor) {
+            background-color: $bgcolor;
+        }
+        > .cont {
+            @if $cont-bgcolor != map-get($modal, cont-bgcolor) {
+                background-color: $cont-bgcolor;
+            }
+        }
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入modal基础构造
+.yo-modal {
+    @include _modal;
+}
