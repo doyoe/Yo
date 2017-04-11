@@ -366,9 +366,9 @@ $_header: (
     // {Length} 边框厚度
     border-width:   0 0 1px,
     // {Color} 边框色
-    border-color:   #1ba9ba,
+    border-color:   map-get($base, light-color),
     // {Color} 背景色
-    bgcolor:        #1ba9ba,
+    bgcolor:        map-get($base, light-color),
     // {Color} 文本色
     color:          #fff,
     // {Length} 文本大小
