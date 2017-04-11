@@ -84,8 +84,6 @@ $_z-index: (
     popup:       1501,
     // {Number} 搜索层级范围2001-2500
     suggest:     2001,
-    // {Number} 搜索层级范围2501-3000
-    actionsheet: 2501,
     // {Number} 浮层层级范围3001-3500
     tip:         3001,
     // {Number} loading层级
@@ -270,7 +268,7 @@ $_actionsheet: (
     item-important-color: #f00
 );
 
-// Fragment breadcrumb(5)
+// Fragment breadcrumb(6)
 $_breadcrumb: (
     // {Length} 面包屑高度
     height:        .44rem,
@@ -284,6 +282,51 @@ $_breadcrumb: (
     arrow-content: "\f07f",
     // {Length} 面包屑子项间隙
     item-space:    .05rem
+);
+
+// Fragment calendar(18)
+$_calendar: (
+    // {Length} 星期bar高度
+    week-bar-height:      .22rem,
+    // {Color} 星期bar背景色
+    week-bar-bgcolor:     map-get($base, light-color),
+    // {Color} 星期bar文本色
+    week-bar-color:       #fff,
+    // {Length} 星期bar字号
+    week-bar-font-size:   .12rem,
+
+    // {Length} 每行高度
+    week-height:          .54rem,
+    // {Color} 每行文本色
+    week-color:           #000,
+
+    // {Length} 每日高度
+    day-height:           .24rem,
+    // {Length} 每日间距
+    day-margin:           .05rem 0 .02rem,
+    // {Length} 每日圆角
+    day-radius:           50%,
+    // {Length} 每日字号
+    day-font-size:        null,
+
+    // {color} 特殊日文本色
+    special-color:        #f50,
+    // {color} 周末文本色
+    weekend-color:        #f00,
+    // {color} 禁用日子文本色
+    disabled-color:       map-get($base, disabled-color),
+
+    // {color} 选中日期背景色
+    on-bgcolor:           map-get($base, light-color),
+    // {color} 选中日期文本色
+    on-color:             #fff,
+    // {color} 选中日期提示语文本色
+    on-tip-color:         map-get($base, light-color),
+    // {Length} 选中日期提示语字号
+    on-tip-font-size:     null,
+
+    // {color} 选中日期段背景色
+    range-bgcolor:        #eee
 );
 
 // Fragment card(11)
@@ -482,69 +525,6 @@ $_vcode: (
     border-width: 1px,
     // {Color} 输入框边框色
     border-color:  #000
-);
-
-// Widget datepicker(26)
-$_datepicker: (
-    // {Length} 星期bar高度
-    week-bar-height:      .22rem,
-    // {Color} 星期bar背景色
-    week-bar-bgcolor:     #1ba9ba,
-    // {Color} 星期bar文本色
-    week-bar-color:       #fff,
-    // {Length} 星期bar字号
-    week-bar-font-size:   .12rem,
-
-    // {Length} 月份bar高度
-    month-bar-height:     .25rem,
-    // {Color} 月份bar边线色
-    month-bar-border-color:#ddd,
-    // {Color} 月份bar背景色
-    month-bar-bgcolor:     #f9f9f9,
-    // {Color} 月份bar文本色
-    month-bar-color:       #000,
-    // {Length} 月份bar字号
-    month-bar-font-size:   map-get($base, font-size-baseline),
-
-    // {Length} 每行高度
-    week-height:           .54rem,
-    // {Color} 每行边线色
-    week-border-color:      #ddd,
-    // {Color} 每行文本色
-    week-color:             #000,
-
-    // {Length} 每日高度
-    day-height:            .24rem,
-    // {Length} 每日间距
-    day-margin:            .05rem 0 .02rem,
-    // {Length} 每日圆角
-    day-radius:            50%,
-    // {Length} 每日字号
-    day-font-size:         map-get($base, font-size-baseline),
-
-    // {color} 特殊日文本色
-    special-color:         #f50,
-    // {color} 周末文本色
-    weekend-color:         #f00,
-    // {color} 禁用日子文本色
-    disabled-color:        map-get($base, disabled-color),
-
-    // {color} 选中日期背景色
-    on-bgcolor:            #1ba9ba,
-    // {color} 选中日期文本色
-    on-color:              #fff,
-    // {color} 选中日期提示语文本色
-    on-tip-color:          #1ba9ba,
-    // {Length} 选中日期提示语字号
-    on-tip-font-size:      map-get($base, font-size-baseline),
-
-    // {String} 开始日期提示语
-    start-content:         "入店",
-    // {String} 结束日期提示语
-    end-content:           "离店",
-
-    // {color} 选中日期段背景色
-    range-bgcolor:         #eee
 );
 
 // Widget dialog(8)
