@@ -2,12 +2,5 @@
 @import "../../lib/element/yo-loading";
 
 /**
- * yo-loading扩展
+ * yo-loading通用或全局扩展
  */
-
-@include yo-loading(
-    $name: b,
-    $bgcolor: #666,
-    $ico-color: #00afc7,
-    $color: #00afc7
-);

@@ -22,10 +22,10 @@
             top: .01rem;
             left: .01rem;
             @include square(.28rem);
-            border-radius: 50%;
-            background-color: map-get($switch, ball-color);
+            border-radius: .14rem;
+            background-color: map-get($switch, thumb-color);
             box-shadow: 0 .01rem .03rem rgba(0, 0, 0, .3);
-            @include transition(transform .1s ease-out);
+            @include transition(all .1s ease-out);
         }
         &::after {
             position: absolute;
@@ -39,13 +39,23 @@
             @include transition(transform .13s ease-out);
         }
     }
-    > input:checked + .track {
-        background-color: map-get($switch, checked-bgcolor);
+    // 拖动时，滑块变宽
+    > .track.moving {
         > .handle {
-            @include transform(translate3d(.2rem, 0, 0));
+            width: 0.34rem;
         }
+    }
+    // 拖动和选中时，隐藏跟随色块
+    > .track.moving,
+    > input:checked + .track {
         &::after {
             @include transform(scale3d(0, 0, 0));
+        }
+    }
+    > input:checked + .track {
+        background-color: map-get($switch, on-bgcolor);
+        > .handle {
+            @include transform(translate3d(.2rem, 0, 0));
         }
     }
     > input:disabled + .track {
@@ -54,42 +64,38 @@
 }
 
 /**
- * @module widget
+ * @module element
  * @method yo-switch
- * @version 1.0.0
+ * @version 3.0.0
  * @description 构造yo-switch的自定义使用方法
- * @demo http://doyoe.github.io/Yo/v2/demo/fragment/yo-switch.html
- * @param {String} $name 定义扩展名称 <1.0.0>
- * @param {Color} $checked-bordercolor 定义switch激活边框色 <1.0.0, 2.0.0>
- * @param {Color} $checked-border-color 定义switch激活边框色 <2.0.0, 2.1.2>
- * @param {Color} $checked-bgcolor 定义switch激活背景色 <1.0.0>
- * @param {Color} $bordercolor 定义switch边框色 <1.0.0, 2.0.0>
- * @param {Color} $border-color 定义switch边框色 <2.0.0, 2.1.2>
- * @param {Color} $bgcolor 定义switch背景色 <1.0.0>
- * @param {Color} $follow-bgcolor 定义switch跟随背景色 <2.1.2>
- * @param {Color} $ball-color 定义switch滑块色 <1.0.0>
+ * @demo http://ued.qunar.com/hy2/yo/demo/src/html/element/yo-switch.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Color} $on-bgcolor 定义switch激活背景色 <3.0.0>
+ * @param {Color} $bgcolor 定义switch背景色 <3.0.0>
+ * @param {Color} $follow-bgcolor 定义switch跟随背景色 <3.0.0>
+ * @param {Color} $thumb-color 定义switch滑块色 <3.0.0>
  */
 
 @mixin yo-switch(
     $name: default,
-    $checked-bgcolor: default,
+    $on-bgcolor: default,
     $bgcolor: default,
     $follow-bgcolor: default,
-    $ball-color: default) {
+    $thumb-color: default) {
     // 区别是否新增实例还是修改本身
     $name: if($name == default, "", "-#{$name}");
     // 如果值为default，则取config的定义
     @if $bgcolor == default {
         $bgcolor: map-get($switch, bgcolor);
     }
-    @if $checked-bgcolor == default {
-        $checked-bgcolor: map-get($switch, checked-bgcolor);
+    @if $on-bgcolor == default {
+        $on-bgcolor: map-get($switch, on-bgcolor);
     }
     @if $follow-bgcolor == default {
         $follow-bgcolor: map-get($switch, follow-bgcolor);
     }
-    @if $ball-color == default {
-        $ball-color: map-get($switch, ball-color);
+    @if $thumb-color == default {
+        $thumb-color: map-get($switch, thumb-color);
     }
     .yo-switch#{$name} {
         > .track {
@@ -97,8 +103,8 @@
                 background-color: $bgcolor;
             }
             > .handle {
-                @if $ball-color != map-get($switch, ball-color) {
-                    background-color: $ball-color;
+                @if $thumb-color != map-get($switch, thumb-color) {
+                    background-color: $thumb-color;
                 }
             }
             &::after {
@@ -108,8 +114,8 @@
             }
         }
         > input:checked + .track {
-            @if $checked-bgcolor != map-get($switch, checked-bgcolor) {
-                background-color: $checked-bgcolor;
+            @if $on-bgcolor != map-get($switch, on-bgcolor) {
+                background-color: $on-bgcolor;
             }
         }
         // 增量扩展

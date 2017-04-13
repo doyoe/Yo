@@ -1,18 +1,18 @@
 @charset "utf-8";
+@import "yo-modal";
 @import "../element/yo-btn";
 
 // 定义dialog的基础构造
 @mixin _dialog {
     @include flexbox;
     @include flex-direction(column);
-    position: fixed;
     overflow: hidden;
-    z-index: map-get($z-index, dialog);
     padding-top: .15rem;
     min-width: 2.8rem;
     max-width: 90%;
     width: map-get($dialog, width);
     height: map-get($dialog, height);
+    margin: auto;
     border-radius: map-get($dialog, radius);
     background-color: #fff;
     text-align: center;
@@ -39,7 +39,6 @@
         }
     }
     > .bd {
-        @include flex(1, column);
         @include overflow;
         min-height: .4rem;
         padding: map-get($dialog, bd-padding);
@@ -50,12 +49,14 @@
         text-align: center;
         @include yo-btn(
             $name: dialog,
+            $height: .44rem,
             $border-width: 1px 1px 0 0,
             $border-color: map-get($dialog, border-color),
             $bgcolor: #fff,
             $color: map-get($base, link-color),
             $radius: 0,
-            $active-bgcolor: #f9f9f9
+            $touch-bgcolor: #f9f9f9,
+            $font-size: .16rem
         ){
             display: block;
             @include flex;
@@ -74,24 +75,20 @@
 }
 
 /**
- * @module widget
+ * @module fragment
  * @method yo-dialog
- * @version 1.0.0
+ * @version 3.0.0
  * @description 构造yo-dialog的自定义使用方法
- * @demo http://doyoe.github.io/Yo/v2/demo/fragment/yo-dialog.html
- * @param {String} $name 定义扩展名称 <1.0.0>
- * @param {Length} $width 宽度 <1.0.0>
- * @param {Length} $height 高度 <1.0.0>
- * @param {Length} $radius 圆角半径长度 <1.0.0>
- * @param {Number} $shadow-opacity 阴影透明度 <1.0.0, 2.1.2>
- * @param {Color} $bordercolor 边框色  <1.0.0, 2.0.0>
- * @param {Color} $border-color 边框色 <2.0.0>
- * @param {Length} $hd-height 头部高度 <1.0.0, 2.1.2>
- * @param {Color} $hd-bgcolor 头部背景色 <1.0.0, 2.1.2>
- * @param {Color} $title-color 标题文本色 <1.0.0>
- * @param {Length} $title-font-size 标题字号 <1.0.0>
- * @param {Length} $bd-padding 主体内补白 <1.0.0>
- * @param {Length} $bd-font-size 主体字号 <1.0.0>
+ * @demo http://ued.qunar.com/hy2/yo/demo/src/html/fragment/yo-dialog.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Length} $width 宽度 <3.0.0>
+ * @param {Length} $height 高度 <3.0.0>
+ * @param {Length} $radius 圆角半径长度 <3.0.0>
+ * @param {Color} $border-color 边框色 <3.0.0>
+ * @param {Color} $title-color 标题文本色 <3.0.0>
+ * @param {Length} $title-font-size 标题字号 <3.0.0>
+ * @param {Length} $bd-padding 主体内补白 <3.0.0>
+ * @param {Length} $bd-font-size 主体字号 <3.0.0>
  */
 
 @mixin yo-dialog(

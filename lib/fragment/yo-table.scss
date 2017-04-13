@@ -41,8 +41,8 @@
             background-color: map-get($table, even-bgcolor);
         }
         tr:active,
-        tr.active {
-            background-color: map-get($table, active-bgcolor);
+        tr.touch {
+            background-color: map-get($table, touch-bgcolor);
         }
         tr.on{
             background-color: map-get($table, on-bgcolor);
@@ -53,21 +53,20 @@
 /**
  * @module fragment
  * @method yo-table
- * @version 1.0.0
+ * @version 3.0.0
  * @description 构造表格的自定义使用方法
- * @demo http://doyoe.github.io/Yo/v2/demo/fragment/yo-table.html
- * @param {String} $name 定义扩展名称 <1.0.0>
- * @param {String} $width 宽度 <1.0.0>
- * @param {Boole} $has-vertical-border 是否需要纵向边框 <1.0.0>
- * @param {Length} $thead-padding 头部内补白 <1.0.0>
- * @param {Length} $tbody-padding 主体内补白 <1.0.0>
- * @param {Color} $bordercolor 边框色  <1.0.0, 2.0.0>
+ * @demo http://ued.qunar.com/hy2/yo/demo/src/html/fragment/yo-table.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Length} $width 宽度 <3.0.0>
+ * @param {Boolean} $has-vertical-border 是否需要纵向边框 <3.0.0>
+ * @param {Length} $thead-padding 头部内补白 <3.0.0>
+ * @param {Length} $tbody-padding 主体内补白 <3.0.0>
  * @param {Color} $border-color 边框色 <2.0.0>
- * @param {Color} $thead-bgcolor 头部背景色 <1.0.0>
- * @param {Color} $odd-bgcolor 主体奇数行背景色 <1.0.0>
- * @param {Color} $even-bgcolor 主体偶数行背景色 <1.0.0>
- * @param {Color} $active-bgcolor 主体激活背景色 <1.0.0>
- * @param {Color} $on-bgcolor 主体选中背景色 <1.0.0>
+ * @param {Color} $thead-bgcolor 头部背景色 <3.0.0>
+ * @param {Color} $odd-bgcolor 主体奇数行背景色 <3.0.0>
+ * @param {Color} $even-bgcolor 主体偶数行背景色 <3.0.0>
+ * @param {Color} $touch-bgcolor 主体激活背景色 <3.0.0>
+ * @param {Color} $on-bgcolor 主体选中背景色 <3.0.0>
  */
 
 @mixin yo-table(
@@ -80,7 +79,7 @@
     $thead-bgcolor: default,
     $odd-bgcolor: default,
     $even-bgcolor: default,
-    $active-bgcolor: default,
+    $touch-bgcolor: default,
     $on-bgcolor: default) {
     // 区别是否新增实例还是修改本身
     $name: if($name == default, "", "-#{$name}");
@@ -106,8 +105,8 @@
     @if $even-bgcolor == default {
         $even-bgcolor: map-get($table, even-bgcolor);
     }
-    @if $active-bgcolor == default {
-        $active-bgcolor: map-get($table, active-bgcolor);
+    @if $touch-bgcolor == default {
+        $touch-bgcolor: map-get($table, touch-bgcolor);
     }
     @if $on-bgcolor == default {
         $on-bgcolor: map-get($table, on-bgcolor);
@@ -173,9 +172,9 @@
                 }
             }
             tr:active,
-            tr.active {
-                @if $active-bgcolor != map-get($table, active-bgcolor) {
-                    background-color: $active-bgcolor;
+            tr.touch {
+                @if $touch-bgcolor != map-get($table, touch-bgcolor) {
+                    background-color: $touch-bgcolor;
                 }
             }
             tr.on {

@@ -2,21 +2,5 @@
 @import "../../lib/layout/yo-column";
 
 /**
- * yo-column扩展
+ * yo-column通用或全局扩展
  */
-
-@include yo-column {
-    height: 100%;
-    > .item {
-        padding: 0 .1rem;
-        &:nth-child(1) {
-            background-color: #ccc;
-        }
-        &:nth-child(2) {
-            background-color: #bbb;
-        }
-        &:nth-child(3) {
-            background-color: #aaa;
-        }
-    }
-}

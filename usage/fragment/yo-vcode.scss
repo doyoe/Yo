@@ -2,12 +2,5 @@
 @import "../../lib/fragment/yo-vcode";
 
 /**
- * yo-vcode扩展
+ * yo-vcode通用或全局扩展
  */
-
-@include yo-vcode(
-    $name: test,
-    $border-color: gray,
-    $bgcolor: #eee,
-    $border-width: 2px
-);

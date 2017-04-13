@@ -1,0 +1,206 @@
+@charset "utf-8";
+
+// 定义timeline的基础构造
+@mixin _timeline {
+    padding: map-get($timeline, padding);
+    background-color: #fff;
+    > .item {
+        @include flexbox;
+        &:not(:last-child) {
+            // 为item添加时间线（除了最后一项）
+            > .time::before {
+                right: -1px;
+                bottom: -#{map-get($timeline, point-top)};
+                border-right: map-get($timeline, border-width) solid map-get($timeline, border-color);
+            }
+            // 为item添加底边距（除了最后一项）
+            > .detail {
+                padding: map-get($timeline, item-padding);
+            }
+        }
+        // 定义最新一条数据的文本色
+        &:first-child > .time {
+            color: map-get($timeline, first-item-color);
+            &::after {
+                border-color: inherit;
+            }
+        }
+    }
+    .time {
+        display: block;
+        position: relative;
+        width: map-get($timeline, side-width);
+        margin: map-get($timeline, side-margin);
+        padding: map-get($timeline, side-padding);
+        color: map-get($timeline, side-color);
+        text-align: right;
+        &::before,
+        &::after {
+            position: absolute;
+            top: map-get($timeline, point-top);
+            content: "\0020";
+        }
+        &::after {
+            right: -#{map-get($timeline, point-size) / 2};
+            @include square(map-get($timeline, point-size));
+            border: map-get($timeline, point-border-width) solid map-get($timeline, point-border-color);
+            background-color: #fff;
+            @include border-radius(50%);
+        }
+    }
+    .detail {
+        @include flex;
+    }
+}
+
+/**
+ * @module fragment
+ * @method yo-timeline
+ * @version 3.0.7
+ * @description 时间轴的自定义使用方法
+ * @demo http://ued.qunar.com/hy2/yo/demo/src/html/fragment/yo-timeline.html
+ * @param {String} $name 定义扩展名称 <3.0.7>
+ * @param {Length} $padding timeline元件内边距 <3.0.7>
+ * @param {Color} $item-padding item底部间距 <3.0.7>
+ * @param {Length} $side-width 时间区域宽度 <3.0.7>
+ * @param {Length} $side-padding 时间区域右侧内边距 <3.0.7>
+ * @param {Length} $side-margin 时间区域右侧外边距 <3.0.7>
+ * @param {Color} $side-color 时间区域文本色 <3.0.7>
+ * @param {Length} $point-top 时间轴上的关键帧顶部偏移距离 <3.0.7>
+ * @param {Length} $point-size 时间轴上的关键帧尺寸大小 <3.0.7>
+ * @param {Length} $point-border-width 时间轴上的关键帧边框厚度 <3.0.7>
+ * @param {Length} $point-border-color 时间轴上的关键帧边框色 <3.0.7>
+ * @param {Length} $border-width 时间轴线条边框厚度 <3.0.7>
+ * @param {Length} $border-color 时间轴线条边框色 <3.0.7>
+ * @param {Length} $first-item-color 时间轴首个子项文本颜色 <3.0.7>
+ */
+
+@mixin yo-timeline(
+    $name: default,
+    $padding: default,
+    $item-padding: default,
+    $side-width: default,
+    $side-padding: default,
+    $side-margin: default,
+    $side-color: default,
+    $point-top: default,
+    $point-size: default,
+    $point-border-width: default,
+    $point-border-color: default,
+    $border-width: default,
+    $border-color: default,
+    $first-item-color: default) {
+    // 区别是否新增实例还是修改本身
+    $name: if($name == default, "", "-#{$name}");
+    // 如果值为default，则取config的定义
+    @if $padding == default {
+        $padding: map-get($timeline, padding);
+    }
+    @if $item-padding == default {
+        $item-padding: map-get($timeline, item-padding);
+    }
+    @if $side-width == default {
+        $side-width: map-get($timeline, side-width);
+    }
+    @if $side-padding == default {
+        $side-padding: map-get($timeline, side-padding);
+    }
+    @if $side-margin == default {
+        $side-margin: map-get($timeline, side-margin);
+    }
+    @if $side-color == default {
+        $side-color: map-get($timeline, side-color);
+    }
+    @if $point-top == default {
+        $point-top: map-get($timeline, point-top);
+    }
+    @if $point-size == default {
+        $point-size: map-get($timeline, point-size);
+    }
+    @if $point-border-width == default {
+        $point-border-width: map-get($timeline, point-border-width);
+    }
+    @if $point-border-color == default {
+        $point-border-color: map-get($timeline, point-border-color);
+    }
+    @if $border-width == default {
+        $border-width: map-get($timeline, border-width);
+    }
+    @if $border-color == default {
+        $border-color: map-get($timeline, border-color);
+    }
+    @if $first-item-color == default {
+        $first-item-color: map-get($timeline, first-item-color);
+    }
+
+    .yo-timeline#{$name} {
+        @if $padding != map-get($timeline, padding) {
+            padding: $padding;
+        }
+        > .item {
+            &:not(:last-child) {
+                > .time::before {
+                    @if $point-top != map-get($timeline, point-top) {
+                        bottom: -#{$point-top};
+                    }
+                    @if $border-width != map-get($timeline, border-width) {
+                        border-width: $border-width;
+                    }
+                    @if $border-color != map-get($timeline, border-color) {
+                        border-color: $border-color;
+                    }
+                }
+                > .detail {
+                    @if $item-padding != map-get($timeline, item-padding) {
+                        padding: $item-padding;
+                    }
+                }
+            }
+            &:first-child > .time {
+                @if $first-item-color != map-get($timeline, first-item-color) {
+                    color: $first-item-color;
+                }
+            }
+        }
+        .time {
+            @if $side-width != map-get($timeline, side-width) {
+                width: $side-width;
+            }
+            @if $side-margin != map-get($timeline, side-margin) {
+                margin: $side-margin;
+            }
+            @if $side-padding != map-get($timeline, side-padding) {
+                padding: $side-padding;
+            }
+            @if $side-color != map-get($timeline, side-color) {
+                color: $side-color;
+            }
+            &::before,
+            &::after {
+                @if $point-top != map-get($timeline, point-top) {
+                    top: $point-top;
+                }
+            }
+            &::after {
+                @if $point-size != map-get($timeline, point-size) {
+                    right: -#{$point-size / 2};
+                    @include square($point-size);
+                }
+                @if $point-border-width != map-get($timeline, point-border-width) {
+                    border-width: $point-border-width;
+                }
+                @if $point-border-color != map-get($timeline, point-border-color) {
+                    border-color: $point-border-color;
+                }
+            }
+        }
+
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入timeline基础构造
+.yo-timeline {
+    @include _timeline;
+}

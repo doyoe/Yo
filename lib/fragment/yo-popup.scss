@@ -1,0 +1,69 @@
+@charset "utf-8";
+@import "yo-modal";
+@import "yo-header";
+
+// 定义popup的基础构造
+@mixin _popup {
+    @include flexbox;
+    @include flex-direction(column);
+    width: 100%;
+    height: map-get($popup, height);
+    background-color: map-get($popup, bgcolor);
+    @include yo-header(
+        $height: .4rem,
+        $border-width: 1px 0 0,
+        $border-color: map-get($popup, border-color),
+        $bgcolor: map-get($popup, hd-bgcolor),
+        $color: map-get($base, color),
+        $item-color: map-get($popup, btn-color),
+        $item-ico-color: map-get($base, color),
+        $font-size: .16rem
+    ) {
+        > .title {
+            font-weight: normal;
+        }
+    }
+}
+
+/**
+ * @module fragment
+ * @method yo-popup
+ * @version 3.0.2
+ * @description 浮层的自定义使用方法
+ * @demo http://ued.qunar.com/hy2/yo/demo/src/html/fragment/yo-popup.html
+ * @param {String} $name 定义扩展名称 <3.0.2>
+ * @param {Length} $height 高度 <3.0.2>
+ * @param {Color} $bgcolor 背景色 <3.0.2>
+ */
+
+@mixin yo-popup(
+    $name: default,
+    $height: default,
+    $bgcolor: default) {
+    // 区别是否新增实例还是修改本身
+    $name: if($name == default, "", "-#{$name}");
+    // 如果值为default，则取config的定义
+    @if $height == default {
+        $height: map-get($popup, height);
+    }
+    @if $bgcolor == default {
+        $bgcolor: map-get($popup, bgcolor);
+    }
+
+    .yo-popup#{$name} {
+        @if $height != map-get($popup, height) {
+            height: $height;
+        }
+        @if $bgcolor != map-get($popup, bgcolor) {
+            background-color: $bgcolor;
+        }
+
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入popup基础构造
+.yo-popup {
+    @include _popup;
+}

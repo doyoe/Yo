@@ -112,10 +112,10 @@
         // 常规需要active的项目，没有使用到第3方组件的
         &.item-active:active,
         // 为第3方组件提供active状态
-        &.item-light {
+        &.item-touch {
             &,
             .front {
-                background-color: map-get($list, active-bgcolor);
+                background-color: map-get($list, touch-bgcolor);
             }
         }
         // 选中时背景和文本色
@@ -128,36 +128,51 @@
             padding: map-get($list, item-padding);
         }
     }
+    &-infinite {
+        // 当list是infinite时，item绝对定位，list的高度为0
+        // 此时list默认的底边线将会出现在顶部，所以重置为0
+        &::after {
+            border-width: 0;
+        }
+        // 当list是infinite时，定义其子项为绝对定位
+        > .label,
+        > .item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+        // 当list是infinite时，指定最后一项有底边线，否则循环时会出现缺少一根间隔线
+        > .item:last-child::after {
+            border-width: 1px 0;
+        }
+    }
 }
 
 /**
  * @module fragment
  * @method yo-list
- * @version 1.0.0
+ * @version 3.0.0
  * @description 构造列表的自定义使用方法
- * @demo http://doyoe.github.io/Yo/v2/demo/fragment/yo-list.html
- * @param {String} $name 定义扩展名称 <1.0.0>
- * @param {Length} $margin 外边距 <1.0.0>
- * @param {Length} $radius 圆角半径长度 <1.0.0>
- * @param {Length} $border-width 外边框厚度 <1.4.0>
- * @param {Color} $bordercolor 边框色 <1.0.0, 2.0.0>
- * @param {Color} $border-color 边框色 <2.0.0>
- * @param {Length} $item-padding 子项的内补白 <1.0.0>
- * @param {Length} $label-padding 列表组头内补白 <1.0.0>
- * @param {Color} $label-bgcolor 列表组头背景色 <1.0.0>
- * @param {Color} $active-bgcolor 子项点击反馈背景色 <1.0.0>
- * @param {Color} $on-bgcolor 子项选中背景色 <1.0.0>
- * @param {Color} $on-color 子项选中文本色 <1.4.0>
- * @param {Boolean} $has-last-border 是否有最后一根底边线，改由`border-width`参数控制 <2.1.0, 2.1.2>
- * @param {Color} $item-bordercolor 子项边框色 <1.2.0, 2.0.0>
- * @param {Color} $item-border-color 子项边框色 <2.0.0>
- * @param {Color} $label-bordercolor 列表组头边框色 <1.2.0, 2.0.0>
- * @param {Color} $label-border-color 列表组头边框色 <2.0.0>
- * @param {Length} $item-font-size 子项字号 <1.2.0>
- * @param {Length} $label-font-size 列表组头字号 <1.2.0>
- * @param {Length} $item-border-space 子项边线左侧偏移量 <1.8.0>
- * @param {Length} $more-font-size 更多区域字号 <2.0.0>
- * @param {Color} $more-color 更多区域文本色 <2.0.0>
+ * @demo http://ued.qunar.com/hy2/yo/demo/src/html/fragment/yo-list.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Length} $margin 外边距 <3.0.0>
+ * @param {Length} $radius 圆角半径长度 <3.0.0>
+ * @param {Length} $border-width 外边框厚度 <3.0.0>
+ * @param {Color} $border-color 边框色 <3.0.0>
+ * @param {Length} $item-padding 子项的内补白 <3.0.0>
+ * @param {Length} $label-padding 列表组头内补白 <3.0.0>
+ * @param {Color} $label-bgcolor 列表组头背景色 <3.0.0>
+ * @param {Color} $touch-bgcolor 子项点击反馈背景色 <3.0.0>
+ * @param {Color} $on-bgcolor 子项选中背景色 <3.0.0>
+ * @param {Color} $on-color 子项选中文本色 <3.0.0>
+ * @param {Color} $item-border-color 子项边框色 <3.0.0>
+ * @param {Color} $label-border-color 列表组头边框色 <3.0.0>
+ * @param {Length} $item-font-size 子项字号 <3.0.0>
+ * @param {Length} $label-font-size 列表组头字号 <3.0.0>
+ * @param {Length} $item-border-space 子项边线左侧偏移量 <3.0.0>
+ * @param {Length} $more-font-size 更多区域字号 <3.0.0>
+ * @param {Color} $more-color 更多区域文本色 <3.0.0>
  */
 
 @mixin yo-list(
@@ -169,7 +184,7 @@
     $item-padding: default,
     $label-padding: default,
     $label-bgcolor: default,
-    $active-bgcolor: default,
+    $touch-bgcolor: default,
     $on-bgcolor: default,
     $on-color: default,
     $item-border-color: default,
@@ -203,8 +218,8 @@
     @if $label-bgcolor == default {
         $label-bgcolor: map-get($list, label-bgcolor);
     }
-    @if $active-bgcolor == default {
-        $active-bgcolor: map-get($list, active-bgcolor);
+    @if $touch-bgcolor == default {
+        $touch-bgcolor: map-get($list, touch-bgcolor);
     }
     @if $on-bgcolor == default {
         $on-bgcolor: map-get($list, on-bgcolor);
@@ -321,11 +336,11 @@
                 }
             }
             &.item-active:active,
-            &.item-light {
+            &.item-touch {
                 &,
                 .front {
-                    @if $active-bgcolor != map-get($list, active-bgcolor) {
-                        background-color: $active-bgcolor;
+                    @if $touch-bgcolor != map-get($list, touch-bgcolor) {
+                        background-color: $touch-bgcolor;
                     }
                 }
             }

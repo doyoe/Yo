@@ -1,13 +1,5 @@
 @charset "utf-8";
 @import "../core/reset";
-@import "../layout/yo-flex";
+@import "../../lib/layout/yo-flex";
 @import "../../lib/fragment/yo-header";
-@import "../../lib/fragment/yo-breadcrumb";
-
-// 页面所需模块
-@import "../module/m-note";
-
-@include yo-breadcrumb(
-    $name: test,
-    $arrow-content: "/"
-);
+@import "../fragment/yo-breadcrumb";

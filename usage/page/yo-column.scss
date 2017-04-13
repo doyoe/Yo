@@ -1,5 +1,21 @@
 @charset "utf-8";
 @import "../core/reset";
-@import "../layout/yo-flex";
-@import "../layout/yo-column";
+@import "../../lib/layout/yo-flex";
 @import "../../lib/fragment/yo-header";
+@import "../layout/yo-column";
+
+@include yo-column {
+    height: 100%;
+    > .item {
+        padding: 0 .1rem;
+        &:nth-child(1) {
+            background-color: #ccc;
+        }
+        &:nth-child(2) {
+            background-color: #bbb;
+        }
+        &:nth-child(3) {
+            background-color: #aaa;
+        }
+    }
+}

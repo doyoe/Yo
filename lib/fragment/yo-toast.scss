@@ -1,0 +1,75 @@
+@charset "utf-8";
+
+// 定义浮层toast的基础构造
+@mixin _toast {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%, -50%));
+    min-width: 1rem;
+    max-width: 90%;
+    z-index: map-get($z-index, toast);
+    padding: map-get($toast, padding);
+    border-radius: map-get($toast, radius);
+    background-color: map-get($toast, bgcolor);
+    color: map-get($toast, color);
+    text-align: center;
+}
+
+/**
+ * @module fragment
+ * @method yo-toast
+ * @version 3.0.0
+ * @description 构造列表的自定义使用方法
+ * @demo http://ued.qunar.com/hy2/yo/demo/src/html/fragment/yo-toast.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Length} $padding 内补白 <3.0.0>
+ * @param {Length} $radius 圆角半径长度 <3.0.0>
+ * @param {Color} $bgcolor 背景色 <3.0.0>
+ * @param {Color} $color 文本色 <3.0.0>
+ */
+
+@mixin yo-toast(
+    $name: default,
+    $padding: default,
+    $radius: default,
+    $bgcolor: default,
+    $color: default) {
+    // 区别是否新增实例还是修改本身
+    $name: if($name == default, "", "-#{$name}");
+    // 如果值为default，则取config的定义
+    @if $padding == default {
+        $padding: map-get($toast, padding);
+    }
+    @if $radius == default {
+        $radius: map-get($toast, radius);
+    }
+    @if $bgcolor == default {
+        $bgcolor: map-get($toast, bgcolor);
+    }
+    @if $color == default {
+        $color: map-get($toast, color);
+    }
+    .yo-toast#{$name} {
+        @if $padding != map-get($toast, padding) {
+            padding: $padding;
+        }
+        @if $radius != map-get($toast, radius) {
+            border-radius: $radius;
+        }
+        @if $bgcolor != map-get($toast, bgcolor) {
+            background-color: $bgcolor;
+        }
+        @if $color != map-get($toast, color) {
+            color: $color;
+        }
+
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入toast基础构造
+.yo-toast {
+    @include _toast;
+}
