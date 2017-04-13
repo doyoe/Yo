@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
-<title>loading - 菊花</title>
+<title>yo-loading - 菊花</title>
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <meta name="format-detection" content="telephone=no,email=no" />
@@ -14,48 +14,27 @@
 <body>
 
 <div class="yo-flex">
-    <header class="yo-header m-header">
+    <header class="yo-header">
         <h2 class="title">yo-loading</h2>
         <a href="../index.html" class="regret yo-ico">&#xf07d;</a>
         <a href="../../doc/element.html#yo-loading" class="affirm">文档</a>
     </header>
     <div class="flex">
-        <div class="yo-loading m-demo">
-            <div class="inner"><i class="yo-ico"></i></div>
-        </div>
-        <section class="m-desc">
-            <h3 class="title">示例描述：</h3>
-            <xmp><div class="yo-loading">
-    <div class="inner"><i class="yo-ico"></i></div>
-</div></xmp>
-        </section>
 
-        <div class="yo-loading m-demo">
-            <div class="inner"><i class="yo-ico"></i><span>加载中...</span></div>
+        <div class="yo-modal">
+            <div class="cont">
+                <div class="yo-loading">
+                    <i class="yo-ico"></i>
+                    <div class="text">加载中...</div>
+                </div>
+            </div>
         </div>
-        <section class="m-desc">
-            <h3 class="title">示例描述：</h3>
-            <xmp><div class="yo-loading">
-    <div class="inner"><i class="yo-ico"></i><span>加载中...</span></div>
-</div></xmp>
-        </section>
-
-        <div class="yo-loading yo-loading-b m-demo">
-            <div class="inner"><i class="yo-ico"></i><span>加载中...</span></div>
+        <div class="m-note">
+            <h2 class="title">扩展说明：</h2>
+            <p>我们可以使用元件同名方法<code>yo-loading()</code>来自定义<strong>yo-loading</strong>，也可以对它进行扩展。</p>
+            <p>当传入了<code>$name</code>参数时，会自动生成一个新类，而不影响默认值；当不传<code>$name</code>参数时，则会覆盖默认值。</p>
+            <p>还可以通过传入不同的参数，用以添加或改变loading背景色，前景色以及大小等，具体参数请查阅对应文档。</p>
         </div>
-        <section class="m-desc">
-            <h3 class="title">假设你想要背景色，那么你可以这样扩展：</h3>
-            <xmp>@include yo-loading(
-    $name: b,
-    $bgcolor: #666,
-    $ico-color: #00afc7,
-    $color: #00afc7
-);</xmp>
-    <h3 class="sub-title">使用方法：</h3>
-    <xmp><div class="yo-loading yo-loading-b">
-    <div class="inner"><i class="yo-ico"></i><span>加载中...</span></div>
-</div></xmp>
-        </section>
 
     </div>
 </div>
