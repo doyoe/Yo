@@ -7,11 +7,6 @@
 
 @import "../module/m-note";
 
-@include yo-list(
-    $name: group,
-    $label-padding: .2rem .1rem .05rem
-);
-
 // 预设常规气泡
 @include yo-badge(
     $name: normal,
