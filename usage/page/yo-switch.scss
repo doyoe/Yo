@@ -1,6 +1,38 @@
 @charset "utf-8";
 @import "../core/reset";
-@import "../../lib/layout/yo-flex";
-@import "../../lib/fragment/yo-header";
+@import "../layout/yo-flex";
+@import "../fragment/yo-header";
 @import "../fragment/yo-list";
 @import "../element/yo-switch";
+
+@import "../module/m-note";
+
+@include yo-switch(
+    $name: a,
+    $on-bgcolor: #4a87ee
+);
+
+@include yo-switch(
+    $name: b,
+    $on-bgcolor: #43cee6
+);
+
+@include yo-switch(
+    $name: c,
+    $on-bgcolor: #f0b840
+);
+
+@include yo-switch(
+    $name: d,
+    $on-bgcolor: #ef4e3a
+);
+
+@include yo-switch(
+    $name: e,
+    $on-bgcolor: #8a6de9
+);
+
+@include yo-switch(
+    $name: f,
+    $on-bgcolor: #444
+);
