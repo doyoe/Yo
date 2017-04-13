@@ -34,18 +34,15 @@
 
 // 定义动画基本特性
 .ani {
-	// 定义动画的持续时间
-	-webkit-animation-duration: 1s;
-	animation-duration: 1s;
-	// 定义动画运行完成之后的状态
-	-webkit-animation-fill-mode: both;
-	animation-fill-mode: both;
+    // 定义动画的持续时间
+    @include animation-duration(1s);
+    // 定义动画运行完成之后的状态
+    @include animation-fill-mode(both);
 }
 
 .ani.infinite {
-	//定义动画无限循环
-	-webkit-animation-iteration-count: infinite;
-	animation-iteration-count: infinite;
+    //定义动画无限循环
+    @include animation-iteration-count(infinite);
 }
                 </pre>
                 </div>

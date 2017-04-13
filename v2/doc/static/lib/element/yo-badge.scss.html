@@ -30,8 +30,17 @@
 // 定义badge的基础构造
 @mixin _badge {
     @include align(inline-flex);
-    min-width: .16rem;
-    min-height: .16rem;
+    // 内容不为空时，约束最小宽度和高度
+    &:not(:empty) {
+        min-width: .16rem;
+        min-height: .16rem;
+    }
+    // 内容为空时，约束最小宽度和高度
+    &:empty {
+        min-width: .08rem;
+        min-height: .08rem;
+        vertical-align: super;
+    }
     padding: map-get($badge, padding);
     @include border(
         $border-width: map-get($badge, border-width),
@@ -47,18 +56,17 @@
 /**
  * @module element
  * @method yo-badge
- * @version 1.0.0
+ * @version 2.2.0
  * @description 构造提醒气泡的自定义使用方法，可以扩展为：tag,文字ico等形态
- * @demo http://doyoe.github.io/Yo/v2/demo/element/yo-badge.html
- * @param {String} $name 定义扩展名称 <1.0.0>
- * @param {Length} $padding 内补白 <1.4.0>
- * @param {Length} $border-width 边框厚度 <1.4.0>
- * @param {Color} $bordercolor 边框色 <1.1.0, 2.0.0>
- * @param {Color} $border-color 边框色 <2.0.0>
- * @param {Color} $bgcolor 背景色 <1.0.0>
- * @param {Color} $color 文本色 <1.0.0>
- * @param {Length} $radius 圆角半径长度 <1.0.0>
- * @param {Length} $font-size 字号大小 <1.0.0>
+ * @demo http://yo.doyoe.com/v2/demo/element/yo-badge.html
+ * @param {String} $name 定义扩展名称 <2.2.0>
+ * @param {Length} $padding 内补白 <2.2.0>
+ * @param {Length} $border-width 边框厚度 <2.2.0>
+ * @param {Color} $border-color 边框色 <2.2.0>
+ * @param {Color} $bgcolor 背景色 <2.2.0>
+ * @param {Color} $color 文本色 <2.2.0>
+ * @param {Length} $radius 圆角半径长度 <2.2.0>
+ * @param {Length} $font-size 字号大小 <2.2.0>
  */
 
 @mixin yo-badge(

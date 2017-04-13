@@ -34,10 +34,11 @@
     width: map-get($number, width);
     height: map-get($number, height);
     line-height: map-get($number, height);
+    @include transform(translate(0));
     @include border(
-        $border-width: map-get($number, outer-border-width),
+        $border-width: map-get($number, border-width),
         $border-color: map-get($number, border-color),
-        $radius: map-get($number, outer-radius)
+        $radius: map-get($number, radius)
     );
     background-color: #fff;
     text-align: center;
@@ -46,9 +47,9 @@
         display: block;
         @include square(map-get($number, height));
         @include border(
-            $border-width: map-get($number, inner-border-width),
+            $border-width: map-get($number, sign-border-width),
             $border-color: map-get($number, border-color),
-            $radius: map-get($number, inner-radius)
+            $radius: map-get($number, sign-radius)
         );
         background-color: map-get($number, sign-bgcolor);
         color: map-get($number, sign-color);
@@ -56,7 +57,6 @@
         font-family: arial;
         cursor: pointer;
         &.disabled {
-            color: map-get($number, disabled-sign-color);
             cursor: not-allowed;
             &::after {
                 border-color: lighten(map-get($number, border-color), 12%);
@@ -64,6 +64,10 @@
             background-color: lighten(map-get($number, sign-bgcolor), 15%);
             color: lighten(map-get($number, sign-color), 30%);
         }
+    }
+    // touch状态
+    > .action-touch {
+        opacity: .5;
     }
     > .input {
         display: block;
@@ -80,37 +84,35 @@
 }
 
 /**
- * @module widget
+ * @module fragment
  * @method yo-number
- * @version 1.0.0
+ * @version 2.2.0
  * @description 构造列表的自定义使用方法
- * @demp http://doyoe.github.io/Yo/v2/demo/fragment/yo-number.html
- * @param {String} $name 定义扩展名称 <1.0.0>
- * @param {Length} $width 宽度 <1.0.0>
- * @param {Length} $height 高度 <1.0.0>
- * @param {Length} $outer-radius 外边框圆角半径 <2.0.0>
- * @param {Length} $outer-border-width 外边框厚度 <2.0.0>
- * @param {Length} $inner-radius 内边框圆角半径 <2.0.0>
- * @param {Length} $inner-border-width 内边框厚度 <2.0.0>
- * @param {Color} $bordercolor 外边框色  <1.0.0, 2.0.0>
- * @param {Color} $border-color 外边框色 <2.0.0>
- * @param {Color} $color 输入框文本色 <1.0.0>
- * @param {Color} $sign-bgcolor 加减号背景色 <1.0.0>
- * @param {Color} $sign-color 加减号文本色 <1.0.0>
- * @param {Color} $disabled-sign-color 加减号禁用文本色  <1.0.0, 2.0.0>
- * @param {Length} $font-size 输入框字号 <2.0.0>
+ * @demp http://yo.doyoe.com/v2/demo/fragment/yo-number.html
+ * @param {String} $name 定义扩展名称 <2.2.0>
+ * @param {Length} $width 宽度 <2.2.0>
+ * @param {Length} $height 高度 <2.2.0>
+ * @param {Length} $radius 外边框圆角半径 <2.2.0>
+ * @param {Length} $border-width 外边框厚度 <2.2.0>
+ * @param {Color} $border-color 外边框色 <2.2.0>
+ * @param {Color} $color 输入框文本色 <2.2.0>
+ * @param {Length} $sign-radius 加减号区域边框圆角半径 <2.2.0>
+ * @param {Length} $sign-border-width 加减号区域边框厚度 <2.2.0>
+ * @param {Color} $sign-bgcolor 加减号区域背景色 <2.2.0>
+ * @param {Color} $sign-color 加减号区域文本色 <2.2.0>
+ * @param {Length} $font-size 输入框字号 <2.2.0>
  */
 
 @mixin yo-number(
     $name: default,
     $width: default,
     $height: default,
-    $outer-radius: default,
-    $outer-border-width: default,
-    $inner-radius: default,
-    $inner-border-width: default,
+    $radius: default,
+    $border-width: default,
     $border-color: default,
     $color: default,
+    $sign-radius: default,
+    $sign-border-width: default,
     $sign-bgcolor: default,
     $sign-color: default,
     $font-size: default) {
@@ -123,17 +125,17 @@
     @if $height == default {
         $height: map-get($number, height);
     }
-    @if $outer-radius == default {
-        $outer-radius: map-get($number, outer-radius);
+    @if $radius == default {
+        $radius: map-get($number, radius);
     }
-    @if $outer-border-width == default {
-        $outer-border-width: map-get($number, outer-border-width);
+    @if $border-width == default {
+        $border-width: map-get($number, border-width);
     }
-    @if $inner-radius == default {
-        $inner-radius: map-get($number, inner-radius);
+    @if $sign-radius == default {
+        $sign-radius: map-get($number, sign-radius);
     }
-    @if $inner-border-width == default {
-        $inner-border-width: map-get($number, inner-border-width);
+    @if $sign-border-width == default {
+        $sign-border-width: map-get($number, sign-border-width);
     }
     @if $border-color == default {
         $border-color: map-get($number, border-color);
@@ -158,29 +160,29 @@
             height: $height;
             line-height: $height;
         }
-        // 如果$outer-radius不等于config设定，则重绘外边框圆角
-        @if $outer-radius != map-get($number, outer-radius) {
-            border-radius: $outer-radius;
+        // 如果$radius不等于config设定，则重绘外边框圆角
+        @if $radius != map-get($number, radius) {
+            border-radius: $radius;
         }
         &::after {
-            // 如果$outer-border-width不等于config设定，则重绘外边框相关
-            @if $outer-border-width != map-get($number, outer-border-width) {
-                border-width: $outer-border-width;
+            // 如果$border-width不等于config设定，则重绘外边框相关
+            @if $border-width != map-get($number, border-width) {
+                border-width: $border-width;
             }
             // 如果$border-color不等于config设定，则重绘边框颜色
             @if $border-color != map-get($number, border-color) {
                 border-color: $border-color;
             }
-            // 如果$outer-radius不等于config设定，则重绘外边框圆角
-            @if $outer-radius != map-get($number, outer-radius) {
+            // 如果$radius不等于config设定，则重绘外边框圆角
+            @if $radius != map-get($number, radius) {
                 @include responsive(retina1x) {
-                    border-radius: $outer-radius;
+                    border-radius: $radius;
                 }
                 @include responsive(retina2x) {
-                    border-radius: $outer-radius * 2;
+                    border-radius: $radius * 2;
                 }
                 @include responsive(retina3x) {
-                    border-radius: $outer-radius * 3;
+                    border-radius: $radius * 3;
                 }
             }
         }
@@ -190,29 +192,29 @@
                 @include square($height);
                 font-size: $height - .05rem;
             }
-            // 如果$inner-radius不等于config设定，则重绘内边框圆角
-            @if $inner-radius != map-get($number, inner-radius) {
-                border-radius: $inner-radius;
+            // 如果$sign-radius不等于config设定，则重绘内边框圆角
+            @if $sign-radius != map-get($number, sign-radius) {
+                border-radius: $sign-radius;
             }
             &::after {
-                // 如果$inner-border-width不等于config设定，则重绘内边框相关
-                @if $inner-border-width != map-get($number, inner-border-width) {
-                    border-width: $inner-border-width;
+                // 如果$sign-border-width不等于config设定，则重绘内边框相关
+                @if $sign-border-width != map-get($number, sign-border-width) {
+                    border-width: $sign-border-width;
                 }
                 // 如果$border-color不等于config设定，则重绘边框颜色
                 @if $border-color != map-get($number, border-color) {
                     border-color: $border-color;
                 }
-                // 如果$inner-radius不等于config设定，则重绘内边框圆角
-                @if $inner-radius != map-get($number, inner-radius) {
+                // 如果$sign-radius不等于config设定，则重绘内边框圆角
+                @if $sign-radius != map-get($number, sign-radius) {
                     @include responsive(retina1x) {
-                        border-radius: $inner-radius;
+                        border-radius: $sign-radius;
                     }
                     @include responsive(retina2x) {
-                        border-radius: $inner-radius * 2;
+                        border-radius: $sign-radius * 2;
                     }
                     @include responsive(retina3x) {
-                        border-radius: $inner-radius * 3;
+                        border-radius: $sign-radius * 3;
                     }
                 }
             }
