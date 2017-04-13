@@ -147,8 +147,8 @@
 <a name="documentation-and-demo"></a>
 ## 实例和文档
 
-* [View Demo](http://doyoe.github.io/Yo/demo/)
-* [View Documentation](http://doyoe.github.io/Yo/doc/)
+* [View Demo](http://doyoe.github.io/Yo/v2/demo/)
+* [View Documentation](http://doyoe.github.io/Yo/v2/doc/)
 
 如果你想在本地构建 `Yo` 的文档，只需要：
 
