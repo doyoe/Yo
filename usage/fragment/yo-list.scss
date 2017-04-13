@@ -4,3 +4,8 @@
 /**
  * yo-list通用或全局扩展
  */
+
+@include yo-list(
+    $name: group,
+    $label-padding: .2rem .1rem .05rem
+);

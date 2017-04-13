@@ -152,27 +152,27 @@
 /**
  * @module fragment
  * @method yo-list
- * @version 3.0.0
+ * @version 2.2.0
  * @description 构造列表的自定义使用方法
- * @demo http://ued.qunar.com/hy2/yo/demo/src/html/fragment/yo-list.html
- * @param {String} $name 定义扩展名称 <3.0.0>
- * @param {Length} $margin 外边距 <3.0.0>
- * @param {Length} $radius 圆角半径长度 <3.0.0>
- * @param {Length} $border-width 外边框厚度 <3.0.0>
- * @param {Color} $border-color 边框色 <3.0.0>
- * @param {Length} $item-padding 子项的内补白 <3.0.0>
- * @param {Length} $label-padding 列表组头内补白 <3.0.0>
- * @param {Color} $label-bgcolor 列表组头背景色 <3.0.0>
- * @param {Color} $touch-bgcolor 子项点击反馈背景色 <3.0.0>
- * @param {Color} $on-bgcolor 子项选中背景色 <3.0.0>
- * @param {Color} $on-color 子项选中文本色 <3.0.0>
- * @param {Color} $item-border-color 子项边框色 <3.0.0>
- * @param {Color} $label-border-color 列表组头边框色 <3.0.0>
- * @param {Length} $item-font-size 子项字号 <3.0.0>
- * @param {Length} $label-font-size 列表组头字号 <3.0.0>
- * @param {Length} $item-border-space 子项边线左侧偏移量 <3.0.0>
- * @param {Length} $more-font-size 更多区域字号 <3.0.0>
- * @param {Color} $more-color 更多区域文本色 <3.0.0>
+ * @demo http://yo.doyoe.com/v2/demo/fragment/yo-list.html
+ * @param {String} $name 定义扩展名称 <2.2.0>
+ * @param {Length} $margin 外边距 <2.2.0>
+ * @param {Length} $radius 圆角半径长度 <2.2.0>
+ * @param {Length} $border-width 外边框厚度 <2.2.0>
+ * @param {Color} $border-color 边框色 <2.2.0>
+ * @param {Length} $item-padding 子项的内补白 <2.2.0>
+ * @param {Length} $label-padding 列表组头内补白 <2.2.0>
+ * @param {Color} $label-bgcolor 列表组头背景色 <2.2.0>
+ * @param {Color} $touch-bgcolor 子项点击反馈背景色 <2.2.0>
+ * @param {Color} $on-bgcolor 子项选中背景色 <2.2.0>
+ * @param {Color} $on-color 子项选中文本色 <2.2.0>
+ * @param {Color} $item-border-color 子项边框色 <2.2.0>
+ * @param {Color} $label-border-color 列表组头边框色 <2.2.0>
+ * @param {Length} $item-font-size 子项字号 <2.2.0>
+ * @param {Length} $label-font-size 列表组头字号 <2.2.0>
+ * @param {Length} $item-border-space 子项边线左侧偏移量 <2.2.0>
+ * @param {Length} $more-font-size 更多区域字号 <2.2.0>
+ * @param {Color} $more-color 更多区域文本色 <2.2.0>
  */
 
 @mixin yo-list(

@@ -108,28 +108,28 @@
 /**
  * @module fragment
  * @method yo-calendar
- * @version 3.0.0
+ * @version 2.2.0
  * @description 构造yo-calendar的自定义使用方法
- * @demo http://ued.qunar.com/hy2/yo/demo/src/html/fragment/yo-calendar.html
- * @param {String} $name 定义扩展名称 <3.0.0>
- * @param {Length} $week-bar-height 定义星期bar高度 <3.0.0>
- * @param {Color} $week-bar-bgcolor 定义星期bar背景色 <3.0.0>
- * @param {Color} $week-bar-color 定义星期bar文本色 <3.0.0>
- * @param {Length} $week-bar-font-size 定义星期bar字号 <3.0.0>
- * @param {Length} $week-height 定义每行高度 <3.0.0>
- * @param {Color} $week-color 定义每行文本色 <3.0.0>
- * @param {Length} $day-height 定义每日高度 <3.0.0>
- * @param {Length} $day-margin 定义每日间距 <3.0.0>
- * @param {Length} $day-radius 定义每日圆角 <3.0.0>
- * @param {Length} $day-font-size 定义每日字号 <3.0.0>
- * @param {Color} $special-color 定义特殊日文本色 <3.0.0>
- * @param {Color} $weekend-color 定义周末文本色 <3.0.0>
- * @param {Color} $disabled-color 定义禁用日子文本色 <3.0.0>
- * @param {Color} $on-bgcolor 定义选中日期背景色 <3.0.0>
- * @param {Color} $on-color 定义选中日期文本色 <3.0.0>
- * @param {Color} $on-tip-color 定义选中日期提示语文本色 <3.0.0>
- * @param {Length} $on-tip-font-size 定义选中日期提示语字号 <3.0.0>
- * @param {Color} $range-bgcolor 选中日期段背景 <3.0.0>
+ * @demo http://yo.doyoe.com/v2/demo/fragment/yo-calendar.html
+ * @param {String} $name 定义扩展名称 <2.2.0>
+ * @param {Length} $week-bar-height 定义星期bar高度 <2.2.0>
+ * @param {Color} $week-bar-bgcolor 定义星期bar背景色 <2.2.0>
+ * @param {Color} $week-bar-color 定义星期bar文本色 <2.2.0>
+ * @param {Length} $week-bar-font-size 定义星期bar字号 <2.2.0>
+ * @param {Length} $week-height 定义每行高度 <2.2.0>
+ * @param {Color} $week-color 定义每行文本色 <2.2.0>
+ * @param {Length} $day-height 定义每日高度 <2.2.0>
+ * @param {Length} $day-margin 定义每日间距 <2.2.0>
+ * @param {Length} $day-radius 定义每日圆角 <2.2.0>
+ * @param {Length} $day-font-size 定义每日字号 <2.2.0>
+ * @param {Color} $special-color 定义特殊日文本色 <2.2.0>
+ * @param {Color} $weekend-color 定义周末文本色 <2.2.0>
+ * @param {Color} $disabled-color 定义禁用日子文本色 <2.2.0>
+ * @param {Color} $on-bgcolor 定义选中日期背景色 <2.2.0>
+ * @param {Color} $on-color 定义选中日期文本色 <2.2.0>
+ * @param {Color} $on-tip-color 定义选中日期提示语文本色 <2.2.0>
+ * @param {Length} $on-tip-font-size 定义选中日期提示语字号 <2.2.0>
+ * @param {Color} $range-bgcolor 选中日期段背景 <2.2.0>
  */
 
 @mixin yo-calendar(
