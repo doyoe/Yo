@@ -1,0 +1,17 @@
+@charset "utf-8";
+/**
+ * @module 常用方法
+ * @description 定义响应式方案
+ * @method responsive
+ * @version 1.0.0
+ * @param {String} $media 指定媒体查询条件，取值为`config`文件map `media-types`中的值 <1.0.0>
+ */
+@mixin responsive($media) {
+    @if not map-has-key($media-types, $media) {
+        @warn "#{$media} is not a known media type. Using portrait instead.";
+        $media: portrait;
+    }
+    @media #{map-get($media-types, $media)} {
+        @content;
+    }
+}

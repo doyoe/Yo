@@ -1,0 +1,17 @@
+@charset "utf-8";
+/**
+ * @module 常用方法
+ * @description 定义是否有滚动条
+ * @method overflow
+ * @version 1.0.0
+ * @param {String} $overflow 取值与最新原生语法一致，默认值：auto <1.0.0>
+ */
+@mixin overflow($overflow: auto) {
+    @if $overflow == auto {
+        overflow: auto;
+        // 移除此条规则，防止iOS8.0+ webview崩溃
+        -webkit-overflow-scrolling: touch;
+    } @else {
+        overflow: $overflow;
+    }
+}

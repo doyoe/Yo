@@ -6,6 +6,7 @@
 * 将 `widget` 目录下的所有元件移动到 `fragment` 下；
 * 删除 `yo-mask` 元件，同时新增 `yo-modal` 元件用于替代；
 * 删除 `yo-datepicker` 元件，同时新增 `yo-calendar` 元件用于替代；
+* 删除 `yo-switchable` 元件，同时新增 `yo-carousel` 元件用于替代；
 
 ### Bug Fix:
 *

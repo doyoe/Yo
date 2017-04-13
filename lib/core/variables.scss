@@ -679,8 +679,8 @@ $_switch: (
     ball-color:      #fff
 );
 
-// Widget switchable(8)
-$_switchable: (
+// Fragment carousel(8)
+$_carousel: (
     // {Length} 按钮大小
     btn-size:           .44rem,
     // {Color} 按钮背景色
@@ -688,15 +688,15 @@ $_switchable: (
     // {Color} 按钮文本色
     btn-color:          #fff,
     // {Color} 按钮按下时背景色
-    btn-active-bgcolor: rgba(#09a5c4, .5),
+    touch-btn-bgcolor:  rgba(#09a5c4, .5),
     // {Color} 按钮按下时文本色
-    btn-active-color:   null,
+    touch-btn-color:    null,
     // {Length} 索引大小
     index-size:         .1rem,
     // {Color} 索引背景色
     index-bgcolor:      #85c8d1,
     // {Color} 索引的当前项背景色
-    index-on-bgcolor:   #09a5c4
+    on-index-bgcolor:   #09a5c4
 );
 
 // Widget tab(15)

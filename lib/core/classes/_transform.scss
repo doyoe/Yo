@@ -1,0 +1,66 @@
+@charset "utf-8";
+/**
+ * @module Transform
+ * @description 定义简单变换
+ * @method transform
+ * @version 1.0.0
+ * @param {String} $transform 取值范围与`transform`属性一致 <1.0.0>
+ */
+@mixin transform($transform...) {
+    @include prefix(transform, $transform);
+}
+
+/**
+ * @module Transform
+ * @description 定义变换原点
+ * @method transform-origin
+ * @version 1.0.0
+ * @param {Length | Percentage | Keywords} $transform-origin 取值范围与`transform-origin`属性一致 <1.0.0>
+ */
+@mixin transform-origin($transform-origin) {
+    @include prefix(transform-origin, $transform-origin);
+}
+
+/**
+ * @module Transform
+ * @description 指定某元素的子元素是（看起来）位于三维空间内，还是在该元素所在的平面内被扁平化
+ * @method transform-style
+ * @version 2.0.0
+ * @param {String} $transform-style 取值范围与`transform-style`属性一致 <2.0.0>
+ */
+@mixin transform-style($transform-style) {
+    @include prefix(transform-style, $transform-style);
+}
+
+/**
+ * @module Transform
+ * @description 指定观察者与「z=0」平面的距离，使具有三维位置变换的元素产生透视效果。「z>0」的三维元素比正常大，而「z<0」时则比正常小，大小程度由该属性的值决定。
+ * @method perspective
+ * @version 2.0.0
+ * @param {none | Length} $perspective 取值范围与`perspective`属性一致 <2.0.0>
+ */
+@mixin perspective($perspective) {
+    @include prefix(perspective, $perspective);
+}
+
+/**
+ * @module Transform
+ * @description 指定透视点的位置
+ * @method perspective-origin
+ * @version 2.0.0
+ * @param {Length | Percentage | Keywords} $perspective-origin 取值范围与`perspective-origin`属性一致 <2.0.0>
+ */
+@mixin perspective-origin($perspective-origin) {
+    @include prefix(perspective-origin, $perspective-origin);
+}
+
+/**
+ * @module Transform
+ * @description 指定元素背面面向用户时是否可见
+ * @method backface-visibility
+ * @version 2.0.0
+ * @param {Keywords} $backface-visibility 取值范围与`backface-visibility`属性一致 <2.0.0>
+ */
+@mixin backface-visibility($backface-visibility) {
+    @include prefix(backface-visibility, $backface-visibility);
+}

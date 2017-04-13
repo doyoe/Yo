@@ -1,0 +1,23 @@
+@charset "utf-8";
+/**
+ * @module 常用方法
+ * @description 描述元素内容在横、纵方向上的对齐方式，默认为水平垂直居中对齐
+ * @method align
+ * @version 2.0.0
+ * @param {String} $flexbox 元素布局方式，可选值：flex | inline-flex，默认值：flex <2.0.0>
+ * @param {Keyword} $justify-content 元素内容的水平对齐方式，取值与`justify-content`属性一致，默认值：center <2.0.0>
+ * @param {Keyword} $align-items 元素内容的垂直对齐方式，取值与`align-items`属性一致，默认值：center <2.0.0>
+ * @example
+ * .demo {
+ *     @include align;
+ * }
+ *
+ * <div class="demo">
+ *      <img alt="未知尺寸图片居中" />
+ * </div>
+ */
+@mixin align($flexbox: flex, $justify-content: center, $align-items: center) {
+    @include flexbox($flexbox);
+    @include justify-content($justify-content);
+    @include align-items($align-items);
+}

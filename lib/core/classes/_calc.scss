@@ -1,0 +1,28 @@
+@charset "utf-8";
+/**
+ * @module 常用方法
+ * @description 四则运算(系统要求：iOS6.0+,Android4.4+)
+ * @method calc
+ * @version 1.7.0
+ * @param {String} $property 指定需要进行计算的CSS属性 <1.7.0>
+ * @param {String} $value 与原生CSS语法一致，区别在于需要使用引号包裹表达式 <1.7.0>
+ * @example
+ * .calc {
+ *     @include calc(width, "100% - 100px");
+ * }
+ *
+ * <div class="calc">四则运算</div>
+ */
+@mixin calc($property, $value) {
+    // 是否开启厂商前缀支持
+    @if map-get($setting, is-vendor-prefix) {
+        // 遍历输出厂商代码
+        @each $vendor in map-get($setting, vendor-prefix) {
+            // 输出所有厂商前缀（IE9.0+支持标准写法，更早版本不支持该函数）
+            @if $vendor != -ms- {
+                #{$property}: #{$vendor}calc(#{$value});
+            }
+        }
+    }
+    #{$property}: calc(#{$value});
+}

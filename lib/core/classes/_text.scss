@@ -1,0 +1,67 @@
+@charset "utf-8";
+/**
+ * @module 文本
+ * @description 链接处理方法
+ * @method link
+ * @version 1.0.0
+ * @param {Color} $color 定义链接颜色 <1.0.0>
+ */
+@mixin link($color: map-get($base, link-color)) {
+    color: $color;
+    cursor: pointer;
+    &:active {
+        opacity: .5;
+    }
+}
+
+/**
+ * @module 文本
+ * @description 文本碰到边界是否换行
+ * @method wrap
+ * @version 1.0.0
+ * @param {Boolean} $is-wrap 定义文本是否换行，默认值：true <2.0.0>
+ */
+@mixin wrap($is-wrap: true) {
+    @if $is-wrap == true {
+        word-wrap: break-word;
+        word-break: break-all;
+    } @else {
+        white-space: nowrap;
+    }
+}
+
+/**
+ * @module 文本
+ * @description 单行文本溢出时显示省略号
+ * @method ellipsis
+ * @version 1.0.0
+ * @param {Length} $width 定义容器的宽度，默认值：null <2.0.0>
+ * @param {Integer} $line-clamp 定义需要显示的行数，默认值：1（即使用单行溢出的处理方案），需要注意的是本参数只支持webkit内核 <2.1.2>
+ */
+@mixin ellipsis($width: null, $line-clamp: 1) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: $width;
+    @if abs($line-clamp) > 1 {
+        // 要使得多行截取生效，display的值只能为-webkit-box
+        display: -webkit-box !important;
+        -webkit-line-clamp: $line-clamp;
+        @include flex-direction(column);
+    } @else {
+        @include wrap(false);
+    }
+}
+
+/**
+ * @module 文本
+ * @description 文字隐藏方案
+ * @method texthide
+ * @version 1.0.0
+ * @param {Length} $width 定义容器的宽度，默认值：null <2.0.0>
+ */
+@mixin texthide($width: null) {
+    overflow: hidden;
+    white-space: nowrap;
+    text-indent: 100%;
+    width: $width;
+}

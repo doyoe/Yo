@@ -1,0 +1,432 @@
+@charset "utf-8";
+/**
+ * @module Flexbox
+ * @description 定义显示类型为伸缩盒
+ * @method flexbox
+ * @version 1.0.0
+ * @param {String} $flexbox 默认值：flex，可选值：flex | inline-flex <1.0.0>
+ */
+@mixin flexbox($flexbox: flex) {
+    @if $flexbox == inline-flex {
+        $flexbox: "inline-";
+    } @else {
+        $flexbox: "";
+    }
+    // 老式浏览器（实验性质支持3个阶段草案）
+    // 原始草案：20090723
+    // 过渡草案：20110322-20120322（以后面这个日期为准）
+    // 最新草案：20120612-20140925（以后面这个日期为准）
+    @if map-get($setting, is-vendor-prefix) {
+        @each $vendor in map-get($setting, vendor-prefix) {
+            @if $vendor != -ms- {
+                // 当厂商前缀不为`-ms-`时输出原始和最新草案厂商前缀版
+                display: #{$vendor}#{$flexbox}box;
+                display: #{$vendor}#{$flexbox}flex;
+            } @else {
+                // 当厂商前缀为`-ms-`时输出过渡草案厂商前缀版
+                display: #{$vendor}#{$flexbox}flexbox;
+            }
+        }
+    }
+    // 现代浏览器（支持最新草案）
+    display: #{$flexbox}flex;
+}
+
+/**
+ * @module Flexbox
+ * @description 定义伸缩盒子元素如何分配空间
+ * @method flex
+ * @version 1.0.0
+ * @param {Number} $flex 取值与`flex`属性一致，默认值：1 <1.0.0>
+ * @param {String} $direction 默认值: row，可选值：row | column <1.5.0>
+ */
+@mixin flex($flex: 1, $direction: row) {
+    // 老式浏览器（实验性质支持3个阶段草案）
+    // 原始版本box-flex并不是复合属性，所以只有一个为数字的值
+    @if map-get($setting, is-vendor-prefix) {
+        @each $vendor in map-get($setting, vendor-prefix) {
+            @if $vendor != -ms- {
+                // 当厂商前缀不为`-ms-`时输出原始和最新草案厂商前缀版
+                #{$vendor}box-flex: $flex;
+                #{$vendor}flex: $flex;
+            } @else {
+                // 当厂商前缀为`-ms-`时输出过渡草案厂商前缀版
+                #{$vendor}flex: $flex;
+            }
+        }
+    }
+    // 现代浏览器（支持最新草案）
+    flex: $flex;
+    // 修复Android Browser4.3及以下，iOS Safari6.1及以下按比例分配错误的问题（同时还包括flex嵌套时分配错误）
+    @if $direction == row {
+        width: .1px;
+    } @else {
+        height: .1px;
+    }
+}
+
+/**
+ * @module Flexbox
+ * @description 定义伸缩盒子元素的排版顺序
+ * @method order
+ * @version 1.0.0
+ * @param {Integer} $order 取值与`order`属性一致，默认值：1 <1.0.0>
+ */
+@mixin order($order: 1) {
+    // 老式浏览器（实验性质支持3个阶段草案）
+    @if map-get($setting, is-vendor-prefix) {
+        @each $vendor in map-get($setting, vendor-prefix) {
+            @if $vendor != -ms- {
+                // 当厂商前缀不为`-ms-`时输出原始和最新草案厂商前缀版
+                #{$vendor}box-ordinal-group: $order;
+                #{$vendor}order: $order;
+            } @else {
+                // 当厂商前缀为`-ms-`时输出过渡草案厂商前缀版
+                #{$vendor}flex-order: $order;
+            }
+        }
+    }
+    // 现代浏览器（支持最新草案）
+    order: $order;
+}
+
+/**
+ * @module Flexbox
+ * @description 定义弹性盒子元素流动方向及遇见边界时是否换行(要求系统：iOS7.0+, Android4.4+)
+ * @method flex-flow
+ * @version 2.0.0
+ * @param {String} $flex-flow 取值与`flex-flow`属性一致，默认值：row nowrap <2.0.0>
+ */
+@mixin flex-flow($flex-flow: row nowrap) {
+    // 老式浏览器（实验性质支持过渡和最新2个阶段草案）+ 现代浏览器
+    @include prefix(flex-flow, $flex-flow);
+}
+
+/**
+ * @module Flexbox
+ * @description 定义伸缩盒子元素的流动方向
+ * @method flex-direction
+ * @version 1.0.0
+ * @param {String} $flex-direction 取值与`flex-direction`属性一致，默认值：row <1.0.0>
+ */
+@mixin flex-direction($flex-direction: row) {
+    // 老式浏览器（实验性质支持原始草案）
+    // 当厂商前缀不为`-ms-`时输出原始草案厂商前缀版
+    @if $flex-direction == row {
+        @if map-get($setting, is-vendor-prefix) {
+            @each $vendor in map-get($setting, vendor-prefix) {
+                @if $vendor != -ms- {
+                    #{$vendor}box-orient: horizontal;
+                    #{$vendor}box-direction: normal;
+                }
+            }
+        }
+    } @else if $flex-direction == column {
+        @if map-get($setting, is-vendor-prefix) {
+            @each $vendor in map-get($setting, vendor-prefix) {
+                @if $vendor != -ms- {
+                    #{$vendor}box-orient: vertical;
+                    #{$vendor}box-direction: normal;
+                }
+            }
+        }
+    } @else if $flex-direction == row-reverse {
+        @if map-get($setting, is-vendor-prefix) {
+            @each $vendor in map-get($setting, vendor-prefix) {
+                @if $vendor != -ms- {
+                    #{$vendor}box-orient: horizontal;
+                    #{$vendor}box-direction: reverse;
+                }
+            }
+        }
+    } @else if $flex-direction == column-reverse {
+        @if map-get($setting, is-vendor-prefix) {
+            @each $vendor in map-get($setting, vendor-prefix) {
+                @if $vendor != -ms- {
+                    #{$vendor}box-orient: vertical;
+                    #{$vendor}box-direction: reverse;
+                }
+            }
+        }
+    }
+    // 老式浏览器（实验性质支持过渡及最新草案）
+    @if map-get($setting, is-vendor-prefix) {
+        @each $vendor in map-get($setting, vendor-prefix) {
+            // `flex-direction`属性在过渡和最新草案中语法一致
+            #{$vendor}flex-direction: $flex-direction;
+        }
+    }
+    // 现代浏览器（支持最新草案）
+    flex-direction: $flex-direction;
+}
+
+/**
+ * @module Flexbox
+ * @description 定义弹性盒子元素溢出后排版(要求系统：iOS7.0+, Android4.4+)
+ * @method flex-wrap
+ * @version 1.0.0
+ * @param {String} $flex-wrap 取值与`flex-wrap`属性一致，默认值：nowrap <1.0.0>
+ */
+@mixin flex-wrap($flex-wrap: nowrap) {
+    // 老式浏览器（实验性质支持过渡和最新2个阶段草案）+ 现代浏览器
+    // 原始草案有`box-lines`对应本属性，不过虽然被webkit实验性质支援，但却未被任何浏览器实现（等同于未实现）
+    @include prefix(flex-wrap, $flex-wrap);
+}
+
+/**
+ * @module Flexbox
+ * @description 定义弹性容器主轴对齐方式(其中`space-around`值需要iOS7.0+,Android4.4+)
+ * @method justify-content
+ * @version 1.0.0
+ * @param {String} $justify-content 取值与`justify-content`属性一致，默认值：center <1.0.0>
+ */
+@mixin justify-content($justify-content: center) {
+    // 老式浏览器（实验性质支持3个阶段草案）
+    @if $justify-content == center {
+        @if map-get($setting, is-vendor-prefix) {
+            @each $vendor in map-get($setting, vendor-prefix) {
+                @if $vendor != -ms- {
+                    // 当厂商前缀不为`-ms-`时输出原始和最新草案厂商前缀版
+                    #{$vendor}box-pack: $justify-content;
+                    #{$vendor}justify-content: $justify-content;
+                } @else {
+                    // 当厂商前缀为`-ms-`时输出过渡草案厂商前缀版
+                    #{$vendor}flex-pack: $justify-content;
+                }
+            }
+        }
+    } @else if $justify-content == flex-start {
+        @if map-get($setting, is-vendor-prefix) {
+            @each $vendor in map-get($setting, vendor-prefix) {
+                @if $vendor != -ms- {
+                    // 当厂商前缀不为`-ms-`时输出原始和最新草案厂商前缀版
+                    #{$vendor}box-pack: start;
+                    #{$vendor}justify-content: $justify-content;
+                } @else {
+                    // 当厂商前缀为`-ms-`时输出过渡草案厂商前缀版
+                    #{$vendor}flex-pack: start;
+                }
+            }
+        }
+    } @else if $justify-content == flex-end {
+        @if map-get($setting, is-vendor-prefix) {
+            @each $vendor in map-get($setting, vendor-prefix) {
+                @if $vendor != -ms- {
+                    // 当厂商前缀不为`-ms-`时输出原始和最新草案厂商前缀版
+                    #{$vendor}box-pack: end;
+                    #{$vendor}justify-content: $justify-content;
+                } @else {
+                    // 当厂商前缀为`-ms-`时输出过渡草案厂商前缀版
+                    #{$vendor}flex-pack: end;
+                }
+            }
+        }
+    } @else if $justify-content == space-between {
+        @if map-get($setting, is-vendor-prefix) {
+            @each $vendor in map-get($setting, vendor-prefix) {
+                @if $vendor != -ms- {
+                    // 当厂商前缀不为`-ms-`时输出原始和最新草案厂商前缀版
+                    #{$vendor}box-pack: justify;
+                    #{$vendor}justify-content: $justify-content;
+                } @else {
+                    // 当厂商前缀为`-ms-`时输出过渡草案厂商前缀版
+                    #{$vendor}flex-pack: justify;
+                }
+            }
+        }
+    } @else if $justify-content == space-around {
+        @if map-get($setting, is-vendor-prefix) {
+            @each $vendor in map-get($setting, vendor-prefix) {
+                @if $vendor != -ms- {
+                    // 当厂商前缀不为`-ms-`时输出原始和最新草案厂商前缀版
+                    // 原始草案不支持`space-around`(过渡版本中的`distribute`) 值
+                    //#{$vendor}box-pack: distribute;
+                    #{$vendor}justify-content: $justify-content;
+                } @else {
+                    // 当厂商前缀为`-ms-`时输出过渡草案厂商前缀版
+                    #{$vendor}flex-pack: distribute;
+                }
+            }
+        }
+    }
+    // 现代浏览器（支持最新草案）
+    justify-content: $justify-content;
+}
+
+/**
+ * @module Flexbox
+ * @description 定义多行弹性容器侧轴对齐方式(要求系统：iOS7.0+,Android4.4+)
+ * @method align-content
+ * @version 1.8.5
+ * @param {String} $align-content 取值与`align-content`属性一致，默认值：center <1.8.5>
+ */
+@mixin align-content($align-content: center) {
+    // 老式浏览器（实验性质支持2个阶段草案）
+    @if $align-content == flex-start {
+        @if map-get($setting, is-vendor-prefix) {
+            @each $vendor in map-get($setting, vendor-prefix) {
+                @if $vendor != -ms- {
+                    // 当厂商前缀不为`-ms-`时输最新草案厂商前缀版（原始草案没有类似属性）
+                    #{$vendor}align-content: $align-content;
+                } @else {
+                    // 当厂商前缀为`-ms-`时输出过渡草案厂商前缀版
+                    #{$vendor}flex-line-pack: start;
+                }
+            }
+        }
+    } @else if $align-content == flex-end {
+        @if map-get($setting, is-vendor-prefix) {
+            @each $vendor in map-get($setting, vendor-prefix) {
+                @if $vendor != -ms- {
+                    // 当厂商前缀不为`-ms-`时输最新草案厂商前缀版（原始草案没有类似属性）
+                    #{$vendor}align-content: $align-content;
+                } @else {
+                    // 当厂商前缀为`-ms-`时输出过渡草案厂商前缀版
+                    #{$vendor}flex-line-pack: end;
+                }
+            }
+        }
+    } @else if $align-content == space-between {
+        @if map-get($setting, is-vendor-prefix) {
+            @each $vendor in map-get($setting, vendor-prefix) {
+                @if $vendor != -ms- {
+                    // 当厂商前缀不为`-ms-`时输最新草案厂商前缀版（原始草案没有类似属性）
+                    #{$vendor}align-content: $align-content;
+                } @else {
+                    // 当厂商前缀为`-ms-`时输出过渡草案厂商前缀版
+                    #{$vendor}flex-line-pack: justify;
+                }
+            }
+        }
+    } @else if $align-content == space-around {
+        @if map-get($setting, is-vendor-prefix) {
+            @each $vendor in map-get($setting, vendor-prefix) {
+                @if $vendor != -ms- {
+                    // 当厂商前缀不为`-ms-`时输最新草案厂商前缀版（原始草案没有类似属性）
+                    #{$vendor}align-content: $align-content;
+                } @else {
+                    // 当厂商前缀为`-ms-`时输出过渡草案厂商前缀版
+                    #{$vendor}flex-line-pack: distribute;
+                }
+            }
+        }
+    } @else if $align-content == center or $align-content == stretch {
+        @if map-get($setting, is-vendor-prefix) {
+            @each $vendor in map-get($setting, vendor-prefix) {
+                @if $vendor != -ms- {
+                    // 当厂商前缀不为`-ms-`时输最新草案厂商前缀版（原始草案没有类似属性）
+                    #{$vendor}align-content: $align-content;
+                } @else {
+                    // 当厂商前缀为`-ms-`时输出过渡草案厂商前缀版
+                    #{$vendor}flex-line-pack: $align-content;
+                }
+            }
+        }
+    }
+    // 现代浏览器（支持最新草案）
+    align-content: $align-content;
+}
+
+/**
+ * @module Flexbox
+ * @description 定义单行弹性容器侧轴对齐方式
+ * @method align-items
+ * @version 1.0.0
+ * @param {String} $align-items 取值与`align-items`属性一致，默认值：center <1.0.0>
+ */
+@mixin align-items($align-items: center) {
+    // 老式浏览器（实验性质支持3个阶段草案）
+    @if $align-items == flex-start {
+        @if map-get($setting, is-vendor-prefix) {
+            @each $vendor in map-get($setting, vendor-prefix) {
+                @if $vendor != -ms- {
+                    // 当厂商前缀不为`-ms-`时输出原始和最新草案厂商前缀版
+                    #{$vendor}box-align: start;
+                    #{$vendor}align-items: $align-items;
+                } @else {
+                    // 当厂商前缀为`-ms-`时输出过渡草案厂商前缀版
+                    #{$vendor}flex-align: start;
+                }
+            }
+        }
+    } @else if $align-items == flex-end {
+        @if map-get($setting, is-vendor-prefix) {
+            @each $vendor in map-get($setting, vendor-prefix) {
+                @if $vendor != -ms- {
+                    // 当厂商前缀不为`-ms-`时输出原始和最新草案厂商前缀版
+                    #{$vendor}box-align: end;
+                    #{$vendor}align-items: $align-items;
+                } @else {
+                    // 当厂商前缀为`-ms-`时输出过渡草案厂商前缀版
+                    #{$vendor}flex-align: end;
+                }
+            }
+        }
+    } @else {
+        // 取值为center | baseline | stretch时，3个阶段草案均相同
+        @if map-get($setting, is-vendor-prefix) {
+            @each $vendor in map-get($setting, vendor-prefix) {
+                @if $vendor != -ms- {
+                    // 当厂商前缀不为`-ms-`时输出原始和最新草案厂商前缀版
+                    #{$vendor}box-align: $align-items;
+                    #{$vendor}align-items: $align-items;
+                } @else {
+                    // 当厂商前缀为`-ms-`时输出过渡草案厂商前缀版
+                    #{$vendor}flex-align: $align-items;
+                }
+            }
+        }
+    }
+    // 现代浏览器（支持最新草案）
+    align-items: $align-items;
+}
+
+/**
+ * @module Flexbox
+ * @description 定义弹性容器中子元素自身的在侧轴对齐方式(要求系统：iOS7.0+,Android4.4+)
+ * @method align-self
+ * @version 1.0.0
+ * @param {String} $align-self 取值与`align-self`属性一致，默认值：center <1.0.0>
+ */
+@mixin align-self($align-self: center) {
+    // 老式浏览器（实验性质支持3个阶段草案）
+    @if $align-self == flex-start {
+        @if map-get($setting, is-vendor-prefix) {
+            @each $vendor in map-get($setting, vendor-prefix) {
+                @if $vendor != -ms- {
+                    // 当厂商前缀不为`-ms-`时输最新草案厂商前缀版（原始草案没有类似属性）
+                    #{$vendor}align-self: $align-self;
+                } @else {
+                    // 当厂商前缀为`-ms-`时输出过渡草案厂商前缀版
+                    #{$vendor}flex-item-align: start;
+                }
+            }
+        }
+    } @else if $align-self == flex-end {
+        @if map-get($setting, is-vendor-prefix) {
+            @each $vendor in map-get($setting, vendor-prefix) {
+                @if $vendor != -ms- {
+                    // 当厂商前缀不为`-ms-`时输最新草案厂商前缀版（原始草案没有类似属性）
+                    #{$vendor}align-self: $align-self;
+                } @else {
+                    // 当厂商前缀为`-ms-`时输出过渡草案厂商前缀版
+                    #{$vendor}flex-item-align: end;
+                }
+            }
+        }
+    } @else if $align-self == auto or $align-self == center or $align-self == baseline or $align-self == stretch {
+        @if map-get($setting, is-vendor-prefix) {
+            @each $vendor in map-get($setting, vendor-prefix) {
+                @if $vendor != -ms- {
+                    // 当厂商前缀不为`-ms-`时输最新草案厂商前缀版（原始草案没有类似属性）
+                    #{$vendor}align-self: $align-self;
+                } @else {
+                    // 当厂商前缀为`-ms-`时输出过渡草案厂商前缀版
+                    #{$vendor}flex-item-align: $align-self;
+                }
+            }
+        }
+    }
+    // 现代浏览器（支持最新草案）
+    align-self: $align-self;
+}

@@ -1,0 +1,30 @@
+@charset "utf-8";
+/**
+ * @module 常用方法
+ * @description 定义字体图标
+ * @method _iconfont
+ * @version 1.0.0
+ * @skip
+ */
+@mixin iconfont() {
+    // 是否开启图标字体
+    @if map-get($ico, is-use) {
+        @font-face {
+            font-family: map-get($ico, font-name);
+            src:
+                // 现代浏览器
+                url(#{map-get($ico,font-path)}#{map-get($ico,font-name)}.woff) format("woff"),
+                // Android2.2+
+                url(#{map-get($ico,font-path)}#{map-get($ico,font-name)}.ttf) format("truetype");
+        }
+        .yo-ico {
+            font-family: map-get($ico, font-name) !important;
+            font-style: normal;
+            -webkit-font-smoothing: antialiased;
+            // PC端chrome有锯齿问题，Mobile不需要
+            // -webkit-text-stroke-width: .1px;
+            -moz-osx-font-smoothing: grayscale;
+            vertical-align: middle;
+        }
+    }
+}

@@ -1,0 +1,66 @@
+@charset "utf-8";
+/**
+ * @module 背景与边框
+ * @description 定义渐变色值
+ * @method gradient
+ * @version 1.0.0
+ * @param {String} $type 指定渐变的4种类型：linear, repeating-linear, radial, repeating-radial <1.0.0>
+ * @param {String} $dir 指定渐变方向，可选值：[left | right] || [top | bottom] | angle <2.0.0>
+ * @param {String} $gradient 指定渐变取值，与w3c最新原生语法一致 <1.0.0>
+ */
+@mixin gradient($type, $dir, $color-stop...) {
+    // 最新草案：当方向为关键字top,right,bottom,left时需要使用关键字to
+    $dir-new: to;
+    $dir-x: right left;
+    $dir-y: top bottom;
+
+    @if map-get($setting, is-vendor-prefix) {
+        @each $vendor in map-get($setting, vendor-prefix) {
+            background-image: $vendor$type#{-gradient($dir, $color-stop)};
+        }
+    }
+    @each $direction in $dir {
+        @if index($dir-x, $direction) != null {
+            $dir-new: append($dir-new, remove($dir-x, $direction), space);
+        } @else if index($dir-y, $direction) != null {
+            $dir-new: append($dir-new, remove($dir-y, $direction), space);
+        } @else {
+            $dir-new: $direction;
+        }
+    }
+
+    background-image: $type#{-gradient($dir-new, $color-stop)};
+}
+
+/**
+ * @module 背景与边框
+ * @description 定义背景图像缩放（AndroidBrowser2.3.*还需要厂商前缀）
+ * @method background-size
+ * @version 1.4.0
+ * @param {Keywords | Length} $background-size 指定背景图缩放值，取值与`background-size`属性一致 <1.4.0>
+ */
+@mixin background-size($background-size...) {
+    @include prefix(background-size, $background-size);
+}
+
+/**
+ * @module 背景与边框
+ * @description 定义背景裁减（AndroidBrowser2.3.*还需要厂商前缀）
+ * @method background-clip
+ * @version 1.6.0
+ * @param {Keywords} $background-clip 指定背景图缩放值，取值与`background-clip`属性一致 <1.6.0>
+ */
+@mixin background-clip($background-clip...) {
+    @include prefix(background-clip, $background-clip);
+}
+
+/**
+ * @module 背景与边框
+ * @description 定义背景显示区域（AndroidBrowser2.3.*还需要厂商前缀）
+ * @method background-origin
+ * @version 1.6.0
+ * @param {Keywords} $background-origin 指定背景图`background-position`属性计算相对的参考点，取值与`background-origin`属性一致 <1.6.0>
+ */
+@mixin background-origin($background-origin...) {
+    @include prefix(background-origin, $background-origin);
+}

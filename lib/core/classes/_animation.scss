@@ -1,0 +1,99 @@
+@charset "utf-8";
+/**
+ * @module Animation
+ * @description 定义动画
+ * @method animation
+ * @version 1.0.0
+ * @param {String} $animation 取值与原生语法一致 <1.0.0>
+ */
+@mixin animation($animation...) {
+    @include prefix(animation, $animation);
+}
+
+/**
+ * @module Animation
+ * @description 指定需要引用的动画名称
+ * @method animation-name
+ * @version 3.0.0
+ * @param {String} $animation-name 取值与原生语法一致 <3.0.0>
+ */
+@mixin animation-name($animation-name...) {
+    @include prefix(animation-name, $animation-name);
+}
+
+/**
+ * @module Animation
+ * @description 指定动画运行一次所持续的时长
+ * @method animation-duration
+ * @version 3.0.0
+ * @param {String} $animation-duration 取值与原生语法一致 <3.0.0>
+ */
+@mixin animation-duration($animation-duration...) {
+    @include prefix(animation-duration, $animation-duration);
+}
+
+/**
+ * @module Animation
+ * @description 指定动画运行方式
+ * @method animation-timing-function
+ * @version 3.0.0
+ * @param {String} $animation-timing-function 取值与原生语法一致 <3.0.0>
+ */
+@mixin animation-timing-function($animation-timing-function...) {
+    @include prefix(animation-timing-function, $animation-timing-function);
+}
+
+/**
+ * @module Animation
+ * @description 指定动画延迟多久之后再开始
+ * @method animation-delay
+ * @version 3.0.0
+ * @param {String} $animation-delay 取值与原生语法一致 <3.0.0>
+ */
+@mixin animation-delay($animation-delay...) {
+    @include prefix(animation-delay, $animation-delay);
+}
+
+/**
+ * @module Animation
+ * @description 指定动画循环几次
+ * @method animation-iteration-count
+ * @version 3.0.0
+ * @param {String} $animation-iteration-count 取值与原生语法一致 <3.0.0>
+ */
+@mixin animation-iteration-count($animation-iteration-count...) {
+    @include prefix(animation-iteration-count, $animation-iteration-count);
+}
+
+/**
+ * @module Animation
+ * @description 指定动画的运动方向
+ * @method animation-direction
+ * @version 3.0.0
+ * @param {String} $animation-direction 取值与原生语法一致 <3.0.0>
+ */
+@mixin animation-direction($animation-direction...) {
+    @include prefix(animation-direction, $animation-direction);
+}
+
+/**
+ * @module Animation
+ * @description 指定动画的运动状态
+ * @method animation-play-state
+ * @version 3.0.0
+ * @param {String} $animation-play-state 取值与原生语法一致 <3.0.0>
+ */
+@mixin animation-play-state($animation-play-state...) {
+    @include prefix(animation-play-state, $animation-play-state);
+}
+
+/**
+ * @module Animation
+ * @description 指定动画时间之外的状态
+ * @method animation-fill-mode
+ * @version 3.0.0
+ * @param {String} $animation-fill-mode 取值与原生语法一致 <3.0.0>
+ */
+@mixin animation-fill-mode($animation-fill-mode...) {
+    @include prefix(animation-fill-mode, $animation-fill-mode);
+}

@@ -1,0 +1,23 @@
+@charset "utf-8";
+/**
+ * @module 常用方法
+ * @description 清除浮动方案
+ * @method clearfix
+ * @version 1.0.0
+ * @param {String} $type 指定清除浮动的方式，包括：pseudo-element | bfc，默认值：pseudo-element <1.8.5>
+ */
+@mixin clearfix($type: pseudo-element) {
+    @if $type == pseudo-element {
+        // 创建伪元素用以清除自身浮动
+        &::after{
+            display: block;
+            overflow: hidden;
+            clear: both;
+            height: 0;
+            content: "\0020";
+        }
+    } @else {
+        // 创建BFC用以清除自身浮动
+        overflow: hidden;
+    }
+}

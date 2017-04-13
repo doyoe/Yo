@@ -1,0 +1,27 @@
+@charset "utf-8";
+/**
+ * @module Transition
+ * @description 定义补间
+ * @method transition
+ * @version 1.0.0
+ * @param {String} $transition 取值与原生语法一致 <1.0.0>
+ */
+@mixin transition($transition...){
+    $prefix-properties: transform, transform-origin;
+    $vendor-list: ();
+
+    @if map-get($setting, is-vendor-prefix) {
+        @each $vendor in map-get($setting, vendor-prefix) {
+            @for $i from 1 through length($transition) {
+                @if index($prefix-properties, nth(nth($transition, $i), 1)) {
+                    $vendor-list: join($vendor-list, #{$vendor}#{nth($transition, $i)}, comma);
+                } @else {
+                    $vendor-list: join($vendor-list, #{nth($transition, $i)}, comma);
+                }
+            }
+            #{$vendor}transition: $vendor-list;
+        }
+    }
+
+    transition: $transition;
+}

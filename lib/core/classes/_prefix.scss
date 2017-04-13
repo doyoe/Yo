@@ -1,0 +1,22 @@
+@charset "utf-8";
+/**
+ * @module 常用方法
+ * @description 给需要的属性加厂家前缀
+ * @method prefix
+ * @version 1.0.0
+ * @param {String} $property 指定属性 <1.0.0>
+ * @param {String} $value 指定属性值 <1.0.0>
+ * @skip
+ */
+@mixin prefix($property, $value) {
+    // 老式浏览器
+    // 是否开启厂商前缀支持
+    @if map-get($setting, is-vendor-prefix) {
+        // 遍历输出厂商代码
+        @each $vendor in map-get($setting, vendor-prefix) {
+            #{$vendor}#{$property}: $value;
+        }
+    }
+    // 现代浏览器（支持最新草案）
+    #{$property}: $value;
+}

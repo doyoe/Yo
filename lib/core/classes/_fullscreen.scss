@@ -1,0 +1,17 @@
+@charset "utf-8";
+/**
+ * @module 常用方法
+ * @description 生成全屏方法
+ * @method fullscreen
+ * @version 1.7.0
+ * @param {Integer} $z-index 指定层叠级别 <1.7.0>
+ * @param {Keywords} $position 指定定位方式，取除`static | relative`之外的值，默认值：absolute <1.8.5>
+ */
+@mixin fullscreen($z-index: null, $position: absolute) {
+    position: $position;
+    z-index: $z-index;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}

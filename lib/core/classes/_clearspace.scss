@@ -1,0 +1,27 @@
+@charset "utf-8";
+/**
+ * @module 常用方法
+ * @description 清除行内级元素间间隙方案
+ * @method clearspace
+ * @version 3.0.3
+ * @param {Length} $font-size 指定子元素字号，默认值：.14rem <3.0.3>
+ * @example
+ * .demo {
+ *     @include clearspace;
+ * }
+ *
+ * <div class="demo">
+ *      <span class="item">1</span>
+ *      <span class="item">2</span>
+ *      <span class="item">3</span>
+ * </div>
+ */
+@mixin clearspace($font-size: .14rem) {
+    font-size: 0;
+    font-family: arial;
+    > .item {
+        display: inline-block;
+        font-size: $font-size;
+        font-family: map-get($base, font-family);
+    }
+}
