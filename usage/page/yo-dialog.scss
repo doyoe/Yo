@@ -1,15 +1,17 @@
 @charset "utf-8";
 @import "../core/reset";
-@import "../../lib/layout/yo-flex";
-@import "../../lib/fragment/yo-header";
+@import "../layout/yo-flex";
+@import "../fragment/yo-header";
 @import "../fragment/yo-dialog";
 
 // 这个import应该放到具体使用了该fragment的模块内
 // 此处只为简单描述一个demo，所以写法随意
 
+@import "../module/m-note";
+
 html {
     background-color: #ccc;
 }
-.m-demo {
-    min-height: 2rem;
+@include yo-dialog {
+    margin: .2rem auto;
 }

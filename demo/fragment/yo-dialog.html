@@ -20,85 +20,46 @@
         <a href="../../doc/element.html#yo-dialog" class="affirm">文档</a>
     </header>
     <div class="flex">
-        <section class="m-demo">
-            <div class="yo-dialog">
-                <div class="bd">
-                    <p>不带title的dialog</p>
-                </div>
-                <footer class="ft">
-                    <button class="yo-btn yo-btn-dialog yo-btn-l">取消</button>
-                    <button class="yo-btn yo-btn-dialog yo-btn-l">确定</button>
-                </footer>
+        <div class="yo-dialog">
+            <div class="bd">
+                <p>不带title的dialog</p>
             </div>
-        </section>
-        <section class="m-desc">
-            <h3 class="title">示例描述：</h3>
-            <xmp><div class="yo-dialog yo-dialog-test">
-    <div class="bd">
-        <p>不带title的dialog</p>
-    </div>
-    <footer class="ft">
-        <button class="yo-btn yo-btn-dialog yo-btn-l">取消</button>
-        <button class="yo-btn yo-btn-dialog yo-btn-l">确定</button>
-    </footer>
-</div></xmp>
-        </section>
+            <footer class="ft">
+                <button class="yo-btn yo-btn-dialog yo-btn-l">取消</button>
+                <button class="yo-btn yo-btn-dialog yo-btn-l">确定</button>
+            </footer>
+        </div>
 
-        <section class="m-demo">
-            <div class="yo-dialog">
-                <header class="hd">
-                    <h2 class="title">标题</h2>
-                </header>
-                <div class="bd">
-                    <p>有title的dialog</p>
-                </div>
-                <footer class="ft">
-                    <button class="yo-btn yo-btn-dialog yo-btn-l">取消</button>
-                    <button class="yo-btn yo-btn-dialog yo-btn-l">确定</button>
-                </footer>
+        <div class="yo-dialog">
+            <header class="hd">
+                <h2 class="title">标题</h2>
+            </header>
+            <div class="bd">
+                <p>有title的dialog</p>
             </div>
-        </section>
-        <section class="m-desc">
-            <h3 class="title">示例描述：</h3>
-            <xmp><div class="yo-dialog">
-    <header class="hd">
-        <h2 class="title">标题</h2>
-    </header>
-    <div class="bd">
-        <p>有title的dialog</p>
-    </div>
-    <footer class="ft">
-        <button class="yo-btn yo-btn-dialog yo-btn-l">取消</button>
-        <button class="yo-btn yo-btn-dialog yo-btn-l">确定</button>
-    </footer>
-    </div></xmp>
-        </section>
+            <footer class="ft">
+                <button class="yo-btn yo-btn-dialog yo-btn-l">取消</button>
+                <button class="yo-btn yo-btn-dialog yo-btn-l">确定</button>
+            </footer>
+        </div>
 
-        <section class="m-demo">
-            <div class="yo-dialog">
-                <header class="hd">
-                    <h2 class="title">标题</h2>
-                    <span class="regret">取消</span>
-                    <span class="affirm">保存</span>
-                </header>
-                <div class="bd">
-                    <p>标题区域带操作功能的dialog</p>
-                </div>
+        <div class="yo-dialog">
+            <header class="hd">
+                <h2 class="title">标题</h2>
+                <span class="regret">取消</span>
+                <span class="affirm">保存</span>
+            </header>
+            <div class="bd">
+                <p>标题区域带操作功能的dialog</p>
             </div>
-        </section>
-        <section class="m-desc">
-            <h3 class="title">示例描述：</h3>
-            <xmp><div class="yo-dialog yo-dialog-test">
-    <header class="hd">
-        <h2 class="title">标题</h2>
-        <span class="regret">取消</span>
-        <span class="affirm">保存</span>
-    </header>
-    <div class="bd">
-        <p>标题区域带操作功能的dialog</p>
-    </div>
-</div></xmp>
-        </section>
+        </div>
+
+        <div class="m-note">
+            <h2 class="title">扩展说明：</h2>
+            <p>我们可以使用元件同名方法<code>yo-dialog()</code>来自定义<strong>yo-dialog</strong>，也可以对它进行扩展。</p>
+            <p>当传入了<code>$name</code>参数时，会自动生成一个新类，而不影响默认值；当不传<code>$name</code>参数时，则会覆盖默认值。</p>
+            <p>更多参数定义，请查看文档。</p>
+        </div>
 
     </div>
 </div>
