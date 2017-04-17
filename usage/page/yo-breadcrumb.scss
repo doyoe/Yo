@@ -1,5 +1,12 @@
 @charset "utf-8";
 @import "../core/reset";
-@import "../../lib/layout/yo-flex";
-@import "../../lib/fragment/yo-header";
+@import "../layout/yo-flex";
+@import "../fragment/yo-header";
 @import "../fragment/yo-breadcrumb";
+
+@import "../module/m-note";
+
+@include yo-breadcrumb(
+    $name: test,
+    $arrow-content: "/"
+);
