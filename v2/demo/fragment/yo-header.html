@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
-<title>header - 头部</title>
+<title>yo-header - 头部</title>
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <meta name="format-detection" content="telephone=no,email=no" />
@@ -20,68 +20,50 @@
         <a href="../../doc/element.html#yo-header" class="affirm">文档</a>
     </header>
     <div class="flex">
+
         <h2 class="yo-header">普通头部</h2>
-        <section class="m-desc">
-            <h3 class="title">示例描述：</h3>
-            <xmp><h2 class="yo-header">普通头部</h2></xmp>
-        </section>
+        <div class="m-note">
+            <h2 class="title">极简头部形态：</h2>
+            <p>这种形态，只带有标题</p>
+        </div>
 
         <div class="yo-header">
             <h2 class="title">带左右操作栏的头部</h2>
             <span class="regret">取消</span>
             <span class="affirm">确定</span>
         </div>
-        <section class="m-desc">
-            <h3 class="title">示例描述：</h3>
-            <xmp><div class="yo-header">
-    <h2 class="title">带左右操作栏的头部</h2>
-    <span class="regret">取消</span>
-    <span class="affirm">确定</span>
-</div></xmp>
-        </section>
+        <div class="m-note">
+            <h2 class="title">带有左右操作项的形态：</h2>
+            <p>左侧操作项使用<code>.regret</code>类，右侧使用<code>.affirm</code>类</p>
+        </div>
 
         <div class="yo-header">
-            <h2 class="title">带返回按钮的头部</h2>
+            <h2 class="title">操作区只有图标的头部</h2>
             <span class="regret yo-ico">&#xf07d;</span>
             <span class="affirm">设置</span>
         </div>
-        <section class="m-desc">
-            <h3 class="title">示例描述：</h3>
-            <xmp><div class="yo-header">
-    <h2 class="title">带返回按钮的头部</h2>
-    <span class="regret yo-ico">&#xf07d;</span>
-    <span class="affirm">设置</span>
-</div></xmp>
-        </section>
+        <div class="m-note">
+            <h2 class="title">操作区只有图标的形态：</h2>
+            <p>使用<code>.yo-ico</code>来承载图标（iconfont），它作为<code>.regret</code>的同级类</p>
+        </div>
 
         <div class="yo-header yo-header-normal">
-            <h2 class="title">自定义的头部</h2>
+            <h2 class="title">操作区有图标和文字</h2>
             <span class="regret">
-                <i class="yo-ico">&#xf07d;</i>
-                返回
+                <i class="yo-ico">&#xf07d;</i>返回
             </span>
             <span class="affirm">设置</span>
         </div>
-        <section class="m-desc">
-            <h3 class="title">假设你想要多种风格，只需这样扩展：</h3>
-            <xmp>// 自定义一个 `yo-header-normal` 头部
-@include yo-header(
-    $name: normal,
-    $border-color: #ddd,
-    $bgcolor: #eee,
-    $color: map-get($base, color),
-    $item-ico-color: map-get($base, color)
-);</xmp>
-            <h3 class="sub-title">使用方法</h3>
-            <xmp><div class="yo-header yo-header-normal">
-    <h2 class="title">自定义的头部</h2>
-    <span class="regret">
-        <i class="yo-ico">&#xf07d;</i>
-        返回
-    </span>
-    <span class="affirm">设置</span>
-</div></xmp>
-        </section>
+        <div class="m-note">
+            <h2 class="title">操作区既有图标也有文字的形态：</h2>
+            <p>此时<code>.yo-ico</code>作为<code>.regret</code>的子元素存在，可以分别对操作区的文字和图标进行自定义</p>
+        </div>
+        <div class="m-note">
+            <h2 class="title">扩展说明：</h2>
+            <p>我们可以使用元件同名方法<code>yo-header()</code>来自定义<strong>yo-header</strong>，也可以对它进行扩展。</p>
+            <p>当传入了<code>$name</code>参数时，会自动生成一个新类，而不影响默认值；当不传<code>$name</code>参数时，则会覆盖默认值。</p>
+            <p>更多参数定义，请查看文档。</p>
+        </div>
 
     </div>
 </div>
