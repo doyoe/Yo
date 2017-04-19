@@ -1,4 +1,15 @@
 @charset "utf-8";
 @import "../core/reset";
-@import "../../lib/layout/yo-flex";
+@import "../layout/yo-flex";
 @import "../fragment/yo-header";
+
+@import "../module/m-note";
+
+@include yo-header(
+    $name: normal,
+    $border-color: #ddd,
+    $bgcolor: #eee,
+    $color: map-get($base, color),
+    $item-color: map-get($base, color),
+    $item-ico-color: map-get($base, color)
+);
