@@ -1,11 +1,29 @@
 @charset "utf-8";
 @import "../core/reset";
-@import "../../lib/layout/yo-flex";
-@import "../../lib/fragment/yo-header";
-@import "../../lib/element/yo-switch";
+@import "../layout/yo-flex";
+@import "../fragment/yo-header";
+@import "../element/yo-switch";
 @import "../fragment/yo-list";
 
+@import "../module/m-note";
 
 .yo-list img {
     width: 100px;
+}
+
+.m-list {
+    > .title {
+        padding: .2rem .1rem .05rem;
+        color: #666;
+        font-size: .13rem;
+        font-weight: normal;
+        @include border(
+            $border-width: 0 0 1px
+        );
+    }
+    > .note {
+        margin: .1rem;
+        color: #999;
+        font-size: .12rem;
+    }
 }
