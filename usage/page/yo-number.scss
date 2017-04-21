@@ -1,6 +1,20 @@
 @charset "utf-8";
 @import "../core/reset";
-@import "../../lib/layout/yo-flex";
-@import "../../lib/fragment/yo-header";
+@import "../layout/yo-flex";
+@import "../fragment/yo-header";
 @import "../fragment/yo-list";
 @import "../fragment/yo-number";
+
+@import "../module/m-note";
+
+@include yo-number(
+    $name: test,
+    $width: 1rem,
+    $height: .25rem,
+    $border-width: 0,
+    $border-color: #1ba9ba,
+    $sign-radius: 50%,
+    $sign-bgcolor: #1ba9ba,
+    $sign-color: #eee,
+    $font-size: .14rem
+);
