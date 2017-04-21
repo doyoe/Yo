@@ -1,11 +1,25 @@
 @charset "utf-8";
 @import "../core/reset";
-@import "../../lib/layout/yo-flex";
-@import "../../lib/fragment/yo-header";
+@import "../layout/yo-flex";
+@import "../fragment/yo-header";
 @import "../fragment/yo-picker";
+
+@import "../module/m-note";
 
 @include yo-picker{
     > .list > .item {
         position: static;
+    }
+}
+
+.m-list {
+    > .title {
+        padding: .2rem .1rem .05rem;
+        color: #666;
+        font-size: .13rem;
+        font-weight: normal;
+        @include border(
+            $border-width: 0 0 1px
+        );
     }
 }
