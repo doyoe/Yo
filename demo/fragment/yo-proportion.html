@@ -14,49 +14,60 @@
 <body>
 
 <div class="yo-flex">
-    <header class="yo-header m-header">
+    <header class="yo-header">
         <h2 class="title">yo-proportion</h2>
         <a href="../index.html" class="regret yo-ico">&#xf07d;</a>
         <a href="../../doc/element.html#yo-proportion" class="affirm">文档</a>
     </header>
     <div class="flex">
-        <section class="m-demo">
+        <section class="m-list">
+            <h2 class="title">带内容的比例条：</h2>
             <div class="yo-proportion">
-                <div class="inner" style="width:50%">
+                <div class="inner" style="width: 50%">
                     <time class="date">2015.10.6</time>
                     <span class="amount">98</span>
                 </div>
             </div>
             <div class="yo-proportion">
-                <div class="inner" style="width:60%">
+                <div class="inner" style="width: 60%">
                     <time class="date">2015.10.6</time>
                     <span class="amount">98</span>
                 </div>
             </div>
             <div class="yo-proportion">
-                <div class="inner" style="width:70%">
+                <div class="inner" style="width: 70%">
                     <time class="date">2015.10.6</time>
                     <span class="amount">98</span>
                 </div>
             </div>
             <div class="yo-proportion">
-                <div class="inner" style="width:70%"></div>
+                <div class="inner" style="width: 80%">
+                    80%
+                </div>
             </div>
         </section>
-
-        <section class="m-desc">
-            <h3 class="title">示例描述：</h3>
-            <xmp><div class="yo-proportion">
-    <div class="inner" style="width:50%">
-        <time class="date">2015.10.6</time>
-        <span class="amount">98</span>
-    </div>
-</div>
-<div class="yo-proportion">
-    <div class="inner" style="width:70%"></div>
-</div></xmp>
+        <div class="m-note">
+            <h2 class="title">扩展说明：</h2>
+            <p>可以在<strong>yo-proportion</strong>元件内任意定制自己的内容格式。</p>
+        </div>
+        <section class="m-list">
+            <h2 class="title">无内容的比例条：</h2>
+            <div class="yo-proportion">
+                <div class="inner" style="width: 70%"></div>
+            </div>
+            <div class="yo-proportion">
+                <div class="inner" style="width: 50%"></div>
+            </div>
+            <div class="yo-proportion">
+                <div class="inner" style="width: 40%"></div>
+            </div>
         </section>
-
+        <div class="m-note">
+            <h2 class="title">扩展说明：</h2>
+            <p>我们可以使用元件同名方法<code>yo-proportion()</code>来自定义<strong>yo-proportion</strong>，也可以对它进行扩展。</p>
+            <p>当传入了<code>$name</code>参数时，会自动生成一个新类，而不影响默认值；当不传<code>$name</code>参数时，则会覆盖默认值。</p>
+            <p>更多参数定义，请查看文档。</p>
+        </div>
     </div>
 </div>
 

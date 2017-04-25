@@ -1,6 +1,13 @@
 @charset "utf-8";
 
 .m-list {
+    overflow: hidden;
+    > .title {
+        background-color: #eee;
+        padding: .2rem .1rem .05rem;
+        color: #666;
+        font-weight: normal;
+    }
     > .note {
         margin: .1rem;
         color: #999;
