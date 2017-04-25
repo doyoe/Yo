@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+<title>yo-popup - 浮层</title>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no,email=no" />
+<link rel="shortcut icon" href="../../shortcut.png" />
+<link rel="stylesheet" href="../../usage/export/yo-popup.css" />
+</head>
+<body>
+<div class="yo-flex">
+    <header class="yo-header">
+        <h2 class="title">yo-popup</h2>
+        <a href="../index.html" class="regret yo-ico">&#xf07d;</a>
+        <a href="../../doc/element.html#yo-popup" class="affirm">文档</a>
+    </header>
+    <div class="flex">
+        <div class="yo-modal yo-modal-bottom">
+            <div class="cont yo-popup">
+                <header class="hd yo-header">
+                    <h3 class="title">日期选择</h3>
+                    <div class="regret">取消</div>
+                    <div class="affirm">确定</div>
+                </header>
+                <div class="bd">
+                    <div class="yo-picker">
+                        <span class="mask"></span>
+                        <ul class="list">
+                            <li class="item">1</li>
+                            <li class="item">2</li>
+                            <li class="item">3</li>
+                            <li class="item">4</li>
+                            <li class="item">5</li>
+                            <li class="item">6</li>
+                            <li class="item">7</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="m-note">
+            <h2 class="title">扩展说明：</h2>
+            <p>我们可以使用元件同名方法<code>yo-popup()</code>来自定义<strong>yo-popup</strong>，也可以对它进行扩展。</p>
+            <p>当传入了<code>$name</code>参数时，会自动生成一个新类，而不影响默认值；当不传<code>$name</code>参数时，则会覆盖默认值。</p>
+            <p>更多参数定义，请查看文档。</p>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
