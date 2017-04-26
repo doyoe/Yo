@@ -7,6 +7,9 @@
         padding: .2rem .1rem .05rem;
         color: #666;
         font-weight: normal;
+        @include border(
+            $border-width: 0 0 1px
+        );
     }
     > .note {
         margin: .1rem;
