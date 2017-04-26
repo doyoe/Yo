@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
-<title>rating - 评分组件</title>
+<title>yo-rating - 评分组件</title>
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <meta name="format-detection" content="telephone=no,email=no" />
@@ -14,50 +14,95 @@
 <body>
 
 <div class="yo-flex">
-    <header class="yo-header m-header">
+    <header class="yo-header">
         <h2 class="title">yo-rating</h2>
         <a href="../index.html" class="regret yo-ico">&#xf07d;</a>
         <a href="../../doc/element.html#yo-rating" class="affirm">文档</a>
     </header>
     <div class="flex">
-        <section class="m-demo">
-            <ul class="yo-list">
-                <li class="item">
-                    <div class="flex">打分：</div>
-                    <div class="yo-rating">
-                        <h3 class="index" style="width:60%;">当前评分：3分</h3>
-                        <span class="item">1分</span>
-                        <span class="item">2分</span>
-                        <span class="item">3分</span>
-                        <span class="item">4分</span>
-                        <span class="item">5分</span>
-                    </div>
-                </li>
-                <li class="item">
-                    <div class="flex">打分：</div>
-                    <div class="yo-rating yo-rating-test">
-                        <h3 class="index" style="width:60%;">当前评分：3分</h3>
-                        <span class="item">1分</span>
-                        <span class="item">2分</span>
-                        <span class="item">3分</span>
-                        <span class="item">4分</span>
-                        <span class="item">5分</span>
-                    </div>
-                </li>
-            </ul>
-        </section>
+        <ul class="yo-list yo-list-group">
+            <h3 class="label">常规使用：</h3>
+            <li class="item">
+                <div class="flex">打分：</div>
+                <ul class="yo-rating">
+                    <li class="item"><span>1分</span></li>
+                    <li class="item"><span>2分</span></li>
+                    <li class="item"><span>3分</span></li>
+                    <li class="item"><span>4分</span></li>
+                    <li class="item"><span>5分</span></li>
+                </ul>
+            </li>
+            <li class="item">
+                <div class="flex">打分：</div>
+                <ul class="yo-rating">
+                    <li class="item"><span style="width: 100%;">1分</span></li>
+                    <li class="item"><span style="width: 100%;">2分</span></li>
+                    <li class="item"><span>3分</span></li>
+                    <li class="item"><span>4分</span></li>
+                    <li class="item"><span>5分</span></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="m-note">
+            <h2 class="title">扩展说明：</h2>
+            <p>我们可以使用元件同名方法<code>yo-rating()</code>来自定义<strong>yo-rating</strong>，也可以对它进行扩展。</p>
+            <p>当传入了<code>$name</code>参数时，会自动生成一个新类，而不影响默认值；当不传<code>$name</code>参数时，则会覆盖默认值。</p>
+        </div>
 
-        <section class="m-desc">
-            <h3 class="title">示例描述：</h3>
-            <xmp><div class="yo-rating">
-    <h3 class="index" style="width:60%;">当前评分：3分</h3>
-    <span class="item">1分</span>
-    <span class="item">2分</span>
-    <span class="item">3分</span>
-    <span class="item">4分</span>
-    <span class="item">5分</span>
-</div></xmp>
-        </section>
+        <ul class="yo-list yo-list-group">
+            <h3 class="label">自定义“星星”大小：</h3>
+            <li class="item">
+                <div class="flex">更大的星星：</div>
+                <ul class="yo-rating yo-rating-big">
+                    <li class="item"><span style="width: 100%;">1分</span></li>
+                    <li class="item"><span style="width: 100%;">2分</span></li>
+                    <li class="item"><span style={{width: '30%'}}>3分</span></li>
+                    <li class="item"><span>4分</span></li>
+                    <li class="item"><span>5分</span></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="m-note">
+            <h2 class="title">扩展说明：</h2>
+            <p>通过<code>yo-rating()</code>方法的<code>$item-width</code>和<code>$item-height</code>参数可以自定义每个“星星”的大小。</p>
+        </div>
+
+        <ul class="yo-list yo-list-group">
+            <h3 class="label">自定义“星星”间隙：</h3>
+            <li class="item">
+                <div class="flex">小间隙：</div>
+                <ul class="yo-rating yo-rating-space">
+                    <li class="item"><span style="width: 100%;">1分</span></li>
+                    <li class="item"><span style="width: 100%;">2分</span></li>
+                    <li class="item"><span style={{width: '50%'}}>3分</span></li>
+                    <li class="item"><span>4分</span></li>
+                    <li class="item"><span>5分</span></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="m-note">
+            <h2 class="title">扩展说明：</h2>
+            <p>通过<code>$item-space</code>参数可以自定义“星星”间的间隙。</p>
+        </div>
+
+        <ul class="yo-list yo-list-group">
+            <h3 class="label">自定义“星星”外观：</h3>
+            <li class="item">
+                <div class="flex">扩展：</div>
+                <ul class="yo-rating yo-rating-test">
+                    <li class="item"><span style="width: 100%;">1分</span></li>
+                    <li class="item"><span style="width: 100%;">2分</span></li>
+                    <li class="item"><span style="width: 100%;">3分</span></li>
+                    <li class="item"><span>4分</span></li>
+                    <li class="item"><span>5分</span></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="m-note">
+            <h2 class="title">扩展说明：</h2>
+            <p>通过<code>$url</code>参数可以自定义“星星”间的外观，只需要指向新的“星星”图片资源路径即可。</p>
+            <p>更多参数定义，请查看文档。</p>
+        </div>
 
     </div>
 </div>

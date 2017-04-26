@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
-<title>search - 搜索框</title>
+<title>yo-search - 搜索框</title>
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <meta name="format-detection" content="telephone=no,email=no" />
@@ -14,100 +14,64 @@
 <body>
 
 <div class="yo-flex">
-    <header class="yo-header m-header">
+    <header class="yo-header">
         <h2 class="title">yo-search</h2>
         <a href="../index.html" class="regret yo-ico">&#xf07d;</a>
         <a href="../../doc/element.html#yo-search" class="affirm">文档</a>
     </header>
     <div class="flex">
-        <section class="m-demo">
-            <h2 class="title">例一效果：</h2>
+        <section class="m-list">
+            <h2 class="title">例一效果（input聚焦时收缩）：</h2>
             <form class="yo-search">
-                <label class="operation">
+                <label class="action">
                     <span class="yo-ico">&#xf067;</span>
                     <input type="text" class="input input-shrink" placeholder="输入搜索关键字..." />
                 </label>
                 <span class="cancel">取消</span>
             </form>
         </section>
+        <div class="m-note">
+            <h2 class="title">特征说明：</h2>
+            <p>当你为输入框加上了<code>.input-shrink</code>类的时候，它就具备了收缩功能。</p>
+        </div>
 
-        <section class="m-desc">
-            <h3 class="title">例一代码演示：</h3>
-            <xmp><form class="yo-search">
-    <label class="operation">
-        <span class="yo-ico">&#xf067;</span>
-        <input type="text" class="input input-shrink" placeholder="输入搜索关键字..." />
-    </label>
-    <span class="cancel">取消</span>
-</form></xmp>
-        </section>
-
-        <section class="m-demo">
+        <section class="m-list">
             <h2 class="title">例二效果（input聚焦时不收缩）：</h2>
             <form class="yo-search">
-                <label class="operation">
+                <label class="action">
                     <span class="yo-ico">&#xf067;</span>
                     <input type="text" class="input" placeholder="输入搜索关键字..." />
                 </label>
             </form>
         </section>
 
-        <section class="m-desc">
-            <h3 class="title">例二代码演示：</h3>
-            <xmp><form class="yo-search">
-    <label class="operation">
-        <span class="yo-ico">&#xf067;</span>
-        <input type="text" class="input" placeholder="输入搜索关键字..." />
-    </label>
-</form></xmp>
-
-            <h3 class="sub-title">只需移除[input-shrink]类名</h3>
-            <xmp><input class="input input-shrink" ... />
-            ↓↓↓
-<input class="input" ... /></xmp>
-        </section>
-
-        <section class="m-demo">
-            <h2 class="title">例三效果（搜索按钮的搜索）：</h2>
+        <section class="m-list">
+            <h2 class="title">例三效果（带搜索按钮的搜索）：</h2>
             <form class="yo-search">
-                <label class="operation">
+                <label class="action">
                     <span class="yo-ico">&#xf067;</span>
                     <input type="text" class="input" placeholder="输入搜索关键字..." />
                 </label>
-                <span class="button">搜索</span>
+                <span class="yo-btn">搜索</span>
             </form>
         </section>
 
-        <section class="m-desc">
-            <h3 class="title">例三代码演示：</h3>
-            <xmp><form class="yo-search">
-    <label class="operation">
-        <span class="yo-ico">&#xf067;</span>
-        <input type="text" class="input" placeholder="输入搜索关键字..." />
-    </label>
-    <span class="button">搜索</span> <!-- 增加这行即可 -->
-</form></xmp>
-        </section>
-
-        <section class="m-demo">
+        <section class="m-list">
             <h2 class="title">例四效果（搜索框无ico）：</h2>
             <form class="yo-search">
-                <label class="operation">
+                <label class="action">
                     <input type="text" class="input" placeholder="输入搜索关键字..." />
                 </label>
-                <span class="button yo-ico">&#xf067;</span>
+                <span class="yo-btn yo-ico">&#xf067;</span>
             </form>
         </section>
 
-        <section class="m-desc">
-            <h3 class="title">例四代码演示：</h3>
-            <xmp><form class="yo-search">
-    <label class="operation">
-        <input type="text" class="input" placeholder="输入搜索关键字..." />
-    </label>
-    <span class="button yo-ico">&#xf067;</span>
-</form></xmp>
-        </section>
+        <div class="m-note">
+            <h2 class="title">扩展说明：</h2>
+            <p>我们可以使用元件同名方法<code>yo-search()</code>来自定义<strong>yo-search</strong>，也可以对它进行扩展。</p>
+            <p>当传入了<code>$name</code>参数时，会自动生成一个新类，而不影响默认值；当不传<code>$name</code>参数时，则会覆盖默认值。</p>
+            <p>更多参数定义，请查看文档。</p>
+        </div>
 
     </div>
 </div>
