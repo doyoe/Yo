@@ -11,6 +11,7 @@
 * 删除 `yo-index` 元件，可以使用 `yo-group` 元件达到相同效果；
 * 删除 `yo-select` 元件，同时新增 `yo-picker` 元件用于替代；
 * 新增 `yo-popup` 元件用于实现顶部或底部滑入的浮层场景；
+* 删除 `yo-doublelist` 元件，可以使用 `yo-column` 进行多列布局；
 
 ### Bug Fix:
 *
