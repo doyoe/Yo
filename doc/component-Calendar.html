@@ -437,10 +437,9 @@
 <p>可通过以下两种方式定义日期范围:</p>
 <ul>
 <li>传入具体的起、始日期。</li>
-<li>传入距离系统当日的间隔天数，默认90。
-入住时间在今天之前，会被重置为今天。
-入住时间在离店时间之后，则互换。
-默认selectionStart、selectionEnd可选择同一天。</li>
+<li>传入距离系统当日的间隔天数，默认90。入住时间在离店时间之后，则互换。默认selectionStart、selectionEnd可选择同一天。</li>
+<li>默认不能选择今天之前的日期。同时，如果 <code>selectionStart</code> 时间在今天之前，会被重置为今天。
+可以通过 <code>allowSelectionBeforeToday</code> 属性来严格按照 <code>duration</code> 渲染，消除默认场景。</li>
 </ul>
 </div>
 <!-- 使用说明begin -->
@@ -453,7 +452,7 @@
             
             <div class="instructions-con-info">
             <h4 id="-">引用方式</h4>
-<pre><code><span class="token keyword">import</span> <span class="token punctuation">{</span> Calendar <span class="token punctuation">}</span> <span class="token keyword">from</span> $yo<span class="token operator">-</span>component<span class="token punctuation">;</span>
+<pre><code><span class="token keyword">import</span> <span class="token punctuation">{</span> Calendar <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'$yo-component'</span><span class="token punctuation">;</span>
 
 <span class="token comment" spellcheck="true">// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖</span>
 <span class="token comment" spellcheck="true">// 你仍然可以通过下面这种方式来引用</span>
@@ -685,6 +684,28 @@
 </blockquote>
 <div class="api-content">
     <div><p>是否只允许选中单个日期</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> false
+</p>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>allowSelectionBeforeToday</strong>
+     <span class="prop-type">{ Bool }</span>
+    
+    <span class="yo-badge yo-badge-danger">3.0.9</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>是否严格根据 <code>duration</code> 属性渲染，支持选择今天之前的日期</p>
 </div>
     
 </div>

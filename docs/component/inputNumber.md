@@ -1,7 +1,7 @@
 #### 引用方式
 
 ```
-import { InputNumber } from $yo-component;
+import { InputNumber } from '$yo-component';
 
 // 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖
 // 你仍然可以通过下面这种方式来引用

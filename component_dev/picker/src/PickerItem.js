@@ -35,7 +35,9 @@ export default class extends Component {
                 }}
                 style={{
                     transform,
-                    WebkitTransform: transform
+                    WebkitTransform: transform,
+                    height: `${itemHeight}px`,
+                    lineHeight: `${itemHeight}px`
                 }}
                 className="item"
             >

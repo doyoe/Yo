@@ -134,12 +134,22 @@ export default class extends Component {
     }
 
     // 父组件render时,需要重置这个组件的loaded状态和context
-    componentWillReceiveProps(nextProps, nextContext) {
-        this.refresh(nextContext);
+    componentWillReceiveProps(nextProps) {
+        // 此处的 refresh 需要等到 didupdate 之后才能获取正确的位置
+        // this.refresh(nextContext);
+        this._isUpdate = true;
 
         if (this.state.src !== nextProps.src) {
             this.loading = TO_BE_LOADED;
             this.setState({ src: this.props.defaultImage });
+        }
+    }
+
+    componentDidUpdate() {
+        if (this._isUpdate) {
+            this._isUpdate = false;
+
+            this.refresh(this.context);
         }
     }
 
@@ -206,7 +216,7 @@ export default class extends Component {
                     'className',
                     'title',
                     'style'
-                ])}
+                ]) }
                 alt={this.props.alt}
                 ref={(img) => {
                     if (img) this.img = img;

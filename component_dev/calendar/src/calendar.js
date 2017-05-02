@@ -5,10 +5,9 @@
  *
  * 可通过以下两种方式定义日期范围:
  *  - 传入具体的起、始日期。
- *  - 传入距离系统当日的间隔天数，默认90。
- * 入住时间在今天之前，会被重置为今天。
- * 入住时间在离店时间之后，则互换。
- * 默认selectionStart、selectionEnd可选择同一天。
+ *  - 传入距离系统当日的间隔天数，默认90。入住时间在离店时间之后，则互换。默认selectionStart、selectionEnd可选择同一天。
+ *  - 默认不能选择今天之前的日期。同时，如果 `selectionStart` 时间在今天之前，会被重置为今天。
+ *  可以通过 `allowSelectionBeforeToday` 属性来严格按照 `duration` 渲染，消除默认场景。
  *
  * @instructions {instruInfo: ./calendar.md}{instruUrl: calendar.html?hideIcon}
  * @author qingguo.xu
@@ -28,6 +27,7 @@ const defaultProps = {
     selectionStartText: '入店',
     selectionEndText: '离店',
     allowSingle: false,
+    allowSelectionBeforeToday: false,
     onChange() {},
     renderDate() {}
 };
@@ -80,6 +80,14 @@ const propTypes = {
      */
     allowSingle: PropTypes.bool,
     /**
+     * @property allowSelectionBeforeToday
+     * @description 是否严格根据 `duration` 属性渲染，支持选择今天之前的日期
+     * @type Bool
+     * @default false
+     * @version 3.0.9
+     */
+    allowSelectionBeforeToday: PropTypes.bool,
+    /**
      * @property onChange
      * @type Function
      * @param {Object} obj 选中范围的开始日期、结束日期对象
@@ -103,10 +111,10 @@ export default class Calendar extends Component {
 
     constructor(props) {
         super(props);
-        const { duration, selectionStart, selectionEnd, allowSingle } = props;
+        const { duration, selectionStart, selectionEnd, allowSingle, allowSelectionBeforeToday } = props;
         this.calendarModel = new CalendarCore();
         this.state = {
-            data: this.calendarModel.getData({ duration, selectionStart, selectionEnd, allowSingle })
+            data: this.calendarModel.getData({ duration, selectionStart, selectionEnd, allowSingle, allowSelectionBeforeToday })
         };
         this.groupList = null;
     }
@@ -117,15 +125,25 @@ export default class Calendar extends Component {
     }
 
     componentDidMount() {
-        const groupKey = this.calendarModel.getGroupKey();
+        let groupKeyDate = new Date();
+        const { selectionStart } = this.props;
+        if (!!selectionStart) {
+            groupKeyDate = new Date(selectionStart.replace(/-/g, '/'));
+        }
+        const groupKey = `${groupKeyDate.getFullYear()}年${groupKeyDate.getMonth() + 1}月`;
         this.groupList.scrollToGroup(groupKey);
     }
 
     componentWillReceiveProps(nextProps) {
-        const { duration, selectionStart, selectionEnd, allowSingle } = nextProps;
-        this.setState({
-            data: this.calendarModel.getData({ duration, selectionStart, selectionEnd, allowSingle })
-        });
+        const { duration, selectionStart, selectionEnd, allowSingle, allowSelectionBeforeToday } = nextProps;
+        const { duration: prevDuration } = this.props;
+        let data = null;
+        if (typeof duration === 'number' && typeof prevDuration === 'number') {
+            data = this.calendarModel.getData({ duration, selectionStart, selectionEnd, allowSingle, allowSelectionBeforeToday });
+        } else {
+            data = this.calendarModel.getData({ prevDuration, duration, selectionStart, selectionEnd, allowSingle, allowSelectionBeforeToday });
+        }
+        this.setState({ data });
     }
 
     render() {

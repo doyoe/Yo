@@ -733,11 +733,6 @@ export default class Scroller extends Component {
         this.initiated = 0;
         this.endTime = utils.getTime();
 
-        if (!this.moved) {
-            this._execEvent('onScrollCancel');
-            return;
-        }
-
         // set pullrefresh
         if (this.state.usePullRefresh && this.y >= this.props.pullRefreshHeight) {
             if (this.refreshState === REFRESHSTATUS.LOAD) {
@@ -767,16 +762,19 @@ export default class Scroller extends Component {
 
         this.scrollTo(newX, newY);	// ensures that the last position is rounded
 
+        if (!this.moved) {
+            this._execEvent('onScrollCancel');
+            return;
+        }
+
         // start momentum animation if needed
         if (this.props.momentum && duration < 300) {
-            momentumX = this.hasHorizontalScroll ?
-                utils.momentum(this.x, this.startX, duration, this.maxScrollX, this.horizontalBounce ? this.wrapperWidth : 0, this.props.deceleration)
+            momentumX = this.hasHorizontalScroll ? utils.momentum(this.x, this.startX, duration, this.maxScrollX, this.horizontalBounce ? this.wrapperWidth : 0, this.props.deceleration)
                 : {
                     destination: newX,
                     duration: 0
                 };
-            momentumY = this.hasVerticalScroll ?
-                utils.momentum(this.y, this.startY, duration, this.maxScrollY, this.verticalBounce ? this.wrapperHeight : 0, this.props.deceleration)
+            momentumY = this.hasVerticalScroll ? utils.momentum(this.y, this.startY, duration, this.maxScrollY, this.verticalBounce ? this.wrapperHeight : 0, this.props.deceleration)
                 : {
                     destination: newY,
                     duration: 0
@@ -1088,6 +1086,9 @@ export default class Scroller extends Component {
         } else {
             this._animate(x, y, time, _easing.fn);
         }
+        // 由于scrollto不会触发onScroll事件，因此这里需要手动刷新一下sticky
+        this._refreshSticky(true);
+        this._tryLoadLazyImages();
     }
 
     _transitionTimingFunction(easing) {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { mount } from 'enzyme';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import CalendarCore from '../src/CalendarCore';
@@ -13,7 +13,6 @@ const formatDate = time => {
 };
 
 const calendarCore = new CalendarCore();
-// custom在前面，要不getGroupKey test会出错
 const customHolidayData = calendarCore.getData({
     duration: ['2017-10-1', '2018-4-30']
 });
@@ -42,7 +41,7 @@ test('the number of day besides today which can be selected is 181, and all Chec
                 num++;
                 j % 6 === 0 ? expect(weekend).toBeTruthy() : expect(weekend).toBeFalsy();
             }
-            
+
             expect(isCheckIn).toBeFalsy();
             expect(isCheck).toBeFalsy();
             expect(isCheckOut).toBeFalsy();
@@ -50,10 +49,9 @@ test('the number of day besides today which can be selected is 181, and all Chec
         });
     });
     expect(num).toBe(181);
-});
-
-test('the groupKey of no selectonStart is today', () => {
-    expect(calendarCore.getGroupKey()).toBe(`${toDayYear}年${toDayMonth}月`);
+    const allDateItem = testWrap.find('ul.week li');
+    const disableDateLenght = allDateItem.filter('.disabled').length;
+    expect(allDateItem.length - disableDateLenght).toBe(181);
 });
 
 test('the today node must has today class', () => {
@@ -117,10 +115,6 @@ const customWrap = mount(<Calendar
     selectionEndText="gogogo"
 />);
 
-test('the groupKey should be the group where the selectionStart located', () => {
-    expect(customCore.getGroupKey()).toBe(`${selectionStartYear}年${selectionStartMonth}月`);
-});
-
 test('the Check property should be true between selectionStart and selectionEnd, the custom text should be setted', () => {
     let num = 0;
     customData.forEach(item => {
@@ -160,4 +154,58 @@ const renderDateWrap = mount(<Calendar renderDate={renderDate} />);
 test('only today will be used the customed renderDate', () => {
     expect(renderDateWrap.find('li.today').children().html()).toBe('<span class="custom-today-class">我不管，今天必须实现成这种模式</span>');
     expect(renderDateWrap.find('.custom-today-class')).toHaveLength(1);
+});
+
+const testCore = new CalendarCore();
+const futureData = testCore.getData({duration: [selectionStart, selectionEnd]});
+const futureWrap = mount(<Calendar duration={[selectionStart, selectionEnd]} />)
+test('the future duration which can be selected is 7', () => {
+    let num = 0;
+    futureData.forEach(item => {
+        item.week.forEach(dayItem => {
+            if (!dayItem.disabled) num++;
+        });
+    });
+    const allDateItem = futureWrap.find('ul.week li');
+    const disableDateLenght = allDateItem.filter('.disabled').length;
+    expect(allDateItem.length - disableDateLenght).toBe(7);
+    expect(num).toBe(7);
+});
+
+const selectionBeforeTodayData = testCore.getData({ duration: ['2017-01-10', '2017-01-20' ], allowSelectionBeforeToday: true });
+const selectionBeforeTodayWrap = mount(<Calendar duration={['2017-01-10', '2017-01-20' ]} allowSelectionBeforeToday />)
+test('the allowSelectionBeforeToday is true, the range of selection is only depend on the duration property', () => {
+    let num = 0;
+    selectionBeforeTodayData.forEach(item => {
+        item.week.forEach(dayItem => {
+            if (!dayItem.disabled) num++;
+        });
+    });
+    const allDateItem = selectionBeforeTodayWrap.find('ul.week li');
+    const disableDateLenght = allDateItem.filter('.disabled').length;
+    expect(allDateItem.length - disableDateLenght).toBe(11);
+    expect(num).toBe(11);
+});
+
+class ChangeDuration extends Component {
+    state = {
+        duration: ['2017-2-10', '2017-3-10'],
+    };
+
+    render() {
+        return (
+            <Calendar duration={this.state.duration} allowSelectionBeforeToday />
+        );
+    }
+}
+
+const changeDurationWrap = mount(<ChangeDuration />);
+test('the date which can be selected should correct when the duration property changed', () => {
+    const allDateItem = changeDurationWrap.find('ul.week li');
+    const disableDateLenght = allDateItem.filter('.disabled').length;
+    expect(allDateItem.length - disableDateLenght).toBe(29);
+    changeDurationWrap.setState({duration: ['2017-1-10', '2017-4-10']});
+    const allDateItem2 = changeDurationWrap.find('ul.week li');
+    const disableDateLenght2 = allDateItem2.filter('.disabled').length;
+    expect(allDateItem2.length - disableDateLenght2).toBe(91);
 });

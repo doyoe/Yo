@@ -355,7 +355,6 @@ class Carousel extends Component {
 
     handleTouchStart(e) {
         e.preventDefault();
-        // e.stopPropagation();
         this.pause();
         this.aniObj.touchstartList = e.touches[0];
         this.aniObj.touchstartLocation = [e.touches[0].clientX, e.touches[0].clientY];
@@ -364,7 +363,6 @@ class Carousel extends Component {
 
     handleTouchMove(e) {
         e.preventDefault();
-        // e.stopPropagation();
         this.aniObj.touchmoveList = e.touches[0];
         this.aniObj.touchmoveLocation = [e.touches[0].clientX, e.touches[0].clientY];
 
@@ -373,11 +371,11 @@ class Carousel extends Component {
 
     handleTouchEnd(e) {
         e.preventDefault();
-        // e.stopPropagation();
         this.aniObj.touchendList = e.touches.length > 0 ?
             e.touches[0]
             : this.aniObj.touchmoveList;
         if (!this.aniObj.touchendList) {
+            this.play();
             return;
         }
         this.aniObj.touchendLocation = [
@@ -394,9 +392,9 @@ class Carousel extends Component {
 
     handleTouchCancle(e) {
         e.preventDefault();
-        // e.stopPropagation();
         if (this.ani.touchcancel) {
             this.ani.touchcancel(this.aniObj);
+            this.play();
             return;
         }
         this.aniObj.touchendList = this.aniObj.touchmoveList || this.aniObj.touchstartList;

@@ -98,7 +98,22 @@ export default class Picker extends Component {
          * @default false
          * @description 是否阻止默认事件传播，默认为false不阻止。
          */
-        stopPropagation: PropTypes.bool
+        stopPropagation: PropTypes.bool,
+        /**
+         * @property itemHeight
+         * @version 3.0.9
+         * @skip
+         * @type Number
+         * @default 30
+         * @description 滚动Item的高度, 该属性的修改最好配合样式,如果设值为45，则需 extraClass传入 `yo-picker-xxx` 并扩展样式
+         * ```
+         * @include yo-picker(
+         *      $name: 'xxx',
+         *      $item-height: .45rem
+         *  );
+         * ```
+         */
+        itemHeight: PropTypes.number
     };
 
     static defaultProps = {
@@ -109,20 +124,21 @@ export default class Picker extends Component {
         looped: true,
         unit: null,
         stopPropagation: false,
-        extraClass: ''
+        extraClass: '',
+        itemHeight: ITEM_HEIGHT
     };
 
     constructor(props) {
         super(props);
-        const { options, value, height, looped } = props;
-        const size = looped ? SIZE : options.length;
+        const { options, value, height, looped, itemHeight } = props;
+        const size = looped ? (SIZE * ITEM_HEIGHT) / itemHeight : options.length;
 
         this.pickerModel = new PickerCore({
             dataSource: options,
             value,
             loopedSize: size,
             containerHeight: height,
-            itemHeight: ITEM_HEIGHT,
+            itemHeight,
             looped
         });
         // 因为槽的数量和组件的高度有关,因此也在state中维护
@@ -176,11 +192,13 @@ export default class Picker extends Component {
      * @param nextProps
      */
     componentWillReceiveProps(nextProps) {
-        const { value, options, height, looped } = nextProps;
+        const { value, options, height, looped, itemHeight } = nextProps;
 
         if (options === this.props.options
             && height === this.state.height
-            && looped === this.props.looped) {
+            && looped === this.props.looped
+            && itemHeight === this.props.itemHeight
+            ) {
             if (this.props.value !== value) {
                 this.pickerModel.setValue(value, true);
             }
@@ -189,8 +207,10 @@ export default class Picker extends Component {
                 dataSource: options,
                 value,
                 containerHeight: height,
+                loopedSize: looped ? (SIZE * ITEM_HEIGHT) / itemHeight : options.length,
                 looped,
-                manually: true
+                manually: true,
+                itemHeight
             });
         }
     }
@@ -247,8 +267,7 @@ export default class Picker extends Component {
     }
 
     render() {
-        const itemHeight = ITEM_HEIGHT;
-        const { extraClass, unit } = this.props;
+        const { extraClass, unit, itemHeight } = this.props;
         const looped = this.pickerModel.looped;
         const { visibleList, offsetY, height, contentHeight, thunks } = this.state;
         return (

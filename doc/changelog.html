@@ -113,7 +113,20 @@
           <div class="ydoc-container-content" id="readme">
               <article class="markdown-body">
                   
-                  <h2 id="v3.0.8 (2017-04-07)">v3.0.8 (2017-04-07)</h2><h3 id="New Features">New Features</h3><ul>
+                  <h2 id="v3.0.9 (2017-05-02)">v3.0.9 (2017-05-02)</h2><h3 id="New Features">New Features</h3><ul>
+<li><code>Calendar</code> 添加 <code>allowSelectionBeforeToday</code> 属性，允许用户选择当前日期之前的时间段。</li>
+<li><code>Picker</code> 添加 <code>itemHeight</code> 属性，用来设置 item 高度。</li>
+</ul>
+<h3 id="Bug Fixes">Bug Fixes</h3><ul>
+<li>修复 <code>Scroller</code> 在调用 <code>scrollTo</code> 方法时，吸顶容器没有被正确刷新的 bug。</li>
+<li>修复 <code>Scroller</code> 在回弹过程中点击页面导致无法回弹到正确位置的 bug。</li>
+<li>修复 <code>LazyImage</code> 在更新之后获取位置不正确导致图片无法加载的 bug。</li>
+<li>修复 <code>Calendar</code> 当 <code>duration</code> 的起始日期大于当前日期时，可选择区域不准确的 bug。</li>
+<li>修复 <code>Calendar</code> 当 <code>duration</code> 属性改变时，起始日期所在的周未及时更新的 bug。</li>
+<li>修复 <code>Calendar</code> 在 <code>onChange</code> 触发时，输出的格式不规范的 bug，将 YYYY-MM-(D)D 格式改成 YYYY-MM-DD 格式。</li>
+<li>修复 <code>Carousel</code> 当 触发 <code>toucheEnd</code> 事件时没有生成对应 <code>touch</code> 对象情况下， 没有重置定时器的 bug。</li>
+</ul>
+<h2 id="v3.0.8 (2017-04-07)">v3.0.8 (2017-04-07)</h2><h3 id="New Features">New Features</h3><ul>
 <li><code>yo-timeline</code> 时间轴元件新增 <code>$first-item-color</code> 参数指定首项的颜色，用以区别其他项。</li>
 <li><code>Carousel</code> 组件新增内置自定义动画，实现循环无限节点。</li>
 <li><code>Carousel</code> 组件添加 <code>window.resize</code> 事件，并提供 <code>handleResize</code> 方法用于当父容器宽度变化时手动调整组件。</li>

@@ -14,7 +14,7 @@
 #### 引用方式
 
 ```
-import { Touchable } from $yo-component;
+import { Touchable } from '$yo-component';
 
 // 如果你的项目中未使用 ykit-config-yo 插件，可能无法使用上面这个语法糖
 // 你仍然可以通过下面这种方式来引用

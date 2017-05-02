@@ -24,7 +24,7 @@ export default class PickerCore extends ComponentCore {
         this.loopedSize = loopedSize;
         // mutable states
         // 可以通过父组件render改变
-        this.refresh({ dataSource, value, containerHeight, looped });
+        this.refresh({ dataSource, value, containerHeight, looped, itemHeight, loopedSize });
     }
 
     /**
@@ -40,12 +40,16 @@ export default class PickerCore extends ComponentCore {
         value,
         containerHeight = this.containerHeight,
         looped,
+        itemHeight,
+        loopedSize,
         manually = false
     }) {
         this.looped = looped;
+        this.loopedSize = loopedSize;
         this.size = looped ? this.loopedSize : dataSource.length;
         this.dataSource = dataSource;
         this.containerHeight = containerHeight;
+        this.itemHeight = itemHeight;
         this.middlePointY = (containerHeight - this.itemHeight) / 2;
 
         const visibleSize = Math.floor((this.containerHeight / this.itemHeight) * 1.5);
@@ -81,7 +85,9 @@ export default class PickerCore extends ComponentCore {
                 dataSource,
                 this.containerHeight,
                 this.contentHeight,
-                this.thunks
+                this.thunks,
+                this.loopedSize,
+                this.itemHeight
             );
         }
     }

@@ -1,3 +1,18 @@
+## v3.0.9 (2017-05-02)
+
+### New Features
+- `Calendar` 添加 `allowSelectionBeforeToday` 属性，允许用户选择当前日期之前的时间段。
+- `Picker` 添加 `itemHeight` 属性，用来设置 item 高度。
+
+### Bug Fixes
+- 修复 `Scroller` 在调用 `scrollTo` 方法时，吸顶容器没有被正确刷新的 bug。
+- 修复 `Scroller` 在回弹过程中点击页面导致无法回弹到正确位置的 bug。
+- 修复 `LazyImage` 在更新之后获取位置不正确导致图片无法加载的 bug。
+- 修复 `Calendar` 当 `duration` 的起始日期大于当前日期时，可选择区域不准确的 bug。
+- 修复 `Calendar` 当 `duration` 属性改变时，起始日期所在的周未及时更新的 bug。
+- 修复 `Calendar` 在 `onChange` 触发时，输出的格式不规范的 bug，将 YYYY-MM-(D)D 格式改成 YYYY-MM-DD 格式。
+- 修复 `Carousel` 当 触发 `toucheEnd` 事件时没有生成对应 `touch` 对象情况下， 没有重置定时器的 bug。
+
 ## v3.0.8 (2017-04-07)
 
 ### New Features

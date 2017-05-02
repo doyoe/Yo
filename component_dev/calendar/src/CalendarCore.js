@@ -44,14 +44,25 @@ const isWeekend = (dayNum, firstDay) => {
 };
 
 /**
- * onlyFormatMonth 仅格式化月，eg: 2016-08-9
+ * getDateInfoArr 获取年、月、日、星期等信息
  * @param date {Date}
+ * @returns {Array}
  */
-const onlyFormatMonth = date => [
+const getDateInfoArr = (date = new Date()) => [
     date.getFullYear(),
-    convert2digit(date.getMonth() + 1),
-    date.getDate()
-].join('-');
+    date.getMonth() + 1,
+    date.getDate(),
+    date.getDay(),
+];
+
+/**
+ * onlyFormatMonth 仅格式化月，eg: 2016-08-9
+ * @param dateObj {Date}
+ */
+const onlyFormatMonth = dateObj => {
+    const [year, month, dateNum] = getDateInfoArr(dateObj);
+    return [year, convert2digit(month), convert2digit(dateNum)].join('-');
+};
 
 /**
  * formatMonth 格式化某年某月月为指定格式， eg： 2016/08
@@ -86,18 +97,6 @@ const formatMonthChinese = (year, month) => `${year}年${month}月`;
 const compareDate = (date1, date2) => date1.getTime() - date2.getTime();
 
 /**
- * getDateInfoArr 获取年、月、日、星期等信息
- * @param date {Date}
- * @returns {Array}
- */
-const getDateInfoArr = date => [
-    date.getFullYear(),
-    date.getMonth() + 1,
-    date.getDay(),
-    date.getDate()
-];
-
-/**
  * isHoliday 判断是否是假期
  * @param year {number}
  * @param month {number}
@@ -120,21 +119,25 @@ const isHoliday = (year, month, day) => {
 };
 
 /**
+ * 处理IOS不兼容2016-10-01， 但不改变原有日期格式
+ * @param str {string}
+ * @return Date
+ */
+const getDate = str => new Date(str.replace(/-/g, '/'));
+
+/**
  * 继承ComponentCore组件，主要基于观察者模式，注册、触发自定义事件
  */
 export default class CalendarCore extends ComponentCore {
     constructor() {
         super('canlendar');
-        this.checkIn = null;
         this.checkInDate = null;
-        this.checkOut = null;
         this.checkOutDate = null;
-        this.checkRange = []; // 缓存入、住店中间范围ITem对象的引用
-        this.hasToday = false; // today 检测
-        this.beforeToday = true; // beginDate是否在today之前
-        this.isRender = false;
+        this.isRender = false; //
+        this.beginDate = null; // 开始日期
+        this.endDate = null; // 结束日期
+        this.prevBeginDate = null; // 前一次的开始日期
         this.allowSingle = false; // 是否尽允许选择单日情况
-        this.groupKey = null; // 入店日期所在的月份分组的key, eg: '2017年10月'
     }
 
     /**
@@ -147,19 +150,17 @@ export default class CalendarCore extends ComponentCore {
             selectionStart: '',
             selectionEnd: ''
         };
-        const resStr = str.replace(/\//g, '-');
-        if (!!this.checkOut || !this.checkIn || this.allowSingle) {
-            resObj.selectionStart = resStr;
+        const strDate = getDate(str);
+        if (!!this.checkOutDate || !this.checkInDate || this.allowSingle) {
+            resObj.selectionStart = onlyFormatMonth(strDate);
             return this.emitEvent('check', resObj);
         }
-        if (!!this.checkIn) {
-            // 处理IOS不兼容2016-10-01， 但不改变原有日期格式
-            const tempStr = str.replace(/-/g, '/');
-            if (compareDate(new Date(tempStr), this.checkInDate) < 0) {
-                resObj.selectionStart = resStr;
+        if (!!this.checkInDate) {
+            if (compareDate(strDate, this.checkInDate) < 0) {
+                resObj.selectionStart = onlyFormatMonth(strDate);
             } else {
                 resObj.selectionStart = onlyFormatMonth(this.checkInDate);
-                resObj.selectionEnd = resStr;
+                resObj.selectionEnd = onlyFormatMonth(strDate);
             }
             return this.emitEvent('check', resObj);
         }
@@ -167,60 +168,55 @@ export default class CalendarCore extends ComponentCore {
     }
 
     /**
-     * isToday 某年某月某天是否是今天， this.hasToday存储结果
+     * isToday 某年某月某天是否是今天
      * @param year {String}
      * @param month {String}
      * @param day {String}
      * @returns {Boolean}
      */
     isToday(year, month, day) {
-        const tempDate = new Date();
-        if (!this.checkIn) this.groupKey = formatMonthChinese(year, month);
-        this.hasToday = tempDate.getFullYear() === parseFloat(year) && (tempDate.getMonth() + 1) === parseFloat(month) && tempDate.getDate() === parseFloat(day);
-        return this.hasToday;
-    }
-
-    /**
-     * 获取 checkIn 入店日期所在的月份分组的key
-     */
-    getGroupKey() {
-        return this.groupKey;
+        const [todayYear, todayMonth, todayDateNum] = getDateInfoArr();
+        return todayYear === parseFloat(year) && todayMonth === parseFloat(month) && todayDateNum === parseFloat(day);
     }
 
     /**
      * getDate 获取满足需要的groupList格式数据
+     * @param prevDuration { Number | Array } duration属性变化之前的起始时间日期
      * @param duration {Number | Array} 时间间隔或起始时间日期
      * @param selectionStart {String} 入店时间， eg: 2016-10-01
      * @param selectionEnd {String} 离店时间， eg: 2016-10-01
      * @param allowSingle {Boolean} 允许单选
+     * @param allowSelectionBeforeToday {Boolean} 允许选择今天之前的日期
      * @returns {Array}
      */
-    getData({ duration = 90, selectionStart = '', selectionEnd = '', allowSingle }) {
-        let beginDate = '';
-        let endDate = '';
-        const todayDate = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+    getData({ prevDuration = 0, duration = 90, selectionStart = '', selectionEnd = '', allowSingle, allowSelectionBeforeToday = false }) {
+        const [todayYear, todayMonth, todayDateNum] = getDateInfoArr();
+        const todayDate = new Date(todayYear, todayMonth - 1, todayDateNum);
         this.allowSingle = allowSingle;
         if (typeof duration === 'object') {
-            beginDate = new Date(duration[0].replace(/-/g, '/'));
-            endDate = new Date(duration[1].replace(/-/g, '/'));
+            this.beginDate = getDate(duration[0]);
+            this.endDate = getDate(duration[1]);
         } else {
-            beginDate = todayDate;
-            endDate = getEndDate(beginDate, duration);
+            this.beginDate = todayDate;
+            this.endDate = getEndDate(this.beginDate, duration);
+        }
+        if ((prevDuration === 0) || (JSON.stringify(prevDuration) === JSON.stringify(duration))) {
+            this.prevBeginDate = null;
+        } else if (typeof prevDuration === 'object') {
+            this.prevBeginDate = getDate(prevDuration[0]);
+        } else {
+            this.prevBeginDate = todayDate;
         }
 
-        this.checkIn = selectionStart.replace(/-/g, '/');
-        this.checkOut = selectionEnd.replace(/-/g, '/');
-        this.checkInDate = new Date(this.checkIn);
-        this.checkOutDate = new Date(this.checkOut);
-        this.hasToday = false;
-        this.beforeToday = compareDate(beginDate, todayDate);
-        // 入店日期为今天之前的情况， 则重置为今天
-        if (compareDate(this.checkInDate, todayDate) < 0) {
+        this.checkInDate = selectionStart ? getDate(selectionStart) : null;
+        this.checkOutDate = selectionEnd ? getDate(selectionEnd) : null;
+        // 不能选中今天之前的日期时，入店日期为今天之前的情况， 则重置为今天
+        if (!allowSelectionBeforeToday && selectionStart && compareDate(this.checkInDate, todayDate) < 0) {
             this.checkInDate = todayDate;
         }
 
         // 两次选中同一天情况，相当于allowSingle
-        if (!this.allowSingle && this.checkIn === this.checkOut) {
+        if (!this.allowSingle && selectionStart === selectionEnd) {
             this.allowSingle = true;
         }
 
@@ -229,18 +225,18 @@ export default class CalendarCore extends ComponentCore {
             [this.checkInDate, this.checkOutDate] = [this.checkOutDate, this.checkInDate];
         }
 
-        return this.getCheckArr({ beginDate, endDate });
+        return this.getCheckArr(allowSelectionBeforeToday, compareDate(this.beginDate, todayDate));
     }
 
     /**
      * getCheckArr， 根据开始日期获取满足条件的dataSource
-     * @param beginDate {Date} 开始日期对象
-     * @param endDate {Date} 结束日期对象
+     * @param allowSelectionBeforeToday 是否严格按照duration属性来渲染，允许选择今天之前的日期
+     * @param compareBeginAndToday beginDate 和 TodayDate比较返回值
      * @returns {Array}
      */
-    getCheckArr({ beginDate, endDate }) {
-        const [beginYear, beginMonth] = getDateInfoArr(beginDate);
-        const [endYear, endMonth, endDay, endDayNum] = getDateInfoArr(endDate);
+    getCheckArr(allowSelectionBeforeToday, compareBeginAndToday) {
+        const [beginYear, beginMonth] = getDateInfoArr(this.beginDate);
+        const [endYear, endMonth, endDateNum, endDay] = getDateInfoArr(this.endDate);
         const endMonthLastDate = getLastDayOfMonth(endYear, endMonth).getDate();
         let tempYear = beginYear;
         let tempMonth = beginMonth;
@@ -250,20 +246,31 @@ export default class CalendarCore extends ComponentCore {
         // baseIndex 基数值，用于补足日期显示范围最后一周的剩下几天
         // addNormalDateFlag 避免超过当前月的最大值，如32
         // disable 同上，最后一周补上额外的几天不可点击
+        let hasToday = false;
         const addMapFn = (item, i, { baseIndex = 0, addNormalDateFlag = true, disable = false }) => {
             const day = baseIndex + i + 1;
+            // 是否是今天
+            let isToday = false;
+            if (hasToday) {
+                isToday = false;
+            } else {
+                isToday = hasToday = this.isToday(tempYear, tempMonth, day);
+            }
+            // 禁止选择的日期：（1）为了美观的，日期超出duration之后的 （2）今天之前的 （3）日期在duration之前的
+            const disabled = disable || (!allowSelectionBeforeToday && compareBeginAndToday < 0 && !hasToday)
+                || (compareDate(new Date(tempYear, tempMonth - 1, day), this.beginDate) < 0);
             if (addNormalDateFlag || day <= endMonthLastDate) {
                 return {
                     day,
                     date: formatMonth(tempYear, tempMonth),
                     lunar: solar2lunar(tempYear, tempMonth, day).str,
-                    today: this.hasToday ? false : this.isToday(tempYear, tempMonth, day),
+                    today: isToday,
                     isCheckIn: false,
                     isCheck: false,
                     isCheckOut: false,
                     weekend: isWeekend(day, dayFirst),
                     holiday: isHoliday(tempYear, tempMonth, day),
-                    disabled: disable || this.beforeToday <= 0 && !this.hasToday
+                    disabled
                 };
             }
             return { disabled: true };
@@ -272,7 +279,7 @@ export default class CalendarCore extends ComponentCore {
             const isEnd = tempYear === endYear && tempMonth === endMonth;
             const tempDateObj = getLastDayOfMonth(tempYear, tempMonth);
             const dayLast = isEnd ? endDay : tempDateObj.getDay();
-            const dayLength = isEnd ? endDayNum : tempDateObj.getDate();
+            const dayLength = isEnd ? endDateNum : tempDateObj.getDate();
 
             // 某月第一天之前的空格数
             const firstMonthArr = getArrayByLength(dayFirst).fill({ disabled: true });
@@ -286,7 +293,7 @@ export default class CalendarCore extends ComponentCore {
             // 补足显示日期范围最后一周的剩下几天情况, 为了美观
             if (isEnd) {
                 const lastWeekArr = getArrayByLength(6 - endDay).fill(0).map((item, i) => addMapFn(item, i, {
-                    baseIndex: endDayNum,
+                    baseIndex: endDateNum,
                     addNormalDateFlag: false,
                     disable: true
                 }));
@@ -318,26 +325,22 @@ export default class CalendarCore extends ComponentCore {
         let tempWeekArr = [];
         monthArr.forEach((item, i) => {
             const itemDayObj = item;
-            if (!itemDayObj.disabled && !!this.checkIn) {
-                const itemStr = `${itemDayObj.date}/${itemDayObj.day}`;
-                const itemDate = new Date(itemStr);
+            if (!itemDayObj.disabled && !!this.checkInDate) {
+                const itemDate = getDate(`${itemDayObj.date}/${itemDayObj.day}`);
                 const compareIn = compareDate(itemDate, this.checkInDate);
-                const compareOut = !!this.checkOut && compareDate(itemDate, this.checkOutDate);
+                const compareOut = !!this.checkOutDate && compareDate(itemDate, this.checkOutDate);
                 if (!compareIn) {
-                    this.checkIn = itemDayObj;
+                    this.checkInDate = itemDate;
                     itemDayObj.isCheckIn = true;
-                    this.groupKey = groupKey;
                 }
                 if ((compareIn > 0 && compareOut < 0) || ((!compareIn || compareOut === 0) && !this.allowSingle)) {
                     itemDayObj.isCheck = true;
-                    this.checkRange.push(itemDayObj);
                 }
                 if (compareOut === 0) {
-                    this.checkOut = itemDayObj;
+                    this.checkOutDate = itemDate;
                     itemDayObj.isCheckOut = true;
                 }
             }
-
             if (i % 7 === 6) {
                 tempWeekArr.push(itemDayObj);
                 resMonthArr.push(this.getWeekObj(tempWeekArr, groupKey));
@@ -361,19 +364,31 @@ export default class CalendarCore extends ComponentCore {
             isRender: false,
             groupKey
         };
-        if (!this.checkIn) {
-            return resObj;
-        }
         weekArr.forEach(item => {
-            if (item.disabled) {
+            const { disabled, date, day } = item;
+            if (disabled) {
                 return;
             }
-            const itemStr = `${item.date}/${item.day}`;
-            const itemDate = new Date(itemStr);
-            const compareIn = compareDate(itemDate, this.checkInDate);
-            let compareOut = '';
-            if (!!this.checkOut && this.isRender) {
-                compareOut = compareDate(itemDate, this.checkOutDate);
+
+            // duration 乱变时，beginDate 所在的月 且 在beginDate 之前的日期全要刷新
+            if (this.prevBeginDate !== null) {
+                const [prevBeginYear, prevBeginMonth, prevBeginDateNum] = getDateInfoArr(this.prevBeginDate);
+                if (formatMonth(prevBeginYear, prevBeginMonth) === date && day < prevBeginDateNum) {
+                    resObj.isRender = true;
+                }
+            }
+
+            const itemDate = new Date(`${date}/${day}`);
+            const compareIn = this.checkInDate && compareDate(itemDate, this.checkInDate);
+            const compareBegin = compareDate(itemDate, this.beginDate);
+            const compareEnd = compareDate(itemDate, this.endDate);
+            // 起始日期改变时，所在的周也要刷新
+            if (compareBegin === 0 || compareEnd === 0) {
+                resObj.isRender = true;
+            }
+
+            if (!!this.checkOutDate && this.isRender) {
+                const compareOut = compareDate(itemDate, this.checkOutDate);
                 // 结束
                 if (compareOut <= 0) {
                     this.isRender = !!compareOut;
@@ -385,7 +400,6 @@ export default class CalendarCore extends ComponentCore {
                 this.isRender = true;
             }
         });
-        // console.log(this.isRender)
         return resObj;
     }
 }
