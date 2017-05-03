@@ -1,13 +1,18 @@
 @charset "utf-8";
 @import "../core/reset";
-@import "../../lib/layout/yo-flex";
-@import "../../lib/fragment/yo-header";
+@import "../layout/yo-flex";
+@import "../fragment/yo-header";
 @import "../fragment/yo-list";
 @import "../fragment/yo-swipemenu";
 
+@import "../module/m-list";
+@import "../module/m-note";
 
-.m-demo {
-    .yo-list img {
+@include yo-swipemenu(
+    $padding: .11rem .1rem .12rem
+) {
+    img {
         width: 1rem;
+        height: .5rem;
     }
 }
