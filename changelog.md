@@ -1,4 +1,4 @@
-## v2.2.0（2017.4.x）
+## v2.2.0（2017.5.x）
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v2.2.0)
 
@@ -13,6 +13,8 @@
 * 新增 `yo-popup` 元件用于实现顶部或底部滑入的浮层场景；
 * 删除 `yo-doublelist` 元件，可以使用 `yo-column` 进行多列布局；
 * 删除 `yo-slidermenu` 元件，同时新增 `yo-swipemenu` 元件用于替代；
+* 删除 `yo-tip` 元件，同时新增 `yo-toast` 元件用于替代；
+* 新增 `yo-timeline` 元件；
 
 ### Bug Fix:
 *
