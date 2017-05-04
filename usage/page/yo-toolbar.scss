@@ -1,6 +1,18 @@
 @charset "utf-8";
 @import "../core/reset";
-@import "../../lib/layout/yo-flex";
-@import "../../lib/fragment/yo-header";
+@import "../layout/yo-flex";
+@import "../fragment/yo-header";
 @import "../fragment/yo-list";
 @import "../fragment/yo-toolbar";
+
+@import "../module/m-note";
+
+@include yo-toolbar(
+    $name: test,
+    $border-color: #ccc,
+    $bgcolor: #eee,
+    $color: #666,
+    $on-bgcolor: #ddd,
+    $on-color: #000,
+    $radius: .05rem
+);

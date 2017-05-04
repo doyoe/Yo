@@ -14,13 +14,13 @@
 <body>
 
 <div class="yo-flex">
-    <header class="yo-header m-header">
+    <header class="yo-header">
         <h2 class="title">yo-toolbar</h2>
         <a href="../index.html" class="regret yo-ico">&#xf07d;</a>
         <a href="../../doc/element.html#yo-toolbar" class="affirm">文档</a>
     </header>
     <div class="flex">
-        <section class="yo-list yo-list-group m-demo">
+        <section class="yo-list yo-list-group">
             <h2 class="label">常规：</h2>
             <div class="item">
                 <ul class="yo-toolbar">
@@ -49,16 +49,7 @@
             </div>
         </section>
 
-        <section class="m-desc">
-            <h3 class="title">示例描述：</h3>
-            <xmp><ul class="yo-toolbar">
-    <li class="item">点赞</li>
-    <li class="item item-on">评论</li>
-    <li class="item">取消</li>
-</ul></xmp>
-        </section>
-
-        <section class="yo-list yo-list-group m-demo">
+        <section class="yo-list yo-list-group">
             <h2 class="label">扩展：</h2>
             <div class="item">
                 <ul class="yo-toolbar yo-toolbar-test">
@@ -68,23 +59,12 @@
                 </ul>
             </div>
         </section>
-
-        <section class="m-desc">
-            <h3 class="title">当然你也可以随心的自定义：</h3>
-            <xmp>@include yo-toolbar(
-    $name: test,
-    $border-color: #ccc,
-    $bgcolor: #eee,
-    $color: #666,
-    $on-bgcolor: #ddd,
-    $on-color: #000,
-    $radius: .05rem
-);</xmp>
-            <h3 class="sub-title">使用方法：</h3>
-            <xmp><div class="yo-toolbar yo-toolbar-test">
-    ...
-</div></xmp>
-        </section>
+        <div class="m-note">
+            <h2 class="title">扩展说明：</h2>
+            <p>我们可以使用元件同名方法<code>yo-toolbar()</code>来自定义<strong>yo-toolbar</strong>，也可以对它进行扩展。</p>
+            <p>当传入了<code>$name</code>参数时，会自动生成一个新类，而不影响默认值；当不传<code>$name</code>参数时，则会覆盖默认值。</p>
+            <p>更多参数定义，请查看文档。</p>
+        </div>
 
     </div>
 </div>

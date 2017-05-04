@@ -1,9 +1,10 @@
 @charset "utf-8";
 @import "../core/reset";
-@import "../../lib/layout/yo-flex";
-@import "../../lib/fragment/yo-header";
+@import "../layout/yo-flex";
+@import "../fragment/yo-header";
 @import "../fragment/yo-vcode";
 
+@import "../module/m-note";
 
 @include yo-vcode {
     margin: .1rem;
