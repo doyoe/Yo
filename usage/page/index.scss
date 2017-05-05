@@ -7,6 +7,15 @@
 
 @import "../module/m-list";
 
+@include yo-list(
+    $name: accordion,
+    $margin: .1rem,
+    $radius: .03rem,
+    $label-padding: .15rem .1rem .15rem,
+    $label-bgcolor: #fff,
+    $label-border-color: #fff
+);
+
 .m-copyright {
     overflow: hidden;
     width: 1.8rem;

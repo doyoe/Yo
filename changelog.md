@@ -5,20 +5,20 @@
 ### New Features:
 * 将 `widget` 目录下的所有元件移动到 `fragment` 下；
 * 删除 `yo-mask` 元件，同时新增 `yo-modal` 元件用于替代；
-* 删除 `yo-datepicker` 元件，同时新增 `yo-calendar` 元件用于替代；
-* 删除 `yo-switchable` 元件，同时新增 `yo-carousel` 元件用于替代；
 * 删除 `yo-score` 元件，可以使用 `yo-rating` 元件达到相同效果；
-* 删除 `yo-index` 元件，可以使用 `yo-group` 元件达到相同效果；
-* 删除 `yo-select` 元件，同时新增 `yo-picker` 元件用于替代；
+* 删除 `yo-index` 元件，将它的呈现内置到 `yo-group` 元件中；
 * 新增 `yo-popup` 元件用于实现顶部或底部滑入的浮层场景；
-* 删除 `yo-doublelist` 元件，可以使用 `yo-column` 进行多列布局；
-* 删除 `yo-slidermenu` 元件，同时新增 `yo-swipemenu` 元件用于替代；
-* 删除 `yo-tip` 元件，同时新增 `yo-toast` 元件用于替代；
-* 新增 `yo-timeline` 元件；
+* 新增 `yo-timeline` 元件用于展示时间轴效果；
+* 新增对 `summary` 元素的响应轮廓的reset定义；
+* 重命名元件 `yo-datepicker` 为 `yo-calendar`；
+* 重命名元件 `yo-switchable` 为 `yo-carousel`；
+* 重命名元件 `yo-select` 为 `yo-picker`；
+* 重命名元件 `yo-doublelist` 为 `yo-column`；
+* 重命名元件 `yo-slidermenu` 为 `yo-swipemenu`；
+* 重命名元件 `yo-tip` 为 `yo-toast`；
 
 ### Bug Fix:
-*
-
+* 修复 `reset` 里对清除响应轮廓的选择符错误，`select` 与 `a` 之间少了逗号分隔；
 
 **注意：Kami没有与此版本对应的版本**
 
