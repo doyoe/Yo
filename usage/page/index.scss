@@ -14,7 +14,15 @@
     $label-padding: .15rem .1rem .15rem,
     $label-bgcolor: #fff,
     $label-border-color: #fff
-);
+) {
+    > .label {
+        color: #333;
+        font-size: .14rem;
+    }
+    &[open] > .label {
+        color: #999;
+    }
+}
 
 .m-copyright {
     overflow: hidden;
