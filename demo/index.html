@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
-<title>Yo Demo List</title>
+<title>Yo - 渐进式UI快速构建方案</title>
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <meta name="format-detection" content="telephone=no,email=no" />
@@ -13,14 +13,19 @@
 </head>
 <body>
 <div class="yo-flex">
-    <header class="yo-header m-header">
-        <h2 class="title">Yo Demo List</h2>
-        <a href="../doc/index.html" class="affirm">文档</a>
+    <header class="m-header">
+        <h1 class="title">Yo</h1>
+        <p>为你的移动项目助力</p>
     </header>
     <div class="flex">
 
         <details class="yo-list yo-list-accordion">
-            <summary class="label"><span>字体图标</span><dfn>Iconfont</dfn></summary>
+            <summary class="label">
+                <div class="flex">
+                    <dfn>Iconfont</dfn>
+                    <span>字体图标</span>
+                </div>
+            </summary>
             <a href="iconfont/yo-ico.html" class="item item-active">
                 <div class="flex">Yo内置字体图标</div>
                 <span class="yo-badge yo-badge-normal">24</span>
@@ -29,7 +34,12 @@
         </details>
 
         <details class="yo-list yo-list-accordion">
-            <summary class="label">Layout(4)</summary>
+            <summary class="label">
+                <div class="flex">
+                    <dfn>Layout</dfn>
+                    <span>布局</span>
+                </div>
+            </summary>
             <a href="layout/yo-root.html" class="item item-active">
                 <div class="flex">全屏根节点布局示例（yo-root）</div>
                 <i class="yo-ico more">&#xf07f;</i>
@@ -49,7 +59,12 @@
         </details>
 
         <details class="yo-list yo-list-accordion">
-            <summary class="label">Element(7)</summary>
+            <summary class="label">
+                <div class="flex">
+                    <dfn>Element</dfn>
+                    <span>元素</span>
+                </div>
+            </summary>
             <a href="element/yo-badge.html" class="item item-active">
                 <div class="flex">消息气泡（yo-badge）</div>
                 <i class="yo-ico more">&#xf07f;</i>
@@ -81,7 +96,12 @@
         </details>
 
         <details class="yo-list yo-list-accordion">
-            <summary class="label">Fragment(24)</summary>
+            <summary class="label">
+                <div class="flex">
+                    <dfn>Fragment</dfn>
+                    <span>通用片段</span>
+                </div>
+            </summary>
             <a href="fragment/yo-actionsheet.html" class="item item-active">
                 <div class="flex">活动清单（yo-actionsheet）</div>
                 <i class="yo-ico more">&#xf07f;</i>
@@ -185,7 +205,12 @@
         </details>
 
         <details class="yo-list yo-list-accordion">
-            <summary class="label">Animate</summary>
+            <summary class="label">
+                <div class="flex">
+                    <dfn>Animate</dfn>
+                    <span>动画</span>
+                </div>
+            </summary>
             <a href="animate/ani-text.html" class="item item-active">
                 <div class="flex">Text Animate</div>
                 <i class="yo-ico more">&#xf07f;</i>
@@ -195,14 +220,12 @@
                 <i class="yo-ico more">&#xf07f;</i>
             </a>
         </details>
-
-        <footer class="m-copyright">
-            <strong class="sub-logo">Yo<sup>v2</sup></strong>
-            <p class="info">渐进式UI方案</p>
-            <p class="note">Pure CSS Framework</p>
-        </footer>
-
     </div>
+    <footer class="m-copyright">
+        <strong class="sub-logo">Yo<sup>v2</sup></strong>
+        <p class="info">渐进式UI方案</p>
+        <p class="note">Pure CSS Framework</p>
+    </footer>
 </div>
 </body>
 </html>

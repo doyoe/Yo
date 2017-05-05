@@ -11,16 +11,29 @@
     $name: accordion,
     $margin: .1rem,
     $radius: .03rem,
-    $label-padding: .15rem .1rem .15rem,
     $label-bgcolor: #fff,
-    $label-border-color: #fff
+    $label-border-color: #fff,
+    $label-font-size: .14rem
 ) {
     > .label {
+        overflow: hidden;
+        height: .56rem;
         color: #333;
-        font-size: .14rem;
+        line-height: .5rem;
+        .flex {
+            @include align-self(flex-start);
+            @include transition(all .3s);
+        }
+        span,
+        dfn {
+            display: block;
+        }
     }
     &[open] > .label {
         color: #999;
+        .flex {
+            @include transform(translatey(-.5rem));
+        }
     }
 }
 
