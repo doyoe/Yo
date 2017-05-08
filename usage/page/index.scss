@@ -7,6 +7,7 @@
 
 @import "../module/m-list";
 
+
 @include yo-list(
     $name: accordion,
     $margin: .1rem,
@@ -37,6 +38,7 @@
         }
     }
 }
+
 .m-header {
     padding: .2rem 0 .1rem;
     text-align: center;
@@ -49,28 +51,27 @@
 }
 
 .m-copyright {
-    overflow: hidden;
-    width: 180px;
-    margin: auto;
-    padding: .1rem 0 .2rem;
+    @include align;
+    padding: 10px 0 20px;
     color: #bbb;
     line-height: 1.231;
     text-shadow: 0 1px 0 #fff;
-    @include transform(scale(.8));
     > .sub-logo {
-        float: left;
-        padding-right: .06rem;
-        font-size: .3rem;
+        font-size: 24px;
         sup {
-            font-size: .12rem;
+            font-size: 12px;
             font-weight: normal;
-            vertical-align: .15rem;
+            vertical-align: 13px;
         }
     }
-    > .info {
-        padding-top: .04rem;
+    > .desc {
+        margin-left: -5px;
+        .note {
+            font-size: 12px;
+        }
     }
-    > .note {
-        font-size: .12rem;
+    > .desc,
+    sup {
+        @include transform(scale(.8));
     }
 }
