@@ -37,7 +37,7 @@
 
 ### 使用gulp构建
 
-* 安装: `bower install yo@2.2.0`
+* 安装: `bower install yo@3.1.0-pure`
 * 安装gulp: `npm install gulp -g --registry=https://registry.npm.taobao.org`
 * 安装依赖: `npm install --registry=https://registry.npm.taobao.org`
 * 在Yo根目录下运行:
@@ -147,8 +147,8 @@
 <a name="documentation-and-demo"></a>
 ## 实例和文档
 
-* [View Demo](http://doyoe.github.io/Yo/v2/demo/)
-* [View Documentation](http://doyoe.github.io/Yo/v2/doc/)
+* [View Demo](http://doyoe.github.io/Yo/pure/demo/)
+* [View Documentation](http://doyoe.github.io/Yo/pure/doc/)
 
 如果你想在本地构建 `Yo` 的文档，只需要：
 
