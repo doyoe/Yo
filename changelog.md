@@ -1,4 +1,4 @@
-## v2.2.0（2017.5.x）
+## v3.1.0-pure（2017.5.x）
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v2.2.0)
 
