@@ -6,3 +6,19 @@
 @import "../fragment/yo-rating";
 
 @import "../module/m-note";
+
+@include yo-rating(
+    $name: big,
+    $item-width: .25rem,
+    $item-height: .25rem
+);
+
+@include yo-rating(
+    $name: space,
+    $item-space: .02rem
+);
+
+@include yo-rating(
+    $name: test,
+    $url: "star2.png"
+);

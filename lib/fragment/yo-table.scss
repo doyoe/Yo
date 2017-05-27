@@ -53,20 +53,20 @@
 /**
  * @module fragment
  * @method yo-table
- * @version 2.2.0
+ * @version 3.0.0
  * @description 构造表格的自定义使用方法
- * @demo http://yo.doyoe.com/v2/demo/fragment/yo-table.html
- * @param {String} $name 定义扩展名称 <2.2.0>
- * @param {Length} $width 宽度 <2.2.0>
- * @param {Boolean} $has-vertical-border 是否需要纵向边框 <2.2.0>
- * @param {Length} $thead-padding 头部内补白 <2.2.0>
- * @param {Length} $tbody-padding 主体内补白 <2.2.0>
+ * @demo http://ued.qunar.com/hy2/yo/demo/src/html/fragment/yo-table.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Length} $width 宽度 <3.0.0>
+ * @param {Boolean} $has-vertical-border 是否需要纵向边框 <3.0.0>
+ * @param {Length} $thead-padding 头部内补白 <3.0.0>
+ * @param {Length} $tbody-padding 主体内补白 <3.0.0>
  * @param {Color} $border-color 边框色 <2.0.0>
- * @param {Color} $thead-bgcolor 头部背景色 <2.2.0>
- * @param {Color} $odd-bgcolor 主体奇数行背景色 <2.2.0>
- * @param {Color} $even-bgcolor 主体偶数行背景色 <2.2.0>
- * @param {Color} $touch-bgcolor 主体激活背景色 <2.2.0>
- * @param {Color} $on-bgcolor 主体选中背景色 <2.2.0>
+ * @param {Color} $thead-bgcolor 头部背景色 <3.0.0>
+ * @param {Color} $odd-bgcolor 主体奇数行背景色 <3.0.0>
+ * @param {Color} $even-bgcolor 主体偶数行背景色 <3.0.0>
+ * @param {Color} $touch-bgcolor 主体激活背景色 <3.0.0>
+ * @param {Color} $on-bgcolor 主体选中背景色 <3.0.0>
  */
 
 @mixin yo-table(

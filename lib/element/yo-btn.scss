@@ -42,22 +42,22 @@
 /**
  * @module element
  * @method yo-btn
- * @version 2.2.0
+ * @version 3.0.0
  * @description 构造按钮的自定义使用方法，勿使用`input`标签，因为边框为`::after`实现
- * @demo http://yo.doyoe.com/v2/demo/element/yo-btn.html
- * @param {String} $name 定义扩展名称 <2.2.0>
- * @param {Length} $border-width 边框厚度 <2.2.0>
- * @param {Color} $border-color 边框色 <2.2.0>
- * @param {Color} $bgcolor 背景色 <2.2.0>
- * @param {Color} $color 文本色 <2.2.0>
- * @param {Color} $touch-border-color 触点（鼠标，手指或其它）按下时边框色 <2.2.0>
- * @param {Color} $touch-bgcolor 触点（鼠标，手指或其它）按下时背景色 <2.2.0>
- * @param {Color} $touch-color 触点（鼠标，手指或其它）按下时文本色 <2.2.0>
- * @param {Length} $padding 内补白 <2.2.0>
- * @param {Length} $radius 圆角半径长度 <2.2.0>
- * @param {Length} $font-size 字号大小 <2.2.0>
- * @param {Length} $width 宽度 <2.2.0>
- * @param {Length} $height 高度 <2.2.0>
+ * @demo http://ued.qunar.com/hy2/yo/demo/src/html/element/yo-btn.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Length} $border-width 边框厚度 <3.0.0>
+ * @param {Color} $border-color 边框色 <3.0.0>
+ * @param {Color} $bgcolor 背景色 <3.0.0>
+ * @param {Color} $color 文本色 <3.0.0>
+ * @param {Color} $touch-border-color 触点（鼠标，手指或其它）按下时边框色 <3.0.0>
+ * @param {Color} $touch-bgcolor 触点（鼠标，手指或其它）按下时背景色 <3.0.0>
+ * @param {Color} $touch-color 触点（鼠标，手指或其它）按下时文本色 <3.0.0>
+ * @param {Length} $padding 内补白 <3.0.0>
+ * @param {Length} $radius 圆角半径长度 <3.0.0>
+ * @param {Length} $font-size 字号大小 <3.0.0>
+ * @param {Length} $width 宽度 <3.0.0>
+ * @param {Length} $height 高度 <3.0.0>
  */
 
 @mixin yo-btn(
