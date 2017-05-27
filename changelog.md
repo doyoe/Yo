@@ -1,6 +1,6 @@
 ## v3.1.0-pure（2017.5.x）
 
-[Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v2.2.0)
+[Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v3.1.0-pure)
 
 ### New Features:
 * 将 `widget` 目录下的所有元件移动到 `fragment` 下；
@@ -21,7 +21,7 @@
 ### Bug Fix:
 * 修复 `reset` 里对清除响应轮廓的选择符错误，`select` 与 `a` 之间少了逗号分隔；
 
-**注意：Kami没有与此版本对应的版本，如果使用交互组件，请使用v3版本**
+**注意：Kami没有与此版本对应的版本，pure为纯样式版本，如果使用交互组件，请使用v3版本**
 
 ## v2.1.6（2016.12.19）
 
