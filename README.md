@@ -1,6 +1,6 @@
 # Yo
 
-`Yo` 是基于 `Mobile First` 的策略而设计，并使用 `Sass` 开发的 `CSS Framework`，具备轻量，易用，可配置，强扩展等特性，同时也适应于PC端的高级浏览器。
+`Yo` 是一款基于 `Mobile First` 策略而设计，并使用 `Sass` 开发的轻量，易用，可配置，强扩展的 `CSS Framework`。
 
 在使用之前，请先确保你的机器有能够编译 `Sass` 的环境并开始去了解一些 [Sass](http://sass-lang.com/) 相关的知识（当然，这非常简单）。
 
