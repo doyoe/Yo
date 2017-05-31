@@ -70,8 +70,7 @@
             font-size: 12px;
         }
     }
-    > .desc,
-    sup {
+    > .desc {
         @include transform(scale(.8));
     }
 }
