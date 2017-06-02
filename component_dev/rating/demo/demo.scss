@@ -1,0 +1,19 @@
+@import "../../../style/usage/core/reset.scss";
+@import "../../../style/lib/fragment/yo-list.scss";
+@import "../../../style/lib/component/rating.scss";
+
+@include yo-rating(
+    $name: test,
+    $url: "star2.png"
+);
+
+.yo-list {
+    >.item{
+        margin-top: .1rem;
+    }
+
+    .prop-name {
+        @include flex(1);
+        display: block;
+    }
+}
