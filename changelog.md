@@ -1,4 +1,4 @@
-## v3.0.10-pure（2017.6.9）
+## v3.0.10-pure（预计2017.6.9发布）
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v3.1.0-pure)
 
