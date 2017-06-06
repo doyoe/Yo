@@ -11,6 +11,7 @@
 * 新增 `yo-timeline` 元件用于展示时间轴效果；
 * 新增对 `summary` 元素的响应轮廓的reset定义；
 * 新增对 `summary` 展开收起三角箭头标识的reset定义；
+* 新增 `fixed-scale` 方法用以在自适应宽度情况下，确保内容元素的宽高比固定，比如：实现随屏幕大小而变化的正方形。
 * 重命名元件 `yo-datepicker` 为 `yo-calendar`；
 * 重命名元件 `yo-switchable` 为 `yo-carousel`；
 * 重命名元件 `yo-select` 为 `yo-picker`；

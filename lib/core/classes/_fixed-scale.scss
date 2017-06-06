@@ -1,0 +1,20 @@
+@charset "utf-8";
+/**
+ * @module 常用方法
+ * @description 在自适应宽度情况下，确保内容元素的宽高比固定，比如：实现随屏幕大小而变化的正方形。
+ * @method fixed-scale
+ * @version 3.0.10
+ * @param {Length} $width 默认值：100%。用以指定内容元素的初始宽度，由于尺寸需动态变化，不要使用固定单位 <3.0.10>
+ * @param {Length} $scale 默认值：1/1，即正方形。用以指定内容元素的宽度高比 <3.0.10>
+ */
+@mixin fixed-scale($width: 100%, $scale: 1/1) {
+    position: relative;
+    width: $width;
+    padding-bottom: $width / $scale;
+    > .cont {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+}
