@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
-    <title>Yo : ./lib/core/classes.scss</title>
-    <link type="text/css" rel="stylesheet" href="../../../source/code.css"/>
-    <script type="text/javascript" src="../../../source/shCore.js"></script>
-    <script type="text/javascript" src="../../../source/shBrush-css.js"></script>
+    <title>Yo : ./lib/core/classes/_fixed-scale.scss</title>
+    <link type="text/css" rel="stylesheet" href="../../../../source/code.css"/>
+    <script type="text/javascript" src="../../../../source/shCore.js"></script>
+    <script type="text/javascript" src="../../../../source/shBrush-css.js"></script>
     <style>
         .syntaxhighlighter .number1 .spaces,.syntaxhighlighter .toolbar{ display: none;}
         .syntaxhighlighter table td.gutter .line.highlight { background-color: #6ce26c !important; color: white; }
@@ -17,7 +17,7 @@
     <div class="ydoc-banner-bg">
         <div class="ydoc-banner" id="content" tabindex="-1">
             <div class="ydoc-banner-area">
-                <h1>Yo : ./lib/core/classes.scss</h1>
+                <h1>Yo : ./lib/core/classes/_fixed-scale.scss</h1>
                 <p>源代码</p>
             </div>
         </div>
@@ -27,30 +27,24 @@
                 <pre class="brush: css;">
                 @charset "utf-8";
 /**
- * Yo框架全局基础方法
- * 包括响应式方案，CSS3兼容性方案，厂商前缀方案，iconfont方案，flex布局等全局方法
+ * @module 常用方法
+ * @description 在自适应宽度情况下，确保内容元素的宽高比固定，比如：实现随屏幕大小而变化的正方形。
+ * @method fixed-scale
+ * @version 3.0.10
+ * @param {Length} $width 默认值：100%。用以指定内容元素的初始宽度，由于尺寸需动态变化，不要使用固定单位 <3.0.10>
+ * @param {Length} $scale 默认值：1/1，即正方形。用以指定内容元素的宽度高比 <3.0.10>
  */
-
-@import "classes/prefix";
-@import "classes/iconfont";
-@import "classes/calc";
-@import "classes/responsive";
-@import "classes/clearfix";
-@import "classes/clearspace";
-@import "classes/align";
-@import "classes/overflow";
-@import "classes/fullscreen";
-@import "classes/user-interface";
-@import "classes/background";
-@import "classes/border";
-@import "classes/border-radius";
-@import "classes/transform";
-@import "classes/animation";
-@import "classes/transition";
-@import "classes/flex";
-@import "classes/shape";
-@import "classes/fixed-scale";
-@import "classes/text";
+@mixin fixed-scale($width: 100%, $scale: 1/1) {
+    position: relative;
+    width: $width;
+    padding-bottom: $width / $scale;
+    > .cont {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+}
                 </pre>
                 </div>
             </div>
@@ -58,7 +52,7 @@
     </div>
     <!-- <div class="docs-header" id="content" tabindex="-1">
         <div class="container">
-            <h1>Yo : ./lib/core/classes.scss</h1>
+            <h1>Yo : ./lib/core/classes/_fixed-scale.scss</h1>
             <p>源代码</p>
         </div>
     </div> -->
