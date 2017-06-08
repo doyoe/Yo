@@ -5,9 +5,6 @@
 @import "../fragment/yo-list";
 @import "../element/yo-badge";
 
-@import "../module/m-list";
-
-
 @include yo-list(
     $name: accordion,
     $margin: .1rem,
@@ -57,20 +54,16 @@
     line-height: 1.231;
     text-shadow: 0 1px 0 #fff;
     > .sub-logo {
+        padding-right: .05rem;
         font-size: 24px;
-        sup {
-            font-size: 12px;
-            font-weight: normal;
-            vertical-align: 13px;
-        }
     }
     > .desc {
-        margin-left: -5px;
         .note {
             font-size: 12px;
         }
     }
     > .desc {
         @include transform(scale(.8));
+        @include transform-origin(0 50%);
     }
 }
