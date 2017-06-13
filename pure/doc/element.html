@@ -1,463 +1,267 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-  <meta name="format-detection" content="telephone=no,email=no" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
-  <meta name="description" content="description of your site">
-  <meta name="author" content="author of the site">
-  <title>Yo Documentation 元件</title>
-  <link rel="stylesheet" href="source/main.css"/>
-  
-  
-    
-        <link rel="stylesheet" href="./theme/ydoc.css"/>
-    
-  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no,email=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+    <meta name="description" content="description of your site">
+    <meta name="author" content="author of the site">
+    <title>Yo Documentation 元件</title>
+    <link rel="stylesheet" href="source/main.css" />   
+    <link rel="stylesheet" href="./theme/ydoc.css" />  
 </head>
 <body class=element >
     <div class="ydoc">
-      <header class="ydoc-header">
-        <div class="ydoc-header-area">
-            
-            <a href="https://github.com/doyoe/Yo" class="navbar-brand">Github</a>
-            
-            <button class="ydocIcon navbar-toggle">&#xf020;</button>
-            <nav class="ydoc-nav">
-              <ul class="navbar-left">
+        <header class="ydoc-header">
+            <div class="ydoc-header-area">
                 
-                    
-                    <li class="">
-                        
-                        <a href="index.html">Yo</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="getting-started.html">起步</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="core.html">核心</a>
-                        
-                    </li>
-                    
-                    <li class="active">
-                        
-                        <a href="element.html">元件</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="animate.html">动画</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="changelog.html">版本</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="http://doyoe.github.io/Yo/v2/demo/" target="_blank">示例</a>
-                        
-                    </li>
-                    
+                <a href="https://github.com/doyoe/Yo" class="navbar-brand">Github</a>
                 
-              </ul>
-            </nav>
-        </div>
-    </header>
-    
-    <!-- <header style="height:20px"></header> -->
-    
-      <!-- Docs page layout -->
-      
-      <div class="ydoc-banner-bg">
-          <div class="ydoc-banner">
-              <div class="ydoc-banner-area">
-                  <h1>元件</h1>
-                  <p class="desc">Yo 将每个独立的、通用的 scss 代码片段抽象成元件。这些元件以一个个独立的模块形式存在，这意味着你可以按需引用任何一个元件。更有趣的是，每个元件都拥有一个同名方法，允许你通过传参来改变任意元件本身的外观。</p>
-              </div>
-          </div>
-      
-
-      <div class="ydoc-container">
-        
-          
-          <div class="ydoc-container-content">
-              <div class="content-left " role="complementary">
-                  <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
-                    <ul class="nav docs-sidenav">
-                        
-                        
-                        <!-- <li  > -->
-                        <li >
+                <button class="ydocIcon navbar-toggle">&#xf020;</button>
+                <nav class="ydoc-nav">
+                    <ul class="navbar-left">
+                         
+                        <li class="">
                             
-                            <a href="#element">element</a>
-                            
+                            <a href="index.html">Yo</a> 
                         </li>
                         
-                        
-                        
-                        
-                        <ul class="nav docs-sidenav-extend"  >
-                        
-                            <li >
-                                <a href="#yo-badge">yo-badge</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-btn">yo-btn</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-checked">yo-checked</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-loading">yo-loading</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-loadtip">yo-loadtip</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-range">yo-range</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-switch">yo-switch</a>
-                            </li>
-                        
-                        </ul>
-                        
-                        
-                        
-                        
-                        
-                        <!-- <li  > -->
-                        <li >
+                        <li class="">
                             
-                            <a href="#fragment">fragment</a>
-                            
+                            <a href="getting-started.html">起步</a> 
                         </li>
                         
-                        
-                        
-                        
-                        <ul class="nav docs-sidenav-extend"  >
-                        
-                            <li >
-                                <a href="#yo-actionsheet">yo-actionsheet</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-breadcrumb">yo-breadcrumb</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-calendar">yo-calendar</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-card">yo-card</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-carousel">yo-carousel</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-dialog">yo-dialog</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-group">yo-group</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-header">yo-header</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-list">yo-list</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-modal">yo-modal</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-number">yo-number</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-picker">yo-picker</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-popup">yo-popup</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-proportion">yo-proportion</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-rating">yo-rating</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-search">yo-search</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-suggest">yo-suggest</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-swipemenu">yo-swipemenu</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-tab">yo-tab</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-table">yo-table</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-timeline">yo-timeline</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-toast">yo-toast</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-toolbar">yo-toolbar</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-vcode">yo-vcode</a>
-                            </li>
-                        
-                        </ul>
-                        
-                        
-                        
-                        
-                        
-                        <!-- <li  > -->
-                        <li >
+                        <li class="">
                             
-                            <a href="#layout">layout</a>
-                            
+                            <a href="core.html">核心</a> 
                         </li>
                         
+                        <li class="active">
+                            
+                            <a href="element.html">元件</a> 
+                        </li>
                         
+                        <li class="">
+                            
+                            <a href="animate.html">动画</a> 
+                        </li>
                         
+                        <li class="">
+                            
+                            <a href="changelog.html">版本</a> 
+                        </li>
                         
-                        <ul class="nav docs-sidenav-extend"  >
-                        
-                            <li >
-                                <a href="#yo-align">yo-align</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-column">yo-column</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-flex">yo-flex</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-root">yo-root</a>
-                            </li>
-                        
-                        
-                        </ul>
-                        
-                        
-                        
+                        <li class="">
+                            
+                            <a href="http://doyoe.github.io/Yo/v2/demo/" target="_blank">示例</a> 
+                        </li>
+                         
                     </ul>
-                  </nav>
-              </div>
-              <div class="content-right markdown-body" role="main">
+                </nav>
+            </div>
+        </header>
+        
+        <!-- <header style="height:20px"></header> -->
+        
+        <!-- Docs page layout -->
+        
+        <div class="ydoc-banner-bg">
+            <div class="ydoc-banner ">
+                <div class="ydoc-banner-area">
+                    <h1 >元件</h1>
+                    <p class="desc ">Yo 将每个独立的、通用的 scss 代码片段抽象成元件。这些元件以一个个独立的模块形式存在，这意味着你可以按需引用任何一个元件。更有趣的是，每个元件都拥有一个同名方法，允许你通过传参来改变任意元件本身的外观。</p>
+                    
+                </div>
+            </div>
+            
 
-                
-                <div class="docs-section">
+            <div class="ydoc-container">
+                 
+                <div class="ydoc-container-content">
+                    
+                    <div class="content-left " role="complementary">
+                        <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
+                            <ul class="nav docs-sidenav">
+                                 
+                                <!-- <li  > -->
+                                <li >
+                                    
+                                    <a href="#element">element</a> 
+                                </li>
+                                   
+                                <ul class="nav docs-sidenav-extend"  >
+                                
+                                    <li >
+                                        <a href="#yo-badge">yo-badge</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-btn">yo-btn</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-checked">yo-checked</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-loading">yo-loading</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-loadtip">yo-loadtip</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-range">yo-range</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-switch">yo-switch</a>
+                                    </li>
+                                
+                                </ul>
+                                            
+                                <!-- <li  > -->
+                                <li >
+                                    
+                                    <a href="#fragment">fragment</a> 
+                                </li>
+                                   
+                                <ul class="nav docs-sidenav-extend"  >
+                                
+                                    <li >
+                                        <a href="#yo-actionsheet">yo-actionsheet</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-breadcrumb">yo-breadcrumb</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-calendar">yo-calendar</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-card">yo-card</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-carousel">yo-carousel</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-dialog">yo-dialog</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-group">yo-group</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-header">yo-header</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-list">yo-list</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-modal">yo-modal</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-number">yo-number</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-picker">yo-picker</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-popup">yo-popup</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-proportion">yo-proportion</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-rating">yo-rating</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-search">yo-search</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-suggest">yo-suggest</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-swipemenu">yo-swipemenu</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-tab">yo-tab</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-table">yo-table</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-timeline">yo-timeline</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-toast">yo-toast</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-toolbar">yo-toolbar</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-vcode">yo-vcode</a>
+                                    </li>
+                                
+                                </ul>
+                                            
+                                <!-- <li  > -->
+                                <li >
+                                    
+                                    <a href="#layout">layout</a> 
+                                </li>
+                                   
+                                <ul class="nav docs-sidenav-extend"  >
+                                
+                                    <li >
+                                        <a href="#yo-align">yo-align</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-column">yo-column</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-flex">yo-flex</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-root">yo-root</a>
+                                    </li>
+                                 
+                                </ul>
+                                  
+                            </ul>
+                        </nav>
+                    </div>
+                    
+                    <div class="content-right markdown-body " role="main">
+
+                         <div class="docs-section">
     
     <h2 id="element" class="page-header subject">element<a class="hashlink" href="#element">#</a></h2>
     
@@ -465,6 +269,7 @@
         <blockquote class="api">
             <h3 id="yo-badge" class="subject">
                 yo-badge( )
+                <span class="ui-badge">3.0.0</span>
                 <a class="hashlink" href="#yo-badge">#</a>
             </h3>
         </blockquote>
@@ -474,20 +279,14 @@
         </p>
         
         <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
-        
-        <p>
             <small class="text-muted">源码位置:</small>
-            <a class="hashlink" href="./static/lib/element/yo-badge.scss.html#28" target="_blank">./lib/element/yo-badge.scss:28</a>
+            <a href="./static/lib/element/yo-badge.scss.html#28" target="_blank">./lib/element/yo-badge.scss:28</a>
         </p>
         
         
         <p>
             <small class="text-muted">Demo地址:</small>
-            <a class="hashlink" href="http://yo.doyoe.com/pure/demo/element/yo-badge.html" target="_blank">点击访问</a>
+            <a href="http://yo.doyoe.com/pure/demo/element/yo-badge.html" target="_blank">点击访问</a>
         </p>
         
         
@@ -574,6 +373,7 @@
         <blockquote class="api">
             <h3 id="yo-btn" class="subject">
                 yo-btn( )
+                <span class="ui-badge">3.0.0</span>
                 <a class="hashlink" href="#yo-btn">#</a>
             </h3>
         </blockquote>
@@ -583,20 +383,14 @@
         </p>
         
         <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
-        
-        <p>
             <small class="text-muted">源码位置:</small>
-            <a class="hashlink" href="./static/lib/element/yo-btn.scss.html#41" target="_blank">./lib/element/yo-btn.scss:41</a>
+            <a href="./static/lib/element/yo-btn.scss.html#41" target="_blank">./lib/element/yo-btn.scss:41</a>
         </p>
         
         
         <p>
             <small class="text-muted">Demo地址:</small>
-            <a class="hashlink" href="http://yo.doyoe.com/pure/demo/element/yo-btn.html" target="_blank">点击访问</a>
+            <a href="http://yo.doyoe.com/pure/demo/element/yo-btn.html" target="_blank">点击访问</a>
         </p>
         
         
@@ -718,6 +512,7 @@
         <blockquote class="api">
             <h3 id="yo-checked" class="subject">
                 yo-checked( )
+                <span class="ui-badge">3.0.0</span>
                 <a class="hashlink" href="#yo-checked">#</a>
             </h3>
         </blockquote>
@@ -727,20 +522,14 @@
         </p>
         
         <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
-        
-        <p>
             <small class="text-muted">源码位置:</small>
-            <a class="hashlink" href="./static/lib/element/yo-checked.scss.html#74" target="_blank">./lib/element/yo-checked.scss:74</a>
+            <a href="./static/lib/element/yo-checked.scss.html#74" target="_blank">./lib/element/yo-checked.scss:74</a>
         </p>
         
         
         <p>
             <small class="text-muted">Demo地址:</small>
-            <a class="hashlink" href="http://yo.doyoe.com/pure/demo/element/yo-checked.html" target="_blank">点击访问</a>
+            <a href="http://yo.doyoe.com/pure/demo/element/yo-checked.html" target="_blank">点击访问</a>
         </p>
         
         
@@ -855,6 +644,7 @@
         <blockquote class="api">
             <h3 id="yo-loading" class="subject">
                 yo-loading( )
+                <span class="ui-badge">3.0.0</span>
                 <a class="hashlink" href="#yo-loading">#</a>
             </h3>
         </blockquote>
@@ -864,20 +654,14 @@
         </p>
         
         <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
-        
-        <p>
             <small class="text-muted">源码位置:</small>
-            <a class="hashlink" href="./static/lib/element/yo-loading.scss.html#30" target="_blank">./lib/element/yo-loading.scss:30</a>
+            <a href="./static/lib/element/yo-loading.scss.html#30" target="_blank">./lib/element/yo-loading.scss:30</a>
         </p>
         
         
         <p>
             <small class="text-muted">Demo地址:</small>
-            <a class="hashlink" href="http://yo.doyoe.com/pure/demo/element/yo-loading.html" target="_blank">点击访问</a>
+            <a href="http://yo.doyoe.com/pure/demo/element/yo-loading.html" target="_blank">点击访问</a>
         </p>
         
         
@@ -957,6 +741,7 @@
         <blockquote class="api">
             <h3 id="yo-loadtip" class="subject">
                 yo-loadtip( )
+                <span class="ui-badge">3.0.0</span>
                 <a class="hashlink" href="#yo-loadtip">#</a>
             </h3>
         </blockquote>
@@ -966,20 +751,14 @@
         </p>
         
         <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
-        
-        <p>
             <small class="text-muted">源码位置:</small>
-            <a class="hashlink" href="./static/lib/element/yo-loadtip.scss.html#33" target="_blank">./lib/element/yo-loadtip.scss:33</a>
+            <a href="./static/lib/element/yo-loadtip.scss.html#33" target="_blank">./lib/element/yo-loadtip.scss:33</a>
         </p>
         
         
         <p>
             <small class="text-muted">Demo地址:</small>
-            <a class="hashlink" href="http://yo.doyoe.com/pure/demo/element/yo-loadtip.html" target="_blank">点击访问</a>
+            <a href="http://yo.doyoe.com/pure/demo/element/yo-loadtip.html" target="_blank">点击访问</a>
         </p>
         
         
@@ -1038,6 +817,7 @@
         <blockquote class="api">
             <h3 id="yo-range" class="subject">
                 yo-range( )
+                <span class="ui-badge">3.0.0</span>
                 <a class="hashlink" href="#yo-range">#</a>
             </h3>
         </blockquote>
@@ -1047,20 +827,14 @@
         </p>
         
         <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
-        
-        <p>
             <small class="text-muted">源码位置:</small>
-            <a class="hashlink" href="./static/lib/element/yo-range.scss.html#74" target="_blank">./lib/element/yo-range.scss:74</a>
+            <a href="./static/lib/element/yo-range.scss.html#74" target="_blank">./lib/element/yo-range.scss:74</a>
         </p>
         
         
         <p>
             <small class="text-muted">Demo地址:</small>
-            <a class="hashlink" href="http://yo.doyoe.com/pure/demo/element/yo-range.html" target="_blank">点击访问</a>
+            <a href="http://yo.doyoe.com/pure/demo/element/yo-range.html" target="_blank">点击访问</a>
         </p>
         
         
@@ -1140,6 +914,7 @@
         <blockquote class="api">
             <h3 id="yo-switch" class="subject">
                 yo-switch( )
+                <span class="ui-badge">3.0.0</span>
                 <a class="hashlink" href="#yo-switch">#</a>
             </h3>
         </blockquote>
@@ -1149,20 +924,14 @@
         </p>
         
         <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
-        
-        <p>
             <small class="text-muted">源码位置:</small>
-            <a class="hashlink" href="./static/lib/element/yo-switch.scss.html#65" target="_blank">./lib/element/yo-switch.scss:65</a>
+            <a href="./static/lib/element/yo-switch.scss.html#65" target="_blank">./lib/element/yo-switch.scss:65</a>
         </p>
         
         
         <p>
             <small class="text-muted">Demo地址:</small>
-            <a class="hashlink" href="http://yo.doyoe.com/pure/demo/element/yo-switch.html" target="_blank">点击访问</a>
+            <a href="http://yo.doyoe.com/pure/demo/element/yo-switch.html" target="_blank">点击访问</a>
         </p>
         
         
@@ -1231,6 +1000,7 @@
         <blockquote class="api">
             <h3 id="yo-actionsheet" class="subject">
                 yo-actionsheet( )
+                <span class="ui-badge">3.0.0</span>
                 <a class="hashlink" href="#yo-actionsheet">#</a>
             </h3>
         </blockquote>
@@ -1240,20 +1010,14 @@
         </p>
         
         <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
-        
-        <p>
             <small class="text-muted">源码位置:</small>
-            <a class="hashlink" href="./static/lib/fragment/yo-actionsheet.scss.html#44" target="_blank">./lib/fragment/yo-actionsheet.scss:44</a>
+            <a href="./static/lib/fragment/yo-actionsheet.scss.html#44" target="_blank">./lib/fragment/yo-actionsheet.scss:44</a>
         </p>
         
         
         <p>
             <small class="text-muted">Demo地址:</small>
-            <a class="hashlink" href="http://yo.doyoe.com/pure/demo/fragment/yo-actionsheet.html" target="_blank">点击访问</a>
+            <a href="http://yo.doyoe.com/pure/demo/fragment/yo-actionsheet.html" target="_blank">点击访问</a>
         </p>
         
         
@@ -1354,6 +1118,7 @@
         <blockquote class="api">
             <h3 id="yo-breadcrumb" class="subject">
                 yo-breadcrumb( )
+                <span class="ui-badge">3.0.0</span>
                 <a class="hashlink" href="#yo-breadcrumb">#</a>
             </h3>
         </blockquote>
@@ -1363,20 +1128,14 @@
         </p>
         
         <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
-        
-        <p>
             <small class="text-muted">源码位置:</small>
-            <a class="hashlink" href="./static/lib/fragment/yo-breadcrumb.scss.html#28" target="_blank">./lib/fragment/yo-breadcrumb.scss:28</a>
+            <a href="./static/lib/fragment/yo-breadcrumb.scss.html#28" target="_blank">./lib/fragment/yo-breadcrumb.scss:28</a>
         </p>
         
         
         <p>
             <small class="text-muted">Demo地址:</small>
-            <a class="hashlink" href="http://yo.doyoe.com/pure/demo/fragment/yo-breadcrumb.html" target="_blank">点击访问</a>
+            <a href="http://yo.doyoe.com/pure/demo/fragment/yo-breadcrumb.html" target="_blank">点击访问</a>
         </p>
         
         
@@ -1456,6 +1215,7 @@
         <blockquote class="api">
             <h3 id="yo-calendar" class="subject">
                 yo-calendar( )
+                <span class="ui-badge">3.0.0</span>
                 <a class="hashlink" href="#yo-calendar">#</a>
             </h3>
         </blockquote>
@@ -1465,20 +1225,14 @@
         </p>
         
         <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
-        
-        <p>
             <small class="text-muted">源码位置:</small>
-            <a class="hashlink" href="./static/lib/fragment/yo-calendar.scss.html#107" target="_blank">./lib/fragment/yo-calendar.scss:107</a>
+            <a href="./static/lib/fragment/yo-calendar.scss.html#107" target="_blank">./lib/fragment/yo-calendar.scss:107</a>
         </p>
         
         
         <p>
             <small class="text-muted">Demo地址:</small>
-            <a class="hashlink" href="http://yo.doyoe.com/pure/demo/fragment/yo-calendar.html" target="_blank">点击访问</a>
+            <a href="http://yo.doyoe.com/pure/demo/fragment/yo-calendar.html" target="_blank">点击访问</a>
         </p>
         
         
@@ -1642,6 +1396,7 @@
         <blockquote class="api">
             <h3 id="yo-card" class="subject">
                 yo-card( )
+                <span class="ui-badge">3.0.0</span>
                 <a class="hashlink" href="#yo-card">#</a>
             </h3>
         </blockquote>
@@ -1651,20 +1406,14 @@
         </p>
         
         <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
-        
-        <p>
             <small class="text-muted">源码位置:</small>
-            <a class="hashlink" href="./static/lib/fragment/yo-card.scss.html#94" target="_blank">./lib/fragment/yo-card.scss:94</a>
+            <a href="./static/lib/fragment/yo-card.scss.html#94" target="_blank">./lib/fragment/yo-card.scss:94</a>
         </p>
         
         
         <p>
             <small class="text-muted">Demo地址:</small>
-            <a class="hashlink" href="http://yo.doyoe.com/pure/demo/fragment/yo-card.html" target="_blank">点击访问</a>
+            <a href="http://yo.doyoe.com/pure/demo/fragment/yo-card.html" target="_blank">点击访问</a>
         </p>
         
         
@@ -1779,6 +1528,7 @@
         <blockquote class="api">
             <h3 id="yo-carousel" class="subject">
                 yo-carousel( )
+                <span class="ui-badge">3.0.0</span>
                 <a class="hashlink" href="#yo-carousel">#</a>
             </h3>
         </blockquote>
@@ -1788,20 +1538,14 @@
         </p>
         
         <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
-        
-        <p>
             <small class="text-muted">源码位置:</small>
-            <a class="hashlink" href="./static/lib/fragment/yo-carousel.scss.html#62" target="_blank">./lib/fragment/yo-carousel.scss:62</a>
+            <a href="./static/lib/fragment/yo-carousel.scss.html#62" target="_blank">./lib/fragment/yo-carousel.scss:62</a>
         </p>
         
         
         <p>
             <small class="text-muted">Demo地址:</small>
-            <a class="hashlink" href="http://yo.doyoe.com/pure/demo/fragment/yo-carousel.html" target="_blank">点击访问</a>
+            <a href="http://yo.doyoe.com/pure/demo/fragment/yo-carousel.html" target="_blank">点击访问</a>
         </p>
         
         
@@ -1895,6 +1639,7 @@
         <blockquote class="api">
             <h3 id="yo-dialog" class="subject">
                 yo-dialog( )
+                <span class="ui-badge">3.0.0</span>
                 <a class="hashlink" href="#yo-dialog">#</a>
             </h3>
         </blockquote>
@@ -1904,20 +1649,14 @@
         </p>
         
         <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
-        
-        <p>
             <small class="text-muted">源码位置:</small>
-            <a class="hashlink" href="./static/lib/fragment/yo-dialog.scss.html#76" target="_blank">./lib/fragment/yo-dialog.scss:76</a>
+            <a href="./static/lib/fragment/yo-dialog.scss.html#76" target="_blank">./lib/fragment/yo-dialog.scss:76</a>
         </p>
         
         
         <p>
             <small class="text-muted">Demo地址:</small>
-            <a class="hashlink" href="http://yo.doyoe.com/pure/demo/fragment/yo-dialog.html" target="_blank">点击访问</a>
+            <a href="http://yo.doyoe.com/pure/demo/fragment/yo-dialog.html" target="_blank">点击访问</a>
         </p>
         
         
@@ -2011,6 +1750,7 @@
         <blockquote class="api">
             <h3 id="yo-group" class="subject">
                 yo-group( )
+                <span class="ui-badge">3.0.0</span>
                 <a class="hashlink" href="#yo-group">#</a>
             </h3>
         </blockquote>
@@ -2020,20 +1760,14 @@
         </p>
         
         <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
-        
-        <p>
             <small class="text-muted">源码位置:</small>
-            <a class="hashlink" href="./static/lib/fragment/yo-group.scss.html#55" target="_blank">./lib/fragment/yo-group.scss:55</a>
+            <a href="./static/lib/fragment/yo-group.scss.html#55" target="_blank">./lib/fragment/yo-group.scss:55</a>
         </p>
         
         
         <p>
             <small class="text-muted">Demo地址:</small>
-            <a class="hashlink" href="http://yo.doyoe.com/pure/demo/fragment/yo-group.html" target="_blank">点击访问</a>
+            <a href="http://yo.doyoe.com/pure/demo/fragment/yo-group.html" target="_blank">点击访问</a>
         </p>
         
         
@@ -2120,6 +1854,7 @@
         <blockquote class="api">
             <h3 id="yo-header" class="subject">
                 yo-header( )
+                <span class="ui-badge">3.0.0</span>
                 <a class="hashlink" href="#yo-header">#</a>
             </h3>
         </blockquote>
@@ -2129,20 +1864,14 @@
         </p>
         
         <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
-        
-        <p>
             <small class="text-muted">源码位置:</small>
-            <a class="hashlink" href="./static/lib/fragment/yo-header.scss.html#49" target="_blank">./lib/fragment/yo-header.scss:49</a>
+            <a href="./static/lib/fragment/yo-header.scss.html#49" target="_blank">./lib/fragment/yo-header.scss:49</a>
         </p>
         
         
         <p>
             <small class="text-muted">Demo地址:</small>
-            <a class="hashlink" href="http://yo.doyoe.com/pure/demo/fragment/yo-header.html" target="_blank">点击访问</a>
+            <a href="http://yo.doyoe.com/pure/demo/fragment/yo-header.html" target="_blank">点击访问</a>
         </p>
         
         
@@ -2264,6 +1993,7 @@
         <blockquote class="api">
             <h3 id="yo-list" class="subject">
                 yo-list( )
+                <span class="ui-badge">3.0.0</span>
                 <a class="hashlink" href="#yo-list">#</a>
             </h3>
         </blockquote>
@@ -2273,20 +2003,14 @@
         </p>
         
         <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
-        
-        <p>
             <small class="text-muted">源码位置:</small>
-            <a class="hashlink" href="./static/lib/fragment/yo-list.scss.html#151" target="_blank">./lib/fragment/yo-list.scss:151</a>
+            <a href="./static/lib/fragment/yo-list.scss.html#151" target="_blank">./lib/fragment/yo-list.scss:151</a>
         </p>
         
         
         <p>
             <small class="text-muted">Demo地址:</small>
-            <a class="hashlink" href="http://yo.doyoe.com/pure/demo/fragment/yo-list.html" target="_blank">点击访问</a>
+            <a href="http://yo.doyoe.com/pure/demo/fragment/yo-list.html" target="_blank">点击访问</a>
         </p>
         
         
@@ -2443,6 +2167,7 @@
         <blockquote class="api">
             <h3 id="yo-modal" class="subject">
                 yo-modal( )
+                <span class="ui-badge">3.0.0</span>
                 <a class="hashlink" href="#yo-modal">#</a>
             </h3>
         </blockquote>
@@ -2452,20 +2177,14 @@
         </p>
         
         <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
-        
-        <p>
             <small class="text-muted">源码位置:</small>
-            <a class="hashlink" href="./static/lib/fragment/yo-modal.scss.html#55" target="_blank">./lib/fragment/yo-modal.scss:55</a>
+            <a href="./static/lib/fragment/yo-modal.scss.html#55" target="_blank">./lib/fragment/yo-modal.scss:55</a>
         </p>
         
         
         <p>
             <small class="text-muted">Demo地址:</small>
-            <a class="hashlink" href="http://yo.doyoe.com/pure/demo/fragment/yo-modal.html" target="_blank">点击访问</a>
+            <a href="http://yo.doyoe.com/pure/demo/fragment/yo-modal.html" target="_blank">点击访问</a>
         </p>
         
         
@@ -2517,6 +2236,7 @@
         <blockquote class="api">
             <h3 id="yo-number" class="subject">
                 yo-number( )
+                <span class="ui-badge">3.0.0</span>
                 <a class="hashlink" href="#yo-number">#</a>
             </h3>
         </blockquote>
@@ -2526,14 +2246,8 @@
         </p>
         
         <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
-        
-        <p>
             <small class="text-muted">源码位置:</small>
-            <a class="hashlink" href="./static/lib/fragment/yo-number.scss.html#58" target="_blank">./lib/fragment/yo-number.scss:58</a>
+            <a href="./static/lib/fragment/yo-number.scss.html#58" target="_blank">./lib/fragment/yo-number.scss:58</a>
         </p>
         
         
@@ -2649,6 +2363,7 @@
         <blockquote class="api">
             <h3 id="yo-picker" class="subject">
                 yo-picker( )
+                <span class="ui-badge">3.0.0</span>
                 <a class="hashlink" href="#yo-picker">#</a>
             </h3>
         </blockquote>
@@ -2658,20 +2373,14 @@
         </p>
         
         <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
-        
-        <p>
             <small class="text-muted">源码位置:</small>
-            <a class="hashlink" href="./static/lib/fragment/yo-picker.scss.html#73" target="_blank">./lib/fragment/yo-picker.scss:73</a>
+            <a href="./static/lib/fragment/yo-picker.scss.html#73" target="_blank">./lib/fragment/yo-picker.scss:73</a>
         </p>
         
         
         <p>
             <small class="text-muted">Demo地址:</small>
-            <a class="hashlink" href="http://yo.doyoe.com/pure/demo/fragment/yo-picker.html" target="_blank">点击访问</a>
+            <a href="http://yo.doyoe.com/pure/demo/fragment/yo-picker.html" target="_blank">点击访问</a>
         </p>
         
         
@@ -2730,6 +2439,7 @@
         <blockquote class="api">
             <h3 id="yo-popup" class="subject">
                 yo-popup( )
+                <span class="ui-badge">3.0.2</span>
                 <a class="hashlink" href="#yo-popup">#</a>
             </h3>
         </blockquote>
@@ -2739,20 +2449,14 @@
         </p>
         
         <p>
-            <small class="text-muted">版本:</small>
-            3.0.2
-        </p>
-        
-        
-        <p>
             <small class="text-muted">源码位置:</small>
-            <a class="hashlink" href="./static/lib/fragment/yo-popup.scss.html#27" target="_blank">./lib/fragment/yo-popup.scss:27</a>
+            <a href="./static/lib/fragment/yo-popup.scss.html#27" target="_blank">./lib/fragment/yo-popup.scss:27</a>
         </p>
         
         
         <p>
             <small class="text-muted">Demo地址:</small>
-            <a class="hashlink" href="http://yo.doyoe.com/pure/demo/fragment/yo-popup.html" target="_blank">点击访问</a>
+            <a href="http://yo.doyoe.com/pure/demo/fragment/yo-popup.html" target="_blank">点击访问</a>
         </p>
         
         
@@ -2804,6 +2508,7 @@
         <blockquote class="api">
             <h3 id="yo-proportion" class="subject">
                 yo-proportion( )
+                <span class="ui-badge">3.0.0</span>
                 <a class="hashlink" href="#yo-proportion">#</a>
             </h3>
         </blockquote>
@@ -2813,20 +2518,14 @@
         </p>
         
         <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
-        
-        <p>
             <small class="text-muted">源码位置:</small>
-            <a class="hashlink" href="./static/lib/fragment/yo-proportion.scss.html#28" target="_blank">./lib/fragment/yo-proportion.scss:28</a>
+            <a href="./static/lib/fragment/yo-proportion.scss.html#28" target="_blank">./lib/fragment/yo-proportion.scss:28</a>
         </p>
         
         
         <p>
             <small class="text-muted">Demo地址:</small>
-            <a class="hashlink" href="http://yo.doyoe.com/pure/demo/fragment/yo-proportion.html" target="_blank">点击访问</a>
+            <a href="http://yo.doyoe.com/pure/demo/fragment/yo-proportion.html" target="_blank">点击访问</a>
         </p>
         
         
@@ -2913,6 +2612,7 @@
         <blockquote class="api">
             <h3 id="yo-rating" class="subject">
                 yo-rating( )
+                <span class="ui-badge">3.0.0</span>
                 <a class="hashlink" href="#yo-rating">#</a>
             </h3>
         </blockquote>
@@ -2922,20 +2622,14 @@
         </p>
         
         <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
-        
-        <p>
             <small class="text-muted">源码位置:</small>
-            <a class="hashlink" href="./static/lib/fragment/yo-rating.scss.html#34" target="_blank">./lib/fragment/yo-rating.scss:34</a>
+            <a href="./static/lib/fragment/yo-rating.scss.html#34" target="_blank">./lib/fragment/yo-rating.scss:34</a>
         </p>
         
         
         <p>
             <small class="text-muted">Demo地址:</small>
-            <a class="hashlink" href="http://yo.doyoe.com/pure/demo/fragment/yo-rating.html" target="_blank">点击访问</a>
+            <a href="http://yo.doyoe.com/pure/demo/fragment/yo-rating.html" target="_blank">点击访问</a>
         </p>
         
         
@@ -3007,6 +2701,7 @@
         <blockquote class="api">
             <h3 id="yo-search" class="subject">
                 yo-search( )
+                <span class="ui-badge">3.0.0</span>
                 <a class="hashlink" href="#yo-search">#</a>
             </h3>
         </blockquote>
@@ -3016,20 +2711,14 @@
         </p>
         
         <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
-        
-        <p>
             <small class="text-muted">源码位置:</small>
-            <a class="hashlink" href="./static/lib/fragment/yo-search.scss.html#72" target="_blank">./lib/fragment/yo-search.scss:72</a>
+            <a href="./static/lib/fragment/yo-search.scss.html#72" target="_blank">./lib/fragment/yo-search.scss:72</a>
         </p>
         
         
         <p>
             <small class="text-muted">Demo地址:</small>
-            <a class="hashlink" href="http://yo.doyoe.com/pure/demo/fragment/yo-search.html" target="_blank">点击访问</a>
+            <a href="http://yo.doyoe.com/pure/demo/fragment/yo-search.html" target="_blank">点击访问</a>
         </p>
         
         
@@ -3151,6 +2840,7 @@
         <blockquote class="api">
             <h3 id="yo-suggest" class="subject">
                 yo-suggest( )
+                <span class="ui-badge">3.0.0</span>
                 <a class="hashlink" href="#yo-suggest">#</a>
             </h3>
         </blockquote>
@@ -3160,20 +2850,14 @@
         </p>
         
         <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
-        
-        <p>
             <small class="text-muted">源码位置:</small>
-            <a class="hashlink" href="./static/lib/fragment/yo-suggest.scss.html#111" target="_blank">./lib/fragment/yo-suggest.scss:111</a>
+            <a href="./static/lib/fragment/yo-suggest.scss.html#111" target="_blank">./lib/fragment/yo-suggest.scss:111</a>
         </p>
         
         
         <p>
             <small class="text-muted">Demo地址:</small>
-            <a class="hashlink" href="http://yo.doyoe.com/pure/demo/fragment/yo-suggest.html" target="_blank">点击访问</a>
+            <a href="http://yo.doyoe.com/pure/demo/fragment/yo-suggest.html" target="_blank">点击访问</a>
         </p>
         
         
@@ -3323,6 +3007,7 @@
         <blockquote class="api">
             <h3 id="yo-swipemenu" class="subject">
                 yo-swipemenu( )
+                <span class="ui-badge">3.0.0</span>
                 <a class="hashlink" href="#yo-swipemenu">#</a>
             </h3>
         </blockquote>
@@ -3332,20 +3017,14 @@
         </p>
         
         <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
-        
-        <p>
             <small class="text-muted">源码位置:</small>
-            <a class="hashlink" href="./static/lib/fragment/yo-swipemenu.scss.html#45" target="_blank">./lib/fragment/yo-swipemenu.scss:45</a>
+            <a href="./static/lib/fragment/yo-swipemenu.scss.html#45" target="_blank">./lib/fragment/yo-swipemenu.scss:45</a>
         </p>
         
         
         <p>
             <small class="text-muted">Demo地址:</small>
-            <a class="hashlink" href="http://yo.doyoe.com/pure/demo/fragment/yo-swipemenu.html" target="_blank">点击访问</a>
+            <a href="http://yo.doyoe.com/pure/demo/fragment/yo-swipemenu.html" target="_blank">点击访问</a>
         </p>
         
         
@@ -3418,6 +3097,7 @@
         <blockquote class="api">
             <h3 id="yo-tab" class="subject">
                 yo-tab( )
+                <span class="ui-badge">3.0.0</span>
                 <a class="hashlink" href="#yo-tab">#</a>
             </h3>
         </blockquote>
@@ -3427,20 +3107,14 @@
         </p>
         
         <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
-        
-        <p>
             <small class="text-muted">源码位置:</small>
-            <a class="hashlink" href="./static/lib/fragment/yo-tab.scss.html#79" target="_blank">./lib/fragment/yo-tab.scss:79</a>
+            <a href="./static/lib/fragment/yo-tab.scss.html#79" target="_blank">./lib/fragment/yo-tab.scss:79</a>
         </p>
         
         
         <p>
             <small class="text-muted">Demo地址:</small>
-            <a class="hashlink" href="http://yo.doyoe.com/pure/demo/fragment/yo-tab.html" target="_blank">点击访问</a>
+            <a href="http://yo.doyoe.com/pure/demo/fragment/yo-tab.html" target="_blank">点击访问</a>
         </p>
         
         
@@ -3583,6 +3257,7 @@
         <blockquote class="api">
             <h3 id="yo-table" class="subject">
                 yo-table( )
+                <span class="ui-badge">3.0.0</span>
                 <a class="hashlink" href="#yo-table">#</a>
             </h3>
         </blockquote>
@@ -3592,20 +3267,14 @@
         </p>
         
         <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
-        
-        <p>
             <small class="text-muted">源码位置:</small>
-            <a class="hashlink" href="./static/lib/fragment/yo-table.scss.html#52" target="_blank">./lib/fragment/yo-table.scss:52</a>
+            <a href="./static/lib/fragment/yo-table.scss.html#52" target="_blank">./lib/fragment/yo-table.scss:52</a>
         </p>
         
         
         <p>
             <small class="text-muted">Demo地址:</small>
-            <a class="hashlink" href="http://yo.doyoe.com/pure/demo/fragment/yo-table.html" target="_blank">点击访问</a>
+            <a href="http://yo.doyoe.com/pure/demo/fragment/yo-table.html" target="_blank">点击访问</a>
         </p>
         
         
@@ -3713,6 +3382,7 @@
         <blockquote class="api">
             <h3 id="yo-timeline" class="subject">
                 yo-timeline( )
+                <span class="ui-badge">3.0.7</span>
                 <a class="hashlink" href="#yo-timeline">#</a>
             </h3>
         </blockquote>
@@ -3722,20 +3392,14 @@
         </p>
         
         <p>
-            <small class="text-muted">版本:</small>
-            3.0.7
-        </p>
-        
-        
-        <p>
             <small class="text-muted">源码位置:</small>
-            <a class="hashlink" href="./static/lib/fragment/yo-timeline.scss.html#55" target="_blank">./lib/fragment/yo-timeline.scss:55</a>
+            <a href="./static/lib/fragment/yo-timeline.scss.html#55" target="_blank">./lib/fragment/yo-timeline.scss:55</a>
         </p>
         
         
         <p>
             <small class="text-muted">Demo地址:</small>
-            <a class="hashlink" href="http://yo.doyoe.com/pure/demo/fragment/yo-timeline.html" target="_blank">点击访问</a>
+            <a href="http://yo.doyoe.com/pure/demo/fragment/yo-timeline.html" target="_blank">点击访问</a>
         </p>
         
         
@@ -3864,6 +3528,7 @@
         <blockquote class="api">
             <h3 id="yo-toast" class="subject">
                 yo-toast( )
+                <span class="ui-badge">3.0.0</span>
                 <a class="hashlink" href="#yo-toast">#</a>
             </h3>
         </blockquote>
@@ -3873,20 +3538,14 @@
         </p>
         
         <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
-        
-        <p>
             <small class="text-muted">源码位置:</small>
-            <a class="hashlink" href="./static/lib/fragment/yo-toast.scss.html#18" target="_blank">./lib/fragment/yo-toast.scss:18</a>
+            <a href="./static/lib/fragment/yo-toast.scss.html#18" target="_blank">./lib/fragment/yo-toast.scss:18</a>
         </p>
         
         
         <p>
             <small class="text-muted">Demo地址:</small>
-            <a class="hashlink" href="http://yo.doyoe.com/pure/demo/fragment/yo-toast.html" target="_blank">点击访问</a>
+            <a href="http://yo.doyoe.com/pure/demo/fragment/yo-toast.html" target="_blank">点击访问</a>
         </p>
         
         
@@ -3952,6 +3611,7 @@
         <blockquote class="api">
             <h3 id="yo-toolbar" class="subject">
                 yo-toolbar( )
+                <span class="ui-badge">3.0.0</span>
                 <a class="hashlink" href="#yo-toolbar">#</a>
             </h3>
         </blockquote>
@@ -3961,20 +3621,14 @@
         </p>
         
         <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
-        
-        <p>
             <small class="text-muted">源码位置:</small>
-            <a class="hashlink" href="./static/lib/fragment/yo-toolbar.scss.html#42" target="_blank">./lib/fragment/yo-toolbar.scss:42</a>
+            <a href="./static/lib/fragment/yo-toolbar.scss.html#42" target="_blank">./lib/fragment/yo-toolbar.scss:42</a>
         </p>
         
         
         <p>
             <small class="text-muted">Demo地址:</small>
-            <a class="hashlink" href="http://yo.doyoe.com/pure/demo/fragment/yo-toolbar.html" target="_blank">点击访问</a>
+            <a href="http://yo.doyoe.com/pure/demo/fragment/yo-toolbar.html" target="_blank">点击访问</a>
         </p>
         
         
@@ -4089,6 +3743,7 @@
         <blockquote class="api">
             <h3 id="yo-vcode" class="subject">
                 yo-vcode( )
+                <span class="ui-badge">3.0.0</span>
                 <a class="hashlink" href="#yo-vcode">#</a>
             </h3>
         </blockquote>
@@ -4098,20 +3753,14 @@
         </p>
         
         <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
-        
-        <p>
             <small class="text-muted">源码位置:</small>
-            <a class="hashlink" href="./static/lib/fragment/yo-vcode.scss.html#34" target="_blank">./lib/fragment/yo-vcode.scss:34</a>
+            <a href="./static/lib/fragment/yo-vcode.scss.html#34" target="_blank">./lib/fragment/yo-vcode.scss:34</a>
         </p>
         
         
         <p>
             <small class="text-muted">Demo地址:</small>
-            <a class="hashlink" href="http://yo.doyoe.com/pure/demo/fragment/yo-vcode.html" target="_blank">点击访问</a>
+            <a href="http://yo.doyoe.com/pure/demo/fragment/yo-vcode.html" target="_blank">点击访问</a>
         </p>
         
         
@@ -4194,6 +3843,7 @@
         <blockquote class="api">
             <h3 id="yo-align" class="subject">
                 yo-align( )
+                <span class="ui-badge">3.0.0</span>
                 <a class="hashlink" href="#yo-align">#</a>
             </h3>
         </blockquote>
@@ -4203,20 +3853,14 @@
         </p>
         
         <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
-        
-        <p>
             <small class="text-muted">源码位置:</small>
-            <a class="hashlink" href="./static/lib/layout/yo-align.scss.html#8" target="_blank">./lib/layout/yo-align.scss:8</a>
+            <a href="./static/lib/layout/yo-align.scss.html#8" target="_blank">./lib/layout/yo-align.scss:8</a>
         </p>
         
         
         <p>
             <small class="text-muted">Demo地址:</small>
-            <a class="hashlink" href="http://yo.doyoe.com/pure/demo/layout/yo-align.html" target="_blank">点击访问</a>
+            <a href="http://yo.doyoe.com/pure/demo/layout/yo-align.html" target="_blank">点击访问</a>
         </p>
         
         
@@ -4268,6 +3912,7 @@
         <blockquote class="api">
             <h3 id="yo-column" class="subject">
                 yo-column( )
+                <span class="ui-badge">3.0.0</span>
                 <a class="hashlink" href="#yo-column">#</a>
             </h3>
         </blockquote>
@@ -4277,20 +3922,14 @@
         </p>
         
         <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
-        
-        <p>
             <small class="text-muted">源码位置:</small>
-            <a class="hashlink" href="./static/lib/layout/yo-column.scss.html#16" target="_blank">./lib/layout/yo-column.scss:16</a>
+            <a href="./static/lib/layout/yo-column.scss.html#16" target="_blank">./lib/layout/yo-column.scss:16</a>
         </p>
         
         
         <p>
             <small class="text-muted">Demo地址:</small>
-            <a class="hashlink" href="http://yo.doyoe.com/pure/demo/layout/yo-column.html" target="_blank">点击访问</a>
+            <a href="http://yo.doyoe.com/pure/demo/layout/yo-column.html" target="_blank">点击访问</a>
         </p>
         
         
@@ -4335,6 +3974,7 @@
         <blockquote class="api">
             <h3 id="yo-flex" class="subject">
                 yo-flex( )
+                <span class="ui-badge">3.0.0</span>
                 <a class="hashlink" href="#yo-flex">#</a>
             </h3>
         </blockquote>
@@ -4344,20 +3984,14 @@
         </p>
         
         <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
-        
-        <p>
             <small class="text-muted">源码位置:</small>
-            <a class="hashlink" href="./static/lib/layout/yo-flex.scss.html#29" target="_blank">./lib/layout/yo-flex.scss:29</a>
+            <a href="./static/lib/layout/yo-flex.scss.html#29" target="_blank">./lib/layout/yo-flex.scss:29</a>
         </p>
         
         
         <p>
             <small class="text-muted">Demo地址:</small>
-            <a class="hashlink" href="http://yo.doyoe.com/pure/demo/layout/yo-flex.html" target="_blank">点击访问</a>
+            <a href="http://yo.doyoe.com/pure/demo/layout/yo-flex.html" target="_blank">点击访问</a>
         </p>
         
         
@@ -4402,6 +4036,7 @@
         <blockquote class="api">
             <h3 id="yo-root" class="subject">
                 yo-root( )
+                <span class="ui-badge">3.0.0</span>
                 <a class="hashlink" href="#yo-root">#</a>
             </h3>
         </blockquote>
@@ -4411,20 +4046,14 @@
         </p>
         
         <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
-        
-        <p>
             <small class="text-muted">源码位置:</small>
-            <a class="hashlink" href="./static/lib/layout/yo-root.scss.html#8" target="_blank">./lib/layout/yo-root.scss:8</a>
+            <a href="./static/lib/layout/yo-root.scss.html#8" target="_blank">./lib/layout/yo-root.scss:8</a>
         </p>
         
         
         <p>
             <small class="text-muted">Demo地址:</small>
-            <a class="hashlink" href="http://yo.doyoe.com/pure/demo/layout/yo-root.html" target="_blank">点击访问</a>
+            <a href="http://yo.doyoe.com/pure/demo/layout/yo-root.html" target="_blank">点击访问</a>
         </p>
         
         
@@ -4468,40 +4097,31 @@
     
 </div>
 
-              </div>
-          </div>
-          
-        
-      </div>
-     
-     </div>
-     
-      <footer class="footer">
-        <div class="copyright">
-            Made By Doyoe.com © 2014 - 2017
+                    </div>
+                </div>
+                 
+            </div>
+            
         </div>
-      </footer>
+        
+        <footer class="footer">
+            <div class="copyright">
+                Made By Doyoe.com © 2014 - 2017
+            </div>
+        </footer>
     </div>
 
     
-       <div class="open-panel"></div>
-       <div class="mask"></div>
-    
-    
+    <div class="open-panel"></div>
+    <div class="mask"></div>
+     
 
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
-    
-    
+         
+    <script type="text/javascript" src="./theme/ydoc.js"></script>
+     
 
-    
+    </body>
 
-    
-    
-      
-      <script type="text/javascript" src="./theme/ydoc.js"></script>
-      
-    
-
-</body>
 </html>
