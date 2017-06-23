@@ -1,6 +1,6 @@
-## v3.0.10-pure（预计2017.6.9发布）
+## v3.0.10-pure（2017.6.23）
 
-[Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v3.1.0-pure)
+[Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v3.0.10-pure)
 
 ### New Features:
 * 将 `widget` 目录下的所有元件移动到 `fragment` 下；
