@@ -1,18 +1,18 @@
 /**
  * @function aniScrollX
  * @description 水平滚动动画，适用于有限数量的滚动展示
- * @param [ALLOWANCEAngle, ALLOWANCEDistance] 触发事件处理的手势角度tan绝对值，触发翻页的水平位移
+ * @param [ALLOWANCEAngle, ALLOWANCEDistance, movePercentage, K] 触发事件处理的手势角度tan绝对值； 触发翻页的水平位移默认为1； 位移系数；触底拖动系数默认为0.2；
  */
 
 import React from 'react';
 import CarouselItem from './carouselItem.js';
 import { getRAF, whichTransitionEventPrefix } from '../../common/util.js';
 
-
 export default (
     ALLOWANCEAngle = 0.57,
     ALLOWANCEDistance = 30,
-    movePercentage = 1
+    movePercentage = 1,
+    K = 0.2
 ) => {
     const {
         rAF,
@@ -60,10 +60,17 @@ export default (
             touchmoveLocation,
             pageNow,
             containerDOM,
-            width
+            width,
+            pagesNum,
+            loop
         }) {
             if (!this._checkTouchAngle(touchstartLocation, touchmoveLocation)) { return; }
-            const translateX = (pageNow - 1) * width * movePercentage + touchstartLocation[0] - touchmoveLocation[0];
+            const k = this._caculateTranslate({
+                pageNow,
+                pagesNum,
+                loop
+            }, touchstartLocation[0] - touchmoveLocation[0]);
+            const translateX = (pageNow - 1) * width * movePercentage + k;
             this._addCss({
                 dom: containerDOM,
                 speed: 0,
@@ -71,6 +78,10 @@ export default (
                 reset: true,
                 width
             });
+        },
+        _caculateTranslate({ loop, pageNow, pagesNum }, x) {
+            if (!loop & (pageNow === 1 && x < 0 || pageNow === pagesNum && x > 0)) return K * x;
+            return x;
         },
         touchend(aniObj) {
             const {

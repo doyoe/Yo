@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import ListView from '../src';
 import testData from './testdata';
@@ -69,8 +70,8 @@ const DemoItem = (props) => (
 );
 
 DemoItem.propTypes = {
-    item: React.PropTypes.object,
-    red: React.PropTypes.func
+    item: PropTypes.object,
+    red: PropTypes.func
 };
 
 class ListViewDemo extends React.Component {

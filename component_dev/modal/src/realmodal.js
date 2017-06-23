@@ -6,7 +6,8 @@
  * @author jiao.shen
  * @version 3.0.2
  */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 const defaultProps = {

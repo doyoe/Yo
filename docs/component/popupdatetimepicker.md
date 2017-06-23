@@ -83,3 +83,25 @@ render() {
     );
 }
 ```
+
+#### 手动控制弹出式选择器的显示和隐藏
+
+通过 React 的 `ref` 属性来获取 PopupDateTimePicker 组件的引用，然后调用该引用的 `show` 和 `hide` 方法即可控制弹出式选择器的显示和隐藏。
+
+```javascript
+render() {
+    return (
+        <div className="popupdatetimepicker-demo">
+            <PopupDateTimePicker
+                ref={component => {
+                    this.popupDateTimePickerCom = component;
+                }}
+                ...
+            </PopupDateTimePicker>
+        </div>
+    );
+}
+
+this.popupDateTimePickerCom.show(); // 显示弹出式选择器
+this.popupDateTimePickerCom.hide(); // 隐藏弹出式选择器
+```

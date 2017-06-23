@@ -10,7 +10,8 @@
  * @instructions {instruInfo: ./toast.md}{instruUrl: toast.html?hideIcon}
  * @author qingguo.xu
  */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 
 let that = null;

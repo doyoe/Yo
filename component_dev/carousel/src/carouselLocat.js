@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Touchable from '../../touchable/src/touchable';
 
 class CarouselLocat extends Component {

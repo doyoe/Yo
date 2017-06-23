@@ -1,7 +1,8 @@
 /**
  * 列表项组件
  */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { DELAY_TIME_FOR_INFINITE_WITHOUT_HEIGHT } from '../../common/util';
 import classNames from 'classnames';
 import Touchable from '../../touchable/src/touchable';

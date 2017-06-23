@@ -6,7 +6,8 @@
  * @instructions {instruInfo: ./popuppicker.md}{instruUrl: popuppicker.html?hideIcon}
  * @author tianqi.tian
  */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import Touchable from '../../touchable/src/touchable';
@@ -349,7 +350,7 @@ class PopupPicker extends Component {
             <Popup
                 show={this.state.show}
                 duration={duration}
-                extraClass={classNames(popupExtraClass, 'yo-popup yo-popup yo-popup-picker')}
+                extraClass={classNames(popupExtraClass, 'yo-popup yo-popup-picker')}
                 onMaskTap={this.handlePopupCancel.bind(this)}
             >
                 <header className="yo-header yo-header-popup-picker">

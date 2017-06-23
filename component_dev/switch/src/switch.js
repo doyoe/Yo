@@ -9,7 +9,8 @@
  * @author eva.li
  * @instructions {instruInfo: ./switch.md}{instruUrl: switch.html?hideIcon}
  */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 const ALLOWANCE = 4;
 const propTypes = {
   /**

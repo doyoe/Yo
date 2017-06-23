@@ -7,7 +7,8 @@
  * @instructions {instruInfo: ./dateTimePicker.md}{instruUrl: datetimepicker.html?hideIcon}
  * @author zongze.li
  */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Picker from '../../picker/src/picker';
 import DateTimeCore from './datetimecore';
 import { getArrayByLength } from '../../common/util';

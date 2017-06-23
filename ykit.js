@@ -30,6 +30,7 @@ exports.config = function () {
         getEntry('rating'),
         getEntry('scroller'),
         getEntry('scroller', 'demo_simple.js'),
+        getEntry('scroller', 'demo_nest.js'),
         getEntry('scroller', 'demo_structure_1.js'),
         getEntry('scroller', 'demo_structure_2.js'),
         getEntry('scroller', 'demo_structure_3.js'),

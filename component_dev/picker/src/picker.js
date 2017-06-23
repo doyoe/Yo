@@ -10,7 +10,8 @@
  * @author jiao.shen
  */
 import PickerCore from './PickerCore';
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Scroller from '../../scroller/src/scroller';
 import PickerItem from './PickerItem';
 import classNames from 'classnames';

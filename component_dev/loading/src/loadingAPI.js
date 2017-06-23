@@ -8,7 +8,8 @@
  * @instructions {instruInfo: ./loadingapi.md}{instruUrl: loadingapi.html?hideIcon}
  * @author zongze.li
  */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import ReactDom from 'react-dom';
 import Modal from '../../modal/src/modal';
 import Loading from './loading';

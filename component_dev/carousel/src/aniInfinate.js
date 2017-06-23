@@ -2,7 +2,7 @@
  * @function aniInfinate
  * @description
  * 该动画适用于图片查看器情景，即图片数两较多，且不需要循环的情况下
- * @param [ALLOWANCEAngle, ALLOWANCEDistance] 触发事件处理的手势角度tan绝对值，触发翻页的水平位移。
+ * @param [ALLOWANCEAngle, ALLOWANCEDistance, k] 触发事件处理的手势角度tan绝对值；触发翻页的水平位移；触底拖动系数默认为0.1；
  */
 import React from 'react';
 import { getRAF } from '../../common/util.js';
@@ -27,7 +27,8 @@ function getLoopNum(min, max) {
 // 45度的tan值
 export default (
     ALLOWANCEAngle = 1,
-    ALLOWANCEDistance = 30
+    ALLOWANCEDistance = 30,
+    K = 0.1
 ) => {
     const {
         rAF,
@@ -95,15 +96,19 @@ export default (
             if (!this._checkTouchAngle(touchstartLocation, touchmoveLocation)) {
                 return;
             }
-            const change = (touchstartLocation[0] - touchmoveLocation[0]) / unit + (pageNow - 1);
+            const k = this._caculateTranslate(aniObj, touchstartLocation[0] - touchmoveLocation[0]);
+            const change = k / unit + (pageNow - 1);
             const translateX = -change * 100;
-            // console.log('move' + translateX);
             this._addCss({
                 dom: containerDOM,
                 speed,
                 translateX,
                 reset: true
             });
+        },
+        _caculateTranslate({ loop, pageNow, pagesNum }, x) {
+            if (!loop & (pageNow === 1 && x < 0 || pageNow === pagesNum && x > 0)) return K * x;
+            return x;
         },
         touchcancel() {},
         touchend(aniObj) {

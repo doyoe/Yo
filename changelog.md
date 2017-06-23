@@ -1,3 +1,20 @@
+## v3.0.10 (2017-06-23)
+
+### New Features
+* 新增对 `summary` 元素的响应轮廓的reset定义；
+* 新增对 `summary` 展开收起三角箭头标识的reset定义；
+* 新增 `fixed-scale` 方法用以在自适应宽度情况下，确保内容元素的宽高比固定，比如：实现随屏幕大小而变化的正方形。
+* `carousel` 默认动画 `aniScrollx` ，`aniInfinate` 动画添加非循环播放底页拖动弹性效果。
+* `carousel` 添加禁用动画手势响应配置 `disable`
+* `Popup` 组件的额外样式定义增加 `wrapperExtraClass` 配置项，用来设置内容区域的额外样式。
+
+### Bug Fixes
+* 修复 `reset` 里对清除响应轮廓的选择符错误，`select` 与 `a` 之间少了逗号分隔。
+* 修复因为 `React` 升级而出现的 `PropTypes` 的 warning。
+* 修复 `Suggest` 在结果列表上滚动时无法自动收起键盘的 bug。（但是，在部分安卓机器上，调用 blur 也无法让键盘收起，暂时无法解决）
+* 修复 `Scroller` 组件当内容过少时，首次进入，"加载更多"部分定位错误的 bug。
+* 修复 `Suggest` 在 iOS10.3 上在使用中文输入法没有选择汉字的时候，结果列表无法点击的bug。
+
 ## v3.0.9 (2017-05-02)
 
 ### New Features

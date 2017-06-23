@@ -11,7 +11,8 @@
  */
 
 import Modal from '../../modal/src/modal';
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 const noop = () => {
 };
@@ -76,9 +77,16 @@ const propTypes = {
     /**
      * @property extraClass
      * @type String
-     * @description 组件额外样式类
+     * @description 附加给组件模态框内容区的额外class
      */
     extraClass: PropTypes.string,
+    /**
+     * @property wrapperExtraClass
+     * @type String
+     * @version 3.0.10
+     * @description 组附加给组件模态框容器(包含了内容区和蒙层)的额外class
+     */
+    wrapperExtraClass: PropTypes.string,
     delayBeforeAnimationStart: PropTypes.number,
     children: PropTypes.oneOfType([PropTypes.object, PropTypes.array])
 };
@@ -104,6 +112,7 @@ export default class Popup extends Component {
             onHide,
             maskOffset,
             extraClass,
+            wrapperExtraClass,
             children,
             delayBeforeAnimationStart
         } = this.props;
@@ -122,6 +131,7 @@ export default class Popup extends Component {
                 align={align}
                 animation={{ animation, duration }}
                 maskOffset={maskOffset}
+                extraClass={wrapperExtraClass}
                 contentExtraClass={extraClass}
                 delayBeforeAnimationStart={delayBeforeAnimationStart}
             >

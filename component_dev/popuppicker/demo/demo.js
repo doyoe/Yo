@@ -29,6 +29,11 @@ class PopupPickerDemo extends Component {
         this.setState({ value });
     }
 
+    componentDidMount() {
+        console.log(this.popupPickerComponent);
+        this.popupPickerComponent.show();
+    }
+
     renderField(value) {
         return (
             <div className="demo-item">
@@ -42,6 +47,9 @@ class PopupPickerDemo extends Component {
         return (
             <div className="popuppicker-demo">
                 <PopupPicker
+                    ref={component => {
+                        this.popupPickerComponent = component;
+                    }}
                     value={this.state.value}
                     onChange={(value) => {
                         // 你接收到的value将会是一个数组，包含了每一列picker的值
@@ -59,6 +67,8 @@ class PopupPickerDemo extends Component {
             </div>
         );
     }
+
+
 }
 
 ReactDom.render(<PopupPickerDemo />, document.getElementById('content'));

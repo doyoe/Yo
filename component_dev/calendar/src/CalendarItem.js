@@ -2,7 +2,8 @@
  * @author qingguo.xu
  * 某一天的数据显示
  */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import getClassNames from 'classnames';
 import Touchable from '../../touchable/src/touchable';
 

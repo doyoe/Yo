@@ -8,7 +8,8 @@
  * @author jiao.shen
  * @instructions {instruInfo: ./touchable.md}{instruUrl: touchable.html?hideIcon}
  */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import gesture from './gesture';
 
 export default class Touchable extends Component {

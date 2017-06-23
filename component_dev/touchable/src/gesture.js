@@ -81,9 +81,10 @@ export default function ({
             shouldAbortTap = isScrolling(scroller) || isAnySwipeMenuOpen(swipeMenuList);
             startPoint = getTouchPoint(evt);
             onTouchStart(evt);
-            if (!captured) {
-                captured = domNode;
-            }
+            // 解决在 iOS10.3 上在使用中文输入法没有选择汉字的时候，结果列表无法点击的bug
+            // if (!captured) {
+            captured = domNode;
+            // }
             // TAP_DELAY之后再次判断是否要触发Tap,如果这段时间内出现了大的位移,if后面的逻辑就不会执行
             setTimeout(() => {
                 const className = activeClass;

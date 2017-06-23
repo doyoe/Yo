@@ -13,7 +13,8 @@
  * @author qingguo.xu
  */
 
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Touchable from '../../touchable/src/touchable';
 import classNames from 'classnames';
 

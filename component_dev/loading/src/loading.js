@@ -7,7 +7,8 @@
  *
  * @instructions {instruInfo: ./loading.md}{instruUrl: loading.html?hideIcon}
  */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 const propTypes = {

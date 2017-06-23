@@ -26,7 +26,8 @@
  */
 
 
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import aniScrollX from './aniScrollx.js';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import CarouselItem from './carouselItem';
@@ -142,7 +143,14 @@ class Carousel extends Component {
          * @type Element
          * @description carousel的展示内容。
          */
-        children: PropTypes.array.isRequired
+        children: PropTypes.array.isRequired,
+        /**
+         * @property disable
+         * @type Boolean
+         * @description 禁止动画响应手势操作
+         * @version 3.0.10
+         */
+        disable: PropTypes.bool
     }
     static defaultProps = {
         dots: true,
@@ -153,6 +161,7 @@ class Carousel extends Component {
         speed: 0.5,
         defaultPage: 1,
         aniSpeed: 0,
+        disable: false,
         beforeChange() {
         },
         afterChange() {
@@ -434,17 +443,17 @@ class Carousel extends Component {
                     }
                 }}
                 onTouchStart={evt => {
-                    this.handleTouchStart(evt);
+                    this.props.disable || this.handleTouchStart(evt);
                 }}
                 onTouchMove={evt => {
-                    this.handleTouchMove(evt);
+                    this.props.disable || this.handleTouchMove(evt);
                 }}
                 onTouchEnd={evt => {
-                    this.handleTouchEnd(evt);
+                    this.props.disable || this.handleTouchEnd(evt);
                 }}
                 onTouchCancel={evt => {
                     // this.dragEvt.dragCancel(evt)
-                    this.handleTouchCancle(evt);
+                    this.props.disable || this.handleTouchCancle(evt);
                 }}
             >
                 <ul className={'cont'}>

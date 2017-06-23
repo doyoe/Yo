@@ -161,3 +161,25 @@ render() {
         );
     }
 ```
+
+#### 手动控制弹出式选择器的显示和隐藏
+
+通过 React 的 `ref` 属性来获取 PopupPicker 组件的引用，然后调用该引用的 `show` 和 `hide` 方法即可控制弹出式选择器的显示和隐藏。
+
+```javascript
+render() {
+    return (
+        <div className="popuppicker-demo">
+            <PopupPicker
+                ref={component => {
+                    this.popupPickerCom = component;
+                }}
+                ...
+            </PopupPicker>
+        </div>
+    );
+}
+
+this.popupPickerCom.show(); // 显示弹出式选择器
+this.popupPickerCom.hide(); // 隐藏弹出式选择器
+```

@@ -6,10 +6,8 @@
  * @instructions {instruInfo: ./multilist/async.md}{instruUrl: multilist/async.html?hideIcon}
  * @instructions {instruInfo: ./multilist/personal.md}{instruUrl: multilist/product.html?hideIcon}
  */
-import React, {
-    Component,
-    PropTypes
-} from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import List from '../../list/src/list';
 import {
@@ -72,14 +70,14 @@ export default class MultiList extends Component {
          *   }]
          *  };
          */
-        dataSource: React.PropTypes.shape({
-            subItemType: React.PropTypes.string.isRequired,
-            onItemTapType: React.PropTypes.string,
-            subList: React.PropTypes.array.isRequired,
-            defaultValue: React.PropTypes.oneOfType([
-                React.PropTypes.array,
-                React.PropTypes.string,
-                React.PropTypes.number
+        dataSource: PropTypes.shape({
+            subItemType: PropTypes.string.isRequired,
+            onItemTapType: PropTypes.string,
+            subList: PropTypes.array.isRequired,
+            defaultValue: PropTypes.oneOfType([
+                PropTypes.array,
+                PropTypes.string,
+                PropTypes.number
             ])
         }).isRequired,
         /**
@@ -87,7 +85,7 @@ export default class MultiList extends Component {
          * @type  Array
          * @description mutliList的值，该值为点选的value
          */
-        value: React.PropTypes.array,
+        value: PropTypes.array,
         /**
          * @property onChange
          * @type Function
@@ -300,14 +298,14 @@ export default class MultiList extends Component {
             data: item
         };
         switch (type) {
-        case 'MENU':
-            return <MenuItem {...itemState} />;
-        case 'RADIO':
-            return <RadioItem {...itemState} />;
-        case 'CHECKBOX':
-            return <CheckboxItem {...itemState} />;
-        default:
-            return this.props.renderItem({ itemType: type, ...itemState });
+            case 'MENU':
+                return <MenuItem {...itemState} />;
+            case 'RADIO':
+                return <RadioItem {...itemState} />;
+            case 'CHECKBOX':
+                return <CheckboxItem {...itemState} />;
+            default:
+                return this.props.renderItem({ itemType: type, ...itemState });
         }
     }
 
@@ -345,58 +343,58 @@ export default class MultiList extends Component {
             route: item.subList ? this.path.slice(0, level).concat(item.value) : this.path.slice(0, level)
         }, () => {
             switch (type) {
-            case 'MENU': {
-                let constDataSource = this.props.dataSource.subList;
-                const syncItem = this.pathIndex.some(i => {
-                    if (constDataSource[i].subList === 'ASYNC') {
-                        constDataSource = constDataSource[i];
-                        return true;
+                case 'MENU': {
+                    let constDataSource = this.props.dataSource.subList;
+                    const syncItem = this.pathIndex.some(i => {
+                        if (constDataSource[i].subList === 'ASYNC') {
+                            constDataSource = constDataSource[i];
+                            return true;
+                        }
+                        constDataSource = constDataSource[i].subList;
+                        return false;
+                    });
+                    if (syncItem) {
+                        this.props.onUpdateData(constDataSource);
                     }
-                    constDataSource = constDataSource[i].subList;
-                    return false;
-                });
-                if (syncItem) {
-                    this.props.onUpdateData(constDataSource);
+                    return;
                 }
-                return;
-            }
-            case 'RADIO':
-                newValue = this.path.slice(0, upLevel).concat(item.value);
-                newItems = this._getItemsByRoute(this.pathIndex.slice(0, upLevel)).concat(item);
-                break;
-            case 'CHECKBOX':
-                if (this.path.slice(0, upLevel).join('-') === this.props.value.slice(0, upLevel).join('-')) {
-                    newValue = this.props.value.slice(0);
-                    let tmpValue = newValue[level];
-                    if (Array.isArray(tmpValue) && tmpValue.length > 0) {
-                        const valueIndex = tmpValue.indexOf(item.value);
-                        if (valueIndex !== -1) {
-                            tmpValue.splice(valueIndex, 1);
-                            newItems[level].splice(valueIndex, 1);
+                case 'RADIO':
+                    newValue = this.path.slice(0, upLevel).concat(item.value);
+                    newItems = this._getItemsByRoute(this.pathIndex.slice(0, upLevel)).concat(item);
+                    break;
+                case 'CHECKBOX':
+                    if (this.path.slice(0, upLevel).join('-') === this.props.value.slice(0, upLevel).join('-')) {
+                        newValue = this.props.value.slice(0);
+                        let tmpValue = newValue[level];
+                        if (Array.isArray(tmpValue) && tmpValue.length > 0) {
+                            const valueIndex = tmpValue.indexOf(item.value);
+                            if (valueIndex !== -1) {
+                                tmpValue.splice(valueIndex, 1);
+                                newItems[level].splice(valueIndex, 1);
+                            } else {
+                                tmpValue.push(item.value);
+                                newItems[level].push(item);
+                            }
                         } else {
-                            tmpValue.push(item.value);
-                            newItems[level].push(item);
+                            tmpValue = [item.value];
+                            newItems[level] = [item];
+                        }
+                        // handle final value
+                        if (tmpValue.length > 0) {
+                            newValue[level] = tmpValue;
+                        } else {
+                            newValue = [];
+                            newItems = [];
                         }
                     } else {
-                        tmpValue = [item.value];
-                        newItems[level] = [item];
+                        newValue = this.path.slice(0, upLevel);
+                        newValue.push([item.value]);
+                        newItems = this._getItemsByRoute(this.pathIndex.slice(0, upLevel));
+                        newItems.push([item]);
                     }
-                    // handle final value
-                    if (tmpValue.length > 0) {
-                        newValue[level] = tmpValue;
-                    } else {
-                        newValue = [];
-                        newItems = [];
-                    }
-                } else {
-                    newValue = this.path.slice(0, upLevel);
-                    newValue.push([item.value]);
-                    newItems = this._getItemsByRoute(this.pathIndex.slice(0, upLevel));
-                    newItems.push([item]);
-                }
-                break;
-            default:
-                newValue = this.props.onItemTap({ data, level, item, index, target });
+                    break;
+                default:
+                    newValue = this.props.onItemTap({ data, level, item, index, target });
             }
             // if (newValue[newValue.length - 1] == null) {
             // newValue = [];
@@ -461,42 +459,42 @@ export default class MultiList extends Component {
             return;
         }
         switch (data.subList) {
-        case 'EMPTY':
-            this.children.push(
-                <div
-                    className={classNames('item', `item-${level}`)}
-                    key={this.path.slice(0, level).join('_')}
-                >
-                    <EmptyList />
-                </div>
-            );
-            break;
-        case 'FAULT':
-            this.children.push(
-                <div
-                    className={classNames('item', `item-${level}`)}
-                    key={this.path.slice(0, level).join('_')}
-                >
-                    <FaultList />
-                </div>
-            );
-            break;
-        case 'ASYNC':
-            this.children.push(
-                <div
-                    className={classNames('item', `item-${level}`)}
-                    key={this.path.slice(0, level).join('_')}
-                >
-                    <LoadingList />
-                </div>
-            );
-            break;
-        default:
-            this.children.push(
-                <div className={classNames('item', `item-${level}`)} key={this.path.slice(0, level).join('_')}>
-                    {this.props.renderContent({ type: data.subList, data, level })}
-                </div>
-            );
+            case 'EMPTY':
+                this.children.push(
+                    <div
+                        className={classNames('item', `item-${level}`)}
+                        key={this.path.slice(0, level).join('_')}
+                    >
+                        <EmptyList />
+                    </div>
+                );
+                break;
+            case 'FAULT':
+                this.children.push(
+                    <div
+                        className={classNames('item', `item-${level}`)}
+                        key={this.path.slice(0, level).join('_')}
+                    >
+                        <FaultList />
+                    </div>
+                );
+                break;
+            case 'ASYNC':
+                this.children.push(
+                    <div
+                        className={classNames('item', `item-${level}`)}
+                        key={this.path.slice(0, level).join('_')}
+                    >
+                        <LoadingList />
+                    </div>
+                );
+                break;
+            default:
+                this.children.push(
+                    <div className={classNames('item', `item-${level}`)} key={this.path.slice(0, level).join('_')}>
+                        {this.props.renderContent({ type: data.subList, data, level })}
+                    </div>
+                );
         }
     }
 

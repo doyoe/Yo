@@ -15,7 +15,8 @@
  * @instructions {instruInfo: ./list/static_section.md}{instruUrl: list/static_section.html?hideIcon}
  */
 import ListModel from './ListCore';
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Scroller from '../../scroller/src/scroller';
 import ListItem from './ListItem';
 import LazyImage from '../../lazyimage';
@@ -706,7 +707,8 @@ export default class List extends Component {
                     'useLoadMore',
                     'usePullRefresh',
                     'deceleration',
-                    'stickyOffset'
+                    'stickyOffset',
+                    'onScrollStart'
                 ])}
                 tap={true}
                 autoRefresh={!infinite}

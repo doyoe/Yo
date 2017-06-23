@@ -1,5 +1,6 @@
 
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { shallow } from 'enzyme';
 import aniScrollX from '../src/aniScrollX.js';
 import aniCss from '../src/aniCss.js';

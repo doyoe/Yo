@@ -1,5 +1,6 @@
 
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Switch from '../src/switch';
 import { mount, render } from 'enzyme'; 
 import Form from './demoForTest.js';

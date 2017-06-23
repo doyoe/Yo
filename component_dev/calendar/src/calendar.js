@@ -16,7 +16,8 @@
 import CalendarCore from './CalendarCore.js';
 import CalendarItem from './CalendarItem.js';
 import GroupList from '../../grouplist/src/grouplist';
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 const defaultProps = {

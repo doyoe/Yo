@@ -6,7 +6,8 @@
  * @instructions {instruInfo: ./swipeMenuList.md}{instruUrl: swipemenulist.html?hideIcon}
  * @author jiao.shen
  */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import List from '../../list/src/list';
 import SwipeMenu from '../../swipemenu/src/swipemenu';
 

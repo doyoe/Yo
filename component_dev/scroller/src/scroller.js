@@ -18,8 +18,8 @@
  * @instructions {instruInfo: ./scroller/scrollevent.md}{instruUrl: scroller/scroll.html?hideIcon}
  */
 
-// TODO: 干掉各种 magic number！！！
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import utils from './utils';
 import { getElementOffsetY, getOnlyChild } from '../../common/util';
@@ -174,6 +174,10 @@ const propTypes = {
      * @property directionLockThreshold
      * @type Number
      * @description 只允许单向滚动的时候，会根据这个阀值来判定响应哪个方向上的位移：某一方向位移减去另一个方向位移超过阀值，就会判定为这个方向的滚动。
+     * 
+     * 一个常见的示例是：在一个纵向滚动的 Scroller 中嵌套一个横向滚动的 Scroller。此时，如果斜着（约45°）滚动，则内层的 Scroller 会先响应，
+     * 但是不会锁定，触摸事件会向冒泡到外层的 Scroller，导致外层的 Scroller 也会响应。此时将 directionLockThreshold 设置成 0，保证不管向哪个方向滚动，
+     * Scroller 都会锁定方向而不向外冒泡，就不会出现同时响应的问题了。
      * @default 5
      */
     directionLockThreshold: PropTypes.number,
@@ -437,7 +441,8 @@ export default class Scroller extends Component {
 
         this._setRefreshStatus(REFRESHSTATUS.PULL);
         this._setLoadStatus(LOADSTATUS.PULL);
-        this._refreshLoadMore();
+        // 内容区域高度小于容器高度时，不需要再重新定位loadMore的位置，refresh内部已经定位正确
+        // this._refreshLoadMore();
 
         this._resetPosition();
         this.scrollTo(this.props.contentOffset.x, this.props.contentOffset.y);

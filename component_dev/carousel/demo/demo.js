@@ -77,10 +77,11 @@ class Container extends React.Component {
                 }}
                 dots={true}
                 defaultPage={1}
-                loop={true}
+                loop={false}
                 speed={3}
                 autoplay={false}
-                aniObj={scrollX()}
+                aniObj={scrollX(0.57, 30, 1, 0)}
+                disable={true}
                 ref={(node) => {
                     if (node) {
                         window.scrollXCarousel = node;
@@ -116,6 +117,7 @@ class Container extends React.Component {
                 autoplay={false}
                 loop={true}
                 defaultPage={3}
+                disable={true}
             >
                 {dataList.map((item, index) => (
                     <CarouselItem key={index + 1} {...item} lazyload={false} extraClass={'scale'} />
@@ -134,6 +136,7 @@ class Container extends React.Component {
                 aniObj={loopInfinateAni(20, 1, 5)}
                 autoplay={false}
                 defaultPage={3}
+                disable={true}
             >
                 {dataList.map((item, index) => (
                     <CarouselItem key={index + 1} {...item} lazyload={false} />

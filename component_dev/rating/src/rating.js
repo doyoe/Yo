@@ -6,7 +6,8 @@
  * @description 评分组件，既可以用来评分，也可以用来展示评分。这是一个受控的组件，当用户点击评分之后，需要通过回调设置当前的分数，否则分数不会变化。
  * @instructions {instruInfo: ./rating.md}{instruUrl: rating.html?hideIcon}
  */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { getArrayByLength } from '../../common/util';
 
 const defaultProps = {

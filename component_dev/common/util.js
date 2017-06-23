@@ -160,3 +160,19 @@ export function whichTransitionEventPrefix() {
     });
     return result;
 }
+
+export function focus(dom) {
+    if (dom.focus) {
+        dom.focus();
+    }
+}
+
+export function blur(dom) {
+    if (document.activeElement === dom) {
+        if (dom.blur) {
+            dom.blur();
+        } else {
+            focus(document.body);
+        }
+    }
+}

@@ -10,7 +10,8 @@
  * @instructions {instruInfo: ./dialog.md}{instruUrl: dialog.html?hideIcon}
  * @author qingguo.xu
  */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Modal from '../../modal/src/modal';
 import Touchable from '../../touchable/src/touchable';
 import classNames from 'classnames';

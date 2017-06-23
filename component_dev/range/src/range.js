@@ -7,7 +7,8 @@
  * @instructions {instruInfo: ./range.md}{instruUrl: range.html?hideIcon}
  * @author zongze.li
  */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import RangeCore from './RangeCore';
 import debounce from 'lodash/debounce';
 import { getArrayByLength } from '../../common/util';

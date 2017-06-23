@@ -12,7 +12,8 @@
  * @author qingguo.xu
  */
 import Drag, { setTransform } from './drag.js';
-import React, { Component, PropTypes, isValidElement } from 'react';
+import React, { Component, isValidElement } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 const defaultProps = {

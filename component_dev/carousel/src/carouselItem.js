@@ -8,7 +8,8 @@
  * ** 注意：`CarouselItem`不能和`Touchable`一起使用，请使用它的`onTap`属性来绑定事件回调。 **
  */
 import Touchable from '../../touchable/src/touchable';
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import shallowCompare from 'react-addons-shallow-compare';
 
@@ -104,8 +105,8 @@ class CarouselItem extends Component {
         onTap: () => {}
     }
     static contextTypes = {
-        currentPage: React.PropTypes.number.isRequired,
-        pagesNum: React.PropTypes.number.isRequired
+        currentPage: PropTypes.number.isRequired,
+        pagesNum: PropTypes.number.isRequired
     }
     constructor(props) {
         super(props);

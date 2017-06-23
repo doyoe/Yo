@@ -7,7 +7,8 @@
  * @instructions {instruInfo: ./lazyimage.md}{instruUrl: scroller/lazyimage.html?hideIcon}
  * @version  3.0.2
  */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
     getElementOffsetY,
     inheritProps

@@ -9,11 +9,13 @@
  * @instructions {instruInfo: ./suggest/suggest.md}{instruUrl: suggest/city_select_example.html?hideIcon}
  * @instructions {instruInfo: ./suggest/useWithPopup.md}{instruUrl: suggest/use_with_popup.html?hideIcon}
  */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import List from '../../list/src/list';
 import Touchable from '../../touchable/src/touchable';
 import throttle from 'lodash/throttle';
 import classNames from 'classnames';
+import { blur } from '../../common/util';
 
 const propTypes = {
     /**
@@ -337,6 +339,11 @@ export default class Suggest extends Component {
                         itemHeight={itemHeight}
                         onItemTap={onItemTap}
                         itemTouchClass={itemTouchClass}
+                        onScrollStart={() => {
+                            if (this.input) {
+                                blur(this.input);
+                            }
+                        }}
                     />
                 );
             } else {

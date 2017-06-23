@@ -8,13 +8,13 @@
 
 组成 | 体积 | gzip 后的体积 | 版本
 --------- | -------- | ---------- | ----------
-React + ReactDOM | 136.83 KB | 41.20 KB | 15.4.2
-babel-polyfill | 85.46 KB | | 6.23.0
-Yo-Router | 90.03 KB | | 1.1.6
-Yo:<br/>list、scroller、modal、sticky、lazyimage、touchable | 81.05 KB | | 3.0.8-rc.1
-**lib.js 总的体积** | **389.48 KB** | **109.83 KB** |
+React + ReactDOM | 146.36 KB | 45.76 KB | 15.6.1
+babel-polyfill | 93.09 KB | | 6.23.0
+Yo-Router | 91.68 KB | | 1.1.7
+Yo:<br/>list、scroller、modal、sticky、lazyimage、touchable | 82.32 KB | | 3.0.10
+**lib.js 总的体积** | **410.11 KB** | **129.30 KB** |
 Ykit | | | 0.3.3
-Ykit-config-yo | | | 1.1.22
+Ykit-config-yo | | | 1.2.5
 
 **P.S. 以上体积均是打包压缩之后的体积。**
 
@@ -24,11 +24,8 @@ Ykit-config-yo | | | 1.1.22
 
 组成 | 体积 | gzip 后的体积
 --------- | --------- | ---------
-所有组件的 JS | 240.45 KB | 49.55 KB
-所有组件的 CSS | 43.85 | 6.41 KB
-**Yo 组件总的体积** | **284.30** | **55.96 KB**
+所有组件的 JS | 252.87 KB | 52.76 KB
+所有组件的 CSS | 43.89 | 6.42 KB
+**Yo 组件总的体积** | **296.76** | **59.18 KB**
 
 **P.S. 以上体积均是打包压缩之后的体积。**
-
-
-
