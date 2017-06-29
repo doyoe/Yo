@@ -58,12 +58,10 @@
         font-size: 24px;
     }
     > .desc {
+        @include transform(scale(.8));
+        @include transform-origin(0 50%);
         .note {
             font-size: 12px;
         }
-    }
-    > .desc {
-        @include transform(scale(.8));
-        @include transform-origin(0 50%);
     }
 }
