@@ -1,3 +1,12 @@
+## v3.0.12-pure（2017.7.??）
+
+[Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v3.0.12-pure)
+
+### New Features:
+
+### Bug Fix:
+* fix当元素宽度出现小数时，边框可能显示不全的问题
+
 ## v3.0.10-pure（2017.6.23）
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v3.0.10-pure)
