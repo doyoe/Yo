@@ -9,3 +9,10 @@
     $name: group,
     $label-padding: .2rem .1rem .05rem
 );
+
+// 独立区块
+@include yo-list(
+    $name: panel,
+    $label-padding: .2rem .1rem .05rem,
+    $label-border-color: #ddd
+);
