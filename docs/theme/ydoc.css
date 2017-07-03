@@ -1,30 +1,24 @@
-/* homepage */
-.ydoc .ydoc-banner-home .home-desc {
-    font-size: .28rem;
-    padding: 0 1rem .16rem;
-}
+/* homepage图文列表 */
 .index .markdown-body {
+    border: 0;
+    padding: .3rem .3rem 1rem !important;
+    border-radius: 0;
     text-align: center;
-    padding-bottom: 1rem !important;
 }
-.index .markdown-body > h2 {
+.index .markdown-body .subject {
     margin-top: .8rem !important;
     border: none;
     font-size: .35rem;
+    font-weight: normal;
+}
+.index .markdown-body .subject .hashlink {
+    display: none;
 }
 .index .markdown-body > p {
     width: 80%;
     margin: auto;
     color: #666;
-    font-size: .24rem;
-}
-@media (max-width: 767px) {
-    .index .markdown-body > h2 {
-        font-size: .28rem;
-    }
-    .index .markdown-body > p {
-        font-size: .18rem;
-    }
+    font-size: .2rem;
 }
 .index .markdown-body ul {
     display: -webkit-box;
@@ -95,37 +89,4 @@
 .index .markdown-body ul img {
     max-width: 100%;
     max-height: 100%;
-}
-
-
-
-
-
-.instructions-con-runner {
-    -webkit-transform: scale(0.8);
-    -moz-transform: scale(0.8);
-    -ms-transform: scale(0.8);
-    -o-transform: scale(0.8);
-    transform: scale(0.8);
-    left: .33rem;
-}
-
-.instructions-con-info {
-    margin-right: -0.4rem;
-    padding-right: 0;
-}
-
-.ydoc-container-content .content-left {
-    width: 20%;
-}
-
-.ydoc-container-content .content-right {
-    width: 80%;
-}
-
-.instructions-con-runner .instructions-iframe {
-    width: 2.9rem;
-    border: .02rem solid #000;
-    border-radius: .03rem;
-    left: 0.16rem;
 }
