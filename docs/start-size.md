@@ -11,7 +11,7 @@
 React + ReactDOM | 146.36 KB | 45.76 KB | 15.6.1
 babel-polyfill | 93.09 KB | | 6.23.0
 Yo-Router | 91.68 KB | | 1.1.7
-Yo:<br/>list、scroller、modal、sticky、lazyimage、touchable | 82.32 KB | | 3.0.10
+Yo:<br/>list、scroller、modal、sticky、lazyimage、touchable | 82.32 KB | | 3.0.11
 **lib.js 总的体积** | **410.11 KB** | **129.30 KB** |
 Ykit | | | 0.3.3
 Ykit-config-yo | | | 1.2.5

@@ -55,7 +55,7 @@ test('the number of day besides today which can be selected is 181, and all Chec
 });
 
 test('the today node must has today class', () => {
-    toDayWeekDayNum % 6 === 0 ? expect(todayNode.hasClass('today weekend')).toBeTruthy()
+    toDayWeekDayNum % 6 === 0 ? expect(todayNode.hasClass('today') && todayNode.hasClass('weekend')).toBeTruthy()
         : expect(todayNode.hasClass('today')).toBeTruthy()
 });
 
