@@ -1,4 +1,4 @@
-## v3.0.12-pure（2017.7.??）
+## v3.0.12-pure（2017.7.14）
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v3.0.12-pure)
 
