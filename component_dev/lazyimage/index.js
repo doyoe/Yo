@@ -179,13 +179,13 @@ export default class extends Component {
             const { src } = this.props,
                 tmpImg = new Image();
             this.loading = LOADING;
-            this.loadingSrc = src;
+
             tmpImg.onload = () => {
                 // 在lazyimage正在加载时组件unmount(主要是在SPA模式下有可能发生关闭view的情况)会报错
                 // 因此这里需要简单判断一下组件的实例是否还存在
                 // bugfix: 在网速不稳定的情况下，有可能这个lazyimage加载的图片比之前加载的图片更晚下载完
                 // 这个时候会引起加载图片错乱的问题，因此需要再加一个判断
-                if (this && this.canLoadImage && this.loadingSrc === this.props.src) {
+                if (this && this.canLoadImage && src === this.props.src) {
                     this.loading = LOADED;
                     this.setState({ src, loaded: true });
                     if (callback) {
@@ -217,7 +217,7 @@ export default class extends Component {
                     'className',
                     'title',
                     'style'
-                ]) }
+                ])}
                 alt={this.props.alt}
                 ref={(img) => {
                     if (img) this.img = img;

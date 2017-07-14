@@ -27,6 +27,12 @@ class ScrollerDemo extends Component {
         };
     }
 
+    componentDidMount() {
+        setTimeout(() => {
+            this.refs.scroller.scrollTo(0, -600, 0);
+        }, 3000);
+    }
+
     getContent() {
         return getRandomColors(5).map((item, index) => (
             <div
@@ -61,12 +67,6 @@ class ScrollerDemo extends Component {
         );
     }
 
-    componentDidMount() {
-        setTimeout(() => {
-            this.refs.scroller.scrollTo(0, -600, 0);
-        }, 3000);
-    }
-
     render() {
         return (
             <div className="container">
@@ -75,7 +75,7 @@ class ScrollerDemo extends Component {
                     ref="scroller"
                     extraClass={'scroller_wrapper'}
                 >
-                    <div style={{ height: 44 }}/>
+                    <div style={{ height: 44 }} />
                     {[1, 2, 3, 4, 5].map((_, i) => this.getGroup(i))}
                 </Scroller>
             </div>

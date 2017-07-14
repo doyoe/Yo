@@ -23,7 +23,7 @@ class CalendarDemo extends Component {
     componentDidMount() {
         setTimeout(() => {
             this.setState({
-                duration: 100,
+                duration: 100
             });
         }, 5000);
     }

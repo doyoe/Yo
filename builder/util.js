@@ -67,9 +67,6 @@ function replaceStyleRefRootPath(code, path, styleFolderPath, componentName) {
     var yoRefs = (scssImports ? scssImports.filter(function (imp) {
             return rroot.test(imp);
         }) : []).concat(componentRef);
-    var otherRefs = scssImports ? scssImports.filter(function (imp) {
-            return !rroot.test(imp);
-        }) : [];
     var renderedScssImports = yoRefs.map(function (imp) {
         return {
             src: imp,

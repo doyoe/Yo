@@ -36,7 +36,10 @@ class PopupDateTimePickerDemo extends Component {
                     }}
                     touchClass={'op0_6'}
                     value={this.state.value}
-                    beforePopupShow={() => { console.log('beforePopupShow'); return false; }}
+                    beforePopupShow={() => {
+                        console.log('beforePopupShow');
+                        return false;
+                    }}
                     onChange={this.handleChange.bind(this)}
                     duration={200}
                     pickerHeight={150}

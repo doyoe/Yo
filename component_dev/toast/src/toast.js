@@ -38,23 +38,11 @@ class ToastReact extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            show: this.props.show,
-            content: '',
-            autoHideTime: 2000
+            show: props.show,
+            content: ''
         };
         this._timer = null;
         that = this;
-    }
-
-    shouldComponentUpdate(nextProps, nextState) {
-        this.setState({ show: nextState.show });
-        if (!!this._timer) {
-            clearTimeout(this._timer);
-            this._timer = null;
-        }
-
-        this._timer = setTimeout(() => this.setState({ show: false }), nextState.autoHideTime);
-        return true;
     }
 
     componentWillUnmount() {
@@ -95,9 +83,13 @@ export default {
     show(content = 'no content', autoHideTime = 2000) {
         that.setState({
             content,
-            autoHideTime,
             show: true
         });
+        if (!!that.timer) {
+            clearTimeout(that.timer);
+            that.timer = null;
+        }
+        that.timer = setTimeout(() => this.hide(), autoHideTime);
         return this;
     },
     /**
@@ -106,6 +98,10 @@ export default {
      * @description 关闭正在显示的组件
      */
     hide() {
+        if (!!that.timer) {
+            clearTimeout(that.timer);
+            that.timer = null;
+        }
         that.setState({ show: false });
         return this;
     }

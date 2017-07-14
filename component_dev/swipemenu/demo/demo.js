@@ -6,7 +6,7 @@ class SwipeMenuDemo extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            open: true,
+            open: true
         };
     }
 
@@ -15,12 +15,12 @@ class SwipeMenuDemo extends Component {
             {
                 content: '详情',
                 className: 'detail',
-                tap: () => console.log('click detail'),
+                tap: () => console.log('click detail')
             },
             {
                 content: '删除',
                 className: 'delete',
-                tap: () => console.log('click delete'),
+                tap: () => console.log('click delete')
             }
         ];
         return (

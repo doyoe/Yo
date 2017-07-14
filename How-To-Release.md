@@ -8,6 +8,13 @@
 
 与此同时 `Yo3` 有一个对应的 Demo 工程，它的分支命名规则与 `Yo3` 保持一致。
 
+需要 check 版本号的地方：
+- bower.json 中的 version
+- package.json 中的 version
+- style/lib/core/variables.scss 中的 version
+- ydoc.json 中的 version
+- changelog 是否有新版本的变更
+
 发布流程如下：
 - diff dev分支和master分支的改动。
 - 在当前dev分支上调用 `release`，发布一个`rc tag`，版本号规则为 `3.x.y-rc.z`。然后手动到 `qnpm` sync这个版本。

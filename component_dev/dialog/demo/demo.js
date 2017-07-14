@@ -11,7 +11,7 @@ class DialogDemo extends Component {
             topNormalToggle: false,
             centerTplToggle: false,
             centerExtraToggle: false,
-            bottomAniToggle: false,
+            bottomAniToggle: false
         };
     }
 

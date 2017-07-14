@@ -3,8 +3,7 @@ export default [{
     onTap: () => {
         console.log('tap listener');
     }
-}
-, {
+}, {
     img: 'http://gw.alicdn.com/tps/TB1gQjnKVXXXXXPXXXXXXXXXXXX-1125-352.jpg_q50.jpg',
     onTap: () => {
         console.log('tap listener');
@@ -19,14 +18,12 @@ export default [{
     onTap: () => {
         console.log('tap listener');
     }
-}
-,{
+}, {
     img: 'http://gma.alicdn.com/simba/img/TB14ab1KpXXXXclXFXXSutbFXXX.jpg_q50.jpg',
     onTap: () => {
         console.log('tap listener');
     }
-}
-, {
+}, {
     img: 'http://gw.alicdn.com/tps/TB1gQjnKVXXXXXPXXXXXXXXXXXX-1125-352.jpg_q50.jpg',
     onTap: () => {
         console.log('tap listener');
@@ -36,5 +33,4 @@ export default [{
     onTap: () => {
         console.log('tap listener');
     }
-},
-];
+}];

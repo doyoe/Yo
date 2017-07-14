@@ -174,7 +174,7 @@ const propTypes = {
      * @property directionLockThreshold
      * @type Number
      * @description 只允许单向滚动的时候，会根据这个阀值来判定响应哪个方向上的位移：某一方向位移减去另一个方向位移超过阀值，就会判定为这个方向的滚动。
-     * 
+     *
      * 一个常见的示例是：在一个纵向滚动的 Scroller 中嵌套一个横向滚动的 Scroller。此时，如果斜着（约45°）滚动，则内层的 Scroller 会先响应，
      * 但是不会锁定，触摸事件会向冒泡到外层的 Scroller，导致外层的 Scroller 也会响应。此时将 directionLockThreshold 设置成 0，保证不管向哪个方向滚动，
      * Scroller 都会锁定方向而不向外冒泡，就不会出现同时响应的问题了。
@@ -1029,6 +1029,17 @@ export default class Scroller extends Component {
         this.endTime = 0;
         this.directionX = 0;
         this.directionY = 0;
+    }
+
+    /**
+     * @method refreshLazyImage
+     * @version 3.0.12
+     * @description 刷新 Scroller 中的 LazyImage。
+     *
+     * 使用场景：在某些不是通过 setState 或 Redux 等方式来**直接改变** Scroller 的内容导致 Scroller 不会 render 时，由于内容宽高发生了变化，需要通过本方法来刷新 LazyImage 的位置信息。
+     */
+    refreshLazyImage() {
+        this._tryLoadLazyImages();
     }
 
     /**

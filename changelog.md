@@ -1,3 +1,12 @@
+## v3.0.12 (2017-07-14)
+
+### New Features
+* `Scroller` 新增 `refreshLazyImage` 方法，在页面内容变化时，手动刷新 LazyImage。
+
+### Bug Fixes
+* 修复 当元素宽度出现小数时，使用 `border` 方法边框可能显示不全的问题。
+* 修复 `LazyImage` 在频繁更新图片地址时，有可能加载顺序出现混乱的问题。
+
 ## v3.0.11 (2017-06-24)
 
 ### New Features

@@ -23,9 +23,9 @@ class ScrollerDemo extends Component {
         this.state = {
             contentOffset: {
                 x: 0,
-                y: 0,
+                y: 0
             },
-            content: getRandomColors(30),
+            content: getRandomColors(30)
         };
     }
 

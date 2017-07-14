@@ -1,85 +1,24 @@
-/* homepage */
-.index .ydoc-banner {
-    padding: .8rem 0;
-    text-align: center;
-}
-.index .ydoc-banner-area > h1 {
-    margin-bottom: 20px;
-    font-size: .8rem;
-    font-weight: bold;
-}
-.index .ydoc-banner-area p {
-    width: auto;
-    margin-right: 0;
-}
-.index .ydoc-banner-area a {
-    display: inline-block;
-    margin-top: .2rem;
-    padding: 0.1rem 0.4rem;
-    border: 1px solid;
-    border-radius: 0.05rem;
-    color: #ff503f;
-    font-size: .2rem;
-    font-weight: bold;
-}
-.index .ydoc-banner-area .version {
-    display: block;
-    margin-top: .15rem;
-    color: #ff503f;
-    font-size: .14rem;
-}
-.index .ydoc-banner-area a:hover {
-    text-decoration: none;
-    border-color: #ff503f;
-    background-color: #ff503f;
-    color: #fff;
-}
-@media (min-width: 1200px) {
-    .index .ydoc-banner-area p {
-        padding: 0 1rem;
-        font-size: .28rem;
-    }
-}
-@media (min-width: 992px) and (max-width: 1199px) {
-    .index .ydoc-banner-area p {
-        padding: 0 0.6rem;
-        font-size: .25rem;
-    }
-}
-@media (min-width: 768px) and (max-width: 991px) {
-    .index .ydoc-banner-area p {
-        padding: 0 0.3rem;
-        font-size: .21rem;
-    }
-}
-@media (max-width: 767px) {
-    .index .ydoc-banner-area p {
-        padding: 0 0.2rem;
-        font-size: .2rem;
-    }
-}
+/* homepage图文列表 */
 .index .markdown-body {
+    border: 0;
+    padding: .3rem .3rem 1rem !important;
+    border-radius: 0;
     text-align: center;
-    padding-bottom: 1rem !important;
 }
-.index .markdown-body > h2 {
+.index .markdown-body .subject {
     margin-top: .8rem !important;
     border: none;
     font-size: .35rem;
+    font-weight: normal;
+}
+.index .markdown-body .subject .hashlink {
+    display: none;
 }
 .index .markdown-body > p {
     width: 80%;
     margin: auto;
     color: #666;
-    font-size: .24rem;
-}
-@media (max-width: 767px) {
-    .index .markdown-body > h2 {
-        font-size: .28rem;
-    }
-    .index .markdown-body > p {
-        font-size: .18rem;
-    }
+    font-size: .2rem;
 }
 .index .markdown-body ul {
     display: -webkit-box;
@@ -148,8 +87,8 @@
     background-color: #eee;
 }
 .index .markdown-body ul img {
-    max-width: 90%;
-    max-height: 90%;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 
@@ -169,14 +108,6 @@
     margin-right: -0.4rem;
     padding-right: 0;
 }
-
-/*.ydoc-container-content .content-left {
-    width: 22%;
-}
-
-.ydoc-container-content .content-right {
-    width: 78%;
-}*/
 
 .instructions-con-runner .instructions-iframe {
     width: 2.9rem;

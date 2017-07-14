@@ -59,21 +59,18 @@ describe("aniObj's functino has been called", () => {
     });
 
     test('invoke touchstart', () => {
-        const dom = wrapper.find('.cont');
         const mockTouch = createTouchE('touchstart', 100, 100, 100, 100, 100, 100);
         wrapper.find('.cont').simulate('touchstart', mockTouch);
         expect(spyObj.touchstart).toHaveBeenCalled();
     });
     
     test('invoke touchmove', () => {
-        const dom = wrapper.find('.cont');
         const mockTouch = createTouchE('touchmove', 100, 100, 100, 100, 100, 100);
         wrapper.find('.cont').simulate('touchmove', mockTouch);
         expect(spyObj.touchmove).toHaveBeenCalled();
     });
 
     test('invoke touchend', () => {
-        const dom = wrapper.find('.cont');
         const mockTouch = createTouchE('touchend', 200, 200, 200, 200, 200, 200);
         wrapper.find('.cont').simulate('touchend', mockTouch);
         expect(spyObj.touchend).toHaveBeenCalled();

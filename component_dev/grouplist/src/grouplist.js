@@ -640,13 +640,13 @@ export default class GroupList extends Component {
                     }}
                 />
                 {showIndexNavBar ? <IndexNavBar
-                        list={groupTitles}
-                        renderItem={renderIndexNavBarItem}
-                        onNavItemFocus={(item) => {
-                            this.scrollToGroup(item.groupKey);
-                            onIndexNavBarItemHover(item.groupKey);
-                        }}
-                    /> : null}
+                    list={groupTitles}
+                    renderItem={renderIndexNavBarItem}
+                    onNavItemFocus={(item) => {
+                        this.scrollToGroup(item.groupKey);
+                        onIndexNavBarItemHover(item.groupKey);
+                    }}
+                /> : null}
                 <List
                     {...inheritProps(this.props, [
                         'scrollWithoutTouchStart',

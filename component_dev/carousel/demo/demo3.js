@@ -160,58 +160,58 @@ class Container extends React.Component {
             }
             </Carousel>
         );
-        let infinateCarousel = (
-            <Carousel
-                key={5}
-                beforeChange={(page)=>{this.beforeChange(page,'infinatePage')}}
-                afterChange={(page)=>{this.updateChange(page,'infinatePage')}}
-                dots={true}
-                aniObj={AniInfinate}
-                autoplay={false}
-                loop={false}
-                defaultPage={this.state.infinatePage}
-            >
-            {
-                dataList.map((item, index)=>{
-                    return (
-                        <CarouselItem
-                            index = {index + 1}
-                            key = {index + 1}
-                            currentPage = {this.state.infinatePage}
-                            {...item}
-                            lazyload={false}
-                            extraClass ={'scale'}
-                            pagesNum = {dataList.length}
-                        ></CarouselItem>
-                    )
-                })
-            }
-            </Carousel>
-        );
-        const verticalCarousel = (
-            <Carousel
-                key={6}
-                beforeChange={(page)=>{this.beforeChange(page,'pageNow')}}
-                afterChange={(page)=>{this.updateChange(page,'pageNow')}}
-                dots={true}
-                autoplay={true}
-                isVertical={true}
-            >
-            {
-                dataList.map((item, index)=>{
-                    return (
-                        <CarouselItem
-                            index = {index + 1}
-                            key = {index + 1}
-                            currentPage={this.state.pageNow}
-                            {...item}
-                            pagesNum = {dataList.length}
-                            lazyload={false}
-                        ></CarouselItem>);
-                    })
-            }
-            </Carousel>
-        );
+        // let infinateCarousel = (
+        //     <Carousel
+        //         key={5}
+        //         beforeChange={(page)=>{this.beforeChange(page,'infinatePage')}}
+        //         afterChange={(page)=>{this.updateChange(page,'infinatePage')}}
+        //         dots={true}
+        //         aniObj={AniInfinate}
+        //         autoplay={false}
+        //         loop={false}
+        //         defaultPage={this.state.infinatePage}
+        //     >
+        //     {
+        //         dataList.map((item, index)=>{
+        //             return (
+        //                 <CarouselItem
+        //                     index = {index + 1}
+        //                     key = {index + 1}
+        //                     currentPage = {this.state.infinatePage}
+        //                     {...item}
+        //                     lazyload={false}
+        //                     extraClass ={'scale'}
+        //                     pagesNum = {dataList.length}
+        //                 ></CarouselItem>
+        //             )
+        //         })
+        //     }
+        //     </Carousel>
+        // );
+        // const verticalCarousel = (
+        //     <Carousel
+        //         key={6}
+        //         beforeChange={(page)=>{this.beforeChange(page,'pageNow')}}
+        //         afterChange={(page)=>{this.updateChange(page,'pageNow')}}
+        //         dots={true}
+        //         autoplay={true}
+        //         isVertical={true}
+        //     >
+        //     {
+        //         dataList.map((item, index)=>{
+        //             return (
+        //                 <CarouselItem
+        //                     index = {index + 1}
+        //                     key = {index + 1}
+        //                     currentPage={this.state.pageNow}
+        //                     {...item}
+        //                     pagesNum = {dataList.length}
+        //                     lazyload={false}
+        //                 ></CarouselItem>);
+        //             })
+        //     }
+        //     </Carousel>
+        // );
 
         return (
             <div>

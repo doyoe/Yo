@@ -115,7 +115,7 @@ class GroupListDemo extends Component {
                 onItemTap={(item, index) => this.modifyHeight(item, index)}
                 sort={this.state.sort}
                 itemTouchClass={(item, index) => {
-                    // console.log(item);
+                    console.log(item, index);
                     return 'item-touch';
                 }}
                 itemExtraClass={(item, index) => `${index} ${item.get('color')}`}

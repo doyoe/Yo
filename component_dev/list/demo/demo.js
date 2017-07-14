@@ -87,7 +87,7 @@ class ListViewDemo extends React.Component {
     }
 
     mutateDataSource(item) {
-        console.log(item.toJS(), this.state.dataSource.toJS())
+        console.log(item.toJS(), this.state.dataSource.toJS());
         const ds = this.state.dataSource.map(it => {
             if (it === item) {
                 return it.set('imageHeight', it.get('imageHeight') + 20).set('key', ++guid);

@@ -21,7 +21,7 @@ class ScrollerDemo extends Component {
         super(props);
 
         this.state = {
-            content: getRandomColors(30),
+            content: getRandomColors(30)
         };
     }
 
@@ -35,7 +35,7 @@ class ScrollerDemo extends Component {
                         setTimeout(() => {
                             if (this.refs.scroller) {
                                 this.setState({
-                                    content: getRandomColors(30),
+                                    content: getRandomColors(30)
                                 });
                                 this.refs.scroller.stopRefreshing(true);
                             }

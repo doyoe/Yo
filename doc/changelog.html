@@ -67,11 +67,6 @@
                             
                             <a href="http://ued.qunar.com/hy2/yo/demo/src/html/index.html" target="_blank">示例</a> 
                         </li>
-                        
-                        <li class="">
-                            
-                            <a href="https://github.com/doyoe/Yo" target="_blank">Github</a> 
-                        </li>
                          
                     </ul>
                 </nav>
@@ -97,7 +92,11 @@
                 <div class="ydoc-container-content" id="readme">
                     
                     <article class="markdown-body">
-                         <h2 class="subject" id="v3.0.11 (2017-06-24)">v3.0.11 (2017-06-24) <a class="hashlink" href="#v3.0.11 (2017-06-24)">#</a></h2><h3 class="subject" id="New Features">New Features <a class="hashlink" href="#New Features">#</a></h3><ul>
+                         <h2 class="subject" id="v3.0.12 (2017-07-14)">v3.0.12 (2017-07-14) <a class="hashlink" href="#v3.0.12 (2017-07-14)">#</a></h2><h3 class="subject" id="New Features">New Features <a class="hashlink" href="#New Features">#</a></h3><ul>
+<li><code>Scroller</code> 新增 <code>refreshLazyImage</code> 方法，在页面内容变化时，手动刷新 LazyImage。</li></ul>
+<h3 class="subject" id="Bug Fixes">Bug Fixes <a class="hashlink" href="#Bug Fixes">#</a></h3><ul>
+<li>修复 当元素宽度出现小数时，使用 <code>border</code> 方法边框可能显示不全的问题。</li><li>修复 <code>LazyImage</code> 在频繁更新图片地址时，有可能加载顺序出现混乱的问题。</li></ul>
+<h2 class="subject" id="v3.0.11 (2017-06-24)">v3.0.11 (2017-06-24) <a class="hashlink" href="#v3.0.11 (2017-06-24)">#</a></h2><h3 class="subject" id="New Features">New Features <a class="hashlink" href="#New Features">#</a></h3><ul>
 <li>新增对 <code>summary</code> 元素的响应轮廓的reset定义；</li><li>新增对 <code>summary</code> 展开收起三角箭头标识的reset定义；</li><li>新增 <code>fixed-scale</code> 方法用以在自适应宽度情况下，确保内容元素的宽高比固定，比如：实现随屏幕大小而变化的正方形。</li><li><code>carousel</code> 默认动画 <code>aniScrollx</code> ，<code>aniInfinate</code> 动画添加非循环播放底页拖动弹性效果。</li><li><code>carousel</code> 添加禁用动画手势响应配置 <code>disable</code></li><li><code>Popup</code> 组件的额外样式定义增加 <code>wrapperExtraClass</code> 配置项，用来设置内容区域的额外样式。</li></ul>
 <h3 class="subject" id="Bug Fixes">Bug Fixes <a class="hashlink" href="#Bug Fixes">#</a></h3><ul>
 <li>修复 <code>reset</code> 里对清除响应轮廓的选择符错误，<code>select</code> 与 <code>a</code> 之间少了逗号分隔。</li><li>修复因为 <code>React</code> 升级而出现的 <code>PropTypes</code> 的 warning。</li><li>修复 <code>Suggest</code> 在结果列表上滚动时无法自动收起键盘的 bug。（但是，在部分安卓机器上，调用 blur 也无法让键盘收起，暂时无法解决）</li><li>修复 <code>Scroller</code> 组件当内容过少时，首次进入，&quot;加载更多&quot;部分定位错误的 bug。</li></ul>

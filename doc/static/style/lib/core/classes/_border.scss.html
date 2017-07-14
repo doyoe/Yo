@@ -50,7 +50,8 @@
         z-index: 999;
         top: 0;
         left: 0;
-        overflow: hidden;
+        // fix当元素宽度出现小数时，边框可能显示不全的问题
+        // overflow: hidden;
         content: "\0020";
         border-color: $border-color;
         border-style: $border-style;

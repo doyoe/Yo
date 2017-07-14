@@ -3,6 +3,10 @@ import ReactDOM from 'react-dom';
 import Scroller from '../src/index';
 import LazyImage from '../../lazyimage';
 
+const data = [];
+data.length = 30;
+data.fill('');
+
 const imgs = [
     'http://userimg.qunarzz.com/imgs/201407/16/QvMa33SRJ4zSSg8x5720.jpg',
     'http://userimg.qunarzz.com/imgs/201407/16/QvMa33SRJ4h9dK_d5720.jpg',
@@ -19,7 +23,7 @@ class ScrollerDemo extends Component {
         this.state = {
             contentOffset: {
                 x: 0,
-                y: 0,
+                y: 0
             }
         };
     }
@@ -44,7 +48,7 @@ class ScrollerDemo extends Component {
                 </Scroller>
                 <div>
                     {
-                        new Array(30).fill('').map((item, index) =>
+                        data.map((item, index) =>
                             <div className="item" style={{ color: item, height: Math.random() * 100 + 180 }} key={index}>
                                 <div>详情介绍 {index}：</div>
                                 <LazyImage width={240} height={160} src={imgs[index % 6]} />

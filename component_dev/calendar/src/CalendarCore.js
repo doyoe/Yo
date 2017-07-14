@@ -52,7 +52,7 @@ const getDateInfoArr = (date = new Date()) => [
     date.getFullYear(),
     date.getMonth() + 1,
     date.getDate(),
-    date.getDay(),
+    date.getDay()
 ];
 
 /**

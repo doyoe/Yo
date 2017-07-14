@@ -189,7 +189,7 @@ test('the allowSelectionBeforeToday is true, the range of selection is only depe
 
 class ChangeDuration extends Component {
     state = {
-        duration: ['2017-2-10', '2017-3-10'],
+        duration: ['2017-2-10', '2017-3-10']
     };
 
     render() {
