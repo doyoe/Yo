@@ -3,15 +3,6 @@
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v3.0.12-pure)
 
 ### New Features:
-
-### Bug Fix:
-* fix当元素宽度出现小数时，边框可能显示不全的问题
-
-## v3.0.10-pure（2017.6.23）
-
-[Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v3.0.10-pure)
-
-### New Features:
 * 将 `widget` 目录下的所有元件移动到 `fragment` 下；
 * 删除 `yo-mask` 元件，同时新增 `yo-modal` 元件用于替代；
 * 删除 `yo-score` 元件，可以使用 `yo-rating` 元件达到相同效果；
@@ -30,6 +21,7 @@
 
 ### Bug Fix:
 * 修复 `reset` 里对清除响应轮廓的选择符错误，`select` 与 `a` 之间少了逗号分隔；
+* fix当元素宽度出现小数时，边框可能显示不全的问题
 
 **注意：Kami没有与此版本对应的版本，pure为纯样式版本，如果使用交互组件，请使用非pure的v3版本**
 
