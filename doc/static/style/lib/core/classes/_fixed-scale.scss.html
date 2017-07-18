@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
-    <title>Yo : ./lib/ani/zoom-in-right.scss</title>
-    <link type="text/css" rel="stylesheet" href="../../../source/code.css"/>
-    <script type="text/javascript" src="../../../source/shCore.js"></script>
-    <script type="text/javascript" src="../../../source/shBrush-css.js"></script>
+    <title>Yo : ./style/lib/core/classes/_fixed-scale.scss</title>
+    <link type="text/css" rel="stylesheet" href="../../../../../source/code.css"/>
+    <script type="text/javascript" src="../../../../../source/shCore.js"></script>
+    <script type="text/javascript" src="../../../../../source/shBrush-css.js"></script>
     <style>
         .syntaxhighlighter .number1 .spaces,.syntaxhighlighter .toolbar{ display: none;}
         .syntaxhighlighter table td.gutter .line.highlight { background-color: #6ce26c !important; color: white; }
@@ -17,7 +17,7 @@
     <div class="ydoc-banner-bg">
         <div class="ydoc-banner" id="content" tabindex="-1">
             <div class="ydoc-banner-area">
-                <h1>Yo : ./lib/ani/zoom-in-right.scss</h1>
+                <h1>Yo : ./style/lib/core/classes/_fixed-scale.scss</h1>
                 <p>源代码</p>
             </div>
         </div>
@@ -26,41 +26,24 @@
                 <div class="static-code-content" role="main">
                 <pre class="brush: css;">
                 @charset "utf-8";
-@import "classes";
-
 /**
- * @module zoom
- * @description 定义从右侧放大进入动画
- * @method zoom-in-right
+ * @module 常用方法
+ * @description 在自适应宽度情况下，确保内容元素的宽高比固定，比如：实现随屏幕大小而变化的正方形。
+ * @method fixed-scale
+ * @version 3.0.10
+ * @param {Length} $width 默认值：100%。用以指定内容元素的初始宽度，由于尺寸需动态变化，不要使用固定单位 <3.0.10>
+ * @param {Length} $scale 默认值：1/1，即正方形。用以指定内容元素的宽度高比 <3.0.10>
  */
-@-webkit-keyframes zoom-in-right {
-	0% {
-		opacity: 0;
-		-webkit-transform: scale3d(.1, .1, .1) translate3d(1000px, 0, 0);
-		-webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
-	}
-	60% {
-		opacity: 1;
-		-webkit-transform: scale3d(.475, .475, .475) translate3d(-10px, 0, 0);
-		-webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
-	}
-}
-@keyframes zoom-in-right {
-	0% {
-		opacity: 0;
-		transform: scale3d(.1, .1, .1) translate3d(1000px, 0, 0);
-		animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
-	}
-	60% {
-		opacity: 1;
-		transform: scale3d(.475, .475, .475) translate3d(-10px, 0, 0);
-		animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
-	}
-}
-
-.ani.zoom-in-right {
-	-webkit-animation-name: zoom-in-right;
-	animation-name: zoom-in-right;
+@mixin fixed-scale($width: 100%, $scale: 1/1) {
+    position: relative;
+    width: $width;
+    padding-bottom: $width / $scale;
+    > .cont {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
 }
                 </pre>
                 </div>
@@ -69,7 +52,7 @@
     </div>
     <!-- <div class="docs-header" id="content" tabindex="-1">
         <div class="container">
-            <h1>Yo : ./lib/ani/zoom-in-right.scss</h1>
+            <h1>Yo : ./style/lib/core/classes/_fixed-scale.scss</h1>
             <p>源代码</p>
         </div>
     </div> -->

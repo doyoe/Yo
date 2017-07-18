@@ -1,463 +1,293 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-  <meta name="format-detection" content="telephone=no,email=no" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
-  <meta name="description" content="description of your site">
-  <meta name="author" content="author of the site">
-  <title>Yo Documentation 元件</title>
-  <link rel="stylesheet" href="source/main.css"/>
-  
-  
-    
-        <link rel="stylesheet" href="./theme/ydoc.css"/>
-    
-  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no,email=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+    <meta name="description" content="description of your site">
+    <meta name="author" content="author of the site">
+    <title>Yo Documentation 元件</title>
+    <link rel="stylesheet" href="source/main.css" />   
+    <link rel="stylesheet" href="./theme/ydoc.css" />  
 </head>
 <body class=element >
     <div class="ydoc">
-      <header class="ydoc-header">
-        <div class="ydoc-header-area">
-            
-            <a href="http://ued.qunar.com/ymfe/" class="navbar-brand">YMFE</a>
-            
-            <button class="ydocIcon navbar-toggle">&#xf020;</button>
-            <nav class="ydoc-nav">
-              <ul class="navbar-left">
+        <header class="ydoc-header">
+            <div class="ydoc-header-area">
                 
-                    
-                    <li class="">
-                        
-                        <a href="index.html">Yo</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="getting-started.html">起步</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="core.html">核心</a>
-                        
-                    </li>
-                    
-                    <li class="active">
-                        
-                        <a href="element.html">元件</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="component.html">组件</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="animate.html">动画</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="http://ued.qunar.com/hy2/yo-router" target="_blank">Router</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="changelog.html">版本</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="http://ued.qunar.com/hy2/yo/demo/src/html/index.html" target="_blank">示例</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="https://github.com/doyoe/Yo" target="_blank">Github</a>
-                        
-                    </li>
-                    
+                <a href="http://ued.qunar.com/ymfe/" class="navbar-brand">YMFE</a>
                 
-              </ul>
-            </nav>
-        </div>
-    </header>
-    
-    <!-- <header style="height:20px"></header> -->
-    
-      <!-- Docs page layout -->
-      
-      <div class="ydoc-banner-bg">
-          <div class="ydoc-banner">
-              <div class="ydoc-banner-area">
-                  <h1>元件</h1>
-                  <p>Yo 将每个独立的、通用的 scss 代码片段抽象成元件。这些元件以一个个独立的模块形式存在，这意味着你可以按需引用任何一个元件。更有趣的是，每个元件都拥有一个同名方法，允许你通过传参来改变任意元件本身的外观。</p>
-              </div>
-          </div>
-      
-
-      <div class="ydoc-container">
-        
-          
-          <div class="ydoc-container-content">
-              <div class="content-left" role="complementary">
-                  <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
-                    <ul class="nav docs-sidenav">
-                        
-                        
-                        <!-- <li  > -->
-                        <li >
+                <button class="ydocIcon navbar-toggle">&#xf020;</button>
+                <nav class="ydoc-nav">
+                    <ul class="navbar-left">
+                         
+                        <li class="">
                             
-                            <a href="#element">element</a>
-                            
+                            <a href="index.html">Yo</a> 
                         </li>
                         
-                        
-                        
-                        
-                        <ul class="nav docs-sidenav-extend"  >
-                        
-                            <li >
-                                <a href="#yo-badge">yo-badge</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-btn">yo-btn</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-checked">yo-checked</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-loading">yo-loading</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-loadtip">yo-loadtip</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-range">yo-range</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-switch">yo-switch</a>
-                            </li>
-                        
-                        </ul>
-                        
-                        
-                        
-                        
-                        <!-- <li  > -->
-                        <li >
+                        <li class="">
                             
-                            <a href="#fragment">fragment</a>
-                            
+                            <a href="getting-started.html">起步</a> 
                         </li>
                         
-                        
-                        
-                        
-                        <ul class="nav docs-sidenav-extend"  >
-                        
-                            <li >
-                                <a href="#yo-actionsheet">yo-actionsheet</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-breadcrumb">yo-breadcrumb</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-calendar">yo-calendar</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-card">yo-card</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-carousel">yo-carousel</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-dialog">yo-dialog</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-group">yo-group</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-header">yo-header</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-list">yo-list</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-modal">yo-modal</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-number">yo-number</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-picker">yo-picker</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-popup">yo-popup</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-proportion">yo-proportion</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-rating">yo-rating</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-search">yo-search</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-suggest">yo-suggest</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-swipemenu">yo-swipemenu</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-tab">yo-tab</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-table">yo-table</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-timeline">yo-timeline</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-toast">yo-toast</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-toolbar">yo-toolbar</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-vcode">yo-vcode</a>
-                            </li>
-                        
-                        </ul>
-                        
-                        
-                        
-                        
-                        <!-- <li  > -->
-                        <li >
+                        <li class="">
                             
-                            <a href="#layout">layout</a>
-                            
+                            <a href="core.html">核心</a> 
                         </li>
                         
+                        <li class="active">
+                            
+                            <a href="element.html">元件</a> 
+                        </li>
                         
+                        <li class="">
+                            
+                            <a href="component.html">组件</a> 
+                        </li>
                         
+                        <li class="">
+                            
+                            <a href="animate.html">动画</a> 
+                        </li>
                         
-                        <ul class="nav docs-sidenav-extend"  >
+                        <li class="">
+                            
+                            <a href="http://ued.qunar.com/hy2/yo-router" target="_blank">Router</a> 
+                        </li>
                         
-                            <li >
-                                <a href="#yo-align">yo-align</a>
-                            </li>
+                        <li class="">
+                            
+                            <a href="changelog.html">版本</a> 
+                        </li>
                         
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-column">yo-column</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-flex">yo-flex</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#yo-root">yo-root</a>
-                            </li>
-                        
-                        
-                        
+                        <li class="">
+                            
+                            <a href="http://ued.qunar.com/hy2/yo/demo/src/html/index.html" target="_blank">示例</a> 
+                        </li>
+                         
                     </ul>
-                  </nav>
-              </div>
-              <div class="content-right markdown-body" role="main">
+                </nav>
+            </div>
+        </header>
+        
+        <!-- <header style="height:20px"></header> -->
+        
+        <!-- Docs page layout -->
+        
+        <div class="ydoc-banner-bg">
+            <div class="ydoc-banner ">
+                <div class="ydoc-banner-area">
+                    <h1 >元件</h1>
+                    <p class="desc ">Yo 将每个独立的、通用的 scss 代码片段抽象成元件。这些元件以一个个独立的模块形式存在，这意味着你可以按需引用任何一个元件。更有趣的是，每个元件都拥有一个同名方法，允许你通过传参来改变任意元件本身的外观。</p>
+                    
+                </div>
+            </div>
+            
 
-                
-                <div class="docs-section">
+            <div class="ydoc-container">
+                 
+                <div class="ydoc-container-content">
+                    
+                    
+                    <div class="content-left staticsidenav" role="complementary">
+                        <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
+                            <ul class="nav docs-sidenav">
+                                 
+                                <!-- <li  > -->
+                                <li >
+                                    
+                                    <a href="#element">element</a> 
+                                </li>
+                                   
+                                <ul class="nav docs-sidenav-extend"  >
+                                
+                                    <li >
+                                        <a href="#yo-badge">yo-badge</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-btn">yo-btn</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-checked">yo-checked</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-loading">yo-loading</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-loadtip">yo-loadtip</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-range">yo-range</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-switch">yo-switch</a>
+                                    </li>
+                                
+                                </ul>
+                                            
+                                <!-- <li  > -->
+                                <li >
+                                    
+                                    <a href="#fragment">fragment</a> 
+                                </li>
+                                   
+                                <ul class="nav docs-sidenav-extend"  >
+                                
+                                    <li >
+                                        <a href="#yo-actionsheet">yo-actionsheet</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-breadcrumb">yo-breadcrumb</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-calendar">yo-calendar</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-card">yo-card</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-carousel">yo-carousel</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-dialog">yo-dialog</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-group">yo-group</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-header">yo-header</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-list">yo-list</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-modal">yo-modal</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-number">yo-number</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-picker">yo-picker</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-popup">yo-popup</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-proportion">yo-proportion</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-rating">yo-rating</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-search">yo-search</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-suggest">yo-suggest</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-swipemenu">yo-swipemenu</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-tab">yo-tab</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-table">yo-table</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-timeline">yo-timeline</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-toast">yo-toast</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-toolbar">yo-toolbar</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-vcode">yo-vcode</a>
+                                    </li>
+                                
+                                </ul>
+                                            
+                                <!-- <li  > -->
+                                <li >
+                                    
+                                    <a href="#layout">layout</a> 
+                                </li>
+                                   
+                                <ul class="nav docs-sidenav-extend"  >
+                                
+                                    <li >
+                                        <a href="#yo-align">yo-align</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-column">yo-column</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-flex">yo-flex</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#yo-root">yo-root</a>
+                                    </li>
+                                 
+                                </ul>
+                                  
+                            </ul>
+                        </nav>
+                    </div>
+                    
+                    <div class="content-right markdown-body " role="main">
+
+                         <div class="docs-section">
     
-    <h2 id="element" class="page-header">element</h2>
+    <h2 id="element" class="page-header subject">element<a class="hashlink" href="#element">#</a></h2>
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="yo-badge">
-                yo-badge
+            <h3 id="yo-badge" class="subject">
+                yo-badge( )
+                <span class="ui-badge">3.0.0</span>
+                <a class="hashlink" href="#yo-badge">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             构造提醒气泡的自定义使用方法，可以扩展为：tag,文字ico等形态
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -552,20 +382,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="yo-btn">
-                yo-btn
+            <h3 id="yo-btn" class="subject">
+                yo-btn( )
+                <span class="ui-badge">3.0.0</span>
+                <a class="hashlink" href="#yo-btn">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             构造按钮的自定义使用方法，勿使用`input`标签，因为边框为`::after`实现
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -695,20 +521,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="yo-checked">
-                yo-checked
+            <h3 id="yo-checked" class="subject">
+                yo-checked( )
+                <span class="ui-badge">3.0.0</span>
+                <a class="hashlink" href="#yo-checked">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             构造单选多选的自定义使用方法，可同时作用于 checkbox 与 radio
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -831,20 +653,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="yo-loading">
-                yo-loading
+            <h3 id="yo-loading" class="subject">
+                yo-loading( )
+                <span class="ui-badge">3.0.0</span>
+                <a class="hashlink" href="#yo-loading">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             构造加载中的自定义使用方法
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -932,20 +750,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="yo-loadtip">
-                yo-loadtip
+            <h3 id="yo-loadtip" class="subject">
+                yo-loadtip( )
+                <span class="ui-badge">3.0.0</span>
+                <a class="hashlink" href="#yo-loadtip">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             构造加载提示的自定义使用方法
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -1012,20 +826,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="yo-range">
-                yo-range
+            <h3 id="yo-range" class="subject">
+                yo-range( )
+                <span class="ui-badge">3.0.0</span>
+                <a class="hashlink" href="#yo-range">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             构造区间选择的自定义使用方法
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -1113,20 +923,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="yo-switch">
-                yo-switch
+            <h3 id="yo-switch" class="subject">
+                yo-switch( )
+                <span class="ui-badge">3.0.0</span>
+                <a class="hashlink" href="#yo-switch">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             构造yo-switch的自定义使用方法
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -1199,24 +1005,20 @@
     </div>
     
     
-    <h2 id="fragment" class="page-header">fragment</h2>
+    <h2 id="fragment" class="page-header subject">fragment<a class="hashlink" href="#fragment">#</a></h2>
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="yo-actionsheet">
-                yo-actionsheet
+            <h3 id="yo-actionsheet" class="subject">
+                yo-actionsheet( )
+                <span class="ui-badge">3.0.0</span>
+                <a class="hashlink" href="#yo-actionsheet">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             构造actionsheet的自定义使用方法
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -1325,20 +1127,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="yo-breadcrumb">
-                yo-breadcrumb
+            <h3 id="yo-breadcrumb" class="subject">
+                yo-breadcrumb( )
+                <span class="ui-badge">3.0.0</span>
+                <a class="hashlink" href="#yo-breadcrumb">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             构造面包屑的自定义使用方法
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -1426,20 +1224,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="yo-calendar">
-                yo-calendar
+            <h3 id="yo-calendar" class="subject">
+                yo-calendar( )
+                <span class="ui-badge">3.0.0</span>
+                <a class="hashlink" href="#yo-calendar">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             构造yo-calendar的自定义使用方法
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -1611,20 +1405,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="yo-card">
-                yo-card
+            <h3 id="yo-card" class="subject">
+                yo-card( )
+                <span class="ui-badge">3.0.0</span>
+                <a class="hashlink" href="#yo-card">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             构造卡片的自定义使用方法
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -1747,20 +1537,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="yo-carousel">
-                yo-carousel
+            <h3 id="yo-carousel" class="subject">
+                yo-carousel( )
+                <span class="ui-badge">3.0.0</span>
+                <a class="hashlink" href="#yo-carousel">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             构造yo-carousel的自定义使用方法
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -1862,20 +1648,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="yo-dialog">
-                yo-dialog
+            <h3 id="yo-dialog" class="subject">
+                yo-dialog( )
+                <span class="ui-badge">3.0.0</span>
+                <a class="hashlink" href="#yo-dialog">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             构造yo-dialog的自定义使用方法
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -1977,20 +1759,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="yo-group">
-                yo-group
+            <h3 id="yo-group" class="subject">
+                yo-group( )
+                <span class="ui-badge">3.0.0</span>
+                <a class="hashlink" href="#yo-group">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             构造yo-group自定义使用方法
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -2085,20 +1863,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="yo-header">
-                yo-header
+            <h3 id="yo-header" class="subject">
+                yo-header( )
+                <span class="ui-badge">3.0.0</span>
+                <a class="hashlink" href="#yo-header">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             构造头的自定义使用方法
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -2228,20 +2002,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="yo-list">
-                yo-list
+            <h3 id="yo-list" class="subject">
+                yo-list( )
+                <span class="ui-badge">3.0.0</span>
+                <a class="hashlink" href="#yo-list">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             构造列表的自定义使用方法
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -2406,20 +2176,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="yo-modal">
-                yo-modal
+            <h3 id="yo-modal" class="subject">
+                yo-modal( )
+                <span class="ui-badge">3.0.0</span>
+                <a class="hashlink" href="#yo-modal">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             构造yo-modal的自定义使用方法
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -2479,20 +2245,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="yo-number">
-                yo-number
+            <h3 id="yo-number" class="subject">
+                yo-number( )
+                <span class="ui-badge">3.0.0</span>
+                <a class="hashlink" href="#yo-number">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             构造列表的自定义使用方法
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -2610,20 +2372,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="yo-picker">
-                yo-picker
+            <h3 id="yo-picker" class="subject">
+                yo-picker( )
+                <span class="ui-badge">3.0.0</span>
+                <a class="hashlink" href="#yo-picker">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             构造yo-picker的自定义使用方法
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -2690,20 +2448,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="yo-popup">
-                yo-popup
+            <h3 id="yo-popup" class="subject">
+                yo-popup( )
+                <span class="ui-badge">3.0.2</span>
+                <a class="hashlink" href="#yo-popup">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             浮层的自定义使用方法
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            3.0.2
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -2763,20 +2517,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="yo-proportion">
-                yo-proportion
+            <h3 id="yo-proportion" class="subject">
+                yo-proportion( )
+                <span class="ui-badge">3.0.0</span>
+                <a class="hashlink" href="#yo-proportion">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             构造比例条的自定义使用方法
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -2871,20 +2621,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="yo-rating">
-                yo-rating
+            <h3 id="yo-rating" class="subject">
+                yo-rating( )
+                <span class="ui-badge">3.0.0</span>
+                <a class="hashlink" href="#yo-rating">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             构造yo-rating的自定义使用方法
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -2958,26 +2704,22 @@
             <small class="text-muted">示例:</small>
         </p>
         <pre class="ydoc-example" ><code>假设你需要只读状态，可以这样：
-&lt;div class="yo-rating yo-rating-readonly"&gt;...&lt;/div&gt;</code></pre>
+<span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"yo-rating yo-rating-readonly"</span><span class="token operator">></span><span class="token operator">...</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span></code></pre>
         
     </div>
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="yo-search">
-                yo-search
+            <h3 id="yo-search" class="subject">
+                yo-search( )
+                <span class="ui-badge">3.0.0</span>
+                <a class="hashlink" href="#yo-search">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             构造搜索框的自定义使用方法
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -3107,20 +2849,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="yo-suggest">
-                yo-suggest
+            <h3 id="yo-suggest" class="subject">
+                yo-suggest( )
+                <span class="ui-badge">3.0.0</span>
+                <a class="hashlink" href="#yo-suggest">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             构造yo-suggest的自定义使用方法
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -3278,20 +3016,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="yo-swipemenu">
-                yo-swipemenu
+            <h3 id="yo-swipemenu" class="subject">
+                yo-swipemenu( )
+                <span class="ui-badge">3.0.0</span>
+                <a class="hashlink" href="#yo-swipemenu">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             构造yo-swipemenu的自定义使用方法
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -3372,20 +3106,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="yo-tab">
-                yo-tab
+            <h3 id="yo-tab" class="subject">
+                yo-tab( )
+                <span class="ui-badge">3.0.0</span>
+                <a class="hashlink" href="#yo-tab">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             构造列表的自定义使用方法
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -3536,20 +3266,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="yo-table">
-                yo-table
+            <h3 id="yo-table" class="subject">
+                yo-table( )
+                <span class="ui-badge">3.0.0</span>
+                <a class="hashlink" href="#yo-table">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             构造表格的自定义使用方法
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -3665,20 +3391,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="yo-timeline">
-                yo-timeline
+            <h3 id="yo-timeline" class="subject">
+                yo-timeline( )
+                <span class="ui-badge">3.0.7</span>
+                <a class="hashlink" href="#yo-timeline">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             时间轴的自定义使用方法
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            3.0.7
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -3815,20 +3537,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="yo-toast">
-                yo-toast
+            <h3 id="yo-toast" class="subject">
+                yo-toast( )
+                <span class="ui-badge">3.0.0</span>
+                <a class="hashlink" href="#yo-toast">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             构造列表的自定义使用方法
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -3902,20 +3620,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="yo-toolbar">
-                yo-toolbar
+            <h3 id="yo-toolbar" class="subject">
+                yo-toolbar( )
+                <span class="ui-badge">3.0.0</span>
+                <a class="hashlink" href="#yo-toolbar">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             构造工具条的自定义使用方法
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -4038,20 +3752,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="yo-vcode">
-                yo-vcode
+            <h3 id="yo-vcode" class="subject">
+                yo-vcode( )
+                <span class="ui-badge">3.0.0</span>
+                <a class="hashlink" href="#yo-vcode">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             构造验证码/密码输入框的自定义使用方法
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -4138,24 +3848,20 @@
     </div>
     
     
-    <h2 id="layout" class="page-header">layout</h2>
+    <h2 id="layout" class="page-header subject">layout<a class="hashlink" href="#layout">#</a></h2>
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="yo-align">
-                yo-align
+            <h3 id="yo-align" class="subject">
+                yo-align( )
+                <span class="ui-badge">3.0.0</span>
+                <a class="hashlink" href="#yo-align">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             构造弹性布局内容对齐使用方法，可以是横向和纵向
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -4215,20 +3921,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="yo-column">
-                yo-column
+            <h3 id="yo-column" class="subject">
+                yo-column( )
+                <span class="ui-badge">3.0.0</span>
+                <a class="hashlink" href="#yo-column">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             构造弹性布局使用方法，可以是横向和纵向
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -4281,20 +3983,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="yo-flex">
-                yo-flex
+            <h3 id="yo-flex" class="subject">
+                yo-flex( )
+                <span class="ui-badge">3.0.0</span>
+                <a class="hashlink" href="#yo-flex">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             构造弹性布局使用方法，可以是横向和纵向
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -4347,20 +4045,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="yo-root">
-                yo-root
+            <h3 id="yo-root" class="subject">
+                yo-root( )
+                <span class="ui-badge">3.0.0</span>
+                <a class="hashlink" href="#yo-root">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             构造页面中的根节点布局，默认为全屏
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -4414,39 +4108,31 @@
     
 </div>
 
-              </div>
-          </div>
-          
-        
-      </div>
-     
-     </div>
-     
-      <footer class="footer">
-        <div class="copyright">
-            &copy; 2017 <a href="https://github.com/YMFE">YMFE</a> Team. Build by <a href="https://github.com/YMFE/ydoc">ydoc</a>.
+                    </div>
+                </div>
+                 
+            </div>
+            
         </div>
-      </footer>
+        
+        <footer class="footer">
+            <div class="copyright">
+                &copy; 2017 <a href="https://github.com/YMFE">YMFE</a> Team. Build by <a href="https://github.com/YMFE/ydoc">ydoc</a>.
+            </div>
+        </footer>
     </div>
 
     
-       <div class="open-panel"></div>
-    
-    
+    <div class="open-panel"></div>
+    <div class="mask"></div>
+     
 
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
-    
-    
+         
+    <script type="text/javascript" src="./theme/ydoc.js"></script>
+     
 
-    
+    </body>
 
-    
-    
-      
-      <script type="text/javascript" src="./theme/ydoc.js"></script>
-      
-    
-
-</body>
 </html>

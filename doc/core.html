@@ -1,722 +1,451 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-  <meta name="format-detection" content="telephone=no,email=no" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
-  <meta name="description" content="description of your site">
-  <meta name="author" content="author of the site">
-  <title>Yo Documentation 核心</title>
-  <link rel="stylesheet" href="source/main.css"/>
-  
-  
-    
-        <link rel="stylesheet" href="./theme/ydoc.css"/>
-    
-  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no,email=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+    <meta name="description" content="description of your site">
+    <meta name="author" content="author of the site">
+    <title>Yo Documentation 核心</title>
+    <link rel="stylesheet" href="source/main.css" />   
+    <link rel="stylesheet" href="./theme/ydoc.css" />  
 </head>
 <body class=core >
     <div class="ydoc">
-      <header class="ydoc-header">
-        <div class="ydoc-header-area">
-            
-            <a href="http://ued.qunar.com/ymfe/" class="navbar-brand">YMFE</a>
-            
-            <button class="ydocIcon navbar-toggle">&#xf020;</button>
-            <nav class="ydoc-nav">
-              <ul class="navbar-left">
+        <header class="ydoc-header">
+            <div class="ydoc-header-area">
                 
-                    
-                    <li class="">
-                        
-                        <a href="index.html">Yo</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="getting-started.html">起步</a>
-                        
-                    </li>
-                    
-                    <li class="active">
-                        
-                        <a href="core.html">核心</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="element.html">元件</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="component.html">组件</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="animate.html">动画</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="http://ued.qunar.com/hy2/yo-router" target="_blank">Router</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="changelog.html">版本</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="http://ued.qunar.com/hy2/yo/demo/src/html/index.html" target="_blank">示例</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="https://github.com/doyoe/Yo" target="_blank">Github</a>
-                        
-                    </li>
-                    
+                <a href="http://ued.qunar.com/ymfe/" class="navbar-brand">YMFE</a>
                 
-              </ul>
-            </nav>
-        </div>
-    </header>
-    
-    <!-- <header style="height:20px"></header> -->
-    
-      <!-- Docs page layout -->
-      
-      <div class="ydoc-banner-bg">
-          <div class="ydoc-banner">
-              <div class="ydoc-banner-area">
-                  <h1>核心</h1>
-                  <p>Yo 提供了非常多的方法，以供大家方便的实现某些常用的功能，比如处理厂商前缀，1像素边框，响应式等。同时，Yo 还为 sass List 扩展了更多的函数，大家可以更方便的操作 List 了。</p>
-              </div>
-          </div>
-      
-
-      <div class="ydoc-container">
-        
-          
-          <div class="ydoc-container-content">
-              <div class="content-left" role="complementary">
-                  <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
-                    <ul class="nav docs-sidenav">
-                        
-                        
-                        <!-- <li  > -->
-                        <li >
+                <button class="ydocIcon navbar-toggle">&#xf020;</button>
+                <nav class="ydoc-nav">
+                    <ul class="navbar-left">
+                         
+                        <li class="">
                             
-                            <a href="#常用方法">常用方法</a>
-                            
+                            <a href="index.html">Yo</a> 
                         </li>
                         
-                        
-                        
-                        
-                        <ul class="nav docs-sidenav-extend"  >
-                        
-                            <li >
-                                <a href="#align">align</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#calc">calc</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#clearfix">clearfix</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#clearspace">clearspace</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#fullscreen">fullscreen</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#overflow">overflow</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#responsive">responsive</a>
-                            </li>
-                        
-                        </ul>
-                        
-                        
-                        
-                        
-                        <!-- <li  > -->
-                        <li >
+                        <li class="">
                             
-                            <a href="#Animation">Animation</a>
-                            
+                            <a href="getting-started.html">起步</a> 
                         </li>
                         
-                        
-                        
-                        
-                        <ul class="nav docs-sidenav-extend"  >
-                        
-                            <li >
-                                <a href="#animation">animation</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#animation-name">animation-name</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#animation-duration">animation-duration</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#animation-timing-function">animation-timing-function</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#animation-delay">animation-delay</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#animation-iteration-count">animation-iteration-count</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#animation-direction">animation-direction</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#animation-play-state">animation-play-state</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#animation-fill-mode">animation-fill-mode</a>
-                            </li>
-                        
-                        </ul>
-                        
-                        
-                        
-                        
-                        <!-- <li  > -->
-                        <li >
+                        <li class="active">
                             
-                            <a href="#背景与边框">背景与边框</a>
-                            
+                            <a href="core.html">核心</a> 
                         </li>
                         
-                        
-                        
-                        
-                        <ul class="nav docs-sidenav-extend"  >
-                        
-                            <li >
-                                <a href="#gradient">gradient</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#background-size">background-size</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#background-clip">background-clip</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#background-origin">background-origin</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#border-radius">border-radius</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#border">border</a>
-                            </li>
-                        
-                        </ul>
-                        
-                        
-                        
-                        
-                        <!-- <li  > -->
-                        <li >
+                        <li class="">
                             
-                            <a href="#Flexbox">Flexbox</a>
-                            
+                            <a href="element.html">元件</a> 
                         </li>
                         
-                        
-                        
-                        
-                        <ul class="nav docs-sidenav-extend"  >
-                        
-                            <li >
-                                <a href="#flexbox">flexbox</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#flex">flex</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#order">order</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#flex-flow">flex-flow</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#flex-direction">flex-direction</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#flex-wrap">flex-wrap</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#justify-content">justify-content</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#align-content">align-content</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#align-items">align-items</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#align-self">align-self</a>
-                            </li>
-                        
-                        </ul>
-                        
-                        
-                        
-                        
-                        <!-- <li  > -->
-                        <li >
+                        <li class="">
                             
-                            <a href="#形状">形状</a>
-                            
+                            <a href="component.html">组件</a> 
                         </li>
                         
-                        
-                        
-                        
-                        <ul class="nav docs-sidenav-extend"  >
-                        
-                            <li >
-                                <a href="#rect">rect</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#square">square</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#circle">circle</a>
-                            </li>
-                        
-                        </ul>
-                        
-                        
-                        
-                        
-                        <!-- <li  > -->
-                        <li >
+                        <li class="">
                             
-                            <a href="#文本">文本</a>
-                            
+                            <a href="animate.html">动画</a> 
                         </li>
                         
-                        
-                        
-                        
-                        <ul class="nav docs-sidenav-extend"  >
-                        
-                            <li >
-                                <a href="#link">link</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#wrap">wrap</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#ellipsis">ellipsis</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#texthide">texthide</a>
-                            </li>
-                        
-                        </ul>
-                        
-                        
-                        
-                        
-                        <!-- <li  > -->
-                        <li >
+                        <li class="">
                             
-                            <a href="#Transform">Transform</a>
-                            
+                            <a href="http://ued.qunar.com/hy2/yo-router" target="_blank">Router</a> 
                         </li>
                         
-                        
-                        
-                        
-                        <ul class="nav docs-sidenav-extend"  >
-                        
-                            <li >
-                                <a href="#transform">transform</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#transform-origin">transform-origin</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#transform-style">transform-style</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#perspective">perspective</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#perspective-origin">perspective-origin</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#backface-visibility">backface-visibility</a>
-                            </li>
-                        
-                        </ul>
-                        
-                        
-                        
-                        
-                        <!-- <li  > -->
-                        <li >
+                        <li class="">
                             
-                            <a href="#Transition">Transition</a>
-                            
+                            <a href="changelog.html">版本</a> 
                         </li>
                         
-                        
-                        
-                        
-                        <ul class="nav docs-sidenav-extend"  >
-                        
-                            <li >
-                                <a href="#transition">transition</a>
-                            </li>
-                        
-                        </ul>
-                        
-                        
-                        
-                        
-                        <!-- <li  > -->
-                        <li >
+                        <li class="">
                             
-                            <a href="#用户界面">用户界面</a>
-                            
+                            <a href="http://ued.qunar.com/hy2/yo/demo/src/html/index.html" target="_blank">示例</a> 
                         </li>
-                        
-                        
-                        
-                        
-                        <ul class="nav docs-sidenav-extend"  >
-                        
-                            <li >
-                                <a href="#filter">filter</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#appearance">appearance</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#user-select">user-select</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#box-sizing">box-sizing</a>
-                            </li>
-                        
-                        </ul>
-                        
-                        
-                        
-                        
-                        <!-- <li  > -->
-                        <li >
-                            
-                            <a href="#List扩展函数">List扩展函数</a>
-                            
-                        </li>
-                        
-                        
-                        
-                        
-                        <ul class="nav docs-sidenav-extend"  >
-                        
-                            <li >
-                                <a href="#first">first</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#last">last</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#nth-last">nth-last</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#remove">remove</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#slice">slice</a>
-                            </li>
-                        
-                        
-                        
-                        
-                        
-                            <li >
-                                <a href="#splice">splice</a>
-                            </li>
-                        
-                        
-                        
+                         
                     </ul>
-                  </nav>
-              </div>
-              <div class="content-right markdown-body" role="main">
+                </nav>
+            </div>
+        </header>
+        
+        <!-- <header style="height:20px"></header> -->
+        
+        <!-- Docs page layout -->
+        
+        <div class="ydoc-banner-bg">
+            <div class="ydoc-banner ">
+                <div class="ydoc-banner-area">
+                    <h1 >核心</h1>
+                    <p class="desc ">Yo 提供了非常多的方法，以供大家方便的实现某些常用的功能，比如处理厂商前缀，1像素边框，响应式等。同时，Yo 还为 sass List 扩展了更多的函数，大家可以更方便的操作 List 了。</p>
+                    
+                </div>
+            </div>
+            
 
-                
-                <div class="docs-section">
+            <div class="ydoc-container">
+                 
+                <div class="ydoc-container-content">
+                    
+                    
+                    <div class="content-left staticsidenav" role="complementary">
+                        <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
+                            <ul class="nav docs-sidenav">
+                                 
+                                <!-- <li  > -->
+                                <li >
+                                    
+                                    <a href="#常用方法">常用方法</a> 
+                                </li>
+                                   
+                                <ul class="nav docs-sidenav-extend"  >
+                                
+                                    <li >
+                                        <a href="#align">align</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#calc">calc</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#clearfix">clearfix</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#clearspace">clearspace</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#fixed-scale">fixed-scale</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#fullscreen">fullscreen</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#overflow">overflow</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#responsive">responsive</a>
+                                    </li>
+                                
+                                </ul>
+                                            
+                                <!-- <li  > -->
+                                <li >
+                                    
+                                    <a href="#Animation">Animation</a> 
+                                </li>
+                                   
+                                <ul class="nav docs-sidenav-extend"  >
+                                
+                                    <li >
+                                        <a href="#animation">animation</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#animation-name">animation-name</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#animation-duration">animation-duration</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#animation-timing-function">animation-timing-function</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#animation-delay">animation-delay</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#animation-iteration-count">animation-iteration-count</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#animation-direction">animation-direction</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#animation-play-state">animation-play-state</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#animation-fill-mode">animation-fill-mode</a>
+                                    </li>
+                                
+                                </ul>
+                                            
+                                <!-- <li  > -->
+                                <li >
+                                    
+                                    <a href="#背景与边框">背景与边框</a> 
+                                </li>
+                                   
+                                <ul class="nav docs-sidenav-extend"  >
+                                
+                                    <li >
+                                        <a href="#gradient">gradient</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#background-size">background-size</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#background-clip">background-clip</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#background-origin">background-origin</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#border-radius">border-radius</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#border">border</a>
+                                    </li>
+                                
+                                </ul>
+                                            
+                                <!-- <li  > -->
+                                <li >
+                                    
+                                    <a href="#Flexbox">Flexbox</a> 
+                                </li>
+                                   
+                                <ul class="nav docs-sidenav-extend"  >
+                                
+                                    <li >
+                                        <a href="#flexbox">flexbox</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#flex">flex</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#order">order</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#flex-flow">flex-flow</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#flex-direction">flex-direction</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#flex-wrap">flex-wrap</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#justify-content">justify-content</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#align-content">align-content</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#align-items">align-items</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#align-self">align-self</a>
+                                    </li>
+                                
+                                </ul>
+                                            
+                                <!-- <li  > -->
+                                <li >
+                                    
+                                    <a href="#形状">形状</a> 
+                                </li>
+                                   
+                                <ul class="nav docs-sidenav-extend"  >
+                                
+                                    <li >
+                                        <a href="#rect">rect</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#square">square</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#circle">circle</a>
+                                    </li>
+                                
+                                </ul>
+                                            
+                                <!-- <li  > -->
+                                <li >
+                                    
+                                    <a href="#文本">文本</a> 
+                                </li>
+                                   
+                                <ul class="nav docs-sidenav-extend"  >
+                                
+                                    <li >
+                                        <a href="#link">link</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#wrap">wrap</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#ellipsis">ellipsis</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#texthide">texthide</a>
+                                    </li>
+                                
+                                </ul>
+                                            
+                                <!-- <li  > -->
+                                <li >
+                                    
+                                    <a href="#Transform">Transform</a> 
+                                </li>
+                                   
+                                <ul class="nav docs-sidenav-extend"  >
+                                
+                                    <li >
+                                        <a href="#transform">transform</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#transform-origin">transform-origin</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#transform-style">transform-style</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#perspective">perspective</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#perspective-origin">perspective-origin</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#backface-visibility">backface-visibility</a>
+                                    </li>
+                                
+                                </ul>
+                                            
+                                <!-- <li  > -->
+                                <li >
+                                    
+                                    <a href="#Transition">Transition</a> 
+                                </li>
+                                   
+                                <ul class="nav docs-sidenav-extend"  >
+                                
+                                    <li >
+                                        <a href="#transition">transition</a>
+                                    </li>
+                                
+                                </ul>
+                                            
+                                <!-- <li  > -->
+                                <li >
+                                    
+                                    <a href="#用户界面">用户界面</a> 
+                                </li>
+                                   
+                                <ul class="nav docs-sidenav-extend"  >
+                                
+                                    <li >
+                                        <a href="#filter">filter</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#appearance">appearance</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#user-select">user-select</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#box-sizing">box-sizing</a>
+                                    </li>
+                                
+                                </ul>
+                                            
+                                <!-- <li  > -->
+                                <li >
+                                    
+                                    <a href="#List扩展函数">List扩展函数</a> 
+                                </li>
+                                   
+                                <ul class="nav docs-sidenav-extend"  >
+                                
+                                    <li >
+                                        <a href="#first">first</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#last">last</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#nth-last">nth-last</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#remove">remove</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#slice">slice</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#splice">splice</a>
+                                    </li>
+                                 
+                                </ul>
+                                  
+                            </ul>
+                        </nav>
+                    </div>
+                    
+                    <div class="content-right markdown-body " role="main">
+
+                         <div class="docs-section">
     
-    <h2 id="常用方法" class="page-header">常用方法</h2>
+    <h2 id="常用方法" class="page-header subject">常用方法<a class="hashlink" href="#常用方法">#</a></h2>
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="align">
-                align
+            <h3 id="align" class="subject">
+                align( )
+                <span class="ui-badge">2.0.0</span>
+                <a class="hashlink" href="#align">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             描述元素内容在横、纵方向上的对齐方式，默认为水平垂直居中对齐
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            2.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -770,32 +499,28 @@
         <p>
             <small class="text-muted">示例:</small>
         </p>
-        <pre class="ydoc-example" ><code>.demo {
-    @include align;
-}
+        <pre class="ydoc-example" ><code><span class="token punctuation">.</span>demo <span class="token punctuation">{</span>
+    @include align<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-&lt;div class="demo"&gt;
-     &lt;img alt="未知尺寸图片居中" /&gt;
-&lt;/div&gt;</code></pre>
+<span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"demo"</span><span class="token operator">></span>
+     <span class="token operator">&lt;</span>img alt<span class="token operator">=</span><span class="token string">"未知尺寸图片居中"</span> <span class="token operator">/</span><span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span></code></pre>
         
     </div>
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="calc">
-                calc
+            <h3 id="calc" class="subject">
+                calc( )
+                <span class="ui-badge">1.7.0</span>
+                <a class="hashlink" href="#calc">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             四则运算(系统要求：iOS6.0+,Android4.4+)
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            1.7.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -842,30 +567,26 @@
         <p>
             <small class="text-muted">示例:</small>
         </p>
-        <pre class="ydoc-example" ><code>.calc {
-    @include calc(width, "100% - 100px");
-}
+        <pre class="ydoc-example" ><code><span class="token punctuation">.</span>calc <span class="token punctuation">{</span>
+    @include <span class="token function">calc</span><span class="token punctuation">(</span>width<span class="token punctuation">,</span> <span class="token string">"100% - 100px"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-&lt;div class="calc"&gt;四则运算&lt;/div&gt;</code></pre>
+<span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"calc"</span><span class="token operator">></span>四则运算<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span></code></pre>
         
     </div>
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="clearfix">
-                clearfix
+            <h3 id="clearfix" class="subject">
+                clearfix( )
+                <span class="ui-badge">1.0.0</span>
+                <a class="hashlink" href="#clearfix">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             清除浮动方案
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            1.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -906,20 +627,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="clearspace">
-                clearspace
+            <h3 id="clearspace" class="subject">
+                clearspace( )
+                <span class="ui-badge">3.0.3</span>
+                <a class="hashlink" href="#clearspace">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             清除行内级元素间间隙方案
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            3.0.3
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -959,34 +676,87 @@
         <p>
             <small class="text-muted">示例:</small>
         </p>
-        <pre class="ydoc-example" ><code>.demo {
-    @include clearspace;
-}
+        <pre class="ydoc-example" ><code><span class="token punctuation">.</span>demo <span class="token punctuation">{</span>
+    @include clearspace<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-&lt;div class="demo"&gt;
-     &lt;span class="item"&gt;1&lt;/span&gt;
-     &lt;span class="item"&gt;2&lt;/span&gt;
-     &lt;span class="item"&gt;3&lt;/span&gt;
-&lt;/div&gt;</code></pre>
+<span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"demo"</span><span class="token operator">></span>
+     <span class="token operator">&lt;</span>span <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"item"</span><span class="token operator">></span><span class="token number">1</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
+     <span class="token operator">&lt;</span>span <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"item"</span><span class="token operator">></span><span class="token number">2</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
+     <span class="token operator">&lt;</span>span <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"item"</span><span class="token operator">></span><span class="token number">3</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span></code></pre>
         
     </div>
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="fullscreen">
-                fullscreen
+            <h3 id="fixed-scale" class="subject">
+                fixed-scale( )
+                <span class="ui-badge">3.0.10</span>
+                <a class="hashlink" href="#fixed-scale">#</a>
+            </h3>
+        </blockquote>
+        <p>
+            <small class="text-muted">描述:</small>
+            在自适应宽度情况下，确保内容元素的宽高比固定，比如：实现随屏幕大小而变化的正方形。
+        </p>
+        
+        <p>
+            <small class="text-muted">源码位置:</small>
+            <a href="./static/style/lib/core/classes/_fixed-scale.scss.html#1" target="_blank">./style/lib/core/classes/_fixed-scale.scss:1</a>
+        </p>
+        
+        
+        
+         <div class="docs-table">
+            <table class="yo-table yo-table-border">
+                <colgroup>
+                    <col class="c1">
+                    <col class="c2">
+                    <col class="c3">
+                    <col class="c4">
+                </colgroup>
+                <thead>
+                    <tr class="active">
+                        <th>参数名</th>
+                        <th>类型</th>
+                        <th>描述</th>
+                        <th>支持版本</th>
+                    </tr>
+                </thead>
+                
+                <tr>
+                    <td>$width</td>
+                    <td>Length</td>
+                    <td>默认值：100%。用以指定内容元素的初始宽度，由于尺寸需动态变化，不要使用固定单位 </td>
+                    <td>3.0.10</td>
+                </tr>
+                
+                <tr>
+                    <td>$scale</td>
+                    <td>Length</td>
+                    <td>默认值：1/1，即正方形。用以指定内容元素的宽度高比 </td>
+                    <td>3.0.10</td>
+                </tr>
+                
+            </table>
+        </div>
+        
+        
+    </div>
+    
+    <div class="con-list-item">
+        <blockquote class="api">
+            <h3 id="fullscreen" class="subject">
+                fullscreen( )
+                <span class="ui-badge">1.7.0</span>
+                <a class="hashlink" href="#fullscreen">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             生成全屏方法
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            1.7.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -1034,20 +804,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="overflow">
-                overflow
+            <h3 id="overflow" class="subject">
+                overflow( )
+                <span class="ui-badge">1.0.0</span>
+                <a class="hashlink" href="#overflow">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             定义是否有滚动条
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            1.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -1088,20 +854,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="responsive">
-                responsive
+            <h3 id="responsive" class="subject">
+                responsive( )
+                <span class="ui-badge">1.0.0</span>
+                <a class="hashlink" href="#responsive">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             定义响应式方案
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            1.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -1141,24 +903,20 @@
     </div>
     
     
-    <h2 id="Animation" class="page-header">Animation</h2>
+    <h2 id="Animation" class="page-header subject">Animation<a class="hashlink" href="#Animation">#</a></h2>
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="animation">
-                animation
+            <h3 id="animation" class="subject">
+                animation( )
+                <span class="ui-badge">1.0.0</span>
+                <a class="hashlink" href="#animation">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             定义动画
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            1.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -1199,20 +957,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="animation-name">
-                animation-name
+            <h3 id="animation-name" class="subject">
+                animation-name( )
+                <span class="ui-badge">3.0.0</span>
+                <a class="hashlink" href="#animation-name">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             指定需要引用的动画名称
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -1253,20 +1007,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="animation-duration">
-                animation-duration
+            <h3 id="animation-duration" class="subject">
+                animation-duration( )
+                <span class="ui-badge">3.0.0</span>
+                <a class="hashlink" href="#animation-duration">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             指定动画运行一次所持续的时长
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -1307,20 +1057,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="animation-timing-function">
-                animation-timing-function
+            <h3 id="animation-timing-function" class="subject">
+                animation-timing-function( )
+                <span class="ui-badge">3.0.0</span>
+                <a class="hashlink" href="#animation-timing-function">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             指定动画运行方式
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -1361,20 +1107,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="animation-delay">
-                animation-delay
+            <h3 id="animation-delay" class="subject">
+                animation-delay( )
+                <span class="ui-badge">3.0.0</span>
+                <a class="hashlink" href="#animation-delay">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             指定动画延迟多久之后再开始
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -1415,20 +1157,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="animation-iteration-count">
-                animation-iteration-count
+            <h3 id="animation-iteration-count" class="subject">
+                animation-iteration-count( )
+                <span class="ui-badge">3.0.0</span>
+                <a class="hashlink" href="#animation-iteration-count">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             指定动画循环几次
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -1469,20 +1207,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="animation-direction">
-                animation-direction
+            <h3 id="animation-direction" class="subject">
+                animation-direction( )
+                <span class="ui-badge">3.0.0</span>
+                <a class="hashlink" href="#animation-direction">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             指定动画的运动方向
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -1523,20 +1257,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="animation-play-state">
-                animation-play-state
+            <h3 id="animation-play-state" class="subject">
+                animation-play-state( )
+                <span class="ui-badge">3.0.0</span>
+                <a class="hashlink" href="#animation-play-state">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             指定动画的运动状态
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -1577,20 +1307,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="animation-fill-mode">
-                animation-fill-mode
+            <h3 id="animation-fill-mode" class="subject">
+                animation-fill-mode( )
+                <span class="ui-badge">3.0.0</span>
+                <a class="hashlink" href="#animation-fill-mode">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             指定动画时间之外的状态
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            3.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -1630,24 +1356,20 @@
     </div>
     
     
-    <h2 id="背景与边框" class="page-header">背景与边框</h2>
+    <h2 id="背景与边框" class="page-header subject">背景与边框<a class="hashlink" href="#背景与边框">#</a></h2>
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="gradient">
-                gradient
+            <h3 id="gradient" class="subject">
+                gradient( )
+                <span class="ui-badge">1.0.0</span>
+                <a class="hashlink" href="#gradient">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             定义渐变色值
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            1.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -1702,20 +1424,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="background-size">
-                background-size
+            <h3 id="background-size" class="subject">
+                background-size( )
+                <span class="ui-badge">1.4.0</span>
+                <a class="hashlink" href="#background-size">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             定义背景图像缩放（AndroidBrowser2.3.*还需要厂商前缀）
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            1.4.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -1756,20 +1474,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="background-clip">
-                background-clip
+            <h3 id="background-clip" class="subject">
+                background-clip( )
+                <span class="ui-badge">1.6.0</span>
+                <a class="hashlink" href="#background-clip">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             定义背景裁减（AndroidBrowser2.3.*还需要厂商前缀）
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            1.6.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -1810,20 +1524,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="background-origin">
-                background-origin
+            <h3 id="background-origin" class="subject">
+                background-origin( )
+                <span class="ui-badge">1.6.0</span>
+                <a class="hashlink" href="#background-origin">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             定义背景显示区域（AndroidBrowser2.3.*还需要厂商前缀）
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            1.6.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -1864,20 +1574,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="border-radius">
-                border-radius
+            <h3 id="border-radius" class="subject">
+                border-radius( )
+                <span class="ui-badge">1.6.0</span>
+                <a class="hashlink" href="#border-radius">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             定义圆角，用于修复某些安卓机型上“圆角+边框+背景”，背景溢出的情况
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            1.6.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -1918,20 +1624,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="border">
-                border
+            <h3 id="border" class="subject">
+                border( )
+                <span class="ui-badge">2.0.0</span>
+                <a class="hashlink" href="#border">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             为元素添加边框（包括1px边框）
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            2.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -1992,24 +1694,20 @@
     </div>
     
     
-    <h2 id="Flexbox" class="page-header">Flexbox</h2>
+    <h2 id="Flexbox" class="page-header subject">Flexbox<a class="hashlink" href="#Flexbox">#</a></h2>
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="flexbox">
-                flexbox
+            <h3 id="flexbox" class="subject">
+                flexbox( )
+                <span class="ui-badge">1.0.0</span>
+                <a class="hashlink" href="#flexbox">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             定义显示类型为伸缩盒
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            1.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -2050,20 +1748,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="flex">
-                flex
+            <h3 id="flex" class="subject">
+                flex( )
+                <span class="ui-badge">1.0.0</span>
+                <a class="hashlink" href="#flex">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             定义伸缩盒子元素如何分配空间
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            1.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -2111,20 +1805,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="order">
-                order
+            <h3 id="order" class="subject">
+                order( )
+                <span class="ui-badge">1.0.0</span>
+                <a class="hashlink" href="#order">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             定义伸缩盒子元素的排版顺序
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            1.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -2165,20 +1855,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="flex-flow">
-                flex-flow
+            <h3 id="flex-flow" class="subject">
+                flex-flow( )
+                <span class="ui-badge">2.0.0</span>
+                <a class="hashlink" href="#flex-flow">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             定义弹性盒子元素流动方向及遇见边界时是否换行(要求系统：iOS7.0+, Android4.4+)
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            2.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -2219,20 +1905,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="flex-direction">
-                flex-direction
+            <h3 id="flex-direction" class="subject">
+                flex-direction( )
+                <span class="ui-badge">1.0.0</span>
+                <a class="hashlink" href="#flex-direction">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             定义伸缩盒子元素的流动方向
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            1.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -2273,20 +1955,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="flex-wrap">
-                flex-wrap
+            <h3 id="flex-wrap" class="subject">
+                flex-wrap( )
+                <span class="ui-badge">1.0.0</span>
+                <a class="hashlink" href="#flex-wrap">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             定义弹性盒子元素溢出后排版(要求系统：iOS7.0+, Android4.4+)
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            1.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -2327,20 +2005,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="justify-content">
-                justify-content
+            <h3 id="justify-content" class="subject">
+                justify-content( )
+                <span class="ui-badge">1.0.0</span>
+                <a class="hashlink" href="#justify-content">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             定义弹性容器主轴对齐方式(其中`space-around`值需要iOS7.0+,Android4.4+)
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            1.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -2381,20 +2055,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="align-content">
-                align-content
+            <h3 id="align-content" class="subject">
+                align-content( )
+                <span class="ui-badge">1.8.5</span>
+                <a class="hashlink" href="#align-content">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             定义多行弹性容器侧轴对齐方式(要求系统：iOS7.0+,Android4.4+)
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            1.8.5
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -2435,20 +2105,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="align-items">
-                align-items
+            <h3 id="align-items" class="subject">
+                align-items( )
+                <span class="ui-badge">1.0.0</span>
+                <a class="hashlink" href="#align-items">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             定义单行弹性容器侧轴对齐方式
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            1.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -2489,20 +2155,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="align-self">
-                align-self
+            <h3 id="align-self" class="subject">
+                align-self( )
+                <span class="ui-badge">1.0.0</span>
+                <a class="hashlink" href="#align-self">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             定义弹性容器中子元素自身的在侧轴对齐方式(要求系统：iOS7.0+,Android4.4+)
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            1.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -2542,24 +2204,20 @@
     </div>
     
     
-    <h2 id="形状" class="page-header">形状</h2>
+    <h2 id="形状" class="page-header subject">形状<a class="hashlink" href="#形状">#</a></h2>
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="rect">
-                rect
+            <h3 id="rect" class="subject">
+                rect( )
+                <span class="ui-badge">1.0.0</span>
+                <a class="hashlink" href="#rect">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             生成矩形方法
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            1.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -2607,20 +2265,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="square">
-                square
+            <h3 id="square" class="subject">
+                square( )
+                <span class="ui-badge">1.0.0</span>
+                <a class="hashlink" href="#square">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             生成正方形方法
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            1.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -2661,20 +2315,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="circle">
-                circle
+            <h3 id="circle" class="subject">
+                circle( )
+                <span class="ui-badge">1.0.0</span>
+                <a class="hashlink" href="#circle">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             生成圆形方法
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            1.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -2721,24 +2371,20 @@
     </div>
     
     
-    <h2 id="文本" class="page-header">文本</h2>
+    <h2 id="文本" class="page-header subject">文本<a class="hashlink" href="#文本">#</a></h2>
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="link">
-                link
+            <h3 id="link" class="subject">
+                link( )
+                <span class="ui-badge">1.0.0</span>
+                <a class="hashlink" href="#link">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             链接处理方法
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            1.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -2779,20 +2425,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="wrap">
-                wrap
+            <h3 id="wrap" class="subject">
+                wrap( )
+                <span class="ui-badge">1.0.0</span>
+                <a class="hashlink" href="#wrap">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             文本碰到边界是否换行
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            1.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -2833,20 +2475,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="ellipsis">
-                ellipsis
+            <h3 id="ellipsis" class="subject">
+                ellipsis( )
+                <span class="ui-badge">1.0.0</span>
+                <a class="hashlink" href="#ellipsis">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             单行文本溢出时显示省略号
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            1.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -2894,20 +2532,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="texthide">
-                texthide
+            <h3 id="texthide" class="subject">
+                texthide( )
+                <span class="ui-badge">1.0.0</span>
+                <a class="hashlink" href="#texthide">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             文字隐藏方案
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            1.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -2947,24 +2581,20 @@
     </div>
     
     
-    <h2 id="Transform" class="page-header">Transform</h2>
+    <h2 id="Transform" class="page-header subject">Transform<a class="hashlink" href="#Transform">#</a></h2>
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="transform">
-                transform
+            <h3 id="transform" class="subject">
+                transform( )
+                <span class="ui-badge">1.0.0</span>
+                <a class="hashlink" href="#transform">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             定义简单变换
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            1.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -3005,20 +2635,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="transform-origin">
-                transform-origin
+            <h3 id="transform-origin" class="subject">
+                transform-origin( )
+                <span class="ui-badge">1.0.0</span>
+                <a class="hashlink" href="#transform-origin">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             定义变换原点
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            1.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -3059,20 +2685,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="transform-style">
-                transform-style
+            <h3 id="transform-style" class="subject">
+                transform-style( )
+                <span class="ui-badge">2.0.0</span>
+                <a class="hashlink" href="#transform-style">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             指定某元素的子元素是（看起来）位于三维空间内，还是在该元素所在的平面内被扁平化
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            2.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -3113,20 +2735,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="perspective">
-                perspective
+            <h3 id="perspective" class="subject">
+                perspective( )
+                <span class="ui-badge">2.0.0</span>
+                <a class="hashlink" href="#perspective">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             指定观察者与「z=0」平面的距离，使具有三维位置变换的元素产生透视效果。「z>0」的三维元素比正常大，而「z<0」时则比正常小，大小程度由该属性的值决定。
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            2.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -3167,20 +2785,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="perspective-origin">
-                perspective-origin
+            <h3 id="perspective-origin" class="subject">
+                perspective-origin( )
+                <span class="ui-badge">2.0.0</span>
+                <a class="hashlink" href="#perspective-origin">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             指定透视点的位置
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            2.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -3221,20 +2835,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="backface-visibility">
-                backface-visibility
+            <h3 id="backface-visibility" class="subject">
+                backface-visibility( )
+                <span class="ui-badge">2.0.0</span>
+                <a class="hashlink" href="#backface-visibility">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             指定元素背面面向用户时是否可见
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            2.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -3274,24 +2884,20 @@
     </div>
     
     
-    <h2 id="Transition" class="page-header">Transition</h2>
+    <h2 id="Transition" class="page-header subject">Transition<a class="hashlink" href="#Transition">#</a></h2>
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="transition">
-                transition
+            <h3 id="transition" class="subject">
+                transition( )
+                <span class="ui-badge">1.0.0</span>
+                <a class="hashlink" href="#transition">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             定义补间
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            1.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -3331,24 +2937,20 @@
     </div>
     
     
-    <h2 id="用户界面" class="page-header">用户界面</h2>
+    <h2 id="用户界面" class="page-header subject">用户界面<a class="hashlink" href="#用户界面">#</a></h2>
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="filter">
-                filter
+            <h3 id="filter" class="subject">
+                filter( )
+                <span class="ui-badge">1.7.0</span>
+                <a class="hashlink" href="#filter">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             定义使用何种滤镜
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            1.7.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -3389,20 +2991,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="appearance">
-                appearance
+            <h3 id="appearance" class="subject">
+                appearance( )
+                <span class="ui-badge">1.0.0</span>
+                <a class="hashlink" href="#appearance">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             定义UA默认外观
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            1.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -3443,20 +3041,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="user-select">
-                user-select
+            <h3 id="user-select" class="subject">
+                user-select( )
+                <span class="ui-badge">1.0.0</span>
+                <a class="hashlink" href="#user-select">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             定义如何选中内容
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            1.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -3497,20 +3091,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="box-sizing">
-                box-sizing
+            <h3 id="box-sizing" class="subject">
+                box-sizing( )
+                <span class="ui-badge">1.0.0</span>
+                <a class="hashlink" href="#box-sizing">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             定义盒模型
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            1.0.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -3550,24 +3140,20 @@
     </div>
     
     
-    <h2 id="List扩展函数" class="page-header">List扩展函数</h2>
+    <h2 id="List扩展函数" class="page-header subject">List扩展函数<a class="hashlink" href="#List扩展函数">#</a></h2>
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="first">
-                first
+            <h3 id="first" class="subject">
+                first( )
+                <span class="ui-badge">2.1.0</span>
+                <a class="hashlink" href="#first">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             返回SassList中的第一项
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            2.1.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -3608,20 +3194,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="last">
-                last
+            <h3 id="last" class="subject">
+                last( )
+                <span class="ui-badge">2.1.0</span>
+                <a class="hashlink" href="#last">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             返回SassList中的最后一项
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            2.1.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -3662,20 +3244,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="nth-last">
-                nth-last
+            <h3 id="nth-last" class="subject">
+                nth-last( )
+                <span class="ui-badge">2.1.0</span>
+                <a class="hashlink" href="#nth-last">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             返回SassList中的倒数第几项
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            2.1.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -3723,20 +3301,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="remove">
-                remove
+            <h3 id="remove" class="subject">
+                remove( )
+                <span class="ui-badge">2.1.0</span>
+                <a class="hashlink" href="#remove">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             移除SassList中的某个项目并返回新的List
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            2.1.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -3784,20 +3358,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="slice">
-                slice
+            <h3 id="slice" class="subject">
+                slice( )
+                <span class="ui-badge">2.1.0</span>
+                <a class="hashlink" href="#slice">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             截取SassList中的某个部分并返回新的List
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            2.1.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -3852,20 +3422,16 @@
     
     <div class="con-list-item">
         <blockquote class="api">
-            <h3 id="splice">
-                splice
+            <h3 id="splice" class="subject">
+                splice( )
+                <span class="ui-badge">2.1.0</span>
+                <a class="hashlink" href="#splice">#</a>
             </h3>
         </blockquote>
         <p>
             <small class="text-muted">描述:</small>
             从SassList中添加/删除项目，然后返回新的List。
         </p>
-        
-        <p>
-            <small class="text-muted">版本:</small>
-            2.1.0
-        </p>
-        
         
         <p>
             <small class="text-muted">源码位置:</small>
@@ -3928,39 +3494,31 @@
     
 </div>
 
-              </div>
-          </div>
-          
-        
-      </div>
-     
-     </div>
-     
-      <footer class="footer">
-        <div class="copyright">
-            &copy; 2017 <a href="https://github.com/YMFE">YMFE</a> Team. Build by <a href="https://github.com/YMFE/ydoc">ydoc</a>.
+                    </div>
+                </div>
+                 
+            </div>
+            
         </div>
-      </footer>
+        
+        <footer class="footer">
+            <div class="copyright">
+                &copy; 2017 <a href="https://github.com/YMFE">YMFE</a> Team. Build by <a href="https://github.com/YMFE/ydoc">ydoc</a>.
+            </div>
+        </footer>
     </div>
 
     
-       <div class="open-panel"></div>
-    
-    
+    <div class="open-panel"></div>
+    <div class="mask"></div>
+     
 
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
-    
-    
+         
+    <script type="text/javascript" src="./theme/ydoc.js"></script>
+     
 
-    
+    </body>
 
-    
-    
-      
-      <script type="text/javascript" src="./theme/ydoc.js"></script>
-      
-    
-
-</body>
 </html>
