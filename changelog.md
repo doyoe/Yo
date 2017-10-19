@@ -1,3 +1,8 @@
+## v3.0.13-pure
+
+### New Features:
+* 为 `ellipsis` 方法内置强制换行（当 `$line-clamp` 大于 `1` 时，即多行截断）；
+
 ## v3.0.12-pure（2017.7.14）
 
 [Tagged on Github.](https://github.com/doyoe/Yo/releases/tag/v3.0.12-pure)
