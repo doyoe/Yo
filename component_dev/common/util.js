@@ -176,3 +176,49 @@ export function blur(dom) {
         }
     }
 }
+
+export function isPassive() {
+    let supportsPassiveOption = false;
+    try {
+        addEventListener('test', null, Object.defineProperty({}, 'passive', {
+            get() {
+                supportsPassiveOption = true;
+            }
+        }));
+    } catch (e) { }
+    return supportsPassiveOption;
+}
+
+// 修复一些手机上 blur 行为的 bug，在 touchstart 的时候自动 blur
+export function autoBlur() {
+    // 防止多次调用
+    if (!window.__autoBlur) {
+        window.__autoBlur = true;
+    } else {
+        return;
+    }
+
+    const focusTags = ['INPUT', 'TEXTAREA'];
+    const _contains = document.compareDocumentPosition ?
+        (a, b) => !!(a.compareDocumentPosition(b) & 16) :
+        (a, b) => a !== b && (a.contains ? a.contains(b) : true);
+
+    function _blur(container) {
+        const el = document.activeElement;
+        const _container = container || document.body;
+
+        if (el && _contains(_container, el) && typeof el.blur === 'function') {
+            el.blur();
+        }
+    }
+
+    const passive = isPassive() ? {
+        passive: true
+    } : false;
+
+    document.body.addEventListener('touchstart', e => {
+        if (focusTags.indexOf(e.target.tagName.toUpperCase()) === -1) {
+            _blur();
+        }
+    }, passive);
+}

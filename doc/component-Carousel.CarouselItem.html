@@ -9,8 +9,13 @@
     <meta name="description" content="description of your site">
     <meta name="author" content="author of the site">
     <title>Yo Documentation 组件</title>
-    <link rel="stylesheet" href="source/main.css" />   
-    <link rel="stylesheet" href="./theme/ydoc.css" />  
+    <link rel="stylesheet" href="source/main.css" />
+    
+    
+      
+      <link rel="stylesheet" href="styles/ydoc.css" />
+      
+    
 </head>
 <body class=component-Carousel.CarouselItem >
     <div class="ydoc">
@@ -89,7 +94,7 @@
 
             <div class="ydoc-container">
                  
-                <div class="ydoc-container-content">
+                <div class="ydoc-container-content ">
                     
                     
                     <div class="content-left staticsidenav" role="complementary">
@@ -276,7 +281,7 @@
                         </nav>
                     </div>
                     
-                    <div class="content-right markdown-body " role="main">
+                    <div class="content-right markdown-body use-sidebar" role="main">
 
                          <div class="docs-section">
     <h2 id="Carousel.CarouselItem">
@@ -443,11 +448,11 @@
             <div><p>当所需要的渲染内容不仅仅是一张图片的时候，通过此方法渲染内容，该方法的参数是经过懒加载判断的图片节点。
 <strong> 示例 </strong></p>
 <ul>
-<li><pre><code>dataList<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> index<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+<li><pre><code>dataList<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> index<span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">{</span>
    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>CarouselItem</span>
        <span class="token attr-name">key</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>index <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">}</span></span>
-       <span class="token attr-name">{...item}</span>
-       <span class="token attr-name">renderContent</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>img<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span>
+       <span class="token spread"><span class="token punctuation">{</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token attr-value">item</span><span class="token punctuation">}</span></span>
+       <span class="token attr-name">renderContent</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>img<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span>
            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>unit<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
                <span class="token punctuation">{</span>img<span class="token punctuation">}</span>
                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token punctuation">></span></span>这是第<span class="token punctuation">{</span>index<span class="token punctuation">}</span>张图片<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
@@ -592,7 +597,7 @@
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
          
-    <script type="text/javascript" src="./theme/ydoc.js"></script>
+    <script type="text/javascript" src="scripts/ydoc.js"></script>
      
 
     </body>

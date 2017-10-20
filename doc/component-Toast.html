@@ -9,8 +9,13 @@
     <meta name="description" content="description of your site">
     <meta name="author" content="author of the site">
     <title>Yo Documentation 组件</title>
-    <link rel="stylesheet" href="source/main.css" />   
-    <link rel="stylesheet" href="./theme/ydoc.css" />  
+    <link rel="stylesheet" href="source/main.css" />
+    
+    
+      
+      <link rel="stylesheet" href="styles/ydoc.css" />
+      
+    
 </head>
 <body class=component-Toast >
     <div class="ydoc">
@@ -89,7 +94,7 @@
 
             <div class="ydoc-container">
                  
-                <div class="ydoc-container-content">
+                <div class="ydoc-container-content ">
                     
                     
                     <div class="content-left staticsidenav" role="complementary">
@@ -276,7 +281,7 @@
                         </nav>
                     </div>
                     
-                    <div class="content-right markdown-body " role="main">
+                    <div class="content-right markdown-body use-sidebar" role="main">
 
                          <div class="docs-section">
     <h2 id="Toast">
@@ -318,6 +323,10 @@
 <h4 id="-">立即隐藏</h4>
 <p>立即隐藏显示的内容，支持简单的链式调用。</p>
 <pre><code class="lang-javascript">Toast<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token string">'Toast content'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">hide</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h4 id="-">回调函数</h4>
+<p>通过传入对应的回调函数，组件会在显示、隐藏之后立即调用。<strong>如果连续调用同一个方法，则传入的回调函数也会被执行多次。</strong></p>
+<pre><code class="lang-javascript">Toast<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token string">'callback'</span><span class="token punctuation">,</span> <span class="token number">2000</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'show'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">hide</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'hide'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 
                 </div>
@@ -395,6 +404,16 @@
                     <td></td>
                 </tr>
                 
+                <tr>
+                    <td>callback</td>
+                    <td>Function</td>
+                    <td>内容显示后触发的回调 </td>
+                    <td>
+                        
+                    </td>
+                    <td>3.0.13</td>
+                </tr>
+                
             </table>
         </div>
           
@@ -409,6 +428,40 @@
         </blockquote>
         <div class="api-content"><p>关闭正在显示的组件</p>
 </div>
+        
+        <p class="api-content">
+            <small class="text-muted">方法参数:</small>
+        </p>
+        <div class="docs-table api-content">
+            <table class="yo-table yo-table-border">
+                <colgroup>
+                    <col class="c1">
+                    <col class="c2">
+                    <col class="c3">
+                    <col class="c4">
+                </colgroup>
+                <thead>
+                    <tr class="active">
+                        <th>参数名</th>
+                        <th>类型</th>
+                        <th>描述</th>
+                        <th>必选</th>
+                        <th>支持版本</th>
+                    </tr>
+                </thead>
+                
+                <tr>
+                    <td>callback</td>
+                    <td>Function</td>
+                    <td>内容隐藏后触发的回调 </td>
+                    <td>
+                        
+                    </td>
+                    <td>3.0.13</td>
+                </tr>
+                
+            </table>
+        </div>
           
         
         
@@ -444,7 +497,7 @@
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
          
-    <script type="text/javascript" src="./theme/ydoc.js"></script>
+    <script type="text/javascript" src="scripts/ydoc.js"></script>
      
 
     </body>

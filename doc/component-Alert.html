@@ -9,8 +9,13 @@
     <meta name="description" content="description of your site">
     <meta name="author" content="author of the site">
     <title>Yo Documentation 组件</title>
-    <link rel="stylesheet" href="source/main.css" />   
-    <link rel="stylesheet" href="./theme/ydoc.css" />  
+    <link rel="stylesheet" href="source/main.css" />
+    
+    
+      
+      <link rel="stylesheet" href="styles/ydoc.css" />
+      
+    
 </head>
 <body class=component-Alert >
     <div class="ydoc">
@@ -89,7 +94,7 @@
 
             <div class="ydoc-container">
                  
-                <div class="ydoc-container-content">
+                <div class="ydoc-container-content ">
                     
                     
                     <div class="content-left staticsidenav" role="complementary">
@@ -276,7 +281,7 @@
                         </nav>
                     </div>
                     
-                    <div class="content-right markdown-body " role="main">
+                    <div class="content-right markdown-body use-sidebar" role="main">
 
                          <div class="docs-section">
     <h2 id="Alert">
@@ -325,7 +330,7 @@ option的btnText属性指定了Alert按钮的文本，例如:</p>
 </code></pre><h4 id="-">绑定回调函数</h4>
 <p>通过返回的<code>Promise</code>实例对象的<code>then</code>方法绑定确定按钮的回调函数，点击确定的回调函数参数值是<code>true</code>。</p>
 <pre><code><span class="token function">Alert</span><span class="token punctuation">(</span><span class="token string">'return Promise Object'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>
-    res <span class="token operator">=</span><span class="token operator">></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`resolve </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>res<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span>
+    res <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`resolve </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>res<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><h4 id="-">设置动画</h4>
 <p>通过opt对象的<code>animation</code>参数和CSS3动画可以设置组件显隐过程的动态效果，配置动画对象中的<code>animation</code>属性是一个数组，分别对应组件显、隐过程执行的动画效果，<code>duration</code>属性设置动画执行时间。
@@ -336,7 +341,7 @@ option的btnText属性指定了Alert按钮的文本，例如:</p>
     title<span class="token punctuation">:</span><span class="token string">'Alert'</span><span class="token punctuation">,</span>
     content<span class="token punctuation">:</span><span class="token string">'the alert text'</span><span class="token punctuation">,</span>
     animation
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>res <span class="token operator">=</span><span class="token operator">></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'resolve'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>res <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'resolve'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 </code></pre><pre><code class="lang-css">
 <span class="token selector">.actionsheet-up</span> <span class="token punctuation">{</span>
   <span class="token property">-webkit-animation-name</span><span class="token punctuation">:</span> actionsheet-up<span class="token punctuation">;</span>
@@ -510,7 +515,7 @@ option的btnText属性指定了Alert按钮的文本，例如:</p>
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
          
-    <script type="text/javascript" src="./theme/ydoc.js"></script>
+    <script type="text/javascript" src="scripts/ydoc.js"></script>
      
 
     </body>

@@ -28,3 +28,11 @@ Toast.show('显示3s', 3000);
 ```javascript
 Toast.show('Toast content').hide();
 ```
+
+#### 回调函数
+
+通过传入对应的回调函数，组件会在显示、隐藏之后立即调用。**如果连续调用同一个方法，则传入的回调函数也会被执行多次。**
+
+```javascript
+Toast.show('callback', 2000, () => console.log('show')).hide(() => console.log('hide'));
+```

@@ -9,24 +9,29 @@ import './demo.scss';
 import Immutable from 'immutable';
 
 let guid = -1;
+
 function getImage(url) {
     return `http://himg1.qunarzz.com/imgs/${url}a818.jpg`;
 }
 
-let dataSource = [];
+function getData(num) {
+    let dataSource = [];
 
-for (let i = 0; i < 100; i++) {
-    const item = testData.data.commentList[parseInt(Math.random() * 50, 10)];
-    dataSource.push({
-        nickname: item.nickName,
-        avatar: getImage(item.imgUrl),
-        imageHeight: Math.floor(300 * Math.random()),
-        key: ++guid,
-        color: 'black'
-    });
+    for (let i = 0; i < num; i++) {
+        const item = testData.data.commentList[parseInt(Math.random() * 50, 10)];
+        dataSource.push({
+            nickname: item.nickName,
+            avatar: getImage(item.imgUrl),
+            imageHeight: Math.floor(300 * Math.random()),
+            key: ++guid,
+            color: 'black'
+        });
+    }
+
+    dataSource = Immutable.fromJS(dataSource);
+
+    return dataSource;
 }
-
-dataSource = Immutable.fromJS(dataSource);
 
 const DemoItem = (props) => (
     <div style={{ display: 'block', overflow: 'hidden' }}>
@@ -79,7 +84,7 @@ class ListViewDemo extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            dataSource,
+            dataSource: getData(20),
             infiniteSize: 10,
             infinite: true,
             disabled: true
@@ -113,17 +118,39 @@ class ListViewDemo extends React.Component {
         });
     }
 
+    refresh() {
+        setTimeout(() => {
+            this.setState({
+                dataSource: getData(20)
+            });
+            this.refs.list.stopRefreshing();
+        }, 2000);
+    }
+
+    load() {
+        setTimeout(() => {
+            this.setState({
+                dataSource: this.state.dataSource.concat(getData(20))
+            });
+            this.refs.list.stopLoading();
+        }, 2000);
+    }
+
     render() {
         return (
             <div style={{ height: '100%' }}>
-                <div style={{ position: 'absolute', top: 0, bottom: 0, width: '100%' }}>
+                <div style={{ position: 'absolute', top: 0, bottom: 0, width: '100%', backgroundColor: '#ccc' }}>
                     <ListView
                         staticSection={
-                            <div className="haha" style={{ height: 200 }}>
-                                Heallo
+                            <div className="haha" style={{ height: 30, lineHeight: '30px', backgroundColor: '#00afc7', color: 'white', textAlign: 'center', fontSize: 20 }}>
+                                STATIC PART
                             </div>
                         }
+                        contentInset={{ bottom: 20 }}
                         usePullRefresh={true}
+                        onRefresh={() => this.refresh()}
+                        onLoad={() => this.load()}
+                        useLoadMore={true}
                         shouldItemUpdate={(prev, now) => prev !== now}
                         extraClass="yo-list-demo"
                         ref="list"

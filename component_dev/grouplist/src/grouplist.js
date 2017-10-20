@@ -164,6 +164,18 @@ const propTypes = {
      */
     offsetY: PropTypes.number,
     /**
+     * 内容底部留白
+     *
+     * @property contentInset
+     * @type Number
+     * @description 内容区域周围的留白，**目前仅支持 bottom**。主要用于适配 iPhoneX，在下方留出一定间隙。有『加载更多』时，显示在『加载更多』的下方。可以通过设置背景色来改变留白的颜色。
+     * @default {bottom:0}
+     * @version 3.0.13
+     */
+    contentInset: PropTypes.shape({
+        bottom: PropTypes.number
+    }),
+    /**
      * @property onItemTap
      * @type Function
      * @default ()=>{}
@@ -664,7 +676,8 @@ export default class GroupList extends Component {
                         'loadMoreHeight',
                         'staticSection',
                         'deceleration',
-                        'stickyOffset'
+                        'stickyOffset',
+                        'contentInset'
                     ])}
                     dataSource={dataSource}
                     extraClass="yo-scroller-fullscreen"

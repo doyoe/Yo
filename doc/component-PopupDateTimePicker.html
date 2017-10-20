@@ -9,8 +9,13 @@
     <meta name="description" content="description of your site">
     <meta name="author" content="author of the site">
     <title>Yo Documentation 组件</title>
-    <link rel="stylesheet" href="source/main.css" />   
-    <link rel="stylesheet" href="./theme/ydoc.css" />  
+    <link rel="stylesheet" href="source/main.css" />
+    
+    
+      
+      <link rel="stylesheet" href="styles/ydoc.css" />
+      
+    
 </head>
 <body class=component-PopupDateTimePicker >
     <div class="ydoc">
@@ -89,7 +94,7 @@
 
             <div class="ydoc-container">
                  
-                <div class="ydoc-container-content">
+                <div class="ydoc-container-content ">
                     
                     
                     <div class="content-left staticsidenav" role="complementary">
@@ -276,7 +281,7 @@
                         </nav>
                     </div>
                     
-                    <div class="content-right markdown-body " role="main">
+                    <div class="content-right markdown-body use-sidebar" role="main">
 
                          <div class="docs-section">
     <h2 id="PopupDateTimePicker">
@@ -326,7 +331,7 @@
                     onChange<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>handleChange<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
                     touchClass<span class="token operator">=</span><span class="token string">"item-touch"</span>
                     range<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span><span class="token string">'2015-01-15'</span><span class="token punctuation">,</span> <span class="token string">'2015-05-20'</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
-                <span class="token operator">/</span><span class="token operator">></span>
+                <span class="token operator">></span>
                     <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"demo-item"</span><span class="token operator">></span>
                         <span class="token operator">&lt;</span>span className<span class="token operator">=</span><span class="token string">"title"</span><span class="token operator">></span>选择日期<span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
                         <span class="token operator">&lt;</span>span className<span class="token operator">=</span><span class="token string">"value"</span><span class="token operator">></span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value <span class="token operator">===</span> <span class="token keyword">null</span> <span class="token operator">?</span> <span class="token string">'请选择日期'</span> <span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
@@ -348,13 +353,13 @@
             <span class="token operator">&lt;</span>PopupDateTimePicker
                 value<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value<span class="token punctuation">}</span>
                 onChange<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>handleChange<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
-                beforePopupShow<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                beforePopupShow<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
                     Toast<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token string">'before popup show'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
                     <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
                 <span class="token punctuation">}</span><span class="token punctuation">}</span>
                 touchClass<span class="token operator">=</span><span class="token string">"item-touch"</span>
                 range<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span><span class="token string">'2015-01-15'</span><span class="token punctuation">,</span> <span class="token string">'2015-05-20'</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
-            <span class="token operator">/</span><span class="token operator">></span>
+            <span class="token operator">></span>
                 <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"demo-item"</span><span class="token operator">></span>
                     <span class="token operator">&lt;</span>span className<span class="token operator">=</span><span class="token string">"title"</span><span class="token operator">></span>选择日期<span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
                     <span class="token operator">&lt;</span>span className<span class="token operator">=</span><span class="token string">"value"</span><span class="token operator">></span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value <span class="token operator">===</span> <span class="token keyword">null</span> <span class="token operator">?</span> <span class="token string">'请选择日期'</span> <span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
@@ -370,9 +375,11 @@
     <span class="token keyword">return</span> <span class="token punctuation">(</span>
         <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"popupdatetimepicker-demo"</span><span class="token operator">></span>
             <span class="token operator">&lt;</span>PopupDateTimePicker
-                ref<span class="token operator">=</span><span class="token punctuation">{</span>component <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                ref<span class="token operator">=</span><span class="token punctuation">{</span>component <span class="token operator">=></span> <span class="token punctuation">{</span>
                     <span class="token keyword">this</span><span class="token punctuation">.</span>popupDateTimePickerCom <span class="token operator">=</span> component<span class="token punctuation">;</span>
                 <span class="token punctuation">}</span><span class="token punctuation">}</span>
+                <span class="token operator">...</span>
+            <span class="token operator">></span>
                 <span class="token operator">...</span>
             <span class="token operator">&lt;</span><span class="token operator">/</span>PopupDateTimePicker<span class="token operator">></span>
         <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
@@ -710,7 +717,7 @@ cancelBtn: { text: '取消', touchClass: 'action-touch' }
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
          
-    <script type="text/javascript" src="./theme/ydoc.js"></script>
+    <script type="text/javascript" src="scripts/ydoc.js"></script>
      
 
     </body>

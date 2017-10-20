@@ -9,8 +9,13 @@
     <meta name="description" content="description of your site">
     <meta name="author" content="author of the site">
     <title>Yo Documentation 起步</title>
-    <link rel="stylesheet" href="source/main.css" />   
-    <link rel="stylesheet" href="./theme/ydoc.css" />  
+    <link rel="stylesheet" href="source/main.css" />
+    
+    
+      
+      <link rel="stylesheet" href="styles/ydoc.css" />
+      
+    
 </head>
 <body class=getting-started-附录三：关于 lib.js >
     <div class="ydoc">
@@ -89,7 +94,7 @@
 
             <div class="ydoc-container">
                  
-                <div class="ydoc-container-content">
+                <div class="ydoc-container-content ">
                     
                     
                     <div class="content-left staticsidenav" role="complementary">
@@ -136,7 +141,7 @@
                         </nav>
                     </div>
                     
-                    <div class="content-right markdown-body " role="main">
+                    <div class="content-right markdown-body use-sidebar" role="main">
 
                          <h2 class="subject" id="动态链接库">动态链接库 <a class="hashlink" href="#动态链接库">#</a></h2><h3 class="subject" id="基本使用">基本使用 <a class="hashlink" href="#基本使用">#</a></h3><p>由于 <code>Yo</code> 依赖的 <code>React</code> 和周边组件的模块(<code>React</code>，<code>ReactDOM</code>，<code>Yo-Router</code>，<code>Babel-Polyfill</code>)数量达到了548个之多（取当前版本，可能以后有出入）
 ，使用 <code>webpack</code> 编译的性能很差，我们采用了 <code>webpack</code> 的 <code>DLLPlugin</code> 作为提升开发时编译性能的手段。</p>
@@ -151,7 +156,7 @@
 <h3 class="subject" id="使用production环境的lib.js">使用production环境的lib.js <a class="hashlink" href="#使用production环境的lib.js">#</a></h3><p>在默认情况下，<code>lib.js</code> 的是开发环境的代码，而 React 在开发环境下的性能要远逊于线上环境。所以如果你想查看你的App的真实性能，你需要
 使用 production 环境的 lib.js，它可以通过命令 <code>ykit dll-min</code> 构建。</p>
 <p>你需要重启 server 才能正常访问页面。注意在 production 环境下，所有的警告和错误提示都会消失，所以强烈建议在开发时使用 dev 环境的 lib.js。</p>
-<h3 class="subject" id="修改 lib.js 中的内容">修改 lib.js 中的内容 <a class="hashlink" href="#修改 lib.js 中的内容">#</a></h3><p>DLLPlugin的配置中内置了五个依赖：<code>React</code>，<code>ReactDOM</code>，<code>Babel-Polyfill</code>，<code>Yo-Router</code>。如果你的业务中还依赖了其他的公共模块，可以通过配置<code>ykit.yo.js</code>
+<h3 class="subject" id="修改_lib.js_中的内容">修改 lib.js 中的内容 <a class="hashlink" href="#修改_lib.js_中的内容">#</a></h3><p>DLLPlugin的配置中内置了五个依赖：<code>React</code>，<code>ReactDOM</code>，<code>Babel-Polyfill</code>，<code>Yo-Router</code>。如果你的业务中还依赖了其他的公共模块，可以通过配置<code>ykit.yo.js</code>
 中的 <code>modifyWebpackConfig</code> 属性来修改 <code>lib.js</code> 中的内容：</p>
 <pre><code><span class="token operator">...</span>
 modifyWebpackConfig<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>config<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -206,7 +211,7 @@ modifyWebpackConfig<span class="token punctuation">:</span> <span class="token k
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
          
-    <script type="text/javascript" src="./theme/ydoc.js"></script>
+    <script type="text/javascript" src="scripts/ydoc.js"></script>
      
 
     </body>

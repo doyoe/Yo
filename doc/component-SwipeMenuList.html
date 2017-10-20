@@ -9,8 +9,13 @@
     <meta name="description" content="description of your site">
     <meta name="author" content="author of the site">
     <title>Yo Documentation 组件</title>
-    <link rel="stylesheet" href="source/main.css" />   
-    <link rel="stylesheet" href="./theme/ydoc.css" />  
+    <link rel="stylesheet" href="source/main.css" />
+    
+    
+      
+      <link rel="stylesheet" href="styles/ydoc.css" />
+      
+    
 </head>
 <body class=component-SwipeMenuList >
     <div class="ydoc">
@@ -89,7 +94,7 @@
 
             <div class="ydoc-container">
                  
-                <div class="ydoc-container-content">
+                <div class="ydoc-container-content ">
                     
                     
                     <div class="content-left staticsidenav" role="complementary">
@@ -276,7 +281,7 @@
                         </nav>
                     </div>
                     
-                    <div class="content-right markdown-body " role="main">
+                    <div class="content-right markdown-body use-sidebar" role="main">
 
                          <div class="docs-section">
     <h2 id="SwipeMenuList">
@@ -307,7 +312,7 @@
 你还需要指定菜单项的配置，这可以通过<code>getMenuConfig</code>属性实现：</p>
 <pre><code><span class="token operator">&lt;</span>SwipeMenuList
     <span class="token operator">...</span>
-    getMenuConfig <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+    getMenuConfig <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
         action<span class="token punctuation">:</span><span class="token punctuation">[</span>
             <span class="token punctuation">{</span>
                 text<span class="token punctuation">:</span><span class="token template-string"><span class="token string">`delete </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>i<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span>
@@ -350,11 +355,11 @@
     dataSource<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>dataSource<span class="token punctuation">}</span>
     infinite<span class="token operator">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span>
     infiniteSize<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">30</span><span class="token punctuation">}</span>
-    onMenuOpen<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> index<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    onMenuOpen<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> index<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">// 参数可以取到当前打开的菜单项的数据和index</span>
         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'open'</span><span class="token punctuation">,</span> item<span class="token punctuation">,</span> index<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span><span class="token punctuation">}</span>
-    onMenuClose<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span>index<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    onMenuClose<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span>index<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">// 同上</span>
         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'close'</span><span class="token punctuation">,</span> item<span class="token punctuation">,</span> index<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span><span class="token punctuation">}</span>
@@ -376,7 +381,7 @@
     <span class="token punctuation">}</span>
 
     <span class="token function">deleteItem</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">const</span> newDataSource <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>dataSource<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token punctuation">(</span>it<span class="token punctuation">,</span> index<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> it<span class="token punctuation">.</span>key <span class="token operator">!==</span> item<span class="token punctuation">.</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> newDataSource <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>dataSource<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token punctuation">(</span>it<span class="token punctuation">,</span> index<span class="token punctuation">)</span> <span class="token operator">=></span> it<span class="token punctuation">.</span>key <span class="token operator">!==</span> item<span class="token punctuation">.</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
         <span class="token keyword">if</span> <span class="token punctuation">(</span>newDataSource<span class="token punctuation">.</span>length <span class="token operator">&lt;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>page <span class="token operator">*</span> <span class="token number">20</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>newDataSource<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -390,7 +395,7 @@
 
     <span class="token function">renderDataSource</span><span class="token punctuation">(</span>ds<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">const</span> self <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> ds<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> ds<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
             <span class="token operator">...</span>item<span class="token punctuation">,</span>
             color<span class="token punctuation">:</span> <span class="token string">'black'</span><span class="token punctuation">,</span>
             key<span class="token punctuation">:</span> <span class="token operator">++</span>SwipeMenuListDemo<span class="token punctuation">.</span>guid
@@ -409,7 +414,7 @@
 
     <span class="token function">toggleColor</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-            dataSource<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>dataSource<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>it <span class="token operator">=</span><span class="token operator">></span>
+            dataSource<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>dataSource<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>it <span class="token operator">=></span>
                 it <span class="token operator">===</span> item <span class="token operator">?</span>
                     Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> it<span class="token punctuation">,</span> <span class="token punctuation">{</span>
                         key<span class="token punctuation">:</span> <span class="token function">String</span><span class="token punctuation">(</span>it<span class="token punctuation">.</span>key<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/_\w+/</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'_red'</span><span class="token punctuation">,</span>
@@ -422,11 +427,11 @@
     <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">const</span> self <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> <span class="token punctuation">(</span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Page</span> <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>SwipeMenuList</span> <span class="token attr-name">Demo"</span> <span class="token attr-name">onLeftPress</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> location<span class="token punctuation">.</span>href <span class="token operator">=</span> <span class="token string">'./index.html'</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Page</span> <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>SwipeMenuList Demo<span class="token punctuation">"</span></span> <span class="token attr-name">onLeftPress</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> location<span class="token punctuation">.</span>href <span class="token operator">=</span> <span class="token string">'./index.html'</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
                 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>SwipeMenuList</span>
                     <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>swipemenulist<span class="token punctuation">"</span></span>
                     <span class="token attr-name">extraClass</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>yo-list-fullscreen<span class="token punctuation">"</span></span>
-                    <span class="token attr-name">getMenuConfig</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+                    <span class="token attr-name">getMenuConfig</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
                         action<span class="token punctuation">:</span> <span class="token punctuation">[</span>
                             <span class="token punctuation">{</span>
                                 text<span class="token punctuation">:</span> item<span class="token punctuation">.</span>color <span class="token operator">===</span> <span class="token string">'black'</span> <span class="token operator">?</span> <span class="token string">'变红'</span> <span class="token punctuation">:</span> <span class="token string">'变黑'</span><span class="token punctuation">,</span>
@@ -448,25 +453,25 @@
                     <span class="token attr-name">infinite</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span></span>
                     <span class="token attr-name">infiniteSize</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token number">15</span><span class="token punctuation">}</span></span>
                     <span class="token attr-name">itemHeight</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token number">83</span><span class="token punctuation">}</span></span>
-                    <span class="token attr-name">renderItem</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span>
+                    <span class="token attr-name">renderItem</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span>
                         <span class="token operator">&lt;</span>div style<span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span> color<span class="token punctuation">:</span> item<span class="token punctuation">.</span>color<span class="token punctuation">,</span> height<span class="token punctuation">:</span> <span class="token number">60</span><span class="token punctuation">,</span> width<span class="token punctuation">:</span> <span class="token string">'100%'</span> <span class="token punctuation">}</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
                             <span class="token punctuation">{</span><span class="token string">'第'</span> <span class="token operator">+</span> i <span class="token operator">+</span> <span class="token string">'个item:'</span> <span class="token operator">+</span> item<span class="token punctuation">.</span>text<span class="token punctuation">}</span>
                         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
                     <span class="token punctuation">)</span><span class="token punctuation">}</span>
                     usePullRefresh<span class="token operator">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span>
-                    onRefresh<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-                        <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                    onRefresh<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+                        <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
                             <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">refresh</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
                             <span class="token keyword">this</span><span class="token punctuation">.</span>refs<span class="token punctuation">.</span>swipemenulist<span class="token punctuation">.</span><span class="token function">stopRefreshing</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
                         <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
                     <span class="token punctuation">}</span><span class="token punctuation">}</span>
-                    onItemTap<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                    onItemTap<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
                         Toast<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>text<span class="token punctuation">)</span><span class="token punctuation">;</span>
                     <span class="token punctuation">}</span><span class="token punctuation">}</span>
                     itemTouchClass<span class="token operator">=</span><span class="token string">"item-touch"</span>
                     useLoadMore<span class="token operator">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span>
-                    onLoad<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-                        <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                    onLoad<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+                        <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
                             <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
                             <span class="token operator">++</span><span class="token keyword">this</span><span class="token punctuation">.</span>page<span class="token punctuation">;</span>
                             <span class="token keyword">this</span><span class="token punctuation">.</span>refs<span class="token punctuation">.</span>swipemenulist<span class="token punctuation">.</span><span class="token function">stopLoading</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1220,6 +1225,27 @@
         </p>
            
         <blockquote class="api">
+            <h3 id="contentInset" class="subject">
+                <strong>contentInset</strong>
+                <span class="prop-type">{ Number }</span>
+                
+                <span class="ui-badge">3.0.13</span>
+                
+                
+                <a class="hashlink" href="#contentInset">#</a>
+            </h3>
+        </blockquote>
+        <div class="api-content">
+            <div><p>内容区域周围的留白，<strong>目前仅支持 bottom</strong>。主要用于适配 iPhoneX，在下方留出一定间隙。有『加载更多』时，显示在『加载更多』的下方。可以通过设置背景色来改变留白的颜色。</p>
+</div>
+            
+        </div>
+        
+        <p class="api-content">
+            <small class="text-muted">默认值:</small> {bottom:0}
+        </p>
+           
+        <blockquote class="api">
             <h3 id="onScroll" class="subject">
                 <strong>onScroll</strong>
                 <span class="prop-type">{ Function }</span>
@@ -1812,7 +1838,7 @@
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
          
-    <script type="text/javascript" src="./theme/ydoc.js"></script>
+    <script type="text/javascript" src="scripts/ydoc.js"></script>
      
 
     </body>

@@ -1,4 +1,6 @@
-;(function () {
+import { isPassive } from './util';
+
+(function () {
     'use strict';
 
     /**
@@ -119,8 +121,11 @@
         }
 
         layer.addEventListener('click', this.onClick, true);
+        var passive = isPassive() ? {
+            passive: true
+        } : false;
         layer.addEventListener('touchstart', this.onTouchStart, false);
-        layer.addEventListener('touchmove', this.onTouchMove, false);
+        layer.addEventListener('touchmove', this.onTouchMove, passive);
         layer.addEventListener('touchend', this.onTouchEnd, false);
         layer.addEventListener('touchcancel', this.onTouchCancel, false);
 

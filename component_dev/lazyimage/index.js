@@ -129,7 +129,9 @@ export default class extends Component {
         if (scroller) {
             scroller.childLazyImages.push(this);
             if (scroller.loadImage) {
-                scroller.loadImage(this);
+                setTimeout(() => {
+                    scroller.loadImage(this);
+                }, 0);
             }
         }
     }
@@ -217,7 +219,7 @@ export default class extends Component {
                     'className',
                     'title',
                     'style'
-                ])}
+                ]) }
                 alt={this.props.alt}
                 ref={(img) => {
                     if (img) this.img = img;

@@ -9,8 +9,13 @@
     <meta name="description" content="description of your site">
     <meta name="author" content="author of the site">
     <title>Yo Documentation 起步</title>
-    <link rel="stylesheet" href="source/main.css" />   
-    <link rel="stylesheet" href="./theme/ydoc.css" />  
+    <link rel="stylesheet" href="source/main.css" />
+    
+    
+      
+      <link rel="stylesheet" href="styles/ydoc.css" />
+      
+    
 </head>
 <body class=getting-started-附录四：关于 npm 低版本 >
     <div class="ydoc">
@@ -89,7 +94,7 @@
 
             <div class="ydoc-container">
                  
-                <div class="ydoc-container-content">
+                <div class="ydoc-container-content ">
                     
                     
                     <div class="content-left staticsidenav" role="complementary">
@@ -136,11 +141,11 @@
                         </nav>
                     </div>
                     
-                    <div class="content-right markdown-body " role="main">
+                    <div class="content-right markdown-body use-sidebar" role="main">
 
-                         <h2 class="subject" id="npm 版本">npm 版本 <a class="hashlink" href="#npm 版本">#</a></h2><p>我们推荐使用 <code>npm &gt;= 3.0.0</code> 的版本，原因是低版本的 <code>npm</code> 的 <code>node_modules</code> 中模块是树状结构而非扁平的，会有多个 <code>React</code> 存在。
+                         <h2 class="subject" id="npm_版本">npm 版本 <a class="hashlink" href="#npm_版本">#</a></h2><p>我们推荐使用 <code>npm &gt;= 3.0.0</code> 的版本，原因是低版本的 <code>npm</code> 的 <code>node_modules</code> 中模块是树状结构而非扁平的，会有多个 <code>React</code> 存在。
 这样的话会引起一些问题，具体信息可以参照 <a href="https://facebook.github.io/react/warnings/refs-must-have-owner.html">官方说明</a>。</p>
-<h3 class="subject" id="低版本 npm 怎么办">低版本 npm 怎么办 <a class="hashlink" href="#低版本 npm 怎么办">#</a></h3><p>当然，有些时候因为各种原因，你无法使用更高版本的 <code>npm</code>。我们也提供了解决方案。</p>
+<h3 class="subject" id="低版本_npm_怎么办">低版本 npm 怎么办 <a class="hashlink" href="#低版本_npm_怎么办">#</a></h3><p>当然，有些时候因为各种原因，你无法使用更高版本的 <code>npm</code>。我们也提供了解决方案。</p>
 <p>你需要手动删除 <code>node_modules/yo3/node_modules/react</code> 这个文件夹。但是由于每次 <code>npm install</code> 都会覆盖这个删除，很难维护，所以还是希望你能克服一切困难更新你的 <code>npm</code> 版本。</p>
 
                     </div>
@@ -165,7 +170,7 @@
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
          
-    <script type="text/javascript" src="./theme/ydoc.js"></script>
+    <script type="text/javascript" src="scripts/ydoc.js"></script>
      
 
     </body>

@@ -9,8 +9,13 @@
     <meta name="description" content="description of your site">
     <meta name="author" content="author of the site">
     <title>Yo Documentation 组件</title>
-    <link rel="stylesheet" href="source/main.css" />   
-    <link rel="stylesheet" href="./theme/ydoc.css" />  
+    <link rel="stylesheet" href="source/main.css" />
+    
+    
+      
+      <link rel="stylesheet" href="styles/ydoc.css" />
+      
+    
 </head>
 <body class=component-Calendar >
     <div class="ydoc">
@@ -89,7 +94,7 @@
 
             <div class="ydoc-container">
                  
-                <div class="ydoc-container-content">
+                <div class="ydoc-container-content ">
                     
                     
                     <div class="content-left staticsidenav" role="complementary">
@@ -276,7 +281,7 @@
                         </nav>
                     </div>
                     
-                    <div class="content-right markdown-body " role="main">
+                    <div class="content-right markdown-body use-sidebar" role="main">
 
                          <div class="docs-section">
     <h2 id="Calendar">
@@ -315,7 +320,7 @@
 <pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Calendar</span> 
     <span class="token attr-name">selectionStart</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>selectionStart<span class="token punctuation">}</span></span>
     <span class="token attr-name">selectionEnd</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>selectionEnd<span class="token punctuation">}</span></span>
-    <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>obj <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>obj <span class="token operator">=></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
         selectionStart<span class="token punctuation">:</span> obj<span class="token punctuation">.</span>selectionStart<span class="token punctuation">,</span>
         selectionEnd<span class="token punctuation">:</span> obj<span class="token punctuation">.</span>selectionEnd
     <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>
@@ -349,7 +354,7 @@
                  <span class="token attr-name">duration</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span><span class="token string">'2017-01-01'</span><span class="token punctuation">,</span> <span class="token string">'2017-12-31'</span><span class="token punctuation">]</span><span class="token punctuation">}</span></span>
                  <span class="token attr-name">selectionStart</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>selectionStart<span class="token punctuation">}</span></span>
                  <span class="token attr-name">selectionEnd</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>selectionEnd<span class="token punctuation">}</span></span>
-                 <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>obj <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">onChange</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">}</span></span>
+                 <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>obj <span class="token operator">=></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">onChange</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">}</span></span>
              <span class="token punctuation">/></span></span>
         <span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
@@ -359,7 +364,7 @@
 <pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Calendar</span>
     <span class="token attr-name">allowSingle</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span></span>
     <span class="token attr-name">selectionStart</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>selectionStart<span class="token punctuation">}</span></span>
-    <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>obj <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>obj <span class="token operator">=></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
         selectionStart<span class="token punctuation">:</span> obj<span class="token punctuation">.</span>selectionStart<span class="token punctuation">,</span>
     <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>    
 <span class="token punctuation">/></span></span>
@@ -370,8 +375,8 @@
     <span class="token attr-name">selectionStart</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>selectionStart<span class="token punctuation">}</span></span>
     <span class="token attr-name">selectionEnd</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>selectionEnd<span class="token punctuation">}</span></span>
     <span class="token attr-name">selectionStartText</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>起飞<span class="token punctuation">"</span></span>
-    <span class="token attr-name">selectionEndText</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>&amp;#xf04a;<span class="token punctuation">"</span></span>
-    <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>obj <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">onChange</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">}</span></span>
+    <span class="token attr-name">selectionEndText</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token entity" title="&#xf04a;">&amp;#xf04a;</span><span class="token punctuation">"</span></span>
+    <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>obj <span class="token operator">=></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">onChange</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">}</span></span>
 <span class="token punctuation">/></span></span>
 </code></pre><h4 id="-">自定义日期渲染模板</h4>
 <p>通过设置 <code>renderDate</code> 属性函数，返回自定义组件的日期渲染模板内容。其中，参数 <code>item</code> 是具体某个日期对象的数据层，格式如下：</p>
@@ -393,11 +398,11 @@
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>day<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token punctuation">{</span>item<span class="token punctuation">.</span>day<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span><span class="token punctuation">,</span>
     item<span class="token punctuation">.</span>today <span class="token operator">?</span> <span class="token punctuation">(</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ins</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>special<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>今天<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ins</span><span class="token punctuation">></span></span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
     item<span class="token punctuation">.</span>holiday <span class="token operator">?</span> <span class="token punctuation">(</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ins</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>special<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token punctuation">{</span>item<span class="token punctuation">.</span>holiday<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ins</span><span class="token punctuation">></span></span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
-    item<span class="token punctuation">.</span>isCheckIn <span class="token operator">?</span> <span class="token punctuation">(</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tip</span> <span class="token attr-name">yo-ico"</span><span class="token punctuation">></span></span><span class="token punctuation">{</span>selectionStartText<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
-    item<span class="token punctuation">.</span>isCheckOut <span class="token operator">?</span> <span class="token punctuation">(</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tip</span> <span class="token attr-name">yo-ico"</span><span class="token punctuation">></span></span><span class="token punctuation">{</span>selectionEndText<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token keyword">null</span>
+    item<span class="token punctuation">.</span>isCheckIn <span class="token operator">?</span> <span class="token punctuation">(</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tip yo-ico<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token punctuation">{</span>selectionStartText<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+    item<span class="token punctuation">.</span>isCheckOut <span class="token operator">?</span> <span class="token punctuation">(</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tip yo-ico<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token punctuation">{</span>selectionEndText<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token keyword">null</span>
 <span class="token punctuation">]</span>
 </code></pre><pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Calendar</span>
-    <span class="token attr-name">renderDate</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> ret<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token attr-name">renderDate</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> ret<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
         <span class="token keyword">const</span> <span class="token punctuation">{</span> day <span class="token punctuation">}</span> <span class="token operator">=</span> item<span class="token punctuation">;</span>
         <span class="token keyword">return</span> day <span class="token operator">===</span> <span class="token number">1</span> <span class="token operator">?</span> <span class="token punctuation">(</span>
             <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token punctuation">></span></span>First<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
@@ -735,7 +740,7 @@
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
          
-    <script type="text/javascript" src="./theme/ydoc.js"></script>
+    <script type="text/javascript" src="scripts/ydoc.js"></script>
      
 
     </body>

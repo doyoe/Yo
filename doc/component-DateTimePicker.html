@@ -9,8 +9,13 @@
     <meta name="description" content="description of your site">
     <meta name="author" content="author of the site">
     <title>Yo Documentation 组件</title>
-    <link rel="stylesheet" href="source/main.css" />   
-    <link rel="stylesheet" href="./theme/ydoc.css" />  
+    <link rel="stylesheet" href="source/main.css" />
+    
+    
+      
+      <link rel="stylesheet" href="styles/ydoc.css" />
+      
+    
 </head>
 <body class=component-DateTimePicker >
     <div class="ydoc">
@@ -89,7 +94,7 @@
 
             <div class="ydoc-container">
                  
-                <div class="ydoc-container-content">
+                <div class="ydoc-container-content ">
                     
                     
                     <div class="content-left staticsidenav" role="complementary">
@@ -276,7 +281,7 @@
                         </nav>
                     </div>
                     
-                    <div class="content-right markdown-body " role="main">
+                    <div class="content-right markdown-body use-sidebar" role="main">
 
                          <div class="docs-section">
     <h2 id="DateTimePicker">
@@ -322,7 +327,7 @@
                 <span class="token attr-name">unitsInline</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span><span class="token string">'年'</span><span class="token punctuation">,</span> <span class="token string">'月'</span><span class="token punctuation">,</span> <span class="token string">'日'</span><span class="token punctuation">]</span><span class="token punctuation">}</span></span>
                 <span class="token attr-name">range</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span><span class="token string">'2016-01-01'</span><span class="token punctuation">,</span><span class="token string">'2016-12-31'</span><span class="token punctuation">]</span><span class="token punctuation">}</span></span>
                 <span class="token attr-name">dateOrTime</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>date<span class="token punctuation">"</span></span>
-                <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>value <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> value <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>
+                <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>value <span class="token operator">=></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> value <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>
             <span class="token punctuation">/></span></span>
         <span class="token punctuation">)</span>
     <span class="token punctuation">}</span>
@@ -334,7 +339,7 @@
     range<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span><span class="token string">'1980-01'</span><span class="token punctuation">,</span><span class="token string">'2017-12'</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
     unitsInline<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span><span class="token string">'年'</span><span class="token punctuation">,</span> <span class="token string">'月'</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
     dateOrTime<span class="token operator">=</span><span class="token string">"date"</span>
-    onChange<span class="token operator">=</span><span class="token punctuation">{</span>value <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    onChange<span class="token operator">=</span><span class="token punctuation">{</span>value <span class="token operator">=></span> <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">// onchange</span>
     <span class="token punctuation">}</span><span class="token punctuation">}</span>
 <span class="token operator">/</span><span class="token operator">></span>
@@ -345,7 +350,7 @@
     <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value<span class="token punctuation">}</span></span>
     <span class="token attr-name">unitsInline</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span><span class="token string">'时'</span><span class="token punctuation">,</span> <span class="token string">'分'</span><span class="token punctuation">]</span><span class="token punctuation">}</span></span>
     <span class="token attr-name">dateOrTime</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>time<span class="token punctuation">"</span></span>
-    <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>value <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> value <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>
+    <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>value <span class="token operator">=></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> value <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>
 <span class="token punctuation">/></span></span>
 </code></pre><h4 id="-">扩展用法：自定义选项</h4>
 <p>你可以通过format属性来自定义option的文本，它能够接收两个参数，<code>value</code>对应<code>option</code>的值，<code>level</code>对应所在列的<code>index</code></p>
@@ -713,7 +718,7 @@ DateTimePicker的option将会变成一个首尾相接的循环列表(参考iOS�
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
          
-    <script type="text/javascript" src="./theme/ydoc.js"></script>
+    <script type="text/javascript" src="scripts/ydoc.js"></script>
      
 
     </body>

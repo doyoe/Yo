@@ -1,6 +1,3 @@
-var EXAMPLE_MAX_HEIGHT = 98,
-    DEFAULT_SHOW_PARAMS = 5;
-
 $(document).ready(function() {
     // 移动端导航
     var $openPanel = $('.open-panel');
@@ -11,7 +8,6 @@ $(document).ready(function() {
     var $versionSelector = $('.version-selector');
     var $versionMask = $('.m-version-mask');
     var isPanelHide = true;
-    var winWidth = $(window).width();
     var h2 = $('.content-right').find('h2');
     var h3 = $('.content-right').find('h3');
     var a = $('.content-left').find('a');
@@ -125,125 +121,73 @@ $(document).ready(function() {
     })
     $versionSelector.click(function(e) {
         $versionMask.show();
-        console.log('e');
     });
 
     $('.markdown-body pre').map(function(i, item) {
-        $(item).addClass('ydoc-example');
+        $(item).addClass('ydoc-example').append('<div class="ui-copy js-copy" data-clipboard-action="copy" data-clipboard-target=".js-code-' + i + '" data-copy-number="' + i + '">copy</div><div class="copy-tip copy-tip-' + i + '">已复制</div>');
+        $(item).children('code').addClass('js-code-'+i);
     });
 
-    // $('code').each(function(i, block) {
-    //     if (block.innerHTML.indexOf('\n') != -1) {
-    //         var pn = block.parentNode;
-    //         if (pn.tagName.toUpperCase() == 'PRE') {
-    //             try {
-    //                 hljs.highlightBlock(block);
-    //             } catch(e) {}
-    //         } else {
-    //             pn.innerHTML = '<pre><code>' + block.innerHTML + '</code></pre>';
-    //             try {
-    //                 hljs.highlightBlock(pn.childNodes[0].childNodes[0]);
-    //             } catch(e) {}
+    // var winHeight = $(window).height() - 44,
+        // sidebar = $('.docs-sidebar');
+
+    // var docSideNav = $('.docs-sidenav');
+    // if (winWidth > 767) {
+    //     docSideNav.width($contentLeftWidth);
+    // }
+
+    // if (sidebar.height() > winHeight) {
+    //     sidebar.css('max-height', winHeight + 'px');
+    //     $('.docs-sidenav').css('max-height', winHeight + 'px');
+    //     if (winWidth < 768) {
+    //         $('.docs-sidenav').css({
+    //             'overflow-x': 'hidden'
+    //         });
+    //     }
+    //     var activeMenu,
+    //         barScroll = false;
+    //
+    //     sidebar.on('mouseover', function() {
+    //         barScroll = true;
+    //     });
+    //     sidebar.on('mouseout', function() {
+    //         barScroll = false;
+    //     });
+    // };
+
+    // $(window).on('scroll', function(e) {
+    //     if ($(this).scrollTop() > ($('.footer').offset().top - $(window).height())) {
+    //         winHeight = $(window).height() - $('.footer').outerHeight() - 44;
+    //         sidebar.css('max-height', winHeight + 'px');
+    //         $('.docs-sidenav').css('max-height', winHeight + 'px');
+    //     } else {
+    //         winHeight = $(window).height() - 44;
+    //         sidebar.css('max-height', winHeight + 'px');
+    //         $('.docs-sidenav').css('max-height', winHeight + 'px');
+    //     }
+    //
+    //     if (!barScroll) {
+    //         var activeItem = $('.docs-sidebar li.active a');
+    //         if (activeItem.length) {
+    //             if (!activeMenu || (activeMenu.attr('href') != activeItem.attr('href'))) {
+    //                 activeMenu = activeItem;
+    //                 var top = activeMenu.offset().top - sidebar.offset().top;
+    //                 if (top < 0) {
+    //                     //sidebar.scrollTop(sidebar.scrollTop() + top);
+    //                     $('.docs-sidenav').scrollTop($('.docs-sidenav').scrollTop() + top);
+    //                 } else if (top > winHeight - 88) {
+    //                     //sidebar.scrollTop(sidebar.scrollTop() + top - winHeight + 44);
+    //                     $('.docs-sidenav').scrollTop($('.docs-sidenav').scrollTop() + top - winHeight + 88);
+    //                 }
+    //             }
     //         }
     //     }
     // });
 
-
-    var winHeight = $(window).height() - 44,
-        sidebar = $('.docs-sidebar');
-    var docSideNav = $('.docs-sidenav');
-    if (winWidth > 767) {
-        docSideNav.width($contentLeftWidth);
-    }
-    if (sidebar.height() > winHeight) {
-        sidebar.css('max-height', winHeight + 'px');
-        $('.docs-sidenav').css('max-height', winHeight + 'px');
-        if (winWidth < 768) {
-            $('.docs-sidenav').css({
-                'overflow-x': 'hidden'
-            });
-        }
-        var activeMenu,
-            barScroll = false;
-
-        sidebar.on('mouseover', function() {
-            barScroll = true;
-        });
-        sidebar.on('mouseout', function() {
-            barScroll = false;
-        });
-    };
-
-    $(window).on('scroll', function(e) {
-        if ($(this).scrollTop() > ($('.footer').offset().top - $(window).height())) {
-            winHeight = $(window).height() - $('.footer').outerHeight() - 44;
-            sidebar.css('max-height', winHeight + 'px');
-            $('.docs-sidenav').css('max-height', winHeight + 'px');
-        } else {
-            winHeight = $(window).height() - 44;
-            sidebar.css('max-height', winHeight + 'px');
-            $('.docs-sidenav').css('max-height', winHeight + 'px');
-        }
-
-        if (!barScroll) {
-            var activeItem = $('.docs-sidebar li.active a');
-            if (activeItem.length) {
-                if (!activeMenu || (activeMenu.attr('href') != activeItem.attr('href'))) {
-                    activeMenu = activeItem;
-                    var top = activeMenu.offset().top - sidebar.offset().top;
-                    if (top < 0) {
-                        //sidebar.scrollTop(sidebar.scrollTop() + top);
-                        $('.docs-sidenav').scrollTop($('.docs-sidenav').scrollTop() + top);
-                    } else if (top > winHeight - 88) {
-                        //sidebar.scrollTop(sidebar.scrollTop() + top - winHeight + 44);
-                        $('.docs-sidenav').scrollTop($('.docs-sidenav').scrollTop() + top - winHeight + 88);
-                    }
-                }
-            }
-        }
-    });
-
     // 退出全屏浏览器窗口大小改变，不触发resize
     $(window).on('resize', function(e) {
-        resizeSidebar();
         $contentLeftWidth = $contentLeft.width() - 1;
     });
-
-    function resizeSidebar() {
-        var winHeight = $(window).height() - 44,
-            sidebar = $('.docs-sidebar');
-        var docSideNav = $('.docs-sidenav');
-        if (winWidth > 767) {
-            docSideNav.width($contentLeftWidth);
-        }
-        if (sidebar.height() > winHeight) {
-            sidebar.css('max-height', winHeight + 'px');
-            $('.docs-sidenav').css('max-height', winHeight + 'px');
-            $('.docs-sidenav').css({
-                'overflow-y': 'scroll',
-                'overflow-x': 'hidden'
-            });
-            var barScroll = false;
-
-            sidebar.on('mouseover', function() {
-                barScroll = true;
-            });
-
-            sidebar.on('mouseout', function() {
-                barScroll = false;
-            });
-            // scroll
-            if ($(window).scrollTop() > ($('.footer').offset().top - $(window).height())) {
-                winHeight = $(window).height() - $('.footer').outerHeight() - 44;
-                sidebar.css('max-height', winHeight + 'px');
-                $('.docs-sidenav').css('max-height', winHeight + 'px');
-            } else {
-                winHeight = $(window).height() - 44;
-                sidebar.css('max-height', winHeight + 'px');
-                $('.docs-sidenav').css('max-height', winHeight + 'px');
-            }
-        }
-    }
 
     function sortAsOffset(propertyName) {
         return function(obj1, obj2) {
@@ -267,4 +211,17 @@ $(document).ready(function() {
             return false;
         }
     }
+
+    // 代码复制功能
+    var clipboard = new Clipboard('.js-copy');
+
+    clipboard.on('success', function(e) {
+      var copyNumber = $(e.trigger).attr('data-copy-number');
+      $('.copy-tip-'+copyNumber).show();
+      setTimeout(function() {
+          $('.copy-tip-'+copyNumber).hide();
+      }, 1000);
+      e.clearSelection();
+    });
+
 });

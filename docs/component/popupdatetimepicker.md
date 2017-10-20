@@ -38,7 +38,7 @@ class Demo extends Component {
                     onChange={this.handleChange.bind(this)}
                     touchClass="item-touch"
                     range={['2015-01-15', '2015-05-20']}
-                />
+                >
                     <div className="demo-item">
                         <span className="title">选择日期</span>
                         <span className="value">{this.state.value === null ? '请选择日期' : this.state.value}</span>
@@ -73,7 +73,7 @@ render() {
                 }}
                 touchClass="item-touch"
                 range={['2015-01-15', '2015-05-20']}
-            />
+            >
                 <div className="demo-item">
                     <span className="title">选择日期</span>
                     <span className="value">{this.state.value === null ? '请选择日期' : this.state.value}</span>
@@ -96,6 +96,8 @@ render() {
                 ref={component => {
                     this.popupDateTimePickerCom = component;
                 }}
+                ...
+            >
                 ...
             </PopupDateTimePicker>
         </div>

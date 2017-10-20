@@ -79,12 +79,13 @@ export default {
      * @description 打开组件，显示传入的内容
      * @param {String} content 组件显示的内容
      * @param {Number} [autoHideTime] 内容显示的持续时间，默认2000ms
+     * @param {Function} [callback] 内容显示后触发的回调 <3.0.13>
      */
-    show(content = 'no content', autoHideTime = 2000) {
+    show(content = 'no content', autoHideTime = 2000, callback = () => {}) {
         that.setState({
             content,
             show: true
-        });
+        }, callback);
         if (!!that.timer) {
             clearTimeout(that.timer);
             that.timer = null;
@@ -96,13 +97,14 @@ export default {
      * @method hide
      * @type Function
      * @description 关闭正在显示的组件
+     * @param {Function} [callback] 内容隐藏后触发的回调 <3.0.13>
      */
-    hide() {
+    hide(callback = () => {}) {
         if (!!that.timer) {
             clearTimeout(that.timer);
             that.timer = null;
         }
-        that.setState({ show: false });
+        that.setState({ show: false }, callback);
         return this;
     }
 };

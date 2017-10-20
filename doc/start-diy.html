@@ -9,8 +9,13 @@
     <meta name="description" content="description of your site">
     <meta name="author" content="author of the site">
     <title>Yo Documentation 起步</title>
-    <link rel="stylesheet" href="source/main.css" />   
-    <link rel="stylesheet" href="./theme/ydoc.css" />  
+    <link rel="stylesheet" href="source/main.css" />
+    
+    
+      
+      <link rel="stylesheet" href="styles/ydoc.css" />
+      
+    
 </head>
 <body class=getting-started-附录一：在已有项目中使用 >
     <div class="ydoc">
@@ -89,7 +94,7 @@
 
             <div class="ydoc-container">
                  
-                <div class="ydoc-container-content">
+                <div class="ydoc-container-content ">
                     
                     
                     <div class="content-left staticsidenav" role="complementary">
@@ -136,7 +141,7 @@
                         </nav>
                     </div>
                     
-                    <div class="content-right markdown-body " role="main">
+                    <div class="content-right markdown-body use-sidebar" role="main">
 
                          <p>如果需要在已有项目中使用 <code>Yo</code>，通过以下步骤即可：</p>
 <h2 class="subject" id="环境与构建">环境与构建 <a class="hashlink" href="#环境与构建">#</a></h2><ul>
@@ -167,7 +172,7 @@
       <span class="token operator">...</span>
   <span class="token punctuation">}</span>
 </code></pre></li></ul>
-<h2 class="subject" id="配置 ykit">配置 ykit <a class="hashlink" href="#配置 ykit">#</a></h2><ul>
+<h2 class="subject" id="配置_ykit">配置 ykit <a class="hashlink" href="#配置_ykit">#</a></h2><ul>
 <li><p>在项目根目录下新建 <code>ykit.yo.js</code> 文件，并添加以下内容：</p>
 <pre><code>  exports<span class="token punctuation">.</span>config <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
       <span class="token keyword">return</span> <span class="token punctuation">{</span>
@@ -194,7 +199,7 @@
       <span class="token punctuation">}</span>
   <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre></li></ul>
-<h2 class="subject" id="构建 lib.js">构建 lib.js <a class="hashlink" href="#构建 lib.js">#</a></h2><ul>
+<h2 class="subject" id="构建_lib.js">构建 lib.js <a class="hashlink" href="#构建_lib.js">#</a></h2><ul>
 <li>在项目根目录下执行 <code>ykit dll</code>，生成 <code>lib.js</code>。</li></ul>
 <h2 class="subject" id="开始开发">开始开发 <a class="hashlink" href="#开始开发">#</a></h2><p>完成上述操作之后，就可以如 <a href="start.html#start-developing">起步</a> 中所述进行正常开发了。</p>
 
@@ -220,7 +225,7 @@
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
          
-    <script type="text/javascript" src="./theme/ydoc.js"></script>
+    <script type="text/javascript" src="scripts/ydoc.js"></script>
      
 
     </body>

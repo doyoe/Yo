@@ -24,6 +24,7 @@ import ReactDOM from 'react-dom';
 import utils from './utils';
 import { getElementOffsetY, getOnlyChild } from '../../common/util';
 import classNames from 'classnames';
+import throttle from 'lodash/throttle';
 import LazyImage from '../../lazyimage';
 import Sticky from '../../sticky';
 
@@ -50,6 +51,9 @@ const defaultProps = {
     contentOffset: {
         x: 0,
         y: 0
+    },
+    contentInset: {
+        bottom: 0
     },
     disabled: false,
     scrollX: false,
@@ -122,6 +126,18 @@ const propTypes = {
     contentOffset: PropTypes.shape({
         x: PropTypes.number,
         y: PropTypes.number
+    }),
+    /**
+     * 内容底部留白
+     *
+     * @property contentInset
+     * @type Number
+     * @description 内容区域周围的留白，**目前仅支持 bottom**。主要用于适配 iPhoneX，在下方留出一定间隙。有『加载更多』时，显示在『加载更多』的下方。可以通过设置背景色来改变留白的颜色。
+     * @default {bottom:0}
+     * @version 3.0.13
+     */
+    contentInset: PropTypes.shape({
+        bottom: PropTypes.number
     }),
     /**
      * @property stickyOffset
@@ -447,12 +463,35 @@ export default class Scroller extends Component {
         this._resetPosition();
         this.scrollTo(this.props.contentOffset.x, this.props.contentOffset.y);
 
+        this.innerWidth = window.innerWidth;
+        this.innerHeight = window.innerHeight;
+
+        // 修复子元素存在 input 输入框时，浏览器强制让 input 显示在可见区域，收缩键盘后无法向上滑倒顶部的 bug
+        this._resetScrollTop = () => {
+            const { wrapper } = this.refs;
+            if (wrapper.scrollTop > 0) {
+                setTimeout(() => {
+                    wrapper.scrollTop = 0;
+                }, 100); // 防止有输入框获得焦点时收缩键盘时强制输入框展示在现实区域而出现的闪烁问题
+            }
+        };
+
         this._resize = () => {
+            const { innerWidth: lastWidth, innerHeight: lastHeigth } = this;
+            const { innerWidth: width, innerHeight: height } = window;
+
+            this.innerWidth = width;
+            this.innerHeight = height;
+            // 判断是否为键盘收起
+            if (width === lastWidth && height > lastHeigth) {
+                this._resetScrollTop();
+            }
             this.forceUpdate();
         };
 
         window.addEventListener('orientationchange', this._resize, false);
-        window.addEventListener('resize', this._resize, false);
+        window.addEventListener('resize', throttle(this._resize, 100), false);
+        window.addEventListener('focusout',this._resetScrollTop, false); // Safari 在键盘的展开和收起时不会触发 resize， 故使用 focusout。
 
         this._tryLoadLazyImages();
         this._refreshSticky(true);
@@ -823,27 +862,33 @@ export default class Scroller extends Component {
 
     /**
      * 尝试加载处于可视区域内的lazyimage
-     * @param y
+     * @param forceRefresh bool 强制刷新 Image 的位置
      */
-    _tryLoadLazyImages() {
+    _tryLoadLazyImages(forceRefresh) {
         if (this.childLazyImages.length) {
-            this.childLazyImages.forEach((img) => this.loadImage(img));
+            this.childLazyImages.forEach((img) => this.loadImage(img, forceRefresh));
         }
     }
 
     /**
      * @method loadImage
      * @param img LazyImage 实例
+     * @param forceRefresh bool 强制刷新 Image 的位置
      * @description 判断并决定是否加载 LazyImage
      * @skip
      */
-    loadImage(img) {
+    loadImage(img, forceRefresh) {
         const self = this;
         const _top = img.offsetTop - this.wrapperOffsetTop + this.y;
+
+        if (forceRefresh) {
+            img.refresh(img.context);
+        }
         if (_top < self.wrapperHeight) { // 出现在当前可视区域和可视区域上方都加载
             img.load(() => {
                 const _height = img.props.style && img.props.style.height ? img.props.style.height : img.props.height;
-                if (!_height) { // 如果设置了高度，就不再重新刷新
+                const _width = img.props.style && img.props.style.width ? img.props.style.width : img.props.width;
+                if (!_height || !_width) { // 如果设置了高度，就不再重新刷新
                     self.refresh();
                 }
             });
@@ -1011,7 +1056,7 @@ export default class Scroller extends Component {
         }
 
         this.maxScrollX = this.wrapperWidth - this.scrollerWidth;
-        this.maxScrollY = this.wrapperHeight - this.scrollerHeight;
+        this.maxScrollY = this.wrapperHeight - this.scrollerHeight - this.props.contentInset.bottom;
 
         this.hasHorizontalScroll = this.props.scrollX && this.maxScrollX < 0;
         this.hasVerticalScroll = this.props.scrollY && this.maxScrollY < 0;
@@ -1039,7 +1084,7 @@ export default class Scroller extends Component {
      * 使用场景：在某些不是通过 setState 或 Redux 等方式来**直接改变** Scroller 的内容导致 Scroller 不会 render 时，由于内容宽高发生了变化，需要通过本方法来刷新 LazyImage 的位置信息。
      */
     refreshLazyImage() {
-        this._tryLoadLazyImages();
+        this._tryLoadLazyImages(true);
     }
 
     /**
@@ -1438,7 +1483,8 @@ export default class Scroller extends Component {
             loadMoreContent = this.props.renderLoadMore ? this.props.renderLoadMore() : loadMoreTpl;
         }
 
-        let wrapperStyle = Object.assign({ overflow: 'hidden' }, this.props.style);
+        let wrapperStyle = Object.assign({ overflow: 'hidden', paddingBottom: this.props.contentInset.bottom }, this.props.style);
+        // let wrapperStyle = Object.assign({ overflow: 'hidden' }, this.props.style);
         let scrollerStyle = Object.assign({}, this.props.containerExtraStyle, this._scrollerStyle);
         let scrollerContent;
         let _wrapperClassName = classNames('yo-scroller', extraClass);

@@ -9,8 +9,13 @@
     <meta name="description" content="description of your site">
     <meta name="author" content="author of the site">
     <title>Yo Documentation 组件</title>
-    <link rel="stylesheet" href="source/main.css" />   
-    <link rel="stylesheet" href="./theme/ydoc.css" />  
+    <link rel="stylesheet" href="source/main.css" />
+    
+    
+      
+      <link rel="stylesheet" href="styles/ydoc.css" />
+      
+    
 </head>
 <body class=component-Carousel >
     <div class="ydoc">
@@ -89,7 +94,7 @@
 
             <div class="ydoc-container">
                  
-                <div class="ydoc-container-content">
+                <div class="ydoc-container-content ">
                     
                     
                     <div class="content-left staticsidenav" role="complementary">
@@ -276,7 +281,7 @@
                         </nav>
                     </div>
                     
-                    <div class="content-right markdown-body " role="main">
+                    <div class="content-right markdown-body use-sidebar" role="main">
 
                          <div class="docs-section">
     <h2 id="Carousel">
@@ -325,9 +330,9 @@
 <span class="token keyword">import</span> Carousel <span class="token keyword">from</span> <span class="token string">'yo3/component/carousel'</span><span class="token punctuation">;</span>
 </code></pre><h4 id="-">基础用法</h4>
 <pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Carousel</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token operator">&lt;</span>img className<span class="token operator">=</span><span class="token string">"img"</span> src<span class="token operator">=</span><span class="token string">"//img1.qunarzz.com/qs/1610/a6/01d1ad00e4b9e102.jpg"</span> <span class="token operator">/</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">></span>  
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token operator">&lt;</span>img className<span class="token operator">=</span><span class="token string">"img"</span> src<span class="token operator">=</span><span class="token string">"//img1.qunarzz.com/qs/1610/a6/01d1ad00e4b9e102.jpg"</span> <span class="token operator">/</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">></span>  
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token operator">&lt;</span>img className<span class="token operator">=</span><span class="token string">"img"</span> src<span class="token operator">=</span><span class="token string">"//img1.qunarzz.com/qs/1610/a6/01d1ad00e4b9e102.jpg"</span> <span class="token operator">/</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">></span>  
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token operator">&lt;</span>img className<span class="token operator">=</span><span class="token string">"img"</span> src<span class="token operator">=</span><span class="token string">"//img1.qunarzz.com/qs/1610/a6/01d1ad00e4b9e102.jpg"</span> <span class="token operator">/</span><span class="token operator">></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>  
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token operator">&lt;</span>img className<span class="token operator">=</span><span class="token string">"img"</span> src<span class="token operator">=</span><span class="token string">"//img1.qunarzz.com/qs/1610/a6/01d1ad00e4b9e102.jpg"</span> <span class="token operator">/</span><span class="token operator">></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>  
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token operator">&lt;</span>img className<span class="token operator">=</span><span class="token string">"img"</span> src<span class="token operator">=</span><span class="token string">"//img1.qunarzz.com/qs/1610/a6/01d1ad00e4b9e102.jpg"</span> <span class="token operator">/</span><span class="token operator">></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>  
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Carousel</span><span class="token punctuation">></span></span>
 </code></pre><h4 id="-carouselitem">使用内置组件CarouselItem</h4>
 <ul>
@@ -358,17 +363,17 @@
     <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">return</span> <span class="token punctuation">(</span>            
             <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Carousel</span>
-                <span class="token attr-name">afterChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>page<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                <span class="token attr-name">afterChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>page<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
                     <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
                         currentPage<span class="token punctuation">:</span> page
                     <span class="token punctuation">}</span><span class="token punctuation">)</span>
                 <span class="token punctuation">}</span></span><span class="token attr-name">}</span>
             <span class="token punctuation">></span></span>
             <span class="token punctuation">{</span>
-                testData<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> index<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span>
+                testData<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> index<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span>
                     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>CarouselItem</span>
                         <span class="token attr-name">key</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>index <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">}</span></span>
-                        <span class="token attr-name">{...item}</span>
+                        <span class="token spread"><span class="token punctuation">{</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token attr-value">item</span><span class="token punctuation">}</span></span>
                         <span class="token attr-name">lazyload</span>
                     <span class="token punctuation">/></span></span>
                 <span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -393,17 +398,17 @@
             <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Carousel</span>
                 <span class="token attr-name">aniObj</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>aniCss<span class="token punctuation">}</span></span>
                 <span class="token attr-name">extraClass</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token string">'yo-carousel-fade'</span><span class="token punctuation">}</span></span>
-                <span class="token attr-name">afterChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>currentPage<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                <span class="token attr-name">afterChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>currentPage<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
                     <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
                         currentPage
                     <span class="token punctuation">}</span><span class="token punctuation">)</span>
                 <span class="token punctuation">}</span></span><span class="token attr-name">}</span>
             <span class="token punctuation">></span></span>
             <span class="token punctuation">{</span>
-                testData<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> index<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span>
+                testData<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> index<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span>
                     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>CarouselItem</span>
                         <span class="token attr-name">key</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>index <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">}</span></span>
-                        <span class="token attr-name">{...item}</span>
+                        <span class="token spread"><span class="token punctuation">{</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token attr-value">item</span><span class="token punctuation">}</span></span>
                         <span class="token attr-name">lazyload</span>
                         <span class="token attr-name">activeClass</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token string">'top'</span><span class="token punctuation">}</span></span>
                     <span class="token punctuation">/></span></span>
@@ -937,7 +942,7 @@ carousel组件需要挂载的父节点有宽度，组件内置动画需要宽度
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
          
-    <script type="text/javascript" src="./theme/ydoc.js"></script>
+    <script type="text/javascript" src="scripts/ydoc.js"></script>
      
 
     </body>

@@ -120,6 +120,7 @@ export default class Number extends Component {
     }
 
     componentWillMount() {
+        window.addEventListener('resize', this.resizeEvent.bind(this), false);
         this.resetState(this.state);
     }
 
@@ -157,6 +158,14 @@ export default class Number extends Component {
             return max;
         }
         return value;
+    }
+
+    componentWillUnMount() {
+        window.removeEventListener('resize', this.resizeEvent.bind(this), false);
+    }
+
+    resizeEvent() {
+        this.wrapChange(this._node.value);
     }
 
     /**

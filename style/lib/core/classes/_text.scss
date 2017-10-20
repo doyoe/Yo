@@ -47,6 +47,7 @@
         display: -webkit-box !important;
         -webkit-line-clamp: $line-clamp;
         @include flex-direction(column);
+        @include wrap;
     } @else {
         @include wrap(false);
     }

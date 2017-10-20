@@ -111,6 +111,9 @@ function copyStyleToDestFolder(styleFolderPath) {
 function tryUpdateUsageFolder(styleFolderPath) {
     var usageFolder = Path.resolve(styleSrcPath, 'usage');
     fs.readdirSync(usageFolder).forEach(function (folder) {
+        if(!fs.existsSync(Path.resolve(styleFolderPath, folder))) {
+            fs.mkdirSync(Path.resolve(styleFolderPath, folder));
+        }
         fs.readdirSync(Path.resolve(usageFolder, folder)).forEach(function (scss) {
             var destPath = Path.resolve(styleFolderPath, folder, scss);
             if (!fs.existsSync(destPath)) {
@@ -125,6 +128,9 @@ function rewriteUsageRefs(styleFolderPath) {
     var usageChildren = fs.readdirSync(styleFolderPath);
     var packageName = require('../package.json').name;
     usageChildren.forEach(function (usageChild) {
+        if(usageChild && usageChild.charAt(0) === '.') {
+            return;
+        }
         fs.readdirSync(Path.resolve(styleFolderPath, usageChild)).forEach(function (scssFile) {
             var libImport = /@import\s+(['"])\.\.\/\.\.\/lib/g;
             var scssPath = Path.resolve(styleFolderPath, usageChild, scssFile);

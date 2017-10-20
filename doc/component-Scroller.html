@@ -9,8 +9,13 @@
     <meta name="description" content="description of your site">
     <meta name="author" content="author of the site">
     <title>Yo Documentation 组件</title>
-    <link rel="stylesheet" href="source/main.css" />   
-    <link rel="stylesheet" href="./theme/ydoc.css" />  
+    <link rel="stylesheet" href="source/main.css" />
+    
+    
+      
+      <link rel="stylesheet" href="styles/ydoc.css" />
+      
+    
 </head>
 <body class=component-Scroller >
     <div class="ydoc">
@@ -89,7 +94,7 @@
 
             <div class="ydoc-container">
                  
-                <div class="ydoc-container-content">
+                <div class="ydoc-container-content ">
                     
                     
                     <div class="content-left staticsidenav" role="complementary">
@@ -276,7 +281,7 @@
                         </nav>
                     </div>
                     
-                    <div class="content-right markdown-body " role="main">
+                    <div class="content-right markdown-body use-sidebar" role="main">
 
                          <div class="docs-section">
     <h2 id="Scroller">
@@ -358,7 +363,7 @@
 <pre><code><span class="token operator">&lt;</span>Scroller
     ref<span class="token operator">=</span><span class="token string">"scroller"</span>
     usePullRefresh<span class="token operator">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span>
-    onRefresh<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    onRefresh<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">// 刷新数据 start</span>
         <span class="token comment" spellcheck="true">// ...</span>
         <span class="token comment" spellcheck="true">// 刷新数据 end</span>
@@ -382,7 +387,7 @@
 <pre><code><span class="token operator">&lt;</span>Scroller
     ref<span class="token operator">=</span><span class="token string">"scroller"</span>
     useLoadMore<span class="token operator">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span>
-    onLoad<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    onLoad<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">// 加载数据 start</span>
         <span class="token comment" spellcheck="true">// ...</span>
         <span class="token comment" spellcheck="true">// 加载数据 end</span>
@@ -435,7 +440,7 @@
 <p><code>Scroller</code> 提供了 <code>onScroll</code> 方法来监听滚动事件。一旦设置了这个回调，会强制使用 <code>requestAnimationFrame</code> 来实现滚动动画（包括：回弹、惯性滚动和 <code>scrollTo</code> 方法的动画），即使设置 <code>useTransition</code> 属性为 <code>true</code>。
 这样会导致 <code>Scroller</code> 的性能变差，请谨慎使用。</p>
 <pre><code><span class="token operator">&lt;</span>Scroller
-    onScroll<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>evt<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    onScroll<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>evt<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>evt<span class="token punctuation">.</span>contentOffset<span class="token punctuation">.</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 当前横向位移</span>
         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>evt<span class="token punctuation">.</span>contentOffset<span class="token punctuation">.</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 当前纵向位移</span>
     <span class="token punctuation">}</span><span class="token punctuation">}</span>
@@ -537,6 +542,27 @@
         
         <p class="api-content">
             <small class="text-muted">默认值:</small> {x: 0, y: 0}
+        </p>
+           
+        <blockquote class="api">
+            <h3 id="contentInset" class="subject">
+                <strong>contentInset</strong>
+                <span class="prop-type">{ Number }</span>
+                
+                <span class="ui-badge">3.0.13</span>
+                
+                
+                <a class="hashlink" href="#contentInset">#</a>
+            </h3>
+        </blockquote>
+        <div class="api-content">
+            <div><p>内容区域周围的留白，<strong>目前仅支持 bottom</strong>。主要用于适配 iPhoneX，在下方留出一定间隙。有『加载更多』时，显示在『加载更多』的下方。可以通过设置背景色来改变留白的颜色。</p>
+</div>
+            
+        </div>
+        
+        <p class="api-content">
+            <small class="text-muted">默认值:</small> {bottom:0}
         </p>
            
         <blockquote class="api">
@@ -1496,7 +1522,7 @@ hasLoadMore
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
          
-    <script type="text/javascript" src="./theme/ydoc.js"></script>
+    <script type="text/javascript" src="scripts/ydoc.js"></script>
      
 
     </body>

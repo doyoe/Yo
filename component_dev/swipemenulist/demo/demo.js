@@ -37,6 +37,7 @@ class SwipeMenuListDemo extends Component {
             <SwipeMenuList
                 staticSection={<div>static!</div>}
                 staticSectionHeight={200}
+                contentInset={{bottom:20}}
                 getMenuConfig={() => ({
                     direction: 'right',
                     action: [

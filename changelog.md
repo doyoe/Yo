@@ -1,3 +1,18 @@
+## v3.0.13 (2017-10-20)
+
+### New Features
+* `Scroller/List/GroupList/SwipeMenuList` 添加 `contentInset` 参数，用来在内容区域底部加上间隙（主要用于适配 iPhoneX，在内容最下方留出空间）。
+* 添加 `autoBlur` 工具函数，可以通过 `import { autoBlur } from 'yo3/component/common/util.js` 来使用。
+* `Toast` 支持传入回调函数，详见 `Toast` 使用说明。
+* 为 `ellipsis` 方法内置强制换行（当 `$line-clamp` 大于 `1` 时，即多行截断）。
+
+### Bug Fixes
+* 修复 `Modal` 在某些情况下，`componentWillUnmount` 先于 `componentDidMount` 执行导致的 bug。
+* 修复 `InputNumber` 在某些安卓手机键盘收起时，数值还原的 bug。
+* 修复 `Scroller` 的 `refreshLazyImage` 方法在某些情况下，未能刷新全部图片位置的 bug。
+* 修复 `Scorller` 子元素存在 input 输入框时，浏览器强制让 input 显示在可见区域，收缩键盘后无法向上滑倒顶部的 bug。
+* 修复 `LazyImage` 在 `List` 组件的非 infinite 模式下，加载更多数据之后报错的 bug。
+
 ## v3.0.12 (2017-07-14)
 
 ### New Features

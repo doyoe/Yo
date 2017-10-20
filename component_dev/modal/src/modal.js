@@ -23,7 +23,10 @@ export default class Modal extends Component {
     }
 
     componentWillUnmount() {
-        document.body.removeChild(this.wrapper);
+        // 某些情况业务的崩溃会导致 WillUnmount 在 DidMount 之前调用，所以需要加层判断
+        if (!!this.wrapper) {
+            document.body.removeChild(this.wrapper);
+        }
     }
 
     appendWrapperToDocBody() {

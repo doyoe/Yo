@@ -17,7 +17,7 @@ import PopupPicker from 'yo3/component/popuppicker';
 
 你应该给 `PopupPicker` 传入一个唯一子元素，这个子元素将会作为触发区域的内容，同时你还需要通过 `touchClass` 指定它的触摸反馈效果。
 
-```
+```javascript
 const options = [
     { text: '零', value: 0 },
     { text: '一', value: 1 },
@@ -51,7 +51,7 @@ class Demo extends Component {
                     value={this.state.value}
                     onChange={this.handleChange.bind(this)}
                     touchClass="item-touch"
-                />
+                >
                     <div className="demo-item">
                         <span className="title">选择序号</span>
                         <span className="value">{this.state.value === null ? '请选择' : this.state.value}</span>
@@ -67,7 +67,7 @@ class Demo extends Component {
 
 弹出式选择器的 Header 由确认、取消按钮和标题组成，这些按钮的显示值和可选的标题文本可以通过`popupHeader`定制。
 
-```
+```javascript
 popupHeader={{
     title: '欢迎使用Yo',
     cancelBtn: { text: 'Cancel', touchClass: 'myTouchClass' },
@@ -83,7 +83,7 @@ popupHeader 可以设置`title`、`cancelBtn`和`okBtn`值，它们分别代表�
 
 上面介绍的`cancelBtn`和`okBtn`不仅可以为字符串，也可以为一个jsx元素。可以将一个图标元素作为`cancelBtn`的值（见下例），这时的取消按钮就是一个叉状的图标了。
 
-```
+```javascript
 popupHeader={{
     title: '欢迎使用Yo',
     cancelBtn: { text: (<i className="regret yo-ico">&#xf077;</i>), touchClass: 'myTouchClass' },
@@ -151,7 +151,7 @@ render() {
                         return false;
                     }}
                     touchClass="item-touch"
-                />
+                >
                     <div className="demo-item">
                         <span className="title">选择序号</span>
                         <span className="value">{this.state.value === null ? '请选择' : this.state.value}</span>
@@ -174,6 +174,8 @@ render() {
                 ref={component => {
                     this.popupPickerCom = component;
                 }}
+                ...
+            >
                 ...
             </PopupPicker>
         </div>

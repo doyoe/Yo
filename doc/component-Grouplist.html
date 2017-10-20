@@ -9,8 +9,13 @@
     <meta name="description" content="description of your site">
     <meta name="author" content="author of the site">
     <title>Yo Documentation 组件</title>
-    <link rel="stylesheet" href="source/main.css" />   
-    <link rel="stylesheet" href="./theme/ydoc.css" />  
+    <link rel="stylesheet" href="source/main.css" />
+    
+    
+      
+      <link rel="stylesheet" href="styles/ydoc.css" />
+      
+    
 </head>
 <body class=component-Grouplist >
     <div class="ydoc">
@@ -89,7 +94,7 @@
 
             <div class="ydoc-container">
                  
-                <div class="ydoc-container-content">
+                <div class="ydoc-container-content ">
                     
                     
                     <div class="content-left staticsidenav" role="complementary">
@@ -276,7 +281,7 @@
                         </nav>
                     </div>
                     
-                    <div class="content-right markdown-body " role="main">
+                    <div class="content-right markdown-body use-sidebar" role="main">
 
                          <div class="docs-section">
     <h2 id="GroupList">
@@ -317,7 +322,7 @@
         <span class="token punctuation">{</span>text<span class="token punctuation">:</span> <span class="token string">'上海'</span><span class="token punctuation">,</span> key<span class="token punctuation">:</span><span class="token operator">++</span>guid<span class="token punctuation">,</span> groupKey<span class="token punctuation">:</span><span class="token string">'S'</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
         <span class="token operator">...</span>
     <span class="token punctuation">]</span><span class="token punctuation">}</span>
-    sort<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">//return a positive or negative number... }}</span>
+    sort<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">//return a positive or negative number... }}</span>
     <span class="token operator">...</span>
 <span class="token operator">/</span><span class="token operator">></span>
 </code></pre><p>如果设置<code>groupKey</code>为<code>notGrouped</code>，那么这些元素组成的组没有标题，并且会放置在所有分组的上方。使用<code>sort</code>属性可以给分组排序，它的使用方式与数组的sort完全一致。</p>
@@ -325,8 +330,8 @@
 和<code>renderGroupTitle</code>:</p>
 <pre><code><span class="token operator">&lt;</span>GroupList
     <span class="token operator">...</span>
-    renderGroupItem<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span>i<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">/* return a JSX ,array of element or string... */</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
-    renderGroupTitle<span class="token operator">=</span><span class="token punctuation">{</span>groupKey <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">/* the same to renderGroupItem... */</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+    renderGroupItem<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span>i<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">/* return a JSX ,array of element or string... */</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+    renderGroupTitle<span class="token operator">=</span><span class="token punctuation">{</span>groupKey <span class="token operator">=></span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">/* the same to renderGroupItem... */</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
 <span class="token operator">/</span><span class="token operator">></span>
 </code></pre><p>你可以分别指定普通的列表项和分组标题的渲染方式，<code>renderGroupItem</code>的使用与<code>List</code>的<code>renderItem</code>完全一致；<code>renderGroupTitle</code>可以指定分组标题的渲染方式,
 它可以接收一个参数<code>groupKey</code>，即你在dataSource中为每个元素添加的groupKey。</p>
@@ -351,7 +356,7 @@
     <span class="token punctuation">}</span>
 
     <span class="token function">renderDataSource</span><span class="token punctuation">(</span>dataSource<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> dataSource<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> index<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> dataSource<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> index<span class="token punctuation">)</span><span class="token operator">=></span> <span class="token punctuation">{</span>
             <span class="token keyword">return</span> <span class="token punctuation">{</span>
                 groupKey<span class="token punctuation">:</span> index <span class="token operator">&lt;</span> <span class="token number">5</span> <span class="token operator">?</span> <span class="token string">'notGrouped'</span> <span class="token punctuation">:</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>text <span class="token operator">/</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
                 text<span class="token punctuation">:</span> index <span class="token operator">&lt;</span> <span class="token number">5</span> <span class="token operator">?</span> <span class="token punctuation">(</span><span class="token string">'没有被分组的元素'</span> <span class="token operator">+</span> item<span class="token punctuation">.</span>text<span class="token punctuation">)</span> <span class="token punctuation">:</span> item<span class="token punctuation">.</span>text<span class="token punctuation">,</span>
@@ -368,7 +373,7 @@
 
     <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">return</span> <span class="token punctuation">(</span>
-            <span class="token operator">&lt;</span>Page title<span class="token operator">=</span><span class="token string">'GroupList Demo'</span> onLeftPress<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span>location<span class="token punctuation">.</span>href <span class="token operator">=</span> <span class="token string">'../index/index.html'</span><span class="token punctuation">}</span><span class="token operator">></span>
+            <span class="token operator">&lt;</span>Page title<span class="token operator">=</span><span class="token string">'GroupList Demo'</span> onLeftPress<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span>location<span class="token punctuation">.</span>href <span class="token operator">=</span> <span class="token string">'../index/index.html'</span><span class="token punctuation">}</span><span class="token operator">></span>
                 <span class="token operator">&lt;</span>GroupList
                     ref<span class="token operator">=</span><span class="token string">'grouplist'</span>
                     dataSource<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>dataSource<span class="token punctuation">}</span>
@@ -376,27 +381,27 @@
                     infinite<span class="token operator">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span>
                     itemHeight<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">44</span><span class="token punctuation">}</span>
                     showIndexNavBar<span class="token operator">=</span><span class="token punctuation">{</span><span class="token boolean">true</span> <span class="token comment" spellcheck="true">/* 注意:没有指定高度的无穷分组列表无法使用indexNavBar,这个属性设置为true也不会生效 */</span><span class="token punctuation">}</span>
-                    renderIndexNavBarItem<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>groupKey<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span>DIGIT_TO_CHN<span class="token punctuation">[</span>groupKey<span class="token punctuation">]</span> <span class="token comment" spellcheck="true">/* 同上 */</span><span class="token punctuation">}</span>
-                    onIndexNavBarItemHover<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>groupKey<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                    renderIndexNavBarItem<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>groupKey<span class="token punctuation">)</span><span class="token operator">=></span>DIGIT_TO_CHN<span class="token punctuation">[</span>groupKey<span class="token punctuation">]</span> <span class="token comment" spellcheck="true">/* 同上 */</span><span class="token punctuation">}</span>
+                    onIndexNavBarItemHover<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>groupKey<span class="token punctuation">)</span><span class="token operator">=></span> <span class="token punctuation">{</span>
                         ToolTip<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span>DIGIT_TO_CHN<span class="token punctuation">[</span>groupKey<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
                     <span class="token punctuation">}</span><span class="token punctuation">}</span>
-                    renderGroupItem<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> index<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token operator">&lt;</span>div<span class="token operator">></span><span class="token punctuation">{</span>index <span class="token operator">+</span> <span class="token string">':'</span> <span class="token operator">+</span> item<span class="token punctuation">.</span>text<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span><span class="token punctuation">}</span>
-                    renderGroupTitle<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>groupKey<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span>DIGIT_TO_CHN<span class="token punctuation">[</span>groupKey<span class="token punctuation">]</span><span class="token punctuation">}</span>
-                    groupTitleExtraClass<span class="token operator">=</span><span class="token punctuation">{</span>title<span class="token operator">=</span><span class="token operator">></span><span class="token string">'label demo-group-title'</span><span class="token punctuation">}</span>
-                    onItemTap<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> index<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span>ToolTip<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token string">'tapping:'</span> <span class="token operator">+</span> item<span class="token punctuation">.</span>text<span class="token punctuation">,</span> <span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
-                    sort<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                    renderGroupItem<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> index<span class="token punctuation">)</span><span class="token operator">=></span><span class="token operator">&lt;</span>div<span class="token operator">></span><span class="token punctuation">{</span>index <span class="token operator">+</span> <span class="token string">':'</span> <span class="token operator">+</span> item<span class="token punctuation">.</span>text<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span><span class="token punctuation">}</span>
+                    renderGroupTitle<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>groupKey<span class="token punctuation">)</span><span class="token operator">=></span>DIGIT_TO_CHN<span class="token punctuation">[</span>groupKey<span class="token punctuation">]</span><span class="token punctuation">}</span>
+                    groupTitleExtraClass<span class="token operator">=</span><span class="token punctuation">{</span>title<span class="token operator">=></span><span class="token string">'label demo-group-title'</span><span class="token punctuation">}</span>
+                    onItemTap<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> index<span class="token punctuation">)</span><span class="token operator">=></span>ToolTip<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token string">'tapping:'</span> <span class="token operator">+</span> item<span class="token punctuation">.</span>text<span class="token punctuation">,</span> <span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+                    sort<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token operator">=></span> <span class="token punctuation">{</span>
                         <span class="token keyword">return</span> a <span class="token operator">-</span> b<span class="token punctuation">;</span>
                     <span class="token punctuation">}</span><span class="token punctuation">}</span>
                     usePullRefresh<span class="token operator">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span>
-                    onRefresh<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-                        <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                    onRefresh<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span> <span class="token punctuation">{</span>
+                        <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span> <span class="token punctuation">{</span>
                             <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> dataSource<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">renderDataSource</span><span class="token punctuation">(</span><span class="token function">getRandomDataSource</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
                             <span class="token keyword">this</span><span class="token punctuation">.</span>refs<span class="token punctuation">.</span>grouplist<span class="token punctuation">.</span><span class="token function">stopRefreshing</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
                         <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
                     <span class="token punctuation">}</span><span class="token punctuation">}</span>
                     useLoadMore<span class="token operator">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span>
-                    onLoad<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-                        <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                    onLoad<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span> <span class="token punctuation">{</span>
+                        <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span> <span class="token punctuation">{</span>
                             <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">loadMore</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
                             <span class="token keyword">this</span><span class="token punctuation">.</span>refs<span class="token punctuation">.</span>grouplist<span class="token punctuation">.</span><span class="token function">stopLoading</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
                         <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -939,6 +944,27 @@
         
         <p class="api-content">
             <small class="text-muted">默认值:</small> 0
+        </p>
+           
+        <blockquote class="api">
+            <h3 id="contentInset" class="subject">
+                <strong>contentInset</strong>
+                <span class="prop-type">{ Number }</span>
+                
+                <span class="ui-badge">3.0.13</span>
+                
+                
+                <a class="hashlink" href="#contentInset">#</a>
+            </h3>
+        </blockquote>
+        <div class="api-content">
+            <div><p>内容区域周围的留白，<strong>目前仅支持 bottom</strong>。主要用于适配 iPhoneX，在下方留出一定间隙。有『加载更多』时，显示在『加载更多』的下方。可以通过设置背景色来改变留白的颜色。</p>
+</div>
+            
+        </div>
+        
+        <p class="api-content">
+            <small class="text-muted">默认值:</small> {bottom:0}
         </p>
            
         <blockquote class="api">
@@ -1825,7 +1851,7 @@
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
          
-    <script type="text/javascript" src="./theme/ydoc.js"></script>
+    <script type="text/javascript" src="scripts/ydoc.js"></script>
      
 
     </body>

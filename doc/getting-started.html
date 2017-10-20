@@ -9,8 +9,13 @@
     <meta name="description" content="description of your site">
     <meta name="author" content="author of the site">
     <title>Yo Documentation 起步</title>
-    <link rel="stylesheet" href="source/main.css" />   
-    <link rel="stylesheet" href="./theme/ydoc.css" />  
+    <link rel="stylesheet" href="source/main.css" />
+    
+    
+      
+      <link rel="stylesheet" href="styles/ydoc.css" />
+      
+    
 </head>
 <body class=getting-started >
     <div class="ydoc">
@@ -89,7 +94,7 @@
 
             <div class="ydoc-container">
                  
-                <div class="ydoc-container-content">
+                <div class="ydoc-container-content ">
                     
                     
                     <div class="content-left staticsidenav" role="complementary">
@@ -136,7 +141,7 @@
                         </nav>
                     </div>
                     
-                    <div class="content-right markdown-body " role="main">
+                    <div class="content-right markdown-body use-sidebar" role="main">
 
                          <p><code>Yo</code> 提供了一些非常便捷的开始方式，你可以通过阅读下面的内容根据自己的特定需要来选择：</p>
 <ul>
@@ -199,7 +204,7 @@
 <blockquote>
 <p>大家可能会奇怪为什么在项目初始化时，会安装一个 <code>yo3</code> 而不是 <code>yo</code> 的模块。这是因为 <code>yo</code> 在 <code>npm</code> 上已经被占用，所以我们只好将包名改为了 <code>yo3</code>。但是通过上述的别名配置后，基本上也无伤大雅。</p>
 </blockquote>
-<h3 class="subject" id="使用Yo Component">使用Yo Component <a class="hashlink" href="#使用Yo Component">#</a></h3><p><code>Yo v3</code> 提供了数量众多的React组件，需要使用时将它们 <code>import</code> 进来即可。当然，首先你需要引入 <code>React</code> 和 <code>ReactDOM</code>：</p>
+<h3 class="subject" id="使用Yo_Component">使用Yo Component <a class="hashlink" href="#使用Yo_Component">#</a></h3><p><code>Yo v3</code> 提供了数量众多的React组件，需要使用时将它们 <code>import</code> 进来即可。当然，首先你需要引入 <code>React</code> 和 <code>ReactDOM</code>：</p>
 <pre><code><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> ReactDOM <span class="token keyword">from</span> <span class="token string">'react-dom'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> GroupList <span class="token keyword">from</span> <span class="token string">'$yo-component/grouplist'</span><span class="token punctuation">;</span>
@@ -215,7 +220,7 @@
 <span class="token keyword">import</span> Touchable <span class="token keyword">from</span> <span class="token string">'yo3/component/touchable'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> List <span class="token keyword">from</span> <span class="token string">'yo3/component/list'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> GroupList <span class="token keyword">from</span> <span class="token string">'yo3/component/grouplist'</span><span class="token punctuation">;</span>
-</code></pre><h3 class="subject" id="使用Yo style">使用Yo style <a class="hashlink" href="#使用Yo style">#</a></h3><p>在样式的使用上，<code>Yo v3</code> 保留了一切之前的特性和用法。</p>
+</code></pre><h3 class="subject" id="使用Yo_style">使用Yo style <a class="hashlink" href="#使用Yo_style">#</a></h3><p>在样式的使用上，<code>Yo v3</code> 保留了一切之前的特性和用法。</p>
 <p>不太一样的是，<code>Yo</code> 的脚手架会在项目工程下生成一个 <code>yo-config</code> 目录，它对应的是以前的 <code>usage</code> 目录。对于 <code>Yo</code> 的所有元件，我们仍然可以在 <code>yo-config</code> 目录下的对应文件中进行扩展，推荐大家在这里扩展全局和通用性的元件，特殊或者单一性的扩展可以放到具体的页面级样式文件中进行。</p>
 <p>同时，<code>Yo</code> 的样式 <code>lib</code> 目录不再直接放在项目工程目录下，而是在项目初始化时被安装到了 <code>node_modules</code> 目录下，规避在业务开发中被修改的可能性，降低升级的风险。</p>
 <p>如果需要在项目中直接引用 <code>lib</code> 中的文件，这样做即可：</p>
@@ -279,7 +284,7 @@
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
          
-    <script type="text/javascript" src="./theme/ydoc.js"></script>
+    <script type="text/javascript" src="scripts/ydoc.js"></script>
      
 
     </body>

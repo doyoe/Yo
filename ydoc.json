@@ -6,18 +6,13 @@
   "instructionsInfoPath": "./docs/component",
   "instructionsUrlPath": "http://ued.qunar.com/hy2/yo/demo/src/html/component/",
   "options": {
-    "insertCSS": [
-      "./theme/ydoc.css"
-    ],
-    "insertJS": [
-      "./theme/ydoc.js"
-    ],
     "foldsidenav": false,
     "staticsidenav": true,
     "hasPageName": true
   },
   "resources": {
-    "theme": "./docs/theme/"
+    "styles": "./docs/theme/styles",
+    "scripts": "./docs/theme/scripts"
   },
   "common": {
     "title": "Yo Documentation",
@@ -31,7 +26,7 @@
       "name": "index",
       "title": "Yo",
       "homepage": {
-          "version": "v3.0.12",
+          "version": "v3.0.13",
           "button": [{
               "name": "起步",
               "href": "./getting-started.html"

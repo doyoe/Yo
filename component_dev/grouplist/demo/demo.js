@@ -64,12 +64,13 @@ class GroupListDemo extends Component {
         return (
             <GroupList
                 staticSection={
-                    <div style={{ background: 'yellow', height: 444 }}>
+                    <div style={{ background: 'yellow', height: 66 }}>
                         static header!!
                     </div>
                 }
                 shouldItemUpdate={(next, now) => next !== now}
                 usePullRefesh={true}
+                contentInset={{ bottom: 20 }}
                 offsetY={-200}
                 ref="grouplist"
                 dataSource={this.state.dataSource}

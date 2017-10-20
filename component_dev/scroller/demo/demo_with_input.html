@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no,email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <title>Scroller Demo: With Input</title>
+    <style>
+        body {
+            background-color: #eee !important;
+            overflow: hidden;
+        }
+
+        .fullscreen {
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            position: absolute;
+        }
+        .yo-list-root {
+            height: 100%;
+        }
+    </style>
+    <script>
+        document.ontouchmove = function (e) {
+            if (e.target.tagName.toUpperCase() !== 'IFRAME') {
+                e.preventDefault();
+            }
+        };
+    </script>
+</head>
+<body>
+<div id="content"></div>
+<script src="../../../prd/component_dev/scroller/demo/demo_with_input.js"></script>
+</body>
+</html>
