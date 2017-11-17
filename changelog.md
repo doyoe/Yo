@@ -1,3 +1,8 @@
+## v3.0.14 (2017-11-17)
+
+### Bug Fixes
+* 修复 `scroller.js` 中因 `refs.wrapper` 不存在而报错的问题
+
 ## v3.0.13 (2017-10-20)
 
 ### New Features

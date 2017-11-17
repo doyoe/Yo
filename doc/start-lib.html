@@ -160,7 +160,7 @@
 中的 <code>modifyWebpackConfig</code> 属性来修改 <code>lib.js</code> 中的内容：</p>
 <pre><code><span class="token operator">...</span>
 modifyWebpackConfig<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>config<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    config<span class="token punctuation">.</span>getVendor <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>vendor<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    config<span class="token punctuation">.</span><span class="token function-variable function">getVendor</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>vendor<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">return</span> vendor<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span><span class="token string">'a-custom-module'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -168,7 +168,7 @@ modifyWebpackConfig<span class="token punctuation">:</span> <span class="token k
 </code></pre><p>getVendor函数可以接收一个数组参数 <code>vendor</code>，里面是 <code>lib.js</code> 中内置的依赖，它返回的新数组将会覆盖掉原有的配置。我们推荐
 你将所有的公共模块都内置到lib.js中。</p>
 <p>dll也可以支持内置非 <code>node_modules</code> 的模块，你需要填写一个相对于 <code>./src</code> 目录的路径：</p>
-<pre><code>config<span class="token punctuation">.</span>getVendor <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>vendors<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<pre><code>config<span class="token punctuation">.</span><span class="token function-variable function">getVendor</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>vendors<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> vendors<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
         <span class="token string">'immutable'</span><span class="token punctuation">,</span>
         <span class="token string">'keymirror'</span><span class="token punctuation">,</span>
@@ -182,7 +182,7 @@ modifyWebpackConfig<span class="token punctuation">:</span> <span class="token k
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre><p>在修改 <code>vendor</code> 的配置后，你需要重新运行一次<code>ykit dll</code>命令并重启server。</p>
 <h3 class="subject" id="关闭动态链接库">关闭动态链接库 <a class="hashlink" href="#关闭动态链接库">#</a></h3><p>如果你不希望使用DLL，可以设置 <code>getVendor</code> 返回一个空数组：</p>
-<pre><code>config<span class="token punctuation">.</span>getVendor <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<pre><code>config<span class="token punctuation">.</span><span class="token function-variable function">getVendor</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre><p>然后你需要重新调用<code>ykit dll</code>并重启server。</p>

@@ -469,7 +469,7 @@ export default class Scroller extends Component {
         // 修复子元素存在 input 输入框时，浏览器强制让 input 显示在可见区域，收缩键盘后无法向上滑倒顶部的 bug
         this._resetScrollTop = () => {
             const { wrapper } = this.refs;
-            if (wrapper.scrollTop > 0) {
+            if (wrapper && wrapper.scrollTop > 0) {
                 setTimeout(() => {
                     wrapper.scrollTop = 0;
                 }, 100); // 防止有输入框获得焦点时收缩键盘时强制输入框展示在现实区域而出现的闪烁问题
