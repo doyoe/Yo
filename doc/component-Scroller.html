@@ -2,13 +2,11 @@
 <html lang="zh-CN">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-    <meta name="format-detection" content="telephone=no,email=no" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
-    <meta name="description" content="description of your site">
-    <meta name="author" content="author of the site">
-    <title>Yo Documentation 组件</title>
+    <title>Scroller - Yo Documentation 组件</title>
+    
+    
+
+    <link rel="shortcut icon" href="./images/favicon.ico" />
     <link rel="stylesheet" href="source/main.css" />
     
     
@@ -16,6 +14,10 @@
       <link rel="stylesheet" href="styles/ydoc.css" />
       
     
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no,email=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
 </head>
 <body class=component-Scroller >
     <div class="ydoc">
@@ -93,7 +95,7 @@
             
 
             <div class="ydoc-container">
-                 
+                
                 <div class="ydoc-container-content ">
                     
                     
@@ -312,8 +314,8 @@
                     <h4 id="-">引用方式</h4>
 <pre><code><span class="token keyword">import</span> <span class="token punctuation">{</span> Scroller <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'$yo-component'</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖</span>
-<span class="token comment" spellcheck="true">// 你仍然可以通过下面这种方式来引用</span>
+<span class="token comment">// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖</span>
+<span class="token comment">// 你仍然可以通过下面这种方式来引用</span>
 <span class="token keyword">import</span> Scroller <span class="token keyword">from</span> <span class="token string">'yo3/component/scroller'</span><span class="token punctuation">;</span>
 </code></pre><h4 id="-">基本用法</h4>
 <p><code>Scroller</code> 默认提供一个纵向滚动区域。该区域必须是有高度的，你可以通过以下几种方式来实现：</p>
@@ -364,11 +366,11 @@
     ref<span class="token operator">=</span><span class="token string">"scroller"</span>
     usePullRefresh<span class="token operator">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span>
     onRefresh<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// 刷新数据 start</span>
-        <span class="token comment" spellcheck="true">// ...</span>
-        <span class="token comment" spellcheck="true">// 刷新数据 end</span>
+        <span class="token comment">// 刷新数据 start</span>
+        <span class="token comment">// ...</span>
+        <span class="token comment">// 刷新数据 end</span>
 
-        <span class="token keyword">this</span><span class="token punctuation">.</span>refs<span class="token punctuation">.</span>scroller<span class="token punctuation">.</span><span class="token function">stopRefreshing</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 这个调用也可以放在异步操作的回调里之后</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>refs<span class="token punctuation">.</span>scroller<span class="token punctuation">.</span><span class="token function">stopRefreshing</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 这个调用也可以放在异步操作的回调里之后</span>
     <span class="token punctuation">}</span><span class="token punctuation">}</span>
 <span class="token operator">></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>这是内容区域<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
@@ -388,11 +390,11 @@
     ref<span class="token operator">=</span><span class="token string">"scroller"</span>
     useLoadMore<span class="token operator">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span>
     onLoad<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// 加载数据 start</span>
-        <span class="token comment" spellcheck="true">// ...</span>
-        <span class="token comment" spellcheck="true">// 加载数据 end</span>
+        <span class="token comment">// 加载数据 start</span>
+        <span class="token comment">// ...</span>
+        <span class="token comment">// 加载数据 end</span>
 
-        <span class="token keyword">this</span><span class="token punctuation">.</span>refs<span class="token punctuation">.</span>scroller<span class="token punctuation">.</span><span class="token function">stopLoading</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 这个调用也可以放在异步操作的回调里之后</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>refs<span class="token punctuation">.</span>scroller<span class="token punctuation">.</span><span class="token function">stopLoading</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 这个调用也可以放在异步操作的回调里之后</span>
     <span class="token punctuation">}</span><span class="token punctuation">}</span>
 <span class="token operator">></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>这是内容区域<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
@@ -441,8 +443,8 @@
 这样会导致 <code>Scroller</code> 的性能变差，请谨慎使用。</p>
 <pre><code><span class="token operator">&lt;</span>Scroller
     onScroll<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>evt<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>evt<span class="token punctuation">.</span>contentOffset<span class="token punctuation">.</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 当前横向位移</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>evt<span class="token punctuation">.</span>contentOffset<span class="token punctuation">.</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 当前纵向位移</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>evt<span class="token punctuation">.</span>contentOffset<span class="token punctuation">.</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 当前横向位移</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>evt<span class="token punctuation">.</span>contentOffset<span class="token punctuation">.</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 当前纵向位移</span>
     <span class="token punctuation">}</span><span class="token punctuation">}</span>
 <span class="token operator">></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>这是内容区域<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>

@@ -2,13 +2,11 @@
 <html lang="zh-CN">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-    <meta name="format-detection" content="telephone=no,email=no" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
-    <meta name="description" content="description of your site">
-    <meta name="author" content="author of the site">
-    <title>Yo Documentation 组件</title>
+    <title>Loading（API） - Yo Documentation 组件</title>
+    
+    
+
+    <link rel="shortcut icon" href="./images/favicon.ico" />
     <link rel="stylesheet" href="source/main.css" />
     
     
@@ -16,6 +14,10 @@
       <link rel="stylesheet" href="styles/ydoc.css" />
       
     
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no,email=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
 </head>
 <body class=component-Loading（API） >
     <div class="ydoc">
@@ -93,7 +95,7 @@
             
 
             <div class="ydoc-container">
-                 
+                
                 <div class="ydoc-container-content ">
                     
                     
@@ -302,9 +304,9 @@
                 
                 <div class="instructions-con-info">
                     <h4 id="-">引用方式</h4>
-<pre><code><span class="token comment" spellcheck="true">// 以 API 的形式引入 loading</span>
+<pre><code><span class="token comment">// 以 API 的形式引入 loading</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> loading <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'yo3/component/loading'</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">// 以组件的形式引入 Loading</span>
+<span class="token comment">// 以组件的形式引入 Loading</span>
 <span class="token keyword">import</span> Loading <span class="token keyword">from</span> <span class="token string">'yo3/component/loading'</span><span class="token punctuation">;</span>
 </code></pre><p>注意：<code>loading</code> 的引用方式与其他组件不同。</p>
 <ul>
@@ -321,7 +323,7 @@ loading<span class="token punctuation">.</span><span class="token function">hide
 <h4 id="-">设置遮罩的范围</h4>
 <p>设置maskOffset属性可以控制loading的遮罩层的范围，<code>maskOffset</code>是一个数组，
 其中第一个元素对应遮罩上边缘距离顶部的距离，而第二个元素对应遮罩下边缘距离底部的距离：</p>
-<pre><code class="lang-javascript"><span class="token comment" spellcheck="true">// 这个loading的遮罩没有遮盖住导航条</span>
+<pre><code class="lang-javascript"><span class="token comment">// 这个loading的遮罩没有遮盖住导航条</span>
 loading<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
     maskOffset<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">44</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>

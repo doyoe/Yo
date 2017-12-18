@@ -2,13 +2,11 @@
 <html lang="zh-CN">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-    <meta name="format-detection" content="telephone=no,email=no" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
-    <meta name="description" content="description of your site">
-    <meta name="author" content="author of the site">
-    <title>Yo Documentation 组件</title>
+    <title>Calendar - Yo Documentation 组件</title>
+    
+    
+
+    <link rel="shortcut icon" href="./images/favicon.ico" />
     <link rel="stylesheet" href="source/main.css" />
     
     
@@ -16,6 +14,10 @@
       <link rel="stylesheet" href="styles/ydoc.css" />
       
     
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no,email=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
 </head>
 <body class=component-Calendar >
     <div class="ydoc">
@@ -93,7 +95,7 @@
             
 
             <div class="ydoc-container">
-                 
+                
                 <div class="ydoc-container-content ">
                     
                     
@@ -311,20 +313,20 @@
                     <h4 id="-">引用方式</h4>
 <pre><code><span class="token keyword">import</span> <span class="token punctuation">{</span> Calendar <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'$yo-component'</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖</span>
-<span class="token comment" spellcheck="true">// 你仍然可以通过下面这种方式来引用</span>
+<span class="token comment">// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖</span>
+<span class="token comment">// 你仍然可以通过下面这种方式来引用</span>
 <span class="token keyword">import</span> Calendar <span class="token keyword">from</span> <span class="token string">'yo3/component/calendar'</span><span class="token punctuation">;</span>
 </code></pre><h4 id="-">基本用法</h4>
 <p>最简单用法，默认显示未来90天的可选日期范围，同时选中日期范围的起、始日期可为同一天。
 用户选中范围的起始日期分别是<code>selectionStart</code>和<code>selectionEnd</code>属性。由于这是一个受控组件，所以需要通过 <code>onChange</code> 回调来设置当前值。</p>
-<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Calendar</span> 
-    <span class="token attr-name">selectionStart</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>selectionStart<span class="token punctuation">}</span></span>
-    <span class="token attr-name">selectionEnd</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>selectionEnd<span class="token punctuation">}</span></span>
-    <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>obj <span class="token operator">=></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+<pre><code><span class="token operator">&lt;</span>Calendar 
+    selectionStart<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>selectionStart<span class="token punctuation">}</span>
+    selectionEnd<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>selectionEnd<span class="token punctuation">}</span>
+    onChange<span class="token operator">=</span><span class="token punctuation">{</span>obj <span class="token operator">=></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
         selectionStart<span class="token punctuation">:</span> obj<span class="token punctuation">.</span>selectionStart<span class="token punctuation">,</span>
         selectionEnd<span class="token punctuation">:</span> obj<span class="token punctuation">.</span>selectionEnd
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>
-<span class="token punctuation">/></span></span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+<span class="token operator">/</span><span class="token operator">></span>
 </code></pre><h4 id="-">显示特定日期范围</h4>
 <p>使用<code>duration</code>属性，配置显示特定阶段的日期范围，传入具体的数值显示未来可选择的天数范围，还可传入一个数组，显示特定起始范围的可选日期。
 另外，可以在<code>onChange</code>函数中决定用户选择的日期范围的起、始日期不能为同一天。</p>
@@ -361,13 +363,13 @@
 <span class="token punctuation">}</span>
 </code></pre><h4 id="-">只允许选择单日</h4>
 <p>配置<code>allowSingle</code>属性为<code>true</code>，只允许用户选择单个日期，即仅有<code>selectionStart</code>属性生效。</p>
-<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Calendar</span>
-    <span class="token attr-name">allowSingle</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span></span>
-    <span class="token attr-name">selectionStart</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>selectionStart<span class="token punctuation">}</span></span>
-    <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>obj <span class="token operator">=></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+<pre><code><span class="token operator">&lt;</span>Calendar
+    allowSingle<span class="token operator">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span>
+    selectionStart<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>selectionStart<span class="token punctuation">}</span>
+    onChange<span class="token operator">=</span><span class="token punctuation">{</span>obj <span class="token operator">=></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
         selectionStart<span class="token punctuation">:</span> obj<span class="token punctuation">.</span>selectionStart<span class="token punctuation">,</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>    
-<span class="token punctuation">/></span></span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span>    
+<span class="token operator">/</span><span class="token operator">></span>
 </code></pre><h4 id="-">个性化选中日期标记</h4>
 <p>通过设置<code>selectionStartText</code>和<code>selectionEndText</code>属性自定义选中日期的标记内容，同时可传入<a href="http://iconfont.corp.qunar.com/repositories/7">Yo支持的iconfont</a>。
 另外，可以在<code>onChange</code>函数中动态设置<code>selectionStartText</code>的文字内容，在用户前后两次选中同一天和选择一个日期范围两种情况之间的标记切换。</p>
@@ -381,16 +383,16 @@
 </code></pre><h4 id="-">自定义日期渲染模板</h4>
 <p>通过设置 <code>renderDate</code> 属性函数，返回自定义组件的日期渲染模板内容。其中，参数 <code>item</code> 是具体某个日期对象的数据层，格式如下：</p>
 <pre><code class="lang-javaScript"><span class="token punctuation">{</span>
-    date<span class="token punctuation">:</span> “<span class="token number">2017</span><span class="token operator">/</span><span class="token number">10</span>”<span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 年/月</span>
-    day<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true">// 日</span>
-    disabled<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 是否可点击</span>
-    holiday<span class="token punctuation">:</span> <span class="token string">"国庆节"</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 节假日</span>
-    isCheck<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 是否选中</span>
-    isCheckIn<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 是否选中的开始日期</span>
-    isCheckOut<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 是否选中的结束日期</span>
-    lunar<span class="token punctuation">:</span> <span class="token string">'08-12'</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 农历日期：八月十二</span>
-    today<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 是否今天</span>
-    weekend<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 是否周末</span>
+    date<span class="token punctuation">:</span> “<span class="token number">2017</span><span class="token operator">/</span><span class="token number">10</span>”<span class="token punctuation">,</span> <span class="token comment">// 年/月</span>
+    day<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>  <span class="token comment">// 日</span>
+    disabled<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment">// 是否可点击</span>
+    holiday<span class="token punctuation">:</span> <span class="token string">"国庆节"</span><span class="token punctuation">,</span> <span class="token comment">// 节假日</span>
+    isCheck<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment">// 是否选中</span>
+    isCheckIn<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment">// 是否选中的开始日期</span>
+    isCheckOut<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment">// 是否选中的结束日期</span>
+    lunar<span class="token punctuation">:</span> <span class="token string">'08-12'</span><span class="token punctuation">,</span> <span class="token comment">// 农历日期：八月十二</span>
+    today<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment">// 是否今天</span>
+    weekend<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// 是否周末</span>
 <span class="token punctuation">}</span>
 </code></pre>
 <p>另外，可通过参数 <code>ret</code> 获取组件内部的默认渲染模板：</p>
@@ -401,14 +403,14 @@
     item<span class="token punctuation">.</span>isCheckIn <span class="token operator">?</span> <span class="token punctuation">(</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tip yo-ico<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token punctuation">{</span>selectionStartText<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
     item<span class="token punctuation">.</span>isCheckOut <span class="token operator">?</span> <span class="token punctuation">(</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tip yo-ico<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token punctuation">{</span>selectionEndText<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token keyword">null</span>
 <span class="token punctuation">]</span>
-</code></pre><pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Calendar</span>
-    <span class="token attr-name">renderDate</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> ret<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+</code></pre><pre><code><span class="token operator">&lt;</span>Calendar
+    renderDate<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> ret<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
         <span class="token keyword">const</span> <span class="token punctuation">{</span> day <span class="token punctuation">}</span> <span class="token operator">=</span> item<span class="token punctuation">;</span>
         <span class="token keyword">return</span> day <span class="token operator">===</span> <span class="token number">1</span> <span class="token operator">?</span> <span class="token punctuation">(</span>
             <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token punctuation">></span></span>First<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
         <span class="token punctuation">)</span> <span class="token punctuation">:</span> ret<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span></span>
-<span class="token punctuation">/></span></span>
+    <span class="token punctuation">}</span>
+<span class="token operator">/</span><span class="token operator">></span>
 </code></pre>
                 </div>
                  

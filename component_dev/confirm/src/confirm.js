@@ -14,6 +14,7 @@
 import Dialog from '../../dialog/src/dialog';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import { isFunction } from '../../common/util';
 
 let that = null;
 const container = document.createElement('div');
@@ -30,13 +31,14 @@ class ConfirmReact extends Component {
             onOk() {
             },
             onCancel() {
-            }
+            },
+            extraClass: ''
         };
         that = this;
     }
 
     render() {
-        const { show, title, content, animation, onOk, onCancel, btnText } = this.state;
+        const { show, title, content, animation, onOk, onCancel, btnText, extraClass } = this.state;
         return (
             <Dialog
                 show={show} title={title} onOk={onOk.bind(this)}
@@ -44,6 +46,7 @@ class ConfirmReact extends Component {
                 okText={btnText[0] != null && btnText[0]}
                 cancelText={btnText[1] != null && btnText[1]}
                 onCancel={onCancel ? onCancel.bind(this) : false}
+                extraClass={extraClass}
             >
                 {content}
             </Dialog>
@@ -56,20 +59,22 @@ ReactDOM.render(<ConfirmReact />, container);
 /**
  * @method Confirm
  * @param {Object} option 配置对象，可以接受以下属性：
- * @param {String} [option.content] 组件显示的内容
+ * @param {String | Function} [option.content] 组件显示的内容，支持字符串和 jsx（返回 jsx 的回调函数，`() => jsx`）
  * @param {String} [option.title] 组件显示标题
  * @param {Array} [option.btnText] <3.0.1> 按钮的文本，两个元素分别表示左/右按钮的文本
  * @param {Object} [option.animation] 组件显隐过程的动画，格式同Dialog组件
  * @param {Boolean} [option.cancel] 组件是否有取消按钮
+ * @param {String} [option.extraClass] <3.0.15> 附加给组件根节点的额外className。
  * @returns {Promise} 返回一个Promise实例对象
  * @description 确认弹框组件的调用方法，调用以后在屏幕正中弹出一个Confirm，可以按照option对象参数调用，也可以使用简易
- * 调用方式如 ``Confirm(content, title, btnText, animation, cancel)``
+ * 调用方式如 ``Confirm(content, title, btnText, animation, cancel, extraClass)``
  */
 export default function Confirm(content = '',
                                 title = '',
                                 btnText = ['确定', '取消'],
                                 animation = 'fade',
-                                cancel = true) {
+                                cancel = true,
+                                extraClass = '') {
     if (typeof content === 'object') {
         const opt = content;
         title = opt.title != null ? opt.title : '';
@@ -77,7 +82,9 @@ export default function Confirm(content = '',
         btnText = opt.btnText != null ? opt.btnText : ['确定', '取消'];
         animation = opt.animation != null ? opt.animation : 'fade';
         cancel = opt.cancel != null ? !!opt.cancel : true;
+        extraClass = opt.extraClass != null ? opt.extraClass : '';
     }
+    content = isFunction(content) ? content() : content;
 
     return new Promise((resolve) => {
         // duration的默认值是300
@@ -108,7 +115,8 @@ export default function Confirm(content = '',
             btnText,
             animation,
             onOk: okBtn,
-            onCancel: cancel ? cancelBtn : false
+            onCancel: cancel ? cancelBtn : false,
+            extraClass: extraClass
         });
     });
 }

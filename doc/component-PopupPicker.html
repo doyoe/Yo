@@ -2,13 +2,11 @@
 <html lang="zh-CN">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-    <meta name="format-detection" content="telephone=no,email=no" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
-    <meta name="description" content="description of your site">
-    <meta name="author" content="author of the site">
-    <title>Yo Documentation 组件</title>
+    <title>PopupPicker - Yo Documentation 组件</title>
+    
+    
+
+    <link rel="shortcut icon" href="./images/favicon.ico" />
     <link rel="stylesheet" href="source/main.css" />
     
     
@@ -16,6 +14,10 @@
       <link rel="stylesheet" href="styles/ydoc.css" />
       
     
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no,email=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
 </head>
 <body class=component-PopupPicker >
     <div class="ydoc">
@@ -93,7 +95,7 @@
             
 
             <div class="ydoc-container">
-                 
+                
                 <div class="ydoc-container-content ">
                     
                     
@@ -304,8 +306,8 @@
                     <h4 id="-">引用方式</h4>
 <pre><code><span class="token keyword">import</span> <span class="token punctuation">{</span> PopupPicker <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'$yo-component'</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖</span>
-<span class="token comment" spellcheck="true">// 你仍然可以通过下面这种方式来引用</span>
+<span class="token comment">// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖</span>
+<span class="token comment">// 你仍然可以通过下面这种方式来引用</span>
 <span class="token keyword">import</span> PopupPicker <span class="token keyword">from</span> <span class="token string">'yo3/component/popuppicker'</span><span class="token punctuation">;</span>
 </code></pre><h4 id="-">基本用法</h4>
 <p><code>PopupPicker</code>组件实际上由两部分组成，一部分是触发弹层打开的区域，另一部分是弹出的带“确定”和“取消”按钮的弹出式选择器。
@@ -392,17 +394,17 @@
 </code></pre>
 <p>这时候 <code>PopupPicker</code> 将会变成一个多列的 <code>Picker</code>：</p>
 <pre><code class="lang-javascript"><span class="token operator">&lt;</span>PopupPicker
-    <span class="token comment" spellcheck="true">// value可以为null或者传入一个数组，对应每一列picker的取值</span>
+    <span class="token comment">// value可以为null或者传入一个数组，对应每一列picker的取值</span>
     value<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value<span class="token punctuation">}</span>
     onChange<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// 你接收到的value将会是一个数组，包含了每一列picker的值</span>
+        <span class="token comment">// 你接收到的value将会是一个数组，包含了每一列picker的值</span>
         <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> value <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span><span class="token punctuation">}</span>
-    <span class="token comment" spellcheck="true">// 以下这些属性都不变</span>
+    <span class="token comment">// 以下这些属性都不变</span>
     duration<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">200</span><span class="token punctuation">}</span>
     options<span class="token operator">=</span><span class="token punctuation">{</span>options<span class="token punctuation">}</span>
     pickerHeight<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">150</span><span class="token punctuation">}</span>
-    <span class="token comment" spellcheck="true">// looped和unit现在也支持传入数组以定制每一列picker的对应属性，如果传入单个值，则会被应用于所有的picker上</span>
+    <span class="token comment">// looped和unit现在也支持传入数组以定制每一列picker的对应属性，如果传入单个值，则会被应用于所有的picker上</span>
     looped<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span><span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
     unit<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span><span class="token string">'language'</span><span class="token punctuation">,</span> <span class="token string">'paradigm'</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
 <span class="token operator">></span>
@@ -451,8 +453,8 @@
     <span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token keyword">this</span><span class="token punctuation">.</span>popupPickerCom<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 显示弹出式选择器</span>
-<span class="token keyword">this</span><span class="token punctuation">.</span>popupPickerCom<span class="token punctuation">.</span><span class="token function">hide</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 隐藏弹出式选择器</span>
+<span class="token keyword">this</span><span class="token punctuation">.</span>popupPickerCom<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 显示弹出式选择器</span>
+<span class="token keyword">this</span><span class="token punctuation">.</span>popupPickerCom<span class="token punctuation">.</span><span class="token function">hide</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 隐藏弹出式选择器</span>
 </code></pre>
 
                 </div>

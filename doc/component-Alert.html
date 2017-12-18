@@ -2,13 +2,11 @@
 <html lang="zh-CN">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-    <meta name="format-detection" content="telephone=no,email=no" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
-    <meta name="description" content="description of your site">
-    <meta name="author" content="author of the site">
-    <title>Yo Documentation 组件</title>
+    <title>Alert - Yo Documentation 组件</title>
+    
+    
+
+    <link rel="shortcut icon" href="./images/favicon.ico" />
     <link rel="stylesheet" href="source/main.css" />
     
     
@@ -16,6 +14,10 @@
       <link rel="stylesheet" href="styles/ydoc.css" />
       
     
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no,email=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
 </head>
 <body class=component-Alert >
     <div class="ydoc">
@@ -93,7 +95,7 @@
             
 
             <div class="ydoc-container">
-                 
+                
                 <div class="ydoc-container-content ">
                     
                     
@@ -309,8 +311,8 @@
                     <h4 id="-">引用方式</h4>
 <pre><code><span class="token keyword">import</span> <span class="token punctuation">{</span> Alert <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'$yo-component'</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖</span>
-<span class="token comment" spellcheck="true">// 你仍然可以通过下面这种方式来引用</span>
+<span class="token comment">// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖</span>
+<span class="token comment">// 你仍然可以通过下面这种方式来引用</span>
 <span class="token keyword">import</span> Alert <span class="token keyword">from</span> <span class="token string">'yo3/component/alert'</span><span class="token punctuation">;</span>
 </code></pre><h4 id="-">基本用法</h4>
 <p>最简单的用法，传入需要显示的内容参数。适用于简单的警告提示。</p>
@@ -321,7 +323,7 @@
 </code></pre><h4 id="-">自定义按钮文本</h4>
 <p>Alert可以接受一个配置对象option为参数，你可以在里面指定title和content的值。
 option的btnText属性指定了Alert按钮的文本，例如:</p>
-<pre><code><span class="token comment" spellcheck="true">// opt对象调用模式</span>
+<pre><code><span class="token comment">// opt对象调用模式</span>
 <span class="token function">Alert</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
     title<span class="token punctuation">:</span><span class="token string">'title'</span><span class="token punctuation">,</span>
     content<span class="token punctuation">:</span><span class="token string">'content'</span><span class="token punctuation">,</span>
@@ -403,7 +405,7 @@ option的btnText属性指定了Alert按钮的文本，例如:</p>
             </h3>
         </blockquote>
         <div class="api-content"><p>Alert API，调用以后在屏幕正中弹出一个Alert，可以按照option对象参数调用，也可以使用简易
-调用方式如 <code>Alert(content, title, btnText, animation)</code></p>
+调用方式如 <code>Alert(content, title, btnText, animation, extraClass)</code></p>
 </div>
         
         <p class="api-content">
@@ -440,8 +442,8 @@ option的btnText属性指定了Alert按钮的文本，例如:</p>
                 
                 <tr>
                     <td>option.content</td>
-                    <td>String</td>
-                    <td>组件显示的内容</td>
+                    <td>String | Function</td>
+                    <td>组件显示的内容，支持字符串和 jsx（返回 jsx 的回调函数，`() => jsx`）</td>
                     <td>
                         
                     </td>
@@ -476,6 +478,16 @@ option的btnText属性指定了Alert按钮的文本，例如:</p>
                         
                     </td>
                     <td></td>
+                </tr>
+                
+                <tr>
+                    <td>option.extraClass</td>
+                    <td>String</td>
+                    <td> 附加给组件根节点的额外className。</td>
+                    <td>
+                        
+                    </td>
+                    <td>3.0.15</td>
                 </tr>
                 
             </table>

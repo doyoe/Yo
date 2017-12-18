@@ -2,13 +2,11 @@
 <html lang="zh-CN">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-    <meta name="format-detection" content="telephone=no,email=no" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
-    <meta name="description" content="description of your site">
-    <meta name="author" content="author of the site">
-    <title>Yo Documentation 起步</title>
+    <title>起步 - Yo Documentation 起步</title>
+    
+    
+
+    <link rel="shortcut icon" href="./images/favicon.ico" />
     <link rel="stylesheet" href="source/main.css" />
     
     
@@ -16,6 +14,10 @@
       <link rel="stylesheet" href="styles/ydoc.css" />
       
     
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no,email=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
 </head>
 <body class=getting-started-起步 >
     <div class="ydoc">
@@ -93,7 +95,7 @@
             
 
             <div class="ydoc-container">
-                 
+                
                 <div class="ydoc-container-content ">
                     
                     
@@ -164,7 +166,7 @@
 <p>  例如：page/demo/index.js</p>
 <pre><code>  <span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
   <span class="token keyword">import</span> ReactDOM <span class="token keyword">from</span> <span class="token string">'react-dom'</span><span class="token punctuation">;</span>
-  <span class="token keyword">import</span> <span class="token string">'./index.scss'</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 引入这个页面的scss</span>
+  <span class="token keyword">import</span> <span class="token string">'./index.scss'</span><span class="token punctuation">;</span> <span class="token comment">// 引入这个页面的scss</span>
 </code></pre></li><li><p>使用chunk模式：<code>Yo</code> 默认使用了 <code>webpack</code> 的 <code>chunk</code> 模式，即不管是单页还是多页模式，<code>js</code> 资源都是按需加载的。<a href="./start-chunk.html">查看详情</a></p>
 </li><li>使用DLL：<code>Yo</code> 为了提升开发体验、有效利用浏览器缓存，将项目中的公共模块提取并生成公共文件 <code>lib.js</code>，用户只需要在页面中多添加一个引用即可。<a href="./start-lib.html">查看详情</a></li></ul>
 <p><a name="start-developing"></a></p>
@@ -234,26 +236,26 @@
 <p><a name="directory-structure"></a></p>
 <h2 class="subject" id="项目目录结构">项目目录结构 <a class="hashlink" href="#项目目录结构">#</a></h2><p>在构建完成之后会生成下面的目录结构：</p>
 <pre><code><span class="token operator">|</span><span class="token operator">-</span> node_modules
-<span class="token operator">|</span><span class="token operator">-</span> src <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token comment" spellcheck="true">// 项目源码</span>
-<span class="token operator">|</span>  <span class="token operator">|</span><span class="token operator">-</span> common <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token comment" spellcheck="true">// 公共配置、工具等</span>
-<span class="token operator">|</span>  <span class="token operator">|</span><span class="token operator">-</span> component <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span><span class="token comment" spellcheck="true">// 公共组件</span>
+<span class="token operator">|</span><span class="token operator">-</span> src <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token comment">// 项目源码</span>
+<span class="token operator">|</span>  <span class="token operator">|</span><span class="token operator">-</span> common <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token comment">// 公共配置、工具等</span>
+<span class="token operator">|</span>  <span class="token operator">|</span><span class="token operator">-</span> component <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span><span class="token comment">// 公共组件</span>
 <span class="token operator">|</span>  <span class="token operator">|</span>   <span class="token operator">|</span><span class="token operator">-</span> componentA
-<span class="token operator">|</span>  <span class="token operator">|</span>   <span class="token operator">|</span>    <span class="token operator">|</span><span class="token operator">-</span> index<span class="token punctuation">.</span>js <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span><span class="token comment" spellcheck="true">// 组件代码</span>
-<span class="token operator">|</span>  <span class="token operator">|</span>   <span class="token operator">|</span>    <span class="token operator">|</span><span class="token operator">-</span> style<span class="token punctuation">.</span>scss <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span><span class="token comment" spellcheck="true">// 组件样式</span>
+<span class="token operator">|</span>  <span class="token operator">|</span>   <span class="token operator">|</span>    <span class="token operator">|</span><span class="token operator">-</span> index<span class="token punctuation">.</span>js <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span><span class="token comment">// 组件代码</span>
+<span class="token operator">|</span>  <span class="token operator">|</span>   <span class="token operator">|</span>    <span class="token operator">|</span><span class="token operator">-</span> style<span class="token punctuation">.</span>scss <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span><span class="token comment">// 组件样式</span>
 <span class="token operator">|</span>  <span class="token operator">|</span>   <span class="token operator">|</span><span class="token operator">-</span> componentB
 <span class="token operator">|</span>  <span class="token operator">|</span>   <span class="token operator">|</span><span class="token operator">-</span> <span class="token operator">...</span>
-<span class="token operator">|</span>  <span class="token operator">|</span><span class="token operator">-</span> page <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token comment" spellcheck="true">// 业务逻辑目录（页面维度）</span>
-<span class="token operator">|</span>  <span class="token operator">|</span>   <span class="token operator">|</span><span class="token operator">-</span> pageA <span class="token comment" spellcheck="true">//页面目录</span>
-<span class="token operator">|</span>  <span class="token operator">|</span>   <span class="token operator">|</span>    <span class="token operator">|</span><span class="token operator">-</span> index<span class="token punctuation">.</span>js <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span><span class="token comment" spellcheck="true">// 页面入口文件</span>
-<span class="token operator">|</span>  <span class="token operator">|</span>   <span class="token operator">|</span>    <span class="token operator">|</span><span class="token operator">-</span> index<span class="token punctuation">.</span>scss <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span><span class="token comment" spellcheck="true">// 页面样式</span>
-<span class="token operator">|</span>  <span class="token operator">|</span>   <span class="token operator">|</span>    <span class="token operator">|</span><span class="token operator">-</span> component <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token comment" spellcheck="true">// 页面内部使用的组件</span>
+<span class="token operator">|</span>  <span class="token operator">|</span><span class="token operator">-</span> page <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token comment">// 业务逻辑目录（页面维度）</span>
+<span class="token operator">|</span>  <span class="token operator">|</span>   <span class="token operator">|</span><span class="token operator">-</span> pageA <span class="token comment">//页面目录</span>
+<span class="token operator">|</span>  <span class="token operator">|</span>   <span class="token operator">|</span>    <span class="token operator">|</span><span class="token operator">-</span> index<span class="token punctuation">.</span>js <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span><span class="token comment">// 页面入口文件</span>
+<span class="token operator">|</span>  <span class="token operator">|</span>   <span class="token operator">|</span>    <span class="token operator">|</span><span class="token operator">-</span> index<span class="token punctuation">.</span>scss <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span><span class="token comment">// 页面样式</span>
+<span class="token operator">|</span>  <span class="token operator">|</span>   <span class="token operator">|</span>    <span class="token operator">|</span><span class="token operator">-</span> component <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token comment">// 页面内部使用的组件</span>
 <span class="token operator">|</span>  <span class="token operator">|</span>   <span class="token operator">|</span><span class="token operator">-</span> pageB
 <span class="token operator">|</span>  <span class="token operator">|</span>   <span class="token operator">|</span><span class="token operator">-</span> <span class="token operator">...</span>
-<span class="token operator">|</span>  <span class="token operator">|</span><span class="token operator">-</span> html <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token comment" spellcheck="true">// 页面html</span>
-<span class="token operator">|</span>  <span class="token operator">|</span><span class="token operator">-</span> yo<span class="token operator">-</span>config <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span><span class="token comment" spellcheck="true">// 样式配置文件夹</span>
+<span class="token operator">|</span>  <span class="token operator">|</span><span class="token operator">-</span> html <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token comment">// 页面html</span>
+<span class="token operator">|</span>  <span class="token operator">|</span><span class="token operator">-</span> yo<span class="token operator">-</span>config <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span><span class="token comment">// 样式配置文件夹</span>
 <span class="token operator">|</span><span class="token operator">-</span> <span class="token operator">...</span>
-<span class="token operator">|</span><span class="token operator">-</span> <span class="token keyword">package</span><span class="token punctuation">.</span>json <span class="token comment" spellcheck="true">// npm配置文件</span>
-<span class="token operator">|</span><span class="token operator">-</span> ykit<span class="token punctuation">.</span>yo<span class="token punctuation">.</span>js <span class="token comment" spellcheck="true">// ykit配置文件</span>
+<span class="token operator">|</span><span class="token operator">-</span> <span class="token keyword">package</span><span class="token punctuation">.</span>json <span class="token comment">// npm配置文件</span>
+<span class="token operator">|</span><span class="token operator">-</span> ykit<span class="token punctuation">.</span>yo<span class="token punctuation">.</span>js <span class="token comment">// ykit配置文件</span>
 </code></pre><p><a name="upgrade"></a></p>
 <h2 class="subject" id="更新升级">更新升级 <a class="hashlink" href="#更新升级">#</a></h2><p>相比于之前的升级方式，现在的 <code>Yo</code> 升级也更加简便，只需要在项目目录执行 <code>npm install</code> 即可。</p>
 <p><code>Yo</code> 升级时，只会对 <code>node_modules</code> 中的 <code>yo3</code> 模块进行更新，而不会侵入用户目录中的其它地方。假设 <code>Yo</code> 新增了一些组件，升级时，会增量的将这些新组件添加到项目的 <code>yo-config</code> 目录中，而不会改动任何已存在的文件。

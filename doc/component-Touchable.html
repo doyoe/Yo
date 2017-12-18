@@ -2,13 +2,11 @@
 <html lang="zh-CN">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-    <meta name="format-detection" content="telephone=no,email=no" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
-    <meta name="description" content="description of your site">
-    <meta name="author" content="author of the site">
-    <title>Yo Documentation 组件</title>
+    <title>Touchable - Yo Documentation 组件</title>
+    
+    
+
+    <link rel="shortcut icon" href="./images/favicon.ico" />
     <link rel="stylesheet" href="source/main.css" />
     
     
@@ -16,6 +14,10 @@
       <link rel="stylesheet" href="styles/ydoc.css" />
       
     
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no,email=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
 </head>
 <body class=component-Touchable >
     <div class="ydoc">
@@ -93,7 +95,7 @@
             
 
             <div class="ydoc-container">
-                 
+                
                 <div class="ydoc-container-content ">
                     
                     
@@ -314,8 +316,8 @@
 <h4 id="-">引用方式</h4>
 <pre><code><span class="token keyword">import</span> <span class="token punctuation">{</span> Touchable <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'$yo-component'</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// 如果你的项目中未使用 ykit-config-yo 插件，可能无法使用上面这个语法糖</span>
-<span class="token comment" spellcheck="true">// 你仍然可以通过下面这种方式来引用</span>
+<span class="token comment">// 如果你的项目中未使用 ykit-config-yo 插件，可能无法使用上面这个语法糖</span>
+<span class="token comment">// 你仍然可以通过下面这种方式来引用</span>
 <span class="token keyword">import</span> Touchable <span class="token keyword">from</span> <span class="token string">'yo3/component/touchable'</span><span class="token punctuation">;</span>
 </code></pre><h4 id="-">使用方式</h4>
 <p><code>Touchable</code>是一个&quot;虚拟&quot;的组件，它没有根节点，而是以传给它的唯一子元素作为根节点。换句话说，它不会改变原本的dom结构。

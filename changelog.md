@@ -1,3 +1,11 @@
+## v3.0.15 (2017-12-15)
+
+### Bug Fixes
+* 修复自定义样式目录中有多层目录时 `post install` 脚本报错的问题。
+
+### New Features
+* `Alert` 和 `Confirm` 组件增加 `extraClass` 属性，`content` 属性支持传入 jsx。
+
 ## v3.0.14 (2017-11-17)
 
 ### Bug Fixes

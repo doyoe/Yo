@@ -2,13 +2,11 @@
 <html lang="zh-CN">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-    <meta name="format-detection" content="telephone=no,email=no" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
-    <meta name="description" content="description of your site">
-    <meta name="author" content="author of the site">
-    <title>Yo Documentation 组件</title>
+    <title>Grouplist - Yo Documentation 组件</title>
+    
+    
+
+    <link rel="shortcut icon" href="./images/favicon.ico" />
     <link rel="stylesheet" href="source/main.css" />
     
     
@@ -16,6 +14,10 @@
       <link rel="stylesheet" href="styles/ydoc.css" />
       
     
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no,email=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
 </head>
 <body class=component-Grouplist >
     <div class="ydoc">
@@ -93,7 +95,7 @@
             
 
             <div class="ydoc-container">
-                 
+                
                 <div class="ydoc-container-content ">
                     
                     
@@ -307,8 +309,8 @@
                     <h4 id="-">引用方式</h4>
 <pre><code><span class="token keyword">import</span> <span class="token punctuation">{</span> GroupList <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'$yo-component'</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖</span>
-<span class="token comment" spellcheck="true">// 你仍然可以通过下面这种方式来引用</span>
+<span class="token comment">// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖</span>
+<span class="token comment">// 你仍然可以通过下面这种方式来引用</span>
 <span class="token keyword">import</span> GroupList <span class="token keyword">from</span> <span class="token string">'yo3/component/grouplist'</span><span class="token punctuation">;</span>
 </code></pre><h4 id="-">基础使用</h4>
 <p><code>GroupList</code>是一个定制化的<code>List</code>，它会把<code>List</code>的<code>dataSource</code>中的元素进行分组展示，并且给每一组添加一个组标题。
@@ -322,7 +324,7 @@
         <span class="token punctuation">{</span>text<span class="token punctuation">:</span> <span class="token string">'上海'</span><span class="token punctuation">,</span> key<span class="token punctuation">:</span><span class="token operator">++</span>guid<span class="token punctuation">,</span> groupKey<span class="token punctuation">:</span><span class="token string">'S'</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
         <span class="token operator">...</span>
     <span class="token punctuation">]</span><span class="token punctuation">}</span>
-    sort<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">//return a positive or negative number... }}</span>
+    sort<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span> <span class="token comment">//return a positive or negative number... }}</span>
     <span class="token operator">...</span>
 <span class="token operator">/</span><span class="token operator">></span>
 </code></pre><p>如果设置<code>groupKey</code>为<code>notGrouped</code>，那么这些元素组成的组没有标题，并且会放置在所有分组的上方。使用<code>sort</code>属性可以给分组排序，它的使用方式与数组的sort完全一致。</p>
@@ -330,8 +332,8 @@
 和<code>renderGroupTitle</code>:</p>
 <pre><code><span class="token operator">&lt;</span>GroupList
     <span class="token operator">...</span>
-    renderGroupItem<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span>i<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">/* return a JSX ,array of element or string... */</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
-    renderGroupTitle<span class="token operator">=</span><span class="token punctuation">{</span>groupKey <span class="token operator">=></span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">/* the same to renderGroupItem... */</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+    renderGroupItem<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span>i<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span> <span class="token comment">/* return a JSX ,array of element or string... */</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+    renderGroupTitle<span class="token operator">=</span><span class="token punctuation">{</span>groupKey <span class="token operator">=></span> <span class="token punctuation">{</span> <span class="token comment">/* the same to renderGroupItem... */</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
 <span class="token operator">/</span><span class="token operator">></span>
 </code></pre><p>你可以分别指定普通的列表项和分组标题的渲染方式，<code>renderGroupItem</code>的使用与<code>List</code>的<code>renderItem</code>完全一致；<code>renderGroupTitle</code>可以指定分组标题的渲染方式,
 它可以接收一个参数<code>groupKey</code>，即你在dataSource中为每个元素添加的groupKey。</p>
@@ -380,8 +382,8 @@
                     offsetY<span class="token operator">=</span><span class="token punctuation">{</span><span class="token operator">-</span><span class="token number">220</span><span class="token punctuation">}</span>
                     infinite<span class="token operator">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span>
                     itemHeight<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">44</span><span class="token punctuation">}</span>
-                    showIndexNavBar<span class="token operator">=</span><span class="token punctuation">{</span><span class="token boolean">true</span> <span class="token comment" spellcheck="true">/* 注意:没有指定高度的无穷分组列表无法使用indexNavBar,这个属性设置为true也不会生效 */</span><span class="token punctuation">}</span>
-                    renderIndexNavBarItem<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>groupKey<span class="token punctuation">)</span><span class="token operator">=></span>DIGIT_TO_CHN<span class="token punctuation">[</span>groupKey<span class="token punctuation">]</span> <span class="token comment" spellcheck="true">/* 同上 */</span><span class="token punctuation">}</span>
+                    showIndexNavBar<span class="token operator">=</span><span class="token punctuation">{</span><span class="token boolean">true</span> <span class="token comment">/* 注意:没有指定高度的无穷分组列表无法使用indexNavBar,这个属性设置为true也不会生效 */</span><span class="token punctuation">}</span>
+                    renderIndexNavBarItem<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>groupKey<span class="token punctuation">)</span><span class="token operator">=></span>DIGIT_TO_CHN<span class="token punctuation">[</span>groupKey<span class="token punctuation">]</span> <span class="token comment">/* 同上 */</span><span class="token punctuation">}</span>
                     onIndexNavBarItemHover<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>groupKey<span class="token punctuation">)</span><span class="token operator">=></span> <span class="token punctuation">{</span>
                         ToolTip<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span>DIGIT_TO_CHN<span class="token punctuation">[</span>groupKey<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
                     <span class="token punctuation">}</span><span class="token punctuation">}</span>
@@ -446,8 +448,8 @@
 <ul>
 <li><pre><code><span class="token punctuation">[</span>
  <span class="token punctuation">{</span>
-   text<span class="token punctuation">:</span> String <span class="token comment" spellcheck="true">//如果传入了这个属性并且没有配置renderItem，会以text文本作为列表项的内容</span>
-   groupKey<span class="token punctuation">:</span> String <span class="token comment" spellcheck="true">//列表项的groupKey，将根据这个属性对元素进行分组，如果是不需要分组的元素,应设置为'notGrouped'。</span>
+   text<span class="token punctuation">:</span> String <span class="token comment">//如果传入了这个属性并且没有配置renderItem，会以text文本作为列表项的内容</span>
+   groupKey<span class="token punctuation">:</span> String <span class="token comment">//列表项的groupKey，将根据这个属性对元素进行分组，如果是不需要分组的元素,应设置为'notGrouped'。</span>
  <span class="token punctuation">}</span><span class="token punctuation">,</span>
  <span class="token operator">...</span>
 <span class="token punctuation">]</span>

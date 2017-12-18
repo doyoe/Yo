@@ -2,13 +2,11 @@
 <html lang="zh-CN">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-    <meta name="format-detection" content="telephone=no,email=no" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
-    <meta name="description" content="description of your site">
-    <meta name="author" content="author of the site">
-    <title>Yo Documentation 组件</title>
+    <title>DateTimePicker - Yo Documentation 组件</title>
+    
+    
+
+    <link rel="shortcut icon" href="./images/favicon.ico" />
     <link rel="stylesheet" href="source/main.css" />
     
     
@@ -16,6 +14,10 @@
       <link rel="stylesheet" href="styles/ydoc.css" />
       
     
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no,email=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
 </head>
 <body class=component-DateTimePicker >
     <div class="ydoc">
@@ -93,7 +95,7 @@
             
 
             <div class="ydoc-container">
-                 
+                
                 <div class="ydoc-container-content ">
                     
                     
@@ -304,8 +306,8 @@
                     <h4 id="-">引用方式</h4>
 <pre><code><span class="token keyword">import</span> <span class="token punctuation">{</span> DateTimePicker <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'$yo-component'</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖</span>
-<span class="token comment" spellcheck="true">// 你仍然可以通过下面这种方式来引用</span>
+<span class="token comment">// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖</span>
+<span class="token comment">// 你仍然可以通过下面这种方式来引用</span>
 <span class="token keyword">import</span> DateTimePicker <span class="token keyword">from</span> <span class="token string">'yo3/component/datetimepicker'</span><span class="token punctuation">;</span>
 </code></pre><h4 id="-">基本用法：日期选择器</h4>
 <p>和 <code>Picker</code> 一样，<code>DateTimePicker</code> 需要同时配置 <code>value</code> 和 <code>onChange</code> 才能正常工作。
@@ -322,36 +324,36 @@
 
     <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">return</span> <span class="token punctuation">(</span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>DateTimePicker</span>
-                <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value<span class="token punctuation">}</span></span>
-                <span class="token attr-name">unitsInline</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span><span class="token string">'年'</span><span class="token punctuation">,</span> <span class="token string">'月'</span><span class="token punctuation">,</span> <span class="token string">'日'</span><span class="token punctuation">]</span><span class="token punctuation">}</span></span>
-                <span class="token attr-name">range</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span><span class="token string">'2016-01-01'</span><span class="token punctuation">,</span><span class="token string">'2016-12-31'</span><span class="token punctuation">]</span><span class="token punctuation">}</span></span>
-                <span class="token attr-name">dateOrTime</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>date<span class="token punctuation">"</span></span>
-                <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>value <span class="token operator">=></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> value <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>
-            <span class="token punctuation">/></span></span>
+            <span class="token operator">&lt;</span>DateTimePicker
+                value<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value<span class="token punctuation">}</span>
+                unitsInline<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span><span class="token string">'年'</span><span class="token punctuation">,</span> <span class="token string">'月'</span><span class="token punctuation">,</span> <span class="token string">'日'</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+                range<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span><span class="token string">'2016-01-01'</span><span class="token punctuation">,</span><span class="token string">'2016-12-31'</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+                dateOrTime<span class="token operator">=</span><span class="token string">"date"</span>
+                onChange<span class="token operator">=</span><span class="token punctuation">{</span>value <span class="token operator">=></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> value <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+            <span class="token operator">/</span><span class="token operator">></span>
         <span class="token punctuation">)</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre><h4 id="-">基本用法：只选择年份和月份</h4>
 <p><code>DateTimePicker</code> 支持只选择年和月。这时候<code>value</code>属性的值需要省略掉第三部分：</p>
 <pre><code><span class="token operator">&lt;</span>DateTimePicker
-    value<span class="token operator">=</span><span class="token punctuation">{</span>entrytime <span class="token comment" spellcheck="true">/* 日期格式为xxxx-xx */</span><span class="token punctuation">}</span>
+    value<span class="token operator">=</span><span class="token punctuation">{</span>entrytime <span class="token comment">/* 日期格式为xxxx-xx */</span><span class="token punctuation">}</span>
     range<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span><span class="token string">'1980-01'</span><span class="token punctuation">,</span><span class="token string">'2017-12'</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
     unitsInline<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span><span class="token string">'年'</span><span class="token punctuation">,</span> <span class="token string">'月'</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
     dateOrTime<span class="token operator">=</span><span class="token string">"date"</span>
     onChange<span class="token operator">=</span><span class="token punctuation">{</span>value <span class="token operator">=></span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// onchange</span>
+        <span class="token comment">// onchange</span>
     <span class="token punctuation">}</span><span class="token punctuation">}</span>
 <span class="token operator">/</span><span class="token operator">></span>
 </code></pre><h4 id="-">基本用法：时间选择器</h4>
-<pre><code><span class="token comment" spellcheck="true">// this.state = { value: '12: 00' };</span>
+<pre><code><span class="token comment">// this.state = { value: '12: 00' };</span>
 
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>DateTimePicker</span>
-    <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value<span class="token punctuation">}</span></span>
-    <span class="token attr-name">unitsInline</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span><span class="token string">'时'</span><span class="token punctuation">,</span> <span class="token string">'分'</span><span class="token punctuation">]</span><span class="token punctuation">}</span></span>
-    <span class="token attr-name">dateOrTime</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>time<span class="token punctuation">"</span></span>
-    <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>value <span class="token operator">=></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> value <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>
-<span class="token punctuation">/></span></span>
+<span class="token operator">&lt;</span>DateTimePicker
+    value<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value<span class="token punctuation">}</span>
+    unitsInline<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span><span class="token string">'时'</span><span class="token punctuation">,</span> <span class="token string">'分'</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+    dateOrTime<span class="token operator">=</span><span class="token string">"time"</span>
+    onChange<span class="token operator">=</span><span class="token punctuation">{</span>value <span class="token operator">=></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> value <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+<span class="token operator">/</span><span class="token operator">></span>
 </code></pre><h4 id="-">扩展用法：自定义选项</h4>
 <p>你可以通过format属性来自定义option的文本，它能够接收两个参数，<code>value</code>对应<code>option</code>的值，<code>level</code>对应所在列的<code>index</code></p>
 <pre><code><span class="token function">format</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> level<span class="token punctuation">)</span> <span class="token punctuation">{</span>

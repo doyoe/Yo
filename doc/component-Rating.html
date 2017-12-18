@@ -2,13 +2,11 @@
 <html lang="zh-CN">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-    <meta name="format-detection" content="telephone=no,email=no" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
-    <meta name="description" content="description of your site">
-    <meta name="author" content="author of the site">
-    <title>Yo Documentation 组件</title>
+    <title>Rating - Yo Documentation 组件</title>
+    
+    
+
+    <link rel="shortcut icon" href="./images/favicon.ico" />
     <link rel="stylesheet" href="source/main.css" />
     
     
@@ -16,6 +14,10 @@
       <link rel="stylesheet" href="styles/ydoc.css" />
       
     
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no,email=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
 </head>
 <body class=component-Rating >
     <div class="ydoc">
@@ -93,7 +95,7 @@
             
 
             <div class="ydoc-container">
-                 
+                
                 <div class="ydoc-container-content ">
                     
                     
@@ -304,15 +306,15 @@
                     <h4 id="-">引用方式</h4>
 <pre><code><span class="token keyword">import</span> <span class="token punctuation">{</span> Rating <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'$yo-component'</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖</span>
-<span class="token comment" spellcheck="true">// 你仍然可以通过下面这种方式来引用</span>
+<span class="token comment">// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖</span>
+<span class="token comment">// 你仍然可以通过下面这种方式来引用</span>
 <span class="token keyword">import</span> Rating <span class="token keyword">from</span> <span class="token string">'yo3/component/rating'</span><span class="token punctuation">;</span>
 </code></pre><h4 id="-">基本用法</h4>
 <p>展示一个给用户评分的组件，<code>value</code> 属性为当前的评分。由于这是一个 <code>受控的</code> 组件，所以需要通过 <code>onChange</code> 回调来设置当前值。</p>
-<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Rating</span>
-    <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value<span class="token punctuation">}</span></span>
-    <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>value <span class="token operator">=></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>value<span class="token punctuation">:</span> value<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>
-<span class="token punctuation">/></span></span>
+<pre><code><span class="token operator">&lt;</span>Rating
+    value<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value<span class="token punctuation">}</span>
+    onChange<span class="token operator">=</span><span class="token punctuation">{</span>value <span class="token operator">=></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>value<span class="token punctuation">:</span> value<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+<span class="token operator">/</span><span class="token operator">></span>
 </code></pre><h4 id="-">展示评分</h4>
 <p>展示一个显示评分的组件，<code>value</code> 属性为需要展示的评分。将 <code>readonly</code> 属性设置为 <code>true</code> 即可。</p>
 <pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Rating</span>
@@ -321,7 +323,7 @@
 <span class="token punctuation">/></span></span>
 </code></pre><h4 id="-">自定义样式</h4>
 <p>评分组件的样式可以通过 <code>extraClass</code> 来扩展。例如：可以将星星图标换成其他图标。</p>
-<pre><code class="lang-SCSS"><span class="token comment" spellcheck="true">/**
+<pre><code class="lang-SCSS"><span class="token comment">/**
  * yo-rating扩展
  */</span>
 <span class="token keyword">@include</span> <span class="token function">yo-rating</span><span class="token punctuation">(</span>
@@ -329,11 +331,11 @@
     <span class="token property"><span class="token variable">$url</span></span><span class="token punctuation">:</span> <span class="token string">"star2.png"</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Rating</span>
-    <span class="token attr-name">extraClass</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>yo-rating-test<span class="token punctuation">"</span></span>
-    <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value<span class="token punctuation">}</span></span>
-    <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>value <span class="token operator">=></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>value<span class="token punctuation">:</span> value<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>
-<span class="token punctuation">/></span></span>
+<pre><code><span class="token operator">&lt;</span>Rating
+    extraClass<span class="token operator">=</span><span class="token string">"yo-rating-test"</span>
+    value<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value<span class="token punctuation">}</span>
+    onChange<span class="token operator">=</span><span class="token punctuation">{</span>value <span class="token operator">=></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>value<span class="token punctuation">:</span> value<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+<span class="token operator">/</span><span class="token operator">></span>
 </code></pre>
                 </div>
                  

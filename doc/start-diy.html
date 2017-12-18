@@ -2,13 +2,11 @@
 <html lang="zh-CN">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-    <meta name="format-detection" content="telephone=no,email=no" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
-    <meta name="description" content="description of your site">
-    <meta name="author" content="author of the site">
-    <title>Yo Documentation 起步</title>
+    <title>附录一：在已有项目中使用 - Yo Documentation 起步</title>
+    
+    
+
+    <link rel="shortcut icon" href="./images/favicon.ico" />
     <link rel="stylesheet" href="source/main.css" />
     
     
@@ -16,6 +14,10 @@
       <link rel="stylesheet" href="styles/ydoc.css" />
       
     
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no,email=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
 </head>
 <body class=getting-started-附录一：在已有项目中使用 >
     <div class="ydoc">
@@ -93,7 +95,7 @@
             
 
             <div class="ydoc-container">
-                 
+                
                 <div class="ydoc-container-content ">
                     
                     
@@ -164,7 +166,7 @@
       <span class="token operator">...</span>
       <span class="token string">"dependencies"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
           <span class="token string">"ykit-config-yo"</span><span class="token punctuation">:</span> <span class="token string">"^1.0.0"</span><span class="token punctuation">,</span>
-          <span class="token string">"yo-router"</span><span class="token punctuation">:</span> <span class="token string">"^1.0.0"</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 如果不需要使用router, 可以不写这一项</span>
+          <span class="token string">"yo-router"</span><span class="token punctuation">:</span> <span class="token string">"^1.0.0"</span><span class="token punctuation">,</span> <span class="token comment">// 如果不需要使用router, 可以不写这一项</span>
           <span class="token string">"babel-polyfill"</span><span class="token punctuation">:</span> <span class="token string">"^6.16.0"</span><span class="token punctuation">,</span>
           <span class="token string">"react"</span><span class="token punctuation">:</span> <span class="token string">"^15.3.2"</span><span class="token punctuation">,</span>
           <span class="token string">"react-dom"</span><span class="token punctuation">:</span> <span class="token string">"^15.3.2"</span>
@@ -176,14 +178,14 @@
 <li><p>在项目根目录下新建 <code>ykit.yo.js</code> 文件，并添加以下内容：</p>
 <pre><code>  exports<span class="token punctuation">.</span><span class="token function-variable function">config</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
       <span class="token keyword">return</span> <span class="token punctuation">{</span>
-          <span class="token comment" spellcheck="true">// [配置] 项目资源入口</span>
+          <span class="token comment">// [配置] 项目资源入口</span>
           <span class="token keyword">export</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'./page/demo/index.js'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-          <span class="token comment" spellcheck="true">// [配置] webpack</span>
+          <span class="token comment">// [配置] webpack</span>
           modifyWebpackConfig<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>config<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-              <span class="token comment" spellcheck="true">// [配置] chunk 的路径</span>
+              <span class="token comment">// [配置] chunk 的路径</span>
               config<span class="token punctuation">.</span>output<span class="token punctuation">.</span>local<span class="token punctuation">.</span>publicPath <span class="token operator">=</span> <span class="token string">'//127.0.0.1/[#项目名]/prd/'</span><span class="token punctuation">;</span>
 
-              <span class="token comment" spellcheck="true">// [配置] 项目中的别名，推荐所有的别名都以 $ 开头，既能一眼识别出是别名，也能避免命名冲突</span>
+              <span class="token comment">// [配置] 项目中的别名，推荐所有的别名都以 $ 开头，既能一眼识别出是别名，也能避免命名冲突</span>
               config<span class="token punctuation">.</span>resolve <span class="token operator">=</span> <span class="token punctuation">{</span>
                   alias<span class="token punctuation">:</span> <span class="token punctuation">{</span>
                       <span class="token string">'$yo'</span><span class="token punctuation">:</span> <span class="token string">'yo3'</span><span class="token punctuation">,</span>

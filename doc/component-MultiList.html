@@ -2,13 +2,11 @@
 <html lang="zh-CN">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-    <meta name="format-detection" content="telephone=no,email=no" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
-    <meta name="description" content="description of your site">
-    <meta name="author" content="author of the site">
-    <title>Yo Documentation 组件</title>
+    <title>MultiList - Yo Documentation 组件</title>
+    
+    
+
+    <link rel="shortcut icon" href="./images/favicon.ico" />
     <link rel="stylesheet" href="source/main.css" />
     
     
@@ -16,6 +14,10 @@
       <link rel="stylesheet" href="styles/ydoc.css" />
       
     
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no,email=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
 </head>
 <body class=component-MultiList >
     <div class="ydoc">
@@ -93,7 +95,7 @@
             
 
             <div class="ydoc-container">
-                 
+                
                 <div class="ydoc-container-content ">
                     
                     
@@ -304,8 +306,8 @@
                     <h4 id="-">引用方式</h4>
 <pre><code><span class="token keyword">import</span> <span class="token punctuation">{</span> MultiList <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'$yo-component'</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖</span>
-<span class="token comment" spellcheck="true">// 你仍然可以通过下面这种方式来引用</span>
+<span class="token comment">// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖</span>
+<span class="token comment">// 你仍然可以通过下面这种方式来引用</span>
 <span class="token keyword">import</span> MultiList <span class="token keyword">from</span> <span class="token string">'yo3/component/multilist'</span><span class="token punctuation">;</span>
 </code></pre><h4 id="-">使用场景</h4>
 <p>这里展示的是multiList主要使用场景，用于多级列表选择。常见于去哪儿客户端、美团客户端、大众点评客户端，位置筛选功能。</p>
@@ -319,7 +321,7 @@
     <span class="token punctuation">}</span>
     <span class="token function">handleValueChange</span><span class="token punctuation">(</span><span class="token punctuation">{</span>newValue<span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">let</span> value<span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">// 最后一项选中项value值为0,则清空value,0通常是不限。</span>
+        <span class="token comment">// 最后一项选中项value值为0,则清空value,0通常是不限。</span>
         <span class="token keyword">if</span> <span class="token punctuation">(</span>newValue<span class="token punctuation">[</span>newValue<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">===</span> DEFAULT<span class="token punctuation">)</span> <span class="token punctuation">{</span>
             value <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
@@ -402,7 +404,7 @@
 <pre><code><span class="token keyword">class</span> <span class="token class-name">SimplaMultiList</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
     <span class="token operator">...</span>
     <span class="token keyword">async</span> <span class="token function">handleUpdateData</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">/**
+        <span class="token comment">/**
         * item 内容为
         *{
         *    name: '异步',
@@ -432,15 +434,15 @@
                 <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>multiList Demo<span class="token punctuation">"</span></span>
                 <span class="token attr-name">extraClass</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>demo-content<span class="token punctuation">"</span></span>
             <span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>MultiList</span>
-                    <span class="token attr-name">dataSource</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>dataSource<span class="token punctuation">}</span></span>
-                    <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value<span class="token punctuation">}</span></span>
-                    <span class="token attr-name">onUpdateData</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>handleUpdateData<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>
-                    <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">{</span>newValue<span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+                <span class="token operator">&lt;</span>MultiList
+                    dataSource<span class="token operator">=</span><span class="token punctuation">{</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>dataSource<span class="token punctuation">}</span>
+                    value<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value<span class="token punctuation">}</span>
+                    onUpdateData<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>handleUpdateData<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+                    onChange<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">{</span>newValue<span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
                         <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">updateValue</span><span class="token punctuation">(</span>newValue<span class="token punctuation">)</span><span class="token punctuation">;</span>
                          Toast<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`您的选择是</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>newValue<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">'>'</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span>
-                    <span class="token punctuation">}</span></span><span class="token attr-name">}</span>
-                <span class="token punctuation">/></span></span>
+                    <span class="token punctuation">}</span><span class="token punctuation">}</span>
+                <span class="token operator">/</span><span class="token operator">></span>
             <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Page</span><span class="token punctuation">></span></span>
         <span class="token punctuation">)</span>
     <span class="token punctuation">}</span>
@@ -493,19 +495,19 @@
                 <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>multiList Demo<span class="token punctuation">"</span></span>
                 <span class="token attr-name">extraClass</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>demo-content<span class="token punctuation">"</span></span>
             <span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>MultiList</span>
-                    <span class="token attr-name">dataSource</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>dataSource<span class="token punctuation">}</span></span>
-                    <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value<span class="token punctuation">}</span></span>
-                    <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">{</span>newValue<span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+                <span class="token operator">&lt;</span>MultiList
+                    dataSource<span class="token operator">=</span><span class="token punctuation">{</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>dataSource<span class="token punctuation">}</span>
+                    value<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value<span class="token punctuation">}</span>
+                    onChange<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">{</span>newValue<span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
                         <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">updateValue</span><span class="token punctuation">(</span>newValue<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token punctuation">}</span><span class="token punctuation">}</span></span>
-                    <span class="token attr-name">onItemTap</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">{</span>item<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">{</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">}</span>
+                    onItemTap<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">{</span>item<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">{</span>
                         <span class="token keyword">return</span> <span class="token punctuation">[</span>item<span class="token punctuation">.</span>value<span class="token punctuation">]</span><span class="token punctuation">;</span>
-                    <span class="token punctuation">}</span><span class="token punctuation">}</span></span>
-                    <span class="token attr-name">renderItem</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">{</span>itemType<span class="token punctuation">,</span> data<span class="token punctuation">,</span> isSpread<span class="token punctuation">,</span> index<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">{</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">}</span>
+                    renderItem<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">{</span>itemType<span class="token punctuation">,</span> data<span class="token punctuation">,</span> isSpread<span class="token punctuation">,</span> index<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">{</span>
                         <span class="token keyword">switch</span> <span class="token punctuation">(</span>itemType<span class="token punctuation">)</span><span class="token punctuation">{</span>
                             <span class="token keyword">case</span> <span class="token string">'ProductMenu'</span><span class="token punctuation">:</span>
-                                <span class="token keyword">return</span> <span class="token operator">&lt;</span>ProductMenu data<span class="token punctuation">=</span><span class="token punctuation">{</span>data<span class="token punctuation">}</span> isSpread<span class="token punctuation">=</span><span class="token punctuation">{</span>isSpread<span class="token punctuation">}</span> index<span class="token punctuation">=</span><span class="token punctuation">{</span>index<span class="token punctuation">}</span></span><span class="token punctuation">/></span></span>
+                                <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ProductMenu</span> <span class="token attr-name">data</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>data<span class="token punctuation">}</span></span> <span class="token attr-name">isSpread</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>isSpread<span class="token punctuation">}</span></span> <span class="token attr-name">index</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>index<span class="token punctuation">}</span></span><span class="token punctuation">/></span></span>
                         <span class="token punctuation">}</span>
                     <span class="token punctuation">}</span><span class="token punctuation">}</span>
                     renderContent<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">{</span>type<span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
@@ -719,15 +721,15 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
             <pre class="ydoc-example" ><code class="js-code"> renderItem<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">{</span>
 <span class="token keyword">const</span> <span class="token punctuation">{</span>itemType<span class="token punctuation">,</span> data<span class="token punctuation">,</span> isSpread<span class="token punctuation">,</span> index<span class="token punctuation">}</span> <span class="token operator">=</span> item<span class="token punctuation">;</span>
       JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token comment" spellcheck="true">// {  "itemType":"ProductMenu", 节点的Type类型（此时的`itemType`是组件根据父节点`subItemType`和该节点`itemType`按照优先级处理过的值。）</span>
-    <span class="token comment" spellcheck="true">//    "level":0, item所在层级</span>
-    <span class="token comment" spellcheck="true">//    "index":"2", item所在父节点subList</span>
-   <span class="token comment" spellcheck="true">//    "route": "1>2>1", item在dataSource中的索引值</span>
-    <span class="token comment" spellcheck="true">//    "isLeaf":false, 该节点是否为叶子节点</span>
-    <span class="token comment" spellcheck="true">//    "isSpread":false, 如果该节点为父节点时该值表示该节点是否是展开的</span>
-    <span class="token comment" spellcheck="true">//    "isChecked":false, 该节点是否是有效值</span>
-    <span class="token comment" spellcheck="true">//    "data":{"name":"产品2","value":2,"subList":"product2","key":1,"_index":1} 原数据内容`key`值为组建计算由于优化List性能，如原数据中有设置则使用原数据，单请调用者保证key值在该层级中的唯一性。</span>
-     <span class="token comment" spellcheck="true">// }</span>
+   <span class="token comment">// {  "itemType":"ProductMenu", 节点的Type类型（此时的`itemType`是组件根据父节点`subItemType`和该节点`itemType`按照优先级处理过的值。）</span>
+    <span class="token comment">//    "level":0, item所在层级</span>
+    <span class="token comment">//    "index":"2", item所在父节点subList</span>
+   <span class="token comment">//    "route": "1>2>1", item在dataSource中的索引值</span>
+    <span class="token comment">//    "isLeaf":false, 该节点是否为叶子节点</span>
+    <span class="token comment">//    "isSpread":false, 如果该节点为父节点时该值表示该节点是否是展开的</span>
+    <span class="token comment">//    "isChecked":false, 该节点是否是有效值</span>
+    <span class="token comment">//    "data":{"name":"产品2","value":2,"subList":"product2","key":1,"_index":1} 原数据内容`key`值为组建计算由于优化List性能，如原数据中有设置则使用原数据，单请调用者保证key值在该层级中的唯一性。</span>
+     <span class="token comment">// }</span>
      <span class="token keyword">switch</span> <span class="token punctuation">(</span>itemType<span class="token punctuation">)</span><span class="token punctuation">{</span>
          <span class="token keyword">case</span> <span class="token string">'ProductMenu'</span><span class="token punctuation">:</span>
           <span class="token keyword">return</span> <span class="token operator">&lt;</span>ProductMenu data<span class="token operator">=</span><span class="token punctuation">{</span>data<span class="token punctuation">}</span> isSpread<span class="token operator">=</span><span class="token punctuation">{</span>isSpread<span class="token punctuation">}</span> index<span class="token operator">=</span><span class="token punctuation">{</span>index<span class="token punctuation">}</span><span class="token operator">/</span><span class="token operator">></span>
@@ -786,7 +788,7 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
             <pre class="ydoc-example" ><code class="js-code">renderContent<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
    <span class="token keyword">const</span> <span class="token punctuation">{</span>type<span class="token punctuation">}</span> <span class="token operator">=</span> item<span class="token punctuation">;</span>
       console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-     <span class="token comment" spellcheck="true">// {"type":"product1","data":{"name":"产品1","value":1,"subList":"product1","key":"1"},"level":1}</span>
+     <span class="token comment">// {"type":"product1","data":{"name":"产品1","value":1,"subList":"product1","key":"1"},"level":1}</span>
      <span class="token keyword">switch</span> <span class="token punctuation">(</span>type<span class="token punctuation">)</span><span class="token punctuation">{</span>
          <span class="token keyword">case</span> <span class="token string">'product1'</span><span class="token punctuation">:</span>
            <span class="token keyword">return</span> <span class="token operator">&lt;</span>Product tit<span class="token operator">=</span><span class="token string">"product1"</span> <span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">;</span>

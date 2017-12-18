@@ -2,13 +2,11 @@
 <html lang="zh-CN">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-    <meta name="format-detection" content="telephone=no,email=no" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
-    <meta name="description" content="description of your site">
-    <meta name="author" content="author of the site">
-    <title>Yo Documentation 组件</title>
+    <title>Carousel - Yo Documentation 组件</title>
+    
+    
+
+    <link rel="shortcut icon" href="./images/favicon.ico" />
     <link rel="stylesheet" href="source/main.css" />
     
     
@@ -16,6 +14,10 @@
       <link rel="stylesheet" href="styles/ydoc.css" />
       
     
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no,email=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
 </head>
 <body class=component-Carousel >
     <div class="ydoc">
@@ -93,7 +95,7 @@
             
 
             <div class="ydoc-container">
-                 
+                
                 <div class="ydoc-container-content ">
                     
                     
@@ -325,8 +327,8 @@
                     <h4 id="-">引用方式</h4>
 <pre><code><span class="token keyword">import</span> <span class="token punctuation">{</span> Carousel <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'$yo-component'</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖</span>
-<span class="token comment" spellcheck="true">// 你仍然可以通过下面这种方式来引用</span>
+<span class="token comment">// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖</span>
+<span class="token comment">// 你仍然可以通过下面这种方式来引用</span>
 <span class="token keyword">import</span> Carousel <span class="token keyword">from</span> <span class="token string">'yo3/component/carousel'</span><span class="token punctuation">;</span>
 </code></pre><h4 id="-">基础用法</h4>
 <pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Carousel</span><span class="token punctuation">></span></span>
@@ -362,18 +364,18 @@
 
     <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">return</span> <span class="token punctuation">(</span>            
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Carousel</span>
-                <span class="token attr-name">afterChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>page<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+            <span class="token operator">&lt;</span>Carousel
+                afterChange<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>page<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
                     <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
                         currentPage<span class="token punctuation">:</span> page
                     <span class="token punctuation">}</span><span class="token punctuation">)</span>
-                <span class="token punctuation">}</span></span><span class="token attr-name">}</span>
-            <span class="token punctuation">></span></span>
+                <span class="token punctuation">}</span><span class="token punctuation">}</span>
+            <span class="token operator">></span>
             <span class="token punctuation">{</span>
                 testData<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> index<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span>
                     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>CarouselItem</span>
                         <span class="token attr-name">key</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>index <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">}</span></span>
-                        <span class="token spread"><span class="token punctuation">{</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token attr-value">item</span><span class="token punctuation">}</span></span>
+                        <span class="token spread"><span class="token punctuation">{</span><span class="token punctuation">...</span><span class="token attr-value">item</span><span class="token punctuation">}</span></span>
                         <span class="token attr-name">lazyload</span>
                     <span class="token punctuation">/></span></span>
                 <span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -395,20 +397,20 @@
 
     <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
         <span class="token keyword">return</span> <span class="token punctuation">(</span>        
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Carousel</span>
-                <span class="token attr-name">aniObj</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>aniCss<span class="token punctuation">}</span></span>
-                <span class="token attr-name">extraClass</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token string">'yo-carousel-fade'</span><span class="token punctuation">}</span></span>
-                <span class="token attr-name">afterChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>currentPage<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+            <span class="token operator">&lt;</span>Carousel
+                aniObj<span class="token operator">=</span><span class="token punctuation">{</span>aniCss<span class="token punctuation">}</span>
+                extraClass<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'yo-carousel-fade'</span><span class="token punctuation">}</span>
+                afterChange<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>currentPage<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
                     <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
                         currentPage
                     <span class="token punctuation">}</span><span class="token punctuation">)</span>
-                <span class="token punctuation">}</span></span><span class="token attr-name">}</span>
-            <span class="token punctuation">></span></span>
+                <span class="token punctuation">}</span><span class="token punctuation">}</span>
+            <span class="token operator">></span>
             <span class="token punctuation">{</span>
                 testData<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> index<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span>
                     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>CarouselItem</span>
                         <span class="token attr-name">key</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>index <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">}</span></span>
-                        <span class="token spread"><span class="token punctuation">{</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token attr-value">item</span><span class="token punctuation">}</span></span>
+                        <span class="token spread"><span class="token punctuation">{</span><span class="token punctuation">...</span><span class="token attr-value">item</span><span class="token punctuation">}</span></span>
                         <span class="token attr-name">lazyload</span>
                         <span class="token attr-name">activeClass</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token string">'top'</span><span class="token punctuation">}</span></span>
                     <span class="token punctuation">/></span></span>
@@ -703,14 +705,14 @@ carousel组件需要挂载的父节点有宽度，组件内置动画需要宽度
 <ul>
 <li><pre><code><span class="token punctuation">{</span>
   aniSpeed<span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">,</span>
-  containerDOM<span class="token punctuation">:</span> ul<span class="token punctuation">.</span>cont<span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//节点</span>
+  containerDOM<span class="token punctuation">:</span> ul<span class="token punctuation">.</span>cont<span class="token punctuation">,</span> <span class="token comment">//节点</span>
   delay<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
   loop<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-  operationTimer<span class="token punctuation">:</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//操作数动画运动的绝对值，交由动画控制</span>
+  operationTimer<span class="token punctuation">:</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token comment">//操作数动画运动的绝对值，交由动画控制</span>
   pageNow<span class="token punctuation">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
   speed<span class="token punctuation">:</span> <span class="token punctuation">.</span><span class="token number">5</span><span class="token punctuation">,</span>
   stageDOM<span class="token punctuation">:</span> div<span class="token punctuation">,</span>
-  width<span class="token punctuation">:</span> <span class="token number">375</span> <span class="token comment" spellcheck="true">//这里需注意宽度在组件mount后才有</span>
+  width<span class="token punctuation">:</span> <span class="token number">375</span> <span class="token comment">//这里需注意宽度在组件mount后才有</span>
   touchstartLocation<span class="token punctuation">:</span>e
   touchendLocation<span class="token punctuation">:</span>e
   touchmoveLocation<span class="token punctuation">:</span>e

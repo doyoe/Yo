@@ -2,13 +2,11 @@
 <html lang="zh-CN">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-    <meta name="format-detection" content="telephone=no,email=no" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
-    <meta name="description" content="description of your site">
-    <meta name="author" content="author of the site">
-    <title>Yo Documentation 起步</title>
+    <title>附录二：关于 chunk 模式 - Yo Documentation 起步</title>
+    
+    
+
+    <link rel="shortcut icon" href="./images/favicon.ico" />
     <link rel="stylesheet" href="source/main.css" />
     
     
@@ -16,6 +14,10 @@
       <link rel="stylesheet" href="styles/ydoc.css" />
       
     
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no,email=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
 </head>
 <body class=getting-started-附录二：关于 chunk 模式 >
     <div class="ydoc">
@@ -93,7 +95,7 @@
             
 
             <div class="ydoc-container">
-                 
+                
                 <div class="ydoc-container-content ">
                     
                     
@@ -158,7 +160,7 @@
 <p>代码分割的基本场景如下：</p>
 <pre><code class="lang-js">require<span class="token punctuation">.</span><span class="token function">ensure</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'some'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'module-a'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token comment" spellcheck="true">// ...</span>
+  <span class="token comment">// ...</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>这里的 <code>require.ensure</code> 是告诉 webpack/ykit，让其构建分块代码，而不是将资源直接打包到 bundle 中去，其中第一个参数是分块代码依赖的资源，主要用于分块代码内部没有引入依赖、或多个引入代码的公共依赖，在我们路由场景中基本不会用到，所以写个空数组就行。</p>
@@ -179,20 +181,20 @@
 <p>这里要注意的一点是，<code>getComponent</code> 方法传入回调的第一参数是 <code>nextState</code>，是路由中通过历史传递的 <code>location.state</code>，这个历史 <code>state</code> 目前仅在单页的 browserHistory 中存在，在多页场景和 hash 场景中都无法使用，我们推荐使用通过生命周期的方式跨页面传递数据，因此不推荐使用这个参数。</p>
 <p>第二个参数 <code>cb</code> 就是用来异步获取组件的回调，其中该回调第一个参数是错误参数，第二个参数是组件。如果使用原生的方式进行组件动态加载，那么要注意在导出组件时不要使用 ES6 的 <code>export default</code> 语法，或者在 <code>require</code> 的时候带上 <code>default</code> 属性：</p>
 <p>即可以这样写：</p>
-<pre><code class="lang-js"><span class="token comment" spellcheck="true">// file - User</span>
+<pre><code class="lang-js"><span class="token comment">// file - User</span>
 <span class="token keyword">export</span> <span class="token keyword">default</span> User
 
 <span class="token operator">&lt;</span>Route path<span class="token operator">=</span><span class="token string">"/user"</span> getComponent<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>nextState<span class="token punctuation">,</span> cb<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// 注意这里是 default</span>
+  <span class="token comment">// 注意这里是 default</span>
   require<span class="token punctuation">.</span><span class="token function">ensure</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">cb</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./User'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">default</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
 </code></pre>
 <p>也可以这样写：</p>
-<pre><code class="lang-js"><span class="token comment" spellcheck="true">// file - User</span>
+<pre><code class="lang-js"><span class="token comment">// file - User</span>
 module<span class="token punctuation">.</span>exports <span class="token operator">=</span> User
 
 <span class="token operator">&lt;</span>Route path<span class="token operator">=</span><span class="token string">"/user"</span> getComponent<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>nextState<span class="token punctuation">,</span> cb<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// 注意这里是 default</span>
+  <span class="token comment">// 注意这里是 default</span>
   require<span class="token punctuation">.</span><span class="token function">ensure</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">cb</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./User'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
 </code></pre>
@@ -214,24 +216,24 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Route</span><span class="token punctuation">></span></span>
 </code></pre>
 <p>而异步配置的方式如下：</p>
-<pre><code class="lang-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Route</span>
-  <span class="token attr-name">path</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>course/:courseId<span class="token punctuation">"</span></span>
-  <span class="token attr-name">getIndexRoute</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>nextState<span class="token punctuation">,</span> callback<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+<pre><code class="lang-jsx"><span class="token operator">&lt;</span>Route
+  path<span class="token operator">=</span><span class="token string">"course/:courseId"</span>
+  getIndexRoute<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>nextState<span class="token punctuation">,</span> callback<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
     require<span class="token punctuation">.</span><span class="token function">ensure</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>require<span class="token punctuation">)</span> <span class="token punctuation">{</span>
       <span class="token function">callback</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
         component<span class="token punctuation">:</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./routes/Index'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
       <span class="token punctuation">}</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span></span><span class="token attr-name">)</span>
-  <span class="token attr-name">}}</span>
-  <span class="token attr-name">getChildRoutes</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>nextState<span class="token punctuation">,</span> callback<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">}</span>
+  getChildRoutes<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>nextState<span class="token punctuation">,</span> callback<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
     require<span class="token punctuation">.</span><span class="token function">ensure</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>require<span class="token punctuation">)</span> <span class="token punctuation">{</span>
       <span class="token function">callback</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>
         <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./routes/A'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
         <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./routes/B'</span><span class="token punctuation">)</span>
       <span class="token punctuation">]</span><span class="token punctuation">)</span>
     <span class="token punctuation">}</span><span class="token punctuation">)</span>
-  <span class="token punctuation">}</span></span><span class="token attr-name">}</span>
-<span class="token punctuation">/></span></span>
+  <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token operator">/</span><span class="token operator">></span>
 </code></pre>
 <p>这样可以保证整个页面的子路由结构都是异步载入的，可以在具体的页面内部再进行路由的配置。</p>
 <p><strong>注意</strong> 在异步配置首页路由时，需要传入一个路由对象，而配置子路由时，需要传入一个数组对象。</p>
@@ -240,11 +242,11 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 <p>如果你不希望使用q.qunarzz.com作为publicPath，你可以在 <code>ykit.yo.js</code> 中修改它的配置，如下：</p>
 <pre><code>modifyWebpackConfig<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>config<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token operator">...</span>
-    <span class="token comment" spellcheck="true">// 修改dev环境下的publicPath</span>
+    <span class="token comment">// 修改dev环境下的publicPath</span>
     config<span class="token punctuation">.</span>output<span class="token punctuation">.</span>dev<span class="token punctuation">.</span>publicPath <span class="token operator">=</span> <span class="token string">"//dev.touch.travelfe.qunar.com/travel_hy2/prd/"</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">// 修改prd环境下的publicPath</span>
+    <span class="token comment">// 修改prd环境下的publicPath</span>
     config<span class="token punctuation">.</span>output<span class="token punctuation">.</span>prd<span class="token punctuation">.</span>publicPath <span class="token operator">=</span> <span class="token string">"//gofe.beta.qunar.com/travel_hy2/prd/"</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">// 修改本地环境下的publicPath</span>
+    <span class="token comment">// 修改本地环境下的publicPath</span>
     config<span class="token punctuation">.</span>output<span class="token punctuation">.</span>local<span class="token punctuation">.</span>publicPath <span class="token operator">=</span> <span class="token string">"//q.qunarzz.com/travel_hy2/prd/"</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> config<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>

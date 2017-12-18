@@ -2,13 +2,11 @@
 <html lang="zh-CN">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-    <meta name="format-detection" content="telephone=no,email=no" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
-    <meta name="description" content="description of your site">
-    <meta name="author" content="author of the site">
     <title>Yo Documentation 版本</title>
+    
+    
+
+    <link rel="shortcut icon" href="./images/favicon.ico" />
     <link rel="stylesheet" href="source/main.css" />
     
     
@@ -16,6 +14,10 @@
       <link rel="stylesheet" href="styles/ydoc.css" />
       
     
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no,email=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
 </head>
 <body class=changelog >
     <div class="ydoc">
@@ -93,11 +95,15 @@
             
 
             <div class="ydoc-container">
-                 
+                
                 <div class="ydoc-container-content " id="readme">
                     
                     <article class="markdown-body">
-                         <h2 class="subject" id="v3.0.14__2017-11-17_">v3.0.14 (2017-11-17) <a class="hashlink" href="#v3.0.14__2017-11-17_">#</a></h2><h3 class="subject" id="Bug_Fixes">Bug Fixes <a class="hashlink" href="#Bug_Fixes">#</a></h3><ul>
+                         <h2 class="subject" id="v3.0.15__2017-12-15_">v3.0.15 (2017-12-15) <a class="hashlink" href="#v3.0.15__2017-12-15_">#</a></h2><h3 class="subject" id="Bug_Fixes">Bug Fixes <a class="hashlink" href="#Bug_Fixes">#</a></h3><ul>
+<li>修复自定义样式目录中有多层目录时 <code>post install</code> 脚本报错的问题。</li></ul>
+<h3 class="subject" id="New_Features">New Features <a class="hashlink" href="#New_Features">#</a></h3><ul>
+<li><code>Alert</code> 和 <code>Confirm</code> 组件增加 <code>extraClass</code> 属性，<code>content</code> 属性支持传入 jsx。</li></ul>
+<h2 class="subject" id="v3.0.14__2017-11-17_">v3.0.14 (2017-11-17) <a class="hashlink" href="#v3.0.14__2017-11-17_">#</a></h2><h3 class="subject" id="Bug_Fixes">Bug Fixes <a class="hashlink" href="#Bug_Fixes">#</a></h3><ul>
 <li>修复 <code>scroller.js</code> 中因 <code>refs.wrapper</code> 不存在而报错的问题</li></ul>
 <h2 class="subject" id="v3.0.13__2017-10-20_">v3.0.13 (2017-10-20) <a class="hashlink" href="#v3.0.13__2017-10-20_">#</a></h2><h3 class="subject" id="New_Features">New Features <a class="hashlink" href="#New_Features">#</a></h3><ul>
 <li><code>Scroller/List/GroupList/SwipeMenuList</code> 添加 <code>contentInset</code> 参数，用来在内容区域底部加上间隙（主要用于适配 iPhoneX，在内容最下方留出空间）。</li><li>添加 <code>autoBlur</code> 工具函数，可以通过 <code>import { autoBlur } from &#39;yo3/component/common/util.js</code> 来使用。</li><li><code>Toast</code> 支持传入回调函数，详见 <code>Toast</code> 使用说明。</li><li>为 <code>ellipsis</code> 方法内置强制换行（当 <code>$line-clamp</code> 大于 <code>1</code> 时，即多行截断）。</li></ul>

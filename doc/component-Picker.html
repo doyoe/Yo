@@ -2,13 +2,11 @@
 <html lang="zh-CN">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-    <meta name="format-detection" content="telephone=no,email=no" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
-    <meta name="description" content="description of your site">
-    <meta name="author" content="author of the site">
-    <title>Yo Documentation 组件</title>
+    <title>Picker - Yo Documentation 组件</title>
+    
+    
+
+    <link rel="shortcut icon" href="./images/favicon.ico" />
     <link rel="stylesheet" href="source/main.css" />
     
     
@@ -16,6 +14,10 @@
       <link rel="stylesheet" href="styles/ydoc.css" />
       
     
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no,email=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
 </head>
 <body class=component-Picker >
     <div class="ydoc">
@@ -93,7 +95,7 @@
             
 
             <div class="ydoc-container">
-                 
+                
                 <div class="ydoc-container-content ">
                     
                     
@@ -306,8 +308,8 @@
                     <h4 id="-">引用方式</h4>
 <pre><code><span class="token keyword">import</span> <span class="token punctuation">{</span> Picker <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'$yo-component'</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖</span>
-<span class="token comment" spellcheck="true">// 你仍然可以通过下面这种方式来引用</span>
+<span class="token comment">// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖</span>
+<span class="token comment">// 你仍然可以通过下面这种方式来引用</span>
 <span class="token keyword">import</span> Picker <span class="token keyword">from</span> <span class="token string">'yo3/component/picker'</span><span class="token punctuation">;</span>
 </code></pre><h4 id="-">基础使用</h4>
 <p><code>Picker</code>使用方式与网页里的<code>&lt;select&gt;</code>十分相似。 你需要给它指定三个属性: <code>options</code>(带选项的数据源, 数组形式)，<code>value</code>(当前选中的option的值)
@@ -323,7 +325,7 @@
     onChange<span class="token operator">=</span><span class="token punctuation">{</span>option <span class="token operator">=></span> <span class="token punctuation">{</span>
         <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> value<span class="token punctuation">:</span>option<span class="token punctuation">.</span>value <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span><span class="token punctuation">}</span>
-    <span class="token comment" spellcheck="true">// 自定义高度</span>
+    <span class="token comment">// 自定义高度</span>
     height<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">200</span><span class="token punctuation">}</span>
 <span class="token operator">/</span><span class="token operator">></span>
 </code></pre><p><code>options</code>是一个数组，里面的数据元素必须是对象，每个对象必须有<code>value</code>属性，这表示这个<code>option</code>的真实值。
@@ -346,20 +348,20 @@
 <p>一般来说，<code>Picker</code>需要和一个模态框系列组件结合使用，而不是直接放置在页面上。因为<code>Picker</code>的触摸事件和<code>Scroller</code>并不相容。
 下面是一个结合了<code>Popup</code>组件使用的弹出式的<code>Picker</code>。</p>
 <p><strong> 如果没有特殊的定制化要求，你应该优先选择使用 <code>PopupPicker</code> 和 <code>PopupDateTimePicker</code>，这两个组件封装了弹层的逻辑，更加易于使用。 </strong></p>
-<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Popup</span>
-    <span class="token attr-name">show</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>open<span class="token punctuation">}</span></span>
-    <span class="token attr-name">onMaskTap</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span> <span class="token punctuation">{</span>
+<pre><code><span class="token operator">&lt;</span>Popup
+    show<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>open<span class="token punctuation">}</span>
+    onMaskTap<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span> <span class="token punctuation">{</span>
         <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>open<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span></span><span class="token attr-name">}</span>
-<span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Picker</span>
-        <span class="token attr-name">height</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token number">200</span><span class="token punctuation">}</span></span>
-        <span class="token attr-name">options</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>options<span class="token punctuation">}</span></span>
-        <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>opt<span class="token punctuation">)</span><span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token operator">></span>
+    <span class="token operator">&lt;</span>Picker
+        height<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">200</span><span class="token punctuation">}</span>
+        options<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>options<span class="token punctuation">}</span>
+        onChange<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>opt<span class="token punctuation">)</span><span class="token operator">=></span> <span class="token punctuation">{</span>
             <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>value<span class="token punctuation">:</span> opt<span class="token punctuation">.</span>value<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span></span><span class="token attr-name">}</span>
-        <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value<span class="token punctuation">}</span></span>
-    <span class="token punctuation">/></span></span>
+        <span class="token punctuation">}</span><span class="token punctuation">}</span>
+        value<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value<span class="token punctuation">}</span>
+    <span class="token operator">/</span><span class="token operator">></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Popup</span><span class="token punctuation">></span></span>
 </code></pre><p>如果需要把<code>Picker</code>直接放置在页面上，可以设置<code>stopPropagation</code>属性为<code>true</code>来阻止<code>Picker</code>的touch事件冒泡到<code>Scroller</code>上。
 这样在滑动<code>Picker</code>时它外层的<code>Scroller</code>并不会跟着滑动:</p>

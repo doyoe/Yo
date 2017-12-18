@@ -124,22 +124,23 @@ function tryUpdateUsageFolder(styleFolderPath) {
     });
 }
 
-function rewriteUsageRefs(styleFolderPath) {
-    var usageChildren = fs.readdirSync(styleFolderPath);
+function rewriteUsageRefs(searchPath) {
     var packageName = require('../package.json').name;
-    usageChildren.forEach(function (usageChild) {
-        if(usageChild && usageChild.charAt(0) === '.') {
-            return;
-        }
-        fs.readdirSync(Path.resolve(styleFolderPath, usageChild)).forEach(function (scssFile) {
-            var libImport = /@import\s+(['"])\.\.\/\.\.\/lib/g;
-            var scssPath = Path.resolve(styleFolderPath, usageChild, scssFile);
-            var scssCode = fs.readFileSync(scssPath, 'utf8');
-            scssCode = scssCode.replace(libImport, '@import $1~' + packageName + '/style/lib');
-            fs.writeFileSync(scssPath, scssCode);
+    var libImport = /@import\s+(['"])\.\.\/\.\.\/lib/g;
+    if (fs.existsSync(searchPath)) {
+        fs.readdirSync(searchPath).forEach(function(item) {
+            const currentPath = Path.join(searchPath, item);
+            if (fs.lstatSync(currentPath).isDirectory()) { // recurse
+                rewriteUsageRefs(currentPath);
+            } else { // delete item
+                var scssCode = fs.readFileSync(currentPath, 'utf8');
+                scssCode = scssCode.replace(libImport, '@import $1~' + packageName + '/style/lib');
+                fs.writeFileSync(currentPath, scssCode);
+                console.log('write', currentPath);
+            }
         });
-    });
-}
+    }
+};
 
 function rewriteLibRefs(styleFolderPath) {
     var libFolderPath = Path.resolve(CWD, 'style', 'lib');

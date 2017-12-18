@@ -2,13 +2,11 @@
 <html lang="zh-CN">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-    <meta name="format-detection" content="telephone=no,email=no" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
-    <meta name="description" content="description of your site">
-    <meta name="author" content="author of the site">
-    <title>Yo Documentation 组件</title>
+    <title>Carousel.CarouselItem - Yo Documentation 组件</title>
+    
+    
+
+    <link rel="shortcut icon" href="./images/favicon.ico" />
     <link rel="stylesheet" href="source/main.css" />
     
     
@@ -16,6 +14,10 @@
       <link rel="stylesheet" href="styles/ydoc.css" />
       
     
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no,email=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
 </head>
 <body class=component-Carousel.CarouselItem >
     <div class="ydoc">
@@ -93,7 +95,7 @@
             
 
             <div class="ydoc-container">
-                 
+                
                 <div class="ydoc-container-content ">
                     
                     
@@ -449,16 +451,16 @@
 <strong> 示例 </strong></p>
 <ul>
 <li><pre><code>dataList<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> index<span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">{</span>
-   <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>CarouselItem</span>
-       <span class="token attr-name">key</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>index <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">}</span></span>
-       <span class="token spread"><span class="token punctuation">{</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token attr-value">item</span><span class="token punctuation">}</span></span>
-       <span class="token attr-name">renderContent</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>img<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span>
+   <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token operator">&lt;</span>CarouselItem
+       key<span class="token operator">=</span><span class="token punctuation">{</span>index <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">}</span>
+       <span class="token punctuation">{</span><span class="token operator">...</span>item<span class="token punctuation">}</span>
+       renderContent<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>img<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span>
            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>unit<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
                <span class="token punctuation">{</span>img<span class="token punctuation">}</span>
                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token punctuation">></span></span>这是第<span class="token punctuation">{</span>index<span class="token punctuation">}</span>张图片<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-       <span class="token punctuation">)</span><span class="token punctuation">}</span></span>
-   <span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>CarouselItem</span><span class="token punctuation">></span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token punctuation">)</span><span class="token punctuation">}</span>
+   <span class="token operator">></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>CarouselItem</span><span class="token punctuation">></span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre></li>
 </ul>

@@ -2,13 +2,11 @@
 <html lang="zh-CN">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-    <meta name="format-detection" content="telephone=no,email=no" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
-    <meta name="description" content="description of your site">
-    <meta name="author" content="author of the site">
-    <title>Yo Documentation 组件</title>
+    <title>LazyImage - Yo Documentation 组件</title>
+    
+    
+
+    <link rel="shortcut icon" href="./images/favicon.ico" />
     <link rel="stylesheet" href="source/main.css" />
     
     
@@ -16,6 +14,10 @@
       <link rel="stylesheet" href="styles/ydoc.css" />
       
     
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no,email=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
 </head>
 <body class=component-LazyImage >
     <div class="ydoc">
@@ -93,7 +95,7 @@
             
 
             <div class="ydoc-container">
-                 
+                
                 <div class="ydoc-container-content ">
                     
                     
@@ -306,36 +308,36 @@
 <p>由于 <code>LazyImage</code> 是配合 <code>List</code> 或 <code>Scroller</code> 使用的，所以只需要按需引用 <code>List</code> 或 <code>Scroller</code> 即可。</p>
 <pre><code><span class="token keyword">import</span> <span class="token punctuation">{</span> List<span class="token punctuation">,</span> Scroller <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'$yo-component'</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖</span>
-<span class="token comment" spellcheck="true">// 你仍然可以通过下面这种方式来引用</span>
+<span class="token comment">// 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖</span>
+<span class="token comment">// 你仍然可以通过下面这种方式来引用</span>
 <span class="token keyword">import</span> List <span class="token keyword">from</span> <span class="token string">'yo3/component/list'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> Scroller <span class="token keyword">from</span> <span class="token string">'yo3/component/scroller'</span><span class="token punctuation">;</span>
 </code></pre><h4 id="-list-">在 List 中使用</h4>
 <p>在 <code>List</code> 中使用 <code>LazyImage</code> 只需要将 <code>&lt;image&gt;</code> 标签替换成 <code>&lt;List.LazyImage&gt;</code> 即可。需要注意的是，
 为了提高 <code>List</code> 组件的性能，使用的时候，需要给图片设置高度，可以通过 <code>height</code> 属性或 <code>style</code> 属性来设置。</p>
-<pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>List</span>
-    <span class="token attr-name">dataSource</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span>
+<pre><code><span class="token operator">&lt;</span>List
+    dataSource<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span>
         <span class="token punctuation">{</span>text<span class="token punctuation">:</span> <span class="token string">'0'</span><span class="token punctuation">,</span> key<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
         <span class="token punctuation">{</span>text<span class="token punctuation">:</span> <span class="token string">'1'</span><span class="token punctuation">,</span> key<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+        <span class="token operator">...</span>
         <span class="token punctuation">{</span>text<span class="token punctuation">:</span> <span class="token string">'99'</span><span class="token punctuation">,</span> key<span class="token punctuation">:</span> <span class="token number">99</span><span class="token punctuation">}</span><span class="token punctuation">,</span> 
-    <span class="token punctuation">]</span><span class="token punctuation">}</span></span>
-    <span class="token attr-name">renderItem</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>item <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token punctuation">]</span><span class="token punctuation">}</span>
+    renderItem<span class="token operator">=</span><span class="token punctuation">{</span>item <span class="token operator">=></span> <span class="token punctuation">{</span>
         <span class="token keyword">return</span> <span class="token punctuation">(</span>
             <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
                 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>List.LazyImage</span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://source.qunarzz.com/common/hf/logo.png<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
             <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
         <span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span></span>
-    <span class="token attr-name">itemHeight</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token number">50</span><span class="token punctuation">}</span></span>
-<span class="token punctuation">/></span></span>
+    <span class="token punctuation">}</span>
+    itemHeight<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">50</span><span class="token punctuation">}</span>
+<span class="token operator">/</span><span class="token operator">></span>
 </code></pre><h4 id="-scroller-">在 Scroller 中使用</h4>
 <p>在 <code>Scroller</code> 中使用 <code>LazyImage</code> 与在 <code>List</code> 中使用类似，只需要将 <code>&lt;image&gt;</code> 标签替换成 <code>&lt;Scroller.LazyImage&gt;</code> 即可。
 虽然 <code>Scroller</code> 中并没有强制需要设置图片的高度，但是为了性能，还是推荐给图片指定高度。</p>
 <pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Scroller</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Scroller.LazyImage</span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://s.qunarzz.com/a/0.png<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Scroller.LazyImage</span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://s.qunarzz.com/a/1.png<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
-    <span class="token comment" spellcheck="true">/* ... */</span>
+    <span class="token comment">/* ... */</span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Scroller.LazyImage</span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://s.qunarzz.com/a/99.png<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Scroller</span><span class="token punctuation">></span></span>
 </code></pre>
