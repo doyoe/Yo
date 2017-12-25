@@ -1,3 +1,8 @@
+## v3.0.16 (2017-12-22)
+
+### New Features
+* `PopupPicker` 和 `PopupDateTimePicker` 组件增加 `onSelect` 属性。
+
 ## v3.0.15 (2017-12-15)
 
 ### Bug Fixes

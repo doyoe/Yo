@@ -26,6 +26,8 @@ class PopupPickerDemo extends Component {
     }
 
     handleChange(value) {
+        // 你接收到的value将会是一个数组，包含了每一列picker的值
+        console.log('onChange', value);
         this.setState({ value });
     }
 
@@ -51,13 +53,11 @@ class PopupPickerDemo extends Component {
                         this.popupPickerComponent = component;
                     }}
                     value={this.state.value}
-                    onChange={(value) => {
-                        // 你接收到的value将会是一个数组，包含了每一列picker的值
-                        this.setState({ value });
-                    }}
+                    onChange={this.handleChange.bind(this)}
+                    onSelect={(value) => console.log(value)}
                     beforePopupShow={() => {
                         Toast.show('before popup show');
-                        return false;
+                        // return false;
                     }}
                     duration={200}
                     options={options}

@@ -47,6 +47,14 @@ const propTypes = {
      */
     onChange: PropTypes.func.isRequired,
     /**
+     * @property onSelect
+     * @type Function
+     * @param value 当前的 option 的 value，如果开启了多列模式，那么返回值将是一个包含了每一列value的数组。
+     * @version 3.0.16
+     * @description 当选择器选择值发生改变时的回调。
+     */
+    onSelect: PropTypes.func,
+    /**
      * @property options
      * @type Array/Array <Array>
      * @default null
@@ -174,8 +182,8 @@ const defaultProps = {
         okBtn: { text: '确定', touchClass: 'action-touch' },
         cancelBtn: { text: '取消', touchClass: 'action-touch' }
     },
-    onChange: () => {
-    },
+    onChange: () => {},
+    onSelect: () => {},
     pickerHeight: 150,
     duration: 200,
     looped: true,
@@ -324,9 +332,11 @@ class PopupPicker extends Component {
     }
 
     handlePickerChange(option, i) {
+        const { onSelect } = this.props;
         this.setState({
             pickerValue: this.getOnChangeValue(option.value, i)
         });
+        onSelect && isFunction(onSelect) && onSelect(this.state.pickerValue.length > 1 ? this.state.pickerValue : this.state.pickerValue[0]);
     }
 
     renderPicker() {

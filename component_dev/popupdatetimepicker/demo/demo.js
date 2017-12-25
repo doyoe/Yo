@@ -11,6 +11,7 @@ class PopupDateTimePickerDemo extends Component {
     }
 
     handleChange(value) {
+        console.log('onChange', value);
         this.setState({ value });
     }
 
@@ -38,9 +39,10 @@ class PopupDateTimePickerDemo extends Component {
                     value={this.state.value}
                     beforePopupShow={() => {
                         console.log('beforePopupShow');
-                        return false;
+                        // return false;
                     }}
                     onChange={this.handleChange.bind(this)}
+                    onSelect={(value) => console.log(value)}
                     duration={200}
                     pickerHeight={150}
                     loop={[false, true, true]}
