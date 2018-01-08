@@ -99,7 +99,16 @@
                 <div class="ydoc-container-content " id="readme">
                     
                     <article class="markdown-body">
-                         <h2 class="subject" id="v3.0.16__2017-12-22_">v3.0.16 (2017-12-22) <a class="hashlink" href="#v3.0.16__2017-12-22_">#</a></h2><h3 class="subject" id="New_Features">New Features <a class="hashlink" href="#New_Features">#</a></h3><ul>
+                         <h2 class="subject" id="v3.1.0__2018-1-5_">v3.1.0 (2018-1-5) <a class="hashlink" href="#v3.1.0__2018-1-5_">#</a></h2><h3 class="subject" id="Breaking_Changes！">Breaking Changes！ <a class="hashlink" href="#Breaking_Changes！">#</a></h3><ul>
+<li><p>升级 <code>react</code> 版本至 <code>^16.2.0</code>，从 <code>3.1.0</code> 开始不再支持 <code>react@15</code> 版本。</p>
+<ol>
+<li>项目中所依赖的 <code>react</code> 版本需要一并升级至 <code>^16.2.0</code>，否则会导致引用两个不同版本的 <code>react</code> 而报错。</li><li>项目中所依赖的 <code>yo-router</code> 版本需要一并升级至 <code>1.2.0</code> 版本。</li></ol>
+</li><li><p>如需继续使用 <code>react@15</code>，请将项目中 package.json 的 <code>yo3</code> 的版本改为 <code>~3.0.x</code>，<code>yo-router</code> 的版本改为 <code>~1.1.x</code>。</p>
+</li></ul>
+<p><strong>详细的升级方法请查看 <a href="./update-to-3.1.0.html">升级文档</a>。</strong></p>
+<h3 class="subject" id="Bug_Fixes">Bug Fixes <a class="hashlink" href="#Bug_Fixes">#</a></h3><ul>
+<li>修复 <code>elastic-in-up</code>，<code>elastic-in-right</code>，<code>elastic-in-down</code>，<code>elastic-in-left</code> 动画在 iOS 10 Safari 上的兼容问题。</li></ul>
+<h2 class="subject" id="v3.0.16__2017-12-22_">v3.0.16 (2017-12-22) <a class="hashlink" href="#v3.0.16__2017-12-22_">#</a></h2><h3 class="subject" id="New_Features">New Features <a class="hashlink" href="#New_Features">#</a></h3><ul>
 <li><code>PopupPicker</code> 和 <code>PopupDateTimePicker</code> 组件增加 <code>onSelect</code> 属性。</li></ul>
 <h2 class="subject" id="v3.0.15__2017-12-15_">v3.0.15 (2017-12-15) <a class="hashlink" href="#v3.0.15__2017-12-15_">#</a></h2><h3 class="subject" id="Bug_Fixes">Bug Fixes <a class="hashlink" href="#Bug_Fixes">#</a></h3><ul>
 <li>修复自定义样式目录中有多层目录时 <code>post install</code> 脚本报错的问题。</li></ul>
@@ -173,7 +182,7 @@
         
         <footer class="footer">
             <div class="copyright">
-                &copy; 2017 <a href="https://github.com/YMFE">YMFE</a> Team. Build by <a href="https://github.com/YMFE/ydoc">ydoc</a>.
+                &copy; 2018 <a href="https://github.com/YMFE">YMFE</a> Team. Build by <a href="https://github.com/YMFE/ydoc">ydoc</a>.
             </div>
         </footer>
     </div>

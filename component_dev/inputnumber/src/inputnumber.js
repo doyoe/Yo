@@ -165,7 +165,7 @@ export default class Number extends Component {
     }
 
     resizeEvent() {
-        this.wrapChange(this._node.value);
+        this._node && this.wrapChange(this._node.value);
     }
 
     /**
@@ -248,7 +248,7 @@ export default class Number extends Component {
             <div className={classNames('yo-number', this.props.extraClass)}>
                 <Touchable
                     touchClass={minusDisable ? '' : 'action-touch'}
-                    onTap={() => this.minusValue(this._node.value)}
+                    onTap={() => this._node && this.minusValue(this._node.value)}
                 >
                     <span className={classNames('minus', minusDisableClass)}>-</span>
                 </Touchable>
@@ -275,7 +275,7 @@ export default class Number extends Component {
                 />
                 <Touchable
                     touchClass={plusDisable ? '' : 'action-touch'}
-                    onTap={() => this.plusValue(this._node.value)}
+                    onTap={() => this._node && this.plusValue(this._node.value)}
                 >
                     <span className={classNames('plus', plusDisableClass)}>+</span>
                 </Touchable>

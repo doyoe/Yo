@@ -15,11 +15,6 @@ export default class Modal extends Component {
     componentDidMount() {
         this.wrapper = document.createElement('div');
         document.body.appendChild(this.wrapper);
-        this.appendWrapperToDocBody();
-    }
-
-    componentDidUpdate() {
-        this.appendWrapperToDocBody();
     }
 
     componentWillUnmount() {
@@ -29,17 +24,16 @@ export default class Modal extends Component {
         }
     }
 
-    appendWrapperToDocBody() {
-        ReactDom.unstable_renderSubtreeIntoContainer(
-            this,
-            <RealModal {...this.props}>
-                {this.props.children}
-            </RealModal>,
-            this.wrapper
-        );
-    }
 
     render() {
+        if (!!this.wrapper) {
+            return ReactDom.createPortal(
+                <RealModal {...this.props}>
+                    {this.props.children}
+                </RealModal>,
+                this.wrapper
+            );
+        }
         return null;
     }
 }

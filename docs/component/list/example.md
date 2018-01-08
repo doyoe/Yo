@@ -2,7 +2,7 @@
 
 这两个功能继承自`Scroller`组件， 可以查看`Scroller`的文档来了解如何使用，这里仅仅给出一个完整的例子，在这个例子中还应用了`Immutable`数据结构。你可以尝试玩一下右边的Demo来看看这段代码究竟做了什么：
 
-```
+```javascript
 import 'babel-polyfill';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
@@ -37,7 +37,7 @@ class ListBase extends Component {
             <Page title="List Demo" onLeftPress={() => location.href = "./index.html"}>
                 <List
                     ref="list"
-                    extraClass="yo-list-fullscreen"
+                    extraClass="yo-scroller-fullscreen"
                     dataSource={this.state.dataSource}
                     renderItem={(item, i) => <div>{i + ':' + item.get('text')}</div>}
                     infinite={true}

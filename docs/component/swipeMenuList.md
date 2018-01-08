@@ -1,6 +1,6 @@
 #### 引用方式
 
-```
+```javascript
 import { SwipeMenuList } from '$yo-component';
 
 // 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖
@@ -12,7 +12,8 @@ import SwipeMenuList from 'yo3/component/swipemenulist';
 
 `SwipeMenuList`是一个定制化的`List`，和`List`的不同之处在于它的每一个列表项都是`SwipeMenu`。因此除了列表的`dataSource`之外
 你还需要指定菜单项的配置，这可以通过`getMenuConfig`属性实现：
-```
+
+```javascript
 <SwipeMenuList
     ...
     getMenuConfig = {(item, i) => ({
@@ -35,7 +36,7 @@ import SwipeMenuList from 'yo3/component/swipemenulist';
 
 在`getMenuConfig`返回的对象中，`action`属性用来配置`SwipeMenu`按钮的表现和行为，下面是一个具体的例子:
 
-```
+```javascript
 [
     {
         text: '点我',
@@ -65,7 +66,7 @@ import SwipeMenuList from 'yo3/component/swipemenulist';
 `SwipeMenuList` 提供了两个事件回调函数 `onMenuOpen`和`onMenuClose` 来监听菜单项打开状态的变化，这在某些场景下会有用
 （可以观察一下iOS的信息功能，在短信上左划整个页面会发生什么变化）。参考下面的代码：
 
-```
+```javascript
 <SwipeMenuList
     dataSource={this.state.dataSource}
     infinite={true}
@@ -85,7 +86,7 @@ import SwipeMenuList from 'yo3/component/swipemenulist';
 
 下面的代码就是右侧Demo的源码，这个Demo实现了常见的删除列表项的功能:
 
-```
+```javascript
 class SwipeMenuListDemo extends Component {
 
     static guid = -1;
@@ -150,7 +151,7 @@ class SwipeMenuListDemo extends Component {
             <Page title="SwipeMenuList Demo" onLeftPress={() => location.href = './index.html'}>
                 <SwipeMenuList
                     ref="swipemenulist"
-                    extraClass="yo-list-fullscreen"
+                    extraClass="yo-scroller-fullscreen"
                     getMenuConfig={(item) => ({
                         action: [
                             {
@@ -203,4 +204,3 @@ class SwipeMenuListDemo extends Component {
     }
 }
 ```
-

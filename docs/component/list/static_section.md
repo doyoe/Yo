@@ -3,7 +3,7 @@
 在业务需求中经常会遇到界面的一部分是列表形式，一部分是静态内容的情况。
 这种场景可以借助`staticSection`属性实现，给这个属性传入的JSX将会被渲染到所有列表项之上，例如：
 
-```
+```javascript
 <List
     ...
     staticSection={<div>static section...</div>}
@@ -13,7 +13,7 @@
 下面的代码是一个更复杂的例子，这个例子实现的是类似去哪儿旅行客户端首页的效果，上部区域是静态内容，下半部分是一个Infinite的列表，
 还实现了一个横向的可滚动Tab，你可以在右边的Demo中查看效果：
 
-```js
+```javascript
 class Demo extends Component {
 
     constructor() {

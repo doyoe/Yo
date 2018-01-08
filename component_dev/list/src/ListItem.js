@@ -56,10 +56,10 @@ export default class extends Component {
         if (isHeightFixed) {
             this.updateItemHeightWhenDomRendered();
         } else {
-            this.domNode.style.visibility = 'hidden';
+            this.domNode && (this.domNode.style.visibility = 'hidden');
             setTimeout(() => {
                 this.updateItemHeightWhenDomRendered();
-                this.domNode.style.visibility = 'visible';
+                this.domNode && (this.domNode.style.visibility = 'visible');
             }, DELAY_TIME_FOR_INFINITE_WITHOUT_HEIGHT);
         }
     }
@@ -99,14 +99,16 @@ export default class extends Component {
     updateItemHeightWhenDomRendered() {
         const { item, listModel, onListItemUpdate } = this.props;
 
-        if (!item._resolved
-            && item._translateY !== undefined
-            && listModel.infinite
-            && !listModel.isHeightFixed) {
-            listModel.resolveItem(item.key, this.domNode.offsetHeight);
-        }
+        if (this.domNode) {
+            if (!item._resolved
+                && item._translateY !== undefined
+                && listModel.infinite
+                && !listModel.isHeightFixed) {
+                listModel.resolveItem(item.key, this.domNode.offsetHeight);
+            }
 
-        onListItemUpdate(item.srcData, this.domNode);
+            onListItemUpdate(item.srcData, this.domNode);
+        }
     }
 
     render() {

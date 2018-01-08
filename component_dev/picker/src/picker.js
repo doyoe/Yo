@@ -158,7 +158,7 @@ export default class Picker extends Component {
                 this.setState({ visibleList });
             })
             .registerEventHandler('momentumStart', (newY) => {
-                this.refs.scroller.scrollTo(0, newY, 300);
+                if (this.scroller) { this.scroller.scrollTo(0, newY, 300); }
             })
             .registerEventHandler('resetValue', (newY, needRefresh) => {
                 this.setState({ offsetY: newY });
@@ -171,20 +171,24 @@ export default class Picker extends Component {
                 this.setState({ offsetY, visibleList, options, height, contentHeight, thunks });
                 this.refreshOffsetY(offsetY);
                 // 等待update结束,refresh scroller
-                setTimeout(() => {
-                    this.refs.scroller.refresh({
-                        scrollerHeight: contentHeight,
-                        wrapperHeight: height
-                    });
-                }, 0);
+                if (this.scroller) {
+                    setTimeout(() => {
+                        this.scroller.refresh({
+                            scrollerHeight: contentHeight,
+                            wrapperHeight: height
+                        });
+                    }, 0);
+                }
             });
     }
 
     componentDidMount() {
-        this.refs.scroller.refresh({
-            scrollerHeight: this.state.contentHeight,
-            wrapperHeight: this.state.height
-        });
+        if (this.scroller) {
+            this.scroller.refresh({
+                scrollerHeight: this.state.contentHeight,
+                wrapperHeight: this.state.height
+            });
+        }
     }
 
     /**
@@ -261,7 +265,7 @@ export default class Picker extends Component {
      * @param y
      */
     refreshOffsetY(y) {
-        this.refs.scroller.scrollTo(0, y);
+        this.scroller && this.scroller.scrollTo(0, y);
         if (this.props.looped) {
             this.pickerModel.onScrollTo(y);
         }
@@ -276,7 +280,9 @@ export default class Picker extends Component {
                 <span className="mask" />
                 <Scroller
                     contentOffset={{ x: 0, y: offsetY }}
-                    ref="scroller"
+                    ref={dom => {
+                        this.scroller = dom;
+                    }}
                     stopPropagation={this.props.stopPropagation}
                     wrapper={{ clientWidth: 0, clientHeight: height }}
                     useTransition={true}
@@ -314,8 +320,8 @@ export default class Picker extends Component {
                                 return ele ?
                                     <PickerItem
                                         onOptionTap={(el) => {
-                                            if (!this.isScrolling) {
-                                                this.refs.scroller.scrollTo(0, this.pickerModel.getPositionByOpt(el), 300);
+                                            if (!this.isScrolling && this.scroller) {
+                                                this.scroller.scrollTo(0, this.pickerModel.getPositionByOpt(el), 300);
                                             }
                                         }}
                                         ele={ele}
@@ -327,8 +333,8 @@ export default class Picker extends Component {
                             visibleList.map((item, i) => (
                                 <PickerItem
                                     onOptionTap={(ele) => {
-                                        if (!this.isScrolling) {
-                                            this.refs.scroller.scrollTo(0, this.pickerModel.getPositionByOpt(ele), 300);
+                                        if (!this.isScrolling && this.scroller) {
+                                            this.scroller.scrollTo(0, this.pickerModel.getPositionByOpt(ele), 300);
                                         }
                                     }}
                                     ele={item}

@@ -3,6 +3,7 @@
  */
 import FastClick from './fastclick';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+import 'raf/polyfill';
 
 if (!window.___yoTapEventInjected) {
     // 不要觉得这里没用

@@ -441,17 +441,18 @@ export default class GroupList extends Component {
                         { groupTitleExtraClass } = this.props;
 
                     if (typeof groupTitle === 'string' || typeof groupTitle === 'number' || groupTitle === null) {
-                        this.stickyHeader.innerHTML = groupTitle;
+                        if (this.stickyHeader) { this.stickyHeader.innerHTML = groupTitle; }
                     } else {
-                        ReactDOM.render(groupTitle, this.stickyHeader);
+                        if (this.stickyHeader) { ReactDOM.render(groupTitle, this.stickyHeader); }
                     }
-
-                    this.stickyHeader.style.tranform = transform;
-                    this.stickyHeader.style.webkitTransform = transform;
-                    this.stickyHeader.style.display = stickyHeader.title.display;
-                    this.stickyHeader.className = `${(typeof groupTitleExtraClass === 'function' ? groupTitleExtraClass(groupKey) : groupTitleExtraClass)} sticky label group-title`;
+                    if (this.stickyHeader) {
+                        this.stickyHeader.style.tranform = transform;
+                        this.stickyHeader.style.webkitTransform = transform;
+                        this.stickyHeader.style.display = stickyHeader.title.display;
+                        this.stickyHeader.className = `${(typeof groupTitleExtraClass === 'function' ? groupTitleExtraClass(groupKey) : groupTitleExtraClass)} sticky label group-title`;
+                    }
                 } else {
-                    this.stickyHeader.style.display = 'none';
+                    if (this.stickyHeader) { this.stickyHeader.style.display = 'none'; }
                 }
             })
             .registerEventHandler('refresh', (dataSource, groupTitles) => {
@@ -489,7 +490,7 @@ export default class GroupList extends Component {
     }
 
     refreshStaticSectionHeight() {
-        if (this.list.staticSectionContaienr != null) {
+        if (this.list && this.list.staticSectionContaienr != null) {
             this.groupModel.staticSectionHeight = this.list.staticSectionContaienr.offsetHeight;
         }
     }
@@ -500,11 +501,13 @@ export default class GroupList extends Component {
      */
     scrollToGroup(groupKey) {
         this.stopAnimate();
-        let targetOffsetY = -this.groupModel.getGroupOffsetY(groupKey);
-        const maxScrollY = this.list.scroller.maxScrollY;
-        targetOffsetY = targetOffsetY < maxScrollY ? maxScrollY : targetOffsetY;
+        if (this.list) {
+            let targetOffsetY = -this.groupModel.getGroupOffsetY(groupKey);
+            const maxScrollY = this.list.scroller.maxScrollY;
+            targetOffsetY = targetOffsetY < maxScrollY ? maxScrollY : targetOffsetY;
 
-        this.list.scrollTo(targetOffsetY, 0);
+            this.list.scrollTo(targetOffsetY, 0);
+        }
     }
 
     /**
@@ -517,7 +520,7 @@ export default class GroupList extends Component {
         // 因此需要在onShow的时候刷新所有title的位置，必须触发一次它们的componentDidMount
         this.forceUpdate();
         this.refreshStickyHeader();
-        if (this.list) this.list.refresh();
+        if (this.list) { this.list.refresh(); }
     }
 
     /**
@@ -527,7 +530,7 @@ export default class GroupList extends Component {
      * @version 3.0.7
      */
     resetLoadStatus(hasLoadMore) {
-        if (this.list) this.list.resetLoadStatus(hasLoadMore);
+        if (this.list) { this.list.resetLoadStatus(hasLoadMore); }
     }
 
     /**
@@ -537,7 +540,7 @@ export default class GroupList extends Component {
      * @param {Number} [time] 动画持续时间
      */
     scrollTo(y, time) {
-        this.list.scrollTo(y, time);
+        if (this.list) { this.list.scrollTo(y, time); }
     }
 
     /**
@@ -545,7 +548,7 @@ export default class GroupList extends Component {
      * @method stopAnimate
      */
     stopAnimate() {
-        this.list.stopAnimate();
+        if (this.list) { this.list.stopAnimate(); }
     }
 
     /**
@@ -554,7 +557,7 @@ export default class GroupList extends Component {
      * @param {Bool} [success] 下拉刷新是否成功
      */
     stopRefreshing(success) {
-        this.list.stopRefreshing(success);
+        if (this.list) { this.list.stopRefreshing(success); }
     }
 
     /**
@@ -562,7 +565,7 @@ export default class GroupList extends Component {
      * @method startRefreshing
      */
     startRefreshing() {
-        this.list.startRefreshing();
+        if (this.list) { this.list.startRefreshing(); }
     }
 
     /**
@@ -571,7 +574,7 @@ export default class GroupList extends Component {
      * @description 调用List同名方法,中止加载更多过程。
      */
     stopLoading(success) {
-        this.list.stopLoading(success);
+        if (this.list) { this.list.stopLoading(success); }
     }
 
     /**

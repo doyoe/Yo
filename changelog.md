@@ -1,3 +1,17 @@
+## v3.1.0 (2018-1-5)
+
+### Breaking Changes！
+- 升级 `react` 版本至 `^16.2.0`，从 `3.1.0` 开始不再支持 `react@15` 版本。
+    1. 项目中所依赖的 `react` 版本需要一并升级至 `^16.2.0`，否则会导致引用两个不同版本的 `react` 而报错。
+    2. 项目中所依赖的 `yo-router` 版本需要一并升级至 `1.2.0` 版本。
+
+- 如需继续使用 `react@15`，请将项目中 package.json 的 `yo3` 的版本改为 `~3.0.x`，`yo-router` 的版本改为 `~1.1.x`。
+
+**详细的升级方法请查看 [升级文档](./update-to-3.1.0.html)。**
+
+### Bug Fixes
+* 修复 `elastic-in-up`，`elastic-in-right`，`elastic-in-down`，`elastic-in-left` 动画在 iOS 10 Safari 上的兼容问题。
+
 ## v3.0.16 (2017-12-22)
 
 ### New Features

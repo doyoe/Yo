@@ -21,7 +21,7 @@ const spyObj = {}
 // 不处理重名自己考虑
 function spyAllFuncOfObj(obj){
     Object.keys(obj).forEach(item => {
-        spyObj[item] = jest.spyOn(obj, item); 
+        spyObj[item] = jest.spyOn(obj, item);
     })
 }
 spyAllFuncOfObj(spyCb);
@@ -33,27 +33,27 @@ const wrapper = mount(testForCase({aniObj: testAni}));
 describe('defaultProperty is stable', () => {
     Object.keys(defaultProperty).map(item => {
         test(item, () => {
-            expect(wrapper.find(Carousel).props()[item]).toBe(defaultProperty[item]); 
+            expect(wrapper.find(Carousel).props()[item]).toBe(defaultProperty[item]);
         });
     });
 });
 
 describe("aniObj's functino has been called", () => {
     test('invoke prev', () => {
-        const pageNow = wrapper.state().pageNow; 
-        wrapper.ref('prev').simulate('click');
+        const pageNow = wrapper.state().pageNow;
+        wrapper.find('.prev').simulate('click');
         expect(spyObj.prev).toHaveBeenCalled();
         expect(wrapper.state().pageNow).toBe(pageNow - 1);
     });
     test('invoke next', () => {
-        const pageNow = wrapper.state().pageNow; 
-        wrapper.ref('next').simulate('click');
+        const pageNow = wrapper.state().pageNow;
+        wrapper.find('.next').simulate('click');
         expect(spyObj.next).toHaveBeenCalled();
         expect(wrapper.state().pageNow).toBe( pageNow + 1);
     });
 
     test('invoke arrive', () => {
-        wrapper.ref('arrive3').simulate('click');
+        wrapper.find('.arrive3').simulate('click');
         expect(spyObj.arrive).toHaveBeenCalled();
         expect(wrapper.state().pageNow).toBe(3);
     });
@@ -63,7 +63,7 @@ describe("aniObj's functino has been called", () => {
         wrapper.find('.cont').simulate('touchstart', mockTouch);
         expect(spyObj.touchstart).toHaveBeenCalled();
     });
-    
+
     test('invoke touchmove', () => {
         const mockTouch = createTouchE('touchmove', 100, 100, 100, 100, 100, 100);
         wrapper.find('.cont').simulate('touchmove', mockTouch);
@@ -79,11 +79,11 @@ describe("aniObj's functino has been called", () => {
 
 describe('page change callback has been invoke', () => {
     const wrapper2 = mount(testForCase(Object.assign(spyCb, {aniObj: testAni})));
-    wrapper2.ref('next').simulate('click');
+    wrapper2.find('.next').simulate('click');
     test('beforeChange', () => {
         expect(spyObj.beforeChange).toHaveBeenCalled();
     });
-    wrapper2.ref('prev').simulate('click');
+    wrapper2.find('.prev').simulate('click');
     test('afterChange', () => {
         expect(spyObj.afterChange).toHaveBeenCalled();
     });

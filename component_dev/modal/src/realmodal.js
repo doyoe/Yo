@@ -222,14 +222,14 @@ export default class RealModal extends Component {
             // 写这一行的目的是用户可能在关闭的同时打开modal
             clearTimeout(this.hideTimeout);
             this.setState({ show: next });
-            this.contentDom.style.visibility = 'hidden';
+            this.contentDom && (this.contentDom.style.visibility = 'hidden');
 
             // 如果直接运行动画会出现闪烁,这里先将contentDom隐藏然后再运行动画
             this.showTimeout = setTimeout(() => {
                 // hide动画开始前执行onShow回调
                 onShow();
                 this.setState({ animation: this.getAnimationClass(nextProps.animation, next) });
-                this.contentDom.style.visibility = 'visible';
+                this.contentDom && (this.contentDom.style.visibility = 'visible');
             }, this.props.delayBeforeAnimationStart);
         }
     }
@@ -252,12 +252,18 @@ export default class RealModal extends Component {
 
         return (
             <div
-                ref="container"
+                ref={container => {
+                    this.container = container;
+                }}
                 className={containerClass}
                 onTouchTap={(evt) => {
-                    if (evt.target === this.refs.container) {
+                    if (this.container && evt.target === this.container) {
                         onMaskTap(evt);
                     }
+                }}
+                // 阻止 onTouchStart 的事件冒泡。
+                onTouchStart={(evt) => {
+                    evt.stopPropagation();
                 }}
                 style={Object.assign(
                     {

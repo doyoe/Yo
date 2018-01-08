@@ -4,7 +4,7 @@
   "examplePath": "./demo/component",
   "defaultGrammar": "jsx",
   "instructionsInfoPath": "./docs/component",
-  "instructionsUrlPath": "http://ued.qunar.com/hy2/yo/demo/src/html/component/",
+  "instructionsUrlPath": "//ued.qunar.com/hy2/yo/demo/src/html/component/",
   "options": {
     "foldsidenav": false,
     "staticsidenav": true,
@@ -16,9 +16,9 @@
   },
   "common": {
     "title": "Yo Documentation",
-    "footer": "&copy; 2017 <a href=\"https://github.com/YMFE\">YMFE</a> Team. Build by <a href=\"https://github.com/YMFE/ydoc\">ydoc</a>.",
+    "footer": "&copy; 2018 <a href=\"https://github.com/YMFE\">YMFE</a> Team. Build by <a href=\"https://github.com/YMFE/ydoc\">ydoc</a>.",
     "home": "YMFE",
-    "homeUrl": "http://ued.qunar.com/ymfe/",
+    "homeUrl": "https://ymfe.org/",
     "navbars": []
   },
   "pages": [
@@ -26,7 +26,7 @@
       "name": "index",
       "title": "Yo",
       "homepage": {
-          "version": "v3.0.16",
+          "version": "v3.1.0",
           "button": [{
               "name": "起步",
               "href": "./getting-started.html"
@@ -58,6 +58,11 @@
             "name": "起步",
             "content": "./docs/start.md",
             "index": "start"
+          },
+          {
+            "name": "3.1.0 升级指南",
+            "content": "./docs/update-to-3.1.0.md",
+            "index": "update-to-3.1.0"
           },
           {
             "name": "附录一：在已有项目中使用",

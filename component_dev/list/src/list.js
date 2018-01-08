@@ -484,7 +484,7 @@ export default class List extends Component {
      */
     onScrollEnd() {
         // 滚动停止后重置isScrolling标志
-        this.scroller.isScrolling = false;
+        this.scroller && (this.scroller.isScrolling = false);
     }
 
     /**
@@ -524,7 +524,7 @@ export default class List extends Component {
      * @description 刷新列表,应该在列表容器高度发生改变时调用
      */
     refresh() {
-        this.scroller.refresh(this.props.infinite ? { scrollerHeight: this.state.totalHeight } : {});
+        this.scroller && this.scroller.refresh(this.props.infinite ? { scrollerHeight: this.state.totalHeight } : {});
     }
 
     /**
@@ -534,7 +534,7 @@ export default class List extends Component {
      * @version 3.0.7
      */
     resetLoadStatus(hasLoadMore) {
-        this.scroller.resetLoadStatus(hasLoadMore);
+        this.scroller && this.scroller.resetLoadStatus(hasLoadMore);
     }
 
     /**
@@ -566,16 +566,17 @@ export default class List extends Component {
      * 注意:你仍然需要手动调用stopRefreshing方法
      */
     startRefreshing() {
-        if (this.scroller.isScrolling) {
-            this.scroller.stopAnimate();
-            this.scroller.isScrolling = false;
-        }
-
-        if (this.listModel.infinite) {
-            this.scroller.startRefreshing(0);
-            this.onScroll(0, true);
-        } else {
-            this.scroller.startRefreshing();
+        if (this.scroller) {
+            if (this.scroller.isScrolling) {
+                this.scroller.stopAnimate();
+                this.scroller.isScrolling = false;
+            }
+            if (this.listModel.infinite) {
+                this.scroller.startRefreshing(0);
+                this.onScroll(0, true);
+            } else {
+                this.scroller.startRefreshing();
+            }
         }
     }
 

@@ -6,7 +6,8 @@
 实现，即使你已经使用`shouldItemUpdate`改变了原有的`shouldComponentUpdate`。 **
 
 右侧的Demo展示了一个需要展开完整文本内容的场景，这正是一个典型的需要改变列表项高度的需求，它的代码如下：
-```
+
+```javascript
 class ModifyHeightDemo extends Component {
 
     static guid = -1;

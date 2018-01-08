@@ -10,12 +10,21 @@ const renderDate = (item, ret) => {
     ) : ret;
 };
 
+
+const toDay = new Date().getDate();
+const toDayMonth = new Date().getMonth() + 1;
+const toDayYear = new Date().getFullYear();
+
+const selectionStart = [toDayYear, toDayMonth, toDay].join('-');
+
+console.log(selectionStart);
+
 class CalendarDemo extends Component {
     constructor() {
         super();
         this.state = {
             duration: ['2017-5-10', '2018-04-20'],
-            selectionStart: '',
+            selectionStart: selectionStart,
             selectionEnd: ''
         };
     }

@@ -134,6 +134,10 @@ export default class Popup extends Component {
                 extraClass={wrapperExtraClass}
                 contentExtraClass={extraClass}
                 delayBeforeAnimationStart={delayBeforeAnimationStart}
+                // 阻止 onTouchStart 的事件冒泡。
+                onTouchStart={(evt) => {
+                    evt.stopPropagation();
+                }}
             >
                 {children}
             </Modal>

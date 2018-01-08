@@ -63,6 +63,7 @@ test('selected today node', () => {
     expect(testWrap.find('li.start')).toHaveLength(0);
     const selectionStart = [toDayYear, toDayMonth, toDay].join('-');
     testWrap.setProps({ selectionStart, selectionEnd: '' });
+    const todayNode = testWrap.find('li.today');
     expect(testWrap.find('li.start')).toHaveLength(1);
     expect(todayNode.children().last().html()).toBe('<span class="tip yo-ico">入店</span>')
 });

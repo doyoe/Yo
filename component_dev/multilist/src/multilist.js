@@ -115,7 +115,7 @@ export default class MultiList extends Component {
          */
         onItemTap: PropTypes.oneOfType([
             PropTypes.func,
-            PropTypes.String
+            PropTypes.string
         ]),
         /**
          * @property renderItem
@@ -143,7 +143,7 @@ export default class MultiList extends Component {
          */
         renderItem: PropTypes.oneOfType([
             PropTypes.func,
-            PropTypes.String
+            PropTypes.string
         ]),
         /**
          * @property renderContent

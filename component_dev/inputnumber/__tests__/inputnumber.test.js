@@ -45,7 +45,7 @@ test('The inputnumber\'s decimal number should be set properly.', () => {
 });
 
 test('The inputnumber\'s value should be set correctly after the buttons pressed.', () => {
-    const componentNode = testWrap.first().node;
+    const componentNode = testWrap.first().instance();
     componentNode.minusValue(3);
     const inputNode = testWrap.find('.input');
     expect(extractProp(inputNode, 'value')).toBe('1.00');
@@ -62,7 +62,7 @@ test('The inputnumber\'s value should be set correctly after the buttons pressed
 
 test('The value should be mutated correctly after the step reset.', () => {
     testWrap.setProps({ step: 5 });
-    const componentNode = testWrap.first().node;
+    const componentNode = testWrap.first().instance();
     const inputNode = testWrap.find('.input');
     componentNode.minusValue(10);
     expect(extractProp(inputNode, 'value')).toBe('5.00');

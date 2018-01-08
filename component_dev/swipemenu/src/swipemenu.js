@@ -139,8 +139,12 @@ export default class SwipeMenu extends Component {
 
     componentDidMount() {
         const { open, direction } = this.props;
-        this.actBtnWidth = this.actBtn.offsetWidth;
-        this.dragEvt = new Drag({ node: this.drag, aniClass: 'transition' });
+        this.actBtnWidth = this.actBtn ? this.actBtn.offsetWidth : 0;
+        if (this.drag) {
+            this.dragEvt = new Drag({ node: this.drag, aniClass: 'transition' });
+        } else {
+            this.dragEvt = null;
+        }
         this.reset(open, direction);
     }
 
@@ -207,7 +211,7 @@ export default class SwipeMenu extends Component {
         if (open) {
             resetX = direction === 'right' ? this.actBtnWidth : -this.actBtnWidth;
         }
-        if (this.dragEvt) this.dragEvt.setMove(resetX);
+        if (this.dragEvt) { this.dragEvt.setMove(resetX); }
         this.isBack = !!resetX;
         setTransform({ node: this.drag, distanceX: resetX });
     }
@@ -281,11 +285,13 @@ export default class SwipeMenu extends Component {
                         if (disable) {
                             return;
                         }
-                        this.dragEvt.dragStart(evt);
+                        if (this.dragEvt) {
+                            this.dragEvt.dragStart(evt);
+                        }
                         if (Math.abs(this.dragEvt.getMove()) > this.actBtnWidth / 2) {
                             this.isBack = true;
-                            this.drag.className += 'transition';
-                            this.dragEvt.refreshDrag();
+                            if (this.drag) { this.drag.className += 'transition'; }
+                            if (this.dragEvt) { this.dragEvt.refreshDrag(); }
                         }
                         onTouchStart();
                     }}
@@ -293,7 +299,7 @@ export default class SwipeMenu extends Component {
                         if (disable || this.isBack) {
                             return;
                         }
-                        this.dragEvt.dragMove(evt, this.getMoveDistance.bind(this));
+                        if (this.dragEvt) { this.dragEvt.dragMove(evt, this.getMoveDistance.bind(this)); }
                         onTouchMove();
                     }}
                     onTouchEnd={evt => {
@@ -302,9 +308,11 @@ export default class SwipeMenu extends Component {
                             return;
                         }
                         onTouchEnd();
-                        this.dragEvt.dragEnd(evt, this.getEndDistance.bind(this));
+                        if (this.dragEvt) { this.dragEvt.dragEnd(evt, this.getEndDistance.bind(this)); }
                     }}
-                    onTouchCancel={evt => this.dragEvt.dragCancel(evt)}
+                    onTouchCancel={evt => {
+                        if (this.dragEvt) { this.dragEvt.dragCancel(evt); }
+                    }}
                 >
                     {this.props.children}
                 </div>

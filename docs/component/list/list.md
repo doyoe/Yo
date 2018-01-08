@@ -1,6 +1,6 @@
 #### 引用方式
 
-```
+```javascript
 import { List } from '$yo-component';
 
 // 如果你的项目中未使用最新的 ykit-config-yo 插件，可能无法使用上面这个语法糖
@@ -12,7 +12,8 @@ import List from 'yo3/component/list';
 
 和`Scroller`组件一样，`List`需要一个固定的高度才能正常工作。
 你可以通过给它指定`extraClass`来扩展它的样式， 这个额外的class会被添加到List组件的根节点上。例如
-```
+
+```javascript
 .yo-list-fullscreen {
     top: 0;
     bottom: 0;
@@ -26,14 +27,15 @@ import List from 'yo3/component/list';
     extraClass = {'yo-list-fullscreen'}
 />
 ```
-这样就可以让这个`List`撑满它的父容器。
+
+这样就可以让这个`List`撑满它的父容器。当然你也可以使用 Scroller 内置的 `yo-scroller-fullscreen` 样式类来实现。
 
 #### 数据源
 
 List最基础的属性是`dataSource`，通过它可以配置列表的数据源，在默认情况下，`dataSource`是一个数组。
 你还需要配置`renderItem`属性来指定列表项的渲染方式，示例如下:
 
-```
+```javascript
 let guid = -1;
 ...
 
@@ -67,7 +69,7 @@ let guid = -1;
 除了可以使用数组作为`dataSource`以外，我们也提供了对`ImmutableJS`的支持，
 ** 你需要提供给`dataSource`属性一个`Immutable List`。 ** 使用`Immutable`的`fromJS`API可以很方便地得到符合`dataSource`要求的数据源，下面是一个例子：
 
-```
+```javascript
 import Immutable from 'immutable';
 
 const dataSource = Immutable.fromJS([
@@ -86,7 +88,7 @@ const dataSource = Immutable.fromJS([
 
 可以通过`onItemTap`属性为每个列表项指定一个tap事件回调，可以接收三个参数`item`(列表项对应的数据元素)，`index`(列表项的index)以及`target`(当前触发tap事件的dom)：
 
-```
+```javascript
 <List
     ...
     onItemTap={(item,index,target) => {
@@ -101,7 +103,7 @@ const dataSource = Immutable.fromJS([
 这个属性可以接收两种形式的值：当传入一个字符串时，会给所有的列表项绑定相同的touchClass；传入函数时，可以根据item为不同的列表项定制touchClass。
 如果是一个纯展示功能的`List`，你可以设置`itemTouchClass = null`来取消触摸反馈效果。
 
-```
+```javascript
 <List
     ...
     onItemTap={...}
@@ -117,11 +119,12 @@ List组件提供了优化长列表性能的方式：无穷模式(Infinite)。开
 
 配置属性`infinite = true`即可开启无穷模式的列表。如下:
 
-```
+```javascript
 <List
     dataSource={/* a very long array... */}
     infinite={true}
     renderItem={...}
+    ...
 />
 ```
 
@@ -135,7 +138,8 @@ List组件提供了优化长列表性能的方式：无穷模式(Infinite)。开
 为列表项指定高度有两种方式，通过`itemHeight`属性可以为所有列表项指定一个高度，这样所有的列表项是等高的；也可以给`dataSource`中的数组元素添加一个`height`属性，这样可以给每一个元素分别指定一个高度。例子如下：
 
 为所有列表项配置相同的高度：
-```
+
+```javascript
 <List
     dataSource={/* a very long array... */}
     infinite={true}
@@ -145,7 +149,8 @@ List组件提供了优化长列表性能的方式：无穷模式(Infinite)。开
 ```
 
 给每个列表项配置不同的高度：
-```
+
+```javascript
 <List
     dataSource={[
         { text:'item1', height:100 },
@@ -171,7 +176,7 @@ List组件提供了优化长列表性能的方式：无穷模式(Infinite)。开
 图片的懒加载（`lazyload`）是最常见的性能优化手段（`List`的示例中也应用了懒加载），使用`LazyImage`组件可以很轻易地实现这个功能。
 你需要做的是使用`LazyImage`组件取代列表项内部的`<img/>`标签, 并且给这个图片指定一个高度，如下：
 
-```
+```javascript
 <List
     ...
     renderItem={(item,i) => {
@@ -207,7 +212,7 @@ List组件提供了优化长列表性能的方式：无穷模式(Infinite)。开
 
 有的时候这会导致用户期待的`render`没有发生，这时候可以通过配置`shouldItemUpdate`属性来覆盖掉默认的`shouldComponentUpdate`返回的结果。例如：
 
-```
+```javascript
 <List
     ...
     shouldItemUpdate={(next,now) => {
@@ -224,11 +229,13 @@ List组件提供了优化长列表性能的方式：无穷模式(Infinite)。开
 不能简单地通过这两个对象的浅比较来确定是否应该`render`。
 
 如果你使用了`Immutable`，那么推荐做以下的配置：
-```
+
+```javascript
 <List
     ...
     shouldItemUpdate={(next,now) => next !== now }
     ...
 />
 ```
+
 这样当列表项的数据发生变化时，你不必再做修改`key`值的操作而只需要修改数据，改动的列表项将会自动重新`render`，方便许多。

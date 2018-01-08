@@ -417,7 +417,9 @@ export default class Suggest extends Component {
                             onTouchTap={(evt) => {
                                 evt.preventDefault();
                                 this.clearInput();
-                                this.input.focus();
+                                if (this.input) {
+                                    this.input.focus();
+                                }
                             }}
                         >
                             &#xf077;
@@ -443,7 +445,7 @@ export default class Suggest extends Component {
                 </div>
                 <div className="cont">
                     <div
-                        onTouchTap={() => this.input.blur()}
+                        onTouchTap={() => this.input && this.input.blur()}
                         className={classNames('mask', this.props.showMask && this.state.showRecommendMask ? 'show' : '')}
                     />
                     <div className="recommend">

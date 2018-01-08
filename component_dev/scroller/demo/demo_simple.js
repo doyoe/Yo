@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Scroller from '../src/index';
+import './demo.scss';
 
 function getRandomColors(num) {
     const _color = [];

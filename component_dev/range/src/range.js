@@ -228,9 +228,9 @@ export default class Range extends Component {
 
     componentDidMount() {
         this.$sliderList = [this.btnLeft, this.btnRight];
-        this.$track = this.refs.track;
-        if (this.props.showScale) {
-            this.$ticks = this.refs.scale.querySelectorAll('.divide');
+        this.$track = this.trackDom ? this.trackDom : null;
+        if (this.props.showScale && this.scale) {
+            this.$ticks = this.scale.querySelectorAll('.divide');
         }
         // 调用更新函数，目的是获得渲染后滑块的宽度和容器的宽度，并更新相应的逻辑，之前初始化的是一个不准确的默认值。
         this.refreshBoth(this.props);
@@ -273,8 +273,8 @@ export default class Range extends Component {
         } else {
             this.$sliderList = [this.btnLeft, this.btnRight];
         }
-        if (this.props.showScale) {
-            this.$ticks = this.refs.scale.querySelectorAll('.divide');
+        if (this.props.showScale && this.scaleDom) {
+            this.$ticks = this.scaleDom.querySelectorAll('.divide');
             this.toggleTicks();
         }
     }
@@ -479,13 +479,26 @@ export default class Range extends Component {
     render() {
         const { scalePosition } = this.props,
             ticksJSX = this.props.showScale && this.state.ticksJSX,
-            scaleJSX = this.props.showScale && (<ul className="scale" ref="scale">{ticksJSX}</ul>);
+            scaleJSX = this.props.showScale && (
+                <ul
+                    className="scale"
+                    ref={dom => {
+                        this.scaleDom = dom;
+                    }}
+                >
+                    {ticksJSX}
+                </ul>);
         return (
             <div
                 className={classNames('yo-range', this.props.extraClass)}
             >
                 {scalePosition === 'top' && scaleJSX}
-                <div className="track" ref="track">
+                <div
+                    className="track"
+                    ref={dom => {
+                        this.trackDom = dom;
+                    }}
+                >
                     {this.sliderLeftJSX}
                     {!this.props.isSingle && this.sliderRightJSX}
                 </div>

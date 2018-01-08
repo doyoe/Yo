@@ -11,13 +11,13 @@ class Demo extends Component {
         };
     }
     prev() {
-        this.carousel.prev();
+        if (this.carousel) { this.carousel.prev(); }
     }
     next() {
-        this.carousel.next();
+        if (this.carousel) { this.carousel.next(); }
     }
     arrive() {
-        this.carousel.arrive(3);
+        if (this.carousel) { this.carousel.arrive(3); }
     }
     render() {
         return (
@@ -48,9 +48,9 @@ class Demo extends Component {
                         ))
                     }
                 </Carousel>
-                <div onClick={this.prev.bind(this)} ref="prev" />
-                <div onClick={this.next.bind(this)} ref="next" />
-                <div onClick={this.arrive.bind(this)} ref="arrive3" />
+                <div className="prev" onClick={this.prev.bind(this)} />
+                <div className="next" onClick={this.next.bind(this)} />
+                <div className="arrive3" onClick={this.arrive.bind(this)} />
             </div>
            );
     }

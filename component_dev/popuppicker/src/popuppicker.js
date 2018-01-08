@@ -6,7 +6,7 @@
  * @instructions {instruInfo: ./popuppicker.md}{instruUrl: popuppicker.html?hideIcon}
  * @author tianqi.tian
  */
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
@@ -207,9 +207,6 @@ class PopupPicker extends Component {
         this.resetValue(value, options);
     }
 
-    componentDidMount() {
-        this.updatePicker();
-    }
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.value != null && nextProps.value !== this.state.pickerValue) {
@@ -219,9 +216,6 @@ class PopupPicker extends Component {
         }
     }
 
-    componentDidUpdate() {
-        this.updatePicker();
-    }
 
     componentWillUnmount() {
         document.body.removeChild(this.wrapper);
@@ -297,13 +291,6 @@ class PopupPicker extends Component {
         this.wrapper = document.createElement('div');
         this.wrapper.className = 'this-element-is-a-tricky-hack-for-popuppicker-please-just-ignore-it';
         document.body.appendChild(this.wrapper);
-    }
-
-    updatePicker() {
-        if (this.wrapper == null) {
-            this.createWrapper();
-        }
-        ReactDOM.unstable_renderSubtreeIntoContainer(this, this.renderPicker(), this.wrapper);
     }
 
     defaultPickerValue(options) {
@@ -401,13 +388,19 @@ class PopupPicker extends Component {
 
     render() {
         const { touchClass } = this.props;
+        if (this.wrapper == null) {
+            this.createWrapper();
+        }
         return (
-            <Touchable
-                onTap={this.handleTap.bind(this)}
-                touchClass={touchClass}
-            >
-                {this.props.children}
-            </Touchable>
+            <Fragment>
+                <Touchable
+                    onTap={this.handleTap.bind(this)}
+                    touchClass={touchClass}
+                >
+                    {this.props.children}
+                </Touchable>
+                {ReactDOM.createPortal(this.renderPicker(), this.wrapper)}
+            </Fragment>
         );
     }
 }

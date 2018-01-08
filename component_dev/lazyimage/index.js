@@ -170,7 +170,7 @@ export default class extends Component {
         this.itemRef = context.itemRef;
         this.infinite = context.infinite;
         // 如果不是infinite的列表，那么应该获取offsetTop(这个开销还挺大的，不过没得优化了)，反之，则使用translateY
-        if (!this.infinite) {
+        if (!this.infinite && this.img) {
             this.offsetTop = getElementOffsetY(this.img);
             this.height = this.img.offsetHeight;
         }

@@ -80,14 +80,16 @@ class Switch extends Component {
     }
 
     componentDidMount() {
-        this.handleDOM =
-            this.handleDOM
-                ? ''
-                : this.widgetDOM.querySelector('.handle');
-        this.trackDOM =
-            !this.handleDOM
-                ? ''
-                : this.widgetDOM.querySelector('.track');
+        if (this.handleDOM) {
+            this.handleDOM = '';
+        } else {
+            this.handleDOM = this.widgetDOM ? this.widgetDOM.querySelector('.handle') : '';
+        }
+        if (!this.handleDOM) {
+            this.trackDOM = '';
+        } else {
+            this.trackDOM = this.widgetDOM ? this.widgetDOM.querySelector('.track') : '';
+        }
         const line = this.handleDOM.clientWidth;
         this.maxline = this.trackDOM.clientWidth - line * 1.2 - 2;
     }

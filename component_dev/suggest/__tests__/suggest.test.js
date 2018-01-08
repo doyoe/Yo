@@ -41,7 +41,7 @@ const recommendNode = testWrap.find('.recommend').first();
 const resultNode = testWrap.find('.result.show');
 const resultListNode = testWrap.find('ul.yo-list');
 const inputNode = testWrap.find('input.input');
-const component = testWrap.first().node;
+const component = testWrap.first().instance();
 
 test('The suggest component should mount correctly', () => {
     expect(extractProp(hostNode, 'class')).toBe('yo-suggest yo-suggest-test');
@@ -52,6 +52,7 @@ test('The suggest component should mount correctly', () => {
     expect(resultListNode.html()).toBe('<ul class="yo-list"><li class="item">test1</li><li class="item">test2</li><li class="item">test3</li></ul>');
     expect(extractProp(inputNode, 'value')).toBe('default');
 });
+
 
 test('The results should be updated after condition mutated.', () => {
     component.onConditionChange('another condition');

@@ -215,9 +215,15 @@ class Carousel extends Component {
     }
 
     componentDidMount() {
-        this.aniObj.stageDOM = this.widgetDOM.parentNode;
-        this.aniObj.width = this.widgetDOM.clientWidth;
-        this.aniObj.containerDOM = this.widgetDOM.querySelector('.cont');
+        if (this.widgetDOM) {
+            this.aniObj.stageDOM = this.widgetDOM.parentNode;
+            this.aniObj.width = this.widgetDOM.clientWidth;
+            this.aniObj.containerDOM = this.widgetDOM.querySelector('.cont');
+        } else {
+            this.aniObj.stageDOM = null;
+            this.aniObj.width = 0;
+            this.aniObj.containerDOM = null;
+        }
         this.arrive(this.props.defaultPage, false);
         this.launchAuto();
         this.handleResize = this.handleResize.bind(this);
@@ -258,7 +264,11 @@ class Carousel extends Component {
      * @version 3.0.8
      */
     handleResize() {
-        this.aniObj.width = this.widgetDOM.clientWidth;
+        if (this.widgetDOM) {
+            this.aniObj.width = this.widgetDOM.clientWidth;
+        } else {
+            this.aniObj.width = 0;
+        }
         this.arrive(this.state.page, false);
         this.forceUpdate();
     }

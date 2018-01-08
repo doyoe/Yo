@@ -1,6 +1,6 @@
 {
   "name": "yo3",
-  "version": "3.0.16",
+  "version": "3.1.0",
   "description": "一个专注于移动开发的前端框架",
   "compiler": "node-sass",
   "dependencies": {
@@ -9,13 +9,14 @@
     "copy-dir": "^0.3.0",
     "lodash": "^4.16.4",
     "normalize-path": "^2.0.1",
-    "prop-types": "^15.5.10",
-    "react": "^15.3.0",
+    "prop-types": "^15.6.0",
+    "raf": "^3.4.0",
+    "react": "^16.2.0",
     "react-addons-css-transition-group": "^15.3.1",
     "react-addons-pure-render-mixin": "^15.3.1",
     "react-addons-shallow-compare": "^15.3.1",
-    "react-dom": "^15.3.0",
-    "react-tap-event-plugin": "^2.0.0"
+    "react-dom": "^16.2.0",
+    "react-tap-event-plugin": "^3.0.2"
   },
   "devDependencies": {
     "babel-core": "^6.10.4",
@@ -27,7 +28,8 @@
     "babel-preset-stage-0": "^6.5.0",
     "classnames": "^2.2.5",
     "css-loader": "^0.23.1",
-    "enzyme": "^2.7.1",
+    "enzyme": "^3.2.0",
+    "enzyme-adapter-react-16": "^1.1.0",
     "eslint": "^2.9.0",
     "eslint-config-airbnb": "^9.0.1",
     "eslint-plugin-import": "^1.8.0",
@@ -41,7 +43,7 @@
     "gulp-sass-china": "2.3.1",
     "gulp-util": "3.0.6",
     "immutable": "^3.8.1",
-    "jest": "^19.0.2",
+    "jest": "^21.2.1",
     "node-notifier": "4.2.3",
     "node-sass": "3.8.0",
     "node-sass-import-once": "^1.2.0",
@@ -88,6 +90,7 @@
   },
   "jest": {
     "verbose": true,
-    "testRegex": "(/__tests__/.*\\.(test|spec))\\.jsx?$"
+    "testRegex": "(/__tests__/.*\\.(test|spec))\\.jsx?$",
+    "setupTestFrameworkScriptFile": "./jest.setup.js"
   }
 }

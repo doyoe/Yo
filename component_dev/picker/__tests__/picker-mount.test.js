@@ -33,7 +33,7 @@ test('Picker should mount with correct props.', () => {
 });
 
 test('Picker should get a correct new value after each scrolling.', () => {
-    const componentRef = testWrap.first().node;
+    const componentRef = testWrap.first().instance();
     componentRef.refreshOffsetY(-200000);
     const visibleList = componentRef.state.visibleList;
     expect(visibleList[0].value).toBe(4);

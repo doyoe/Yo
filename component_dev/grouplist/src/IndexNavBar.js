@@ -23,7 +23,7 @@ export default class ItemNavBar extends Component {
     }
 
     componentDidMount() {
-        this.baseY = this.containerDom.getBoundingClientRect().top;
+        if (this.containerDom) { this.baseY = this.containerDom.getBoundingClientRect().top; }
     }
 
     /**
@@ -36,7 +36,7 @@ export default class ItemNavBar extends Component {
     }
 
     componentDidUpdate() {
-        this.baseY = this.containerDom.getBoundingClientRect().top;
+        if (this.containerDom) { this.baseY = this.containerDom.getBoundingClientRect().top; }
     }
 
     /**
@@ -87,7 +87,7 @@ export default class ItemNavBar extends Component {
      */
     getNavItemByOffsetY(offsetY) {
         let ret = null;
-        if (offsetY <= 0) {
+        if (offsetY <= 0 && this.navItemList.length > 0) {
             ret = this.navItemList[0];
         } else {
             ret = this.navItemList.find((item, i) => {

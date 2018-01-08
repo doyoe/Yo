@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 
 <head>
-    <title>附录四：关于 npm 低版本 - Yo Documentation 起步</title>
+    <title>3.1.0 升级指南 - Yo Documentation 起步</title>
     
     
 
@@ -19,7 +19,7 @@
     <meta name="format-detection" content="telephone=no,email=no" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
 </head>
-<body class=getting-started-附录四：关于 npm 低版本 >
+<body class=getting-started-3.1.0 升级指南 >
     <div class="ydoc">
         <header class="ydoc-header">
             <div class="ydoc-header-area">
@@ -109,8 +109,8 @@
                                     <a href="start.html">起步</a> 
                                 </li>
                                   
-                                <!-- <li  > -->
-                                <li >
+                                <!-- <li  class="active"   class="active" > -->
+                                <li  class="active" >
                                     
                                     <a href="update-to-3.1.0.html">3.1.0 升级指南</a> 
                                 </li>
@@ -133,8 +133,8 @@
                                     <a href="start-lib.html">附录三：关于 lib.js</a> 
                                 </li>
                                   
-                                <!-- <li  class="active"   class="active" > -->
-                                <li  class="active" >
+                                <!-- <li  > -->
+                                <li >
                                     
                                     <a href="start-npm.html">附录四：关于 npm 低版本</a> 
                                 </li>
@@ -151,10 +151,23 @@
                     
                     <div class="content-right markdown-body use-sidebar" role="main">
 
-                         <h2 class="subject" id="npm_版本">npm 版本 <a class="hashlink" href="#npm_版本">#</a></h2><p>我们推荐使用 <code>npm &gt;= 3.0.0</code> 的版本，原因是低版本的 <code>npm</code> 的 <code>node_modules</code> 中模块是树状结构而非扁平的，会有多个 <code>React</code> 存在。
-这样的话会引起一些问题，具体信息可以参照 <a href="https://facebook.github.io/react/warnings/refs-must-have-owner.html">官方说明</a>。</p>
-<h3 class="subject" id="低版本_npm_怎么办">低版本 npm 怎么办 <a class="hashlink" href="#低版本_npm_怎么办">#</a></h3><p>当然，有些时候因为各种原因，你无法使用更高版本的 <code>npm</code>。我们也提供了解决方案。</p>
-<p>你需要手动删除 <code>node_modules/yo3/node_modules/react</code> 这个文件夹。但是由于每次 <code>npm install</code> 都会覆盖这个删除，很难维护，所以还是希望你能克服一切困难更新你的 <code>npm</code> 版本。</p>
+                         <h1 class="subject" id="3.1.0_升级指南">3.1.0 升级指南 <a class="hashlink" href="#3.1.0_升级指南">#</a></h1><p><code>Yo</code> 从 <code>3.1.0</code> 版本起，升级 <code>react</code> 至 <code>^16.2.0</code> 版本，不再支持 <code>react@15</code>。<code>react@16</code> 的新特性，请查看<a href="https://reactjs.org/blog/2017/09/26/react-v16.0.html">官方说明</a>。</p>
+<h2 class="subject" id="新版本升级点">新版本升级点 <a class="hashlink" href="#新版本升级点">#</a></h2><ol>
+<li>升级 <code>react</code>：修改项目 package.json 中的引用的 <code>react</code> 和 <code>react-dom</code> 版本为 <code>^16.2.0</code>。</li><li>升级 <code>yo-router</code>：修改项目 package.json 中的引用的 <code>yo-router</code> 版本为 <code>^1.2.0</code>。</li><li><p><code>PropTypes</code> 必须通过 <code>prop-types</code> 包引入，在引入后请确保该包已安装并写入了 package.json 依赖。</p>
+<pre><code class="lang-javascript"> <span class="token keyword">import</span> PropTypes <span class="token keyword">from</span> <span class="token string">'prop-types'</span><span class="token punctuation">;</span>
+</code></pre>
+</li><li><p><code>createClass</code> 必须通过 <code>create-react-class</code> 包引入，在引入后请确保该包已安装并写入了 package.json 依赖。</p>
+<pre><code class="lang-javascript"> <span class="token keyword">var</span> createReactClass <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'create-react-class'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token keyword">var</span> Greeting <span class="token operator">=</span> <span class="token function">createReactClass</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+ render<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+     <span class="token keyword">return</span> <span class="token operator">&lt;</span>h1<span class="token operator">></span>Hello<span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>name<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">></span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+</li></ol>
+<h2 class="subject" id="旧版本支持">旧版本支持 <a class="hashlink" href="#旧版本支持">#</a></h2><p>如果暂时还不想升级到最新版本，那么你可能还需要：</p>
+<ol>
+<li>修改 package.json 中的 <code>yo3</code> 的版本改为 <code>~3.0.x</code></li><li>修改 package.json 中的 <code>yo-router</code> 的版本改为 <code>~1.1.x</code>。</li></ol>
 
                     </div>
                 </div>

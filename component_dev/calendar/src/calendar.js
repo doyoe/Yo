@@ -132,7 +132,7 @@ export default class Calendar extends Component {
             groupKeyDate = new Date(selectionStart.replace(/-/g, '/'));
         }
         const groupKey = `${groupKeyDate.getFullYear()}年${groupKeyDate.getMonth() + 1}月`;
-        this.groupList.scrollToGroup(groupKey);
+        if (this.groupList) this.groupList.scrollToGroup(groupKey);
     }
 
     componentWillReceiveProps(nextProps) {

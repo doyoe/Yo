@@ -11,7 +11,6 @@ class PopupDateTimePickerDemo extends Component {
     }
 
     handleChange(value) {
-        console.log('onChange', value);
         this.setState({ value });
     }
 
