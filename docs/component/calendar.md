@@ -75,7 +75,7 @@ class Demo extends Component {
 ```
 
 #### 个性化选中日期标记
-通过设置`selectionStartText`和`selectionEndText`属性自定义选中日期的标记内容，同时可传入[Yo支持的iconfont](http://iconfont.corp.qunar.com/repositories/7)。
+通过设置`selectionStartText`和`selectionEndText`属性自定义选中日期的标记内容，同时可传入iconfont。
 另外，可以在`onChange`函数中动态设置`selectionStartText`的文字内容，在用户前后两次选中同一天和选择一个日期范围两种情况之间的标记切换。
 ```
 <Calendar
