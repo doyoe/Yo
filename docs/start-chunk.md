@@ -92,7 +92,7 @@ module.exports = User
 }} />
 ```
 
-如果觉得麻烦，在使用了 [ykit-config-hy2](http://npm.corp.qunar.com/package/@qnpm/ykit-config-hy2) 的前提下可以尝试我们提供的 `require.async` 语法糖，用法如下：
+如果觉得麻烦，在使用了 ykit-config-hy2 的前提下可以尝试我们提供的 `require.async` 语法糖，用法如下：
 
 ```js
 const User = require.async('./User');
